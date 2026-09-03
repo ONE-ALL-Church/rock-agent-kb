@@ -13,50 +13,43 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `17-implementation-playbooks-playbook-historical-baptism-step-import`: Playbook: Historical Baptism Step Import
+- `source-map-community-example`: Community example
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-engagement-tracking-mental-model`: 3. Engagement Tracking Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-steps-configuration`: Steps Configuration
-- `5-core-configuration-and-data-model-step-status-and-completion`: Step Status And Completion
-- `5-core-configuration-and-data-model-step-program-completion-model`: Step Program Completion Model
-- `5-core-configuration-and-data-model-assessments-configuration`: Assessments Configuration
-- `6-primary-entities-and-relationships-person-personalias-and-engagement-records`: Person, PersonAlias, And Engagement Records
-- `6-primary-entities-and-relationships-step-program-to-step-type`: Step Program To Step Type
-- `6-primary-entities-and-relationships-assessments-to-person-history-and-attributes`: Assessments To Person History And Attributes
-- `7-common-engagement-tracking-workflows-workflow-build-a-discipleship-step-program`: Workflow: Build A Discipleship Step Program
-- `7-common-engagement-tracking-workflows-workflow-enter-an-individual-step`: Workflow: Enter An Individual Step
-- `7-common-engagement-tracking-workflows-workflow-bulk-add-or-update-steps`: Workflow: Bulk Add Or Update Steps
-- `7-common-engagement-tracking-workflows-workflow-send-assessment-requests`: Workflow: Send Assessment Requests
-- `7-common-engagement-tracking-workflows-workflow-configure-an-achievement-that-adds-a-step`: Workflow: Configure An Achievement That Adds A Step
-- `8-steps-deep-dive-what-steps-are-for`: What Steps Are For
-- `8-steps-deep-dive-completion-flow-and-prerequisites`: Completion Flow And Prerequisites
-- `8-steps-deep-dive-step-type-design`: Step Type Design
-- `8-steps-deep-dive-step-entry`: Step Entry
-- `8-steps-deep-dive-step-badges`: Step Badges
-- `8-steps-deep-dive-step-charts`: Step Charts
-- `8-steps-deep-dive-moving-step-types`: Moving Step Types
-- `8-steps-deep-dive-core-steps`: Core Steps
-- `9-streaks-deep-dive-what-streaks-are-for`: What Streaks Are For
-- `9-streaks-deep-dive-streak-maps`: Streak Maps
-- `9-streaks-deep-dive-manual-tracking`: Manual Tracking
-- `9-streaks-deep-dive-rebuild-behavior`: Rebuild Behavior
-- `9-streaks-deep-dive-excluding-dates`: Excluding Dates
-- `10-assessments-deep-dive-taking-assessments`: Taking Assessments
-- `10-assessments-deep-dive-sending-requests`: Sending Requests
-- `10-assessments-deep-dive-retakes`: Retakes
-- `10-assessments-deep-dive-assessment-history`: Assessment History
-- `10-assessments-deep-dive-assessment-results-and-data-views`: Assessment Results And Data Views
-- `11-achievements-deep-dive-attempts`: Attempts
-- `11-achievements-deep-dive-prerequisites`: Prerequisites
-- `11-achievements-deep-dive-workflow-launches`: Workflow Launches
-- `11-achievements-deep-dive-badges-and-lava`: Badges And Lava
-- `11-achievements-deep-dive-add-step-on-success`: Add Step On Success
+- `steps-workflows-and-permissions`: Workflows and permissions
+- `steps-badges-metrics-and-charts`: Badges, metrics and charts
+- `streaks-types-and-maps`: Types and maps
+- `assessments-retake-controls`: Retake controls
+- `achievements-overrides-and-rebuilds`: Overrides and rebuilds
+- `sign-ups`: Sign-Ups
+- `troubleshooting-decision-tree-a-step-has-a-completion-date-but-is-not-counted-as-complete`: A Step has a completion date but is not counted as complete
+- `troubleshooting-decision-tree-step-automation-did-not-create-or-complete-a-record`: Step automation did not create or complete a record
+- `troubleshooting-decision-tree-step-metrics-or-charts-appear-inflated-or-use-unexpected-dates`: Step metrics or charts appear inflated or use unexpected dates
+- `troubleshooting-decision-tree-a-manually-enrolled-person-has-a-streak-of-zero`: A manually enrolled person has a streak of zero
+- `troubleshooting-decision-tree-a-streak-type-map-was-changed-but-participant-totals-have-not-updated`: A Streak Type map was changed but participant totals have not updated
+- `troubleshooting-decision-tree-a-streak-spans-a-date-that-still-looks-absent`: A streak spans a date that still looks absent
+- `troubleshooting-decision-tree-a-person-cannot-retake-an-assessment`: A person cannot retake an assessment
+- `troubleshooting-decision-tree-an-assessment-request-cannot-be-canceled`: An assessment request cannot be canceled
+- `troubleshooting-decision-tree-achievement-progress-or-attempt-state-looks-wrong`: Achievement progress or attempt state looks wrong
+- `troubleshooting-decision-tree-a-reminder-was-created-but-no-notification-occurred`: A Reminder was created but no notification occurred
+- `troubleshooting-decision-tree-a-following-notification-is-missing`: A Following notification is missing
+- `troubleshooting-decision-tree-an-interactive-experience-response-is-missing-from-the-visualizer`: An Interactive Experience response is missing from the visualizer
+- `troubleshooting-decision-tree-a-sign-up-communication-or-attendance-link-fails`: A Sign-Up communication or attendance link fails
+- `agent-task-recipes-recipe-configure-a-step-journey-with-reliable-completion-signals`: Recipe: Configure a Step journey with reliable completion signals
+- `agent-task-recipes-recipe-bulk-record-a-step`: Recipe: Bulk-record a Step
+- `agent-task-recipes-recipe-automate-step-completion-from-a-data-view`: Recipe: Automate Step completion from a Data View
+- `agent-task-recipes-recipe-build-a-streak-type-safely`: Recipe: Build a Streak Type safely
+- `agent-task-recipes-recipe-correct-one-person-s-streak`: Recipe: Correct one person’s streak
+- `agent-task-recipes-recipe-rebuild-a-streak-with-a-controlled-boundary`: Recipe: Rebuild a Streak with a controlled boundary
+- `agent-task-recipes-recipe-request-and-monitor-assessments`: Recipe: Request and monitor assessments
+- `agent-task-recipes-recipe-build-an-assessment-result-segment`: Recipe: Build an assessment-result segment
+- `agent-task-recipes-recipe-connect-an-achievement-to-workflows-and-steps`: Recipe: Connect an Achievement to workflows and Steps
+- `agent-task-recipes-recipe-configure-reminder-processing`: Recipe: Configure Reminder processing
+- `agent-task-recipes-recipe-configure-a-secure-following-event`: Recipe: Configure a secure Following event
+- `agent-task-recipes-recipe-operate-a-moderated-interactive-experience`: Recipe: Operate a moderated Interactive Experience
+- `agent-task-recipes-recipe-configure-a-sign-up-registration-and-attendance-route`: Recipe: Configure a Sign-Up registration and attendance route
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

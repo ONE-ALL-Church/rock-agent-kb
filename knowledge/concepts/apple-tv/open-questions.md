@@ -16,46 +16,44 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-apple-tv-apps-mental-model`: 3. Apple TV Apps Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-apple-tv-app-record`: Apple TV App Record
-- `5-core-configuration-and-data-model-tv-page-record`: TV Page Record
-- `5-core-configuration-and-data-model-page-list-block-options`: Page List Block Options
-- `5-core-configuration-and-data-model-remote-authentication-data-model`: Remote Authentication Data Model
-- `5-core-configuration-and-data-model-lava-endpoint-and-api-context`: Lava Endpoint And API Context
-- `6-primary-entities-and-relationships-apple-tv-app-to-site`: Apple TV App To Site
-- `6-primary-entities-and-relationships-apple-tv-app-to-tv-pages`: Apple TV App To TV Pages
-- `6-primary-entities-and-relationships-tv-pages-to-lava-merge-fields`: TV Pages To Lava Merge Fields
-- `6-primary-entities-and-relationships-tv-pages-to-commands`: TV Pages To Commands
-- `7-common-apple-tv-apps-workflows-create-a-new-app`: Create A New App
-- `7-common-apple-tv-apps-workflows-add-a-content-page`: Add A Content Page
-- `7-common-apple-tv-apps-workflows-build-a-campus-selector`: Build A Campus Selector
-- `7-common-apple-tv-apps-workflows-add-login`: Add Login
-- `7-common-apple-tv-apps-workflows-play-media`: Play Media
-- `8-building-your-first-apple-tv-app-deep-dive-step-1-confirm-preconditions`: Step 1: Confirm Preconditions
-- `8-building-your-first-apple-tv-app-deep-dive-step-2-create-the-app`: Step 2: Create The App
-- `8-building-your-first-apple-tv-app-deep-dive-step-3-create-the-start-screen`: Step 3: Create The Start Screen
-- `8-building-your-first-apple-tv-app-deep-dive-step-6-add-images`: Step 6: Add Images
-- `8-building-your-first-apple-tv-app-deep-dive-step-7-test-the-app`: Step 7: Test The App
-- `9-apple-tv-sign-in-and-authentication-deep-dive-server-setup`: Server Setup
-- `9-apple-tv-sign-in-and-authentication-deep-dive-security-guardrails`: Security Guardrails
-- `10-apple-tv-javascript-commands-deep-dive-navigation-commands`: Navigation Commands
-- `10-apple-tv-javascript-commands-deep-dive-media-commands`: Media Commands
-- `10-apple-tv-javascript-commands-deep-dive-personal-commands`: Personal Commands
-- `10-apple-tv-javascript-commands-deep-dive-utility-commands`: Utility Commands
-- `10-apple-tv-javascript-commands-deep-dive-demo-commands`: Demo Commands
-- `11-apple-tv-styling-deep-dive`: 11. Apple TV Styling Deep Dive
-- `11-apple-tv-styling-deep-dive-style-placement`: Style Placement
-- `11-apple-tv-styling-deep-dive-global-styles`: Global Styles
-- `11-apple-tv-styling-deep-dive-themes-and-media-queries`: Themes And Media Queries
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava`: Lava
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms`: CMS
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media`: Media
-- `13-administration-and-operational-guardrails-environment-separation`: Environment Separation
-- `13-administration-and-operational-guardrails-api-key-hygiene`: API Key Hygiene
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model`: Mental Model
+- `creating-and-configuring-an-application`: Creating And Configuring An Application
+- `pages-lava-and-cache-behavior-page-content-and-merge-fields`: Page content and merge fields
+- `pages-lava-and-cache-behavior-creating-page-content`: Creating page content
+- `pages-lava-and-cache-behavior-cacheability`: Cacheability
+- `sign-in-logout-and-remote-authentication-tv-side-login-flow`: TV-side login flow
+- `sign-in-logout-and-remote-authentication-logout-and-navigation-state`: Logout and navigation state
+- `javascript-and-rock-commands`: JavaScript And Rock Commands
+- `templates-and-rock-specific-controls-choosing-a-tvml-template`: Choosing a TVML template
+- `styling-themes-and-text-tvml-styling-model`: TVML styling model
+- `styling-themes-and-text-light-and-dark-themes`: Light and dark themes
+- `application-images-top-shelf-images`: Top Shelf images
+- `testing-and-demo-mode`: Testing And Demo Mode
+- `lava-apis-and-security`: Lava APIs And Security
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-the-application-or-start-screen-does-not-load`: The application or Start Screen does not load
+- `troubleshooting-decision-tree-a-page-is-blank-malformed-or-rejected`: A page is blank, malformed, or rejected
+- `troubleshooting-decision-tree-login-shows-no-qr-code-or-manual-code`: Login shows no QR code or manual code
+- `troubleshooting-decision-tree-back-navigation-exposes-the-pre-login-or-personalized-page-unexpectedly`: Back navigation exposes the pre-login or personalized page unexpectedly
+- `troubleshooting-decision-tree-video-or-audio-does-not-play`: Video or audio does not play
+- `troubleshooting-decision-tree-playback-resumes-incorrectly-or-creates-duplicate-interactions`: Playback resumes incorrectly or creates duplicate interactions
+- `troubleshooting-decision-tree-colors-or-badges-disappear-in-one-theme`: Colors or badges disappear in one theme
+- `troubleshooting-decision-tree-a-template-change-does-not-appear`: A template change does not appear
+- `troubleshooting-decision-tree-demo-commands-do-not-work`: Demo commands do not work
+- `troubleshooting-decision-tree-a-countdown-immediately-navigates-or-starts-media`: A countdown immediately navigates or starts media
+- `troubleshooting-decision-tree-a-lava-webhook-exposes-more-data-than-expected`: A Lava webhook exposes more data than expected
+- `agent-task-recipes-recipe-create-a-minimal-rock-apple-tv-application`: Recipe: Create a minimal Rock Apple TV application
+- `agent-task-recipes-recipe-add-a-cache-aware-tvml-page`: Recipe: Add a cache-aware TVML page
+- `agent-task-recipes-recipe-implement-remote-sign-in`: Recipe: Implement remote sign-in
+- `agent-task-recipes-recipe-add-tracked-video-or-audio-playback`: Recipe: Add tracked video or audio playback
+- `agent-task-recipes-recipe-build-a-theme-safe-styling-pass`: Recipe: Build a theme-safe styling pass
+- `agent-task-recipes-recipe-prepare-the-application-image-package`: Recipe: Prepare the application image package
+- `agent-task-recipes-recipe-test-through-demo-mode`: Recipe: Test through demo mode
+- `agent-task-recipes-recipe-review-a-lava-api-before-connecting-it-to-apple-tv`: Recipe: Review a Lava API before connecting it to Apple TV
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map`: Source Map
 
 ## Live Verification Clarification
 

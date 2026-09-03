@@ -10,14 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Summarize A Registration Instance](tasks/recipe-summarize-a-registration-instance.md) |  |  |
-| [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md) | `Label`, `Block`, `Page` | `Label`, `Block`, `Page` |
-| [Recipe: Audit Payment Risk](tasks/recipe-audit-payment-risk.md) | `Schedule` | `Schedule` |
-| [Recipe: Audit Discount Codes](tasks/recipe-audit-discount-codes.md) | `Schedule` | `Schedule` |
-| [Recipe: Audit Wait List](tasks/recipe-audit-wait-list.md) |  |  |
-| [Recipe: Build A Registrant Packet Export](tasks/recipe-build-a-registrant-packet-export.md) | `Person`, `PersonAlias`, `Page`, `Attribute` | `Person`, `PersonAlias`, `Page`, `Attribute` |
-| [Recipe: Add Staff Notes To Registration Detail](tasks/recipe-add-staff-notes-to-registration-detail.md) | `Page`, `Block` | `Page`, `Block` |
-| [Recipe: Investigate API Registration URL Issues](tasks/recipe-investigate-api-registration-url-issues.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Create a reusable registration and one event instance](tasks/recipe-create-a-reusable-registration-and-one-event-instance.md) | `Person`, `Group`, `Campus`, `Workflow`, `Block` | `Person`, `Group`, `Campus`, `Workflow`, `Block` |
+| [Recipe: Validate a paid registration before launch](tasks/recipe-validate-a-paid-registration-before-launch.md) | `Schedule` | `Schedule` |
+| [Recipe: Promote a wait-listed person to full registration](tasks/recipe-promote-a-wait-listed-person-to-full-registration.md) | `Person`, `Group`, `Attribute` | `Person`, `Group`, `Attribute` |
+| [Recipe: Audit an event-registration dashboard](tasks/recipe-audit-an-event-registration-dashboard.md) | `Person`, `Label` | `Person`, `Label` |
+| [Recipe: Launch family preregistration with follow-up](tasks/recipe-launch-family-preregistration-with-follow-up.md) | `Person`, `Campus`, `Check-in Configuration`, `Family`, `Workflow`, `Page`, `Attribute` | `Person`, `Campus`, `Check-in Configuration`, `Family`, `Workflow`, `Page`, `Attribute` |
 
 ## Entities
 
@@ -27,13 +24,13 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Check-in Configuration` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
-| `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -44,61 +41,34 @@ generated: true
 | --- | --- | --- |
 | `18.3` | core | Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant without a valid Signatur |
 | `19.1` | core | Added a Prevent Duplicate Registrants setting to the Registration Template that prevents the same person record from registering for the same Registration Instance more than once. When enabled, the Registration Entry Block checks for existi |
-| `19.1` | core | Added Registrant eligibility rules to the Registration Template Detail Block and updated the Registration Entry Block to prevent incorrect family member registrations. Added new "Registrant Eligibility" settings to the Registration Template |
-| `19.1` | core | Fixed an issue in the Registration Instance Registration List block where the Discount Code column on the Registrations tab was hidden when the registration template had no per-registrant cost, even if a discount code was applied to fees on |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | high | live verification |
-| `2-scope-and-terminology` | high | live verification |
-| `3-event-registration-mental-model` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model-configuration-surfaces` | high | live verification |
-| `5-core-configuration-and-data-model-data-model-orientation` | community-supported | live verification |
-| `6-primary-entities-and-relationships-registration-template` | community-supported | community-supported |
-| `6-primary-entities-and-relationships-registration` | normal | live verification |
-| `6-primary-entities-and-relationships-registrationregistrant` | normal | live verification |
-| `6-primary-entities-and-relationships-event-item-occurrence-and-linkage` | normal | live verification |
-| `6-primary-entities-and-relationships-attributes-and-form-fields` | normal | live verification |
-| `7-common-event-registration-workflows-paid-registration` | citation-only | live verification |
-| `7-common-event-registration-workflows-wait-list-registration` | normal | live verification |
-| `7-common-event-registration-workflows-group-placement` | normal | live verification |
-| `8-registration-instances-deep-dive-instance-identity` | normal | live verification |
-| `8-registration-instances-deep-dive-active-and-date-windows` | structural | live verification |
-| `8-registration-instances-deep-dive-capacity-and-spots` | community-supported | community-supported |
-| `8-registration-instances-deep-dive-url-slug-and-public-linkage` | normal | live verification |
-| `8-registration-instances-deep-dive-attributes` | citation-only | live verification |
-| `9-payments-deep-dive-partial-payments` | normal | live verification |
-| `9-payments-deep-dive-payment-plans` | normal | live verification |
-| `9-payments-deep-dive-payment-gateways-and-saved-accounts` | citation-only | live verification |
-| `10-related-rock-areas-events-finance-workflows-communications-groups-finance` | community-supported | community-supported |
-| `10-related-rock-areas-events-finance-workflows-communications-groups-workflows` | community-supported | community-supported |
-| `11-administration-and-operational-guardrails-naming` | community-supported | live verification |
-| `11-administration-and-operational-guardrails-change-management` | structural | live verification |
-| `11-administration-and-operational-guardrails-notes-and-auditability` | community-supported | community-supported |
-| `11-administration-and-operational-guardrails-operational-health-checks` | normal | live verification |
-| `12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering` | normal | live verification |
-| `12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat` | community-supported | live verification |
-| `13-reporting-analytics-and-model-map-reporting-entity-choice` | community-supported | community-supported |
-| `13-reporting-analytics-and-model-map-model-map-verification` | community-supported | live verification |
-| `13-reporting-analytics-and-model-map-analytics-checks` | community-supported | community-supported |
-| `14-version-and-release-caveats-rock-18-3` | normal | live verification |
-| `14-version-and-release-caveats-v16-10-v17-0-spotlight` | citation-only | live verification |
-| `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration` | citation-only | live verification |
-| `15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1` | normal | live verification |
-| `15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1` | structural | live verification |
-| `15-implementation-playbooks-playbook-d-configure-payment-reminders` | high | live verification |
-| `15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button` | structural | live verification |
-| `16-troubleshooting-decision-tree-public-page-says-registration-is-closed` | structural | live verification |
-| `17-agent-task-recipes-recipe-verify-a-public-registration-url` | structural | live verification |
-| `17-agent-task-recipes-recipe-audit-payment-risk` | structural | live verification |
-| `17-agent-task-recipes-recipe-audit-discount-codes` | structural | live verification |
-| `17-agent-task-recipes-recipe-audit-wait-list` | structural | live verification |
-| `17-agent-task-recipes-recipe-build-a-registrant-packet-export` | community-supported | community-supported |
-| `17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail` | community-supported | live verification |
-| `17-agent-task-recipes-recipe-investigate-api-registration-url-issues` | community-supported | live verification |
-| `approved-claim-coverage` | normal | live verification |
-| `18-source-map-and-dependency-notes` | high | live verification |
+| `agent-summary` | normal | live verification |
+| `registration-instances-put-occurrence-specific-settings-on-the-instance` | normal | live verification |
+| `forms-identity-eligibility-and-communications-test-combined-eligibility` | citation-only | live verification |
+| `forms-identity-eligibility-and-communications-verify-communications-as-part-of-the-lifecycle` | normal | live verification |
+| `payments-configure-the-finance-path-deliberately` | normal | live verification |
+| `payments-match-externally-entered-transactions` | normal | live verification |
+| `event-calendar-link-the-occurrence-registration-and-group` | normal | live verification |
+| `family-preregistration-and-follow-up` | community-supported | live verification |
+| `reporting-and-reconciliation` | normal | live verification |
+| `permissions-and-operational-control` | normal | live verification |
+| `troubleshooting-decision-tree-the-public-event-has-no-register-button` | normal | live verification |
+| `troubleshooting-decision-tree-a-representative-person-is-unexpectedly-ineligible` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-duplicate-registration-warning-exposes-sensitive-participation` | normal | live verification |
+| `troubleshooting-decision-tree-a-person-moved-from-the-wait-list-is-missing-payment-or-form-data` | high | live verification |
+| `troubleshooting-decision-tree-a-registration-balance-no-longer-matches-its-payment-plan` | normal | live verification |
+| `troubleshooting-decision-tree-a-batch-transaction-is-not-attached-to-the-registration` | normal | live verification |
+| `troubleshooting-decision-tree-registrants-are-not-entering-the-expected-group` | normal | live verification |
+| `troubleshooting-decision-tree-dashboard-totals-disagree` | normal | live verification |
+| `troubleshooting-decision-tree-a-signature-document-is-missing-or-belongs-to-the-wrong-registration` | normal | live verification |
+| `agent-task-recipes-recipe-create-a-reusable-registration-and-one-event-instance` | normal | live verification |
+| `agent-task-recipes-recipe-validate-a-paid-registration-before-launch` | normal | live verification |
+| `agent-task-recipes-recipe-promote-a-wait-listed-person-to-full-registration` | normal | live verification |
+| `agent-task-recipes-recipe-audit-an-event-registration-dashboard` | community-supported | live verification |
+| `agent-task-recipes-recipe-launch-family-preregistration-with-follow-up` | citation-only | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
+| `source-map-approved-community-guidance-and-examples` | community-supported | community-supported |

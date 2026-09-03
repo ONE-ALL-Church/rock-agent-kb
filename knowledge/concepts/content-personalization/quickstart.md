@@ -18,40 +18,43 @@ Content channels, assets, structured content, adaptive messages, personalization
 
 ## Primary Tasks
 
-- [Recipe: Audit a content channel before editing](tasks/recipe-audit-a-content-channel-before-editing.md): Do not change anything until you know which pages and workflows depend on the channel.
-- [Recipe: Diagnose “editor cannot see channel in Tools > Content”](tasks/recipe-diagnose-editor-cannot-see-channel-in-tools-content.md): The `Tools > Content` page lists channels the current user has View access to, according to official docs (Manage Content Items).
-- [Recipe: Diagnose “segment should include this person”](tasks/recipe-diagnose-segment-should-include-this-person.md): Complete Diagnose “segment should include this person” with evidence-backed checks and a verifiable outcome.
-- [Recipe: Verify content interactions](tasks/recipe-verify-content-interactions.md): Complete Verify content interactions with evidence-backed checks and a verifiable outcome.
-- [Recipe: Public launch review for content personalization](tasks/recipe-public-launch-review-for-content-personalization.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Publish a governed Content Channel Item](tasks/recipe-publish-a-governed-content-channel-item.md): An item is structurally complete, correctly scheduled, reviewable, and eligible for display.
+- [Recipe: Add personalization to Content Channel Items](tasks/recipe-add-personalization-to-content-channel-items.md): Matching visitors receive the intended filtered or prioritized content without cross-visitor cache leakage.
+- [Recipe: Refresh personalization membership](tasks/recipe-refresh-personalization-membership.md): A persisted segment and its browser-facing membership state reflect current person data.
+- [Recipe: Build and refresh a Content Collection](tasks/recipe-build-and-refresh-a-content-collection.md): Multiple channels or calendars are searchable together with deliberate filtering, ranking, and security boundaries.
+- [Recipe: Configure a Content Component template](tasks/recipe-configure-a-content-component-template.md): Editors can change structured content without editing presentation markup.
+- [Recipe: Automate a channel item attribute with Lava](tasks/recipe-automate-a-channel-item-attribute-with-lava.md): A scheduled job safely writes evaluated Lava output into a compatible target attribute.
+- [Recipe: Publish a Media Element through a channel](tasks/recipe-publish-a-media-element-through-a-channel.md): A media item appears through normal content tools with the intended player behavior and analytics.
+- [Recipe: Share or refresh Content Library material](tasks/recipe-share-or-refresh-content-library-material.md): An item is uploaded or downloaded with its license and overwrite behavior understood.
+- [Recipe: Configure localized currency display safely](tasks/recipe-configure-localized-currency-display-safely.md): Numeric values display the intended currency symbol without implying conversion or silently changing gateway behavior.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-46: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 47-65: 2. Scope And Terminology (normal)
-- `3-content-and-personalization-mental-model` lines 66-81: 3. Content And Personalization Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 82-96: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 97-134: 5. Core Configuration And Data Model (high)
-- `6-primary-entities-and-relationships` lines 135-156: 6. Primary Entities And Relationships (high)
+- `agent-summary` lines 18-40: Agent Summary (normal)
+- `scope-and-boundaries` lines 41-56: Scope And Boundaries (normal)
+- `mental-model` lines 57-82: Mental Model (normal)
+- `content-channels-choose-the-structure` lines 85-92: Choose the structure (normal)
+- `content-channels-configure-publication-behavior` lines 93-100: Configure publication behavior (normal)
+- `content-channels-manage-editorial-work` lines 101-108: Manage editorial work (high)
 
 ## Core Entities
 
 - `Attribute`: Rock concept/entity referenced by the content-personalization guide.
 - `Block`: Rock concept/entity referenced by the content-personalization guide.
-- `Campus`: Rock concept/entity referenced by the content-personalization guide.
+- `DataView`: Rock concept/entity referenced by the content-personalization guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
+- `Label`: Rock concept/entity referenced by the content-personalization guide.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the content-personalization guide.
 - `Person`: Rock concept/entity referenced by the content-personalization guide.
-- `PersonAlias`: Rock concept/entity referenced by the content-personalization guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
-- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the content-personalization guide.
 
 ## Version Caveats
 
+- `19.3`: Fixed the Content Channel Item List block to show the add and delete options for individuals with Edit access to the content channel, rather than requiring Edit access on the Content Channel Item entity itself. Fixes: #6
 - `17.5`: Fixed an issue where the Content Channel Item View block and the InteractionContentChannelItemWrite Lava command logged interactions using the Content Channel entity type instead of the Content Channel Item entity type.
-- `18.2`: Fixed a security issue affecting multiple blocks that interact with Content Channels, where individuals with only View permissions could delete content items. The delete option is now correctly limited to those with Edit
 
 ## Files For Agents
 

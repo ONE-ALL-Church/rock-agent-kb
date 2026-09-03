@@ -18,21 +18,28 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 
 ## Primary Tasks
 
-- [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md): Primary sources: Edit Step Programs, Edit Step Types.
-- [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md): Source: Steps Badges.
-- [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md): Sources: Streak Type Detail, Rebuild Streak Type.
-- [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md): Sources: Send Requests, Retake Assessments, View Assessment History.
-- [Recipe: Audit Achievement Type](tasks/recipe-audit-achievement-type.md): Sources: Add Achievement Types, Achievement Type Advanced Settings, `AchievementType.cs`.
-- [Recipe: Explain Engagement Data To A Ministry User](tasks/recipe-explain-engagement-data-to-a-ministry-user.md): Then ask for the operational decision they need to make. That determines the correct data source.
+- [Recipe: Configure a Step journey with reliable completion signals](tasks/recipe-configure-a-step-journey-with-reliable-completion-signals.md): A Step Program whose order, prerequisites and completion semantics match the intended journey.
+- [Recipe: Bulk-record a Step](tasks/recipe-bulk-record-a-step.md): Multiple selected people receive the intended Step data without silently losing per-person attribute differences.
+- [Recipe: Automate Step completion from a Data View](tasks/recipe-automate-step-completion-from-a-data-view.md): The Steps Automation job creates or completes qualifying records while preserving journey rules.
+- [Recipe: Build a Streak Type safely](tasks/recipe-build-a-streak-type-safely.md): A Streak Type calculates the intended cadence from the intended source.
+- [Recipe: Correct one person’s streak](tasks/recipe-correct-one-person-s-streak.md): A bounded correction is made without unnecessarily rebuilding the entire Streak Type.
+- [Recipe: Rebuild a Streak with a controlled boundary](tasks/recipe-rebuild-a-streak-with-a-controlled-boundary.md): Attendance-derived streak data is regenerated at the smallest necessary scope.
+- [Recipe: Request and monitor assessments](tasks/recipe-request-and-monitor-assessments.md): The intended people receive valid assessment requests and their completion state can be reviewed.
+- [Recipe: Build an assessment-result segment](tasks/recipe-build-an-assessment-result-segment.md): A person Data View identifies people with a specified supported assessment result.
+- [Recipe: Connect an Achievement to workflows and Steps](tasks/recipe-connect-an-achievement-to-workflows-and-steps.md): A successful Achievement produces the intended follow-up and journey record.
+- [Recipe: Configure Reminder processing](tasks/recipe-configure-reminder-processing.md): A context-valid reminder produces the intended communication or workflow at its reminder date.
+- [Recipe: Configure a secure Following event](tasks/recipe-configure-a-secure-following-event.md): Authorized subscribers receive the intended daily event without exposing related sensitive context.
+- [Recipe: Operate a moderated Interactive Experience](tasks/recipe-operate-a-moderated-interactive-experience.md): Participants receive the intended actions while only approved responses appear publicly.
+- [Recipe: Configure a Sign-Up registration and attendance route](tasks/recipe-configure-a-sign-up-registration-and-attendance-route.md): Guests or an existing group can register, and authorized operators can record attendance.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-42: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 43-92: 2. Scope And Terminology (high)
-- `3-engagement-tracking-mental-model` lines 93-114: 3. Engagement Tracking Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 115-133: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-steps-configuration` lines 136-181: Steps Configuration (high)
-- `5-core-configuration-and-data-model-step-status-and-completion` lines 182-187: Step Status And Completion (normal)
+- `agent-summary` lines 18-29: Agent Summary (normal)
+- `scope-and-boundaries` lines 30-45: Scope And Boundaries (normal)
+- `mental-model` lines 46-57: Mental Model (normal)
+- `steps-programs-types-and-completion` lines 60-71: Programs, types and completion (normal)
+- `steps-entry-attributes-and-history` lines 72-83: Entry, attributes and history (normal)
+- `steps-bulk-entry-and-automation` lines 84-91: Bulk entry and automation (normal)
 
 ## Core Entities
 
@@ -41,13 +48,13 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 - `Block`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Campus`: Rock concept/entity referenced by the engagement-tracking guide.
 - `DataView`: Rock concept/entity referenced by the engagement-tracking guide.
-- `Family`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `Label`: Rock concept/entity referenced by the engagement-tracking guide.
-- `LearningClassActivityCompletion`: Person-specific activity completion signal used by LMS reporting, workflow triggers, and downstream engagement steps.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Person`: Rock concept/entity referenced by the engagement-tracking guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
+- `StepProgram`: Engagement journey container that can represent milestones, achievements, or discipleship paths.
 
 ## Version Caveats
 

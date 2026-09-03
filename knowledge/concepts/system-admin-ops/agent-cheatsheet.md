@@ -10,12 +10,14 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Answer “Is The System Healthy?”](tasks/recipe-answer-is-the-system-healthy.md) | `DataView` | `DataView` |
-| [Recipe: Answer “Why Is This Data Wrong?”](tasks/recipe-answer-why-is-this-data-wrong.md) | `DataView` | `DataView` |
-| [Recipe: Answer “Can I Clear Cache?”](tasks/recipe-answer-can-i-clear-cache.md) |  |  |
-| [Recipe: Answer “Why Did This Workflow Not Start?”](tasks/recipe-answer-why-did-this-workflow-not-start.md) | `Schedule`, `Workflow` | `Schedule`, `Workflow` |
-| [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md) | `DataView`, `Person` | `DataView`, `Person` |
-| [Recipe: Answer “What Changed In This Version That Matters Operationally?”](tasks/recipe-answer-what-changed-in-this-version-that-matters-operationally.md) | `Workflow` | `Workflow` |
+| [Recipe: Triage a recurring exception](tasks/recipe-triage-a-recurring-exception.md) | `Group`, `Page`, `Block` | `Group`, `Page`, `Block` |
+| [Recipe: Refresh stale cached output with minimum scope](tasks/recipe-refresh-stale-cached-output-with-minimum-scope.md) | `Step`, `Page`, `Block` | `Step`, `Page`, `Block` |
+| [Recipe: Create and assign a cache tag](tasks/recipe-create-and-assign-a-cache-tag.md) | `Group`, `Block` | `Group`, `Block` |
+| [Recipe: Audit a scheduled job’s recent health](tasks/recipe-audit-a-scheduled-job-s-recent-health.md) | `Schedule`, `Label` | `Schedule`, `Label` |
+| [Recipe: Restore a missing Universal Search entity](tasks/recipe-restore-a-missing-universal-search-entity.md) | `Group`, `GroupType`, `Schedule`, `Attribute`, `Person` | `Group`, `GroupType`, `Schedule`, `Attribute`, `Person` |
+| [Recipe: Configure a bounded site-index crawl](tasks/recipe-configure-a-bounded-site-index-crawl.md) | `Location`, `Schedule`, `Page` | `Location`, `Schedule`, `Page` |
+| [Recipe: Review and resolve a duplicate-person candidate](tasks/recipe-review-and-resolve-a-duplicate-person-candidate.md) | `Person`, `Attribute` | `Person`, `Attribute` |
+| [Recipe: Review a Data Automation change before execution](tasks/recipe-review-a-data-automation-change-before-execution.md) | `Person`, `DataView`, `Group`, `Schedule`, `Campus`, `Family`, `Workflow` | `Person`, `DataView`, `Group`, `Schedule`, `Campus`, `Family`, `Workflow` |
 
 ## Entities
 
@@ -24,8 +26,12 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Check-in Configuration` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
+| `GroupType` | `Group` | Confirm the type takes attendance and supports the intended check-in pattern. |
+| `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -38,76 +44,35 @@ generated: true
 | Version | Channel | Summary |
 | --- | --- | --- |
 | `19.1` | core | Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the folder may not get r |
-| `19.1` | core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 |
+| `19.3` | core | Fixed Person Attribute Values configured for indexing not being included in Universal Search results after a bulk re-index, and restored the missing "Indexing Enabled" option in the Attributes block so Attributes can be flagged for indexing |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | citation-only | live verification |
-| `2-scope-and-terminology` | high | live verification |
-| `3-system-administration-and-operations-mental-model-layer-1-configuration` | normal | live verification |
-| `3-system-administration-and-operations-mental-model-layer-4-security-and-authorization` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | normal | live verification |
-| `5-core-configuration-and-data-model-entities-properties-and-attributes` | citation-only | live verification |
-| `5-core-configuration-and-data-model-defined-types-and-defined-values` | normal | live verification |
-| `5-core-configuration-and-data-model-service-jobs` | high | live verification |
-| `5-core-configuration-and-data-model-cache` | normal | live verification |
-| `5-core-configuration-and-data-model-security-rules` | community-supported | community-supported |
-| `6-primary-entities-and-relationships-servicejob-and-servicejobhistory` | normal | live verification |
-| `6-primary-entities-and-relationships-servicejobhistory-fields-to-inspect` | normal | live verification |
-| `6-primary-entities-and-relationships-dataview-and-persisted-data-view-state` | normal | live verification |
-| `6-primary-entities-and-relationships-exceptionlog` | high | live verification |
-| `6-primary-entities-and-relationships-page-block-and-security-relationships` | community-supported | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-a-failed-service-job` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-confirm-whether-a-job-actually-ran` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-a-warning-job` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-stale-search-results` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-stale-persisted-data-view-results` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-a-cache-suspect` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike` | normal | live verification |
-| `7-common-system-administration-and-operations-workflows-workflow-review-operational-health-after-upgrade` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-job-configuration-fields-to-inspect` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-job-history-interpretation` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-job-history-ui-behavior` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-job-history-security` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-job-retention` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-update-persisted-dataviews-job` | normal | live verification |
-| `8-jobs-and-scheduling-deep-dive-launch-workflow-job` | community-supported | live verification |
-| `9-diagnostics-and-exceptions-deep-dive-diagnostic-mindset` | structural | live verification |
-| `exception-investigation-branches-request-time-exception` | normal | live verification |
-| `exception-investigation-branches-job-time-exception` | normal | live verification |
-| `exception-investigation-branches-dataview-exception` | normal | live verification |
-| `exception-investigation-branches-search-exception` | normal | live verification |
-| `exception-investigation-branches-cache-exception` | normal | live verification |
-| `10-cache-and-indexing-deep-dive-cache-keys` | normal | live verification |
-| `10-cache-and-indexing-deep-dive-cache-tags` | citation-only | live verification |
-| `10-cache-and-indexing-deep-dive-cache-clearing` | normal | live verification |
-| `10-cache-and-indexing-deep-dive-entity-indexing` | normal | live verification |
-| `11-cleanup-and-data-integrity-deep-dive-cleanup-as-operational-risk-management` | citation-only | live verification |
-| `11-cleanup-and-data-integrity-deep-dive-service-job-history-cleanup` | normal | live verification |
-| `11-cleanup-and-data-integrity-deep-dive-rock-cleanup-and-cache-folder-caveat` | normal | live verification |
-| `11-cleanup-and-data-integrity-deep-dive-attribute-data-integrity` | normal | live verification |
-| `11-cleanup-and-data-integrity-deep-dive-security-data-integrity` | community-supported | community-supported |
-| `11-cleanup-and-data-integrity-deep-dive-data-view-integrity` | normal | live verification |
-| `11-cleanup-and-data-integrity-deep-dive-integration-and-recipe-integrity` | community-supported | community-supported |
-| `12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-security` | high | live verification |
-| `12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-reports` | structural | live verification |
-| `12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-release-notes` | normal | live verification |
-| `13-administration-and-operational-guardrails-treat-lava-apis-as-high-risk` | normal | live verification |
-| `13-administration-and-operational-guardrails-validate-community-recipes` | community-supported | live verification |
-| `13-administration-and-operational-guardrails-prefer-entity-ids-and-guids-over-names` | structural | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-lava-cache-and-lava-apis` | normal | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-helix` | normal | live verification |
-| `15-reporting-analytics-and-model-map-model-map` | citation-only | live verification |
-| `16-version-and-release-caveats-rock-v19-1-attribute-category-caveat` | normal | live verification |
-| `17-implementation-playbooks-playbook-validate-universal-search` | normal | live verification |
-| `17-implementation-playbooks-playbook-validate-persisted-data-views` | normal | live verification |
-| `17-implementation-playbooks-playbook-review-lava-cache-safety` | normal | live verification |
-| `17-implementation-playbooks-playbook-review-lava-webhooks` | normal | live verification |
-| `17-implementation-playbooks-playbook-review-security-integrity` | community-supported | live verification |
-| `19-agent-task-recipes-recipe-answer-why-did-this-workflow-not-start` | structural | live verification |
-| `19-agent-task-recipes-recipe-answer-why-is-this-data-view-slow` | structural | live verification |
-| `19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally` | normal | live verification |
-| `20-source-map-and-dependency-notes` | high | live verification |
+| `scope-and-boundaries` | needs-citation | live verification |
+| `mental-model` | needs-citation | live verification |
+| `jobs-and-scheduling-job-configuration-and-history` | high | live verification |
+| `jobs-and-scheduling-version-specific-job-history-failures` | normal | live verification |
+| `jobs-and-scheduling-job-backed-operational-processes` | high | live verification |
+| `diagnostics-and-exceptions-exception-history` | normal | live verification |
+| `cache-and-persisted-data-cache-manager-and-cache-tags` | normal | live verification |
+| `cleanup-and-data-integrity-photo-verification` | normal | live verification |
+| `troubleshooting-decision-tree-a-scheduled-job-stopped-producing-new-history` | normal | live verification |
+| `troubleshooting-decision-tree-a-page-is-slow` | normal | live verification |
+| `troubleshooting-decision-tree-updated-content-remains-stale` | normal | live verification |
+| `troubleshooting-decision-tree-exceptions-repeat-after-a-page-or-block-change` | normal | live verification |
+| `troubleshooting-decision-tree-universal-search-cannot-connect-after-an-environment-refresh` | normal | live verification |
+| `troubleshooting-decision-tree-an-entity-type-returns-no-universal-search-results` | normal | live verification |
+| `troubleshooting-decision-tree-universal-search-works-directly-but-not-through-smart-search` | normal | live verification |
+| `troubleshooting-decision-tree-an-address-is-missing-coordinates` | normal | live verification |
+| `troubleshooting-decision-tree-data-automation-changed-more-records-than-expected` | normal | live verification |
+| `agent-task-recipes-recipe-triage-a-recurring-exception` | normal | live verification |
+| `agent-task-recipes-recipe-refresh-stale-cached-output-with-minimum-scope` | normal | live verification |
+| `agent-task-recipes-recipe-create-and-assign-a-cache-tag` | normal | live verification |
+| `agent-task-recipes-recipe-audit-a-scheduled-job-s-recent-health` | normal | live verification |
+| `agent-task-recipes-recipe-restore-a-missing-universal-search-entity` | normal | live verification |
+| `agent-task-recipes-recipe-configure-a-bounded-site-index-crawl` | normal | live verification |
+| `agent-task-recipes-recipe-review-and-resolve-a-duplicate-person-candidate` | normal | live verification |
+| `agent-task-recipes-recipe-review-a-data-automation-change-before-execution` | normal | live verification |
+| `known-gaps-and-live-verification` | needs-citation | needs-citation |

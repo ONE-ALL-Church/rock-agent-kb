@@ -16,46 +16,35 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-tv-apps-mental-model`: 3. TV Apps Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-apple-tv-application-configuration`: Apple TV Application Configuration
-- `5-core-configuration-and-data-model-roku-application-configuration`: Roku Application Configuration
-- `5-core-configuration-and-data-model-tv-page-configuration`: TV Page Configuration
-- `5-core-configuration-and-data-model-remote-authentication-data-model`: Remote Authentication Data Model
-- `6-primary-entities-and-relationships-application-to-page`: Application To Page
-- `6-primary-entities-and-relationships-application-to-api-key`: Application To API Key
-- `6-primary-entities-and-relationships-remoteauthenticationsession-to-person-and-site`: RemoteAuthenticationSession To Person And Site
-- `6-primary-entities-and-relationships-page-to-interaction`: Page To Interaction
-- `7-common-tv-apps-workflows-create-a-new-apple-tv-app`: Create A New Apple TV App
-- `7-common-tv-apps-workflows-create-a-new-roku-app`: Create A New Roku App
-- `7-common-tv-apps-workflows-add-media-playback`: Add Media Playback
-- `8-apple-tv-deep-dive-apple-tv-platform-contract`: Apple TV Platform Contract
-- `8-apple-tv-deep-dive-apple-tv-pages-and-merge-fields`: Apple TV Pages And Merge Fields
-- `8-apple-tv-deep-dive-apple-tv-testing-and-demo-key`: Apple TV Testing And Demo Key
-- `8-apple-tv-deep-dive-apple-tv-application-images`: Apple TV Application Images
-- `9-roku-deep-dive-roku-pages`: Roku Pages
-- `9-roku-deep-dive-roku-commands`: Roku Commands
-- `10-security-and-authentication-deep-dive-api-key-security`: API Key Security
-- `10-security-and-authentication-deep-dive-remote-authentication-flow`: Remote Authentication Flow
-- `10-security-and-authentication-deep-dive-remote-auth-component-selection`: Remote Auth Component Selection
-- `11-styling-and-controls-deep-dive-apple-tv-styling`: Apple TV Styling
-- `11-styling-and-controls-deep-dive-apple-tv-custom-controls`: Apple TV Custom Controls
-- `11-styling-and-controls-deep-dive-roku-controls`: Roku Controls
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-api-integrations`: API Integrations
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-mobile-lava`: Lava
-- `14-developer-api-lava-and-source-code-landmarks`: 14. Developer, API, Lava, And Source-Code Landmarks
-- `15-reporting-analytics-and-model-map`: 15. Reporting, Analytics, And Model Map
-- `16-version-and-release-caveats`: 16. Version And Release Caveats
-- `17-implementation-playbooks-playbook-campus-selection`: Playbook: Campus Selection
-- `18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content`: App Does Not Launch Or Shows Wrong Content
-- `18-troubleshooting-decision-tree-page-is-blank`: Page Is Blank
-- `18-troubleshooting-decision-tree-roku-focus-does-not-move`: Roku Focus Does Not Move
-- `19-agent-task-recipes-recipe-trace-a-page-guid`: Recipe: Trace A Page GUID
-- `19-agent-task-recipes-recipe-validate-remote-auth-in-data`: Recipe: Validate Remote Auth In Data
-- `19-agent-task-recipes-recipe-decide-cache-policy`: Recipe: Decide Cache Policy
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model`: Mental Model
+- `apple-tv-application-configuration`: Application configuration
+- `apple-tv-pages-and-lava-output`: Pages and Lava output
+- `apple-tv-commands`: Commands
+- `roku-application-configuration`: Application configuration
+- `security-and-authentication-remote-authentication-architecture`: Remote authentication architecture
+- `security-and-authentication-source-code-observation`: Source-code observation
+- `security-and-authentication-api-and-webhook-boundary`: API and webhook boundary
+- `styling-and-controls-roku-controls-focus-and-layout`: Roku controls, focus, and layout
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-the-tv-application-administration-feature-is-missing`: The TV application administration feature is missing
+- `troubleshooting-decision-tree-a-page-is-blank-rejected-or-never-appears`: A page is blank, rejected, or never appears
+- `troubleshooting-decision-tree-a-roku-page-marked-show-in-menu-is-absent`: A Roku page marked “Show in Menu” is absent
+- `troubleshooting-decision-tree-roku-focus-does-not-move-or-starts-on-the-wrong-item`: Roku focus does not move or starts on the wrong item
+- `troubleshooting-decision-tree-a-command-does-nothing`: A command does nothing
+- `troubleshooting-decision-tree-remote-sign-in-shows-no-qr-code-or-code`: Remote sign-in shows no QR code or code
+- `troubleshooting-decision-tree-a-remote-authentication-code-is-rejected`: A remote-authentication code is rejected
+- `troubleshooting-decision-tree-media-does-not-start`: Media does not start
+- `troubleshooting-decision-tree-playback-starts-at-the-wrong-position-or-creates-a-new-interaction`: Playback starts at the wrong position or creates a new interaction
+- `troubleshooting-decision-tree-a-page-shows-stale-or-another-context-s-content`: A page shows stale or another context’s content
+- `agent-task-recipes-recipe-create-an-apple-tv-application-skeleton`: Recipe: Create an Apple TV application skeleton
+- `agent-task-recipes-recipe-build-a-roku-content-page`: Recipe: Build a Roku content page
+- `agent-task-recipes-recipe-add-roku-navigation-with-application-context`: Recipe: Add Roku navigation with application context
+- `agent-task-recipes-recipe-configure-remote-tv-sign-in`: Recipe: Configure remote TV sign-in
+- `agent-task-recipes-recipe-add-tracked-media-playback-with-resume`: Recipe: Add tracked media playback with resume
+- `agent-task-recipes-recipe-make-an-apple-tv-page-theme-aware`: Recipe: Make an Apple TV page theme-aware
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

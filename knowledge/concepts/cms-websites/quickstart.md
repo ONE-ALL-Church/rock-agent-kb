@@ -18,35 +18,40 @@ Pages, blocks, themes, content channels, personalization, media, and website ope
 
 ## Primary Tasks
 
-- [Recipe: “Find The Block That Controls This Text”](tasks/recipe-find-the-block-that-controls-this-text.md): Complete “Find The Block That Controls This Text” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Why Is This Content Item Not Public?”](tasks/recipe-why-is-this-content-item-not-public.md): Complete “Why Is This Content Item Not Public?” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Can I Enable SQL In This HTML Block?”](tasks/recipe-can-i-enable-sql-in-this-html-block.md): Default answer: only after review.
-- [Recipe: “Add A Detail Page For Channel Items”](tasks/recipe-add-a-detail-page-for-channel-items.md): Complete “Add A Detail Page For Channel Items” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Review A Community Recipe Before Installing”](tasks/recipe-review-a-community-recipe-before-installing.md): Complete “Review A Community Recipe Before Installing” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Build A Page View Report”](tasks/recipe-build-a-page-view-report.md): The community page-view recipe provides the basic pattern but should be hardened for security and performance (Easy Page Views Reporting).
-- [Recipe: “Troubleshoot Required Watching”](tasks/recipe-troubleshoot-required-watching.md): RockU identifies Required Watching as part of the CMS/media learning path (Rock Media Required Watching).
+- [Recipe: Publish a page and block safely](tasks/recipe-publish-a-page-and-block-safely.md): A page resolves through the intended site and route and shows only the intended blocks to each visitor class.
+- [Recipe: Copy a page hierarchy without carrying stale configuration](tasks/recipe-copy-a-page-hierarchy-without-carrying-stale-configuration.md): A copied hierarchy is structurally complete and its settings point to the intended new or shared resources.
+- [Recipe: Audit an Advanced HTML or stored-Lava surface](tasks/recipe-audit-an-advanced-html-or-stored-lava-surface.md): Executable CMS content has a known owner, minimum command set, and verified exposure boundary.
+- [Recipe: Change a theme without surprising other sites or pages](tasks/recipe-change-a-theme-without-surprising-other-sites-or-pages.md): The intended site receives the new styling while layouts, zones, and shared blocks remain functional.
+- [Recipe: Publish a content-channel list and detail experience](tasks/recipe-publish-a-content-channel-list-and-detail-experience.md): Intended items appear with correct metadata and detail links without exposing restricted information.
+- [Recipe: Build and verify personalized content](tasks/recipe-build-and-verify-personalized-content.md): Each target audience receives the intended content while authorization remains independently enforced.
+- [Recipe: Connect a Page Parameter Filter to a consumer](tasks/recipe-connect-a-page-parameter-filter-to-a-consumer.md): One configured key controls the intended redirect, Lava lookup, or listening block consistently.
+- [Recipe: Build a bounded Helix active-search page](tasks/recipe-build-a-bounded-helix-active-search-page.md): The initial page is useful, HTMX updates only the result region, and authorization is verified for the intended actors.
+- [Recipe: Launch a landing page](tasks/recipe-launch-a-landing-page.md): A campaign page has the intended route, content, call to action, metadata, and retirement plan.
+- [Recipe: Retire a seasonal public feature](tasks/recipe-retire-a-seasonal-public-feature.md): Expired content can no longer be viewed or submitted through any supported route.
+- [Recipe: Publish background-generated video](tasks/recipe-publish-background-generated-video.md): A public page references a completed and readable media output.
+- [Recipe: Configure mobile CMS content with the correct freshness and identity](tasks/recipe-configure-mobile-cms-content-with-the-correct-freshness-and-identity.md): Mobile content updates on the intended schedule and uses only context available in its processing mode.
 
 ## High-Signal Sections
 
-- `2-scope-and-terminology` lines 60-124: 2. Scope And Terminology (normal)
-- `3-cms-and-websites-mental-model` lines 125-144: 3. CMS And Websites Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 145-169: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-blocks` lines 202-219: Blocks (normal)
-- `5-core-configuration-and-data-model-themes` lines 230-245: Themes (normal)
-- `5-core-configuration-and-data-model-content-channel-types` lines 246-258: Content Channel Types (normal)
+- `agent-summary` lines 18-31: Agent Summary (normal)
+- `mental-model` lines 42-58: Mental Model (normal)
+- `sites-routes-and-navigation` lines 59-76: Sites, Routes, And Navigation (normal)
+- `pages-layouts-zones-and-blocks` lines 77-90: Pages, Layouts, Zones, And Blocks (normal)
+- `html-content-scheduling-and-shared-components` lines 91-104: HTML Content, Scheduling, And Shared Components (normal)
+- `advanced-html-lava-and-context` lines 105-126: Advanced HTML, Lava, And Context (normal)
 
 ## Core Entities
 
 - `Attribute`: Rock concept/entity referenced by the cms-websites guide.
 - `Block`: Rock concept/entity referenced by the cms-websites guide.
 - `Campus`: Rock concept/entity referenced by the cms-websites guide.
-- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the cms-websites guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `Label`: Rock concept/entity referenced by the cms-websites guide.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the cms-websites guide.
 - `Person`: Rock concept/entity referenced by the cms-websites guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the cms-websites guide.
 
 ## Version Caveats

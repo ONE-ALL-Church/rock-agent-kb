@@ -1,9 +1,6 @@
 {
   "authority_coverage": [
-    "community-answer",
-    "official",
     "official-developer",
-    "official-model-map",
     "official-release",
     "official-training",
     "source-code",
@@ -12,17 +9,17 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11663 words; expected at least 1200.",
+      "message": "Guide has 6997 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 11663 words; expected no more than 9000.",
-      "passed": false
+      "message": "Guide has 6997 words; expected no more than 9000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 83 sections; expected at least 9.",
+      "message": "Guide has 51 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -42,7 +39,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 13 entity rows; expected at least 3.",
+      "message": "Guide has 7 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -66,32 +63,32 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
       "passed": true
     }
   ],
   "concept_id": "ai-agents-automation",
   "contribution_record_count": 0,
-  "entity_count": 13,
-  "generated_at": "2026-08-12T12:50:00+00:00",
-  "guide_line_count": 1283,
-  "guide_word_count": 11663,
+  "entity_count": 7,
+  "generated_at": "2026-09-03T16:50:57+00:00",
+  "guide_line_count": 665,
+  "guide_word_count": 6997,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 0,
-    "answer_claim_reference_count": 0,
-    "entity_count": 13,
-    "section_count": 83,
-    "source_count": 52,
-    "substantive_uncited_section_ratio": 0.0227,
+    "answer_claim_count_in_pack": 18,
+    "answer_claim_reference_count": 17,
+    "entity_count": 7,
+    "section_count": 51,
+    "source_count": 29,
+    "substantive_uncited_section_ratio": 0.025,
     "task_card_count": 8,
-    "word_count": 11663
+    "word_count": 6997
   },
   "private_draft_contribution_record_count": 0,
-  "score": 91,
-  "section_count": 83,
-  "source_count": 52,
-  "status": "fail",
+  "score": 100,
+  "section_count": 51,
+  "source_count": 29,
+  "status": "pass",
   "task_card_count": 8
 }

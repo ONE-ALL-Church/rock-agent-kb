@@ -2,229 +2,227 @@
   "branches": [
     {
       "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Page",
-        "Block"
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-learner-cannot-find-a-program-or-course",
+      "id": "a-learner-cannot-find-a-program-or-course",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-learner-cannot-see-a-course",
-      "id": "learner-cannot-see-a-course",
-      "inspect": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
       "start_with": [
-        "Is the program active?",
-        "Is the course active?",
-        "Is the class active?",
-        "Is the class in the correct mode or term?",
-        "Is the learner eligible?",
-        "Are course requirements blocking access?",
-        "Is the external Learning Hub page configured?",
-        "Does the learner have security to view the page/block?"
+        "Confirm the learner is using the external Learning Hub at `/learn`.",
+        "Inspect whether the program and course are marked Public.",
+        "If **Enforce Public Security** is enabled, inspect the learner’s View access to the program.",
+        "Confirm that the intended class is public and open for enrollment.",
+        "If a class was copied, verify that the new class—not only the old one—was published after preparation.",
+        "If the learner is already enrolled, test the Class Workspace path separately from public discovery. Intro to the Learning Hub,"
       ],
-      "title": "Learner Cannot See A Course",
-      "when": "Learner Cannot See A Course"
+      "title": "A learner cannot find a program or course",
+      "when": "A learner cannot find a program or course"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Verify the learner’s completion record for the required course; do not infer it from attendance, enrollment, or a similarly named group requirement."
+      ],
       "entities": [
-        "Workflow"
+        "Attendance",
+        "Group"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-learner-completed-activity-but-course-did-not-complete",
-      "id": "learner-completed-activity-but-course-did-not-complete",
+      "guide_section_id": "troubleshooting-decision-tree-a-learner-is-blocked-from-enrollment",
+      "id": "a-learner-is-blocked-from-enrollment",
       "inspect": [
-        "Workflow"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Does the activity completion row exist?",
-        "Was the threshold met?",
-        "Is the activity required?",
-        "Are there other incomplete activities?",
-        "Is grading pending?",
-        "Was the submission late or marked incomplete?",
-        "Did a workflow fail?",
-        "Is the report looking at course completion while only activity completion exists?"
-      ],
-      "title": "Learner Completed Activity But Course Did Not Complete",
-      "when": "Learner Completed Activity But Course Did Not Complete"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-course-does-not-appear-in-reporting",
-      "id": "course-does-not-appear-in-reporting",
-      "inspect": [
-        "Person"
+        "Attendance",
+        "Group"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs"
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar"
       ],
       "start_with": [
-        "Is the program active?",
-        "Is completion status tracked?",
-        "Is the course active?",
-        "Does the report component use the correct program?",
-        "Does the current user have security?",
-        "Is the report using Person-level LMS data select?",
-        "Is the class completed but course completion not recorded?",
-        "Is the Rock version new enough for the reporting component?"
+        "Identify the exact course and class.",
+        "Inspect the course’s prerequisite and equivalency requirements.",
+        "Verify the learner’s completion record for the required course; do not infer it from attendance, enrollment, or a similarly named group requirement.",
+        "For Academic Calendar mode, inspect the semester’s enrollment-close date.",
+        "Confirm the class remains open and public.",
+        "Stop when the unmet requirement or closed enrollment boundary is identified; changing it requires an authorized configuration decision. Courses,"
       ],
-      "title": "Course Does Not Appear In Reporting",
-      "when": "Course Does Not Appear In Reporting"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "LearningClass",
-        "LearningClassActivity",
-        "LearningClassActivityCompletion",
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-completion-workflow-did-not-run",
-      "id": "completion-workflow-did-not-run",
-      "inspect": [
-        "LearningClass",
-        "LearningClassActivity",
-        "LearningClassActivityCompletion",
-        "Workflow",
-        "Block"
-      ],
-      "source_urls": [
-        "https://www.triumph.tech/resources/github-spotlight-11142025"
-      ],
-      "start_with": [
-        "Does the completion row exist?",
-        "Is the workflow configured on the activity/course/program?",
-        "What entity type does the workflow expect?",
-        "Does the entity match current Rock behavior?",
-        "Are workflow triggers active?",
-        "Did the workflow error?",
-        "Did security block reads?",
-        "Was the workflow configured before an upgrade?"
-      ],
-      "title": "Completion Workflow Did Not Run",
-      "when": "Completion Workflow Did Not Run"
+      "title": "A learner is blocked from enrollment",
+      "when": "A learner is blocked from enrollment"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Group",
-        "GroupType",
-        "Workflow"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion",
-      "id": "group-requirement-still-fails-after-lms-completion",
-      "inspect": [
-        "Person",
-        "Group",
-        "GroupType",
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements",
-        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs"
-      ],
-      "start_with": [
-        "Is the group requirement actually based on LMS completion?",
-        "Is it based on the correct course?",
-        "Is it checking course, class, program, or activity completion?",
-        "Did completion status write correctly?",
-        "Has the group requirement calculation job run?",
-        "Is the group requirement inherited from group type?",
-        "Is the person in the correct group role?",
-        "Is a manual requirement involved?"
-      ],
-      "title": "Group Requirement Still Fails After LMS Completion",
-      "when": "Group Requirement Still Fails After LMS Completion"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "StepProgram",
-        "StepType",
-        "Step",
-        "Campus",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-step-badge-not-showing",
-      "id": "step-badge-not-showing",
+      "guide_section_id": "troubleshooting-decision-tree-a-facilitator-cannot-open-lms-administration-pages",
+      "id": "a-facilitator-cannot-open-lms-administration-pages",
       "inspect": [
         "Person",
-        "StepProgram",
-        "StepType",
-        "Step",
-        "Campus",
         "Page"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Does the person have the step?",
-        "Is the step in the expected Step Program?",
-        "Is the Step Type correct?",
-        "Is campus filtering involved?",
-        "Is the badge active?",
-        "Is the badge on the profile page?",
-        "Does the current user have security?",
-        "Is cache stale?"
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security"
       ],
-      "title": "Step Badge Not Showing",
-      "when": "Step Badge Not Showing"
+      "start_with": [
+        "Confirm the person is assigned as a facilitator to the intended class.",
+        "Confirm membership in **RSR - LMS Workers**.",
+        "Inspect security inherited from program to course to class.",
+        "Confirm the internal `People > Learn` page is accessible.",
+        "Distinguish page access from grade access; inspect **View Grades** and **Edit Grades** only when access is needed beyond the facilitator’s automatically granted class permissions."
+      ],
+      "title": "A facilitator cannot open LMS administration pages",
+      "when": "A facilitator cannot open LMS administration pages"
+    },
+    {
+      "do_not_assume": [
+        "Do not mark completion manually until the expected learner and facilitator actions are understood."
+      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-an-activity-is-submitted-but-still-incomplete",
+      "id": "an-activity-is-submitted-but-still-incomplete",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators"
+      ],
+      "start_with": [
+        "Identify the activity type.",
+        "For Video Watch, inspect the configured completion threshold and the learner’s recorded viewing progress.",
+        "For Assessment, determine whether short-answer items await facilitator scoring.",
+        "For File Upload or Point Assessment, check the facilitator’s action-required queue.",
+        "Confirm the class grading system and required activities.",
+        "Do not mark completion manually until the expected learner and facilitator actions are understood. Video Watch Activity, Assessment Activity,"
+      ],
+      "title": "An activity is submitted but still incomplete",
+      "when": "An activity is submitted but still incomplete"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-failed-learner-is-marked-complete",
+      "id": "a-failed-learner-is-marked-complete",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class"
+      ],
+      "start_with": [
+        "Inspect the class grading system.",
+        "Confirm whether it is Pass/Fail or Letter Grade rather than Completion.",
+        "Recognize that the documented LMS behavior can mark the class complete despite failure.",
+        "Determine the organization’s approved retake policy.",
+        "Use only an approved workflow, Lava interface, or administrative reset process.",
+        "Stop before inventing or deploying a reset mechanism without review."
+      ],
+      "title": "A failed learner is marked complete",
+      "when": "A failed learner is marked complete"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Schedule",
-        "Block"
+        "Workflow"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-announcement-or-activity-notification-not-sent",
-      "id": "announcement-or-activity-notification-not-sent",
+      "guide_section_id": "troubleshooting-decision-tree-program-completion-is-not-updating",
+      "id": "program-completion-is-not-updating",
       "inspect": [
         "Schedule",
-        "Block"
+        "Workflow"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes"
       ],
       "start_with": [
-        "Is the announcement configured to send immediately or scheduled?",
-        "Is the learner enrolled?",
-        "Does the learner have email/SMS channels?",
-        "Is the relevant system communication active?",
-        "Was the system communication customized and overwritten during upgrade?",
-        "Are communication transports healthy?",
-        "Is SMS notification supported in the local Rock version?",
-        "Are communication preferences blocking delivery?"
+        "Confirm **Track Program Status** is enabled.",
+        "Inspect the **Update Program Completions** job and its schedule.",
+        "Check the job’s latest run and error state.",
+        "Verify that underlying course and class completion conditions are satisfied.",
+        "Distinguish a delayed background update from missing transactional completion.",
+        "If a program-completion workflow is configured, verify its result separately after the completion record updates. Configure Program,"
       ],
-      "title": "Announcement Or Activity Notification Not Sent",
-      "when": "Announcement Or Activity Notification Not Sent"
+      "title": "Program completion is not updating",
+      "when": "Program completion is not updating"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-learning-notifications-are-delayed-or-absent",
+      "id": "learning-notifications-are-delayed-or-absent",
+      "inspect": [
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example",
+        "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program"
+      ],
+      "start_with": [
+        "Confirm **Send Notification Communications** is enabled on the relevant activity.",
+        "Confirm the program has the intended Activity Available Communication Template.",
+        "Inspect the **Send Learning Activity Notifications** job, schedule, and latest result.",
+        "For immediate Academic Calendar announcements, run the job only with appropriate operational authorization.",
+        "For SMS, verify the **Learning Activity Available** system communication has a From Number.",
+        "Verify recipient communication preferences and actual delivery separately from job success. Academic Calendar Class Workspace Example,"
+      ],
+      "title": "Learning notifications are delayed or absent",
+      "when": "Learning notifications are delayed or absent"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Schedule",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-lms-dashboard-is-slow",
+      "id": "an-lms-dashboard-is-slow",
+      "inspect": [
+        "DataView",
+        "Schedule",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
+      ],
+      "start_with": [
+        "Define the exact metric and reporting period.",
+        "Determine whether the page recomputes historical engagement data on every request.",
+        "Inspect existing Data Views, reports, or persisted datasets before creating duplicates.",
+        "If computation is expensive and some latency is acceptable, evaluate a scheduled persisted dataset.",
+        "Set a refresh cadence and disclose the resulting data freshness.",
+        "Verify job duration, failure handling, and dashboard read performance before calling the issue resolved."
+      ],
+      "title": "An LMS dashboard is slow",
+      "when": "An LMS dashboard is slow"
     }
   ],
   "concept_id": "learning-lms-engagement",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:58+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-learner-cannot-see-a-course",
-    "18-troubleshooting-decision-tree-learner-completed-activity-but-course-did-not-complete",
-    "18-troubleshooting-decision-tree-course-does-not-appear-in-reporting",
-    "18-troubleshooting-decision-tree-completion-workflow-did-not-run",
-    "18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion",
-    "18-troubleshooting-decision-tree-step-badge-not-showing",
-    "18-troubleshooting-decision-tree-announcement-or-activity-notification-not-sent",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-audit-one-lms-program",
-    "19-agent-task-recipes-recipe-find-why-a-person-is-not-complete",
-    "19-agent-task-recipes-recipe-prepare-a-course-for-launch",
-    "19-agent-task-recipes-recipe-build-a-step-journey-from-training",
-    "19-agent-task-recipes-recipe-review-upgrade-risk"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-learner-cannot-find-a-program-or-course",
+    "troubleshooting-decision-tree-a-learner-is-blocked-from-enrollment",
+    "troubleshooting-decision-tree-a-facilitator-cannot-open-lms-administration-pages",
+    "troubleshooting-decision-tree-an-activity-is-submitted-but-still-incomplete",
+    "troubleshooting-decision-tree-a-failed-learner-is-marked-complete",
+    "troubleshooting-decision-tree-program-completion-is-not-updating",
+    "troubleshooting-decision-tree-learning-notifications-are-delayed-or-absent",
+    "troubleshooting-decision-tree-an-lms-dashboard-is-slow",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-create-a-self-paced-volunteer-training-course",
+    "agent-task-recipes-recipe-prepare-an-academic-calendar-class",
+    "agent-task-recipes-recipe-assign-role-specific-staff-training",
+    "agent-task-recipes-recipe-connect-course-completion-to-operational-follow-up",
+    "agent-task-recipes-recipe-roll-out-training-for-a-changed-rock-interface",
+    "agent-task-recipes-recipe-build-a-bounded-lms-completion-report"
   ]
 }

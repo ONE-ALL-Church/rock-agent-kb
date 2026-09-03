@@ -840,44 +840,26 @@
   },
   "approved_media_hash": "8f2dca2725f194742fc54d8fede3d3fd61cf7d8bfe07e99b7528149ea72d3e9e",
   "approved_media_path": "knowledge/concepts/prayer-care/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:51:02+00:00",
   "concept_id": "prayer-care",
-  "guide_hash": "a43af5b64e0d5bd668c0e40cac3c7e09ebbb1d524019ec0d828430d4f7717e70",
-  "guide_line_count": 1313,
+  "guide_hash": "a67ae96f8925655ea54adfc0dde1a78fcab08f256a19f33c80d56cd0e0046635",
+  "guide_line_count": 613,
   "guide_path": "knowledge/concepts/prayer-care/guide.md",
-  "guide_word_count": 12998,
+  "guide_word_count": 6859,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official",
-      "content_hash": "b4c888277a46036e51314c3fa9a222ea9de024a6c8e0820631df5d53970d560f",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "3f5336e3f49de36b736af73cbfa0bfd288e90942f1da486ea460326b0824a6d7",
+      "excerpt_hash": "ec9889a233f3bfdef7d7af5cb8d7d650d33593df4eae2da670d28f896595449d",
       "source_id": "rock_documentation",
-      "source_key": "1780d196a445a3d3",
-      "source_record_id": "rock_documentation:article:1657",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests"
-    },
-    {
-      "authority": "official-model-map",
-      "content_hash": "58287cc40a590f88ee33bf5342e5fa038cd25b053aa452c3d7c502b6dd345d77",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:b00bb6224fbaea6f",
-      "url": "https://community.rockrms.com/ModelMap"
+      "source_key": "dd273fabda509741",
+      "source_record_id": "rock_documentation:article:2012",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/intro-to-prayer"
     },
     {
       "authority": "official",
-      "content_hash": "344050bdd9f9d51121744f323d9a4567bcae67d7e84c0d8622006732539cdc97",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "74b216f95c829de2c3e2b01acb5cafde8e5be5b63bb051cba779a9d919b9ffe3",
+      "excerpt_hash": "9c631a1a56142347ed661b8918af0bb60d010c5a95e84abb4a83efe2cb61e4a2",
       "source_id": "rock_documentation",
       "source_key": "e03e0d658c970664",
       "source_record_id": "rock_documentation:article:1658",
@@ -885,116 +867,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "93cc33690d34ffad51469bfd9fa6d795a4f4d3d31f1a1f448906528bbd3babc5",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "6ccda9ffd1e9bb53",
-      "source_record_id": "rock_documentation:article:1661",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session"
-    },
-    {
-      "authority": "official",
-      "content_hash": "50af460163ea3a265c9b2b524beb32e4de33f492585448cfcd4aa984c1caa6be",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "7f3f0477836f9a2a",
-      "source_record_id": "rock_documentation:article:1663",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block"
-    },
-    {
-      "authority": "official",
-      "content_hash": "3ce4a557914960d8dcb578880aa4ecc34e8604e894cd0db7ab3bba0ea48bfd5e",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "04cd1072d2b71524",
-      "source_record_id": "rock_documentation:article:1664",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest"
-    },
-    {
-      "authority": "official",
-      "content_hash": "ebff1b34e8e635d12f85c1a9b3855303dbc0b6fc7ab306a097b01f067399a259",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "d81043d2af12e3cd",
-      "source_record_id": "rock_documentation:article:2016",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication"
-    },
-    {
-      "authority": "official",
-      "content_hash": "7dd8337085e52010363ad5596a4ee0df7d5f37a97f809b976cb539fb2ca8dae8",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "dca0cc12d02000d3",
-      "source_record_id": "rock_documentation:article:1659",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests"
-    },
-    {
-      "authority": "official",
-      "content_hash": "12e28d609becf14ae985beb88da599824fb3381801b2450a985637d6d94118a3",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "bebcc5fcb7fe3362",
-      "source_record_id": "rock_documentation:article:1660",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests"
-    },
-    {
-      "authority": "official-release",
-      "content_hash": "48e58450fd1e9945dc856fb14050f3e500a26e733a7bc576e41eb0f6141650f0",
-      "excerpt_hash": "32bfeff1643df70ebc1be2607da1c920f229aae3bfc07bd52f49c6569ecc0214",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:be695906ad3e81a9",
-      "url": "https://www.rockrms.com/releasenotes"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "4246beafdb10d9f27550619cc116baf83df756c8ed226510fab54b842bd7e7b3",
-      "excerpt_hash": "8e056f40ab472c000926194b8b7168fdc8f3ee93ea86e0cf04d8314b8fc54252",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9c794cbecae87650",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "817e8954070bec27d8da5d682fc9dd6645e165254936239df7ac8ce338397c79",
-      "excerpt_hash": "b691d5da055a1dc9720e48983c7c6460e2b7323574213520ed9f4ac954d27a57",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "77746a7eabca62dc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "5a5bf3436ce3b4e22de67a0d1c483eada798f906675b8820e7e792cc898caaee",
-      "excerpt_hash": "34599f99291d569039a73391470e42a3a136744f6d839481d704bf62b1994533",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "408370672223cbe6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "45826e08ec4432d70cf5411925af8cadfe1572de51749e1e8f285702356586d3",
-      "excerpt_hash": "3e4fe668c1226a29291d2aff872e972e83ed779ac64f5808ce30c9ab04e8984a",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3e90f319b1b78824",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs"
-    },
-    {
-      "authority": "official",
-      "content_hash": "3422f3e68090b20d699431a3e9b341c65a2d30a745abf8855bd532dc1a2868e4",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "82bb284a14035a4b",
-      "source_record_id": "rock_documentation:article:2013",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-team-roles"
-    },
-    {
-      "authority": "official",
-      "content_hash": "f9973bd9139159228d2e5bb81e759dec93fcb14644e30cb12fb86ef5329c3d30",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "365160360257d16bbfd352c3873fbbc52f9132c20c84c9978b22ed1107a7ad66",
+      "excerpt_hash": "e34c2b0827c4c777705fb79fa804f1ccea27264785630ed40d2873f092209c6f",
       "source_id": "rock_documentation",
       "source_key": "806bf1fb69c09c4e",
       "source_record_id": "rock_documentation:article:2014",
@@ -1002,197 +876,179 @@
     },
     {
       "authority": "official",
-      "content_hash": "ade424c2d19c37a511125143ebb1c4be1f3bfb7eebe882fa3e758c259280d83f",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "b0d4937ab0c3896ba3a11d876a42eeeeb0690082316a59285cf2e7c3aeed495f",
+      "excerpt_hash": "6940ab1237d0204cc179d1813bb0d67347365de858ae0118ec933d6c6820ea0f",
       "source_id": "rock_documentation",
       "source_key": "0f6af45321451642",
       "source_record_id": "rock_documentation:article:2015",
       "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/work-with-flagged-requests"
     },
     {
-      "authority": "community-example",
-      "content_hash": "8321c549e9f27581e5e49fac33826df8003d9be6f836d2b0bad0bd11f6bec4fa",
-      "excerpt_hash": "6fc44b3249efd5940bb599a71a0b6e6de04667a36d1aa0ba41f2d5b91666d618",
-      "source_id": "rock_recipes",
-      "source_key": "5176bb3a22e31553",
-      "source_record_id": "rock_recipes:5176bb3a22e31553",
-      "url": "https://community.rockrms.com/recipes/149"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "3d2da1718e4767024753b766176cc526576719a2d3f980b8df6e7a1e4db14a2e",
-      "excerpt_hash": "2e330f970b32fa0a50afe1c28a962a6ec5ec8e183535e9f30233158f77857e14",
-      "source_id": "rock_recipes",
-      "source_key": "69239abb486b0abc",
-      "source_record_id": "rock_recipes:69239abb486b0abc",
-      "url": "https://community.rockrms.com/recipes/389"
+      "authority": "official",
+      "content_hash": "061aee2d4022bc9bdfc4a828a983ddd9635bfa5d1ef9dc3c64fb32360bb63e43",
+      "excerpt_hash": "10d25b94d718c0fbfe4849b4caaec5f7cc830fbc17f7da15b699b478b0562389",
+      "source_id": "rock_documentation",
+      "source_key": "9a08454fb718c2a8",
+      "source_record_id": "rock_documentation:article:2017",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations"
     },
     {
       "authority": "official",
-      "content_hash": "cc1fd4477be25cfc4bf7cc3766a03c524a30576182046106052c6262a072cb6a",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "6379a9de4efdff22ccc8e11a3d840def3d01ee4ee2581ee3f9b1b1c80112ddac",
+      "excerpt_hash": "4a91965d6179d6787ba5180c9669aafa49171cb8751e141ae1c0735d65b80075",
       "source_id": "rock_documentation",
       "source_key": "67bf41b13dcab2bb",
       "source_record_id": "rock_documentation:article:1514",
       "url": "https://community.rockrms.com/documentation/engagement/prayer"
     },
     {
-      "authority": "official",
-      "content_hash": "e80b067b6177874b2e6201743fbe4fafeb40cc5a761580c241c9378f43989050",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "0a8dbbd6af4b1522",
-      "source_record_id": "rock_documentation:article:2011",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview"
+      "authority": "official-release",
+      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
+      "excerpt_hash": "e57ce6efd8bac5d3161dea97576d11f407e48f93832bc9cd934f3e0d682bcbcb",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:be695906ad3e81a9",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "817e8954070bec27d8da5d682fc9dd6645e165254936239df7ac8ce338397c79",
+      "excerpt_hash": "b691d5da055a1dc9720e48983c7c6460e2b7323574213520ed9f4ac954d27a57",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b0fa1dc66c371394",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts"
     },
     {
       "authority": "official",
-      "content_hash": "5a23babd45db117f976523086845ba431e354079e9808cf646c130043e18a9cf",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "23ded11ecf879c5a0321245bf860f59d81a67cad0ac3fcfdb317f933d82312ca",
+      "excerpt_hash": "c1c822c0c118bc0165969d0f27147e13e381c15746186824993a5480ada18658",
       "source_id": "rock_documentation",
-      "source_key": "5926a33727aa256d",
-      "source_record_id": "rock_documentation:article:1654",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests"
+      "source_key": "bebcc5fcb7fe3362",
+      "source_record_id": "rock_documentation:article:1660",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests"
     },
     {
       "authority": "official",
-      "content_hash": "c70f28e8254c4878586f65431b02a64f85cfbba60e1244e32e55ecc815957130",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "247ea3a7b835707602b7d6fc8aabf467fc82efb6b0319cead6c1b93fa79c69d1",
+      "excerpt_hash": "1c31e3fb5c79d126ba62d539039e30c087290ff43ee5d1b41723ba994f946a86",
       "source_id": "rock_documentation",
-      "source_key": "26ee5d9d4cd899f1",
-      "source_record_id": "rock_documentation:article:1655",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools"
+      "source_key": "1780d196a445a3d3",
+      "source_record_id": "rock_documentation:article:1657",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5a5bf3436ce3b4e22de67a0d1c483eada798f906675b8820e7e792cc898caaee",
+      "excerpt_hash": "bfc50b88958f7f86e52a5d27884c023f80f257bff44280c0b2e7ef8379ed78cb",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a3b11114df9276b4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/People/PrayerRequestAdd.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Workflow/Action/People/PrayerRequestAdd.cs"
     },
     {
       "authority": "official-training",
-      "content_hash": "55b604f68c5c3e14d81b405e24b364f6c4405f504d1f7388be4fa08012cd0d0f",
-      "excerpt_hash": "facdbdfa826cff937b2d64e6a4e0814ee513177826ed163681b4bb1ce78842bd",
+      "content_hash": "5e480440b4987c61624ae4314d610428c41b6237d3cb82463f26c623e143d69e",
+      "excerpt_hash": "32626ed906192a5ee83395d6a07c753d68b729e1ce38961d57635b37973bec78",
       "source_id": "rock_rocku",
-      "source_key": "8f42746b6ac656d0",
-      "source_record_id": "rock_rocku:8f42746b6ac656d0",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests"
+      "source_key": "78f1e8bbd9d351ff",
+      "source_record_id": "media-insight:f131f156d62b7d38",
+      "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
     },
     {
       "authority": "source-code",
-      "content_hash": "76962638d7dabd7753fa6c548e968ae73e302081926454b4e5fde2f39282fba0",
-      "excerpt_hash": "c1729c14f3a37ca61aa9bf28b7475558d4b267990cee8c8dc47cdb176bbc2032",
+      "content_hash": "4c8a794636db3880beb75cca06546a3f91d5f450583088d06a4b1b89cf5f742c",
+      "excerpt_hash": "a3b04e0520b5ff20ff85f8a02b2a0bb926a3e94511ab266e1aca10651e6f5fbc",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "61f4d790251721fb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts"
+      "source_key": "ba5523a14236751d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/RapidAttendanceEntry/RapidAttendanceEntryPrayerRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/RapidAttendanceEntry/RapidAttendanceEntryPrayerRequestBag.cs"
+    },
+    {
+      "authority": "official",
+      "content_hash": "9e0753ab13343f472d01e2df299ff2c282e5ce3032fdfcce2fc1d3a4c4da3aa2",
+      "excerpt_hash": "f8849a8f1a0bd700d83fc8e36d901a81c9136825b920e962d9c8e3d9499adc05",
+      "source_id": "rock_documentation",
+      "source_key": "7f3f0477836f9a2a",
+      "source_record_id": "rock_documentation:article:1663",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block"
     },
     {
       "authority": "source-code",
-      "content_hash": "81b9d485a2aa9da6cc81f913aa29fe00d5f32028276c941a71014a62506e7410",
-      "excerpt_hash": "88904a626b5909596d596d7645e3314addcc33a404f4adfbb34438b7dc5fbb83",
+      "content_hash": "472c2a95a888a5c35738ec056b4e2a7ba9edd824f70084c100edc93e0f452360",
+      "excerpt_hash": "137a9c7535113a888a9ea5fd4dba37c5c57ee4683a8499def294e6228a31086a",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "012717bf57d384de",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "6b4f8c04c68792eec1fe44f1a77492a362de9e6971cc5f82cd52196d1cb91289",
-      "excerpt_hash": "eedf8e85eee0533c104c03e45bba38d13dc5b6b52f66395149a1f8dd00fc514a",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0c2dc7e7b6c43cfa",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "b22119651724e815ffa40b1ba8f34103ec547cf8e66b6f70417574b9e35a2807",
-      "excerpt_hash": "c4fb63a36d6517e73065a8ae90fe408968c45700844c3c1ec0c7888e609023c8",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c49b03ddb2d51b39",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntrySaveRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntrySaveRequestBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "cce056f875bed468389dc892fdb88557f06abe0d96997a4b18c041e4ef5fef09",
-      "excerpt_hash": "9ae3d69ce7b2044042d20fba840f5fc0c483a5846c56ddf0ba4e2e15b8a5639b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e9401688b07af769",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailOptionsBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailOptionsBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "78e1290c4a2a1490a9eede76f8ecead801a7447b1dd1e3a263fae94602d03351",
-      "excerpt_hash": "53b452725a4adf0fadfe57bbcc926d96f793eb3ef17b2bd74acb45a36b8dd2de",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "026b94274cbd15aa",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8566045507ebd4e450cdbd14deff44acc26aa19286afa6c8747e58028fb182e9",
-      "excerpt_hash": "de44b808926c14a1f64422aa835d2b17ecd87c3adc6ee4372f5a0eb6fd9627f7",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3863af672865d6b7",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "6f84a3b1a1b58e1edc676415a381d54ac444bbfba205d48f15c4b2782a78f7dd",
-      "excerpt_hash": "b05592618743ff5cabfe2a1385f18decf17ee6e20d45daf1dbdeb5cd9a224b05",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "bf8df40cac908163",
+      "source_key": "16f88d55fa067953",
       "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts"
     },
     {
-      "authority": "source-code",
-      "content_hash": "db92f027ca41128ecebf869e15d311c4ff04ea87a763598c8d8bc175064b5d25",
-      "excerpt_hash": "4cb3711dd0ed74c0af7081372a00202089b4816379334e4a60c529fc87e1cec0",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c7e4c23eeac95081",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs"
+      "authority": "official",
+      "content_hash": "3c35ce871571f6ab81c6060fb7a7da1492d8f1a8ef048472c5fdbc17f4ca9bf1",
+      "excerpt_hash": "c19ee55c0e4205520ca03c13c4b0a24943441d6b0fefc469e06096a9636de535",
+      "source_id": "rock_documentation",
+      "source_key": "82bb284a14035a4b",
+      "source_record_id": "rock_documentation:article:2013",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-team-roles"
     },
     {
-      "authority": "source-code",
-      "content_hash": "9a5d2c2167c6ef4ecadeb857133d8d3316af715d51c000ccce984aee6c9c7e38",
-      "excerpt_hash": "033665246da0cb2c50f5e4a7d9af736233f65af133c4c56710e11178d916b344",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d128627e6e0deeb8",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs"
+      "authority": "official",
+      "content_hash": "37481db82cdad6a90b263412dec36efe0c4ee7d5c41df5fa1bdf951587d05ef8",
+      "excerpt_hash": "591f2eb82f6492ef891bc3b492b442a2536bf72ffa7725e361c393d12f66f67f",
+      "source_id": "rock_documentation",
+      "source_key": "6ccda9ffd1e9bb53",
+      "source_record_id": "rock_documentation:article:1661",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session"
     },
     {
-      "authority": "source-code",
-      "content_hash": "6de410eacfcd62b478960358dd979cdb76a1f41aed02e91ef2698c1ee4840028",
-      "excerpt_hash": "3a0a2d6567ca224ecd8bed9bc463bc3c3642fd575bdb7c8ad76d671e0c8b209b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "408de0ac79d04ef1",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/095_PrayerRequestCommentsNotificationEmailTemplate.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/095_PrayerRequestCommentsNotificationEmailTemplate.cs"
+      "authority": "official",
+      "content_hash": "95c5b22ae0ef9059d6c81e412739050779cce3fb67866c635c5f024f977221aa",
+      "excerpt_hash": "90594f82ad9bb09731fe993cef8f609b8e1afd152fc172908881ba29cadddc2d",
+      "source_id": "rock_documentation",
+      "source_key": "dca0cc12d02000d3",
+      "source_record_id": "rock_documentation:article:1659",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests"
+    },
+    {
+      "authority": "official",
+      "content_hash": "0827e49e018743e985e8ba95094ce2cb535cf74c6448bf1283676e5f06171220",
+      "excerpt_hash": "00d0407d1c98baee6da43c9cc22e476df7fa289dabd16283a3713cf774440b01",
+      "source_id": "rock_documentation",
+      "source_key": "04cd1072d2b71524",
+      "source_record_id": "rock_documentation:article:1664",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest"
+    },
+    {
+      "authority": "official",
+      "content_hash": "6d31dd2e9f5ddeda7e43d93fd5947783f9d60a649a669db6b03dbca3cd5760cf",
+      "excerpt_hash": "b9789d2c65b1a255611d9b51e6b32beff1d6ddba9c4f20580697f2c22ee087c6",
+      "source_id": "rock_documentation",
+      "source_key": "d81043d2af12e3cd",
+      "source_record_id": "rock_documentation:article:2016",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "7c909385e47e3657c98bce09315537cb7bcafea7e46b72ac1533850360e34b9f",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
+      "source_key": "a56a73c5681795bd",
+      "source_record_id": "media-insight:de21ecd38cde9a0c",
+      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "ff98f415d2c59c8c3ec51d431886f7914e2890985a9ce349ccc9cf6d2612db73",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
+      "source_key": "1c59cd336e8baae0",
+      "source_record_id": "media-insight:4eb69bc5dde5cacb",
+      "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
     },
     {
       "authority": "community-example",
-      "content_hash": "ab1104312b1546b78f5132bfafb8fa3c2243c444b30d1f135c95ce1bc6142c83",
-      "excerpt_hash": "359108b1c70550c17f33e972f639fe8b4663479ad8f0fd8009782d9fbe8f1b6f",
-      "source_id": "rock_recipes",
-      "source_key": "18ca1ca102f2f24a",
-      "source_record_id": "rock_recipes:18ca1ca102f2f24a",
-      "url": "https://community.rockrms.com/recipes/350"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "d4c0e034c237c640f1cb2550e877b54032e8a2539b83d8216f6a627e1d19b660",
-      "excerpt_hash": "e5ba718501735f3bcf5c60c94992fada006e6bd8f6ea34d46eac67ccbe843506",
-      "source_id": "rock_recipes",
-      "source_key": "1ad82289cb57a24a",
-      "source_record_id": "rock_recipes:1ad82289cb57a24a",
-      "url": "https://community.rockrms.com/recipes/135"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "cccea96d2e1f86bd37eca194559ae6469f90cbe90e4b511f223071deb67dd09e",
-      "excerpt_hash": "8123d9182ceec9e1d9bb62734d8f71b10cb5785b8fd98e20afdb0c8abf24faca",
+      "content_hash": "9999bf4450995b71222c92efa2b7c4831beffc67593196f084c07b791f4e150a",
+      "excerpt_hash": "c8349bed93aec0dc1e886ee0bdfe11506cfc094ba2e63c959e2207ae3e42b97b",
       "source_id": "rock_recipes",
       "source_key": "9a37f70b2e2f8ef1",
       "source_record_id": "rock_recipes:9a37f70b2e2f8ef1",
@@ -1200,8 +1056,44 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "bbdf34828a1f84abbfa5fd3878eb4caa3d4a88121495e854d482ad9219dc4432",
-      "excerpt_hash": "47b39bd67b7089d2b2a0534a3571f6759570428e30c47cef73cc4abe68abfa9f",
+      "content_hash": "01d45f6e44e502186d4c1e899f22186288d3b4953e5e284ef4bd688ecd8b520b",
+      "excerpt_hash": "e06e09b0076c96fd3e8a0835c6c826c46227ec6beabf2dda85373dfce6ddc1e3",
+      "source_id": "rock_recipes",
+      "source_key": "18ca1ca102f2f24a",
+      "source_record_id": "rock_recipes:18ca1ca102f2f24a",
+      "url": "https://community.rockrms.com/recipes/350"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "634824b92bbcb11d24c8226c40d3d027a919a738f62163b6007ab460358d5dda",
+      "excerpt_hash": "43c49f74b1155145889b75a76460a2c047afbfd27748b848714e2604524f8463",
+      "source_id": "rock_recipes",
+      "source_key": "69239abb486b0abc",
+      "source_record_id": "rock_recipes:69239abb486b0abc",
+      "url": "https://community.rockrms.com/recipes/389"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "c99e55f5a9b48e1ddf76d1e5331a55063572a99e968731d707c42a5018a4f03e",
+      "excerpt_hash": "db8e390f20e51ccb6c7dbd9a9bd827433c933bfd61f284a9cf922a22600ffdac",
+      "source_id": "rock_recipes",
+      "source_key": "1ad82289cb57a24a",
+      "source_record_id": "rock_recipes:1ad82289cb57a24a",
+      "url": "https://community.rockrms.com/recipes/135"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "adc1a1ac9f2e67d385354c51103b577b518a7bb253c8a0be8670888aec7c784e",
+      "excerpt_hash": "60962eb5477abd49bd0e0417ea7ebb934145a52751bcfdc195f7c6911092d853",
+      "source_id": "rock_recipes",
+      "source_key": "5176bb3a22e31553",
+      "source_record_id": "rock_recipes:5176bb3a22e31553",
+      "url": "https://community.rockrms.com/recipes/149"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "6bf7c738ad984dbd002a41044bde998890fe51ea6e43bb6dde44f9481a44cd89",
+      "excerpt_hash": "94d72338839eeec52a542c806c56eb9b683f2f1d906a0e254ce911b553d157ae",
       "source_id": "rock_recipes",
       "source_key": "43aae083fd42dd39",
       "source_record_id": "rock_recipes:43aae083fd42dd39",
@@ -1209,1450 +1101,599 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "b83dd18ec8eab803f6ed1f93613a67296becbbff8f5b1432b9f421672abe8c8b",
-      "excerpt_hash": "3fef45f403143e17fe44cf321ffcc48424223672ad1a34818db7e86d3206cf64",
+      "content_hash": "ef3d7b0a5658a24efb79e76e7e14e4891d235084d1dde4acb2d77a0c968c9527",
+      "excerpt_hash": "7b073ce4c644790b9467c33699af4a2455b299114c0a58275dcf83925c871b5a",
       "source_id": "rock_recipes",
       "source_key": "203d8419de12fbbc",
       "source_record_id": "rock_recipes:203d8419de12fbbc",
       "url": "https://community.rockrms.com/recipes/121"
     },
     {
-      "authority": "official",
-      "content_hash": "f7007e68fba02ef2d2579567d6b9c1ac1fcec67e082321143409d9deaa69eeb2",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "9a08454fb718c2a8",
-      "source_record_id": "rock_documentation:article:2017",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations"
+      "authority": "community-example",
+      "content_hash": "d302878566ed6467f529ac7182fb6d02a34a381e2b6bb931076eb2d695b6630c",
+      "excerpt_hash": "e57c866ff7cc1679ee70062ee9a420ad1b10d351a5d99ca8ce75bad9988e4d4c",
+      "source_id": "rock_recipes",
+      "source_key": "5d3d45f478fde26f",
+      "source_record_id": "rock_recipes:5d3d45f478fde26f",
+      "url": "https://community.rockrms.com/recipes/72"
     },
     {
       "authority": "official-training",
-      "content_hash": "b615c22d6ecd5e833b8455d2550c06fc38219a1a8dff0ee8ba03ec1b19128fa9",
-      "excerpt_hash": "c568eef02ddef085355da44dab54034255af49a1aee58c6aca39eef78cfd9bb9",
+      "content_hash": "dc7cebd2d1e7ae5a1ebaf7507402324d40b2fc06cbf41afcaad8eca275697a2d",
+      "excerpt_hash": "ce5fc9d113504451d91661feb863393dbd60aa2bd4bbd4d362e4da7ef4073f88",
       "source_id": "rock_rocku",
-      "source_key": "cd4325ef232d11ad",
-      "source_record_id": "rock_rocku:cd4325ef232d11ad",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "aaa5dc232c91a944ccf2d1e9ce9e19bc9c4997348c9130efc73d30b210eb6009",
-      "excerpt_hash": "ddb3c5022542b7feca90ac44a746b06ff7629fb2f0cedfb7269066003fda1234",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "94b7e32cdeffdd7b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "de087d3bb047fce6",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "a56a73c5681795bd",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "f74f71f655f35974b261ba9befb06f409364e1df32ce4e2643ec0544789348e1",
-      "excerpt_hash": "851587aa4bf2f3a0744390f297f314688dd3e82105b850243984002ebd717c55",
-      "source_id": "rock_rocku",
-      "source_key": "78f1e8bbd9d351ff",
-      "source_record_id": "media-insight:f131f156d62b7d38",
-      "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "1c59cd336e8baae0",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
-    },
-    {
-      "authority": "official",
-      "content_hash": "289a4448cd8dfc88f8d894843f998eb556b826263b15ff24284e26490acf9d97",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "source_id": "rock_documentation",
-      "source_key": "7dc5e618afae727e",
-      "source_record_id": "rock_documentation:article:2012",
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/about-prayer-in-rock"
+      "source_key": "35eac45913be1c06",
+      "source_record_id": "rock_rocku:35eac45913be1c06",
+      "url": "https://community.rockrms.com/rocku/prayer/prayer-requests"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
+      "confidence": "normal",
+      "end_line": 33,
+      "heading": "Agent Summary",
+      "needs_live_verification": false,
+      "section_id": "agent-summary",
       "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
-      "confidence": "high",
-      "end_line": 46,
-      "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
-      "source_keys": [
-        "1780d196a445a3d3",
-        "bce31f25cb8a199e",
+        "dd273fabda509741",
         "e03e0d658c970664",
-        "6ccda9ffd1e9bb53",
-        "7f3f0477836f9a2a",
-        "04cd1072d2b71524",
-        "d81043d2af12e3cd",
-        "dca0cc12d02000d3",
-        "bebcc5fcb7fe3362",
-        "776256c424368312"
-      ],
-      "start_line": 29
-    },
-    {
-      "confidence": "high",
-      "end_line": 75,
-      "heading": "2. Scope And Terminology",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology",
-      "source_keys": [
-        "9c794cbecae87650",
-        "77746a7eabca62dc",
-        "408370672223cbe6",
-        "3e90f319b1b78824",
-        "82bb284a14035a4b",
-        "82bb284a14035a4b",
         "806bf1fb69c09c4e",
         "0f6af45321451642",
-        "7f3f0477836f9a2a",
-        "5176bb3a22e31553",
-        "04cd1072d2b71524",
-        "69239abb486b0abc",
-        "bebcc5fcb7fe3362"
+        "9a08454fb718c2a8"
       ],
-      "start_line": 47
-    },
-    {
-      "confidence": "normal",
-      "end_line": 89,
-      "heading": "3. Prayer And Care Mental Model",
-      "needs_live_verification": true,
-      "section_id": "3-prayer-and-care-mental-model",
-      "source_keys": [
-        "1780d196a445a3d3",
-        "0f6af45321451642",
-        "6ccda9ffd1e9bb53",
-        "7f3f0477836f9a2a"
-      ],
-      "start_line": 76
+      "start_line": 18
     },
     {
       "confidence": "high",
-      "end_line": 102,
-      "heading": "4. Source Authority And How To Use This Guide",
-      "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "end_line": 51,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": false,
+      "section_id": "scope-and-boundaries",
       "source_keys": [
         "67bf41b13dcab2bb",
-        "0a8dbbd6af4b1522",
-        "5926a33727aa256d",
-        "26ee5d9d4cd899f1",
-        "8f42746b6ac656d0",
-        "776256c424368312",
-        "bce31f25cb8a199e"
+        "776256c424368312"
       ],
-      "start_line": 90
-    },
-    {
-      "confidence": "structural",
-      "end_line": 104,
-      "heading": "5. Core Configuration And Data Model",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
-      "source_keys": [
-        "1780d196a445a3d3",
-        "61f4d790251721fb",
-        "012717bf57d384de",
-        "776256c424368312",
-        "0c2dc7e7b6c43cfa",
-        "c49b03ddb2d51b39",
-        "9c794cbecae87650",
-        "77746a7eabca62dc",
-        "e9401688b07af769",
-        "026b94274cbd15aa",
-        "e03e0d658c970664",
-        "3863af672865d6b7",
-        "bf8df40cac908163",
-        "806bf1fb69c09c4e",
-        "c7e4c23eeac95081",
-        "6ccda9ffd1e9bb53"
-      ],
-      "start_line": 103
+      "start_line": 34
     },
     {
       "confidence": "high",
-      "end_line": 153,
-      "heading": "Prayer Request Entry Configuration",
+      "end_line": 67,
+      "heading": "Mental Model",
+      "needs_live_verification": false,
+      "section_id": "mental-model",
+      "source_keys": [
+        "b0fa1dc66c371394",
+        "806bf1fb69c09c4e",
+        "bebcc5fcb7fe3362"
+      ],
+      "start_line": 52
+    },
+    {
+      "confidence": "high",
+      "end_line": 94,
+      "heading": "Prayer Request Intake And Lifecycle",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-prayer-request-entry-configuration",
+      "section_id": "prayer-request-intake-and-lifecycle",
       "source_keys": [
         "1780d196a445a3d3",
-        "61f4d790251721fb",
-        "012717bf57d384de",
-        "776256c424368312",
-        "0c2dc7e7b6c43cfa",
-        "c49b03ddb2d51b39"
+        "1780d196a445a3d3",
+        "a3b11114df9276b4",
+        "78f1e8bbd9d351ff",
+        "ba5523a14236751d"
       ],
-      "start_line": 105
+      "start_line": 68
+    },
+    {
+      "confidence": "high",
+      "end_line": 110,
+      "heading": "Categories, Visibility, And Page Security",
+      "needs_live_verification": true,
+      "section_id": "categories-visibility-and-page-security",
+      "source_keys": [
+        "806bf1fb69c09c4e",
+        "806bf1fb69c09c4e",
+        "7f3f0477836f9a2a",
+        "16f88d55fa067953"
+      ],
+      "start_line": 95
     },
     {
       "confidence": "normal",
-      "end_line": 195,
-      "heading": "Prayer Request Detail Configuration",
+      "end_line": 127,
+      "heading": "Teams, Approval, And Human Moderation",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-prayer-request-detail-configuration",
+      "section_id": "teams-approval-and-human-moderation",
       "source_keys": [
-        "9c794cbecae87650",
-        "77746a7eabca62dc",
-        "e9401688b07af769",
-        "026b94274cbd15aa",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312"
-      ],
-      "start_line": 154
-    },
-    {
-      "confidence": "high",
-      "end_line": 208,
-      "heading": "Prayer Request List Configuration",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-prayer-request-list-configuration",
-      "source_keys": [
+        "82bb284a14035a4b",
         "e03e0d658c970664",
-        "3863af672865d6b7",
-        "bf8df40cac908163",
-        "776256c424368312"
+        "e03e0d658c970664",
+        "6ccda9ffd1e9bb53",
+        "0f6af45321451642",
+        "0f6af45321451642"
       ],
-      "start_line": 196
+      "start_line": 111
     },
     {
-      "confidence": "high",
-      "end_line": 225,
-      "heading": "Categories",
+      "confidence": "normal",
+      "end_line": 141,
+      "heading": "AI-Assisted Processing And Moderation",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-categories",
+      "section_id": "ai-assisted-processing-and-moderation",
       "source_keys": [
-        "806bf1fb69c09c4e",
-        "c7e4c23eeac95081"
+        "9a08454fb718c2a8",
+        "9a08454fb718c2a8",
+        "9a08454fb718c2a8",
+        "9a08454fb718c2a8",
+        "9a08454fb718c2a8",
+        "e03e0d658c970664"
+      ],
+      "start_line": 128
+    },
+    {
+      "confidence": "normal",
+      "end_line": 158,
+      "heading": "Prayer Sessions And Prayer Card View",
+      "needs_live_verification": true,
+      "section_id": "prayer-sessions-and-prayer-card-view",
+      "source_keys": [
+        "6ccda9ffd1e9bb53",
+        "6ccda9ffd1e9bb53",
+        "7f3f0477836f9a2a",
+        "7f3f0477836f9a2a",
+        "7f3f0477836f9a2a"
+      ],
+      "start_line": 142
+    },
+    {
+      "confidence": "normal",
+      "end_line": 173,
+      "heading": "Group-Specific Prayer Requests",
+      "needs_live_verification": true,
+      "section_id": "group-specific-prayer-requests",
+      "source_keys": [
+        "dca0cc12d02000d3",
+        "dca0cc12d02000d3",
+        "bebcc5fcb7fe3362"
+      ],
+      "start_line": 159
+    },
+    {
+      "confidence": "normal",
+      "end_line": 191,
+      "heading": "Comments, Communications, And Follow-Up",
+      "needs_live_verification": true,
+      "section_id": "comments-communications-and-follow-up",
+      "source_keys": [
+        "04cd1072d2b71524",
+        "d81043d2af12e3cd",
+        "04cd1072d2b71524",
+        "1780d196a445a3d3",
+        "e03e0d658c970664"
+      ],
+      "start_line": 174
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 208,
+      "heading": "Outreach Toolbox And Scheduled Care Touchpoints",
+      "needs_live_verification": false,
+      "section_id": "outreach-toolbox-and-scheduled-care-touchpoints",
+      "source_keys": [
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0",
+        "a56a73c5681795bd",
+        "a56a73c5681795bd"
+      ],
+      "start_line": 192
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 221,
+      "heading": "Community Implementation Patterns",
+      "needs_live_verification": false,
+      "section_id": "community-implementation-patterns",
+      "source_keys": [
+        "9a37f70b2e2f8ef1",
+        "18ca1ca102f2f24a",
+        "69239abb486b0abc",
+        "1ad82289cb57a24a",
+        "5176bb3a22e31553",
+        "43aae083fd42dd39",
+        "203d8419de12fbbc",
+        "5d3d45f478fde26f"
       ],
       "start_line": 209
     },
     {
       "confidence": "high",
       "end_line": 239,
-      "heading": "Approval, Visibility, Expiration, And Activity",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-approval-visibility-expiration-and-activity",
+      "heading": "Version And Authority Caveats",
+      "needs_live_verification": false,
+      "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "9c794cbecae87650",
-        "6ccda9ffd1e9bb53"
+        "67bf41b13dcab2bb",
+        "776256c424368312"
       ],
-      "start_line": 226
+      "start_line": 222
     },
     {
       "confidence": "structural",
       "end_line": 241,
-      "heading": "6. Primary Entities And Relationships",
+      "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships",
+      "section_id": "troubleshooting-decision-tree",
       "source_keys": [
-        "3e90f319b1b78824",
-        "408370672223cbe6",
-        "d81043d2af12e3cd",
-        "c7e4c23eeac95081",
-        "806bf1fb69c09c4e",
-        "61f4d790251721fb",
-        "776256c424368312",
-        "dca0cc12d02000d3",
-        "bebcc5fcb7fe3362",
-        "9c794cbecae87650",
-        "d128627e6e0deeb8",
         "e03e0d658c970664",
+        "7f3f0477836f9a2a",
+        "bebcc5fcb7fe3362",
+        "806bf1fb69c09c4e",
+        "9a08454fb718c2a8",
+        "0f6af45321451642",
+        "6ccda9ffd1e9bb53",
         "04cd1072d2b71524",
-        "408de0ac79d04ef1",
-        "18ca1ca102f2f24a",
-        "69239abb486b0abc",
-        "1ad82289cb57a24a"
+        "d81043d2af12e3cd",
+        "dca0cc12d02000d3",
+        "a56a73c5681795bd"
       ],
       "start_line": 240
     },
     {
-      "confidence": "high",
-      "end_line": 252,
-      "heading": "Prayer Request To Person",
+      "confidence": "normal",
+      "end_line": 255,
+      "heading": "A submitted request does not appear for the prayer team",
       "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-person",
+      "section_id": "troubleshooting-decision-tree-a-submitted-request-does-not-appear-for-the-prayer-team",
       "source_keys": [
-        "3e90f319b1b78824",
-        "408370672223cbe6",
-        "d81043d2af12e3cd"
+        "e03e0d658c970664",
+        "7f3f0477836f9a2a",
+        "bebcc5fcb7fe3362"
       ],
       "start_line": 242
     },
     {
-      "confidence": "high",
-      "end_line": 258,
-      "heading": "Prayer Request To Category",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-category",
-      "source_keys": [
-        "c7e4c23eeac95081",
-        "806bf1fb69c09c4e"
-      ],
-      "start_line": 253
-    },
-    {
       "confidence": "normal",
-      "end_line": 270,
-      "heading": "Prayer Request To Campus",
+      "end_line": 268,
+      "heading": "A sensitive request is still visible",
       "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-campus",
+      "section_id": "troubleshooting-decision-tree-a-sensitive-request-is-still-visible",
       "source_keys": [
-        "61f4d790251721fb",
-        "776256c424368312"
+        "806bf1fb69c09c4e",
+        "9a08454fb718c2a8",
+        "0f6af45321451642"
       ],
-      "start_line": 259
+      "start_line": 256
     },
     {
-      "confidence": "high",
-      "end_line": 282,
-      "heading": "Prayer Request To Group",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-group",
-      "source_keys": [
-        "dca0cc12d02000d3",
-        "bebcc5fcb7fe3362",
-        "9c794cbecae87650",
-        "d128627e6e0deeb8"
-      ],
-      "start_line": 271
-    },
-    {
-      "confidence": "high",
-      "end_line": 290,
-      "heading": "Prayer Request To Comments And Notes",
+      "confidence": "normal",
+      "end_line": 279,
+      "heading": "Prayer-team members cannot add comments",
       "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-comments-and-notes",
+      "section_id": "troubleshooting-decision-tree-prayer-team-members-cannot-add-comments",
       "source_keys": [
-        "e03e0d658c970664",
-        "04cd1072d2b71524",
-        "408de0ac79d04ef1",
-        "18ca1ca102f2f24a"
-      ],
-      "start_line": 283
-    },
-    {
-      "confidence": "normal",
-      "end_line": 301,
-      "heading": "Prayer Request To Answer",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-answer",
-      "source_keys": [
-        "9c794cbecae87650",
-        "69239abb486b0abc"
-      ],
-      "start_line": 291
-    },
-    {
-      "confidence": "normal",
-      "end_line": 307,
-      "heading": "Prayer Request To Workflow",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-prayer-request-to-workflow",
-      "source_keys": [
-        "408370672223cbe6",
-        "1ad82289cb57a24a"
-      ],
-      "start_line": 302
-    },
-    {
-      "confidence": "structural",
-      "end_line": 309,
-      "heading": "7. Common Prayer And Care Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-prayer-and-care-workflows",
-      "source_keys": [
-        "1780d196a445a3d3",
-        "e03e0d658c970664",
         "6ccda9ffd1e9bb53",
-        "7f3f0477836f9a2a",
-        "18ca1ca102f2f24a",
-        "69239abb486b0abc",
-        "dca0cc12d02000d3",
-        "bebcc5fcb7fe3362",
-        "04cd1072d2b71524",
-        "d81043d2af12e3cd",
-        "9a37f70b2e2f8ef1",
-        "1ad82289cb57a24a",
-        "5176bb3a22e31553",
-        "43aae083fd42dd39",
-        "203d8419de12fbbc"
-      ],
-      "start_line": 308
-    },
-    {
-      "confidence": "normal",
-      "end_line": 322,
-      "heading": "Public Website Prayer Intake",
-      "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-public-website-prayer-intake",
-      "source_keys": [
-        "1780d196a445a3d3"
-      ],
-      "start_line": 310
-    },
-    {
-      "confidence": "normal",
-      "end_line": 334,
-      "heading": "Internal Staff Entry",
-      "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-internal-staff-entry",
-      "source_keys": [
-        "1780d196a445a3d3"
-      ],
-      "start_line": 323
-    },
-    {
-      "confidence": "normal",
-      "end_line": 350,
-      "heading": "Administrative Review",
-      "needs_live_verification": false,
-      "section_id": "7-common-prayer-and-care-workflows-administrative-review",
-      "source_keys": [
         "e03e0d658c970664"
       ],
-      "start_line": 335
+      "start_line": 269
     },
     {
       "confidence": "normal",
-      "end_line": 362,
-      "heading": "Prayer Session",
-      "needs_live_verification": false,
-      "section_id": "7-common-prayer-and-care-workflows-prayer-session",
-      "source_keys": [
-        "6ccda9ffd1e9bb53"
-      ],
-      "start_line": 351
-    },
-    {
-      "confidence": "normal",
-      "end_line": 374,
-      "heading": "Prayer Card View",
+      "end_line": 292,
+      "heading": "Prayer-comment digests are not being delivered",
       "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-prayer-card-view",
+      "section_id": "troubleshooting-decision-tree-prayer-comment-digests-are-not-being-delivered",
       "source_keys": [
-        "7f3f0477836f9a2a",
-        "18ca1ca102f2f24a",
-        "69239abb486b0abc"
+        "04cd1072d2b71524",
+        "d81043d2af12e3cd"
       ],
-      "start_line": 363
+      "start_line": 280
     },
     {
       "confidence": "normal",
-      "end_line": 388,
-      "heading": "Group Prayer Requests",
+      "end_line": 304,
+      "heading": "A group prayer page is empty or shows the wrong scope",
       "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-group-prayer-requests",
+      "section_id": "troubleshooting-decision-tree-a-group-prayer-page-is-empty-or-shows-the-wrong-scope",
       "source_keys": [
         "dca0cc12d02000d3",
         "bebcc5fcb7fe3362"
       ],
-      "start_line": 375
+      "start_line": 293
     },
     {
       "confidence": "normal",
-      "end_line": 404,
-      "heading": "Prayer Comments Digest",
-      "needs_live_verification": false,
-      "section_id": "7-common-prayer-and-care-workflows-prayer-comments-digest",
-      "source_keys": [
-        "04cd1072d2b71524",
-        "d81043d2af12e3cd"
-      ],
-      "start_line": 389
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 418,
-      "heading": "Urgent Prayer Email",
+      "end_line": 317,
+      "heading": "AI processing is inconsistent across categories",
       "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-urgent-prayer-email",
+      "section_id": "troubleshooting-decision-tree-ai-processing-is-inconsistent-across-categories",
       "source_keys": [
-        "9a37f70b2e2f8ef1"
+        "9a08454fb718c2a8"
       ],
-      "start_line": 405
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 432,
-      "heading": "SMS Prayer Request Capture",
-      "needs_live_verification": false,
-      "section_id": "7-common-prayer-and-care-workflows-sms-prayer-request-capture",
-      "source_keys": [
-        "1ad82289cb57a24a"
-      ],
-      "start_line": 419
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 448,
-      "heading": "Prayer Wall",
-      "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-prayer-wall",
-      "source_keys": [
-        "5176bb3a22e31553"
-      ],
-      "start_line": 433
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 461,
-      "heading": "Live Prayer Chat",
-      "needs_live_verification": false,
-      "section_id": "7-common-prayer-and-care-workflows-live-prayer-chat",
-      "source_keys": [
-        "43aae083fd42dd39"
-      ],
-      "start_line": 449
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 467,
-      "heading": "Pastoral Care Summary",
-      "needs_live_verification": true,
-      "section_id": "7-common-prayer-and-care-workflows-pastoral-care-summary",
-      "source_keys": [
-        "203d8419de12fbbc"
-      ],
-      "start_line": 462
-    },
-    {
-      "confidence": "structural",
-      "end_line": 469,
-      "heading": "8. Prayer Requests Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "8-prayer-requests-deep-dive",
-      "source_keys": [
-        "0c2dc7e7b6c43cfa",
-        "9c794cbecae87650",
-        "9a08454fb718c2a8",
-        "776256c424368312",
-        "e03e0d658c970664",
-        "3863af672865d6b7",
-        "61f4d790251721fb",
-        "6ccda9ffd1e9bb53",
-        "d128627e6e0deeb8",
-        "012717bf57d384de"
-      ],
-      "start_line": 468
-    },
-    {
-      "confidence": "normal",
-      "end_line": 494,
-      "heading": "Intake Fields",
-      "needs_live_verification": false,
-      "section_id": "8-prayer-requests-deep-dive-intake-fields",
-      "source_keys": [
-        "0c2dc7e7b6c43cfa",
-        "9c794cbecae87650"
-      ],
-      "start_line": 470
-    },
-    {
-      "confidence": "high",
-      "end_line": 509,
-      "heading": "Text Handling",
-      "needs_live_verification": true,
-      "section_id": "8-prayer-requests-deep-dive-text-handling",
-      "source_keys": [
-        "9a08454fb718c2a8",
-        "776256c424368312"
-      ],
-      "start_line": 495
-    },
-    {
-      "confidence": "high",
-      "end_line": 522,
-      "heading": "Approval",
-      "needs_live_verification": true,
-      "section_id": "8-prayer-requests-deep-dive-approval",
-      "source_keys": [
-        "e03e0d658c970664",
-        "3863af672865d6b7",
-        "776256c424368312"
-      ],
-      "start_line": 510
-    },
-    {
-      "confidence": "normal",
-      "end_line": 535,
-      "heading": "Public And Private Requests",
-      "needs_live_verification": false,
-      "section_id": "8-prayer-requests-deep-dive-public-and-private-requests",
-      "source_keys": [
-        "61f4d790251721fb",
-        "0c2dc7e7b6c43cfa"
-      ],
-      "start_line": 523
-    },
-    {
-      "confidence": "high",
-      "end_line": 547,
-      "heading": "Urgent Requests",
-      "needs_live_verification": false,
-      "section_id": "8-prayer-requests-deep-dive-urgent-requests",
-      "source_keys": [
-        "6ccda9ffd1e9bb53",
-        "776256c424368312"
-      ],
-      "start_line": 536
-    },
-    {
-      "confidence": "normal",
-      "end_line": 560,
-      "heading": "Expiration",
-      "needs_live_verification": true,
-      "section_id": "8-prayer-requests-deep-dive-expiration",
-      "source_keys": [
-        "9c794cbecae87650",
-        "d128627e6e0deeb8"
-      ],
-      "start_line": 548
-    },
-    {
-      "confidence": "normal",
-      "end_line": 574,
-      "heading": "Custom Attributes",
-      "needs_live_verification": false,
-      "section_id": "8-prayer-requests-deep-dive-custom-attributes",
-      "source_keys": [
-        "012717bf57d384de",
-        "776256c424368312",
-        "776256c424368312"
-      ],
-      "start_line": 561
-    },
-    {
-      "confidence": "structural",
-      "end_line": 576,
-      "heading": "9. Teams And Moderation Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "9-teams-and-moderation-deep-dive",
-      "source_keys": [
-        "82bb284a14035a4b",
-        "0f6af45321451642",
-        "9c794cbecae87650",
-        "e03e0d658c970664",
-        "9a08454fb718c2a8",
-        "776256c424368312"
-      ],
-      "start_line": 575
-    },
-    {
-      "confidence": "normal",
-      "end_line": 592,
-      "heading": "Role Design",
-      "needs_live_verification": false,
-      "section_id": "9-teams-and-moderation-deep-dive-role-design",
-      "source_keys": [
-        "82bb284a14035a4b"
-      ],
-      "start_line": 577
-    },
-    {
-      "confidence": "high",
-      "end_line": 614,
-      "heading": "Moderation Flagging",
-      "needs_live_verification": false,
-      "section_id": "9-teams-and-moderation-deep-dive-moderation-flagging",
-      "source_keys": [
-        "0f6af45321451642",
-        "9c794cbecae87650"
-      ],
-      "start_line": 593
-    },
-    {
-      "confidence": "normal",
-      "end_line": 627,
-      "heading": "Comments Moderation",
-      "needs_live_verification": false,
-      "section_id": "9-teams-and-moderation-deep-dive-comments-moderation",
-      "source_keys": [
-        "e03e0d658c970664"
-      ],
-      "start_line": 615
-    },
-    {
-      "confidence": "high",
-      "end_line": 642,
-      "heading": "AI Moderation And Formatting",
-      "needs_live_verification": true,
-      "section_id": "9-teams-and-moderation-deep-dive-ai-moderation-and-formatting",
-      "source_keys": [
-        "9a08454fb718c2a8",
-        "776256c424368312"
-      ],
-      "start_line": 628
-    },
-    {
-      "confidence": "structural",
-      "end_line": 644,
-      "heading": "10. Follow-Up And Communications Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-follow-up-and-communications-deep-dive",
-      "source_keys": [
-        "04cd1072d2b71524",
-        "d81043d2af12e3cd",
-        "776256c424368312",
-        "9a37f70b2e2f8ef1",
-        "203d8419de12fbbc"
-      ],
-      "start_line": 643
-    },
-    {
-      "confidence": "normal",
-      "end_line": 661,
-      "heading": "Comment Digest Email",
-      "needs_live_verification": true,
-      "section_id": "10-follow-up-and-communications-deep-dive-comment-digest-email",
-      "source_keys": [
-        "04cd1072d2b71524",
-        "d81043d2af12e3cd"
-      ],
-      "start_line": 645
-    },
-    {
-      "confidence": "normal",
-      "end_line": 675,
-      "heading": "Communications Security",
-      "needs_live_verification": true,
-      "section_id": "10-follow-up-and-communications-deep-dive-communications-security",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 662
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 689,
-      "heading": "Urgent Notifications",
-      "needs_live_verification": false,
-      "section_id": "10-follow-up-and-communications-deep-dive-urgent-notifications",
-      "source_keys": [
-        "9a37f70b2e2f8ef1"
-      ],
-      "start_line": 676
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 706,
-      "heading": "Care Follow-Up Beyond Prayer",
-      "needs_live_verification": false,
-      "section_id": "10-follow-up-and-communications-deep-dive-care-follow-up-beyond-prayer",
-      "source_keys": [
-        "203d8419de12fbbc"
-      ],
-      "start_line": 690
-    },
-    {
-      "confidence": "structural",
-      "end_line": 708,
-      "heading": "11. Related Rock Areas: People, Groups, Communications, Workflows, Security, Cms",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms",
-      "source_keys": [
-        "cd4325ef232d11ad",
-        "8f42746b6ac656d0",
-        "dca0cc12d02000d3",
-        "9a37f70b2e2f8ef1",
-        "d81043d2af12e3cd",
-        "408370672223cbe6",
-        "1ad82289cb57a24a",
-        "69239abb486b0abc",
-        "203d8419de12fbbc",
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 707
+      "start_line": 305
     },
     {
       "confidence": "citation-only",
-      "end_line": 722,
-      "heading": "People",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms-people",
-      "source_keys": [
-        "cd4325ef232d11ad",
-        "8f42746b6ac656d0"
-      ],
-      "start_line": 709
-    },
-    {
-      "confidence": "normal",
-      "end_line": 734,
-      "heading": "Groups",
+      "end_line": 330,
+      "heading": "Outreach reminders do not arrive",
       "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms-groups",
+      "section_id": "troubleshooting-decision-tree-outreach-reminders-do-not-arrive",
       "source_keys": [
-        "dca0cc12d02000d3",
-        "9a37f70b2e2f8ef1"
+        "a56a73c5681795bd"
       ],
-      "start_line": 723
-    },
-    {
-      "confidence": "normal",
-      "end_line": 748,
-      "heading": "Communications",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms-communications",
-      "source_keys": [
-        "d81043d2af12e3cd"
-      ],
-      "start_line": 735
-    },
-    {
-      "confidence": "normal",
-      "end_line": 761,
-      "heading": "Workflows",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms-workflows",
-      "source_keys": [
-        "408370672223cbe6",
-        "1ad82289cb57a24a",
-        "9a37f70b2e2f8ef1",
-        "69239abb486b0abc",
-        "203d8419de12fbbc"
-      ],
-      "start_line": 749
-    },
-    {
-      "confidence": "normal",
-      "end_line": 779,
-      "heading": "Security",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms-security",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 762
+      "start_line": 318
     },
     {
       "confidence": "structural",
-      "end_line": 805,
-      "heading": "CMS",
+      "end_line": 332,
+      "heading": "Agent Task Recipes",
       "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-communications-workflows-security-cms-cms",
+      "section_id": "agent-task-recipes",
       "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 780
-    },
-    {
-      "confidence": "structural",
-      "end_line": 807,
-      "heading": "12. Administration And Operational Guardrails",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 806
-    },
-    {
-      "confidence": "structural",
-      "end_line": 822,
-      "heading": "Daily Operations",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-daily-operations",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 808
-    },
-    {
-      "confidence": "structural",
-      "end_line": 837,
-      "heading": "Weekly Operations",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-weekly-operations",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 823
-    },
-    {
-      "confidence": "structural",
-      "end_line": 851,
-      "heading": "Privacy Guardrails",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-privacy-guardrails",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 838
-    },
-    {
-      "confidence": "structural",
-      "end_line": 864,
-      "heading": "Change Management",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-change-management",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 852
-    },
-    {
-      "confidence": "structural",
-      "end_line": 866,
-      "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "9c794cbecae87650",
-        "012717bf57d384de",
-        "0c2dc7e7b6c43cfa",
-        "3863af672865d6b7",
-        "d128627e6e0deeb8",
-        "94b7e32cdeffdd7b",
-        "408370672223cbe6",
-        "1ad82289cb57a24a",
-        "dca0cc12d02000d3",
-        "18ca1ca102f2f24a"
-      ],
-      "start_line": 865
-    },
-    {
-      "confidence": "normal",
-      "end_line": 876,
-      "heading": "Model And View Models",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-model-and-view-models",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "9c794cbecae87650",
-        "012717bf57d384de",
-        "0c2dc7e7b6c43cfa",
-        "3863af672865d6b7",
-        "d128627e6e0deeb8"
-      ],
-      "start_line": 867
-    },
-    {
-      "confidence": "normal",
-      "end_line": 890,
-      "heading": "REST API",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-rest-api",
-      "source_keys": [
-        "94b7e32cdeffdd7b"
-      ],
-      "start_line": 877
-    },
-    {
-      "confidence": "normal",
-      "end_line": 894,
-      "heading": "Workflow Action",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-workflow-action",
-      "source_keys": [
-        "408370672223cbe6",
-        "1ad82289cb57a24a"
-      ],
-      "start_line": 891
-    },
-    {
-      "confidence": "normal",
-      "end_line": 908,
-      "heading": "Lava",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-lava",
-      "source_keys": [
-        "dca0cc12d02000d3",
-        "18ca1ca102f2f24a"
-      ],
-      "start_line": 895
-    },
-    {
-      "confidence": "structural",
-      "end_line": 910,
-      "heading": "14. Reporting, Analytics, And Model Map",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "c7e4c23eeac95081",
-        "3e90f319b1b78824",
-        "5176bb3a22e31553"
-      ],
-      "start_line": 909
-    },
-    {
-      "confidence": "normal",
-      "end_line": 931,
-      "heading": "Built-In Reporting Landmarks",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-built-in-reporting-landmarks",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "c7e4c23eeac95081",
-        "3e90f319b1b78824"
-      ],
-      "start_line": 911
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 937,
-      "heading": "Metrics To Avoid Misreading",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-metrics-to-avoid-misreading",
-      "source_keys": [
-        "5176bb3a22e31553"
-      ],
-      "start_line": 932
-    },
-    {
-      "confidence": "structural",
-      "end_line": 954,
-      "heading": "Operational Dashboard Ideas",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-operational-dashboard-ideas",
-      "source_keys": [
-        "5176bb3a22e31553"
-      ],
-      "start_line": 938
-    },
-    {
-      "confidence": "normal",
-      "end_line": 975,
-      "heading": "15. Version And Release Caveats",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 955
-    },
-    {
-      "confidence": "structural",
-      "end_line": 977,
-      "heading": "16. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "8f42746b6ac656d0"
-      ],
-      "start_line": 976
-    },
-    {
-      "confidence": "normal",
-      "end_line": 997,
-      "heading": "Playbook: Launch Basic Prayer Intake",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-launch-basic-prayer-intake",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "8f42746b6ac656d0"
-      ],
-      "start_line": 978
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1013,
-      "heading": "Playbook: Launch Prayer Team Page",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-launch-prayer-team-page",
-      "source_keys": [
-        "67bf41b13dcab2bb"
-      ],
-      "start_line": 998
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1025,
-      "heading": "Playbook: Add Group Prayer",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-add-group-prayer",
-      "source_keys": [
-        "67bf41b13dcab2bb"
-      ],
-      "start_line": 1014
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1038,
-      "heading": "Playbook: Enable Comment Digest",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-enable-comment-digest",
-      "source_keys": [
-        "67bf41b13dcab2bb"
-      ],
-      "start_line": 1026
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1051,
-      "heading": "Playbook: Add SMS Prayer Intake",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-add-sms-prayer-intake",
-      "source_keys": [
-        "67bf41b13dcab2bb"
-      ],
-      "start_line": 1039
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1064,
-      "heading": "Playbook: Add Public Prayer Wall",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-add-public-prayer-wall",
-      "source_keys": [
-        "67bf41b13dcab2bb"
-      ],
-      "start_line": 1052
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1066,
-      "heading": "17. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1065
-    },
-    {
-      "confidence": "high",
-      "end_line": 1083,
-      "heading": "Request Was Submitted But Prayer Team Cannot See It",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1067
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1096,
-      "heading": "Request Appears Publicly When It Should Not",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-request-appears-publicly-when-it-should-not",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1084
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1106,
-      "heading": "Approval Does Not Record Approver Or Date",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-approval-does-not-record-approver-or-date",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1097
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1116,
-      "heading": "Urgent Sorting Looks Wrong",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-urgent-sorting-looks-wrong",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1107
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1128,
-      "heading": "Comment Digest Sends Too Much",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-comment-digest-sends-too-much",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1117
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1139,
-      "heading": "SMS Intake Creates Anonymous Requests",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-sms-intake-creates-anonymous-requests",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1129
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1149,
-      "heading": "Group Prayer Request Appears In General Queue",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-group-prayer-request-appears-in-general-queue",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1140
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1151,
-      "heading": "18. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7",
-        "c7e4c23eeac95081",
-        "3e90f319b1b78824"
-      ],
-      "start_line": 1150
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1165,
-      "heading": "Audit Prayer Configuration",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-audit-prayer-configuration",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1152
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1176,
-      "heading": "Review A Sensitive Request",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes-review-a-sensitive-request",
-      "source_keys": [
-        "67bf41b13dcab2bb",
-        "3863af672865d6b7"
-      ],
-      "start_line": 1166
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1187,
-      "heading": "Build A Prayer-Team Coverage Report",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes-build-a-prayer-team-coverage-report",
-      "source_keys": [
-        "c7e4c23eeac95081"
-      ],
-      "start_line": 1177
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1196,
-      "heading": "Investigate Person Prayer History",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes-investigate-person-prayer-history",
-      "source_keys": [
-        "3e90f319b1b78824"
-      ],
-      "start_line": 1188
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1209,
-      "heading": "Safely Extend Prayer Intake",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-safely-extend-prayer-intake",
-      "source_keys": [
-        "3e90f319b1b78824"
-      ],
-      "start_line": 1197
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1235,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
-        "0a8dbbd6af4b1522",
-        "9a08454fb718c2a8",
+        "1780d196a445a3d3",
+        "806bf1fb69c09c4e",
         "e03e0d658c970664",
-        "d81043d2af12e3cd",
-        "d81043d2af12e3cd",
+        "0f6af45321451642",
+        "7f3f0477836f9a2a",
+        "dca0cc12d02000d3",
         "bebcc5fcb7fe3362",
-        "dca0cc12d02000d3",
         "04cd1072d2b71524",
-        "0f6af45321451642",
-        "6ccda9ffd1e9bb53",
+        "d81043d2af12e3cd",
         "9a08454fb718c2a8",
-        "1780d196a445a3d3"
-      ],
-      "start_line": 1210
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1252,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
-      "source_keys": [
-        "de087d3bb047fce6",
         "a56a73c5681795bd",
-        "8f42746b6ac656d0",
-        "78f1e8bbd9d351ff",
         "1c59cd336e8baae0"
       ],
-      "start_line": 1236
+      "start_line": 331
     },
     {
-      "confidence": "high",
-      "end_line": 1313,
-      "heading": "19. Source Map And Dependency Notes",
+      "confidence": "normal",
+      "end_line": 366,
+      "heading": "Recipe: Configure moderated public prayer intake",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-configure-moderated-public-prayer-intake",
+      "source_keys": [
+        "1780d196a445a3d3",
+        "806bf1fb69c09c4e"
+      ],
+      "start_line": 333
+    },
+    {
+      "confidence": "normal",
+      "end_line": 391,
+      "heading": "Recipe: Operate the administrator moderation queue",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-operate-the-administrator-moderation-queue",
+      "source_keys": [
+        "e03e0d658c970664",
+        "0f6af45321451642"
+      ],
+      "start_line": 367
+    },
+    {
+      "confidence": "normal",
+      "end_line": 412,
+      "heading": "Recipe: Build a secured ministry-specific prayer queue",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-secured-ministry-specific-prayer-queue",
+      "source_keys": [
+        "806bf1fb69c09c4e",
+        "7f3f0477836f9a2a"
+      ],
+      "start_line": 392
+    },
+    {
+      "confidence": "normal",
+      "end_line": 438,
+      "heading": "Recipe: Create and verify a group prayer route",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-create-and-verify-a-group-prayer-route",
+      "source_keys": [
+        "dca0cc12d02000d3",
+        "bebcc5fcb7fe3362"
+      ],
+      "start_line": 413
+    },
+    {
+      "confidence": "normal",
+      "end_line": 462,
+      "heading": "Recipe: Enable prayer-comment digests",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-enable-prayer-comment-digests",
+      "source_keys": [
+        "04cd1072d2b71524",
+        "d81043d2af12e3cd"
+      ],
+      "start_line": 439
+    },
+    {
+      "confidence": "normal",
+      "end_line": 490,
+      "heading": "Recipe: Add workflow-based care follow-up",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-add-workflow-based-care-follow-up",
+      "source_keys": [
+        "1780d196a445a3d3",
+        "7f3f0477836f9a2a"
+      ],
+      "start_line": 463
+    },
+    {
+      "confidence": "normal",
+      "end_line": 517,
+      "heading": "Recipe: Introduce AI assistance with human review",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-introduce-ai-assistance-with-human-review",
+      "source_keys": [
+        "9a08454fb718c2a8"
+      ],
+      "start_line": 491
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 538,
+      "heading": "Recipe: Validate Outreach Toolbox for prayer touchpoints",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-validate-outreach-toolbox-for-prayer-touchpoints",
+      "source_keys": [
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0"
+      ],
+      "start_line": 518
+    },
+    {
+      "confidence": "structural",
+      "end_line": 569,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": true,
+      "section_id": "known-gaps-and-live-verification",
+      "source_keys": [
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0"
+      ],
+      "start_line": 539
+    },
+    {
+      "confidence": "structural",
+      "end_line": 571,
+      "heading": "Source Map",
       "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes",
+      "section_id": "source-map",
       "source_keys": [
         "67bf41b13dcab2bb",
-        "0a8dbbd6af4b1522",
-        "7dc5e618afae727e",
+        "dd273fabda509741",
         "82bb284a14035a4b",
         "806bf1fb69c09c4e",
         "0f6af45321451642",
-        "5926a33727aa256d",
         "1780d196a445a3d3",
         "e03e0d658c970664",
         "dca0cc12d02000d3",
         "bebcc5fcb7fe3362",
-        "26ee5d9d4cd899f1",
         "6ccda9ffd1e9bb53",
         "7f3f0477836f9a2a",
         "04cd1072d2b71524",
         "d81043d2af12e3cd",
         "9a08454fb718c2a8",
-        "8f42746b6ac656d0",
-        "cd4325ef232d11ad",
         "776256c424368312",
-        "bce31f25cb8a199e",
-        "9c794cbecae87650",
-        "012717bf57d384de",
-        "0c2dc7e7b6c43cfa",
-        "3863af672865d6b7",
-        "408370672223cbe6",
-        "94b7e32cdeffdd7b",
-        "c7e4c23eeac95081",
-        "3e90f319b1b78824",
-        "d128627e6e0deeb8",
-        "408de0ac79d04ef1",
+        "a3b11114df9276b4",
+        "b0fa1dc66c371394",
+        "16f88d55fa067953",
+        "ba5523a14236751d",
+        "35eac45913be1c06",
+        "78f1e8bbd9d351ff",
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0",
+        "9a37f70b2e2f8ef1",
+        "18ca1ca102f2f24a",
+        "69239abb486b0abc",
         "1ad82289cb57a24a",
         "5176bb3a22e31553",
         "43aae083fd42dd39",
         "203d8419de12fbbc",
+        "5d3d45f478fde26f"
+      ],
+      "start_line": 570
+    },
+    {
+      "confidence": "normal",
+      "end_line": 588,
+      "heading": "Approved official prayer documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-approved-official-prayer-documentation",
+      "source_keys": [
+        "67bf41b13dcab2bb",
+        "dd273fabda509741",
+        "82bb284a14035a4b",
+        "806bf1fb69c09c4e",
+        "0f6af45321451642",
+        "1780d196a445a3d3",
+        "e03e0d658c970664",
+        "dca0cc12d02000d3",
+        "bebcc5fcb7fe3362",
+        "6ccda9ffd1e9bb53",
+        "7f3f0477836f9a2a",
+        "04cd1072d2b71524",
+        "d81043d2af12e3cd",
+        "9a08454fb718c2a8"
+      ],
+      "start_line": 572
+    },
+    {
+      "confidence": "normal",
+      "end_line": 596,
+      "heading": "Release and implementation evidence",
+      "needs_live_verification": false,
+      "section_id": "source-map-release-and-implementation-evidence",
+      "source_keys": [
+        "776256c424368312",
+        "a3b11114df9276b4",
+        "b0fa1dc66c371394",
+        "16f88d55fa067953",
+        "ba5523a14236751d"
+      ],
+      "start_line": 589
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 603,
+      "heading": "Official training and release demonstrations",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-training-and-release-demonstrations",
+      "source_keys": [
+        "35eac45913be1c06",
+        "78f1e8bbd9d351ff",
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0"
+      ],
+      "start_line": 597
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 613,
+      "heading": "Community examples",
+      "needs_live_verification": false,
+      "section_id": "source-map-community-examples",
+      "source_keys": [
         "9a37f70b2e2f8ef1",
         "18ca1ca102f2f24a",
-        "69239abb486b0abc"
+        "69239abb486b0abc",
+        "1ad82289cb57a24a",
+        "5176bb3a22e31553",
+        "43aae083fd42dd39",
+        "203d8419de12fbbc",
+        "5d3d45f478fde26f"
       ],
-      "start_line": 1253
+      "start_line": 604
     }
   ],
-  "source_pack_hydrated_at": "2026-06-18T23:45:53+00:00",
+  "source_pack_hydrated_at": "2026-09-03T16:07:54+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "b4c888277a46036e51314c3fa9a222ea9de024a6c8e0820631df5d53970d560f",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "3f5336e3f49de36b736af73cbfa0bfd288e90942f1da486ea460326b0824a6d7",
+      "excerpt_hash": "ec9889a233f3bfdef7d7af5cb8d7d650d33593df4eae2da670d28f896595449d",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "1780d196a445a3d3",
-      "source_record_id": "rock_documentation:article:1657",
-      "title": "Enter Prayer Requests",
+      "source_key": "dd273fabda509741",
+      "source_record_id": "rock_documentation:article:2012",
+      "title": "Intro to Prayer",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests",
-      "version": null
-    },
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "change_type": null,
-      "content_hash": "58287cc40a590f88ee33bf5342e5fa038cd25b053aa452c3d7c502b6dd345d77",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:b00bb6224fbaea6f",
-      "title": "Prayer Request",
-      "topics": [
-        "api",
-        "data",
-        "lava",
-        "model-map",
-        "prayer"
-      ],
-      "url": "https://community.rockrms.com/ModelMap",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/intro-to-prayer",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "344050bdd9f9d51121744f323d9a4567bcae67d7e84c0d8622006732539cdc97",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "74b216f95c829de2c3e2b01acb5cafde8e5be5b63bb051cba779a9d919b9ffe3",
+      "excerpt_hash": "9c631a1a56142347ed661b8918af0bb60d010c5a95e84abb4a83efe2cb61e4a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2673,8 +1714,316 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "93cc33690d34ffad51469bfd9fa6d795a4f4d3d31f1a1f448906528bbd3babc5",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "365160360257d16bbfd352c3873fbbc52f9132c20c84c9978b22ed1107a7ad66",
+      "excerpt_hash": "e34c2b0827c4c777705fb79fa804f1ccea27264785630ed40d2873f092209c6f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "806bf1fb69c09c4e",
+      "source_record_id": "rock_documentation:article:2014",
+      "title": "Prayer Categories",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-categories",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b0d4937ab0c3896ba3a11d876a42eeeeb0690082316a59285cf2e7c3aeed495f",
+      "excerpt_hash": "6940ab1237d0204cc179d1813bb0d67347365de858ae0118ec933d6c6820ea0f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "0f6af45321451642",
+      "source_record_id": "rock_documentation:article:2015",
+      "title": "Work With Flagged Requests",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/work-with-flagged-requests",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "061aee2d4022bc9bdfc4a828a983ddd9635bfa5d1ef9dc3c64fb32360bb63e43",
+      "excerpt_hash": "10d25b94d718c0fbfe4849b4caaec5f7cc830fbc17f7da15b699b478b0562389",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9a08454fb718c2a8",
+      "source_record_id": "rock_documentation:article:2017",
+      "title": "Prayer AI Automations",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "6379a9de4efdff22ccc8e11a3d840def3d01ee4ee2581ee3f9b1b1c80112ddac",
+      "excerpt_hash": "4a91965d6179d6787ba5180c9669aafa49171cb8751e141ae1c0735d65b80075",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "67bf41b13dcab2bb",
+      "source_record_id": "rock_documentation:article:1514",
+      "title": "Prayer",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer",
+      "version": null
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
+      "excerpt_hash": "e57ce6efd8bac5d3161dea97576d11f407e48f93832bc9cd934f3e0d682bcbcb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "April 21, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:be695906ad3e81a9",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "17.0"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "817e8954070bec27d8da5d682fc9dd6645e165254936239df7ac8ce338397c79",
+      "excerpt_hash": "b691d5da055a1dc9720e48983c7c6460e2b7323574213520ed9f4ac954d27a57",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "prayer",
+        "prayer request",
+        "prayerrequest",
+        "request"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b0fa1dc66c371394",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "23ded11ecf879c5a0321245bf860f59d81a67cad0ac3fcfdb317f933d82312ca",
+      "excerpt_hash": "c1c822c0c118bc0165969d0f27147e13e381c15746186824993a5480ada18658",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "bebcc5fcb7fe3362",
+      "source_record_id": "rock_documentation:article:1660",
+      "title": "Pray for Group Prayer Requests",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "247ea3a7b835707602b7d6fc8aabf467fc82efb6b0319cead6c1b93fa79c69d1",
+      "excerpt_hash": "1c31e3fb5c79d126ba62d539039e30c087290ff43ee5d1b41723ba994f946a86",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1780d196a445a3d3",
+      "source_record_id": "rock_documentation:article:1657",
+      "title": "Enter Prayer Requests",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5a5bf3436ce3b4e22de67a0d1c483eada798f906675b8820e7e792cc898caaee",
+      "excerpt_hash": "bfc50b88958f7f86e52a5d27884c023f80f257bff44280c0b2e7ef8379ed78cb",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "prayer",
+        "prayer request",
+        "prayerrequest",
+        "people",
+        "request"
+      ],
+      "path": "Rock/Workflow/Action/People/PrayerRequestAdd.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a3b11114df9276b4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/People/PrayerRequestAdd.cs",
+      "title": "Rock/Workflow/Action/People/PrayerRequestAdd.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Workflow/Action/People/PrayerRequestAdd.cs"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "5e480440b4987c61624ae4314d610428c41b6237d3cb82463f26c623e143d69e",
+      "excerpt_hash": "32626ed906192a5ee83395d6a07c753d68b729e1ce38961d57635b37973bec78",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "78f1e8bbd9d351ff",
+      "source_record_id": "media-insight:f131f156d62b7d38",
+      "title": "Rapid Attendance Entry Transcript Insight",
+      "topics": [
+        "check-in",
+        "attendance",
+        "groups",
+        "workflows",
+        "training"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4c8a794636db3880beb75cca06546a3f91d5f450583088d06a4b1b89cf5f742c",
+      "excerpt_hash": "a3b04e0520b5ff20ff85f8a02b2a0bb926a3e94511ab266e1aca10651e6f5fbc",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "prayer",
+        "prayer request",
+        "prayerrequest",
+        "request"
+      ],
+      "path": "Rock.ViewModels/Blocks/CheckIn/RapidAttendanceEntry/RapidAttendanceEntryPrayerRequestBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ba5523a14236751d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/RapidAttendanceEntry/RapidAttendanceEntryPrayerRequestBag.cs",
+      "title": "Rock.ViewModels/Blocks/CheckIn/RapidAttendanceEntry/RapidAttendanceEntryPrayerRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/RapidAttendanceEntry/RapidAttendanceEntryPrayerRequestBag.cs"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "9e0753ab13343f472d01e2df299ff2c282e5ce3032fdfcce2fc1d3a4c4da3aa2",
+      "excerpt_hash": "f8849a8f1a0bd700d83fc8e36d901a81c9136825b920e962d9c8e3d9499adc05",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "7f3f0477836f9a2a",
+      "source_record_id": "rock_documentation:article:1663",
+      "title": "Prayer Card View Block",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "472c2a95a888a5c35738ec056b4e2a7ba9edd824f70084c100edc93e0f452360",
+      "excerpt_hash": "137a9c7535113a888a9ea5fd4dba37c5c57ee4683a8499def294e6228a31086a",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "prayer",
+        "prayer request",
+        "prayerrequest",
+        "request"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "16f88d55fa067953",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3c35ce871571f6ab81c6060fb7a7da1492d8f1a8ef048472c5fdbc17f4ca9bf1",
+      "excerpt_hash": "c19ee55c0e4205520ca03c13c4b0a24943441d6b0fefc469e06096a9636de535",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "82bb284a14035a4b",
+      "source_record_id": "rock_documentation:article:2013",
+      "title": "Prayer Team Roles",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-team-roles",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "37481db82cdad6a90b263412dec36efe0c4ee7d5c41df5fa1bdf951587d05ef8",
+      "excerpt_hash": "591f2eb82f6492ef891bc3b492b442a2536bf72ffa7725e361c393d12f66f67f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2695,74 +2044,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "50af460163ea3a265c9b2b524beb32e4de33f492585448cfcd4aa984c1caa6be",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "7f3f0477836f9a2a",
-      "source_record_id": "rock_documentation:article:1663",
-      "title": "Prayer Card View Block",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "3ce4a557914960d8dcb578880aa4ecc34e8604e894cd0db7ab3bba0ea48bfd5e",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "04cd1072d2b71524",
-      "source_record_id": "rock_documentation:article:1664",
-      "title": "Prayer Request Comment Digest",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ebff1b34e8e635d12f85c1a9b3855303dbc0b6fc7ab306a097b01f067399a259",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "d81043d2af12e3cd",
-      "source_record_id": "rock_documentation:article:2016",
-      "title": "Prayer Request Comments Communication",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "7dd8337085e52010363ad5596a4ee0df7d5f37a97f809b976cb539fb2ca8dae8",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "95c5b22ae0ef9059d6c81e412739050779cce3fb67866c635c5f024f977221aa",
+      "excerpt_hash": "90594f82ad9bb09731fe993cef8f609b8e1afd152fc172908881ba29cadddc2d",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2784,648 +2067,97 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "12e28d609becf14ae985beb88da599824fb3381801b2450a985637d6d94118a3",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "0827e49e018743e985e8ba95094ce2cb535cf74c6448bf1283676e5f06171220",
+      "excerpt_hash": "00d0407d1c98baee6da43c9cc22e476df7fa289dabd16283a3713cf774440b01",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "bebcc5fcb7fe3362",
-      "source_record_id": "rock_documentation:article:1660",
-      "title": "Pray for Group Prayer Requests",
+      "source_key": "04cd1072d2b71524",
+      "source_record_id": "rock_documentation:article:1664",
+      "title": "Prayer Request Comment Digest",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests",
-      "version": null
-    },
-    {
-      "authority": "official-release",
-      "authority_score": 95,
-      "change_type": "bug_fix",
-      "content_hash": "48e58450fd1e9945dc856fb14050f3e500a26e733a7bc576e41eb0f6141650f0",
-      "excerpt_hash": "32bfeff1643df70ebc1be2607da1c920f229aae3bfc07bd52f49c6569ecc0214",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": "April 21, 2025",
-      "severity": "normal",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:be695906ad3e81a9",
-      "title": "Rock Core Release Notes",
-      "topics": [
-        "releases",
-        "development",
-        "operations"
-      ],
-      "url": "https://www.rockrms.com/releasenotes",
-      "version": "17.0"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "4246beafdb10d9f27550619cc116baf83df756c8ed226510fab54b842bd7e7b3",
-      "excerpt_hash": "8e056f40ab472c000926194b8b7168fdc8f3ee93ea86e0cf04d8314b8fc54252",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9c794cbecae87650",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-      "title": "Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "817e8954070bec27d8da5d682fc9dd6645e165254936239df7ac8ce338397c79",
-      "excerpt_hash": "b691d5da055a1dc9720e48983c7c6460e2b7323574213520ed9f4ac954d27a57",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "77746a7eabca62dc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "5a5bf3436ce3b4e22de67a0d1c483eada798f906675b8820e7e792cc898caaee",
-      "excerpt_hash": "34599f99291d569039a73391470e42a3a136744f6d839481d704bf62b1994533",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "people",
-        "request"
-      ],
-      "path": "Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "408370672223cbe6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-      "title": "Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "45826e08ec4432d70cf5411925af8cadfe1572de51749e1e8f285702356586d3",
-      "excerpt_hash": "3e4fe668c1226a29291d2aff872e972e83ed779ac64f5808ce30c9ab04e8984a",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "people",
-        "request"
-      ],
-      "path": "Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3e90f319b1b78824",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-      "title": "Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "3422f3e68090b20d699431a3e9b341c65a2d30a745abf8855bd532dc1a2868e4",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "82bb284a14035a4b",
-      "source_record_id": "rock_documentation:article:2013",
-      "title": "Prayer Team Roles",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-team-roles",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f9973bd9139159228d2e5bb81e759dec93fcb14644e30cb12fb86ef5329c3d30",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "6d31dd2e9f5ddeda7e43d93fd5947783f9d60a649a669db6b03dbca3cd5760cf",
+      "excerpt_hash": "b9789d2c65b1a255611d9b51e6b32beff1d6ddba9c4f20580697f2c22ee087c6",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "806bf1fb69c09c4e",
-      "source_record_id": "rock_documentation:article:2014",
-      "title": "Prayer Categories",
+      "source_key": "d81043d2af12e3cd",
+      "source_record_id": "rock_documentation:article:2016",
+      "title": "Prayer Request Comments Communication",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-categories",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ade424c2d19c37a511125143ebb1c4be1f3bfb7eebe882fa3e758c259280d83f",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "0f6af45321451642",
-      "source_record_id": "rock_documentation:article:2015",
-      "title": "Work With Flagged Requests",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/work-with-flagged-requests",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "8321c549e9f27581e5e49fac33826df8003d9be6f836d2b0bad0bd11f6bec4fa",
-      "excerpt_hash": "6fc44b3249efd5940bb599a71a0b6e6de04667a36d1aa0ba41f2d5b91666d618",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "5176bb3a22e31553",
-      "source_record_id": "rock_recipes:5176bb3a22e31553",
-      "title": "Create a Prayer Wall",
-      "topics": [
-        "api",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/149",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "3d2da1718e4767024753b766176cc526576719a2d3f980b8df6e7a1e4db14a2e",
-      "excerpt_hash": "2e330f970b32fa0a50afe1c28a962a6ec5ec8e183535e9f30233158f77857e14",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "69239abb486b0abc",
-      "source_record_id": "rock_recipes:69239abb486b0abc",
-      "title": "Prayer Card View - Add Answered Prayer",
-      "topics": [
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/389",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "cc1fd4477be25cfc4bf7cc3766a03c524a30576182046106052c6262a072cb6a",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "67bf41b13dcab2bb",
-      "source_record_id": "rock_documentation:article:1514",
-      "title": "Prayer",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "e80b067b6177874b2e6201743fbe4fafeb40cc5a761580c241c9378f43989050",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "0a8dbbd6af4b1522",
-      "source_record_id": "rock_documentation:article:2011",
-      "title": "Prayer Overview",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "5a23babd45db117f976523086845ba431e354079e9808cf646c130043e18a9cf",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "5926a33727aa256d",
-      "source_record_id": "rock_documentation:article:1654",
-      "title": "Prayer Requests",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c70f28e8254c4878586f65431b02a64f85cfbba60e1244e32e55ecc815957130",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "26ee5d9d4cd899f1",
-      "source_record_id": "rock_documentation:article:1655",
-      "title": "Prayer Team Power Tools",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools",
+      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication",
       "version": null
     },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "55b604f68c5c3e14d81b405e24b364f6c4405f504d1f7388be4fa08012cd0d0f",
-      "excerpt_hash": "facdbdfa826cff937b2d64e6a4e0814ee513177826ed163681b4bb1ce78842bd",
+      "content_hash": "7c909385e47e3657c98bce09315537cb7bcafea7e46b72ac1533850360e34b9f",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "8f42746b6ac656d0",
-      "source_record_id": "rock_rocku:8f42746b6ac656d0",
-      "title": "Prayer Requests",
+      "source_id": "rock_youtube",
+      "source_key": "a56a73c5681795bd",
+      "source_record_id": "media-insight:de21ecd38cde9a0c",
+      "title": "Outreach Toolbox is Here in v19 Transcript Insight",
       "topics": [
-        "security",
-        "training",
-        "usage",
-        "workflow"
+        "outreach-toolbox",
+        "mobile-v19",
+        "touchpoints",
+        "prayer",
+        "reminders"
       ],
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests",
+      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4",
       "version": null
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "76962638d7dabd7753fa6c548e968ae73e302081926454b4e5fde2f39282fba0",
-      "excerpt_hash": "c1729c14f3a37ca61aa9bf28b7475558d4b267990cee8c8dc47cdb176bbc2032",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "61f4d790251721fb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "81b9d485a2aa9da6cc81f913aa29fe00d5f32028276c941a71014a62506e7410",
-      "excerpt_hash": "88904a626b5909596d596d7645e3314addcc33a404f4adfbb34438b7dc5fbb83",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "012717bf57d384de",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-      "title": "Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "6b4f8c04c68792eec1fe44f1a77492a362de9e6971cc5f82cd52196d1cb91289",
-      "excerpt_hash": "eedf8e85eee0533c104c03e45bba38d13dc5b6b52f66395149a1f8dd00fc514a",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0c2dc7e7b6c43cfa",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-      "title": "Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "b22119651724e815ffa40b1ba8f34103ec547cf8e66b6f70417574b9e35a2807",
-      "excerpt_hash": "c4fb63a36d6517e73065a8ae90fe408968c45700844c3c1ec0c7888e609023c8",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntrySaveRequestBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c49b03ddb2d51b39",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntrySaveRequestBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntrySaveRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntrySaveRequestBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "cce056f875bed468389dc892fdb88557f06abe0d96997a4b18c041e4ef5fef09",
-      "excerpt_hash": "9ae3d69ce7b2044042d20fba840f5fc0c483a5846c56ddf0ba4e2e15b8a5639b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailOptionsBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e9401688b07af769",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailOptionsBag.cs",
-      "title": "Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailOptionsBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailOptionsBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "78e1290c4a2a1490a9eede76f8ecead801a7447b1dd1e3a263fae94602d03351",
-      "excerpt_hash": "53b452725a4adf0fadfe57bbcc926d96f793eb3ef17b2bd74acb45a36b8dd2de",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "026b94274cbd15aa",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8566045507ebd4e450cdbd14deff44acc26aa19286afa6c8747e58028fb182e9",
-      "excerpt_hash": "de44b808926c14a1f64422aa835d2b17ecd87c3adc6ee4372f5a0eb6fd9627f7",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3863af672865d6b7",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-      "title": "Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "6f84a3b1a1b58e1edc676415a381d54ac444bbfba205d48f15c4b2782a78f7dd",
-      "excerpt_hash": "b05592618743ff5cabfe2a1385f18decf17ee6e20d45daf1dbdeb5cd9a224b05",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "bf8df40cac908163",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestList/prayerRequestListOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "db92f027ca41128ecebf869e15d311c4ff04ea87a763598c8d8bc175064b5d25",
-      "excerpt_hash": "4cb3711dd0ed74c0af7081372a00202089b4816379334e4a60c529fc87e1cec0",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request",
-        "category"
-      ],
-      "path": "Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c7e4c23eeac95081",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-      "title": "Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "9a5d2c2167c6ef4ecadeb857133d8d3316af715d51c000ccce984aee6c9c7e38",
-      "excerpt_hash": "033665246da0cb2c50f5e4a7d9af736233f65af133c4c56710e11178d916b344",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d128627e6e0deeb8",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-      "title": "Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "6de410eacfcd62b478960358dd979cdb76a1f41aed02e91ef2698c1ee4840028",
-      "excerpt_hash": "3a0a2d6567ca224ecd8bed9bc463bc3c3642fd575bdb7c8ad76d671e0c8b209b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request",
-        "notification"
-      ],
-      "path": "Rock/Plugin/HotFixes/095_PrayerRequestCommentsNotificationEmailTemplate.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "408de0ac79d04ef1",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/095_PrayerRequestCommentsNotificationEmailTemplate.cs",
-      "title": "Rock/Plugin/HotFixes/095_PrayerRequestCommentsNotificationEmailTemplate.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/095_PrayerRequestCommentsNotificationEmailTemplate.cs"
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
+      "authority": "official-training",
+      "authority_score": 75,
       "change_type": null,
-      "content_hash": "ab1104312b1546b78f5132bfafb8fa3c2243c444b30d1f135c95ce1bc6142c83",
-      "excerpt_hash": "359108b1c70550c17f33e972f639fe8b4663479ad8f0fd8009782d9fbe8f1b6f",
+      "content_hash": "ff98f415d2c59c8c3ec51d431886f7914e2890985a9ce349ccc9cf6d2612db73",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "18ca1ca102f2f24a",
-      "source_record_id": "rock_recipes:18ca1ca102f2f24a",
-      "title": "Introduction",
+      "source_id": "rock_youtube",
+      "source_key": "1c59cd336e8baae0",
+      "source_record_id": "media-insight:4eb69bc5dde5cacb",
+      "title": "Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight",
       "topics": [
-        "integrations",
-        "lava",
-        "mobile",
-        "recipes",
-        "sql",
-        "workflow"
+        "outreach-toolbox",
+        "touchpoints"
       ],
-      "url": "https://community.rockrms.com/recipes/350",
+      "url": "https://www.youtube.com/shorts/c6T9Ha13jKE",
       "version": null
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "d4c0e034c237c640f1cb2550e877b54032e8a2539b83d8216f6a627e1d19b660",
-      "excerpt_hash": "e5ba718501735f3bcf5c60c94992fada006e6bd8f6ea34d46eac67ccbe843506",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "1ad82289cb57a24a",
-      "source_record_id": "rock_recipes:1ad82289cb57a24a",
-      "title": "SMS Prayer Request Capture",
-      "topics": [
-        "api",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/135",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "cccea96d2e1f86bd37eca194559ae6469f90cbe90e4b511f223071deb67dd09e",
-      "excerpt_hash": "8123d9182ceec9e1d9bb62734d8f71b10cb5785b8fd98e20afdb0c8abf24faca",
+      "content_hash": "9999bf4450995b71222c92efa2b7c4831beffc67593196f084c07b791f4e150a",
+      "excerpt_hash": "c8349bed93aec0dc1e886ee0bdfe11506cfc094ba2e63c959e2207ae3e42b97b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3450,8 +2182,107 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "bbdf34828a1f84abbfa5fd3878eb4caa3d4a88121495e854d482ad9219dc4432",
-      "excerpt_hash": "47b39bd67b7089d2b2a0534a3571f6759570428e30c47cef73cc4abe68abfa9f",
+      "content_hash": "01d45f6e44e502186d4c1e899f22186288d3b4953e5e284ef4bd688ecd8b520b",
+      "excerpt_hash": "e06e09b0076c96fd3e8a0835c6c826c46227ec6beabf2dda85373dfce6ddc1e3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "18ca1ca102f2f24a",
+      "source_record_id": "rock_recipes:18ca1ca102f2f24a",
+      "title": "Introduction",
+      "topics": [
+        "integrations",
+        "lava",
+        "mobile",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/350",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "634824b92bbcb11d24c8226c40d3d027a919a738f62163b6007ab460358d5dda",
+      "excerpt_hash": "43c49f74b1155145889b75a76460a2c047afbfd27748b848714e2604524f8463",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "69239abb486b0abc",
+      "source_record_id": "rock_recipes:69239abb486b0abc",
+      "title": "Prayer Card View - Add Answered Prayer",
+      "topics": [
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/389",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "c99e55f5a9b48e1ddf76d1e5331a55063572a99e968731d707c42a5018a4f03e",
+      "excerpt_hash": "db8e390f20e51ccb6c7dbd9a9bd827433c933bfd61f284a9cf922a22600ffdac",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "1ad82289cb57a24a",
+      "source_record_id": "rock_recipes:1ad82289cb57a24a",
+      "title": "SMS Prayer Request Capture",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/135",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "adc1a1ac9f2e67d385354c51103b577b518a7bb253c8a0be8670888aec7c784e",
+      "excerpt_hash": "60962eb5477abd49bd0e0417ea7ebb934145a52751bcfdc195f7c6911092d853",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "5176bb3a22e31553",
+      "source_record_id": "rock_recipes:5176bb3a22e31553",
+      "title": "Create a Prayer Wall",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/149",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "6bf7c738ad984dbd002a41044bde998890fe51ea6e43bb6dde44f9481a44cd89",
+      "excerpt_hash": "94d72338839eeec52a542c806c56eb9b683f2f1d906a0e254ce911b553d157ae",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3474,8 +2305,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "b83dd18ec8eab803f6ed1f93613a67296becbbff8f5b1432b9f421672abe8c8b",
-      "excerpt_hash": "3fef45f403143e17fe44cf321ffcc48424223672ad1a34818db7e86d3206cf64",
+      "content_hash": "ef3d7b0a5658a24efb79e76e7e14e4891d235084d1dde4acb2d77a0c968c9527",
+      "excerpt_hash": "7b073ce4c644790b9467c33699af4a2455b299114c0a58275dcf83925c871b5a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3495,148 +2326,58 @@
       "version": null
     },
     {
-      "authority": "official",
-      "authority_score": 100,
+      "authority": "community-example",
+      "authority_score": 55,
       "change_type": null,
-      "content_hash": "f7007e68fba02ef2d2579567d6b9c1ac1fcec67e082321143409d9deaa69eeb2",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "content_hash": "d302878566ed6467f529ac7182fb6d02a34a381e2b6bb931076eb2d695b6630c",
+      "excerpt_hash": "e57c866ff7cc1679ee70062ee9a420ad1b10d351a5d99ca8ce75bad9988e4d4c",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "9a08454fb718c2a8",
-      "source_record_id": "rock_documentation:article:2017",
-      "title": "Prayer AI Automations",
+      "source_id": "rock_recipes",
+      "source_key": "5d3d45f478fde26f",
+      "source_record_id": "rock_recipes:5d3d45f478fde26f",
+      "title": "Personalized Prayer Requests",
       "topics": [
-        "admin",
-        "operations",
-        "usage"
+        "integrations",
+        "lava",
+        "recipes",
+        "sql",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations",
+      "url": "https://community.rockrms.com/recipes/72",
       "version": null
     },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "b615c22d6ecd5e833b8455d2550c06fc38219a1a8dff0ee8ba03ec1b19128fa9",
-      "excerpt_hash": "c568eef02ddef085355da44dab54034255af49a1aee58c6aca39eef78cfd9bb9",
+      "content_hash": "dc7cebd2d1e7ae5a1ebaf7507402324d40b2fc06cbf41afcaad8eca275697a2d",
+      "excerpt_hash": "ce5fc9d113504451d91661feb863393dbd60aa2bd4bbd4d362e4da7ef4073f88",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "cd4325ef232d11ad",
-      "source_record_id": "rock_rocku:cd4325ef232d11ad",
-      "title": "Individuals In Rock",
+      "source_key": "35eac45913be1c06",
+      "source_record_id": "rock_rocku:35eac45913be1c06",
+      "title": "Prayer Requests Training",
       "topics": [
-        "security",
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "aaa5dc232c91a944ccf2d1e9ce9e19bc9c4997348c9130efc73d30b210eb6009",
-      "excerpt_hash": "ddb3c5022542b7feca90ac44a746b06ff7629fb2f0cedfb7269066003fda1234",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "prayer",
-        "prayer request",
-        "prayerrequest",
-        "request"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "94b7e32cdeffdd7b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "de087d3bb047fce6",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "a56a73c5681795bd",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=LNcx8t0mlQ4",
-      "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "f74f71f655f35974b261ba9befb06f409364e1df32ce4e2643ec0544789348e1",
-      "excerpt_hash": "851587aa4bf2f3a0744390f297f314688dd3e82105b850243984002ebd717c55",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "78f1e8bbd9d351ff",
-      "source_record_id": "media-insight:f131f156d62b7d38",
-      "title": "Rapid Attendance Entry Transcript Insight",
-      "topics": [
-        "check-in",
-        "attendance",
-        "groups",
-        "workflows",
-        "training"
-      ],
-      "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
-      "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "1c59cd336e8baae0",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/shorts/c6T9Ha13jKE",
-      "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "289a4448cd8dfc88f8d894843f998eb556b826263b15ff24284e26490acf9d97",
-      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "7dc5e618afae727e",
-      "source_record_id": "rock_documentation:article:2012",
-      "title": "About Prayer in Rock",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/about-prayer-in-rock",
+      "url": "https://community.rockrms.com/rocku/prayer/prayer-requests",
       "version": null
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "54d943471d6df6598880b2ed865dc703bd672aed17596907a1c995e878685c59"
+  }
 }

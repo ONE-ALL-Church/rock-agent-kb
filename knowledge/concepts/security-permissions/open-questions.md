@@ -13,71 +13,45 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `3-security-and-permissions-mental-model-the-direct-rule-layer`: The Direct Rule Layer
-- `3-security-and-permissions-mental-model-the-inheritance-layer`: The Inheritance Layer
-- `4-source-authority-and-how-to-use-this-guide-lower-authority-but-useful-sources`: Lower Authority But Useful Sources
-- `5-core-configuration-and-data-model-auth-records`: `Auth` Records
-- `5-core-configuration-and-data-model-security-roles-as-groups`: Security Roles As Groups
-- `7-common-security-and-permissions-workflows-explain-why-a-user-can-see-a-page`: Explain Why A User Can See A Page
-- `7-common-security-and-permissions-workflows-create-a-new-security-role`: Create A New Security Role
-- `7-common-security-and-permissions-workflows-remove-access-for-departed-staff`: Remove Access For Departed Staff
-- `8-authorization-deep-dive-allow-and-deny-strategy`: Allow And Deny Strategy
-- `8-authorization-deep-dive-person-specific-permissions`: Person-Specific Permissions
-- `10-related-rock-areas-people-groups-api-cms-workflows-people`: People
-- `11-administration-and-operational-guardrails-least-privilege`: Least Privilege
-- `11-administration-and-operational-guardrails-sensitive-domain-guardrails`: Sensitive Domain Guardrails
-- `11-administration-and-operational-guardrails-temporary-access-and-impersonation`: Temporary Access And Impersonation
-- `11-administration-and-operational-guardrails-security-audits`: Security Audits
-- `13-reporting-analytics-and-model-map-dynamic-data-and-sql-reports`: Dynamic Data And SQL Reports
-- `14-version-and-release-caveats-v15-fluid-lava-requirement-for-some-community-security-tools`: v15: Fluid Lava Requirement For Some Community Security Tools
-- `15-implementation-playbooks-playbook-audit-who-can-administrate-a-page`: Playbook: Audit Who Can Administrate A Page
-- `15-implementation-playbooks-playbook-build-a-staff-only-report-page`: Playbook: Build A Staff-Only Report Page
-- `16-troubleshooting-decision-tree-user-can-see-too-much-data`: User Can See Too Much Data
-- `17-agent-task-recipes-recipe-answer-who-has-access-to-this`: Recipe: Answer “Who Has Access To This?”
-- `17-agent-task-recipes-recipe-review-a-security-role`: Recipe: Review A Security Role
+- `agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration`: Recipe: Preflight a least-privilege REST integration
+- `agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint`: Recipe: Secure a Lava API or Helix endpoint
+- `source-map-reviewed-community-examples`: Reviewed community examples
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
 - `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `2-scope-and-terminology-out-of-scope`: Out Of Scope
-- `3-security-and-permissions-mental-model-the-actor-layer`: The Actor Layer
+- `scope-and-boundaries`: Scope And Boundaries
+- `3-security-and-permissions-mental-model-the-object-layer`: The Object Layer
 - `3-security-and-permissions-mental-model-the-action-layer`: The Action Layer
-- `3-security-and-permissions-mental-model-the-direct-rule-layer`: The Direct Rule Layer
-- `3-security-and-permissions-mental-model-the-inheritance-layer`: The Inheritance Layer
-- `3-security-and-permissions-mental-model-the-cache-layer`: The Cache Layer
-- `4-source-authority-and-how-to-use-this-guide-medium-authority-sources`: Medium Authority Sources
-- `4-source-authority-and-how-to-use-this-guide-lower-authority-but-useful-sources`: Lower Authority But Useful Sources
-- `4-source-authority-and-how-to-use-this-guide-how-agents-should-use-this-guide`: How Agents Should Use This Guide
-- `5-core-configuration-and-data-model`: 5. Core Configuration And Data Model
-- `5-core-configuration-and-data-model-core-configuration-areas`: Core Configuration Areas
-- `5-core-configuration-and-data-model-auth-records`: `Auth` Records
-- `5-core-configuration-and-data-model-authorization-constants`: Authorization Constants
-- `5-core-configuration-and-data-model-security-roles-as-groups`: Security Roles As Groups
-- `5-core-configuration-and-data-model-person-user-login-and-account-security`: Person, User Login, And Account Security
-- `5-core-configuration-and-data-model-api-keys-and-purpose`: API Keys And Purpose
-- `5-core-configuration-and-data-model-document-type-and-file-type-security`: Document Type And File Type Security
-- `5-core-configuration-and-data-model-workflow-type-security`: Workflow Type Security
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `6-primary-entities-and-relationships-person-userlogin-group-and-security-role`: Person, UserLogin, Group, And Security Role
-- `6-primary-entities-and-relationships-entitytype-and-securable-entities`: EntityType And Securable Entities
-- `6-primary-entities-and-relationships-page-site-and-block`: Page, Site, And Block
-- `6-primary-entities-and-relationships-api-endpoints-auth-clients-claims-and-scopes`: API Endpoints, Auth Clients, Claims, And Scopes
-- `7-common-security-and-permissions-workflows-grant-a-staff-user-access-to-a-page`: Grant A Staff User Access To A Page
-- `7-common-security-and-permissions-workflows-explain-why-a-user-can-see-a-page`: Explain Why A User Can See A Page
-- `7-common-security-and-permissions-workflows-create-a-new-security-role`: Create A New Security Role
-- `7-common-security-and-permissions-workflows-secure-a-custom-block`: Secure A Custom Block
-- `7-common-security-and-permissions-workflows-secure-a-custom-lava-page`: Secure A Custom Lava Page
-- `7-common-security-and-permissions-workflows-secure-a-rest-integration`: Secure A REST Integration
-- `8-authorization-deep-dive-standard-actions`: Standard Actions
-- `8-authorization-deep-dive-allow-and-deny-strategy`: Allow And Deny Strategy
-- `8-authorization-deep-dive-page-and-block-security-order`: Page And Block Security Order
-- `8-authorization-deep-dive-entity-parent-authority`: Entity Parent Authority
-- `8-authorization-deep-dive-authorization-cache`: Authorization Cache
-- `9-api-auth-deep-dive-legacy-rest-api-authorization`: Legacy REST API Authorization
-- `9-api-auth-deep-dive-v2-api-pattern`: v2 API Pattern
-- `9-api-auth-deep-dive-api-keys`: API Keys
+- `authorization-and-security-roles`: Authorization And Security Roles
+- `authorization-and-security-roles-permission-evaluation`: Permission evaluation
+- `login-accounts-and-protection-profiles-external-authentication-and-oidc`: External authentication and OIDC
+- `api-authentication-and-identity-bound-links`: API Authentication And Identity-Bound Links
+- `cms-content-personalization-and-lava-pages-and-blocks`: Pages and blocks
+- `cms-content-personalization-and-lava-advanced-html-and-lava-commands`: Advanced HTML and Lava commands
+- `helix-applications-and-endpoint-security`: Helix Applications And Endpoint Security
+- `feature-specific-authorization-workflows-sign-ups-and-groups`: Sign-Ups and groups
+- `feature-specific-authorization-workflows-mobile-check-in`: Mobile check-in
+- `feature-specific-authorization-workflows-captcha-and-exposed-forms`: CAPTCHA and exposed forms
+- `ai-agents-tools-and-data-access`: AI Agents, Tools, And Data Access
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-a-person-cannot-access-an-item-they-should-be-able-to-use`: A person cannot access an item they should be able to use
+- `troubleshooting-decision-tree-a-page-or-content-item-is-missing-or-publicly-exposed`: A page or content item is missing or publicly exposed
+- `troubleshooting-decision-tree-login-fails-after-enabling-2fa-or-an-external-provider`: Login fails after enabling 2FA or an external provider
+- `troubleshooting-decision-tree-a-rest-request-returns-unauthorized-or-permission-denied`: A REST request returns unauthorized or permission denied
+- `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-the-intended-role`: A Helix endpoint works for administrators but not the intended role
+- `troubleshooting-decision-tree-a-note-is-missing-visible-to-the-wrong-staff-or-behaves-unexpectedly-downstream`: A note is missing, visible to the wrong staff, or behaves unexpectedly downstream
+- `troubleshooting-decision-tree-a-public-form-is-receiving-abuse-or-captcha-is-not-appearing`: A public form is receiving abuse or CAPTCHA is not appearing
+- `troubleshooting-decision-tree-a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people`: A top-level Sign-Up project cannot be created or is visible to the wrong people
+- `agent-task-recipes-recipe-explain-an-effective-permission-result`: Recipe: Explain an effective permission result
+- `agent-task-recipes-recipe-publish-a-page-or-block-with-bounded-access`: Recipe: Publish a page or block with bounded access
+- `agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration`: Recipe: Preflight a least-privilege REST integration
+- `agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint`: Recipe: Secure a Lava API or Helix endpoint
+- `agent-task-recipes-recipe-audit-person-profile-notes`: Recipe: Audit Person Profile notes
+- `agent-task-recipes-recipe-validate-an-ai-agent-tool-before-production`: Recipe: Validate an AI agent tool before production
+- `agent-task-recipes-recipe-run-a-security-sensitive-upgrade-preflight`: Recipe: Run a security-sensitive upgrade preflight
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map-primary-official-security-documentation`: Primary official security documentation
 
 ## Live Verification Clarification
 

@@ -10,59 +10,40 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (193 words)
+- `mental-model`: Mental Model (194 words)
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (233 words)
 
 ## Community-Supported Only
 
-- `5-core-configuration-and-data-model-security-rules`: Security Rules
-- `6-primary-entities-and-relationships-page-block-and-security-relationships`: Page, Block, And Security Relationships
-- `8-jobs-and-scheduling-deep-dive-launch-workflow-job`: Launch Workflow Job
-- `11-cleanup-and-data-integrity-deep-dive-security-data-integrity`: Security Data Integrity
-- `11-cleanup-and-data-integrity-deep-dive-integration-and-recipe-integrity`: Integration And Recipe Integrity
-- `13-administration-and-operational-guardrails-validate-community-recipes`: Validate Community Recipes
-- `17-implementation-playbooks-playbook-review-security-integrity`: Playbook: Review Security Integrity
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-system-administration-and-operations-mental-model-layer-1-configuration`: Layer 1: Configuration
-- `3-system-administration-and-operations-mental-model-layer-4-security-and-authorization`: Layer 4: Security And Authorization
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-entities-properties-and-attributes`: Entities, Properties, And Attributes
-- `5-core-configuration-and-data-model-defined-types-and-defined-values`: Defined Types And Defined Values
-- `5-core-configuration-and-data-model-service-jobs`: Service Jobs
-- `5-core-configuration-and-data-model-cache`: Cache
-- `6-primary-entities-and-relationships-servicejob-and-servicejobhistory`: ServiceJob And ServiceJobHistory
-- `6-primary-entities-and-relationships-servicejobhistory-fields-to-inspect`: ServiceJobHistory Fields To Inspect
-- `6-primary-entities-and-relationships-dataview-and-persisted-data-view-state`: DataView And Persisted Data View State
-- `6-primary-entities-and-relationships-exceptionlog`: ExceptionLog
-- `6-primary-entities-and-relationships-page-block-and-security-relationships`: Page, Block, And Security Relationships
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-a-failed-service-job`: Workflow: Investigate A Failed Service Job
-- `7-common-system-administration-and-operations-workflows-workflow-confirm-whether-a-job-actually-ran`: Workflow: Confirm Whether A Job Actually Ran
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-a-warning-job`: Workflow: Investigate A Warning Job
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-stale-search-results`: Workflow: Investigate Stale Search Results
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-stale-persisted-data-view-results`: Workflow: Investigate Stale Persisted Data View Results
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-a-cache-suspect`: Workflow: Investigate A Cache Suspect
-- `7-common-system-administration-and-operations-workflows-workflow-investigate-an-exception-spike`: Workflow: Investigate An Exception Spike
-- `7-common-system-administration-and-operations-workflows-workflow-review-operational-health-after-upgrade`: Workflow: Review Operational Health After Upgrade
-- `8-jobs-and-scheduling-deep-dive-job-configuration-fields-to-inspect`: Job Configuration Fields To Inspect
-- `8-jobs-and-scheduling-deep-dive-job-history-interpretation`: Job History Interpretation
-- `8-jobs-and-scheduling-deep-dive-job-history-ui-behavior`: Job History UI Behavior
-- `8-jobs-and-scheduling-deep-dive-job-history-security`: Job History Security
-- `8-jobs-and-scheduling-deep-dive-job-retention`: Job Retention
-- `8-jobs-and-scheduling-deep-dive-update-persisted-dataviews-job`: Update Persisted DataViews Job
-- `8-jobs-and-scheduling-deep-dive-launch-workflow-job`: Launch Workflow Job
-- `9-diagnostics-and-exceptions-deep-dive-diagnostic-mindset`: Diagnostic Mindset
-- `exception-investigation-branches-request-time-exception`: Request-Time Exception
-- `exception-investigation-branches-job-time-exception`: Job-Time Exception
-- `exception-investigation-branches-dataview-exception`: DataView Exception
-- `exception-investigation-branches-search-exception`: Search Exception
-- `exception-investigation-branches-cache-exception`: Cache Exception
-- `10-cache-and-indexing-deep-dive-cache-keys`: Cache Keys
-- `10-cache-and-indexing-deep-dive-cache-tags`: Cache Tags
-- `10-cache-and-indexing-deep-dive-cache-clearing`: Cache Clearing
-- `10-cache-and-indexing-deep-dive-entity-indexing`: Entity Indexing
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model`: Mental Model
+- `jobs-and-scheduling-job-configuration-and-history`: Job configuration and history
+- `jobs-and-scheduling-version-specific-job-history-failures`: Version-specific job-history failures
+- `jobs-and-scheduling-job-backed-operational-processes`: Job-backed operational processes
+- `diagnostics-and-exceptions-exception-history`: Exception history
+- `cache-and-persisted-data-cache-manager-and-cache-tags`: Cache Manager and cache tags
+- `cleanup-and-data-integrity-photo-verification`: Photo verification
+- `troubleshooting-decision-tree-a-scheduled-job-stopped-producing-new-history`: A scheduled job stopped producing new history
+- `troubleshooting-decision-tree-a-page-is-slow`: A page is slow
+- `troubleshooting-decision-tree-updated-content-remains-stale`: Updated content remains stale
+- `troubleshooting-decision-tree-exceptions-repeat-after-a-page-or-block-change`: Exceptions repeat after a page or block change
+- `troubleshooting-decision-tree-universal-search-cannot-connect-after-an-environment-refresh`: Universal Search cannot connect after an environment refresh
+- `troubleshooting-decision-tree-an-entity-type-returns-no-universal-search-results`: An entity type returns no Universal Search results
+- `troubleshooting-decision-tree-universal-search-works-directly-but-not-through-smart-search`: Universal Search works directly but not through Smart Search
+- `troubleshooting-decision-tree-an-address-is-missing-coordinates`: An address is missing coordinates
+- `troubleshooting-decision-tree-data-automation-changed-more-records-than-expected`: Data Automation changed more records than expected
+- `agent-task-recipes-recipe-triage-a-recurring-exception`: Recipe: Triage a recurring exception
+- `agent-task-recipes-recipe-refresh-stale-cached-output-with-minimum-scope`: Recipe: Refresh stale cached output with minimum scope
+- `agent-task-recipes-recipe-create-and-assign-a-cache-tag`: Recipe: Create and assign a cache tag
+- `agent-task-recipes-recipe-audit-a-scheduled-job-s-recent-health`: Recipe: Audit a scheduled job’s recent health
+- `agent-task-recipes-recipe-restore-a-missing-universal-search-entity`: Recipe: Restore a missing Universal Search entity
+- `agent-task-recipes-recipe-configure-a-bounded-site-index-crawl`: Recipe: Configure a bounded site-index crawl
+- `agent-task-recipes-recipe-review-and-resolve-a-duplicate-person-candidate`: Recipe: Review and resolve a duplicate-person candidate
+- `agent-task-recipes-recipe-review-a-data-automation-change-before-execution`: Recipe: Review a Data Automation change before execution
 
 ## Live Verification Clarification
 

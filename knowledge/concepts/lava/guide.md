@@ -6,2022 +6,702 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "29b9e588f224b149b839ef0c2ff0394d257edaff043f6b9e5b262aa946d1cbac"
 ---
 
 # Lava
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Lava is Rock’s Liquid-based templating layer for turning merge fields into formatted output, applying filters, controlling flow with tags, and invoking explicitly enabled commands. It appears across CMS blocks, workflows, communications, mobile content, TV applications, APIs, reporting surfaces, Helix applications and AI tools. The available merge fields, commands, security context and required output format vary by execution surface. [Lava Reference](https://community.rockrms.com/lava)
 
-- Concept data-model landmarks: [Lava index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+Treat every Lava task as five linked decisions:
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+1. Identify the rendering surface and its authenticated person or system context.
+2. Inspect the merge fields and input values actually available there.
+3. distinguish presentation-only filters and tags from commands that read, write, call external systems or cause physical effects.
+4. Enable only the commands that surface needs.
+5. Validate both the rendered output and any resulting state under the intended role.
 
-## 1. Executive Summary For Agents
+Lava commands can bypass parts of Rock’s normal security and business logic. HTML blocks begin with no commands enabled unless configured, and write-capable commands require especially narrow authorization and verification. [Lava Commands](https://community.rockrms.com/lava/commands)
 
-Lava is Rock RMS's Liquid-based template language for turning Rock data, merge fields, page context, request data, and command output into rendered text, HTML, CSS, JSON, XML, labels, workflow launches, analytics records, and API responses. In practice, Lava is not just a display language. It is the connective layer used by CMS pages, communications, workflows, shortcodes, mobile blocks, remote render endpoints, Lava webhooks, Helix-style applications, and agent tools.
+## Scope And Boundaries
 
-An agent working in Rock should treat Lava as a privileged execution surface. A Lava template might only print `{{ CurrentPerson.NickName }}`, or it might query entities, run SQL, call external APIs, write interaction records, launch workflows, update data through Helix-era commands, send printer instructions, or expose data through a webhook. Rock's Lava command documentation explicitly separates ordinary Lava syntax from enabled commands because commands can bypass ordinary application screens, security assumptions, and business workflows when enabled in the wrong context ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)).
+This guide covers Lava syntax, filters, commands, shortcodes, remote rendering, workflow use, Rock Mobile and TV output, Helix, reporting patterns and Lava-backed AI tools.
 
-The operational model is:
+It does not replace the owning guides for CMS architecture, workflow design, SQL, security, communications, event registration, check-in, LMS or external BI platforms. When Lava participates in one of those systems, this guide covers the Lava boundary: inputs, rendering context, command authorization, output contract and verification.
 
-1. Identify where the Lava runs.
-2. Inspect the merge fields available in that context.
-3. Inspect which Lava commands are enabled in that context.
-4. Determine whether the template is read-only, write-capable, remote-call-capable, or response-controlling.
-5. Verify the current Rock version and Lava engine.
-6. Prefer entity commands and documented filters for normal reads.
-7. Use SQL only when entity commands cannot express the query cleanly, and parameterize all user-influenced values.
-8. Use shortcodes to standardize reusable patterns, but treat shortcode type, scope behavior, parameters, and enabled commands as part of the contract.
-9. Use caching, observability, and debugging tools deliberately.
-10. Validate production-facing Lava against security, performance, and version caveats before relying on it.
+The evidence pack supports examples of community implementation patterns. Those examples are not statements of universal Rock behavior. Unless a community record is explicitly marked otherwise, reproduce the behavior on the target Rock version and configuration before adopting it.
 
-The most important version caveat is the transition from DotLiquid to Fluid. Rock introduced Fluid in v13 and moved toward ending DotLiquid support by v17. The Fluid migration affects include syntax, sorting behavior, variable naming, comments, null comparisons, escaping, and other edge cases ([About Lava Fluid](https://community.rockrms.com/lava/fluid), [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)). Agents should never assume old Lava syntax is safe in a modern instance. First inspect the Global Attribute named `Lava Engine Liquid Framework`, the Rock version, and recent exceptions.
+## Mental Model
 
-The most important security caveat is that command enablement matters. HTML blocks, Communication Entry blocks, shortcodes, webhooks, and global defaults can each grant different command access ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands), [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)). If a template can run `sql`, `webrequest`, entity commands with `securityenabled:'false'`, workflow activation, HTTP response commands, or Helix data-modification commands, it must be reviewed as executable application logic.
+A useful model is:
 
-The most important maintenance caveat is that Lava is distributed across many storage locations: block settings, content channel item content, system communications, workflow action values, defined values, shortcodes, theme files, includes, mobile block templates, API webhook templates, and plugin-provided shortcodes or commands. To troubleshoot Lava, do not only inspect the visible page. Follow the context back to the block, shortcode, include file, workflow, communication, Defined Type, or mobile block that actually owns the template.
-
-## 2. Scope And Terminology
-
-This guide covers Lava syntax, filters, commands, shortcodes, remote Lava, Lava APIs, Fluid migration, security, operational checks, source-code landmarks, and agent-oriented playbooks. It focuses on concepts and operational use, not on exhaustive filter-by-filter syntax for every built-in filter. When the source pack gives command parameters or entity relationships, those are included. When the source material is thin, the guide says what to inspect in a live Rock instance.
-
-Use these terms consistently:
-
-**Lava**  
-Rock's Liquid-based template language. It renders variables, evaluates tags, applies filters, executes enabled commands, and expands shortcodes. Rock's public Lava reference describes it as a Liquid-derived engine extended for Rock-specific use ([Lava Reference](https://community.rockrms.com/lava)).
-
-**Output markup**  
-The `{{ ... }}` syntax that evaluates an expression and writes the result into the rendered output.
-
-**Tag**  
-The `{% ... %}` syntax used for logic, control flow, variable assignment, includes, raw blocks, and some command-like constructs. Examples include `if`, `for`, `assign`, `capture`, `include`, `raw`, and Fluid's `lava` tag ([Lava Reference](https://community.rockrms.com/lava), [Include](https://community.rockrms.com/lava/tags/include-tags), [Raw](https://community.rockrms.com/lava/tags/raw-tags)).
-
-**Filter**  
-A transformation applied with pipe syntax, such as `{{ value | Date:'MMM d' }}` or `{{ Person | Attribute:'BaptismDate' }}`. Filters format values, convert types, access Rock attributes, serialize data, manipulate arrays, and more.
-
-**Command**  
-A Lava block or tag that performs a larger operation, often involving Rock data, SQL, HTTP calls, caching, workflows, interactions, search, printing, or other system behavior. Commands must be enabled in the running context before they can be used ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)).
-
-**Entity command**  
-A generated command for querying Rock entities such as `person`, `group`, `contentchannelitem`, `registrationinstance`, or plugin entities. The registered command names can be discovered with the administrative `taglist` command if available ([Tag List](https://community.rockrms.com/lava/commands/taglist-commands), [Entity](https://community.rockrms.com/lava/commands/entity-commands)).
-
-**Shortcode**  
-A reusable Lava template invoked with `{[ shortcode ... ]}` syntax. Rock supports inline shortcodes and block shortcodes. Shortcodes are configured in `Admin Tools > CMS Configuration > Lava Shortcodes` ([Intro to Shortcodes](https://community.rockrms.com/lava/shortcodes/intro-to-shortcodes), [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes), [Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
-
-**Inline shortcode**  
-A shortcode with no closing tag. It accepts parameters and renders output. It is appropriate for compact, self-contained functionality such as an embed or formatter.
-
-**Block shortcode**  
-A shortcode with a start tag and end tag. It receives the content between those tags through `blockContent` and can parse nested configuration sections ([The Power of Shortcode Blocks](https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks)).
-
-**Fluid**  
-The newer Lava engine introduced in Rock v13. It is faster and more standards-aligned than DotLiquid, but some syntax and behavior differs ([About Lava Fluid](https://community.rockrms.com/lava/fluid), [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)).
-
-**DotLiquid**  
-The older Lava engine. Source material says support was ending with Rock v17; agents should verify a live instance's engine setting rather than assuming it is already fully migrated ([Lava Reference](https://community.rockrms.com/lava), [About Lava Fluid](https://community.rockrms.com/lava/fluid)).
-
-**Merge fields**  
-Variables made available by the current context. Examples include `CurrentPerson`, `Person`, `Campuses`, `PageParameter`, `Workflow`, `Body`, `Headers`, or block-specific values. Debug mode in many Lava-enabled contexts can expose available fields.
-
-**Context**  
-The execution environment for a Lava template: a CMS block, communication, workflow action, shortcode, remote render endpoint, webhook, mobile block, or tool. Context controls merge fields, command enablement, security, and available request data.
-
-## 3. Lava Mental Model
-
-Think of Lava as a small program that Rock merges into a larger runtime context.
-
-A minimal output expression looks like this:
-
-```liquid
-Hello {{ CurrentPerson.NickName }}.
+```text
+rendering surface
+    → runtime identity and merge fields
+    → Lava template
+        → output expressions
+        → filters
+        → control-flow tags
+        → enabled commands
+        → shortcodes
+    → context-specific output
+    → visible result or side effect
 ```
 
-That expression reads from the current merge field dictionary and writes text. A slightly safer version guards the missing-person case:
+Output expressions such as `{{ Person.NickName }}` insert values. Filters transform a value through a pipeline. Tags such as `assign`, `if` and `for` manage variables and flow. Shortcodes hide a larger Lava template behind a compact interface. Commands reach beyond formatting and may retrieve entities, execute SQL, call a web service, start a workflow, modify data or trigger another effect. [Lava Reference](https://community.rockrms.com/lava)
+
+The final output is not always HTML. Rock Mobile Lava can produce XAML, Apple TV pages must produce valid TVML, Roku pages produce SceneGraph-oriented content, and `printzpl` sends ZPL to a printer without producing visible page output. [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava), [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages), [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages), [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl)
+
+Security belongs to the whole render path, not merely the template text. The same Lava may behave differently when rendered by an anonymous CMS page, an authenticated block, a scheduled workflow, a REST key, a mobile shell or a Helix endpoint.
+
+## Core Syntax And Engine
+
+Rock bases Lava on Liquid and extends it with Rock-specific filters, commands, entity access and merge fields. Basic templates combine output expressions, assignments, conditions and loops. [Lava Reference](https://community.rockrms.com/lava)
 
 ```liquid
+{% assign hour = 'Now' | Date:'H' %}
+
 {% if CurrentPerson %}
-Hello {{ CurrentPerson.NickName }}.
+  Hello {{ CurrentPerson.NickName }}.
+{% elseif hour < 12 %}
+  Good morning.
 {% else %}
-Hello.
+  Welcome.
 {% endif %}
 ```
 
-This pattern captures the three layers of Lava:
+Do not assume a person merge field exists merely because the template renders in a person-aware test surface. An anonymous page, job, remote endpoint or bundled mobile template may have a different identity context.
 
-1. **Data**: values supplied by Rock, the page, a block, a workflow, request data, an entity command, SQL, or another template.
-2. **Logic**: tags such as `if`, `case`, `for`, `assign`, `capture`, and `include`.
-3. **Transformation**: filters such as `Date`, `AsInteger`, `ToJSON`, `Attribute`, `Escape`, `Split`, `Join`, `OrderBy`, and many others.
+### Fluid and DotLiquid
 
-Commands add a fourth layer: **side effects and external access**. For example, an entity command reads Rock entities; `sql` can run database statements; `webrequest` can call remote systems; `workflowactivate` can create or modify workflows; interaction commands write analytics; `printzpl` sends printer output; `stylesheet` injects CSS into the page header ([Entity](https://community.rockrms.com/lava/commands/entity-commands), [SQL](https://community.rockrms.com/lava/commands/sql-commands), [Web Request](https://community.rockrms.com/lava/commands/web-request-commands), [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands), [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl), [Stylesheet](https://community.rockrms.com/lava/commands/stylesheet-commands)).
+Rock introduced the Fluid engine in v13. The transition documentation describes DotLiquid as the historical engine and marks support as ending with v17. Fluid is intended to improve performance and align the platform with newer framework work. [About Lava Fluid](https://community.rockrms.com/lava/fluid), [Lava Reference](https://community.rockrms.com/lava)
 
-For agents, the key question is not "does this Lava render?" It is "what authority does this Lava have?"
+Migration differences documented by Rock include:
 
-A page with a plain HTML block and no enabled commands may only read merge fields and format values. A page with `RockEntity`, `Sql`, `WebRequest`, and `WorkflowActivate` enabled can read broad data, run queries, call external systems, and launch workflows. A Lava webhook may be reachable without user session assumptions and must be treated like an API surface ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)). A remote Lava endpoint tied to a REST key runs as the person associated with that key, so exposing the key in client-side JavaScript gives outsiders a way to run Lava under that identity ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava), [Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456)).
+- Fluid include parameters require commas.
+- Array sorting should use `OrderBy`; entity-command sorting remains a separate command parameter.
+- Fluid’s `Sort` behavior is case-sensitive, with `SortNatural` offered for natural sorting.
+- Nested comment tags are unsupported.
+- Conditions should use `and`, not `&&`.
+- Unrecognized backslash escape sequences can fail, which is significant for regular expressions.
+- Mixed quote usage can change parsing.
+- Some differences were corrected in later versions, including items marked fixed in v17 or v19. [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)
 
-The mental model for safe work is therefore:
+Historical Fluid verification mode rendered Lava through both engines and recorded differences as exceptions. Because this meant executing a template twice, Rock warned administrators to consider templates with write operations or other side effects before enabling that mode. Engine selection and restart instructions are historical, version-sensitive administration guidance; inspect the current target version before applying them. [About Lava Fluid](https://community.rockrms.com/lava/fluid)
 
-- **Render-only Lava**: output, tags, filters, local formatting.
-- **Read Lava**: entity commands, search commands, read-only SQL.
-- **External Lava**: web requests, remote rendering, third-party API integrations.
-- **Write Lava**: interaction write, workflow activation, data-modifying SQL, modify/delete entity commands, printer commands, HTTP response control.
-- **Reusable Lava**: shortcodes, includes, theme assets, mobile templates, API templates.
+Fluid also introduced the `lava` tag in v13.7. Inside that tag, most content is treated as logic and explicit `echo` statements produce text. It is useful for logic-heavy regions but is available only under Fluid. [Lava Tag](https://community.rockrms.com/lava/tags/lava-tags)
 
-Each layer requires a different review threshold.
+## Filters
 
-## 4. Source Authority And How To Use This Guide
-
-Use sources in this priority order:
-
-1. **Official Lava documentation** for core syntax, commands, filters, shortcodes, Fluid migration, and remote/API features.
-2. **Rock release notes and tech bulletins** for version-specific behavior changes and current caveats.
-3. **Rock source-code and generated view models** for entity fields, block APIs, configuration bags, and implementation landmarks.
-4. **RockU training** for conceptual reinforcement and examples.
-5. **Developer docs** for mobile, Helix, Obsidian, and AI-agent usage.
-6. **Community recipes** for patterns and examples, with review before production use.
-
-The source pack contains public excerpts rather than full documentation. This guide synthesizes those excerpts and citations. It does not replace a live inspection of a Rock instance.
-
-When an agent is doing real work, use this guide as an operational map, then verify these items live:
-
-- Rock version and release channel.
-- Lava engine setting.
-- Enabled commands in the actual block, shortcode, communication, webhook, or global defaults.
-- Merge fields available in that specific context.
-- Entity command names, especially for plugins.
-- Security roles and REST key identity for remote execution.
-- Shortcode records, active state, tag type, scope behavior, parameters, enabled commands, and categories.
-- Exception list entries for Lava parse errors, legacy syntax warnings, Fluid verification mismatches, SQL errors, or security-denied command usage.
-- Whether source URLs have newer documentation than the provided pack.
-
-Do not treat community recipes as endorsed core behavior. Recipe pages include a disclaimer that community submissions are not reviewed or endorsed by the Rock core team and may carry performance or security risk; use them as examples to adapt, not as authority ([Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456), [Lava Shortcode for Placement Groups on Check In](https://community.rockrms.com/recipes/386), [Address Format Lava Shortcode](https://community.rockrms.com/recipes/467)).
-
-## 5. Core Configuration And Data Model
-
-### Lava Engine Liquid Framework
-
-The primary engine setting is the Global Attribute named `Lava Engine Liquid Framework`, located at `Admin Tools > General Settings > Global Attributes` according to the Fluid transition documentation ([About Lava Fluid](https://community.rockrms.com/lava/fluid)). In Rock v13, the documented options were:
-
-- `DotLiquid`
-- `Fluid`
-- `DotLiquid (with Fluid verification)`
-
-Verification mode runs Lava through both engines and logs differences or problems as exceptions. This is useful during migration, but it has an operational caveat: templates may execute twice. If a template writes data, sends requests, logs interactions, activates workflows, prints labels, or changes state, double execution can create duplicate side effects. Before enabling verification in production, search for write-capable Lava and either disable those paths during testing or verify idempotence.
-
-Agent inspection steps:
-
-1. Open the Global Attribute value for `Lava Engine Liquid Framework`.
-2. Check whether Rock has already moved beyond the v13-era options.
-3. Inspect the Exception List for Fluid verification errors.
-4. Find templates referenced in exception details.
-5. Remediate syntax differences.
-6. Restart Rock only when the setting change requires it and a maintenance window is acceptable.
-
-### Default Enabled Lava Commands
-
-Rock supports a Global Attribute named `Default Enabled Lava Commands`, used where individual block settings do not exist or are impractical ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)). This is a high-impact setting. If broad commands such as `Sql`, `RockEntity`, `WebRequest`, or write commands are globally enabled, many Lava contexts may inherit authority the author did not explicitly request.
-
-Agent inspection steps:
-
-1. Inspect `Default Enabled Lava Commands`.
-2. Record whether it is empty, minimal, or broad.
-3. Identify contexts that rely on defaults.
-4. Prefer enabling commands on the narrowest block or shortcode that needs them.
-5. If reducing defaults, test communications, workflows, and CMS pages that depend on inherited commands.
-
-### HTML Block Command Enablement
-
-HTML blocks expose a block setting for enabled Lava commands. Official docs state HTML blocks do not have commands enabled by default ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)). When diagnosing a Lava block:
-
-1. Open block settings.
-2. Inspect enabled commands.
-3. Compare the template's actual command usage.
-4. Remove unused commands.
-5. Confirm cache duration and output caching settings if the block is expensive.
-6. Use debug mode, if available, to inspect merge fields.
-
-### Communication Entry Command Enablement
-
-Communication Entry also has command enablement considerations. The command documentation calls out that staff-facing internal use and public or toolbox-originated communication use may need different command availability ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)). Agents should be careful when enabling commands in communications because email/SMS templates often include recipient-specific data and can be rendered many times.
-
-Checklist:
-
-- Confirm whether the communication is internal-only, public-entry, scheduled, or automated.
-- Verify whether command output is recipient-specific.
-- Avoid SQL or entity queries that run once per recipient unless cached or precomputed.
-- Escape user-entered values in HTML, links, XML, JSON, and mobile contexts.
-- Inspect communication send logs and exceptions after changes.
-
-### Lava Shortcode Entity
-
-Rock's source model defines `LavaShortcode` as a CMS entity. The source-code snippet for `Rock/Model/CMS/LavaShortCode/LavaShortCode.cs` identifies fields that agents should inspect or populate: `Name`, `Description`, `Documentation`, active/system flags, `TagName`, `Markup`, `TagType`, `EnabledLavaCommands`, `Parameters`, `ShortcodeScopeBehavior`, and related `Categories` ([LavaShortCode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs)). The Obsidian view-model snippets mirror many of these fields, including `enabledCommands`, `parameters`, `shortcodeScopeBehavior`, `tagName`, and `tagType` ([LavaShortcodeBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaShortcodeDetail/LavaShortcodeBag.cs), [lavaShortcodeBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts)).
-
-Operational meaning of key fields:
-
-- `Name`: Human-readable display name.
-- `TagName`: The token used in `{[ tagname ]}`. It must be unique; the detail block source validates duplicate tag names ([LavaShortcodeDetail.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs)).
-- `TagType`: Inline or block. Changing it later breaks callers because block and inline invocation syntax differ ([Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes)).
-- `Markup`: The Lava template that executes when the shortcode is expanded.
-- `Parameters`: Declared keys and defaults. Source docs warn that uppercase keys may not be set by callers as expected; use lowercase keys ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
-- `EnabledLavaCommands`: Commands available inside the shortcode even if the source block did not enable them ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
-- `ShortcodeScopeBehavior`: Controls whether variables in the shortcode are isolated from or shared with surrounding Lava. Release notes describe this as a v19.1 addition; older docs mention a v12-era `Variable Scope Context`, so verify the actual field label and behavior in the live version ([Rock Core Release Notes](https://www.rockrms.com/releasenotes), [Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
-- `Categories`: Used for grouping and filtering shortcodes in the admin UI. Source code shows shortcode list blocks loading and displaying category associations ([LavaShortcodeList.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs)).
-
-### Lava Shortcode Cache
-
-The model logic snippet shows `LavaShortcode` implements cache behavior through `LavaShortcodeCache`, with update hooks when the entity changes ([LavaShortCode.Logic.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs)). If a shortcode change appears not to render immediately, inspect:
-
-- Whether the shortcode record saved successfully.
-- Whether Rock cache was updated.
-- Whether the calling block has output caching.
-- Whether the `cache` Lava command wraps the shortcode output.
-- Whether the page, browser, or CDN has cached output.
-- Whether the shortcode is system-defined and overwritten by update behavior.
-
-### Lava Webhooks
-
-Lava API/webhook templates are configured through a Defined Type according to the Lava API documentation. Incoming requests are matched to Defined Values by path and optionally by HTTP verb, with regular expression support for URL matching. The template can access request-derived variables such as query/body data, headers, cookies, and route variables, and each Defined Value can specify enabled Lava commands ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
-
-Agent inspection steps:
-
-1. Navigate to `Admin Tools > General Settings > Defined Types`.
-2. Locate the Lava webhook Defined Type used by the instance.
-3. Inspect each Defined Value: value/path, verb, enabled flag, template, commands, response content type, and any security-related attributes.
-4. Verify whether route matching uses regex.
-5. Test GET/POST/body/header handling with non-sensitive data.
-6. Confirm the endpoint does not expose private data without authentication or signature validation.
-
-### Remote Lava REST Endpoint
-
-Remote Lava takes a Lava template as input and returns rendered output. The docs warn that using it from browser JavaScript can expose endpoint and API key details; the request runs as the person associated with the API key ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)). A community VS Code recipe shows the same identity caveat for remote preview tooling and notes that some commands may be restricted on the endpoint ([Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456)).
-
-Agent inspection steps:
-
-- Identify the REST key or API key.
-- Open the person profile associated with that REST key.
-- Inspect security roles and account confirmation.
-- Verify whether remote execution is server-side only.
-- Do not expose keys in public JavaScript.
-- Confirm which commands are blocked or enabled for the endpoint in that Rock version.
-
-## 6. Primary Entities And Relationships
-
-### LavaShortcode
-
-`LavaShortcode` is the central entity for reusable `{[ ... ]}` tags. Source code places it in the CMS domain and maps it to the `LavaShortcode` table ([LavaShortCode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs)). It relates to:
-
-- `Category`: many-to-many association for organizing shortcodes.
-- `Attribute` / `AttributeValue`: shortcode entity attributes can exist because the detail block loads qualified attributes.
-- `LavaShortcodeCache`: runtime cache object.
-- Admin blocks: `Lava Shortcode List` and `Lava Shortcode Detail`.
-- Invocation sites: HTML blocks, content items, communications, workflows, mobile templates, webhooks, and other Lava-enabled areas.
-
-Operational relationship:
-
-```text
-LavaShortcode
-  has TagName
-  has TagType
-  has Markup
-  has Parameters
-  has EnabledLavaCommands
-  has ShortcodeScopeBehavior
-  belongs to zero or more Categories
-  may have entity attributes
-  is cached by LavaShortcodeCache
-  is invoked by content using {[ tagname ... ]}
-```
-
-### Block, Page, Site, Theme, And Include Files
-
-Lava often lives in block settings but can delegate to files through `include`. The include tag can read a file and use its content as a template. A single `~` maps to application root; `~~` maps to the current theme directory ([Include](https://community.rockrms.com/lava/tags/include-tags)). This matters because the visible block may only contain:
+Filters transform the value on their left and can be chained. Rock’s filter families include text, date, numeric, color, array, person, attribute and other filters. [Lava Filters](https://community.rockrms.com/lava/filters)
 
 ```liquid
-{% include '~~/Assets/Lava/PageNav.lava' %}
+{{ CurrentPerson.NickName | Upcase }}
+{{ 'Now' | Date:'dddd, MMMM d, yyyy' }}
+{{ CurrentPerson | Attribute:'Employer' }}
+{{ Person.PhoneNumbers | Size }}
 ```
 
-An agent must then inspect the theme asset file, not only the block's content. In a multi-site Rock environment, `~~` depends on the current theme, so the same include path can resolve differently across sites.
+A filter does not automatically make its input trustworthy or appropriate for the output format. Escape values at the output boundary, especially when producing XAML, URLs or command parameters.
 
-### Entity Commands And Rock Models
+### Text and output encoding
 
-The entity command system exposes Rock model types as Lava commands. The command name is the lower-case entity name, such as `person` or `group`, and the default iterator is `<entityName>Items` ([Entity](https://community.rockrms.com/lava/commands/entity-commands)). Plugin entities can register additional commands. The `taglist` administrative command can list registered Lava commands and is especially useful for discovering plugin entity command names ([Tag List](https://community.rockrms.com/lava/commands/taglist-commands)).
+Rock’s official Mobile guidance marks filters that can run locally in the shell. When Lava produces XAML, user-entered text, content titles, URLs and other strings containing characters such as `&` or `'` must be escaped for the position where they are inserted. [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 
-For live verification:
+A reviewed community pattern recommends testing names, titles and URLs containing punctuation rather than validating only simple values. URL components should be encoded as URL data, while XAML attribute content should be escaped as markup. This pattern still requires verification in the target shell and template. [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 
-- Use Model Map for fields and relationships where available.
-- Use `taglist` only in a safe admin context.
-- Confirm entity type names in `EntityType`.
-- Check whether plugin commands are present.
-- Verify security behavior for the queried entity.
+### Dates and time zones
 
-### Attribute And AttributeValue
+At the supplied immutable Rock source revision, Lava date-filter tests state that local `DateTime` values are interpreted in Rock’s configured organization time zone, which may differ from the server time zone. UTC values or `DateTimeOffset` values are safer when an explicit offset matters. This is an implementation observation, not proof of any installation’s configured time zone. [DateFilterTests at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests/Lava/Filters/DateFilterTests.cs)
 
-Attributes are core to Rock extensibility and Lava access. Use the `Attribute` filter rather than legacy direct property-style attribute access. For example:
+Rock v19 also materializes recurring iCal occurrences into `ScheduleDate` rows. For v19 date-based SQL or Lava queries, use those generated occurrences instead of creating a second recurrence-expansion process. [3 Underrated Features, 06:26](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s)
+
+### Person, attributes and personalization
+
+Attribute filters can return formatted, raw or object-oriented representations depending on the field type and requested option. Workflow attributes are commonly accessed with the workflow object and an attribute key. Fields that support Lava are identified in Rock’s workflow interface with `{{ Lava }}` help notation. [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
+
+For personalization, Rock documents two approaches: the `personalize` command, using a segment or request-filter key, and the `PersonalizationItems` person filter for conditional logic. Both can be used outside ordinary CMS blocks, including communications, when the rendering context supplies the necessary person data. [Personalize Using Lava](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava)
+
+### `where` and short-link caveats
+
+Rock v19 adds a `contains` parameter to the Lava `where` filter for partial field matching. Confirm current case, type and performance behavior before applying it to broad collections. [New Features Coming to v19, 18:00](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s)
+
+`CreateShortLink`, available from v8, accepts optional settings in this order: token, site ID, overwrite, random length, category ID and pinned flag. Invalid values can fall back to defaults; an empty URL or the absence of a shortening-enabled site returns an empty string. Because the filter creates persistent records, verify the site and every optional position before bulk communication use. [Other Filters](https://community.rockrms.com/lava/filters/other-filters)
+
+## Commands
+
+Commands perform operations beyond ordinary value transformation. Rock’s documented command catalog includes read, write, HTTP, workflow, personalization, rendering, scripting and physical-output operations. Availability is controlled by the rendering surface’s enabled-command list. [Lava Commands](https://community.rockrms.com/lava/commands)
+
+Commands can bypass Rock’s built-in security and business logic. Enable only the commands required by the template. Treat edit access to an Advanced HTML block as privileged because the block can combine markup, Lava, context and configured commands. During review, inspect page security, block security, enabled commands, query-string and context inputs, and whether rendered output exposes sensitive entity data. [Lava Commands](https://community.rockrms.com/lava/commands), [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block)
+
+### Entity retrieval
+
+Entity commands retrieve Rock entities with parameters such as `id`, `ids`, `where`, `dataview`, sorting, offsets and limits. Parameter values such as `where` must be enclosed in single quotes. If `id` is supplied, Rock ignores `where`, `dataview` and `dynamicparameters`. [Entity Command](https://community.rockrms.com/lava/commands/entity-commands)
 
 ```liquid
-{{ Person | Attribute:'BaptismDate' }}
-```
-
-The attribute filter can return formatted values or properties of object-valued attributes. Global attributes use `'Global' | Attribute:'Key'`, and system settings can be accessed with `'SystemSetting' | Attribute:'Key'` in specialized contexts ([Attributes](https://community.rockrms.com/lava/filters/attribute-filters)). Rock v17 increased attribute security enforcement, and v17.5 added a third optional parameter to bypass attribute security when explicitly appropriate; verify the live version and data sensitivity before using that bypass ([Attributes](https://community.rockrms.com/lava/filters/attribute-filters), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent rule: if a template uses `.AttributeValues`, `securityenabled:'false'`, or `Attribute:'Key','',false`, treat it as an intentional security bypass and document why it is acceptable.
-
-### Workflow, Workflow Type, Activity Type, And Attributes
-
-`workflowactivate` can launch a workflow or activate an activity on an existing workflow. It exposes `Workflow`, `Activity`, and `Error` variables inside the command block, and extra command key/value pairs are interpreted as workflow or activity attribute values ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)). The command requires workflow type and activity type identifiers; the documentation says these can be found on the workflow configuration screen.
-
-Operational relationship:
-
-```text
-WorkflowType
-  defines Workflow
-  contains ActivityType definitions
-  contains Workflow Attributes
-
-Workflow
-  instance launched by workflowactivate
-  can receive attribute values from command parameters
-
-Activity
-  instance activated by workflowactivate
-  can receive activity attribute values
-```
-
-Verify attribute stored values for each field type before setting them from Lava. The source pack points to workflows-and-Lava documentation for field type stored values, but that page is not hydrated here; inspect the live field type and workflow action behavior rather than guessing.
-
-### Interaction Records
-
-Lava can write interactions through multiple commands:
-
-- `interactionwrite` for general interaction logging.
-- `interactioncontentchannelitemwrite` for content channel item interactions.
-- `interactionintentwrite` for intent interactions.
-
-These commands relate Lava output to Rock's analytics/engagement model. They commonly accept operation, summary, person alias, UTM-like campaign/source/medium/content/term fields, and entity/channel/component identifiers depending on command ([Interaction Write](https://community.rockrms.com/lava/commands/interaction-write), [Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write), [Interaction Intent Write](https://community.rockrms.com/lava/commands/interaction-intent-write)).
-
-Operational checks:
-
-- Verify the person alias is correct.
-- Avoid logging duplicate interactions if a template is cached, rerendered, or executed under Fluid verification.
-- Confirm the target channel/intent/content item IDs.
-- Use summary and operation consistently for reporting.
-- Test high-traffic pages for write volume.
-
-### Devices And Printers
-
-The `printzpl` command can send ZPL instructions to Zebra label printers. It can target a configured Rock `Device` by `deviceid` or a printer IP address, optionally including a port ([Print ZPL](https://community.rockrms.com/lava/commands/print-zpl)). This is a side-effecting command. It does not render visible page output; it sends the processed ZPL to the printer.
-
-Operational checks:
-
-- Verify printer device records and network reachability.
-- Validate ZPL with test labels.
-- Avoid executing in preview or Fluid verification contexts if duplicate prints would matter.
-- Ensure only trusted staff contexts enable this command.
-- Sanitize user-provided label text to avoid malformed ZPL.
-
-### Search Index Documents
-
-The `search` command uses Rock Universal Search and returns search result documents. It supports parameters such as `query`, `entities`, `fieldcriteria`, `criteriasearchtype`, `searchtype`, `limit`, `offset`, and `iterator` ([Search](https://community.rockrms.com/lava/commands/search-commands)). Search command reliability depends on Universal Search configuration and index freshness.
-
-Operational checks:
-
-- Verify the index exists and is current.
-- Verify entity types included in search.
-- Use `limit` and `offset` for predictable pagination.
-- Use `iterator` to avoid variable collisions in larger templates.
-
-## 7. Common Lava Workflows
-
-### Rendering Personalized CMS Content
-
-Typical use:
-
-```liquid
-{% if CurrentPerson %}
-<p>Welcome, {{ CurrentPerson.NickName }}.</p>
-{% else %}
-<p>Welcome.</p>
-{% endif %}
-```
-
-Agent checks:
-
-- Is `CurrentPerson` available in this context?
-- Does the page allow anonymous users?
-- Is output escaped where needed?
-- Is block caching enabled in a way that could leak one user's name to another?
-- If caching is used, is personalization protected with a two-pass cache pattern or moved outside the cached fragment?
-
-The cache documentation describes a two-pass pattern using `raw` to cache expensive data while preserving later personalized merge behavior ([Cache](https://community.rockrms.com/lava/commands/cache-commands), [Raw](https://community.rockrms.com/lava/tags/raw-tags)).
-
-### Querying Rock Entities
-
-Basic entity command pattern:
-
-```liquid
-{% group where:'GroupTypeId == 25' sort:'Name' iterator:'groups' securityenabled:'false' %}
-  {% for group in groups %}
-    {{ group.Name }}<br>
+{% person where:'LastName == "Rivera"' limit:'10' %}
+  {% for person in personItems %}
+    {{ person.FullName }}
   {% endfor %}
-{% endgroup %}
+{% endperson %}
 ```
 
-Agent checks:
+Keep result sets bounded and return only necessary properties. A community-reviewed troubleshooting pattern notes that `where:` becomes a rendered Dynamic LINQ expression; blank IDs, unescaped quotes and assembled expressions can therefore fail before any row is returned. Inspect the fully rendered expression when troubleshooting, and verify any proposed fallback lookup against the target system before using it. [Entity Command](https://community.rockrms.com/lava/commands/entity-commands)
 
-- Is `RockEntity` enabled?
-- Is the entity command name correct?
-- Does `id` override other selection parameters?
-- Is `securityenabled:'false'` justified?
-- Does the query need `limit`, `offset`, `select`, `include`, or `disableattributeprefetch` for performance?
-- Are attribute values prefetched only when needed?
-- Does `where` include user input? If so, prefer safer patterns or validate inputs.
+The administrative `taglist` command, available from v8, lists registered Lava commands on the server and can help discover plugin-provided entity command names. Registration does not mean a command is enabled on a particular block or endpoint. [Tag List](https://community.rockrms.com/lava/commands/taglist-commands)
 
-The entity docs recommend disabling security when the author is confident it is not needed because security checks can affect performance, but that is a review decision, not a default ([Entity](https://community.rockrms.com/lava/commands/entity-commands)).
+### SQL, Execute and Web Request
 
-### Building A Dynamic Report Page
+The supplied RockU SQL material demonstrates both queries and statement-style updates, but production selection must be stricter than a teaching example. Prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization, and consider business logic and query cost before choosing SQL. [SQL Command](https://community.rockrms.com/rocku/lava/sql-command), [RockIQ Q&A, 24:50](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s)
 
-A common pattern combines Page Parameter Filter, Dynamic Data, entity commands, SQL, shortcodes, and campus/person filters. Community examples use Lava and SQL to add "All Campuses" behavior or person-specific default campus logic ([Slicker Campus Filters](https://community.rockrms.com/recipes/393)). Use recipes as patterns, then verify the live data model.
+Never give an AI agent an open-ended capability to generate and execute arbitrary SQL. Rock’s AI Summit distinguishes reviewed static SQL inside a narrowly secured Lava tool from arbitrary runtime SQL, which can bypass Rock security and business logic. [AI Summit, 71:20](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s)
 
-Agent checks:
+The `execute` command can run server-side code and import libraries, making it a privileged code-execution surface rather than a formatting convenience. [Execute Command](https://community.rockrms.com/rocku/lava/execute-command)
 
-- Which page parameters are public?
-- Are parameter values validated?
-- Is SQL parameterized?
-- Does the page respect campus security expectations?
-- Are result counts limited?
-- Is the output cached appropriately?
-- Does the page work when no filter is selected?
+At the supplied immutable source revision, `WebRequestBlock` implements `ILavaSecured`, checks authorization during rendering and declares `WebRequest` as its required permission key. That source observation does not show whether any specific block or endpoint has enabled the command. [WebRequestBlock at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Lava/Blocks/WebRequestBlock.cs)
 
-### Launching A Workflow From Lava
+### Modify and delete
 
-Use `workflowactivate` when a rendered action should create or advance a workflow:
+Rock v18 documents `modifyentity` for updating or creating one entity and `deleteentity` for deleting one entity. `modifyentity` accepts an integer, GUID or IdKey; `id:'0'` creates a new entity. Both commands expose security controls and result merge fields. Their documentation warns that the Person entity does not itself apply the security checks described for secured entities. [Modify Entity](https://community.rockrms.com/lava/commands/modify-entity), [Delete Entity](https://community.rockrms.com/lava/commands/delete-entity)
+
+For every write:
+
+1. Resolve the intended record using a stable identity.
+2. Check the command result’s success state.
+3. Capture the returned canonical identifier immediately.
+4. Read the saved entity back.
+5. Stop before dependent writes if the parent write failed.
+
+Community evidence reports that, in some renders, an invalid modify operation can leave an object tracked and make later saves fail with the earlier validation error. It also reports that a database transaction rollback should not be assumed to reset that render context. This is a troubleshooting hypothesis that needs reproduction on the target Rock version. If encountered, isolate the failing create, stop immediately after failure and begin subsequent work in a new render. [Entity Command](https://community.rockrms.com/lava/commands/entity-commands)
+
+### Workflow activation
+
+From v7, `workflowactivate` treats keys beyond its command parameters as workflow or activity attribute keys. Each supplied value must use the field type’s stored-value format. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
+
+Treat those extra parameters as a schema contract. Compare the rendered keys with the target workflow and activity attribute keys, and verify the created workflow’s stored values. Do not assume an unknown or misspelled key will produce a sufficiently visible warning. This verification practice is community-contributed and instance-dependent. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
+
+### Rendering and physical effects
+
+Rock v18’s `renderlavaendpoint` command processes a named Lava endpoint during the initial page render, avoiding a second on-load HTMX request. Caret routes such as `^/application/endpoint` are supported; the method defaults to GET and can be set explicitly. [Render Lava Endpoint](https://community.rockrms.com/lava/commands/render-lava-endpoint)
+
+Rock v19’s `printzpl` command renders enclosed ZPL and sends it directly to a configured Zebra printer identified by a device or IP address. It produces no visible page output. Invalid ZPL can cause printer errors or unexpected labels, so rendering the command is a physical action, not a preview. [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl)
+
+## Shortcodes
+
+Shortcodes replace a compact tag with a larger Lava template, allowing specialists to package complex behavior for simpler reuse. Rock defines two types: inline and block. [Lava Shortcodes](https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes), [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes)
+
+An inline shortcode has no closing tag:
 
 ```liquid
-{% workflowactivate workflowtype:'21' requester:'{{ CurrentPerson.PrimaryAlias.Guid }}' %}
-  {% if Error %}
-    {{ Error }}
-  {% else %}
-    Created request #{{ Workflow.Id }}.
-  {% endif %}
-{% endworkflowactivate %}
+{[ media-card id:'example-key' ]}
 ```
 
-Agent checks:
+A block shortcode receives enclosed content and requires a matching end tag:
 
-- Is `WorkflowActivate` enabled?
-- Is the workflow type ID stable in this instance?
-- Would a GUID be safer than an integer ID?
-- Are workflow attributes supplied in the stored format expected by their field type?
-- Can the template execute multiple times?
-- Should the action be moved behind a form, endpoint, or Helix flow for better validation?
+```liquid
+{[ callout tone:'info' ]}
+  Registration opens next week.
+{[ endcallout ]}
+```
 
-The official [`workflowactivate` documentation](https://community.rockrms.com/lava/commands/workflow-activate-commands) defines the command contract, and the public [WorkflowActivateBlock source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs) provides implementation-level confirmation. Validate IDs, attribute storage formats, permissions, and repeat execution in the target instance.
+Choose the type before publishing it. Rock warns that changing an established shortcode from inline to block or vice versa breaks existing callers. Shortcode records can also define parameters and enabled commands, so review them as executable shared components rather than harmless text macros. [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes), [LavaShortcodeBag at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts)
 
-### Creating A Lava API Or Webhook
+If a database field stores Lava or shortcode markup, direct output may display the markup literally. A reviewed community pattern uses an explicit processing step such as `RunLava` only when execution is intentional. Before doing so, inspect who can edit the stored value, the surface’s enabled commands and whether the output is public. [Other Filters](https://community.rockrms.com/lava/filters/other-filters)
 
-Lava APIs are configured as Defined Values and respond with the rendered Lava template. The docs warn that these webhooks do not inherently provide security, so agents must design the security model explicitly ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
+## Execution Contexts And Output Contracts
 
-Agent checks:
+### Advanced HTML and communications
 
-- Defined Type and Defined Value path.
-- HTTP method/verb.
-- Route regex behavior.
-- Template content.
+Advanced HTML blocks are privileged CMS surfaces. Review both authorship and runtime access, including page and block authorization, inputs and command enablement. A successful administrator preview does not establish anonymous or staff-role access. [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block)
+
+Lava can personalize communications, but communication rendering has its own merge-field and delivery context. Test with representative recipients, missing values and the current communication surface. The new communication wizard is a significant sender and template-management workflow change, so do not transplant steps from legacy communication training without confirming the target Rock version. [Personalize Using Lava](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava), [Communication Wizard preview](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7)
+
+### Rock Mobile
+
+In Rock Mobile’s Content block, Dynamic Content is fetched from the server each time the page initializes. Static content is bundled into the shell, requires deployment to change, and processes Lava without `CurrentPerson`. [Mobile Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
+
+Before relying on identity, fresh database values or server-only filters, inspect:
+
+- Dynamic Content.
+- Whether Lava is processed on the server.
 - Enabled commands.
-- Response content type.
-- Header and body handling.
-- Authentication, token, signature, or IP restrictions.
-- Rate limiting or abuse risk.
-- Sensitive fields in output.
+- The intended context entity.
+- Whether the target filter can execute locally in the shell.
+- The shell version and final XAML validity.
 
-A community iCal recipe shows a Lava webhook returning `text/calendar` and enabling Rock Entity to generate `.ics` output from event information ([Lava Webhook to Create an iCal File](https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file)). Treat that as a useful pattern, then validate response headers and access controls.
+Community guidance for migrations recommends placing shell-version branching inside the XAML fragment that the shell actually downloads and testing the observed `Device.ShellVersion` format. That behavior requires verification on both old and new target shells. [Mobile Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 
-### Formatting Data With Shortcodes
+### TV applications
 
-Shortcodes are ideal when staff need a simple token but the implementation requires detailed Lava. Examples from community recipes include address formatting, pagination, countdowns, copy-link widgets, media embeds, translations, placement group labels, and attendance summaries ([Address Format Lava Shortcode](https://community.rockrms.com/recipes/467), [Content Pagination Shortcode](https://community.rockrms.com/recipes/242), [Countdown Timer - Shortcode](https://community.rockrms.com/recipes/505), [Easy Copy Url Shortcode](https://community.rockrms.com/recipes/408), [SoundCloud Shortcode](https://community.rockrms.com/recipes/509), [Lava Shortcode for Placement Groups on Check In](https://community.rockrms.com/recipes/386), [Lava shortcode to show last group attendance](https://community.rockrms.com/recipes/290)).
+Apple TV pages must output valid TVML. Rock documents merge fields including `CurrentPerson`, `Context`, `Campuses`, `SiteStyles` and `CurrentPage` for that surface. [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)
 
-Agent checks:
+Roku pages render Lava-driven application content as SceneGraph-oriented output, not ordinary Rock CMS HTML. [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 
-- Is it inline or block?
-- Are parameter keys lowercase?
-- Are defaults documented?
-- Are commands enabled only inside the shortcode when needed?
-- Does it return safe HTML/JSON/text?
-- Does it need isolated or shared scope?
-- Does it handle empty/missing input?
-- Does it work under Fluid?
-- Is the recipe code adapted to local entity IDs and security requirements?
+Do not validate either surface with an HTML-only preview. Validate the exact output grammar and the target application.
 
-### Calling External APIs
-
-The `webrequest` command supports REST-like requests, parameters, headers, method, basic authentication, body, request content type, response content type, return variable, and timeout ([Web Request](https://community.rockrms.com/lava/commands/web-request-commands)). It defaults response parsing toward JSON but can handle XML or HTML depending on parameterization.
-
-Agent checks:
-
-- Is `WebRequest` enabled?
-- Are secrets stored in Global Attributes or secured settings rather than hard-coded?
-- Is the request server-side?
-- Is user input encoded?
-- Is timeout appropriate?
-- Is failure handled?
-- Is response structure inspected with `ToJSON` during development only?
-- Is external call volume safe for page traffic?
+## Remote Lava And APIs
 
-### Adding Page-Level CSS
+Rock documents a remote Lava REST endpoint that accepts Lava and returns rendered output. It is HTTPS-only. If browser-visible JavaScript contains the endpoint and API key, a visitor can reuse that key to submit other Lava that runs as the person linked to the key. Rock therefore recommends a carefully restricted endpoint and generally favors server-side callers over exposed browser code. [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)
 
-The `stylesheet` command places CSS in the page header and can accept an `id` to avoid duplicate insertion. It also has parameters such as `compile`, `import`, and cache duration, though docs recommend not relying on LESS compile because deprecation is expected ([Stylesheet](https://community.rockrms.com/lava/commands/stylesheet-commands)).
+Rock also documents Defined Value-backed Lava webhooks for custom APIs, including Apple TV and Roku examples. That webhook mechanism does not include security by default. Routes can match URL and HTTP method, request data becomes available to the template, and each Defined Value specifies enabled commands. Treat every such route as public unless a separately verified control protects it. [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
 
-Agent checks:
+For a remote Lava surface:
 
-- Prefer theme or page-level CSS files for durable styling.
-- Use `stylesheet` for contextual CSS that depends on Lava values.
-- Use `id` when the same template may render multiple times.
-- Avoid heavy dynamic CSS on high-traffic pages.
-- Verify the result after a full page reload.
+- Keep credentials out of browser-delivered code.
+- Bind execution to the least-privileged identity available.
+- Restrict methods and route matching.
+- Enable only necessary commands.
+- Bound query sizes and output fields.
+- Avoid returning raw entity objects or sensitive fields.
+- Test anonymous access explicitly.
+- Record the expected response content type and schema.
 
-## 8. Commands Deep Dive
+## Helix And Lava Applications
 
-### Command Enablement
+Helix combines HTMX, Lava Applications, Lava Commands and Control Shortcodes as an evolution of Lava-driven web development. [Helix Overview](https://community.rockrms.com/developer/helix/overview)
 
-Commands are not automatically available everywhere. The official command guide emphasizes explicit enablement and notes default commands for contexts without individual settings ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)). Agents should classify enabled commands by risk:
+The Lava Application Content block automatically registers HTMX. Templates hosted by that block can call an application endpoint with a caret route such as `^/application-slug/endpoint-slug` instead of hard-coding `/api/v2/lava-app/1/...`. [Lava Application Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-**Low-risk display/support commands**
+Community-contributed Helix patterns recommend:
 
-- `Cache`
-- `Stylesheet`
-- `Search` if search output is not sensitive
-- `SetCulture`
+- Render a useful initial page on the server, then use HTMX for enhancement.
+- Keep the page shell responsible for filters, navigation, loading indicators and the initial target.
+- Return only inner result rows or cards from an active-search endpoint.
+- Keep pagination, sorting and filtering in one explicit server contract.
+- Allowlist filter enums, sort columns, directions and page sizes.
+- Parameterize text input and bound results.
+- Load shared scripts and styles in the host shell rather than assuming endpoint fragments can register assets.
+- Reapply browser-held UI state after HTMX swaps, or encode that state in request parameters.
+- Put crawl-critical metadata in the initial host response rather than an HTMX fragment.
+- Keep authorization server-side; HTMX attributes are presentation behavior.
+- Test direct endpoint access separately from the hosted page.
 
-**Data-read commands**
-
-- `RockEntity` / entity commands
-- `Sql` read-only usage
-- `AdaptiveMessage`
-- `Calendar Events`
-- `Event Scheduled Instance`
+These are reviewed community patterns, not guarantees of every Helix version. Verify them against the target application, endpoint security mode and browser route. [Lava Application Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-**External/system commands**
+Endpoint security must be checked independently at the page, block, endpoint and parent Lava Application layers. A community report notes that a visible page and block can coexist with an endpoint failure when inherited application-level execution authorization is missing. Do not treat administrator override as proof that anonymous or staff access is configured. [Helix Overview](https://community.rockrms.com/developer/helix/overview)
 
-- `WebRequest`
-- `PrintZPL`
-- `HTTP Response`
-- `Render Lava Endpoint`
+Also inspect each endpoint’s enabled-command allowlist. A command working in another block does not prove that it is enabled for this endpoint. Use read-only methods for read endpoints, and verify CSRF protection and authorization for any state-changing route. This operational checklist is community-contributed and requires live confirmation. [Lava Commands](https://community.rockrms.com/developer/helix/lava-commands)
 
-**Write-capable commands**
+## Workflows And Lava
 
-- `WorkflowActivate`
-- `InteractionWrite`
-- `InteractionContentChannelItemWrite`
-- `InteractionIntentWrite`
-- `ModifyEntity`
-- `DeleteEntity`
-- `DBTransaction`
-- data-modifying `Sql`
+Workflow fields marked with `{{ Lava }}` receive workflow-specific merge fields. Workflow attributes can be read by key, while the workflow, current activity, current action, global attributes and action-specific merge fields may also be available. [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
 
-The list of available commands changes by version and plugins. Use `taglist` in an admin context when command names are uncertain ([Tag List](https://community.rockrms.com/lava/commands/taglist-commands)).
+Triggered workflows and jobs may have no `CurrentPerson`. Rock’s documentation states that attribute authorization is still applied; without a current person, attributes may require `All Users – Allow View` unless the template deliberately supplies another authorized person context. Assigning an administrator as `CurrentPerson` materially changes the security context and should not be used as a casual workaround. [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
 
-### Entity Command
+Community workflow patterns add several verification points:
 
-The entity command is the primary read mechanism for Rock data. It provides a consistent command pattern for model entities ([Entity](https://community.rockrms.com/lava/commands/entity-commands)).
+- Confirm an attribute’s field type and object shape before chaining properties. A Person attribute requested as an object may already return a Person rather than a PersonAlias wrapper.
+- Use the raw stored value when a Single-Select attribute holds an internal ID but displays a label.
+- For rerunnable modify-entity deployments, resolve a parent by a stable key, write it, re-query its canonical ID and only then create children.
+- Capture `ModifyResult.Object.Id` or its GUID immediately, check success and stop on failure.
+- Re-query a saved workflow action type before attaching form fields to its persisted form ID.
+- Treat workflow action component settings as instance-specific configuration and verify their attribute identifiers in the target version and plugin set.
+- Read back final workflow attributes, action settings and child relationships before connecting a live trigger.
 
-Important parameters and behavior:
+These patterns require target-instance schema and behavior verification. [Entity Command](https://community.rockrms.com/lava/commands/entity-commands), [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
 
-- `where`: Filters entities with a query expression.
-- `id`: Retrieves one entity and takes precedence over `where`, `dataview`, and `dynamicparameters`.
-- `ids`: Retrieves a list by IDs.
-- `dataview`: Uses a Rock Data View as the source filter.
-- `entitysearch`: v17-era search selection; verify syntax live.
-- `expression`: Fluid-era expression support from v13.
-- `sort`: Sort order.
-- `limit`: Maximum rows.
-- `offset`: Rows to skip.
-- `dynamicparameters`: Pulls query string values into command parameters.
-- `iterator`: Overrides the default `<entityName>Items` variable.
-- `count`: Returns count behavior; verify exact output variable in live docs.
-- `securityenabled`: Controls entity security checks; person command defaults differ because person model has different security behavior.
-- `lazyloadenabled`: Fluid-era lazy loading behavior from v13.
-- `include`: Eager-loads related data; v13 Fluid.
-- `select`: Projects fields; v13 Fluid.
-- `selectmany`: Flattens related collections; v13 Fluid.
-- `groupby`: Groups results; v13 Fluid.
-- `disableattributeprefetch`: v15 parameter for attribute prefetch behavior.
-- `prefetchattributes`: v15 parameter for loading selected attributes.
-
-Operational guidance:
-
-- Use `id` for direct retrieval and do not mix it with `where`.
-- Use `iterator` in complex templates to prevent variable collisions.
-- Use `limit` by default on public pages.
-- Use `select` for large collections where only a few fields are needed.
-- Use `securityenabled:'false'` only when the page's audience and data sensitivity are reviewed.
-- Avoid `dynamicparameters` unless query string input is constrained and safe.
-- For plugins, confirm command names with `taglist`.
-
-### SQL Command
-
-The `sql` command executes SQL and returns results to a Lava variable. It supports reads, writes, parameters, custom return variable names, command statements, timeout, and aggregate functions ([SQL](https://community.rockrms.com/lava/commands/sql-commands)).
-
-Key parameters:
-
-- `return`: Changes the result variable from default `results`.
-- `statement:'command'`: Used when executing non-query SQL and returning affected row count.
-- Arbitrary parameter pairs: Passed into SQL as named parameters except reserved names such as `statement` and `return`.
-- `timeout`: v12-era support for command timeout.
-
-Safe pattern:
-
-```liquid
-{% assign requestedLastName = PageParameter.LastName | Trim %}
-
-{% sql return:'people' lastName:'{{ requestedLastName }}' timeout:'30' %}
-SELECT [Id], [NickName], [LastName]
-FROM [Person]
-WHERE [LastName] = @lastName
-ORDER BY [LastName], [NickName]
-{% endsql %}
-
-{% for person in people %}
-  {{ person.NickName }} {{ person.LastName }}<br>
-{% endfor %}
-```
-
-Operational warnings:
-
-- SQL injection is the primary risk. Use parameters for user-influenced values.
-- Data-changing statements can run if command usage and context permit it.
-- The docs state destructive statements are possible through Lava SQL; do not enable `Sql` casually ([SQL](https://community.rockrms.com/lava/commands/sql-commands)).
-- If SQL changes data directly, Rock cache may not know about the change; clear relevant cache explicitly.
-- Data-modifying Lava may execute twice under Fluid verification.
-- Public pages should not run unbounded SQL.
-- Use Rock's reporting SQL command block for admin investigation, but note the source code shows selection-query handling and rollback behavior for disallowed modifications depending on settings ([SqlCommand.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx.cs), [SqlCommand.ascx](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx)).
-
-### Cache Command
+## Reporting And Persisted Results
 
-The `cache` command stores rendered output in Rock's memory cache. It supports keys, duration, two-pass rendering, tags, and max cache size ([Cache](https://community.rockrms.com/lava/commands/cache-commands)).
+Community-reviewed guidance treats Rock metrics as a capture layer for values calculated on a schedule and visualized later. Persisted datasets can similarly move expensive historical analytics out of the page request so a dashboard does not recalculate the full history on every load. These are implementation patterns, not a claim that every query should be persisted. [Dashboard design session](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp), [Journey dashboard session](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW)
 
-Key parameters:
+Use persistence when the measure is repeatable, historical calculation is expensive, and users do not require transaction-level freshness. State the dataset’s grain, refresh schedule and failure behavior. For v19 recurring schedules, consume materialized `ScheduleDate` occurrences instead of expanding iCal rules again. [3 Underrated Features, 06:26](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s)
 
-- `key`: Cache key.
-- `duration`: Cache duration.
-- `twopass`: Render cached output through Lava again.
-- `tags`: Comma-delimited cache tags for grouped invalidation.
-- `maxcachesize`: Limit for cache item size.
+If external BI content is embedded in a Rock page, comply with the external platform’s licensing and place the Rock page behind appropriate roles. Page visibility does not replace external licensing, and administrator visibility does not prove staff-role access. [Data Analytics Hub panel](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz)
 
-Use cache when:
+## Lava-Backed AI Tools
 
-- Entity/SQL queries are expensive.
-- External calls are slow.
-- Public content changes infrequently.
-- Search or content lists are reused often.
+Rock’s agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate decisions. Expose only tools authorized for the current person and selected agent. [AI Summit, 24:01](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s)
 
-Avoid or carefully design cache when:
+Lava tools should:
 
-- Output contains `CurrentPerson`.
-- Output contains security-dependent data.
-- The template writes interactions, workflows, or database changes.
-- The cache key does not include all inputs that affect output.
-- Large HTML or JSON payloads would consume significant memory.
+- Use clear verb-and-entity names such as Lookup, List, Get, Summary, Insights, AvailableAttributes or AddOrUpdate.
+- Declare explicit, sanitized parameters.
+- Return bounded, intentionally shaped data rather than large raw records.
+- Return structured `AgentToolResult` values.
+- Use the dedicated filters for instructions, compact history content, metadata and Rock reference routes.
+- Use built-in tool logs to inspect calls, inputs and results. [AI Summit, 67:34](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s), [AI Summit, 87:48](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s)
 
-For personalization, use two-pass caching carefully: cache the expensive shared part, preserve user-specific Lava with `raw`, and render it on the second pass ([Cache](https://community.rockrms.com/lava/commands/cache-commands), [Raw](https://community.rockrms.com/lava/tags/raw-tags)).
+Prompt context is layered across Rock’s core prompt, organization prompt, agent instructions, skill instructions and current-person context. Keep each layer concise, add instructions when testing demonstrates a need, and pass IdKeys rather than raw integer identifiers. [AI Summit, 76:13](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s)
 
-### Web Request Command
+## Version And Authority Caveats
 
-The `webrequest` command calls remote HTTP endpoints and returns parsed results. It supports URL, query parameters, headers, HTTP method, basic authentication, body, request/response content types, custom return variable, and timeout ([Web Request](https://community.rockrms.com/lava/commands/web-request-commands)).
+- Fluid was introduced in v13; the `lava` tag is documented for Fluid beginning in v13.7. [About Lava Fluid](https://community.rockrms.com/lava/fluid), [Lava Tag](https://community.rockrms.com/lava/tags/lava-tags)
+- Rock marks DotLiquid support as ending with v17. Migration differences have fixes distributed across v17 and v19, so do not apply an old compatibility list without matching the installed version. [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)
+- `workflowactivate` behavior in this pack is scoped from v7. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
+- `taglist` and `CreateShortLink` are documented from v8. [Tag List](https://community.rockrms.com/lava/commands/taglist-commands), [Other Filters](https://community.rockrms.com/lava/filters/other-filters)
+- Modify Entity, Delete Entity and Render Lava Endpoint are documented for v18. [Modify Entity](https://community.rockrms.com/lava/commands/modify-entity), [Delete Entity](https://community.rockrms.com/lava/commands/delete-entity), [Render Lava Endpoint](https://community.rockrms.com/lava/commands/render-lava-endpoint)
+- `printzpl`, materialized `ScheduleDate` occurrences and the `where` filter’s `contains` option are v19 material. [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl), [v19 feature preview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s)
+- Official documentation describes supported behavior. Immutable source excerpts clarify implementation at commit `471fd303d111b2e46218228dbc1e93dba8856fa3`, but do not establish an installation’s version or configuration.
+- RockU and official presentations are training evidence; version-sensitive implementation should be checked against current written documentation.
+- Community contributions and recipes are examples. Items marked as needing live verification must be reproduced before being treated as target-instance behavior.
+
+## Troubleshooting Decision Tree
+
+### Lava renders blank or a merge field is missing
+
+1. Identify the exact surface: CMS, workflow, job, communication, endpoint, mobile shell or TV application.
+2. Confirm whether the expected merge field exists there.
+3. Check anonymous versus authenticated execution and the actual `CurrentPerson`.
+4. For workflow attributes, verify the attribute key, requested representation and field type.
+5. For Rock Mobile, determine whether the content is static, dynamic, local or server-processed.
+6. Test missing-data branches explicitly. [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows), [Mobile Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
+
+### A parser error points at an innocent-looking line
+
+1. Inspect preceding output expressions and filter arguments.
+2. Check for an unclosed quote, missing delimiter or incomplete filter parameter.
+3. Check Fluid-specific rules: include commas, `and` instead of `&&`, unsupported nested comments and invalid escapes.
+4. Reduce nested assignments and conditions to small independently rendered blocks.
+5. Retest using the target engine and surface. Community reports note that parsing may fail later than the malformed expression, so the reported line may be downstream of the cause. [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)
+
+### An entity command returns no rows or fails before iteration
+
+1. Confirm the command is registered and enabled on this surface.
+2. If `id` is present, remove expectations that `where`, `dataview` or `dynamicparameters` will also apply.
+3. Ensure parameter values such as `where` are enclosed in single quotes.
+4. Inspect the fully rendered Dynamic LINQ expression.
+5. Check blank identifiers, quote escaping and types.
+6. Add a small limit and test a literal stable lookup.
+7. Stop if the only proposed workaround is an unbounded query. [Entity Command](https://community.rockrms.com/lava/commands/entity-commands)
+
+### A modify command appears to succeed but data is unchanged
+
+1. Resolve and display the intended entity identity in a safe diagnostic context.
+2. Check `ModifyResult.Success`, validation errors and the returned object.
+3. Capture the canonical ID immediately.
+4. Read the saved record back.
+5. For person updates, verify that an alias, anonymous match or workflow-created record was resolved to the intended Person.
+6. Preserve existing attribute values when conditional paths omit fields.
+7. Stop before writing children when the parent result is blank or unverified. [Modify Entity](https://community.rockrms.com/lava/commands/modify-entity)
+
+### A later write fails with an earlier validation error
+
+1. Stop the render after the first failed modify command.
+2. Do not assume a transaction rollback cleared the render’s tracked state.
+3. Move experimental or risky creates into a separate render.
+4. Retry only after validating the failed entity’s required fields.
+5. Reproduce the behavior on the target version before classifying it as a change-tracker issue. This symptom comes from reviewed community evidence, not official universal behavior. [Modify Entity](https://community.rockrms.com/lava/commands/modify-entity)
+
+### A workflow starts but submitted values are missing
+
+1. Compare each extra `workflowactivate` key with the target workflow and activity attribute keys.
+2. Confirm each value uses the field type’s stored format.
+3. Remove obsolete parameters and create missing attributes intentionally.
+4. Inspect the created workflow’s stored values.
+5. Verify raw versus formatted values for selections and object fields. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
+
+### A shortcode displays as raw text
+
+1. Confirm the shortcode is registered and its type matches the caller’s syntax.
+2. Determine whether the value is being treated as stored text rather than a template.
+3. If execution is intentional, inspect edit permissions and enabled commands before applying `RunLava`.
+4. Test the result under anonymous and intended authenticated roles.
+5. Stop if untrusted editors can supply executable Lava. [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes), [Other Filters](https://community.rockrms.com/lava/filters/other-filters)
+
+### A Helix endpoint works for administrators but not its audience
+
+1. Test as anonymous, intended role and administrator.
+2. Inspect page, block, endpoint and parent Lava Application authorization.
+3. Check the endpoint security mode.
+4. Check the endpoint’s enabled-command allowlist.
+5. Verify the route from both the hosted Content block and direct endpoint path.
+6. Do not use administrator success as access proof. This layered preflight includes community-derived checks that require target-instance confirmation. [Lava Application Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
+
+### An HTMX fragment loses scripts, styles or UI state
+
+1. Determine whether the dependency belongs in the host shell.
+2. Do not assume endpoint-rendered JavaScript or stylesheet commands register usable assets.
+3. Keep endpoint output focused on replaceable inner content.
+4. Reapply local UI state after `htmx:afterSwap`, or send it as request state.
+5. Verify first render, swap, refresh and back navigation.
+6. Test direct endpoint rendering and the hosted page separately. These checks are community patterns requiring live verification. [Helix Overview](https://community.rockrms.com/developer/helix/overview)
+
+### Rock Mobile content is stale, anonymous or invalid XAML
+
+1. Check whether the Content block is static or dynamic.
+2. Confirm whether Lava runs locally or on the server.
+3. Do not expect `CurrentPerson` in bundled static content.
+4. Check whether every filter used is supported in the shell.
+5. Escape markup-sensitive text and encode URL components.
+6. Validate XAML with punctuation-heavy test records.
+7. Test the actual shell versions in scope. [Mobile Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content), [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
+
+### A remote Lava route exposes more than intended
+
+1. Treat a Defined Value Lava webhook as unsecured until a separate control is verified.
+2. Inspect route and method matching.
+3. Review the execution identity and all enabled commands.
+4. Remove credentials from browser-visible code.
+5. Bound data access and response fields.
+6. Test anonymous calls and unexpected methods.
+7. Stop if the route can accept arbitrary Lava under a privileged key. [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)
+
+## Agent Task Recipes
+
+### Recipe: Review an existing Lava surface safely
+
+**Outcome:** A bounded risk assessment without changing the target.
+
+1. Identify the page, block, workflow action, endpoint, mobile block or other owner.
+2. Record the Rock version, rendering engine and intended audience.
+3. Inspect page, block, application and endpoint authorization where applicable.
+4. List inputs: merge fields, page parameters, query strings, request body, headers, cookies and stored values.
+5. List enabled commands and classify each as read, write, external call, code execution or physical effect.
+6. Identify the expected output grammar.
+7. Test missing values and the intended identities without enabling additional commands.
+
+**Inspect:**
+
+- Edit permissions.
+- Runtime identity.
+- Command allowlist.
+- Sensitive entity exposure.
+- Input escaping.
+- Query bounds.
+- Side effects.
+
+**Stop when:**
+
+- The owner surface is unknown.
+- Version applicability is unresolved.
+- Testing would send, print, write or call an external service without authorization.
+
+Sources: [Lava Commands](https://community.rockrms.com/lava/commands), [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block)
+
+### Recipe: Build a bounded read-only entity view
+
+**Outcome:** A limited list using an Entity command.
+
+1. Confirm the entity command name with current documentation or `taglist`.
+2. Enable only Rock Entity access on the owning surface.
+3. Choose one lookup strategy: `id`, `where` or Data View.
+4. Quote command parameters correctly.
+5. Add sorting and a strict result limit.
+6. Render only the required properties.
+7. Test no-result, one-result and maximum-result cases.
+8. Verify audience authorization independently.
+
+**Do not assume:**
+
+- `where` still applies when `id` is supplied.
+- A registered command is enabled.
+- Entity access automatically enforces every business rule.
+- A working administrator view is audience-safe.
+
+Sources: [Entity Command](https://community.rockrms.com/lava/commands/entity-commands), [Tag List](https://community.rockrms.com/lava/commands/taglist-commands)
+
+### Recipe: Prepare a Lava entity write
+
+**Outcome:** An idempotent, verifiable single-entity change plan.
+
+1. Confirm Modify Entity is available on the target version.
+2. Resolve the target by a stable identifier.
+3. Separate create and update paths.
+4. Supply values in each property or attribute’s required stored format.
+5. Execute one parent write.
+6. Check `ModifyResult.Success`.
+7. Capture the canonical returned ID or GUID immediately.
+8. Read the entity back.
+9. Only then perform dependent writes.
+10. Render a bounded diagnostic summary without private data.
+
+**Stop when:**
+
+- The target identity is ambiguous.
+- Validation fails.
+- The canonical ID is blank.
+- Required security checks are absent.
+- A later write would depend on an unverified object.
+
+Sources: [Modify Entity](https://community.rockrms.com/lava/commands/modify-entity), [Lava Commands](https://community.rockrms.com/lava/commands)
+
+### Recipe: Preflight a workflow activation
+
+**Outcome:** A workflow is activated with verified attribute values.
+
+1. Identify the target workflow type and activity.
+2. Enumerate the workflow and activity attribute keys.
+3. Map each submitted input to exactly one key.
+4. Convert each value to the field type’s stored format.
+5. Remove parameters with no matching attribute.
+6. Activate one controlled workflow.
+7. Read back its stored attributes and rendered state.
+8. Test the downstream action that consumes each critical value.
+
+**Inspect:**
 
-Agent pattern:
-
-```liquid
-{% capture requestBody %}
-{
-  "email": {{ CurrentPerson.Email | ToJSON }},
-  "source": "rock"
-}
-{% endcapture %}
-
-{% assign requestBody = requestBody | Trim | StripNewLines %}
-
-{% webrequest
-  url:'https://example.invalid/api'
-  method:'POST'
-  body:'{{ requestBody }}'
-  requestcontenttype:'application/json'
-  responsecontenttype:'JSON'
-  timeout:'8000'
-  return:'apiResult' %}
-{% endwebrequest %}
-```
-
-Checks:
-
-- Do not expose secrets in client-side source.
-- Store secrets in secure attributes or settings.
-- Serialize JSON with `ToJSON` instead of hand-concatenating user input.
-- Handle non-200 responses; source excerpts show successful processing around HTTP OK in source code, but exact current behavior should be verified in the live version ([WebRequestBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs)).
-- Set a timeout for page-render paths.
-- Cache only safe responses.
-
-### Workflow Activate Command
-
-`workflowactivate` launches workflows or activates activities. Key parameters include `workflowtype`, `workflowid`, `workflowname`, and `activitytype`; additional key/value pairs map to workflow/activity attributes ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)).
-
-Use it for:
-
-- Creating internal requests from page actions.
-- Triggering follow-up processes.
-- Launching approval workflows.
-- Adding activity to an existing workflow.
-
-Avoid it when:
-
-- A public anonymous page can trigger unbounded workflows.
-- Attribute values are user-provided and unvalidated.
-- Duplicate execution would create duplicate work.
-- A full workflow entry form would be safer and more auditable.
-
-### Interaction Write Commands
-
-Use these for analytics records:
-
-- `interactionwrite`: general-purpose interaction logging.
-- `interactioncontentchannelitemwrite`: content channel item interactions.
-- `interactionintentwrite`: intent interactions.
-
-The content and intent write commands support optional UTM-style fields in addition to core identifiers ([Interaction Write](https://community.rockrms.com/lava/commands/interaction-write), [Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write), [Interaction Intent Write](https://community.rockrms.com/lava/commands/interaction-intent-write)).
-
-Agent checks:
-
-- Do not write interactions from cached output unless intentional.
-- Include enough fields to make reporting useful.
-- Avoid logging private data in summary or data fields.
-- Verify defined values and intent IDs.
-- Confirm person alias mapping.
-
-### Search Command
-
-Use `search` to query Universal Search from Lava. Parameters include `query`, `entities`, `fieldcriteria`, `criteriasearchtype`, `searchtype`, `limit`, `offset`, and `iterator` ([Search](https://community.rockrms.com/lava/commands/search-commands)).
-
-Use search when:
-
-- The user-facing behavior is search-like.
-- Multiple entity types or indexed fields matter.
-- Ranking is more important than exact relational filtering.
-
-Prefer entity commands or SQL when:
-
-- Exact predicates are required.
-- Security and data joins must be explicit.
-- Search index freshness is uncertain.
-- You need transactional or real-time data.
-
-### Adaptive Message Command
-
-`adaptivemessage` retrieves personalized adaptive messages. It supports message mode and category mode. Parameters include `messagekey`, `adaptationspermessage`, `categoryid`, `maxadaptations`, and `trackviews` ([Adaptive Message](https://community.rockrms.com/lava/commands/adaptivemessage-commands)).
-
-Agent checks:
-
-- Confirm Adaptive Message configuration.
-- Verify attributes such as call-to-action fields exist on adaptations.
-- Decide whether `trackviews` should write analytics.
-- Handle zero matching adaptations.
-- Do not cache personalized results broadly.
-
-### Set Culture Command
-
-`setculture` controls culture/locale behavior for specific filters. It applies to conversion and formatting filters such as `AsDateTimeUtc`, `AsDateTime`, `AsDecimal`, `AsDouble`, `AsInteger`, `Date`, `Format`, and `FormatAsCurrency`. The docs warn not to nest `setculture` blocks ([Set Culture](https://community.rockrms.com/lava/commands/setculture-commands)).
-
-Use it when:
-
-- A public page must format dates/numbers consistently.
-- A webhook returns machine-readable dates.
-- A multi-language context needs deterministic parsing.
-
-Check:
-
-- Culture codes supported by the running framework.
-- Whether values are stored as strings or typed values.
-- Whether browser/server culture is otherwise affecting output.
-
-### Stylesheet Command
-
-`stylesheet` injects CSS into the header and supports `id`, `compile`, `import`, and cache duration. The docs recommend avoiding reliance on LESS compile because deprecation is expected ([Stylesheet](https://community.rockrms.com/lava/commands/stylesheet-commands)).
-
-Use it for:
-
-- Lava-dependent CSS values.
-- One-off page-specific styles.
-- Avoiding inline style blocks in the body.
-
-Do not use it as a substitute for maintaining theme CSS when the style is stable.
-
-### Print ZPL Command
-
-`printzpl` sends ZPL to a Zebra printer by Rock device ID or IP address. It accepts `deviceid` and `ipaddress`, and the Lava inside the block is merged before sending ([Print ZPL](https://community.rockrms.com/lava/commands/print-zpl)).
-
-Checks:
-
-- Device/IP target.
-- Network path.
-- Printer language compatibility.
-- Duplicate execution risk.
-- Malformed ZPL risk.
-- User input escaping.
-
-### Observe Tag/Command
-
-`observe` wraps contained Lava in an observability activity with a required `name` and optional tag parameters. It can group timing and database-call details for performance investigation ([Observe](https://community.rockrms.com/lava/tags/observe)).
-
-Use it when:
-
-- A page or shortcode is slow.
-- You need to measure expensive entity/SQL blocks.
-- You want feature/version tags around a Lava fragment.
-
-Check:
-
-- Values in observe tags should be escaped if they can contain quotes.
-- Remove or minimize noisy observability on stable high-traffic templates unless the instance expects it.
-
-### Tag List Command
-
-`taglist` lists registered Lava commands on the server and helps discover plugin-provided entity command names ([Tag List](https://community.rockrms.com/lava/commands/taglist-commands)). Use it only in admin contexts because it reveals system capabilities.
-
-### Helix Commands And Data Modification
-
-The Helix developer docs point Lava authors toward newer commands for deleting entities, modifying entities, DB transactions, HTTP responses, and render endpoints, now documented in Lava command pages ([Lava Commands](https://community.rockrms.com/developer/helix/lava-commands), [Helix](https://community.rockrms.com/developer/helix)). The Helix overview says the platform is early alpha in the hydrated source, so agents must verify current stability and version before building production workflows on it.
-
-Operational rule: any Lava that modifies entities or controls HTTP responses should be reviewed like application code, with authorization, validation, logging, rollback behavior, and tests.
-
-## 9. Filters Deep Dive
-
-Filters transform values. They are often safer than commands because they do not usually perform broad side effects, but some filters expose data or security-sensitive behavior. Always inspect filter input, output context, and version.
-
-### Attribute Filter
-
-The `Attribute` filter is the correct way to access Rock attributes in modern Lava ([Attributes](https://community.rockrms.com/lava/filters/attribute-filters)).
-
-Common patterns:
-
-```liquid
-{{ CurrentPerson | Attribute:'BaptismDate' }}
-{{ CurrentPerson | Attribute:'Mentor','LastName' }}
-{{ 'Global' | Attribute:'OrganizationName' }}
-{{ 'SystemSetting' | Attribute:'SomeSpecialKey' }}
-```
-
-Important behaviors:
-
-- The first parameter is the attribute key.
-- A second qualifier can access a property of an object-valued attribute.
-- Global attributes use the string `'Global'`.
-- System settings use `'SystemSetting'` in specialized contexts.
-- `.AttributeValues` can be looped for inspection but may bypass normal security checks.
-- Rock v17+ tightened attribute security; v17.5 added an explicit bypass parameter.
-
-Agent checks:
-
-- Is the attribute key correct?
-- Does the entity have attributes loaded?
-- Is the attribute value formatted or raw?
-- Is the attribute field type object-valued?
-- Is security bypass used?
-- Does the output expose sensitive data?
-
-### Legacy Attribute Syntax
-
-A community recipe explains "legacy Lava" as old attribute access that treated attributes like direct properties. The modern pattern uses `Attribute` filter syntax. The recipe recommends finding warnings in the Exception List and tracing them back to page blocks, workflows, or other locations ([Finding and Fixing Legacy Lava](https://community.rockrms.com/recipes/107)).
-
-Agent remediation path:
-
-1. Inspect Exception List for legacy Lava warnings.
-2. Open occurrence details.
-3. Identify source location: page block, workflow, communication, etc.
-4. Replace direct attribute-like access with `| Attribute:'Key'`.
-5. Test under Fluid.
-6. Search other stored templates for the same pattern.
-7. Do not run bulk replacements without reviewing field/property ambiguity.
-
-### Date Filters
-
-The source pack includes unit and integration test snippets for date filters. Rock tests note that Lava date filters assume local `DateTime` values are expressed in the configured Rock organization timezone, not necessarily the server's local timezone ([DateFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests/Lava/Filters/DateFilterTests.cs), [DateFilterTests integration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Filters/DateFilterTests.cs)).
-
-Operational guidance:
-
-- Prefer UTC or `DateTimeOffset` for machine-readable values.
-- Use `AsDateTimeUtc` when converting to UTC.
-- Use `setculture` when parsing ambiguous date strings.
-- Avoid ambiguous strings like `01/02/2020` unless culture is controlled.
-- For webhooks, output ISO-like formats when possible.
-- Verify organization timezone in Global Attributes/System Settings before diagnosing date offsets.
-
-### Person Filters
-
-Person-related filters can derive campus, address, tokens, and other person-specific values. Source test snippets show `NearestCampus` behavior and person token restrictions tied to account protection profile settings ([PersonFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Filters/PersonFilterTests.cs)). The exact filter list should be checked in current Lava docs or live docs, but operationally:
-
-- Person filters may depend on sample/live data such as addresses, geocoding, campuses, and account protection settings.
-- Token-creating filters are security-sensitive.
-- Campus filters can exclude campuses lacking needed geocode data depending on the filter.
-- Do not expose person tokens on public pages without confirming account protection behavior.
-
-### Text Filters
-
-Text filters transform strings, encode output, manipulate case, pluralize, strip newlines, and prepare JSON/body content. Source snippets include text filter tests and webrequest docs show `Trim` plus `StripNewLines` for request body preparation ([TextFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests/Lava/Filters/TextFilterTests.cs), [Web Request](https://community.rockrms.com/lava/commands/web-request-commands)).
-
-Agent guidance:
-
-- Use `Escape` in mobile text strings and contexts where quotes or ampersands can break markup ([Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)).
-- Use `ToJSON` for JSON values.
-- Use `UrlEncode` or equivalent filters where URL parameters are built; verify exact filter name live if not in source pack.
-- Use `Trim` and `StripNewLines` for compact request bodies.
-- Avoid using text filters to patch unsafe SQL; use SQL parameters.
-
-### Array And Sorting Filters
-
-Fluid changes sorting behavior. The Fluid differences doc says array sorting with old sort direction parameters should move to `OrderBy`, while entity command sorting remains a separate command capability. Fluid's `Sort` is case-sensitive, and `SortNatural` may be preferable for human-friendly ordering ([Fluid Differences](https://community.rockrms.com/lava/fluid/differences)).
-
-Agent checks:
-
-- Is the value an entity command result, array, or string split?
-- Is sorting case-sensitive?
-- Does the template run under Fluid?
-- Should `OrderBy` be used instead of old `Sort` syntax?
-- Are nulls handled consistently?
-
-### JSON Filters
-
-Source examples use `ToJSON` and `FromJSON` patterns in community recipes and webrequest docs. These are important for safe API output and request bodies ([Web Request](https://community.rockrms.com/lava/commands/web-request-commands), [Address Format Lava Shortcode](https://community.rockrms.com/recipes/467)).
-
-Agent guidance:
-
-- Use `ToJSON` for string values inside JSON.
-- Return JSON from webhooks with a proper response content type.
-- Avoid manually quoting user input.
-- Validate whether `FromJSON` is available and enabled in the current version before relying on it.
-
-### Culture-Affected Filters
-
-`setculture` only affects a specific list of filters: date/time conversions, numeric conversions, date formatting, general formatting, and currency formatting ([Set Culture](https://community.rockrms.com/lava/commands/setculture-commands)). If another filter's output seems culture-sensitive, verify live rather than assuming `setculture` controls it.
-
-### Mobile Lava Filters
-
-Rock Mobile docs say filters available for local mobile-shell processing are marked in docs with compatible shell version, and recommend `Escape` for Lava text strings in mobile applications, especially user-entered values or values containing `&` or quotes ([Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)). Agents should distinguish:
-
-- Server-rendered Lava in mobile blocks.
-- Client-processed Lava when `Process Lava On Client` is enabled.
-- Merge fields available locally: `PageParameter`, `CurrentPerson`, `Device`, `PageValues`, `AppValues`, `DeviceTheme`, and server-provided variables, depending on configuration.
-- Mobile-specific commands such as `setpagevalue` and `setappvalue`, if available in the live version.
-
-## 10. Shortcodes Deep Dive
-
-### Why Shortcodes Exist
-
-Shortcodes replace complex Lava with a concise tag. They make content easier for staff to use and standardize templates across pages, communications, and workflows ([Intro to Shortcodes](https://community.rockrms.com/lava/shortcodes/intro-to-shortcodes)).
-
-Good shortcode use cases:
-
-- Embedding media with safe defaults.
-- Formatting addresses, dates, links, or cards.
-- Rendering reusable panels or layout fragments.
-- Generating pagination controls.
-- Showing scheduled content.
-- Wrapping complicated SQL/entity logic for staff.
-- Adding analytics or interactions consistently.
-- Providing mobile or CMS patterns that should not be hand-coded repeatedly.
-
-Poor shortcode use cases:
-
-- One-off code that is clearer inline.
-- Logic that needs formal validation, audit, or transactions.
-- A place to hide unsafe SQL.
-- Public writes without authorization.
-- Complex applications better served by Helix, blocks, workflows, or custom plugins.
-
-### Inline Versus Block
-
-Inline shortcodes have no closing tag and are suited to small parameter-driven output. Block shortcodes use a closing tag and receive the enclosed content. The docs stress that changing shortcode type later breaks callers, so choose deliberately ([Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes)).
-
-Choose inline when:
-
-- All configuration fits in a few parameters.
-- No repeated child sections are needed.
-- No large HTML content is passed.
-- Staff should use it like a formatter or embed.
-
-Choose block when:
-
-- The user passes rich HTML/content.
-- The shortcode needs nested configuration.
-- Repeating child items are needed.
-- The content itself should be rendered inside a wrapper.
-
-### Shortcode Configuration Fields
-
-In `Admin Tools > CMS Configuration > Lava Shortcodes`, inspect:
-
-- `Name`
-- `Tag Name`
-- `Categories`
-- `Active`
-- `Tag Type`
-- `Description`
-- `Documentation`
-- `Shortcode Markup`
-- `Parameters`
-- `Enabled Lava Commands`
-- `Variable Scope Context` or `Shortcode Scope Behavior`, depending on version
-- Entity attributes if present
-
-The source model and view models confirm many of these fields, including `ShortcodeScopeBehavior` ([LavaShortCode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs), [LavaShortcodeDetailOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaShortcodeDetail/LavaShortcodeDetailOptionsBag.cs)).
-
-### Parameters
-
-Parameter keys should be lowercase. The authoring docs warn that uppercase keys can behave unexpectedly and return defaults rather than caller-provided values ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
-
-Parameter design rules:
-
-- Use lowercase keys.
-- Provide safe defaults.
-- Document type and allowed values.
-- Convert booleans with `AsBoolean`.
-- Validate IDs before use.
-- Treat all parameters as untrusted unless only admins can call the shortcode.
-- Do not interpolate parameters directly into SQL.
-- If a parameter controls CSS/HTML, restrict allowed values.
-
-### Enabled Commands Inside Shortcodes
-
-A shortcode can enable commands internally, independent of the block that calls it ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)). This is useful because callers do not need broad command access, but it also means a harmless-looking shortcode can run SQL or entity queries.
-
-Agent review:
-
-- Open the shortcode record, not just the calling page.
-- Inspect `Enabled Lava Commands`.
-- Confirm commands are required by markup.
-- Remove unused commands.
-- For `Sql`, verify parameterization.
-- For `RockEntity` with security disabled, document why.
-- For write commands, review authorization and duplicate execution.
-
-### Block Content
-
-Block shortcodes receive enclosed content as `blockContent`. Rock runs Lava across block content by default; passing a parameter `disablelavamerge:'true'` can disable that behavior ([The Power of Shortcode Blocks](https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks)).
-
-Agent checks:
-
-- Does `blockContent` contain user-entered HTML?
-- Should Lava inside the content be executed?
-- Could executing nested Lava expose data or enable command-like effects?
-- Is `disablelavamerge` documented for callers?
-- Does the shortcode escape or trust block content?
-
-### Block Configuration
-
-Block shortcodes can parse nested configuration using `[[ itemname parameter:'value' ]] ... [[ enditemname ]]` syntax. Rock removes parsed configuration from `blockContent` and exposes variables to the template ([The Power of Shortcode Blocks](https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks)).
-
-Use this for structured repeating items such as map markers, tabs, slides, or cards. Keep documentation clear because staff must know the nested shape.
-
-### Passing Objects
-
-Rock v10+ supports passing Lava variables as shortcode parameters by omitting quotes. Dot notation for nested object expressions has limitations in this context ([Passing in Objects](https://community.rockrms.com/lava/shortcodes/passing-in-objects)).
-
-Good pattern:
-
-```liquid
-{% group where:'GroupTypeId == 25' iterator:'groups' %}
-  {[ group_list groups:groups ]}
-{% endgroup %}
-```
-
-Avoid relying on:
-
-```liquid
-{[ group_list groups:ParentObject.groups ]}
-```
-
-unless verified in the current version and context.
-
-### Scope Behavior
-
-Shortcode variable scope is version-sensitive. The authoring docs describe a `Variable Scope Context` with isolated/shared options, and v19.1 release notes describe a new `Shortcode Scope Behavior` property that controls whether variables inside a shortcode are isolated or shared with surrounding Lava ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent guidance:
-
-- Prefer isolated scope for most shortcodes.
-- Use shared scope only when the shortcode intentionally returns values to surrounding Lava.
-- Test nested shortcode behavior; v19.1 release notes mention a fix for nested shortcodes inheriting outer `blockContent` unintentionally ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Check live version because labels and implementation may differ across v12-v19.
-
-### Shortcode Source-Code Landmarks
-
-Use these source files when code-level confirmation is needed:
-
-- `Rock/Model/CMS/LavaShortCode/LavaShortCode.cs`: entity fields and table mapping ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs)).
-- `Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs`: cache update behavior ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs)).
-- `Rock.Blocks/Cms/LavaShortcodeDetail.cs`: admin detail behavior, options, duplicate tag validation ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs)).
-- `Rock.Blocks/Cms/LavaShortcodeList.cs`: list initialization and category handling ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs)).
-- `Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs`: block shortcode implementation class ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs)).
-- `Dev Tools/Sql/CodeGen_LavaShortCodeMigrationSql.sql`: migration helper for shortcode records, useful for understanding deployment/export patterns ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_LavaShortCodeMigrationSql.sql)).
-
-## 11. Related Rock Areas: Cms, Workflows, Sql, Security
-
-### CMS
-
-Lava is deeply integrated into CMS. It appears in HTML blocks, themes, include files, content channel item templates, shortcodes, stylesheets, page parameters, public pages, and internal admin pages. CMS agents should always trace:
-
-```text
-Page -> Layout -> Zone -> Block -> Block Settings -> Lava Template
-                                    -> Shortcodes
-                                    -> Include Files
-                                    -> Enabled Commands
-                                    -> Cache Settings
-```
-
-For content channel pages, also inspect:
-
-```text
-Content Channel -> Content Channel Type -> Item Attributes -> Item Content -> Detail/List Blocks -> Lava
-```
-
-When a page output is wrong, the visible page is the symptom, not necessarily the source.
-
-Rock's [Lava overview](https://community.rockrms.com/lava) and [Advanced HTML Block training](https://community.rockrms.com/rocku/cms/advanced-html-block) support this CMS tracing model. The exact merge fields and enabled commands remain block- and page-context-specific.
-
-### Workflows
-
-Workflows use Lava in action attributes, forms, notifications, entry blocks, and `workflowactivate` calls. Workflow attribute values often use stored internal representations, not display labels. The `workflowactivate` docs explicitly warn that attribute value types matter ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)).
-
-Agent checks:
-
-- Workflow Type ID or Guid.
-- Activity Type ID or Guid.
-- Attribute keys and field types.
-- Stored value format.
-- Lava commands enabled in workflow context.
-- Whether template runs as a staff user, system job, or public submitter.
-- Whether output is sent externally.
-
-Release notes also include workflow security hardening around workflow type view permissions in v19.1, so agents should verify workflow visibility and permissions on modern versions ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### SQL
-
-SQL in Lava is powerful and dangerous. Use it when entity commands are insufficient, but keep it parameterized, bounded, and reviewed. The source-code snippet for the admin SQL Command block shows Rock distinguishes selection queries from commands and can roll back disallowed modifications depending on configuration, but that block behavior is not the same as arbitrary Lava SQL in a page ([SqlCommand.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx.cs), [SQL](https://community.rockrms.com/lava/commands/sql-commands)).
-
-SQL guardrails:
-
-- Never concatenate raw page parameters into SQL.
-- Use SQL command parameters.
-- Use `TOP`, filters, or pagination.
-- Avoid writes from public pages.
-- Clear Rock cache after direct writes.
-- Test read-only first.
-- Prefer Rock services/plugins for complex writes.
-- Log and document data-modifying SQL.
-
-### Security
-
-Security is the recurring theme across Lava:
-
-- Command enablement controls capability.
-- Entity commands can bypass security with `securityenabled:'false'`.
-- Attribute filters can bypass attribute security with an explicit parameter in newer versions.
-- Remote Lava runs as a REST key's person.
-- Lava webhooks may not enforce security by default.
-- Shortcodes can hide enabled commands.
-- Mobile client-side Lava has different data availability and escaping risks.
-- Fluid verification may double-execute side effects.
-
-Important source anchors: [Getting Started With Lava Commands](https://community.rockrms.com/lava/commands), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava), [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api), [Attributes](https://community.rockrms.com/lava/filters/attribute-filters), [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava).
-
-## 12. Administration And Operational Guardrails
-
-### Pre-Change Checklist
-
-Before changing Lava in production:
-
-1. Identify the storage location.
-2. Export or record the current template.
-3. Identify all shortcodes and includes it depends on.
-4. Inspect enabled commands.
-5. Inspect cache settings.
-6. Check current Rock version.
-7. Check current Lava engine.
-8. Search the Exception List for related errors.
-9. Decide whether the change affects anonymous users, staff, communications, workflows, APIs, or mobile.
-10. Test with representative people, campuses, permissions, and missing-data scenarios.
-
-### Command Review Checklist
-
-For each enabled command, ask:
-
-- Is it actually used?
-- Does it read sensitive data?
-- Does it write data?
-- Does it call external systems?
-- Does it depend on user input?
-- Does it bypass security?
-- Does it run per recipient or per page view?
-- Does it execute in cached output?
-- Could it execute twice?
-- Is failure handled?
-
-Remove unused commands. Narrow broad defaults.
-
-### Performance Checklist
-
-Look for:
-
-- Entity commands without `limit`.
-- SQL without filters.
-- Per-row entity or SQL calls inside loops.
-- Attribute access on large collections without prefetch decisions.
-- External web requests on page render.
-- Adaptive/personalized content without caching strategy.
-- Search queries without limits.
-- Shortcodes used many times per page.
-- Nested shortcodes and blockContent rendering.
-- Large cached payloads.
-
-Use `observe` around suspected slow sections when available ([Observe](https://community.rockrms.com/lava/tags/observe)).
-
-### Caching Checklist
-
-For every cached Lava fragment:
-
-- Does key include all inputs?
-- Does output contain person-specific data?
-- Does output depend on security?
-- Does output depend on current date/time?
-- Does output write interactions or launch workflows?
-- Are tags used for invalidation?
-- Is duration appropriate?
-- Is the payload large?
-- Is two-pass rendering needed?
-
-### Exception List Checklist
-
-Use exceptions to find:
-
-- Fluid verification mismatches.
-- Parse errors.
-- Legacy Lava warnings.
-- SQL errors.
-- Null reference issues.
-- Missing command authorization.
-- Shortcode save/display errors.
-- Webrequest failures.
-- Attribute security denials.
-
-A community recipe on legacy Lava highlights Exception List tracing as a practical way to locate old attribute syntax in pages or workflows ([Finding and Fixing Legacy Lava](https://community.rockrms.com/recipes/107)).
-
-### Remote Execution Checklist
-
-For remote Lava and Lava Runner-style tooling:
-
-- Verify REST key person.
-- Verify roles and security.
-- Verify allowed commands.
-- Do not expose key in public source.
-- Use server-side proxy if needed.
-- Avoid side-effect commands during preview.
-- Remember `CurrentPerson` may be the key person, not the human developer ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava), [Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456)).
-
-## 13. Developer, API, Lava, And Source-Code Landmarks
-
-### Official Lava Documentation
-
-Primary official entry points:
-
-- [Lava Reference](https://community.rockrms.com/lava)
-- [Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)
-- [Entity Command](https://community.rockrms.com/lava/commands/entity-commands)
-- [SQL Command](https://community.rockrms.com/lava/commands/sql-commands)
-- [Web Request Command](https://community.rockrms.com/lava/commands/web-request-commands)
-- [Cache Command](https://community.rockrms.com/lava/commands/cache-commands)
-- [Shortcodes Intro](https://community.rockrms.com/lava/shortcodes/intro-to-shortcodes)
-- [Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)
-- [Fluid](https://community.rockrms.com/lava/fluid)
-- [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)
-
-### RockU
-
-RockU Lava training covers concept videos for what Lava is, filters, `if`, `for`, `assign`, entity commands, SQL, web requests, execute command, and shortcodes ([RockU Lava](https://community.rockrms.com/rocku/lava)). Use this for onboarding, not as the final authority for version-specific behavior.
-
-### Mobile Developer Docs
-
-Mobile docs are relevant when Lava is used in Rock Mobile blocks or client processing. The mobile Lava page describes local-client availability, escaping recommendations, page/device/app values, and mobile-specific Lava commands ([Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)). Mobile block docs such as Event Item Occurrence List By Audience Lava show blocks with query parameters, block configuration, Lava templates, merge fields, and enabled commands ([Event Item Occurrence List By Audience Lava](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava)).
-
-### Helix
-
-Helix connects Lava, HTMX, forms, controls, endpoints, observability, and data-modifying Lava commands. The hydrated source describes it as early alpha and points command docs back to the Lava documentation ([Helix](https://community.rockrms.com/developer/helix), [Lava Commands](https://community.rockrms.com/developer/helix/lava-commands)). Verify current stability, plugin version, and production support before using.
-
-### AI Agent Lava Tools
-
-Rock developer docs describe Lava tools for AI agents. A Lava tool has name, description, prompt/template, and parameters; it can use entity commands or SQL and return data to the agent ([Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)). Agent-oriented guidance:
-
-- Tool name and description are routing metadata; write them precisely.
-- Prompt is executable Lava; review enabled commands.
-- Parameters are untrusted inputs; validate and parameterize.
-- Return structured JSON where possible.
-- Keep tools narrow and auditable.
-- Avoid write-capable tools unless explicitly required.
-
-### Source Files
-
-Use source-code snippets for implementation details:
-
-- Entity shortcode model: [LavaShortCode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs)
-- Shortcode cache logic: [LavaShortCode.Logic.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs)
-- Shortcode detail block: [LavaShortcodeDetail.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs)
-- Shortcode list block: [LavaShortcodeList.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs)
-- Web request block: [WebRequestBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs)
-- SQL command admin block: [SqlCommand.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx.cs)
-- Date filter tests: [DateFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests/Lava/Filters/DateFilterTests.cs)
-- Person filter tests: [PersonFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Filters/PersonFilterTests.cs)
-- Text filter tests: [TextFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests/Lava/Filters/TextFilterTests.cs)
-- Lava endpoint security enum: [LavaEndpointSecurityMode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs)
-
-## 14. Reporting, Analytics, And Model Map
-
-### Reporting With Lava
-
-Lava supports reporting through:
-
-- Entity commands.
-- SQL command.
-- Search command.
-- Dynamic Data blocks with Lava parameters.
-- Shortcodes for reusable report UI.
-- Page Parameter Filter blocks.
-- Content channels and item lists.
-- Metrics dashboards via community patterns.
-
-Community recipes show practical reporting patterns: pagination shortcodes for custom lists, campus filters for dynamic reports, attendance summary shortcodes, and metrics history dashboards ([Content Pagination Shortcode](https://community.rockrms.com/recipes/242), [Slicker Campus Filters](https://community.rockrms.com/recipes/393), [Lava shortcode to show last group attendance](https://community.rockrms.com/recipes/290), [Metrics History, Maintenance & Dashboard(s)](https://community.rockrms.com/recipes/380)). Adapt these only after reviewing SQL, entity IDs, command enablement, and performance.
-
-### Analytics With Interaction Commands
-
-Use interaction commands to write analytics records from Lava. Choose the most specific command:
-
-- Use `interactioncontentchannelitemwrite` when the interaction belongs to a content channel item.
-- Use `interactionintentwrite` when tracking intent taxonomy.
-- Use `interactionwrite` for custom/general channels.
-
-Use consistent `operation`, `summary`, UTM fields, and entity IDs to make later reports meaningful ([Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write), [Interaction Intent Write](https://community.rockrms.com/lava/commands/interaction-intent-write), [Interaction Write](https://community.rockrms.com/lava/commands/interaction-write)).
-
-### Model Map
-
-The source pack references Model Map through community shortcode examples, such as the address formatter recipe pointing users to the Location model for fields ([Address Format Lava Shortcode](https://community.rockrms.com/recipes/467)). When an agent needs fields or relationships:
-
-1. Open Model Map in the live Rock instance.
-2. Search the entity type.
-3. Verify property names and navigation properties.
-4. Check whether attributes are separate from properties.
-5. Use entity command `select` or SQL only after confirming fields.
-6. If plugin models are involved, use `taglist`, Model Map, or source code.
-
-Do not infer property names from UI labels alone.
-
-## 15. Version And Release Caveats
-
-### Fluid Migration
-
-Rock v13 introduced Fluid, with DotLiquid eventually going away. The source pack says support for DotLiquid was ending with v17 ([About Lava Fluid](https://community.rockrms.com/lava/fluid), [Lava Reference](https://community.rockrms.com/lava)). Agents should verify the current live version and global engine setting.
-
-Common Fluid differences from the source pack:
-
-- Variables cannot start with a number; docs note this was fixed in v17 for a specific case, but avoid numeric-leading variable names anyway.
-- Include parameter passing requires commas.
-- Array sort direction should use `OrderBy` rather than old `Sort` direction syntax.
-- `Sort` is case-sensitive in Fluid; use `SortNatural` where appropriate.
-- Include scope behavior changed.
-- Mixed single/double quote usage can parse differently.
-- Nested comments are not supported in the same way.
-- Use `and` instead of `&&`.
-- Unrecognized escape sequences can error, especially in regex; use `capture` for regex expressions.
-- Empty output tag behavior changed, with fixes noted in v17.
-- `Split` behavior around empty/null values changed, with fixes noted in v17.
-- Null comparisons are more consistent.
-- `forloop.rindex` and `rindex0` discrepancy was fixed in v19 according to the differences page and release notes ([Fluid Differences](https://community.rockrms.com/lava/fluid/differences), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### v10
-
-Passing objects into shortcodes requires Rock v10 or above ([Passing in Objects](https://community.rockrms.com/lava/shortcodes/passing-in-objects)). System setting attribute access is documented as v10.3+ ([Attributes](https://community.rockrms.com/lava/filters/attribute-filters)).
-
-### v11-v12
-
-Interaction write commands and UTM-style parameters appear around v11/v12 in the docs ([Interaction Write](https://community.rockrms.com/lava/commands/interaction-write), [Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write)). SQL parameters are documented as v9 and timeout as v12 ([SQL](https://community.rockrms.com/lava/commands/sql-commands)). Authoring docs mention v12-era scope settings for shortcodes ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
-
-### v13
-
-Fluid is introduced, and entity command parameters such as `expression`, `lazyloadenabled`, `include`, `select`, `selectmany`, and `groupby` are Fluid-era features ([About Lava Fluid](https://community.rockrms.com/lava/fluid), [Entity](https://community.rockrms.com/lava/commands/entity-commands)). The `lava` tag is documented as v13.7 and Fluid-only ([Lava Tag](https://community.rockrms.com/lava/tags/lava-tags)).
-
-### v15
-
-Entity command attribute prefetch parameters are documented around v15 ([Entity](https://community.rockrms.com/lava/commands/entity-commands)). Other attribute return values are documented v15.0+ ([Attributes](https://community.rockrms.com/lava/filters/attribute-filters)).
-
-### v16
-
-`observe` is documented as v16.3, and `interactionintentwrite` as v16.4 ([Observe](https://community.rockrms.com/lava/tags/observe), [Interaction Intent Write](https://community.rockrms.com/lava/commands/interaction-intent-write)).
-
-### v17
-
-`adaptivemessage` is documented as v17.0, entity search as v17, and the Fluid/DotLiquid transition is central around this version ([Adaptive Message](https://community.rockrms.com/lava/commands/adaptivemessage-commands), [Entity](https://community.rockrms.com/lava/commands/entity-commands), [Lava Reference](https://community.rockrms.com/lava)). Attribute security changed in v17 and v17.5 added bypass control ([Attributes](https://community.rockrms.com/lava/filters/attribute-filters), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### v18
-
-`setculture` is documented as v18.0 ([Set Culture](https://community.rockrms.com/lava/commands/setculture-commands)).
-
-### v19
-
-`printzpl` is documented as v19.0 ([Print ZPL](https://community.rockrms.com/lava/commands/print-zpl)). v19.1 release notes mention:
-
-- Shortcode Scope Behavior property.
-- refreshed Lava Shortcode List and Detail blocks using Obsidian UI components.
-- shortcode save error-message fix.
-- Fluid vs DotLiquid `forloop.rindex/rindex0` discrepancy fix.
-- field comparison enhancements.
-- security setting fixes for some Lava commands.
-- nested shortcode `blockContent` leakage fix.
-- date object versus string comparison fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Because v19.1 was marked beta in the hydrated release notes, verify the production version and release channel before relying on v19.1 behavior.
-
-## 16. Implementation Playbooks
-
-### Playbook: Add A Safe Read-Only Entity List
-
-1. Define the audience and data sensitivity.
-2. Confirm the target entity and fields in Model Map.
-3. Add or edit an HTML block.
-4. Enable only `RockEntity`.
-5. Use `iterator`, `limit`, `sort`, and `securityenabled` intentionally.
-6. Escape or format output.
-7. Add cache only if output is not person/security-specific.
-8. Test anonymous, staff, and no-result cases.
-
-Template shape:
-
-```liquid
-{% group where:'IsActive == true' sort:'Name' limit:'50' iterator:'groups' %}
-  {% if groups and groups != empty %}
-    <ul>
-    {% for group in groups %}
-      <li>{{ group.Name | Escape }}</li>
-    {% endfor %}
-    </ul>
-  {% else %}
-    <p>No groups found.</p>
-  {% endif %}
-{% endgroup %}
-```
-
-Verify exact `where` syntax and property names live.
-
-The official [Entity Commands documentation](https://community.rockrms.com/lava/commands/entity-commands) defines the query controls used here. Confirm the entity and properties in [Model Map](https://community.rockrms.com/ModelMap), and test security behavior with each intended audience before publishing.
-
-### Playbook: Replace Unsafe SQL With Parameterized SQL
-
-1. Identify all user-influenced values.
-2. Convert them into command parameters.
-3. Reference parameters with `@name` in SQL.
-4. Add `timeout`.
-5. Add `return` to avoid collisions.
-6. Add `TOP` or filters.
-7. Test with quotes, empty values, and unexpected input.
-
-Unsafe pattern:
-
-```liquid
-WHERE [LastName] = '{{ PageParameter.LastName }}'
-```
-
-Safer pattern:
-
-```liquid
-{% sql return:'rows' lastName:'{{ PageParameter.LastName | Trim }}' timeout:'30' %}
-SELECT TOP 50 [Id], [NickName], [LastName]
-FROM [Person]
-WHERE [LastName] = @lastName
-{% endsql %}
-```
-
-SQL parameter support is documented in the SQL command guide ([SQL](https://community.rockrms.com/lava/commands/sql-commands)).
-
-### Playbook: Build A Reusable Shortcode
-
-1. Decide inline or block.
-2. Choose a lowercase tag name.
-3. Write the staff-facing description.
-4. Write technical documentation with examples.
-5. Define lowercase parameters and defaults.
-6. Write markup using only needed commands.
-7. Enable commands inside the shortcode, not broadly in caller blocks.
-8. Set isolated scope unless sharing is required.
-9. Assign categories.
-10. Test in an HTML block, communication, and any target context.
-11. Test under Fluid and with missing parameters.
-12. Document version requirements.
-
-Use official shortcode docs as the baseline ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes), [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes)).
-
-### Playbook: Diagnose A Broken Shortcode
-
-1. Identify the exact shortcode invocation.
-2. Open `Admin Tools > CMS Configuration > Lava Shortcodes`.
-3. Confirm the shortcode is active.
-4. Confirm tag name and tag type.
-5. Inspect parameters and defaults.
-6. Inspect enabled commands.
-7. Inspect scope behavior.
-8. Check for nested shortcodes and `blockContent`.
-9. Check Exception List.
-10. Verify whether caller uses object passing, and whether Rock version supports it.
-11. Test with a minimal invocation.
-12. Clear block/cache if stale output persists.
-
-### Playbook: Migrate DotLiquid Lava To Fluid
-
-1. Check `Lava Engine Liquid Framework`.
-2. If appropriate, enable verification mode during a low-risk window.
-3. Inspect exceptions.
-4. Search for known differences:
-   - numeric-leading variable names
-   - include calls without commas
-   - `&&`
-   - nested comments
-   - regex escapes
-   - old array sort direction syntax
-   - mixed quotes
-   - empty output tags
-   - split/null edge cases
-5. Fix templates in the owning locations.
-6. Review side-effecting Lava before verification mode because it may run twice.
-7. Move to Fluid only after exceptions are resolved and key workflows/pages are tested.
-
-Use Fluid docs and differences as the primary source ([About Lava Fluid](https://community.rockrms.com/lava/fluid), [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)).
-
-### Playbook: Create A Lava Webhook
-
-1. Define the API contract: path, method, inputs, output content type.
-2. Configure the Lava webhook Defined Value.
-3. Add a template with explicit request parsing.
-4. Enable only required commands.
-5. Add authentication or signature validation if sensitive.
-6. Validate request body and query parameters.
-7. Return structured JSON/XML/text/calendar as needed.
-8. Test with missing/invalid inputs.
-9. Log enough for diagnostics without exposing secrets.
-10. Document the endpoint and owning team.
-
-Use the Lava API docs as the authority and community iCal recipe only as an example ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api), [Lava Webhook to Create an iCal File](https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file)).
-
-### Playbook: Add Remote Lava Preview Tooling
-
-1. Decide whether remote rendering is necessary.
-2. Create or select a REST key with minimal roles.
-3. Confirm the key's person record and security.
-4. Configure the tool server-side.
-5. Do not expose keys in browser JavaScript.
-6. Test `CurrentPerson` behavior.
-7. Avoid side-effecting commands in preview templates.
-8. Document command restrictions.
-
-Use official remote Lava warnings and the VS Code recipe caveats ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava), [Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456)).
-
-### Playbook: Add Interaction Analytics
-
-1. Choose the specific command.
-2. Identify entity/channel/intent IDs.
-3. Decide person alias source.
-4. Define operation and summary taxonomy.
-5. Add UTM fields where useful.
-6. Avoid duplicate writes from caching or repeated render.
-7. Test reporting output.
-8. Monitor volume.
-
-Use interaction command docs ([Interaction Write](https://community.rockrms.com/lava/commands/interaction-write), [Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write), [Interaction Intent Write](https://community.rockrms.com/lava/commands/interaction-intent-write)).
-
-## 17. Troubleshooting Decision Tree
-
-### The Lava Renders Blank
-
-Check:
-
-1. Is the merge field available in this context?
-2. Is the variable name correct and case-correct?
-3. Is the entity command returning rows?
-4. Did `id` override `where` unintentionally?
-5. Is the shortcode active?
-6. Is an include file path resolving?
-7. Is output hidden by CSS?
-8. Is security filtering all results?
-9. Is the template cached with old empty output?
-10. Is the Fluid engine treating null/empty differently?
-
-### The Command Says It Is Not Authorized
-
-Check:
-
-1. Is the command enabled in the block?
-2. Is it enabled in the shortcode if used inside a shortcode?
-3. Is it inherited from default enabled commands?
-4. Did v19.1 command security fixes alter behavior?
-5. Is the command name correct?
-6. Is the template executing in a context that disallows that command, such as remote Lava?
-7. Does the current user or REST key person have needed security?
-
-Sources: [Getting Started With Lava Commands](https://community.rockrms.com/lava/commands), [Rock Core Release Notes](https://www.rockrms.com/releasenotes), [Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456).
-
-### Entity Query Returns The Wrong Rows
-
-Check:
-
-1. Property names in Model Map.
-2. `where` expression syntax.
-3. Whether `id` is present.
-4. Whether query string `dynamicparameters` overrides values.
-5. Security filtering.
-6. `limit` and `offset`.
-7. Campus/status filters.
-8. Whether attributes are properties or require `Attribute` filter.
-9. Fluid expression differences.
-
-### SQL Errors
-
-Check:
-
-1. Is `Sql` enabled?
-2. Is syntax valid in SQL Server?
-3. Are parameters declared on the command line?
-4. Are reserved names used as parameter names?
-5. Is timeout too low?
-6. Is a non-query statement missing required command-style configuration?
-7. Is user input directly interpolated?
-8. Are permissions or DB restrictions blocking the operation?
-9. Did direct SQL require cache clearing?
-
-Source: [SQL](https://community.rockrms.com/lava/commands/sql-commands).
-
-### Fluid Migration Errors
-
-Check known differences:
-
-- Missing commas in include calls.
-- `&&` instead of `and`.
-- Nested comments.
-- Regex backslash escaping.
-- Sort/OrderBy differences.
-- Single quote inside single-quoted strings.
-- Variable names starting with numbers.
-- Split/null/empty behavior.
-- `forloop.rindex`/`rindex0` behavior before fixes.
-
-Source: [Fluid Differences](https://community.rockrms.com/lava/fluid/differences).
-
-### Shortcode Output Leaks Or Variables Collide
-
-Check:
-
-1. Shortcode scope behavior.
-2. Nested shortcode behavior.
-3. `blockContent` handling.
-4. Whether caller and shortcode use the same variable names.
-5. v19.1 nested blockContent fix status.
-6. Whether the shortcode uses shared scope intentionally.
-
-Sources: [Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes), [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-### Page Shows Another Person's Data
-
-Check immediately:
-
-1. Block cache duration.
-2. Lava `cache` command key.
-3. Output cache containing `CurrentPerson`.
-4. Two-pass cache implementation.
-5. CDN/proxy cache.
-6. Security-disabled entity commands.
-7. Remote Lava identity.
-8. Whether current person was hardcoded during testing.
-
-Sources: [Cache](https://community.rockrms.com/lava/commands/cache-commands), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava).
-
-### Web Request Fails
-
-Check:
-
-1. `WebRequest` enabled.
-2. URL reachable from Rock server.
-3. TLS requirements.
-4. Method.
-5. Headers.
-6. Body content type.
-7. Response content type.
-8. Timeout.
-9. Authentication.
-10. Whether endpoint returns non-200 responses.
-11. Whether JSON body is valid.
-
-Sources: [Web Request](https://community.rockrms.com/lava/commands/web-request-commands), [WebRequestBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs).
-
-### Mobile Lava Breaks
-
-Check:
-
-1. Is Lava processed server-side or client-side?
-2. Is the filter available locally in the shell version?
-3. Are strings escaped?
-4. Are `PageParameter`, `CurrentPerson`, `Device`, `PageValues`, `AppValues`, or `DeviceTheme` available?
-5. Are quotes or ampersands breaking markup?
-6. Are mobile-specific commands available?
-
-Source: [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava).
-
-## 18. Agent Task Recipes
-
-### Recipe: Inventory Lava Risk On A Page
-
-Output fields:
-
-- Page ID / route.
-- Site / layout / theme.
-- Blocks containing Lava.
-- Include paths.
-- Shortcodes used.
-- Enabled commands per block.
-- Shortcode enabled commands.
-- Cache settings.
-- Security bypasses.
-- SQL usage.
-- Web requests.
-- Workflow/interaction/write commands.
-- Exceptions linked to page.
-- Recommended remediation.
-
-### Recipe: Review A Shortcode For Production
-
-Inspect:
-
-- `Name`
-- `TagName`
-- `TagType`
-- `IsActive`
-- `IsSystem`
-- `Categories`
-- `Documentation`
-- `Markup`
-- `Parameters`
-- `EnabledLavaCommands`
-- `ShortcodeScopeBehavior`
-- Entity attributes
-- Call sites
-- Version requirements
-- Security bypasses
-- Cache behavior
-
-Decision:
-
-- Keep as-is.
-- Narrow commands.
-- Fix parameters.
-- Add documentation.
-- Convert to block/inline only if no callers exist or all callers can be updated.
-- Replace SQL with entity command or parameterized SQL.
-- Add tests or staging validation.
-
-### Recipe: Find Legacy Attribute Lava
-
-Process:
-
-1. Search Exception List for legacy Lava warnings.
-2. Record example syntax.
-3. Locate source page/workflow/block.
-4. Search stored templates for the same pattern.
-5. Replace with `| Attribute:'Key'`.
-6. Verify real entity property names are not accidentally changed.
-7. Retest under Fluid.
-
-Source pattern: [Finding and Fixing Legacy Lava](https://community.rockrms.com/recipes/107).
-
-### Recipe: Safely Use `securityenabled:'false'`
-
-Use only when:
-
-- The page audience is trusted, or data is public by design.
-- Entity-level security checks are not needed for the intended output.
-- The template does not expose sensitive fields.
-- The reason is documented.
-- Performance benefit is real.
-
-Inspect:
-
-- Entity type.
-- Page permissions.
-- Block permissions.
-- Caller identity.
-- Attributes exposed.
-- Related entity data exposed through `include` or navigation properties.
-
-Source: [Entity](https://community.rockrms.com/lava/commands/entity-commands), [Attributes](https://community.rockrms.com/lava/filters/attribute-filters).
-
-### Recipe: Create A Staff-Friendly Link Copy Shortcode
-
-Pattern from community recipe: a shortcode can generate a copyable public URL for staff workflows, such as registration or forms ([Easy Copy Url Shortcode](https://community.rockrms.com/recipes/408)).
-
-Agent adaptation:
-
-- Use inline shortcode.
-- Parameters: `input`, `label`, `buttontext`, `class`.
-- No enabled commands unless the shortcode itself looks up records.
-- Escape input into HTML attributes.
-- If generating URLs from registration or form entities, verify page routes and public access.
-- Test internal and public contexts.
-
-### Recipe: Add A Translation Shortcode
-
-Community patterns include client-side translation pairs in Defined Types and API-backed translation with caching ([The Rosetta Stone](https://community.rockrms.com/recipes/536), [Cognitive Services Translator](https://community.rockrms.com/recipes/368)). For production:
-
-- Decide static translation table versus external translation API.
-- Store language preference on the right entity.
-- Avoid translating sensitive content externally unless approved.
-- Cache API translations.
-- Escape JavaScript output.
-- Handle dynamic DOM updates only if needed.
-- Verify accessibility and staff maintenance path.
-- Review command enablement and API keys.
-
-### Recipe: Generate Labels With Lava
-
-For direct Zebra printing:
-
-- Enable `PrintZPL` only in trusted staff contexts.
-- Use `deviceid` for configured Rock devices when possible.
-- Validate ZPL.
-- Avoid duplicate execution.
-- Escape dynamic text.
-- Test printer output physically.
-
-Source: [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl).
-
-For check-in label merge fields with shortcodes, community examples show placement group lookup patterns, but entity IDs and group hierarchy are local and must be verified ([Lava Shortcode for Placement Groups on Check In](https://community.rockrms.com/recipes/386)).
-
-### Recipe: Build An Agent Lava Tool
-
-Using developer docs for AI-agent Lava tools ([Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)):
-
-- Name: specific action, not generic.
-- Description: tells the agent when to call it.
-- Parameters: typed, required only when necessary.
-- Prompt: Lava template with parameterized SQL or entity commands.
-- Output: JSON with stable keys.
-- Commands: minimal.
-- Security: same review as any Lava endpoint.
-- Failure: include status and message fields.
-
-Recommended output shape:
-
-```json
-{
-  "status": "success",
-  "data": [],
-  "warnings": []
-}
-```
-
-If a tool writes data, require explicit user intent and return the created/updated entity IDs.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `30`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
-| official | behavior | Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
-| official | behavior | Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
-| official | behavior | In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format. | [source](https://community.rockrms.com/lava/commands/workflow-activate-commands) |
-| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. | [source](https://community.rockrms.com/lava/filters/other-filters) |
-| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
-| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
-| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
-| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| More |  | 18 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `22`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
-| [Advanced HTML Block Transcript Insight](https://community.rockrms.com/rocku/cms/advanced-html-block) | approved_for_public_distillation | 2 | media-insight:2cf056c2b84e6365 |
-| [Assign Statement Transcript Insight](https://community.rockrms.com/rocku/lava/assign-statement) | approved_for_public_distillation | 1 | media-insight:446c751591a992b1 |
-| [BI Template Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-template) | approved_for_public_distillation | 3 | media-insight:22fb0ca5319b94a9 |
-| [Communication Templates Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates) | approved_for_public_distillation | 3 | media-insight:4ca253d09a443da7 |
-| [Communication Templates [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates-legacy) | approved_for_public_distillation | 3 | media-insight:66b971954eb3655e |
-| [Entity Commands Transcript Insight](https://community.rockrms.com/rocku/lava/entity-commands) | approved_for_public_distillation | 2 | media-insight:d361c226caa0b789 |
-| [Episode 185: Special Edition Lava Class Panel Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel) | approved_for_public_distillation | 3 | media-insight:914097c1d178331e |
-| More |  | 14 additional reviewed media records are tracked in `approved-media.md`. |  |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 19. Source Map And Dependency Notes
-
-### Core Lava
-
-- [Lava Reference](https://community.rockrms.com/lava): primary concept page for Lava syntax, tags, shortcodes, and Helix pointer.
-- [RockU Lava](https://community.rockrms.com/rocku/lava): training map covering filters, statements, entity commands, SQL, web request, execute command, and shortcodes.
-- [About Lava Fluid](https://community.rockrms.com/lava/fluid): engine transition and Global Attribute workflow.
-- [Fluid Differences](https://community.rockrms.com/lava/fluid/differences): migration differences between DotLiquid and Fluid.
-
-### Commands
-
-- [Getting Started With Lava Commands](https://community.rockrms.com/lava/commands): command enablement and security framing.
-- [Tag List](https://community.rockrms.com/lava/commands/taglist-commands): command discovery.
-- [Entity](https://community.rockrms.com/lava/commands/entity-commands): entity query command and parameters.
-- [SQL](https://community.rockrms.com/lava/commands/sql-commands): SQL execution, parameters, writes, timeout.
-- [Cache](https://community.rockrms.com/lava/commands/cache-commands): memory cache, two-pass rendering, tags.
-- [Web Request](https://community.rockrms.com/lava/commands/web-request-commands): external HTTP calls.
-- [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands): workflow launch/activity activation.
-- [Search](https://community.rockrms.com/lava/commands/search-commands): Universal Search from Lava.
-- [Adaptive Message](https://community.rockrms.com/lava/commands/adaptivemessage-commands): adaptive messages.
-- [Set Culture](https://community.rockrms.com/lava/commands/setculture-commands): culture-scoped formatting.
-- [Stylesheet](https://community.rockrms.com/lava/commands/stylesheet-commands): page header CSS.
-- [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl): Zebra label printing.
-- [Observe](https://community.rockrms.com/lava/tags/observe): observability wrapper.
-- [Interaction Write](https://community.rockrms.com/lava/commands/interaction-write), [Interaction Content Channel Item Write](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write), [Interaction Intent Write](https://community.rockrms.com/lava/commands/interaction-intent-write): analytics writes.
-
-### Filters And Tags
-
-- [Attributes](https://community.rockrms.com/lava/filters/attribute-filters): attribute access, global attributes, system settings, attribute security.
-- [Include](https://community.rockrms.com/lava/tags/include-tags): include file paths and `~`/`~~` resolution.
-- [Raw](https://community.rockrms.com/lava/tags/raw-tags): suppress Lava processing.
-- [Lava Tag](https://community.rockrms.com/lava/tags/lava-tags): Fluid-only logic-focused syntax.
-
-### Shortcodes
-
-- [Intro to Shortcodes](https://community.rockrms.com/lava/shortcodes/intro-to-shortcodes): shortcode purpose.
-- [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes): inline versus block.
-- [Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes): configuration, parameters, enabled commands, admin location.
-- [The Power of Shortcode Blocks](https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks): `blockContent`, nested configuration, `disablelavamerge`.
-- [Passing in Objects](https://community.rockrms.com/lava/shortcodes/passing-in-objects): object passing and limitations.
-
-### API, Remote, Mobile, Helix, Agents
-
-- [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava): remote render endpoint and API key warning.
-- [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api): Lava webhooks, route matching, request variables, commands.
-- [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava): mobile Lava contexts, escaping, client processing.
-- [Helix](https://community.rockrms.com/developer/helix): Lava applications, HTMX, forms, early-alpha caveat in source pack.
-- [Helix Lava Commands](https://community.rockrms.com/developer/helix/lava-commands): command pointer for modify/delete/transaction/response/render endpoint docs.
-- [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools): agent custom tools using Lava.
-
-### Release Notes And Source Code
-
-- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): v19.1 Lava fixes and shortcode scope behavior.
-- [LavaShortCode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs): shortcode entity fields.
-- [LavaShortCode.Logic.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs): shortcode cache update.
-- [LavaShortcodeDetail.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs): admin detail block behavior.
-- [LavaShortcodeList.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs): admin list block behavior.
-- [DynamicShortcodeBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs): block shortcode implementation.
-- [WebRequestBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs): webrequest implementation landmark.
-- [SqlCommand.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx.cs): admin SQL command behavior.
-- [DateFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests/Lava/Filters/DateFilterTests.cs): date/timezone assumptions.
-- [PersonFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Filters/PersonFilterTests.cs): person filter behavior examples.
-- [TextFilterTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests/Lava/Filters/TextFilterTests.cs): text filter testing landmark.
-- [LavaEndpointSecurityMode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs): endpoint security enum landmark.
-
-### Community Pattern Sources
-
-Use these for examples only and verify locally:
-
-- [Run Lava within VS Code and Preview Results](https://community.rockrms.com/recipes/456)
-- [Lava Shortcode for Placement Groups on Check In](https://community.rockrms.com/recipes/386)
-- [Address Format Lava Shortcode](https://community.rockrms.com/recipes/467)
-- [Content Pagination Shortcode](https://community.rockrms.com/recipes/242)
-- [Show Until, Show After Lava Shortcodes](https://community.rockrms.com/recipes/160)
-- [Default Connectors Quick Reference List](https://community.rockrms.com/recipes/480)
-- [The Rosetta Stone - Translate anything](https://community.rockrms.com/recipes/536)
-- [Cognitive Services Translator](https://community.rockrms.com/recipes/368)
-- [Lava Webhook to Create an iCal File](https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file)
-
-Dependencies for this guide are `cms`, `workflows`, `sql`, and `security`. Lava work that touches any of those areas should be reviewed with the same care as application code, because in Rock those boundaries often meet inside a single template.
+- Attribute key spelling.
+- Raw versus formatted values.
+- Person versus PersonAlias object shape.
+- Trigger/job security when no `CurrentPerson` exists.
+
+Sources: [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands), [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
+
+### Recipe: Publish a reusable shortcode
+
+**Outcome:** A stable shortcode contract for content authors.
+
+1. Decide whether the shortcode is inline or block.
+2. Choose a unique, descriptive tag name.
+3. Define explicit parameters and defaults.
+4. Keep enabled commands to the minimum.
+5. Document the output and accepted content.
+6. Test omitted, valid and malformed parameters.
+7. Test anonymous and intended authenticated contexts.
+8. Search existing templates before making any type or parameter-breaking change.
+
+**Do not assume:**
+
+- Stored shortcode text will execute automatically.
+- A shortcode is safe because its caller is short.
+- Changing inline versus block type is backward compatible.
+
+Sources: [Lava Shortcodes](https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes), [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes)
+
+### Recipe: Build a read-only Helix active-search page
+
+**Outcome:** A server-rendered page enhanced with bounded HTMX filtering.
+
+1. Render a useful first result set through the Lava Application Content block.
+2. Keep the filter shell, target and loading state in the host response.
+3. Use a caret route for the results endpoint.
+4. Allowlist filters, sort columns, direction and page size.
+5. Parameterize text search and bound the query.
+6. Return only inner rows or cards from the partial endpoint.
+7. Carry filter, sort and pagination state through one request contract.
+8. Test anonymous, intended-role and administrator access.
+9. Test first render, swaps, empty results, pagination and browser navigation.
+10. Inspect console errors and responsive overflow.
+
+**Stop when:**
+
+- Parent application authorization is unresolved.
+- A read endpoint requires write commands.
+- The endpoint returns sensitive message bodies or person-level details beyond its stated purpose.
+- Direct endpoint access exposes more than the hosted page.
+
+Sources: [Lava Application Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block), [Helix Overview](https://community.rockrms.com/developer/helix/overview)
+
+### Recipe: Validate a Rock Mobile Lava block
+
+**Outcome:** Correct, fresh and valid mobile output for the supported shells.
+
+1. Decide whether the content must be dynamic or can be bundled.
+2. Confirm local versus server Lava processing.
+3. List required merge fields and commands.
+4. Check local-shell filter support.
+5. Escape every user, title and URL value for its XAML position.
+6. Put any required shell-version gate inside the rendered fragment.
+7. Test anonymous and authenticated states.
+8. Test punctuation-heavy content.
+9. Validate both old and new shells when supporting a migration window.
+10. Confirm whether a deployment is required for future edits.
+
+Sources: [Mobile Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content), [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
+
+### Recipe: Design a Lava-backed AI tool
+
+**Outcome:** A narrow tool the model can select and use without excessive access.
+
+1. Name the tool with a clear verb and entity.
+2. Define explicit parameters and sanitize them.
+3. Enforce current-person and agent authorization.
+4. Prefer cache or entity access over SQL when it fits the task.
+5. If static SQL is necessary, review it and keep it bounded.
+6. Return a structured `AgentToolResult`.
+7. Include only fields needed for the task.
+8. Use dedicated filters for instructions, history, metadata and Rock references.
+9. Exercise the tool with allowed, denied, empty and maximum-size inputs.
+10. Inspect built-in tool logs for calls, inputs and results.
+
+**Do not assume:**
+
+- Internal means unrestricted.
+- Chat and MCP should expose the same tools.
+- The model should generate SQL.
+- More context improves tool selection.
+
+Sources: [AI Summit, 24:01](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s), [AI Summit, 67:34](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s), [AI Summit, 87:48](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s)
+
+## Known Gaps And Live Verification
+
+The evidence pack does not establish any reader’s installed Rock version, engine, plugins, command registrations, block settings, endpoint security, roles, schema customizations, mobile shell versions, printer configuration or external licensing. Verify those locally before implementation.
+
+Live checks are specifically required for:
+
+- The selected Lava engine and remaining DotLiquid compatibility issues.
+- Command registration and enabled-command lists on each block, shortcode, webhook and endpoint.
+- Page, block, endpoint and parent Lava Application authorization.
+- `CurrentPerson` and other merge-field availability in the actual render path.
+- Workflow attribute keys, field types, stored values and component setting identifiers.
+- Entity-search and Dynamic LINQ behavior under target data and permissions.
+- Modify/delete command behavior, validation and dependent writes.
+- Community-reported change-tracker failures after an invalid modify command.
+- Helix configuration rigging, which community guidance recommends storing as valid non-null JSON such as `{}` when empty.
+- HTMX asset loading, sanitizer behavior, partial rendering, SEO metadata and browser state.
+- Rock Mobile shell-version values and supported local filters.
+- Apple TV TVML, Roku SceneGraph, mobile XAML and printer ZPL validity.
+- Remote REST keys, webhook exposure, methods, rate controls and response data.
+- Persisted dataset refresh schedules and dashboard metric reconciliation.
+- External BI licensing.
+- Final communication, workflow PDF, mobile, TV and dashboard rendering.
+
+A successful source upload or file-content write is not proof of deployment. Community guidance recommends exact content or hash readback followed by separate rendered validation under unauthorized, intended-role and administrator contexts. That procedure itself must be adapted to the target deployment surface. [Lava Application Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
+
+## Source Map
+
+### Official Lava documentation
+
+- [Lava Reference](https://community.rockrms.com/lava) — language overview, tags, filters, commands, shortcodes and Fluid direction.
+- [About Lava Fluid](https://community.rockrms.com/lava/fluid) and [Fluid Differences](https://community.rockrms.com/lava/fluid/differences) — engine transition and compatibility.
+- [Entity Command](https://community.rockrms.com/lava/commands/entity-commands) — entity retrieval parameters and precedence.
+- [Modify Entity](https://community.rockrms.com/lava/commands/modify-entity) and [Delete Entity](https://community.rockrms.com/lava/commands/delete-entity) — v18 write operations and security warnings.
+- [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands) — workflow attribute parameters and stored formats.
+- [Render Lava Endpoint](https://community.rockrms.com/lava/commands/render-lava-endpoint) — v18 initial-render endpoint inclusion.
+- [Print ZPL](https://community.rockrms.com/lava/commands/print-zpl) — v19 printer output.
+- [Tag List](https://community.rockrms.com/lava/commands/taglist-commands) — registered-command discovery.
+- [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava) and [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api) — remote execution and unsecured webhook caveat.
+- [Types of Shortcodes](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes) — inline and block contracts.
+
+### Official product and developer documentation
+
+- [Lava Shortcodes](https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes)
+- [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
+- [Personalize Using Lava](https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava)
+- [Helix Overview](https://community.rockrms.com/developer/helix/overview)
+- [Lava Application Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
+- [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
+- [Mobile Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
+- [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)
+- [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
+
+### Official training and release context
+
+- [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block)
+- [SQL Command](https://community.rockrms.com/rocku/lava/sql-command)
+- [Execute Command](https://community.rockrms.com/rocku/lava/execute-command)
+- [AI Summit](https://www.youtube.com/watch?v=UvW68dZBcJ8)
+- [RockIQ Q&A](https://www.youtube.com/watch?v=dpYJiOAiJYM)
+- [v19 feature preview](https://www.youtube.com/watch?v=c-wycR9HEuQ)
+- [v19 ScheduleDate discussion](https://www.youtube.com/watch?v=edanHiYSDIM)
+
+### Immutable implementation evidence
+
+- [DynamicShortcodeBlock at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs)
+- [WebRequestBlock at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Lava/Blocks/WebRequestBlock.cs)
+- [DateFilterTests at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests/Lava/Filters/DateFilterTests.cs)
+- [LavaShortcodeBag at commit 471fd30](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts)
+
+### Reviewed community patterns
+
+- [Journey dashboard session](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) — persisted analytics and Lava dashboard presentation.
+- [Dashboard design session](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp) — metrics, historical data and decision-focused dashboards.
+- [Data Analytics Hub panel](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) — Rock-native reporting versus external BI.
+- [VS Code Lava preview recipe](https://community.rockrms.com/recipes/456) — community development workflow with identity, command and JavaScript caveats.
+- Organization-contributed Helix, workflow, endpoint, mobile, dashboard and deployment patterns in the supplied evidence pack are examples requiring target-instance verification unless explicitly identified as already verified public-safe conclusions.

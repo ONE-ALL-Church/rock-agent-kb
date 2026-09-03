@@ -18,35 +18,38 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 
 ## Primary Tasks
 
-- [Recipe: Answer "Where is this configured?"](tasks/recipe-answer-where-is-this-configured.md): Complete Answer "Where is this configured?" with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review a Rock PR](tasks/recipe-review-a-rock-pr.md): References: Codex coding standards, peer review, compatibility, testing (Coding Standards, Suggestions on How to Peer Review, Tips for Maintaining Compatibility, Testing).
-- [Recipe: Diagnose "Works for admin but not staff"](tasks/recipe-diagnose-works-for-admin-but-not-staff.md): References: 303 security, Helix security, release notes (Rock Security, Helix Security, Release Notes).
-- [Recipe: Build a source-backed answer](tasks/recipe-build-a-source-backed-answer.md): Complete Build a source-backed answer with evidence-backed checks and a verifiable outcome.
-- [Recipe: Build a Rock agent tool](tasks/recipe-build-a-rock-agent-tool.md): Reference: AI Agents docs (AI Agents).
+- [Recipe: Select the correct developer resource](tasks/recipe-select-the-correct-developer-resource.md): Route a request to the narrowest applicable Rock development surface.
+- [Recipe: Review an Obsidian block change](tasks/recipe-review-an-obsidian-block-change.md): Identify and validate all layers affected by an Obsidian block change.
+- [Recipe: Regenerate artifacts after a model change](tasks/recipe-regenerate-artifacts-after-a-model-change.md): Produce synchronized C# and Obsidian view models.
+- [Recipe: Review a Helix endpoint before changing it](tasks/recipe-review-a-helix-endpoint-before-changing-it.md): Establish the endpoint’s current contract, security boundary, and runtime dependencies.
+- [Recipe: Validate Rock Mobile compatibility](tasks/recipe-validate-rock-mobile-compatibility.md): Determine whether a feature is supported by the exact Core/Shell pair.
+- [Recipe: Build or repair a Roku page](tasks/recipe-build-or-repair-a-roku-page.md): Produce a navigable, correctly cached Lava-driven SceneGraph page.
+- [Recipe: Prepare a plugin or theme package](tasks/recipe-prepare-a-plugin-or-theme-package.md): Produce a reviewable extension package with understood install and uninstall behavior.
+- [Recipe: Validate a Slingshot migration](tasks/recipe-validate-a-slingshot-migration.md): Demonstrate that imported data supports the intended Rock workflows.
+- [Recipe: Inspect page content with a Rock AI agent](tasks/recipe-inspect-page-content-with-a-rock-ai-agent.md): Determine what blocks and settings contribute to a page, when the installed agent tools support it.
+- [Recipe: Verify a save or Rock-managed file deployment](tasks/recipe-verify-a-save-or-rock-managed-file-deployment.md): Confirm that the intended state persisted at the exact target.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-47: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 48-71: 2. Scope And Terminology (normal)
-- `3-rock-developer-resources-mental-model-layer-1-platform-and-runtime` lines 76-88: Layer 1: Platform and runtime (normal)
-- `3-rock-developer-resources-mental-model-layer-2-ui-technology-choice` lines 89-102: Layer 2: UI technology choice (normal)
-- `3-rock-developer-resources-mental-model-layer-3-data-model-and-persistence` lines 103-115: Layer 3: Data model and persistence (normal)
-- `3-rock-developer-resources-mental-model-layer-4-security-and-operational-guardrails` lines 116-129: Layer 4: Security and operational guardrails (normal)
+- `agent-summary` lines 18-30: Agent Summary (normal)
+- `mental-model` lines 50-61: Mental Model (normal)
+- `learning-path-quickstart-101-202-and-303` lines 62-74: Learning Path: Quickstart, 101, 202, And 303 (normal)
+- `learning-path-quickstart-101-202-and-303-rest-authorization-in-303` lines 75-80: REST authorization in 303 (normal)
+- `developer-codex-naming-and-compatibility` lines 85-90: Naming and compatibility (normal)
+- `developer-codex-model-changes-and-generated-artifacts` lines 91-103: Model changes and generated artifacts (normal)
 
 ## Core Entities
 
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the developer-resources guide.
 - `Block`: Rock concept/entity referenced by the developer-resources guide.
-- `DataView`: Rock concept/entity referenced by the developer-resources guide.
-- `DefinedType`: Rock concept/entity referenced by the developer-resources guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the developer-resources guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `Label`: Rock concept/entity referenced by the developer-resources guide.
 - `Page`: Rock concept/entity referenced by the developer-resources guide.
 - `Person`: Rock concept/entity referenced by the developer-resources guide.
-- `PersonAlias`: Rock concept/entity referenced by the developer-resources guide.
+- `Step`: Person-specific engagement milestone instance.
+- `Workflow`: Rock concept/entity referenced by the developer-resources guide.
 
 ## Version Caveats
 

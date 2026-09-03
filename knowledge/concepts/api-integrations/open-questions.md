@@ -10,60 +10,53 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (174 words)
+- `mental-model`: Mental Model (195 words)
+- `source-map-approved-claim-sources`: Approved Claim Sources (126 words)
 
 ## Community-Supported Only
 
-- `2-scope-and-terminology-swagger-api-docs`: Swagger / API Docs
-- `2-scope-and-terminology-webhook-to-workflow`: Webhook To Workflow
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-workflow-webhook-defined-type`: Workflow Webhook Defined Type
-- `7-common-api-and-integrations-workflows-external-site-reads-public-calendar-data`: External Site Reads Public Calendar Data
-- `7-common-api-and-integrations-workflows-external-system-sends-a-webhook-to-rock`: External System Sends A Webhook To Rock
-- `10-webhooks-deep-dive-response-content-types`: Response Content Types
-- `10-webhooks-deep-dive-workflow-webhook-response`: Workflow Webhook Response
+- `lava-apis-and-webhooks-community-webhook-example`: Community Webhook Example
+- `ai-mcp-and-custom-integration-tools-tool-contracts`: Tool Contracts
+- `troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records`: A relationship write created unexpected related records
+- `troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned`: A create request succeeds but no new identifier is returned
+- `agent-task-recipes-recipe-build-a-provider-event-health-report`: Recipe: Build A Provider Event Health Report
+- `source-map-community-patterns-and-examples`: Community Patterns And Examples
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology-api`: API
-- `2-scope-and-terminology-rest-api-v1`: REST API v1
-- `2-scope-and-terminology-odata`: OData
-- `2-scope-and-terminology-swagger-api-docs`: Swagger / API Docs
-- `2-scope-and-terminology-rest-key-authorization-token`: REST Key / Authorization Token
-- `2-scope-and-terminology-webhook-to-workflow`: Webhook To Workflow
-- `3-api-and-integrations-mental-model-identity-and-permission-chain`: Identity And Permission Chain
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-rest-controllers-and-rest-actions`: REST Controllers And REST Actions
-- `5-core-configuration-and-data-model-rest-cors-domains`: REST CORS Domains
-- `5-core-configuration-and-data-model-lava-webhook-defined-type`: Lava Webhook Defined Type
-- `5-core-configuration-and-data-model-workflow-webhook-defined-type`: Workflow Webhook Defined Type
-- `6-primary-entities-and-relationships-restcontroller-and-restaction`: RestController And RestAction
-- `6-primary-entities-and-relationships-person-userlogin-rest-key-and-person-token`: Person, UserLogin, REST Key, And Person Token
-- `6-primary-entities-and-relationships-binaryfile-document-type-and-file-security`: BinaryFile, Document Type, And File Security
-- `7-common-api-and-integrations-workflows-external-site-reads-public-calendar-data`: External Site Reads Public Calendar Data
-- `7-common-api-and-integrations-workflows-rock-calls-an-external-api-from-lava`: Rock Calls An External API From Lava
-- `7-common-api-and-integrations-workflows-launch-a-workflow-through-rest-v2`: Launch A Workflow Through REST v2
-- `8-rest-api-deep-dive-route-discovery`: Route Discovery
-- `8-rest-api-deep-dive-cruds-pattern`: CRUDS Pattern
-- `8-rest-api-deep-dive-identifier-handling`: Identifier Handling
-- `8-rest-api-deep-dive-odata-querying`: OData Querying
-- `9-api-authentication-deep-dive-api-key-purpose`: API Key Purpose
-- `9-api-authentication-deep-dive-external-identity-providers`: External Identity Providers
-- `10-webhooks-deep-dive-lava-webhook-matching`: Lava Webhook Matching
-- `10-webhooks-deep-dive-workflow-webhook-response`: Workflow Webhook Response
-- `11-related-rock-areas-security-workflows-lava-model-map-model-map`: Model Map
-- `12-administration-and-operational-guardrails-rate-limiting-and-load`: Rate Limiting And Load
-- `12-administration-and-operational-guardrails-observability`: Observability
-- `13-developer-api-lava-and-source-code-landmarks-security-and-workflow-source`: Security And Workflow Source
-- `14-reporting-analytics-and-model-map-api-usage-reporting`: API Usage Reporting
-- `15-version-and-release-caveats-api-v2-starts-in-v17-pattern`: API v2 Starts In v17 Pattern
-- `15-version-and-release-caveats-mailgun-api-key-and-webhook-signing-key`: Mailgun API Key And Webhook Signing Key
-- `15-version-and-release-caveats-helix-and-lava-applications`: Helix And Lava Applications
-- `15-version-and-release-caveats-mobile-and-shell-caveats`: Mobile And Shell Caveats
-- `16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration`: Playbook A: Server-To-Server REST Read Integration
-- `16-implementation-playbooks-playbook-c-webhook-to-workflow-intake`: Playbook C: Webhook To Workflow Intake
-- `16-implementation-playbooks-playbook-e-custom-rest-v2-endpoint`: Playbook E: Custom REST v2 Endpoint
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model`: Mental Model
+- `rest-api-api-v1`: API v1
+- `rest-api-api-v2`: API v2
+- `rest-api-partial-and-relationship-writes`: Partial And Relationship Writes
+- `lava-apis-and-webhooks`: Lava APIs And Webhooks
+- `helix-lava-endpoints`: Helix Lava Endpoints
+- `helix-lava-endpoints-rendering-and-caching`: Rendering And Caching
+- `helix-lava-endpoints-public-ui-integration-boundary`: Public UI Integration Boundary
+- `provider-webhooks-and-operational-reporting`: Provider Webhooks And Operational Reporting
+- `ai-mcp-and-custom-integration-tools`: AI, MCP, And Custom Integration Tools
+- `ai-mcp-and-custom-integration-tools-tool-contracts`: Tool Contracts
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-the-api-request-is-rejected-with-an-authorization-error`: The API request is rejected with an authorization error
+- `troubleshooting-decision-tree-a-request-works-in-a-server-client-but-fails-in-a-browser`: A request works in a server client but fails in a browser
+- `troubleshooting-decision-tree-a-v2-update-cleared-or-changed-fields-the-integration-did-not-own`: A v2 update cleared or changed fields the integration did not own
+- `troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records`: A relationship write created unexpected related records
+- `troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned`: A create request succeeds but no new identifier is returned
+- `troubleshooting-decision-tree-a-lava-webhook-is-reachable-more-broadly-than-expected`: A Lava webhook is reachable more broadly than expected
+- `troubleshooting-decision-tree-a-helix-endpoint-behaves-differently-from-its-front-end`: A Helix endpoint behaves differently from its front end
+- `troubleshooting-decision-tree-provider-events-arrive-but-staff-cannot-interpret-delivery-health`: Provider events arrive but staff cannot interpret delivery health
+- `troubleshooting-decision-tree-an-ai-tool-can-access-more-data-or-actions-than-expected`: An AI tool can access more data or actions than expected
+- `agent-task-recipes-recipe-preflight-a-rest-integration`: Recipe: Preflight A REST Integration
+- `agent-task-recipes-recipe-configure-and-review-a-rest-key`: Recipe: Configure And Review A REST Key
+- `agent-task-recipes-recipe-perform-a-bounded-api-v2-partial-update`: Recipe: Perform A Bounded API v2 Partial Update
+- `agent-task-recipes-recipe-review-a-lava-webhook-before-production`: Recipe: Review A Lava Webhook Before Production
+- `agent-task-recipes-recipe-review-a-helix-application-flow`: Recipe: Review A Helix Application Flow
+- `agent-task-recipes-recipe-build-a-provider-event-health-report`: Recipe: Build A Provider Event Health Report
+- `agent-task-recipes-recipe-approve-an-ai-or-mcp-tool-boundary`: Recipe: Approve An AI Or MCP Tool Boundary
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map-official-documentation-and-release-evidence`: Official Documentation And Release Evidence
+- `source-map-approved-claim-sources`: Approved Claim Sources
 
 ## Live Verification Clarification
 

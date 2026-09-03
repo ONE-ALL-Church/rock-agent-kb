@@ -3,107 +3,141 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
-        "PersonAlias",
         "StepProgram",
-        "StepType",
         "Step",
-        "Campus"
+        "Workflow"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-a-step-is-missing-from-a-person",
-      "id": "a-step-is-missing-from-a-person",
+      "guide_section_id": "troubleshooting-decision-tree-a-step-has-a-completion-date-but-is-not-counted-as-complete",
+      "id": "a-step-has-a-completion-date-but-is-not-counted-as-complete",
       "inspect": [
-        "Person",
-        "PersonAlias",
         "StepProgram",
-        "StepType",
         "Step",
-        "Campus"
+        "Workflow"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type"
+        "https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs"
       ],
       "start_with": [
-        "Was the Step entered for the correct person alias?",
-        "Is the Step Type active?",
-        "Is the Step Program active?",
-        "Is the user looking at the correct campus filter?",
-        "Is the date outside the selected chart/list timeframe?",
-        "Was the Step entered with a non-completion status?",
-        "Does security hide the Step or badge?",
-        "Was the Step Type moved to another program?"
+        "Inspect the Step’s current status.",
+        "Confirm that the status is configured as an **Is Complete** status in the Step Program.",
+        "Confirm that both the completion date and completion status are present.",
+        "If a workflow should have launched, inspect the program- or type-level trigger and installed Rock version.",
+        "Stop when both completion signals are correct and the expected downstream behavior has been rechecked. (Edit Step Programs)"
       ],
-      "title": "A Step Is Missing From A Person",
-      "when": "A Step Is Missing From A Person"
+      "title": "A Step has a completion date but is not counted as complete",
+      "when": "A Step has a completion date but is not counted as complete"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume Data View membership overrides prerequisites or repeat limits."
+      ],
+      "entities": [
+        "Person",
+        "StepType",
+        "Step",
+        "DataView"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-step-automation-did-not-create-or-complete-a-record",
+      "id": "step-automation-did-not-create-or-complete-a-record",
+      "inspect": [
+        "Person",
+        "StepType",
+        "Step",
+        "DataView"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types"
+      ],
+      "start_with": [
+        "Confirm the person currently qualifies for the Auto-Complete Data View.",
+        "Confirm the Steps Automation job has processed the Step Type.",
+        "Inspect unmet prerequisite Steps.",
+        "If a record already exists, inspect **Allow Multiple** before expecting another occurrence.",
+        "Do not assume Data View membership overrides prerequisites or repeat limits. (Edit Step Types)"
+      ],
+      "title": "Step automation did not create or complete a record",
+      "when": "Step automation did not create or complete a record"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "PersonAlias",
-        "StepProgram",
         "StepType",
-        "Step",
-        "Campus"
+        "Step"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-step-program-completion-looks-wrong",
-      "id": "step-program-completion-looks-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-steps-badge-appears-but-its-count-does-not",
+      "id": "a-steps-badge-appears-but-its-count-does-not",
       "inspect": [
         "Person",
-        "PersonAlias",
-        "StepProgram",
         "StepType",
-        "Step",
-        "Campus"
+        "Step"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs"
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges"
       ],
       "start_with": [
-        "Confirm each required Step Type has a completed Step.",
-        "Confirm statuses are marked as completion statuses.",
-        "Confirm inactive Step Types should or should not count.",
-        "Confirm person alias identity.",
-        "Confirm campus expectations.",
-        "Inspect the Step Program Completion model in the live instance.",
-        "Compare source-code rule in `StepProgramCompletion.cs`."
+        "Confirm the badge is a Person badge of type Steps and points to the complete program.",
+        "Confirm the badge was added to the Person Profile badge container.",
+        "Confirm the Step Type has **Show Count on Badge** enabled.",
+        "Confirm the badge uses Normal display mode; the setting does not affect other modes. (Steps Badges)"
       ],
-      "title": "Step Program Completion Looks Wrong",
-      "when": "Step Program Completion Looks Wrong"
+      "title": "A Steps badge appears but its count does not",
+      "when": "A Steps badge appears but its count does not"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "StepProgram",
+        "StepType",
+        "Step"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-step-metrics-or-charts-appear-inflated-or-use-unexpected-dates",
+      "id": "step-metrics-or-charts-appear-inflated-or-use-unexpected-dates",
+      "inspect": [
+        "StepProgram",
+        "StepType",
+        "Step"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-programs",
+        "https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts",
+        "https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types"
+      ],
+      "start_with": [
+        "Determine whether the metric counts Step occurrences or distinct people.",
+        "Check whether the Step Type permits multiple completions.",
+        "Inspect the chart’s status filter: completed statuses use completion dates; other statuses use start dates.",
+        "For impact measures, inspect every applicable Step Type’s Impact Weight.",
+        "For a Step Flow chart, inspect the maximum displayed level before interpreting apparent drop-off. (Intro to Step Programs, Intro to Step Charts, Chart Types)"
+      ],
+      "title": "Step metrics or charts appear inflated or use unexpected dates",
+      "when": "Step metrics or charts appear inflated or use unexpected dates"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Attendance",
-        "Person",
-        "Location"
+        "Person"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-streak-count-looks-wrong",
-      "id": "streak-count-looks-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-manually-enrolled-person-has-a-streak-of-zero",
+      "id": "a-manually-enrolled-person-has-a-streak-of-zero",
       "inspect": [
         "Attendance",
-        "Person",
-        "Location"
+        "Person"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps",
         "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment",
-        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/individually-rebuilding-streaks",
-        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date"
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually"
       ],
       "start_with": [
-        "Confirm the person is enrolled.",
-        "Confirm enrollment date.",
-        "Confirm occurrence map includes the relevant dates.",
-        "Confirm attendance source records exist.",
-        "Confirm engagement map.",
-        "Confirm exclusion map.",
-        "Check whether manual edits were overwritten by rebuild.",
-        "Check whether location exclusions apply."
+        "Confirm the person’s enrollment date.",
+        "Inspect the occurrence map for eligible dates after enrollment.",
+        "Determine whether the engagement map contains participation.",
+        "If historical attendance should populate the map, consider an individual rebuild.",
+        "Before rebuilding, record any manual engagement-map changes because the rebuild deletes them. (Intro to Streak Enrollment, Rebuild Streaks Individually)"
       ],
-      "title": "Streak Count Looks Wrong",
-      "when": "Streak Count Looks Wrong"
+      "title": "A manually enrolled person has a streak of zero",
+      "when": "A manually enrolled person has a streak of zero"
     },
     {
       "do_not_assume": [],
@@ -111,185 +145,272 @@
         "Person",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-assessment-cannot-be-retaken",
-      "id": "assessment-cannot-be-retaken",
+      "guide_section_id": "troubleshooting-decision-tree-a-streak-type-map-was-changed-but-participant-totals-have-not-updated",
+      "id": "a-streak-type-map-was-changed-but-participant-totals-have-not-updated",
       "inspect": [
         "Person",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail",
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks"
+      ],
+      "start_with": [
+        "Distinguish an occurrence-map edit from an individual engagement- or exclusion-map edit.",
+        "For an individual map edit, save and refresh the page.",
+        "For an occurrence-map edit, confirm that the nightly cleanup job has run.",
+        "Inspect enrollment dates because earlier dates remain outside each person’s calculation. (Streak Type Detail, Manually Track Streaks)"
+      ],
+      "title": "A Streak Type map was changed but participant totals have not updated",
+      "when": "A Streak Type map was changed but participant totals have not updated"
+    },
+    {
+      "do_not_assume": [
+        "Do not treat the visible absence as proof of a calculation error: exclusions do not alter attendance data."
+      ],
+      "entities": [
+        "Attendance",
+        "Person",
+        "Location"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-streak-spans-a-date-that-still-looks-absent",
+      "id": "a-streak-spans-a-date-that-still-looks-absent",
+      "inspect": [
+        "Attendance",
+        "Person",
+        "Location"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date"
+      ],
+      "start_with": [
+        "Inspect the person’s exclusion map and applicable location exclusions.",
+        "Confirm whether that date was excluded.",
+        "Do not treat the visible absence as proof of a calculation error: exclusions do not alter attendance data.",
+        "Confirm that the excluded date neither added to nor interrupted the calculated streak. (Exclude a Date)"
+      ],
+      "title": "A streak spans a date that still looks absent",
+      "when": "A streak spans a date that still looks absent"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-person-cannot-retake-an-assessment",
+      "id": "a-person-cannot-retake-an-assessment",
+      "inspect": [
         "Page"
       ],
       "source_urls": [
         "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments"
       ],
       "start_with": [
-        "Inspect Assessment Type configuration.",
-        "Check retake interval.",
-        "Check last completion date.",
-        "Check whether formal request is required.",
-        "Check whether a pending request exists.",
-        "Confirm the person is using the right account.",
-        "Confirm the assessment page is accessible."
+        "Inspect **Minimum Days to Re-take** on the installed Assessment Type.",
+        "Compare the previous completion date with that interval.",
+        "Inspect **Requires Request**.",
+        "If a request is required, confirm that a valid pending request exists.",
+        "Check the external My Account and results-page paths only after the policy conditions pass. (Retake Assessments)"
       ],
-      "title": "Assessment Cannot Be Retaken",
-      "when": "Assessment Cannot Be Retaken"
+      "title": "A person cannot retake an assessment",
+      "when": "A person cannot retake an assessment"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-assessment-request-cannot-be-canceled",
+      "id": "an-assessment-request-cannot-be-canceled",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history"
+      ],
+      "start_with": [
+        "Open the person’s assessment history.",
+        "Confirm whether the entry is requested or self-initiated.",
+        "Inspect its completion status and completion date.",
+        "Stop if the assessment is complete; completed requests cannot be deleted or canceled through this operation. (View Assessment History)"
+      ],
+      "title": "An assessment request cannot be canceled",
+      "when": "An assessment request cannot be canceled"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-achievement-progress-or-attempt-state-looks-wrong",
+      "id": "achievement-progress-or-attempt-state-looks-wrong",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types"
+      ],
+      "start_with": [
+        "Interpret stored progress as a decimal fraction, not a whole-number percentage.",
+        "Check whether `1` has made the attempt successful.",
+        "Inspect whether **Allow Overachievement** permits display above 100 percent.",
+        "Confirm that overachievement and Max Accomplishments are not being expected simultaneously.",
+        "Determine whether the attempt is still open, closed successfully or closed unsuccessfully.",
+        "Consider a rebuild only after documenting that it recalculates attempt data after each person’s latest success. (Add Achievement Attempts, Achievement Types)"
+      ],
+      "title": "Achievement progress or attempt state looks wrong",
+      "when": "Achievement progress or attempt state looks wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-reminder-was-created-but-no-notification-occurred",
+      "id": "a-reminder-was-created-but-no-notification-occurred",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job"
+      ],
+      "start_with": [
+        "Confirm the Reminder Type’s entity type, security and notification mode.",
+        "Confirm that the reminder date has arrived.",
+        "Confirm that the Process Reminders job includes the type and does not exclude it.",
+        "For Communication mode, inspect the job’s selected system communication.",
+        "For Workflow mode, inspect the configured workflow and expected supplied attributes.",
+        "Check whether automatic completion changed the reminder’s status after notification. (Configure Notification Types, Use the Process Reminders System Job)"
+      ],
+      "title": "A Reminder was created but no notification occurred",
+      "when": "A Reminder was created but no notification occurred"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "DataView",
-        "Attribute"
+        "Group"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-assessment-results-are-not-reportable",
-      "id": "assessment-results-are-not-reportable",
+      "guide_section_id": "troubleshooting-decision-tree-a-following-notification-is-missing",
+      "id": "a-following-notification-is-missing",
       "inspect": [
         "Person",
+        "Group"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/person-history-following-event"
+      ],
+      "start_with": [
+        "Confirm that the recipient follows the person or group.",
+        "Confirm that the event is enabled in the recipient’s Following Settings.",
+        "Confirm that the recipient has View permission for the Following Event at generation time.",
+        "Inspect the event’s filters and lookback window.",
+        "Account for daily evaluation rather than assuming immediate delivery.",
+        "For Person History matching, inspect Match Both and blank-value wildcard behavior. (How to Follow, Configure Follow Events, Person History Following Event)"
+      ],
+      "title": "A Following notification is missing",
+      "when": "A Following notification is missing"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
         "DataView",
-        "Attribute"
+        "Group",
+        "Schedule",
+        "Campus"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-interactive-experience-response-is-missing-from-the-visualizer",
+      "id": "an-interactive-experience-response-is-missing-from-the-visualizer",
+      "inspect": [
+        "DataView",
+        "Group",
+        "Schedule",
+        "Campus"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history",
-        "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts",
-        "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence"
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-manager"
       ],
       "start_with": [
-        "Confirm the assessment is complete.",
-        "Check Person Profile History.",
-        "Inspect person attributes created by the assessment.",
-        "Confirm attribute security.",
-        "Confirm Data View filter is using the right attribute and value.",
-        "Confirm whether result values are high/medium/low, list values, text, or structured output.",
-        "Test with a known person."
+        "Confirm that the question is currently shown and not closed.",
+        "Confirm that the response was submitted to the intended experience.",
+        "If moderation is enabled, inspect whether the response awaits approval or was rejected.",
+        "Inspect campus filtering in the manager or presenter view.",
+        "If audience restrictions are involved, inspect the schedule’s Data View or group-membership condition. (Intro to Interactive Experiences, Use the Experience Manager)"
       ],
-      "title": "Assessment Results Are Not Reportable",
-      "when": "Assessment Results Are Not Reportable"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-achievement-does-not-create-attempts",
-      "id": "achievement-does-not-create-attempts",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs"
-      ],
-      "start_with": [
-        "Confirm Achievement Type is active.",
-        "Confirm component entity type is configured.",
-        "Confirm source entity type.",
-        "Confirm target count.",
-        "Confirm source entities query returns records.",
-        "Check processing job/logs.",
-        "Check version caveats.",
-        "Inspect `AchievementTypeService.Process`."
-      ],
-      "title": "Achievement Does Not Create Attempts",
-      "when": "Achievement Does Not Create Attempts"
+      "title": "An Interactive Experience response is missing from the visualizer",
+      "when": "An Interactive Experience response is missing from the visualizer"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Step",
-        "Workflow"
+        "Attendance",
+        "Group",
+        "Location",
+        "Schedule"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-achievement-saves-but-behaves-incorrectly",
-      "id": "achievement-saves-but-behaves-incorrectly",
+      "guide_section_id": "troubleshooting-decision-tree-a-sign-up-communication-or-attendance-link-fails",
+      "id": "a-sign-up-communication-or-attendance-link-fails",
       "inspect": [
-        "Step",
-        "Workflow"
+        "Attendance",
+        "Group",
+        "Location",
+        "Schedule"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/group-registration-and-attendance-for-sign-up",
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions"
       ],
       "start_with": [
-        "Check whether it was created during a version affected by the v18.3 repaired Achievement Type Detail bug.",
-        "Inspect component configuration JSON.",
-        "Confirm prerequisites.",
-        "Confirm max accomplishments and over-achievement validation.",
-        "Confirm workflows.",
-        "Confirm Step creation fields.",
-        "Confirm badge Lava.",
-        "Review Release Notes."
+        "For registration or reminder communication errors, confirm that an organization phone number is configured for the SMS-enabled system communication.",
+        "For a registration route, verify project, location, schedule and, when applicable, group IdKeys.",
+        "Remember that the project parameter represents the Sign-Up group.",
+        "For attendance, confirm the occurrence date uses `yyyy-MM-dd`.",
+        "Inspect project or group-type permissions before changing attendee records. (Configure Sign-Ups, Group Registration and Attendance for Sign-Ups, Configure Sign-Up Permissions)"
       ],
-      "title": "Achievement Saves But Behaves Incorrectly",
-      "when": "Achievement Saves But Behaves Incorrectly"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Workflow"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-achievement-success-workflow-does-not-run",
-      "id": "achievement-success-workflow-does-not-run",
-      "inspect": [
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Confirm success attempt exists.",
-        "Confirm success workflow type is set.",
-        "Confirm workflow security and activation.",
-        "Check logs.",
-        "Check whether many attempts were created rapidly.",
-        "Verify instance includes the v18.3 timing fix from Release Notes."
-      ],
-      "title": "Achievement Success Workflow Does Not Run",
-      "when": "Achievement Success Workflow Does Not Run"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "StepProgram",
-        "StepType",
-        "Step",
-        "Workflow"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-step-is-not-added-when-achievement-succeeds",
-      "id": "step-is-not-added-when-achievement-succeeds",
-      "inspect": [
-        "StepProgram",
-        "StepType",
-        "Step",
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types"
-      ],
-      "start_with": [
-        "Confirm Add Step on Success is enabled.",
-        "Confirm Step Program is selected.",
-        "Confirm Step Type is selected.",
-        "Confirm Step Status is selected.",
-        "Confirm Step Status is valid for the Step Program.",
-        "Confirm duplicate rules allow the Step.",
-        "Confirm Achievement Attempt is successful.",
-        "Confirm workflow or processing logs."
-      ],
-      "title": "Step Is Not Added When Achievement Succeeds",
-      "when": "Step Is Not Added When Achievement Succeeds"
+      "title": "A Sign-Up communication or attendance link fails",
+      "when": "A Sign-Up communication or attendance link fails"
     }
   ],
   "concept_id": "engagement-tracking",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:03+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-a-step-is-missing-from-a-person",
-    "18-troubleshooting-decision-tree-step-program-completion-looks-wrong",
-    "18-troubleshooting-decision-tree-streak-count-looks-wrong",
-    "18-troubleshooting-decision-tree-assessment-cannot-be-retaken",
-    "18-troubleshooting-decision-tree-assessment-results-are-not-reportable",
-    "18-troubleshooting-decision-tree-achievement-does-not-create-attempts",
-    "18-troubleshooting-decision-tree-achievement-saves-but-behaves-incorrectly",
-    "18-troubleshooting-decision-tree-achievement-success-workflow-does-not-run",
-    "18-troubleshooting-decision-tree-step-is-not-added-when-achievement-succeeds",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-audit-a-step-program",
-    "19-agent-task-recipes-recipe-diagnose-step-badge-display",
-    "19-agent-task-recipes-recipe-review-a-streak-type-before-rebuild",
-    "19-agent-task-recipes-recipe-verify-assessment-request-flow",
-    "19-agent-task-recipes-recipe-audit-achievement-type",
-    "19-agent-task-recipes-recipe-explain-engagement-data-to-a-ministry-user"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-step-has-a-completion-date-but-is-not-counted-as-complete",
+    "troubleshooting-decision-tree-step-automation-did-not-create-or-complete-a-record",
+    "troubleshooting-decision-tree-a-steps-badge-appears-but-its-count-does-not",
+    "troubleshooting-decision-tree-step-metrics-or-charts-appear-inflated-or-use-unexpected-dates",
+    "troubleshooting-decision-tree-a-manually-enrolled-person-has-a-streak-of-zero",
+    "troubleshooting-decision-tree-a-streak-type-map-was-changed-but-participant-totals-have-not-updated",
+    "troubleshooting-decision-tree-a-streak-spans-a-date-that-still-looks-absent",
+    "troubleshooting-decision-tree-a-person-cannot-retake-an-assessment",
+    "troubleshooting-decision-tree-an-assessment-request-cannot-be-canceled",
+    "troubleshooting-decision-tree-achievement-progress-or-attempt-state-looks-wrong",
+    "troubleshooting-decision-tree-a-reminder-was-created-but-no-notification-occurred",
+    "troubleshooting-decision-tree-a-following-notification-is-missing",
+    "troubleshooting-decision-tree-an-interactive-experience-response-is-missing-from-the-visualizer",
+    "troubleshooting-decision-tree-a-sign-up-communication-or-attendance-link-fails",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-configure-a-step-journey-with-reliable-completion-signals",
+    "agent-task-recipes-recipe-bulk-record-a-step",
+    "agent-task-recipes-recipe-automate-step-completion-from-a-data-view",
+    "agent-task-recipes-recipe-build-a-streak-type-safely",
+    "agent-task-recipes-recipe-correct-one-person-s-streak",
+    "agent-task-recipes-recipe-rebuild-a-streak-with-a-controlled-boundary",
+    "agent-task-recipes-recipe-request-and-monitor-assessments",
+    "agent-task-recipes-recipe-build-an-assessment-result-segment",
+    "agent-task-recipes-recipe-connect-an-achievement-to-workflows-and-steps",
+    "agent-task-recipes-recipe-configure-reminder-processing",
+    "agent-task-recipes-recipe-configure-a-secure-following-event",
+    "agent-task-recipes-recipe-operate-a-moderated-interactive-experience",
+    "agent-task-recipes-recipe-configure-a-sign-up-registration-and-attendance-route"
   ]
 }

@@ -18,35 +18,33 @@ Apple TV and Roku developer documentation for Rock-powered TV applications, page
 
 ## Primary Tasks
 
-- [Recipe: Audit A TV App Configuration](tasks/recipe-audit-a-tv-app-configuration.md): Complete Audit A TV App Configuration with evidence-backed checks and a verifiable outcome.
-- [Recipe: Trace A Page GUID](tasks/recipe-trace-a-page-guid.md): Complete Trace A Page GUID with evidence-backed checks and a verifiable outcome.
-- [Recipe: Validate Remote Auth In Data](tasks/recipe-validate-remote-auth-in-data.md): Complete Validate Remote Auth In Data with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review A Roku Page For Focus](tasks/recipe-review-a-roku-page-for-focus.md): Complete Review A Roku Page For Focus with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review Apple TV Markup](tasks/recipe-review-apple-tv-markup.md): Sources: Apple TV Tips, Apple TV Templates.
-- [Recipe: Decide Cache Policy](tasks/recipe-decide-cache-policy.md): Verify actual headers and CDN behavior in the live environment.
+- [Recipe: Create an Apple TV application skeleton](tasks/recipe-create-an-apple-tv-application-skeleton.md): A Rock-managed Apple TV application with a valid Start Screen and explicitly reviewed application settings.
+- [Recipe: Build a Roku content page](tasks/recipe-build-a-roku-content-page.md): A Roku page whose rendered SceneGraph loads with deterministic initial focus.
+- [Recipe: Add Roku navigation with application context](tasks/recipe-add-roku-navigation-with-application-context.md): Selecting one control sets a context value and opens a destination page that reads it.
+- [Recipe: Configure remote TV sign-in](tasks/recipe-configure-remote-tv-sign-in.md): A person can authenticate on a website and the TV client transitions to the configured success page.
+- [Recipe: Add tracked media playback with resume](tasks/recipe-add-tracked-media-playback-with-resume.md): A supported media resource plays and resumes according to an explicitly selected interaction strategy.
+- [Recipe: Make an Apple TV page theme-aware](tasks/recipe-make-an-apple-tv-page-theme-aware.md): One TVML page remains legible in both Light and Dark themes.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-51: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 52-66: 2. Scope And Terminology (normal)
-- `3-tv-apps-mental-model` lines 67-94: 3. TV Apps Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 95-118: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-apple-tv-application-configuration` lines 121-134: Apple TV Application Configuration (normal)
-- `5-core-configuration-and-data-model-roku-application-configuration` lines 135-145: Roku Application Configuration (normal)
+- `agent-summary` lines 18-32: Agent Summary (normal)
+- `scope-and-boundaries` lines 33-48: Scope And Boundaries (normal)
+- `mental-model` lines 49-61: Mental Model (normal)
+- `apple-tv-application-configuration` lines 64-80: Application configuration (normal)
+- `apple-tv-pages-and-lava-output` lines 81-103: Pages and Lava output (normal)
+- `apple-tv-commands` lines 104-109: Commands (normal)
 
 ## Core Entities
 
+- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the tv-apps guide.
 - `Block`: Rock concept/entity referenced by the tv-apps guide.
-- `Campus`: Rock concept/entity referenced by the tv-apps guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
-- `Family`: Rock concept/entity referenced by the tv-apps guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the tv-apps guide.
 - `Page`: Rock concept/entity referenced by the tv-apps guide.
 - `Person`: Rock concept/entity referenced by the tv-apps guide.
-- `PersonAlias`: Rock concept/entity referenced by the tv-apps guide.
-- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Workflow`: Rock concept/entity referenced by the tv-apps guide.
 
 ## Version Caveats
 

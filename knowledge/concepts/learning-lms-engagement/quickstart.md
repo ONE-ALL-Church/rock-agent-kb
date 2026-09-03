@@ -26,27 +26,27 @@ Learning programs, LMS courses, lessons, requirements, completion tracking, enga
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-48: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 49-83: 2. Scope And Terminology (high)
-- `3-learning-lms-and-engagement-mental-model` lines 84-110: 3. Learning, LMS, And Engagement Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 111-124: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 125-159: 5. Core Configuration And Data Model (high)
-- `6-primary-entities-and-relationships-lms-entity-relationships` lines 162-177: LMS Entity Relationships (high)
+- `agent-summary` lines 18-36: Agent Summary (normal)
+- `mental-model` lines 54-67: Mental Model (normal)
+- `courses-and-lessons-choose-the-program-mode-first` lines 70-77: Choose the program mode first (normal)
+- `courses-and-lessons-build-the-hierarchy-in-configuration-order` lines 78-94: Build the hierarchy in configuration order (normal)
+- `courses-and-lessons-revise-a-class-without-disrupting-the-current-one` lines 95-100: Revise a class without disrupting the current one (normal)
+- `activity-design-and-staff-responsibilities-content-article` lines 111-116: Content article (high)
 
 ## Core Entities
 
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the learning-lms-engagement guide.
-- `Block`: Rock concept/entity referenced by the learning-lms-engagement guide.
-- `Campus`: Rock concept/entity referenced by the learning-lms-engagement guide.
 - `Data View`: Rock concept/entity referenced by the learning-lms-engagement guide.
 - `DataView`: Rock concept/entity referenced by the learning-lms-engagement guide.
-- `Family`: Rock concept/entity referenced by the learning-lms-engagement guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Group Member Requirement`: Rock concept/entity referenced by the learning-lms-engagement guide.
 - `GroupMemberRequirement`: Serving or membership qualification gate that can depend on training, background checks, documents, or manual review.
 - `Label`: Rock concept/entity referenced by the learning-lms-engagement guide.
 - `Learning Class`: Rock concept/entity referenced by the learning-lms-engagement guide.
+- `Learning Class Activity`: Rock concept/entity referenced by the learning-lms-engagement guide.
+- `Learning Class Activity Completion`: Rock concept/entity referenced by the learning-lms-engagement guide.
+- `Learning Course`: Rock concept/entity referenced by the learning-lms-engagement guide.
 
 ## Version Caveats
 

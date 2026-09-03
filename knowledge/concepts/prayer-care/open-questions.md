@@ -13,56 +13,34 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `7-common-prayer-and-care-workflows-urgent-prayer-email`: Urgent Prayer Email
-- `7-common-prayer-and-care-workflows-sms-prayer-request-capture`: SMS Prayer Request Capture
-- `7-common-prayer-and-care-workflows-prayer-wall`: Prayer Wall
-- `7-common-prayer-and-care-workflows-live-prayer-chat`: Live Prayer Chat
-- `7-common-prayer-and-care-workflows-pastoral-care-summary`: Pastoral Care Summary
-- `10-follow-up-and-communications-deep-dive-urgent-notifications`: Urgent Notifications
-- `10-follow-up-and-communications-deep-dive-care-follow-up-beyond-prayer`: Care Follow-Up Beyond Prayer
-- `14-reporting-analytics-and-model-map-metrics-to-avoid-misreading`: Metrics To Avoid Misreading
+- `community-implementation-patterns`: Community Implementation Patterns
+- `source-map-community-examples`: Community examples
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-prayer-and-care-mental-model`: 3. Prayer And Care Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-prayer-request-entry-configuration`: Prayer Request Entry Configuration
-- `5-core-configuration-and-data-model-prayer-request-detail-configuration`: Prayer Request Detail Configuration
-- `5-core-configuration-and-data-model-prayer-request-list-configuration`: Prayer Request List Configuration
-- `5-core-configuration-and-data-model-categories`: Categories
-- `5-core-configuration-and-data-model-approval-visibility-expiration-and-activity`: Approval, Visibility, Expiration, And Activity
-- `6-primary-entities-and-relationships-prayer-request-to-person`: Prayer Request To Person
-- `6-primary-entities-and-relationships-prayer-request-to-campus`: Prayer Request To Campus
-- `6-primary-entities-and-relationships-prayer-request-to-comments-and-notes`: Prayer Request To Comments And Notes
-- `7-common-prayer-and-care-workflows-public-website-prayer-intake`: Public Website Prayer Intake
-- `7-common-prayer-and-care-workflows-internal-staff-entry`: Internal Staff Entry
-- `7-common-prayer-and-care-workflows-prayer-card-view`: Prayer Card View
-- `7-common-prayer-and-care-workflows-group-prayer-requests`: Group Prayer Requests
-- `7-common-prayer-and-care-workflows-urgent-prayer-email`: Urgent Prayer Email
-- `7-common-prayer-and-care-workflows-prayer-wall`: Prayer Wall
-- `7-common-prayer-and-care-workflows-pastoral-care-summary`: Pastoral Care Summary
-- `8-prayer-requests-deep-dive-text-handling`: Text Handling
-- `8-prayer-requests-deep-dive-approval`: Approval
-- `8-prayer-requests-deep-dive-expiration`: Expiration
-- `9-teams-and-moderation-deep-dive-ai-moderation-and-formatting`: AI Moderation And Formatting
-- `10-follow-up-and-communications-deep-dive-comment-digest-email`: Comment Digest Email
-- `10-follow-up-and-communications-deep-dive-communications-security`: Communications Security
-- `11-related-rock-areas-people-groups-communications-workflows-security-cms-groups`: Groups
-- `11-related-rock-areas-people-groups-communications-workflows-security-cms-communications`: Communications
-- `12-administration-and-operational-guardrails-change-management`: Change Management
-- `13-developer-api-lava-and-source-code-landmarks-lava`: Lava
-- `15-version-and-release-caveats`: 15. Version And Release Caveats
-- `16-implementation-playbooks-playbook-launch-basic-prayer-intake`: Playbook: Launch Basic Prayer Intake
-- `16-implementation-playbooks-playbook-launch-prayer-team-page`: Playbook: Launch Prayer Team Page
-- `16-implementation-playbooks-playbook-add-group-prayer`: Playbook: Add Group Prayer
-- `16-implementation-playbooks-playbook-enable-comment-digest`: Playbook: Enable Comment Digest
-- `16-implementation-playbooks-playbook-add-sms-prayer-intake`: Playbook: Add SMS Prayer Intake
-- `16-implementation-playbooks-playbook-add-public-prayer-wall`: Playbook: Add Public Prayer Wall
-- `18-agent-task-recipes-audit-prayer-configuration`: Audit Prayer Configuration
-- `18-agent-task-recipes-safely-extend-prayer-intake`: Safely Extend Prayer Intake
+- `prayer-request-intake-and-lifecycle`: Prayer Request Intake And Lifecycle
+- `categories-visibility-and-page-security`: Categories, Visibility, And Page Security
+- `teams-approval-and-human-moderation`: Teams, Approval, And Human Moderation
+- `ai-assisted-processing-and-moderation`: AI-Assisted Processing And Moderation
+- `prayer-sessions-and-prayer-card-view`: Prayer Sessions And Prayer Card View
+- `group-specific-prayer-requests`: Group-Specific Prayer Requests
+- `comments-communications-and-follow-up`: Comments, Communications, And Follow-Up
+- `troubleshooting-decision-tree-a-submitted-request-does-not-appear-for-the-prayer-team`: A submitted request does not appear for the prayer team
+- `troubleshooting-decision-tree-a-sensitive-request-is-still-visible`: A sensitive request is still visible
+- `troubleshooting-decision-tree-prayer-team-members-cannot-add-comments`: Prayer-team members cannot add comments
+- `troubleshooting-decision-tree-prayer-comment-digests-are-not-being-delivered`: Prayer-comment digests are not being delivered
+- `troubleshooting-decision-tree-a-group-prayer-page-is-empty-or-shows-the-wrong-scope`: A group prayer page is empty or shows the wrong scope
+- `troubleshooting-decision-tree-ai-processing-is-inconsistent-across-categories`: AI processing is inconsistent across categories
+- `troubleshooting-decision-tree-outreach-reminders-do-not-arrive`: Outreach reminders do not arrive
+- `agent-task-recipes-recipe-configure-moderated-public-prayer-intake`: Recipe: Configure moderated public prayer intake
+- `agent-task-recipes-recipe-operate-the-administrator-moderation-queue`: Recipe: Operate the administrator moderation queue
+- `agent-task-recipes-recipe-build-a-secured-ministry-specific-prayer-queue`: Recipe: Build a secured ministry-specific prayer queue
+- `agent-task-recipes-recipe-create-and-verify-a-group-prayer-route`: Recipe: Create and verify a group prayer route
+- `agent-task-recipes-recipe-enable-prayer-comment-digests`: Recipe: Enable prayer-comment digests
+- `agent-task-recipes-recipe-add-workflow-based-care-follow-up`: Recipe: Add workflow-based care follow-up
+- `agent-task-recipes-recipe-introduce-ai-assistance-with-human-review`: Recipe: Introduce AI assistance with human review
+- `agent-task-recipes-recipe-validate-outreach-toolbox-for-prayer-touchpoints`: Recipe: Validate Outreach Toolbox for prayer touchpoints
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

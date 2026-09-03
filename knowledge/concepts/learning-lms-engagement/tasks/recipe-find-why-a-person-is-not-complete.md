@@ -49,15 +49,14 @@ Determine whether the missing completion is caused by enrollment, activity compl
 
 ## Source Links
 
-- https://www.triumph.tech/resources/github-spotlight-11142025
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs
-- https://community.rockrms.com/recipes/482
-- https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs
-- https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements
-- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes
-- https://community.rockrms.com/documentation/engagement/steps/configure-steps
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses
-- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class
+- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs
+- https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW

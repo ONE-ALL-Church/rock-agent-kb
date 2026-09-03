@@ -6,1263 +6,656 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "8ef211df4b8494486595d36da8996ab3f3b4e3abedf73b185a7330e92dde74cb"
 ---
 
 # Groups
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Groups are Rock’s configurable structure for organizing people, leadership, attendance, locations, schedules, security, and operational automation. Begin every group task by identifying the group type, hierarchy position, member role, membership status, and the relevant security scope. Those settings determine which children a group may contain, what attributes and roles are available, whether it appears in Group Finder, how attendance operates, and who may manage it. [Rock v19 Groups documentation](https://community.rockrms.com/documentation/engagement/groups)
 
-- Concept data-model landmarks: [Groups index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+Use this operating order:
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+1. Inspect the Group Type before changing an individual group.
+2. Confirm the group’s parent, active/public state, member roles, locations, and schedules.
+3. Separate group security from member-management rights and leader capabilities.
+4. Treat attendance, reminders, history, requirements, sync, and workflows as configured features rather than automatic behavior.
+5. Read back the resulting group, membership, attendance, or security state after automation or API work.
+6. Put installation-specific questions under live verification rather than assuming that a documented feature is enabled locally.
 
-## 1. Executive Summary For Agents
+## Scope And Boundaries
 
-Groups are one of Rock RMS's core relationship and operational structures. A Rock group can represent a family, small group, serving team, class, room, coaching layer, check-in destination, security role, synced audience, or administrative folder. Do not treat "group" as a single ministry concept. Treat it as a configurable entity whose behavior is mostly inherited from its Group Type and then refined by the group record, member roles, locations, schedules, attributes, security, and related blocks.
+This guide covers Group Types, hierarchies, group lifecycle, members, roles, attributes, Group Finder, locations and schedules, attendance operations, security, Group Leader Toolbox, history, requirements, sync, and closely related reporting or workflow patterns supported by the evidence pack. The official v19 documentation organizes Groups into these operational areas. [Rock v19 Groups documentation](https://community.rockrms.com/documentation/engagement/groups)
 
-For agent work, the first question is never "what is this group called?" The first question is "what Group Type controls this group, and what does that type allow?" Group Type configuration determines allowed child group types, roles, location behavior, whether attendance is taken, schedule behavior, group member attributes, requirements, workflows, sync behavior, and security assumptions. The official Rock Your Groups documentation places Group Type administration under `Admin Tools > Settings > General > Group Types` in newer navigation wording, with older references using `Admin Tools > General Settings > Group Types` for the same administrative area ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7), [Rock Your Groups v16 record](https://community.rockrms.com/documentation/bookcontent/7/296)).
+People records, attendance internals, locations, schedules, workflows, communications, reporting, check-in, LMS configuration, and external BI licensing each have their own owning concepts. This guide explains where they intersect with groups without replacing those guides.
 
-The most reliable investigation path is:
+A configured possibility is not proof of local state. For example:
 
-1. Identify the exact `Group.Id`, `Group.Guid`, `GroupTypeId`, parent group, active/archive status, and campus.
-2. Inspect the Group Type and inherited Group Type settings.
-3. Inspect roles and current group members, including status, role, and member attributes.
-4. Inspect group locations, schedules, and schedule exclusions.
-5. Inspect attendance occurrences and attendance rows if the problem is reporting, reminders, or engagement.
-6. Inspect security at the page, block, Group Type, group, and role/member-management layers.
-7. Inspect version-specific behavior before assuming a block is wrong, especially Group Placement, Attendance Analytics, Group Scheduler, and Group Member Requirements.
+- A Group Type may allow a feature that an individual group has not configured.
+- A group may be public but still fail other Group Finder filters.
+- A role may be called “Leader” without its `Is Leader` setting being enabled.
+- A requirement may block manual additions while still allowing workflow-based additions.
+- Rock-side page authorization does not establish external BI licensing.
+- Source-code support does not prove that a block, endpoint, plugin, or schema version is installed and authorized.
 
-RockU's Groups training catalog covers Group Viewer, Group Details, Group Attendance, Group Types, Group Type Inheritance, Group History, Group Location, Group Purposes, Alternate Placements, Group Requirements, Group Security, Extending Groups, Group Scheduling, RSVP, roster/communications, and Group Placement ([RockU Groups](https://community.rockrms.com/rocku/groups)). Use that training catalog as a topic map, but use official docs, source-code landmarks, Model Map records, and live instance inspection for operational certainty.
+## Mental Model
 
-## 2. Scope And Terminology
+A Group Type is the policy and schema layer. It defines the roles, inherited attributes, allowed child types, scheduling options, optional features, and base security available to groups of that type. Rock recommends beginning with fewer shared Group Types because adding a new type later is easier than merging overly specialized types. [Intro to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-types/intro-to-group-types)
 
-This guide covers the Groups concept family: group types, groups, group members, group member roles, group hierarchy, group locations, schedules, attendance, group finder, group placement, scheduling, RSVP, group requirements, group workflows, security, reporting, and developer-facing landmarks.
+A Group is an operational node in a tree. It has its own name, parent, status, public visibility, campus, locations, meeting details, attribute values, and possibly individual security or requirements. Rock can create a group at the root or beneath a selected parent, subject to the parent type’s allowed-child configuration. [Add a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group)
 
-Core terms:
+A Group Member joins a person to a group with a role, status, notes, communication preference, and any configured Group Member Attributes. The role is not merely a label: role settings can confer leader status, viewing, editing, member management, attendance entry, check-in eligibility, and requirement-notification behavior. [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members)
 
-- **Group**: A Rock entity representing a set of people or a container for other groups. It is governed by `GroupTypeId`, may have a parent group, may have locations and schedules, and may contain `GroupMember` rows.
-- **Group Type**: The configuration template for groups. It controls hierarchy, roles, attendance behavior, schedule options, location options, member attributes, workflows, requirements, and other behavior. Model Map records `Group Type` as a Group-category model ([Model Map](https://community.rockrms.com/ModelMap)).
-- **Group Type Role**: A role definition available to members of groups of a given type. Examples include Leader, Member, Host, Coach, Volunteer, or ministry-specific roles. Model Map records `Group Type Role` as a Group-category model ([Model Map](https://community.rockrms.com/ModelMap)).
-- **Group Member**: A relationship row connecting a person to a group with a role, status, optional attributes, and historical/attendance-related behavior. Model Map records `Group Member` as a Group-category model ([Model Map](https://community.rockrms.com/ModelMap)).
-- **Group Member Status**: The member's state in the group, commonly Active, Inactive, or Pending. Exact enum values and labels should be verified in the target Rock version and UI.
-- **Group Location**: A relationship between a group and a location. A group may have one or more locations, and schedules can be tied through `GroupLocationSchedule`.
-- **Schedule**: A time recurrence or schedule definition connected to group meeting or serving behavior. Schedules are configured under the Schedules administration area and may be selected by group types or groups ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Attendance Occurrence**: A meeting/occurrence record, normally connected to a group, location, schedule, and date, with individual attendance rows under it.
-- **Group Finder**: A public or mobile search experience for groups by campus, day, time, location, and attributes. The mobile developer record notes filtering by campus, day of week, time of day, location, and custom attributes, and warns that returned groups do not automatically account for user security ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-- **Group Placement**: A tool for assigning people into groups. Rock 18.1 documentation notes flexible placement from Group Viewer or standalone block with drag-and-drop, multi-select, and URL query string support ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Group Scheduling**: Volunteer/team scheduling behavior, including scheduler, status board, person preferences, auto-schedule, roster, communications, and analytics. RockU lists a dedicated sequence for these topics ([RockU Groups](https://community.rockrms.com/rocku/groups)).
-- **Group Requirement**: A requirement attached to group membership, often used for eligibility, forms, checks, training, signature documents, or safety processes. Model Map records `Group Member Requirement` as a Group-category model ([Model Map](https://community.rockrms.com/ModelMap)).
-- **Group Sync**: A configuration pattern where group membership can be driven by a Data View or similar source. Community recipes show this being used for communication audiences and automated email cohorts, but such recipes should be treated as examples, not official implementation requirements ([Send Emails to People in a DataView using a GroupSync Welcome Email](https://community.rockrms.com/recipes/124)).
+Locations and schedules describe where and when the group operates. Attendance is recorded in that group/location/schedule context. At the implementation level, the supplied immutable Rock source excerpt shows groups joined to locations through `GroupLocation`, with schedules joined through `GroupLocationSchedule`; use that as an implementation observation, not proof of any installation’s configuration. [Rock source at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)
 
-This guide intentionally depends on the related topics of People, Attendance, Security, Locations, and Schedules. A groups issue often cannot be solved by looking only at the group row.
+Security is layered. A group can receive base security from its Group Type and parent hierarchy, have direct rules of its own, and grant capabilities through member roles. Inspect all three layers before concluding that access is missing or excessive. [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group)
 
-## 3. Groups Mental Model
+## Group Types And Hierarchies
 
-A Rock group is best understood as an operational node in a typed tree.
+Group Types are administered under `Admin Tools > Settings > General > Group Types`. Their configuration includes purpose and structure, allowed child types, locations and scheduling, roles, attributes, optional features, and advanced behavior. [Administer Group Types](https://community.rockrms.com/documentation/engagement/groups/group-types/administer-group-types)
 
-The tree part matters because groups can have parent/child relationships. The type part matters because Group Type settings control which child types are allowed. Official documentation describes both structured hierarchies and flexible hierarchies. In a structured hierarchy, a leadership type can allow coach groups, which can allow small groups, while small groups allow no further child types. In a flexible hierarchy, a type such as Serving Teams can allow child groups of its own type, supporting an open-ended structure ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
+Rock supports two broad hierarchy patterns:
 
-For agents, this produces a practical rule: when a group cannot be created under another group, do not start with permissions alone. Inspect the parent group's Group Type and its allowed child group type associations. Source-code snippets also reflect this structure: a Rock SQL archive view flattens `GroupTypeAssociation` to understand group type hierarchy and then joins groups, group types, locations, and schedules ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)).
+- A structured hierarchy uses different Group Types to enforce defined levels. A small-group structure might allow a leadership type to contain coach groups, coach groups to contain small groups, and small groups to contain no children.
+- A flexible hierarchy allows a type to contain itself, supporting serving-team trees whose depth varies by ministry.
 
-Groups are not just rosters. They can simultaneously provide:
+These structures are implemented through the allowed child Group Types. [Group Hierarchy](https://community.rockrms.com/documentation/engagement/groups/group-types/group-hierarchy)
 
-- Membership: who belongs and in what role.
-- Structure: parent/child ministry organization.
-- Eligibility: requirements and member statuses.
-- Security: access groups, management rights, and role-scoped behavior.
-- Attendance: occurrence creation, reminders, and participation tracking.
-- Scheduling: volunteer assignments, preferences, RSVP, cancellations, and status views.
-- Search/discovery: group finder listings and registration paths.
-- Automation: group member workflow triggers, sync, communications, and reporting.
-- Content context: leader toolbox content, group-specific resources, notes, and attributes.
+A Group Type can inherit attributes from another Group Type. This supports a specialized type that needs all attributes from a shared base type plus additional attributes of its own—for example, a worship-serving type inheriting from a general serving-team type and adding an instruments attribute. This evidence supports attribute inheritance; it does not establish that every Group Type setting is inherited. [Administer Group Types](https://community.rockrms.com/documentation/engagement/groups/group-types/administer-group-types)
 
-The most important implementation insight is that most behavior is not stored directly on the `Group` row alone. It is spread across `GroupType`, `GroupTypeRole`, `Group`, `GroupMember`, `GroupLocation`, `GroupLocationSchedule`, `Schedule`, `Location`, `AttendanceOccurrence`, `Attendance`, attributes, security authorization rows, workflow triggers, and block settings. Any guide or agent recipe that inspects only `Group.Name` and `Group.Id` is not operationally complete.
+When planning a hierarchy, determine:
 
-## 4. Source Authority And How To Use This Guide
+- Which levels represent operational groups versus organizational containers.
+- Which Group Types may appear as children at each level.
+- Whether the structure must remain fixed or may recurse.
+- Which roles exist at each level and which are actually marked `Is Leader`.
+- Which attributes belong on a reusable base type and which belong only on a specialized type.
+- Which downstream processes depend on an exact depth. The Group Attendance Digest, for example, requires a specific three-level structure and should not be treated as compatible with every valid group tree. [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email)
 
-Use sources in this order:
+## Creating, Editing, Inactivating, And Archiving Groups
 
-1. **Official documentation and release notes** for intended product behavior and version caveats. The Rock Your Groups manual is the main official source for group administration, hierarchy, schedules, attendance, group finder, and placement ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). Release notes are authoritative for version-specific fixes and changes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-2. **RockU training** for UI workflows and operational topics. The Groups catalog is useful for knowing which screens and concepts Rock expects administrators to understand ([RockU Groups](https://community.rockrms.com/rocku/groups)).
-3. **Developer docs** for mobile blocks, parameters, settings, merge fields, and security warnings. Examples include Group Finder, Group Registration, Group Attendance Entry, Group Member View, Group Member Edit, Schedule Preference, and CRM Group Members ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder), [Group Registration mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration), [Group Attendance Entry mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry)).
-4. **Model Map records** for entity coverage and naming, especially when building queries or dependency maps ([Model Map](https://community.rockrms.com/ModelMap)).
-5. **GitHub source-code snippets** for implementation paths and payload shapes. Use source-code snippets to confirm relationships, request bags, and block naming, not to infer all UI behavior.
-6. **Community recipes and Q&A** for patterns and operational examples. Treat these as examples that may be useful but may not match best practices, security expectations, or the current Rock version. Recipe pages themselves include a community disclaimer that recipes are contributed and not reviewed or endorsed by the core team ([Bulk Group Member Mover](https://community.rockrms.com/recipes/519), [Find Circular Group Type References](https://community.rockrms.com/recipes/110)).
+A group can be added at the root with **Add Top-Level** or beneath the selected group with **Add Child to Selected**. If child creation is disabled, inspect the selected parent’s Group Type; it does not permit the proposed child relationship. [Add a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group)
 
-When source material is thin, verify in a live Rock instance. Specifically inspect the current Rock version, the relevant Group Type, the block settings on the exact page, and the data rows behind the behavior. Do not assume that an example from a recipe is safe for a production instance without reviewing performance, permissions, current schema, and ministry fit.
+The group edit surface can control its name, active state, public visibility, description, Group Type, parent, administrator, security-role behavior, campus, meeting details, group attributes, member attributes, and member workflow configuration. Changing an existing group’s Group Type causes its group attribute data to be lost, so treat that as a migration rather than a cosmetic edit. [Edit a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/edit-a-group)
 
-## 5. Core Configuration And Data Model
+Changing the parent moves the group within the hierarchy; removing the parent moves it to the root. Before moving a group, inspect processes that depend on ancestry, including inherited security and the Attendance Digest’s parent-region-attendance structure. [Edit a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/edit-a-group) [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group)
 
-### Group Type Configuration
+Inactivation and archiving serve different purposes:
 
-The Group Type is the primary control surface. The official docs identify administration under `Admin Tools > Settings > General > Group Types` in the newer wording ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). Older docs and recipes may say `Admin Tools > General Settings > Group Types`; agents should map both to the same concept in the target version.
+- Inactivation clears the group’s active state. Depending on Group Type configuration, Rock may request an inactive reason and optional note and can offer to inactivate child groups.
+- Archiving is available after Group History is enabled for the Group Type and the Process Group History job has run. It removes the group from ordinary group-viewer surfaces without deleting it. An archived group can later be restored from `Admin Tools > Settings > General > Archived Groups`.
 
-Important Group Type configuration areas include:
+[Edit a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/edit-a-group) [View Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history)
 
-- **General identity**: name, description, icon/category behavior, and whether the type is active.
-- **Allowed Child Group Types**: the child types that may be created beneath groups of this type. This is the basis of the group tree.
-- **Location Types**: the kinds of locations that can be assigned to groups of this type.
-- **Location Selection Modes**: controls whether a group can choose named locations, enter addresses, select points, draw geo-fences, or select from group member addresses. Official docs list Named, Address, Point, Geo-fence, and Group Member Address as options ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Schedule behavior**: whether and how groups can have schedules. Docs distinguish named schedules from custom options and note that some schedule options cannot be used as Group Finder filters ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Schedule Exclusions**: date ranges at the Group Type level that can apply to schedules for groups of that type. Use these for ministry-wide breaks rather than editing every group schedule manually ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Attendance/Check-in settings**: whether groups take attendance, whether reminders are sent, and check-in-related behavior.
-- **Roles**: roles available to group members, including default roles and leader roles.
-- **Group Member Attributes**: custom fields for the relationship between person and group.
-- **Group Attributes**: custom fields on the group itself.
-- **Group Member Workflows / Workflow Triggers**: automation triggered by membership events, attendance events, placement, or status/role changes.
-- **Requirements**: eligibility rules and workflows for members.
-- **Inherited Group Type**: a way to inherit attributes from another group type. Official docs describe inheritance as useful when two types are similar but one needs additional attributes ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Print Using**: a check-in-adjacent setting that determines printer behavior, with official docs noting device printer versus location printer behavior and limited value outside check-in configuration ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
-- **Allow Group Sync**: a configuration used in Data View sync-style groups, based on community examples ([Send Emails to People in a DataView using a GroupSync Welcome Email](https://community.rockrms.com/recipes/124)).
+Do not substitute deletion for archiving when the group’s history must remain recoverable.
 
-If an agent is asked why a field is missing, why a child group type cannot be added, why attendance does not work, or why a group finder filter is absent, inspect Group Type configuration first.
+## Members, Roles, Statuses, And Attributes
 
-### Core Entity Relationships
+Group Member Roles are defined on the Group Type. Supported role settings include:
 
-At a practical level:
+- `Is Leader`
+- requirement-notification eligibility
+- group viewing and editing
+- member management
+- attendance entry
+- check-in eligibility
+- minimum and maximum member counts for the role
+- default assignment for new members
 
-- `GroupType` defines allowed behavior.
-- `GroupTypeRole` defines member roles for a group type.
-- `Group` points to `GroupType` and may point to a parent group.
-- `GroupMember` points to `Group`, `Person`, and `GroupTypeRole`.
-- `GroupLocation` connects `Group` and `Location`.
-- `GroupLocationSchedule` connects a group-location pairing to `Schedule`.
-- `AttendanceOccurrence` normally references group/location/schedule/date context.
-- `Attendance` references the occurrence and the attending person's alias.
-- `GroupMemberRequirement` tracks requirement-related state for group members.
-- `GroupMemberWorkflowTrigger` defines automation around group member events.
-- `GroupMemberScheduleTemplate` supports scheduling patterns.
+Some blocks can override the type’s default role. Check-in eligibility through the role applies when the check-in area uses the “Already Enrolled In Group” rule. [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members)
 
-The source pack includes Model Map entries for `Group Member`, `Group Member Assignment`, `Group Member Historical`, `Group Member Requirement`, `Group Member Schedule Template`, `Group Member Workflow Trigger`, `Group Type`, and `Group Type Role` ([Model Map](https://community.rockrms.com/ModelMap)). Treat this as a model inventory, not a full schema definition. For field-level certainty, inspect the target Rock database schema, API endpoint metadata, source code, or the Model Map in the current instance.
+Member status represents the person’s standing within that group:
 
-### Locations And Schedules
+- Active: currently participating.
+- Inactive: no longer participating.
+- Pending: not yet fully joined.
 
-Groups can be associated with locations and schedules. Source-code SQL examples join `Schedule` to `GroupLocationSchedule`, then to `GroupLocation`, `Group`, and `Location`, showing the operational path for schedule-to-group-location reporting ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql)). The archived source snippet similarly joins groups, group types, locations, and schedules after flattening Group Type hierarchy ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)).
+These statuses are group-membership state, not a replacement for the person’s record status. [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members)
 
-For live troubleshooting, inspect:
+A Group Member detail record can hold role, status, a membership note, Group Member Attributes, a group-specific communication preference, and a notification marker used by the Group Leader Notification job. The person linked to an existing Group Member record cannot be replaced in place; add the correct person and remove the incorrect membership instead. [Edit a Group Member](https://community.rockrms.com/documentation/engagement/groups/group-members/edit-a-group-member)
 
-- `Group.Id`, `Group.Guid`, `Group.Name`, `GroupTypeId`, `ParentGroupId`, `IsActive`, `IsArchived`.
-- `GroupLocation.GroupId`, `LocationId`.
-- `GroupLocationSchedule.GroupLocationId`, `ScheduleId`.
-- `Schedule.Name`, start/end/frequency or iCalendar content.
-- Group Type schedule options and schedule exclusions.
+Group Member Attributes normally originate on the Group Type and therefore apply across its groups. A specific group can add member attributes when the user has Administrate access and the Group Type permits the relevant group-specific configuration. [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members)
 
-### Attributes
+When moving a member between groups, Rock can transfer member notes. Group Member Attribute values survive only when the source and destination share attributes with the same key; otherwise those values are lost. Fundraising Groups have an additional donation-movement concern owned by the finance concept. [Move Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/move-group-members)
 
-Attributes extend groups and members without schema changes. Group attributes store values on the group. Group member attributes store values on the membership relationship. The docs explain that Group Member Attributes are usually defined on the Group Type and then apply to members in groups of that type; they can also be added to a specific group when the configuration allows it and the user has appropriate administration access ([Rock Your Groups v16 record](https://community.rockrms.com/documentation/bookcontent/7/296)).
+A community-submitted bulk-move recipe demonstrates a workflow-driven approach for selecting a source group, choosing members, and launching a per-person move workflow. The recipe is marked Draft and explicitly carries the community-site disclaimer that recipes are not reviewed or endorsed by the Rock core team. Treat it as an example to review and test, not as official Rock behavior. [Bulk Group Member Mover recipe](https://community.rockrms.com/recipes/519)
 
-Attribute keys matter. Release notes mention Slingshot support for duplicate Attribute keys across different Group Types, allowing similar attributes to coexist if they belong to different group types ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). For integrations, Lava, imports, and source control, verify whether an attribute is Group Type-scoped, group-specific, inherited, or duplicated across types.
+## Group Security And Leader Operations
 
-## 6. Primary Entities And Relationships
+Group Type security establishes base security for every group of that type. It is configured from the Group Types administration list. Use it when a whole category of groups needs a common viewing or editing boundary. [Securing a Group Type](https://community.rockrms.com/documentation/engagement/groups/secure-groups/securing-a-group-type)
 
-### Group Type
+A specific group can have its own security rules. Rock’s documented group-security evaluation considers the current group, Group Type security, parent-group security up the hierarchy, Group entity-type security, and the global default. Direct rules can build on or override inherited rights. Roles on the Group Type can then provide group access to members in those roles. [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group)
 
-`GroupType` is the configuration root. It defines the expected behavior for groups and often explains issues that appear to be group-specific.
+`Manage Members` is narrower than editing the group itself. A person with that permission can add, edit, and delete memberships but cannot thereby edit or delete the group. Edit access includes member-management access by default. The documented group surface also allows group leaders to manage members even without an explicit `Manage Members` rule, while role settings can independently grant capabilities such as viewing, editing, member management, or attendance entry. [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group) [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members)
 
-Inspect Group Type when:
+The Group Detail block’s **Add Administrate Security to Group Creator** setting controls whether a person who creates a group automatically receives Administrate permission. The v19 documentation says its default is No and notes that changing it does not retroactively alter older groups. [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group)
 
-- A group cannot be added under a parent.
-- A group cannot take attendance.
-- A location mode is unavailable.
-- Group Finder does not show a filter.
-- A schedule option is unavailable.
-- A member attribute is missing.
-- A workflow does not fire.
-- Requirements do not appear.
-- A leader can view but not manage members.
-- Group Type inheritance produces unexpected attributes.
+The Group Toolbox uses the Group Detail Lava block to expose group details and leader actions such as editing group or member information, managing the roster, and sending communications. Its default add-member search requires access to the People REST controller. Where that search would reveal too much of the database, configure an alternate add-member page that uses a workflow form, group registration block, or simple contact mechanism. [Use the Group Toolbox](https://community.rockrms.com/documentation/engagement/groups/group-leader-toolbox/use-the-group-toolbox)
 
-The RockU catalog includes dedicated training for Group Types and Group Type Inheritance ([Group Types](https://community.rockrms.com/rocku/groups/group-types), [Group Type Inheritance](https://community.rockrms.com/rocku/groups/group-type-inheritance)). Use this as a signal that Group Type setup is central, not incidental.
+If a group is also configured as a security role, its members receive permissions granted to that role. Inspect membership automation carefully before enabling login creation or security-role sync. [Edit a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/edit-a-group) [Configure Group Sync](https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync)
 
-### Group Type Association
+## Locations And Schedules
 
-Although administrators usually experience this as "Allowed Child Group Types," source snippets show the underlying concept as `GroupTypeAssociation` in a hierarchy query ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)). This is why a parent group type determines which child group types can appear underneath it.
+A Group Type controls which scheduling modes its groups may use. The v19 documentation describes three modes:
 
-Operational check:
+- Weekly: day of week and start time.
+- Custom: a group-specific repeating schedule.
+- Named: a selection from schedules configured under `Admin Tools > Settings > General > Schedules`.
 
-- If the UI does not offer the desired child type, inspect the parent group's Group Type, not the child group.
-- If a hierarchy loops or times out, inspect both allowed child type relationships and inherited group type relationships.
-- If a report should include descendants, decide whether it should follow group parent hierarchy, group type allowed-child hierarchy, or both. These are different questions.
+Only Weekly schedules are documented as usable by the standard Group Finder’s day and time filters. [Group Schedule Types](https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types)
 
-### Group
+Group Types can also allow multiple locations and enable predefined schedules on group locations. The supplied immutable source excerpts show the implementation relationship `Group -> GroupLocation -> GroupLocationSchedule -> Schedule`, while Group Attendance request models accept group, location, and date context when retrieving applicable schedules. These are source-code observations from the referenced commit, not confirmation of a target installation’s UI or configuration. [Group-location schedule SQL](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/View_GroupLocationSchedules.sql) [Attendance schedule request model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs)
 
-`Group` is the actual ministry/operational node. Important fields to verify in a live instance include:
+A reviewed community pattern warns that room capacity and schedule availability are separate concerns: a room threshold belongs to the Location, while service-time availability depends on the group-location-schedule relationship. That distinction requires validation on the target version and configuration before making changes. [Community evidence source: Model Map](https://community.rockrms.com/ModelMap)
 
-- `Id`
-- `Guid`
-- `Name`
-- `GroupTypeId`
-- `ParentGroupId`
-- `CampusId`
-- `IsActive`
-- `IsArchived`
-- `GroupCapacity` and capacity rule behavior if the type uses capacity
-- Attribute values
-- Security authorization
-- Group administrator or scheduler-related fields if scheduling is in scope
+Another reviewed community pattern recommends using the authorized Obsidian Check-in Schedule Builder action for schedule-link changes when that block action is installed and available, followed by a readback of the resulting relationships. Because the contribution references moving `develop` sources and is marked as needing live verification, do not assume that action exists or that its request contract matches the target version. [Referenced Schedule Builder source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/CheckIn/CheckInScheduleBuilder.cs)
 
-Archived and inactive groups can still matter. Release notes for Rock 18.3 mention a fix in Check-in where scheduled times should exclude schedules from archived or inactive groups that still have `GroupLocationSchedule` assigned ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). If a schedule appears unexpectedly, check for stale group-location-schedule rows on inactive or archived groups.
+## Group Finder
 
-### Group Member
+The standard Group Finder lets visitors search public groups and proceed toward group registration. Only groups marked `Public` are eligible to appear. The block can be configured with eligible Group Types, capacity handling, initial-result behavior, search filters, location types, geofencing, mapping behavior, displayed attributes, and linked group-detail and registration pages. [Intro to the Group Finder](https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder)
 
-`GroupMember` connects a person to a group. It is not just a list entry. It carries role, status, attributes, workflow triggers, requirement state, historical implications, and attendance context.
+Day-of-week and time-of-day filtering depend on groups using the Weekly schedule mode. Custom and Named schedules are not documented as usable by those standard filters. [Group Schedule Types](https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types)
 
-Inspect Group Member when:
+Location display requires privacy judgment. The block provides marker-scaling and location-precision settings that can reduce the precision shown for a home-based group. Confirm the rendered result rather than assuming the underlying address is adequately obscured. [Intro to the Group Finder](https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder)
 
-- A person appears in a group but does not show in the expected roster.
-- A person cannot be scheduled.
-- A leader cannot manage a member.
-- A member does not meet requirements.
-- A pending member notification or activation flow is involved.
-- Attendance reports count a person unexpectedly.
-- A group placement operation did not move a person as expected.
+A vendor-published example describes a custom Helix-powered guided finder with a multi-step form, dynamic filtering, proximity search, group details, and map integration. It demonstrates a possible customized experience, not standard Group Finder behavior or a feature proven present in another installation. [Triumph Guided Group Finder](https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix)
 
-The mobile Group Member View block uses `GroupMemberGuid` as a parameter and can expose group name, member count, selected member details, visible attributes, contact options, and edit access depending on configuration ([Group Member View mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view)). The Group Member Edit mobile block also uses `GroupMemberGuid` and has settings such as allowing role change, status change, communication preference change, note edit, attribute category, member detail page, and delete behavior ([Group Member Edit mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-edit)).
+For a seasonal finder, a reviewed community closeout pattern recommends testing the public route, redirects, page and block authorization, alternate or mobile surfaces, and the underlying visibility filters. When inspecting authorization records, qualify the secured entity type so a Page identifier is not confused with an unrelated Block identifier. This pattern needs target-instance verification. [Community evidence source: Model Map](https://community.rockrms.com/ModelMap)
 
-### Group Type Role
+## Group Attendance Entry
 
-Roles define relationship meaning and permissions implications. A "Leader" role is not the same as a "Member" role, and ministry-specific roles can affect scheduling, communications, and requirements.
+Rapid Attendance Entry begins with a selected group and attendance date. Location and schedule values are available when the group and attendance context support them. This behavior is an approved RockU-derived claim with a reviewed read-only verification of the required group, attendance, location, schedule, and relationship surfaces. [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) (`claim:dae53f2715a5838fd9fc`)
 
-Operational checks:
+When enabled in the block settings, the same operational surface can combine attendance marking with family edits, adding family members, notes, prayer requests, and workflow launches. These actions are configurable; their presence should not be inferred merely because the attendance block exists. [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) (`claim:3b96546de8e62931465b`, `claim:81b7e563732881f9f61e`)
 
-- Verify the role's `IsLeader` behavior.
-- Verify default role.
-- Verify whether role-specific security or management is configured.
-- Verify whether workflows are filtered by role.
-- Verify whether scheduling templates, assignments, or status board views group by role.
+Teams can create focused Rapid Attendance Entry page variants for different ministries instead of putting every available action onto a single catch-all page. The approved claim was supported by a reviewed read-only verification that Group Attendance Entry is a block type with page and block surfaces; it does not prove that any particular variants have been configured locally. [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) (`claim:a69d0b49451cf59e5ef8`)
 
-A workflow trigger source snippet notes that role qualifiers can be stored as `fromRoleGuid` and `toRoleGuid`, and that for some trigger types the UI label may use "With Role of" while still storing the value in the "to" slot ([groupTypeGroupMemberWorkflowTriggerBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupTypeDetail/groupTypeGroupMemberWorkflowTriggerBag.d.ts), [GroupTypeGroupMemberWorkflowTriggerBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupMemberWorkflowTriggerBag.cs)). When debugging a workflow trigger, inspect the stored trigger type and from/to role/status fields rather than relying only on UI wording.
+For an event-oriented read-only dashboard, a reviewed community pattern recommends starting from the registration roster, adding eligible active placement-group members when local process allows placement outside registration, and deriving check-in state from the latest relevant attendance and occurrence records. Missing placement and group-only rows should remain explicit states. This is an implementation pattern requiring schema, process, and target-instance review—not official universal behavior. [Helix Content Block documentation](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-### Group Member Historical
+## Attendance Reminders, Digests, Absence Follow-Up, And Reports
 
-Group history is a separate operational concern from current membership. Model Map includes `Group Member Historical` ([Model Map](https://community.rockrms.com/ModelMap)), and RockU includes Group History training ([Group History](https://community.rockrms.com/rocku/groups/group-history)). If a person was once in a group but is no longer active, reporting may need historical tables, audit details, or attendance rather than current `GroupMember`.
+The Send Group Attendance Reminders job can handle multiple Group Types, but it sends only for types with **Send Attendance Reminder** enabled under Attendance/Check-in. Each type can retain its own reminder communication template. The v19 documentation describes the standard job as running every 15 minutes, sending when the configured offset is reached, and recording the last-sent time on the attendance occurrence so the same reminder is not sent twice in one day. [Send Group Attendance Reminders](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-reminders)
 
-### Group Member Assignment
+The Group Attendance Digest requires exactly three hierarchy levels:
 
-Model Map includes `Group Member Assignment` ([Model Map](https://community.rockrms.com/ModelMap)). Use this as a signal that scheduling/assignment can be distinct from membership. When a person is a group member but not appearing in schedule assignments, inspect assignment-related tables and scheduler block behavior, not only `GroupMember`.
+1. One top parent group, selected in the job.
+2. Region or area groups beneath it, containing people whose role is marked `Is Leader`.
+3. Attendance-recording groups beneath each region.
 
-### Group Member Requirement
+Every leader in a region group receives that region’s child-group digest. The **Email Leader** action targets the leader of the attendance group itself. The number of regions or attendance groups may vary, but all three hierarchy levels are required. [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) (`claim:07e2013c88bfc50be00a`, `claim:bde19ee62aa336ac343f`)
 
-Model Map includes `Group Member Requirement` ([Model Map](https://community.rockrms.com/ModelMap)). Release notes for Rock v19.1 mention an improved `GroupMemberRequirementState` property showing whether a requirement is met, met with warning, or not met ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). For versions before that behavior, inspect the target version and current requirement UI before assuming the state field exists.
+The digest job also requires the highest-level parent and a System Communication. The documented date range can be the current or previous week, and the attendance groups must meet on a regular Weekly schedule for the job to operate correctly. [Send Group Attendance Digest](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-digest)
 
-## 7. Common Groups Workflows
+The Group Leader Absence Notifications job evaluates consecutive absences and alerts leaders for follow-up. It runs for one Group Type per job instance, can filter evaluated members by role, and uses a configured minimum absence count. The v19 documentation says blank defaults to three and zero causes the job to fail. [Group Leader Absence Notifications](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/group-leader-absence-notifications)
 
-### Create A New Group
+The attendance-report job can create or update Person attributes for first attendance, last attendance, attendance in the previous 12 months, and attendance in the previous 16 weeks for groups returned by a Group Data View. It counts relevant attendance whether or not the person is currently an active group member. Attribute categories and security must be managed separately; changing the job’s reporting label can cause new attributes to be created. [View Group Attendance Reports](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/view-group-attendance-reports)
 
-Before creating a group:
+## Group History
 
-1. Identify the parent group.
-2. Inspect parent Group Type allowed child types.
-3. Choose the correct child Group Type.
-4. Confirm required roles and default role.
-5. Confirm attendance and schedule expectations.
-6. Confirm location mode.
-7. Confirm whether the group should be active, archived, public, searchable, or hidden.
-8. Confirm group attributes required by Group Finder, leader toolbox, scheduling, or reporting.
+Group History compiles group configuration and membership changes into timeline and table views. Rock v19 documentation says it ships enabled for small-group and serving-group types, while still allowing history to be enabled or disabled for any type. Because history can grow quickly, the documentation recommends using it for regular, comparatively stable groups rather than high-churn groups. [Intro to Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/intro-to-group-history)
 
-Community workflows like Mass Group Creator show bulk creation patterns, but they are contributed examples and should not replace a reviewed internal process ([Mass Group Creator](https://community.rockrms.com/recipes/144)). For production-scale group creation, use official UI, reviewed workflows, or migration scripts with rollback and audit plans.
+Enable the feature on the Group Type under `Admin Tools > Settings > General > Group Types`. The Process Group History job then creates historical snapshots for enabled Group Types; the standard job is documented as running daily. After it runs, eligible groups expose Archive instead of Delete. [Enable Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/enable-group-history) [Process Group History](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/process-group-history)
 
-### Add Or Move Group Members
+The timeline can show member additions, member removals, group edits, and other group actions by date. Member History provides a person-centered view of involvement dates. [View Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) (`claim:242010519d8a5aa432b1`)
 
-A member add/move operation is more than inserting a row:
+A reviewed community reporting pattern recommends using historical group and member snapshots—not only current Group and Group Member rows—when answering point-in-time questions. That pattern should be validated against the target schema and known historical changes before adoption. [Community evidence source: Rock Metrics documentation](https://community.rockrms.com/documentation/church-management/reporting/metrics)
 
-- Determine target group and role.
-- Determine status: Active, Pending, or Inactive.
-- Preserve or intentionally reset group member attributes.
-- Check requirements.
-- Check workflow triggers.
-- Check history.
-- Check scheduling assignments.
-- Check attendance implications if reporting looks at current membership.
-- Communicate with leaders if pending or active members affect roster workflows.
+## Group Requirements
 
-The Bulk Group Member Mover recipe illustrates a pattern where selected people are added to a destination group and removed from the old group, using workflows and Lava to pass old group, new group, and person context ([Bulk Group Member Mover](https://community.rockrms.com/recipes/519)). Treat it as a useful design example, not a universal script. For a live instance, verify role IDs, group IDs, workflow type IDs, permissions, and whether the ministry wants history preserved.
+A member requirement attached at the Group Type level applies across groups of that type. Its population can be narrowed by Group Member Role, age classification, or a Data View. If those selectors are left broad, the requirement applies correspondingly broadly. [Applying Requirements to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) (`claim:cd55aeeeb6e608920a0a`)
 
-### Copy Or Clone Groups
+Type-level requirements can permit leader overrides or require completion before a person is added. This supports enforceable eligibility rules such as requiring a completed background check before joining a serving team. [Applying Requirements to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) (`claim:d6e9271468584ba88a99`)
 
-A group copy may need:
+Individual-group requirements are available when **Enable Specific Group Requirements** is enabled for the Group Type and the operator has Administrate access to the group. A critical boundary is that the documented “must meet before adding” restriction applies to manual additions; workflow actions can still add someone who does not meet the requirement. Automation must therefore perform its own eligibility check when enforcement must cover workflow-driven membership. [Applying Requirements to Groups](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-groups)
 
-- Group name and parent.
-- Group Type.
-- Group attributes.
-- Member list or no member list.
-- Group member attributes.
-- Locations and schedules.
-- Security.
-- Requirements.
-- Workflow triggers.
-- Notes/content references.
-- Capacity settings.
+Requirement notifications also depend on role and job configuration. The recipient role must have **Receive Requirements Notifications**, and the corresponding requirement-notification job must be configured. [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members)
 
-A community recipe describes copying a group and its attribute values for cases where many values should be reused ([Copy a Group and its Attribute Values](https://community.rockrms.com/recipes/143)). In production, decide whether copying attributes is appropriate. Some attributes are season-specific, leader-specific, registration-specific, or content-channel-specific and should not be blindly cloned.
+## Group Sync And Communication Lists
 
-### Archive Or Deactivate Groups
+Group Sync is enabled at the Group Type level. A sync compares people returned by a Data View with current group membership and updates membership to match. Each sync assigns one role, so separately managed leader and member populations require separate sync definitions. [Configure Group Sync](https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync)
 
-Archive/deactivate decisions affect UI, check-in, finder results, attendance, and reporting. Before archiving:
+The sync interval should be no more frequent than operationally necessary because many frequently evaluated syncs can affect performance. The group-level interval and the Group Sync job’s execution cadence both matter. Optional welcome and exit communications can announce changes, and login creation can be enabled for security-role use cases. These options require careful security and communication review before activation. [Configure Group Sync](https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync)
 
-- Check whether the group has child groups.
-- Check active group members.
-- Check future schedule assignments.
-- Check `GroupLocationSchedule` rows.
-- Check active Group Finder results.
-- Check communications and workflow dependencies.
-- Check reports that filter only `IsActive` but not `IsArchived`, or vice versa.
+In Rock v19, communication lists are groups of a specific type. Membership can be maintained manually or synchronized from Data Views, so recipient troubleshooting must inspect both the underlying group and its sync configuration. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) (`claim:a774892d024b8bbe0560`)
 
-The Rock 18.3 Check-in release note about excluding schedules from archived/inactive groups is a practical reminder: stale schedule relationships can remain even when a group is no longer operational ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+A reviewed community send-preflight pattern recommends refreshing a Data View-backed communication-list group immediately before use, comparing the resulting membership count with the source population, and testing personalized call-to-action links with representative valid parameters. This is a local operational guardrail requiring instance verification, not a built-in guarantee. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists)
 
-### Use Groups As Communication Audiences
+## Groups In Workflows, Training, And Reporting
 
-Groups often act as communication cohorts. If using Group Sync or Data Views:
+The supplied immutable Rock source model shows Group Type member-workflow trigger configuration with trigger type, from/to status, from/to role, an active flag, workflow type, and a first-attendance option. This confirms implementation surfaces at commit `471fd303`; it does not establish which triggers are available, enabled, or configured in a target installation. [Group member workflow trigger source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupMemberWorkflowTriggerBag.cs)
 
-- Confirm Data View criteria.
-- Confirm email preference filters.
-- Confirm adult/minor filters.
-- Confirm opt-in/consent and ministry policy.
-- Confirm sync timing.
-- Confirm whether group membership is informational or actionable.
-- Do not mix "synced audience" groups into ministry hierarchies without clear naming and folder structure.
+A reviewed community troubleshooting pattern warns that a launched workflow may report a later failure after an earlier action already changed group membership, sent a communication, or wrote an attribute. Before retrying, inspect action order, logs, and expected side effects, then make duplicate suppression account for partial success. This pattern needs reproduction against the actual workflow. [RockU Workflows](https://community.rockrms.com/rocku/workflows)
 
-Community examples show Data View synced groups used for welcome or automated emails and recommend test Data Views before sending to large audiences ([Send Emails to People in a DataView using a GroupSync Welcome Email](https://community.rockrms.com/recipes/124), [Automate asking new givers to join a group](https://community.rockrms.com/recipes/136)).
+Other reviewed community workflow patterns in the pack include:
 
-## 8. Group Types Deep Dive
+- Updating visible copy, hidden defaults, review workflows, and criteria across every linked Workflow Type during a seasonal rollover.
+- Using attributes on reusable Defined Values to control which seasonal options a workflow renders.
+- Using temporary per-ministry shadowing groups when onboarding state must affect rosters, check-in visibility, badges, or placement behavior.
+- Preferring existing operational signals over adding new lifecycle statuses when the need is only visibility rather than a true change in ownership or next action.
 
-### Structured Versus Flexible Hierarchy
+Each pattern is a locally contributed example marked as needing live verification. [RockU Workflows](https://community.rockrms.com/rocku/workflows) [Rock Model Map](https://community.rockrms.com/ModelMap)
 
-Official docs describe two broad hierarchy patterns: structured and flexible. Structured hierarchies enforce a known chain of types, such as leadership type to coach type to small group type. Flexible hierarchies let a type allow itself as a child type, supporting deep, variable trees ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
+Community-reviewed evidence also describes Rock LMS programs, courses, class instances, learning plans, activities, and participants, with programs supporting on-demand or academic-calendar modes. Activities may include acknowledgements, video watching, quizzes, uploads, and facilitator scoring. Training design therefore needs both learner actions and staff review responsibilities. [Community LMS session](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) (`claim:dd3b03571388d00cc80b`, `claim:882208fdf2bb82703931`)
 
-Use structured hierarchy when:
+Existing videos can be used as LMS activities, but completion, sequencing, and review must be intentionally configured. LMS completion can also participate in local group sync and workflow follow-up patterns. The reviewed verification confirmed relevant structural surfaces, not a specific ministry implementation. [Community LMS example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) (`claim:c538cf61594b1114dc41`) [Community LMS session](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) (`claim:4bc0aee305fa6b1bd524`)
 
-- Ministry layers have clear responsibilities.
-- Reporting depends on predictable levels.
-- Group Finder should expose only leaf-level groups.
-- Security differs by layer.
-- Coaches or coordinators manage specific child groups.
+For analytics, community-reviewed claims support calculating expensive engagement journeys into a scheduled Persisted Dataset instead of reconstructing all historical detail on every page load. Rock’s metric, metric-value, Data View persistence, and Persisted Dataset surfaces can also support snapshot-style daily counts and trends for external reporting. These are implementation patterns rather than a universal reporting design. [Community analytics example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) (`claim:01d746f9a6bc23a6d503`) [Community reporting example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdREmjz) (`claim:a5f0a54f29d226cec5fc`)
 
-Use flexible hierarchy when:
+When embedding Power BI or a similar report in Rock, pair Rock page and block authorization with external licensing checks. Rock-side authorization alone does not prove that the viewer is licensed by the external provider. [Community BI example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) (`claim:60d40983fd53c0173dd9`)
 
-- Teams vary greatly by ministry.
-- Departments need arbitrary nesting.
-- The same type represents both containers and teams.
-- The organization values adaptability more than strict reporting shape.
+## Version And Authority Caveats
 
-Operational warning: flexible hierarchy simplifies creation but complicates reporting and permissions. An agent building a report should not assume all children are ministry groups; some may be folders, coach groups, or administrative containers.
+Most official documentation in this evidence pack is scoped to Rock v19.0. Verify behavior after upgrades, especially block settings, jobs, workflow triggers, authentication, and Obsidian replacements. [Rock v19 Groups documentation](https://community.rockrms.com/documentation/engagement/groups)
 
-### Inherited Group Types
+The Communication Lists claim is explicitly scoped to Rock 19.0. The Rapid Attendance Entry claims have unprocessed version scope and should be checked against the installed block version before configuration changes. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry)
 
-An inherited Group Type can receive attributes from another type. The official docs frame this as useful for similar group types where one needs additional attributes ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). Inheritance can reduce duplication, but it can also obscure why an attribute appears.
+The supplied GitHub excerpts use immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3` and are implementation evidence. They do not prove installation state or local configuration. Community contributions that point only to `develop` are examples requiring renewed source and target-version review.
 
-Troubleshooting inheritance:
+The Bulk Group Member Mover recipe is a draft community recipe identified with Rock 16.0 and is not endorsed by the Rock core team. [Bulk Group Member Mover](https://community.rockrms.com/recipes/519)
 
-- Inspect the Group Type's `InheritedGroupTypeId`.
-- Inspect inherited attributes and local attributes separately.
-- Verify whether duplicate keys exist across group types.
-- Check for circular inheritance if pages time out or errors mention recursive behavior.
+The approved community-reviewed analytics, LMS, workflow, and BI claims include reviewed public-safe conclusions from bounded read-only structural verification. That establishes the relevant surfaces used by those claims, not the configuration, population, licensing, or behavior of another organization’s installation.
 
-A community recipe describes circular inherited Group Type references as a possible cause of timeouts or cryptic errors and provides SQL patterns to find loops; it notes newer versions reduced this risk but did not eliminate every possibility ([Find Circular Group Type References](https://community.rockrms.com/recipes/110)). Use that as a troubleshooting concept, but verify with current schema and safe read-only SQL in the live instance.
+## Troubleshooting Decision Tree
 
-### Roles
+### Add Child to Selected is disabled
 
-Roles are configured on the Group Type. A robust role plan defines:
+1. Confirm the intended parent group is selected.
+2. Inspect its Group Type’s allowed child types.
+3. Determine whether the proposed child type is allowed or whether the hierarchy is intentionally closed.
+4. Do not move the group to the root merely to bypass the hierarchy without reviewing downstream security and digest effects.
 
-- The default role for new members.
-- Which role is considered leader.
-- Whether multiple leader roles are needed.
-- Whether role names need to match ministry language.
-- Whether roles affect scheduling.
-- Whether roles affect requirements.
-- Whether roles affect workflow triggers.
-- Whether roles should be shown publicly.
+[Add a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group)
 
-Do not use role names as the only source of behavior. Inspect role flags and IDs. In recipes, hard-coded role IDs appear in examples, but role IDs differ by instance and should always be verified live ([Bulk Group Member Mover](https://community.rockrms.com/recipes/519)).
+### A group is missing from Group Finder
 
-### Group Attributes
+1. Confirm the group is marked `Public`.
+2. Confirm its Group Type is included in the block’s configured Group Types.
+3. Check whether the group has reached capacity and whether overcapacity groups are hidden.
+4. Inspect location-type, campus, geofence, and attribute filters.
+5. If filtering by day or time, confirm the group uses a Weekly schedule.
+6. Test the public route and any alternate or mobile surface as an anonymous visitor.
 
-Group attributes are useful for:
+[Intro to the Group Finder](https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder) [Group Schedule Types](https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types)
 
-- Finder filters.
-- Capacity metadata.
-- Ministry categorization.
-- Content-channel references.
-- Leader toolbox configuration.
-- Public descriptions.
-- Registration options.
-- RSVP or schedule behavior toggles.
-- Workflow flags.
+### The day or time filter does not return a group
 
-A community recipe shows adding a group attribute that points to a Content Channel so volunteer teams can access team-specific resources ([Adding Content/Resources for Volunteers to Group Scheduler](https://community.rockrms.com/recipes/334)). This pattern is useful because it keeps content association on the group rather than hard-coding group IDs in templates.
+1. Inspect the group’s schedule mode.
+2. If it is Custom or Named, do not assume the standard Group Finder can filter it by day or time.
+3. Confirm the Weekly day and start time on the group.
+4. Confirm the corresponding finder filter is enabled.
+5. Retest with the exact public-facing criteria.
 
-### Group Member Attributes
+[Group Schedule Types](https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types)
 
-Group member attributes are useful for:
+### A leader cannot add a member from Group Toolbox
 
-- Member-specific eligibility data.
-- T-shirt size or onboarding data.
-- Volunteer preferences.
-- Cohort-specific notes.
-- Ministry role metadata not covered by role.
-- RSVP or registration answers.
-- Training completion references.
+1. Confirm the person’s membership role and that it is actually marked as a leader or grants member management.
+2. Inspect direct and inherited group security.
+3. Check the Group Toolbox block’s add-member configuration.
+4. If it uses the default database search, verify authorized access to the People REST controller.
+5. If broad People search is inappropriate, configure and test an alternate add-member page.
 
-The docs note Group Member Attributes are usually defined on the Group Type, and group-specific member attributes require appropriate configuration and administration access ([Rock Your Groups v16 record](https://community.rockrms.com/documentation/bookcontent/7/296)).
+[Use the Group Toolbox](https://community.rockrms.com/documentation/engagement/groups/group-leader-toolbox/use-the-group-toolbox) [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group)
 
-### Schedule Exclusions
+### A person was added even though a requirement was unmet
 
-Group Type schedule exclusions are the correct tool for broad group breaks. Rather than editing every small group's schedule for a two-week pause, configure the exclusion on the relevant Group Type so schedules of that type observe the break ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
+1. Determine whether the addition was manual or workflow-driven.
+2. Confirm the requirement applies to the member’s role, age classification, and Data View population.
+3. Confirm **Members must meet this requirement before adding** is enabled.
+4. If a workflow added the person, add an explicit eligibility check to that workflow; the documented manual-add restriction does not block workflow actions.
+5. Check for a permitted leader override.
 
-Source-code request bags for Group Type schedule exclusions model an exclusion with a unique identifier and date range ([groupTypeGroupScheduleExclusionBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupTypeDetail/groupTypeGroupScheduleExclusionBag.d.ts), [GroupTypeGroupScheduleExclusionBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs)). For live verification, inspect the Group Type schedule exclusion list and compare it to occurrence generation or block filtering for the relevant date.
+[Applying Requirements to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) [Applying Requirements to Groups](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-groups)
 
-### Group Capacity
+### Attendance reminders are not sent
 
-Capacity is used heavily in Group Finder, placement, and registration contexts. Verify:
+1. Confirm **Send Attendance Reminder** is enabled on the Group Type.
+2. Confirm the group has the expected schedule and start time.
+3. Inspect the configured reminder offset and Group Type communication template.
+4. Check the reminder job’s status and recent execution.
+5. Inspect whether the attendance occurrence already records a reminder sent for that day.
+6. Verify recipient roles and addresses without sending a manual substitute until duplicate risk is understood.
 
-- Whether capacity is enabled.
-- Whether the rule is hard, warning, or none.
-- Which statuses count against capacity.
-- Whether pending members count.
-- Whether child groups or locations have separate capacity.
-- Whether public registration prevents overcapacity.
+[Send Group Attendance Reminders](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-reminders)
 
-The mobile Group Registration block includes a `Prevent Overcapacity Registrations` configuration item in the source pack headings ([Group Registration mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration)). For web Group Finder or registration, inspect the exact block settings in the target instance.
+### An attendance digest is missing groups or reaches the wrong leader
 
-## 9. Group Finder Deep Dive
+1. Confirm there is one top parent, an intermediate region/area level, and attendance groups beneath the regions.
+2. Confirm the configured job parent is the single top parent.
+3. Confirm recipients belong to the region group in a role marked `Is Leader`.
+4. Confirm attendance is recorded in the child attendance groups.
+5. Confirm those groups use regular Weekly schedules.
+6. Distinguish region digest recipients from the attendance group leader targeted by **Email Leader**.
 
-Group Finder is a search and discovery surface, not merely a list of active groups. It depends on group type, group status, location, schedules, attributes, campus, block settings, template logic, and security handling.
+[Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) [Send Group Attendance Digest](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-digest)
 
-The mobile Group Finder developer documentation states that the block can search by campus, day of week, time of day, location, and custom attributes. It also includes an important security note: returned groups matching filters do not account for user security automatically, so templates should use `HasRightsToLava` where needed to check view permissions ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
+### The absence-notification job fails or evaluates the wrong people
 
-### Finder Data Inputs
+1. Confirm the job is scoped to the intended single Group Type.
+2. Inspect the member-role filter.
+3. Confirm the notification communication.
+4. Check the minimum consecutive absences.
+5. Do not set the minimum to zero; the v19 documentation says this causes failure.
+6. Use another job instance for another Group Type.
 
-Inspect these inputs:
+[Group Leader Absence Notifications](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/group-leader-absence-notifications)
 
-- Group Type(s) selected by the block.
-- Campus context setting.
-- Whether campus context is enabled.
-- Group attributes selected as filters.
-- Location radius/distance behavior.
-- Schedules and whether they are named or custom.
-- Whether results load immediately or only after filtering.
-- Detail page setting.
-- Registration page or detail-page handoff.
-- Template logic.
-- Security filtering in the template.
-- Active/archive filters.
+### Group History or Archive is unavailable
 
-Mobile Group Finder has a `LoadResults=true` query string behavior that bypasses the filter and shows results immediately ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)). If an agent sees results on one URL but not another, inspect query strings before assuming data changed.
+1. Confirm **Enable Group History** is enabled on the Group Type.
+2. Confirm the Process Group History job has run successfully since enablement.
+3. Reopen the group after the job completes.
+4. If restoring an archived group, use `Admin Tools > Settings > General > Archived Groups`.
+5. Do not infer that missing history means no changes occurred before history was enabled.
 
-### Finder And Schedules
+[Enable Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/enable-group-history) [Process Group History](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/process-group-history) [View Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history)
 
-Official docs note that some schedule options, such as Custom or certain named schedule configurations, cannot be used as Group Finder filters ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). If day/time filters are not available or not working:
+### A synced group or communication list has unexpected members
 
-1. Inspect Group Type schedule options.
-2. Inspect each group's schedules.
-3. Inspect whether schedules are named or custom.
-4. Inspect schedule exclusions.
-5. Inspect the block's selected filters and template.
-6. Inspect whether the mobile block or web block has different behavior.
+1. Confirm Group Sync is enabled for the Group Type.
+2. Inspect the exact Data View result.
+3. Inspect the role assigned by each sync definition.
+4. Compare active group membership with the Data View population.
+5. Check both the group sync interval and the Group Sync job’s latest execution.
+6. Review overlapping syncs, manual memberships, and optional exit behavior.
+7. Before a communication, refresh and reconcile the intended source count using locally reviewed procedures.
 
-### Finder And Locations
+[Configure Group Sync](https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync) [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists)
 
-Location selection modes influence what data exists for Finder. Named locations, addresses, points, geo-fences, and member addresses support different search experiences ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). If map results are wrong:
+### Member attributes disappeared after a move
 
-- Verify `GroupLocation` exists.
-- Verify `Location` has coordinates where needed.
-- Verify the group type permits the location mode used.
-- Verify campus and location hierarchy.
-- Verify geocoding and Google API keys if the template uses maps.
-- Verify radius/distance configuration.
-- Verify whether member addresses are intended to be exposed.
+1. Identify the source and destination Group Types.
+2. Compare the Group Member Attribute keys.
+3. Determine whether notes were transferred.
+4. Restore missing values only from an authorized source.
+5. Before future moves, export or inspect values whose keys are not shared.
 
-### Finder And Security
+[Move Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/move-group-members)
 
-Do not expose groups through Finder just because they match filters. The mobile developer warning is explicit that returned groups do not automatically account for user security, and templates should use a rights check as needed ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
+### A location or schedule link is wrong after API work
 
-Security troubleshooting:
+1. Read the target Group, GroupLocation, Location, Schedule, and GroupLocationSchedule state.
+2. Determine whether the change affected the Location itself or only its relationship to the group and schedule.
+3. Inspect for unintended related records before retrying.
+4. Do not submit partial navigation objects or delete suspected placeholders until the target endpoint behavior and references are verified.
+5. If an authorized Schedule Builder block action is available for the installed version, evaluate that supported UI action.
+6. Read back every affected relationship after correction.
 
-- Check page permissions.
-- Check block permissions.
-- Check group type security.
-- Check group-specific security.
-- Check template use of rights filters.
-- Check whether unauthenticated users can reach detail or registration pages.
-- Check whether private addresses, leader phone numbers, or member data render in public templates.
+[Immutable group-location-schedule source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/View_GroupLocationSchedules.sql) [Referenced generated REST controller](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs)
 
-### Finder Share Links
+### A failed workflow may have partially changed group data
 
-A community recipe describes a Post-HTML script that updates URL parameters as users select Group Finder filters so pre-filtered links can be shared ([Group Finder Share Filter](https://community.rockrms.com/recipes/374)). This is a useful pattern, especially for ministry campaigns, but it is not core behavior in every block/version. If asked for shareable finder URLs, inspect current block support first, then consider a reviewed client-side enhancement.
+1. Inspect workflow action order and logs.
+2. Check whether membership, communications, or attributes changed before the failure.
+3. Identify which action actually failed.
+4. Make retry logic account for already-completed side effects.
+5. Stop before retrying if duplicate membership, duplicate communication, or repeated downstream actions remain possible.
 
-### Finder Registration Handoff
+[RockU Workflows](https://community.rockrms.com/rocku/workflows)
 
-The mobile Group Registration block accepts `GroupGuid` as a page parameter and can limit registration to configured group type GUIDs. It also supports configuration for group member status, registration workflow, family options, phone/email behavior, connection status, record status, result page, completion message, overcapacity prevention, autofill, and button text ([Group Registration mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration)).
+## Agent Task Recipes
 
-For public registration:
+### Recipe: Design a Group Type and hierarchy
 
-- Verify Group Type GUID allowlist.
-- Verify the resulting Group Member status.
-- Verify whether registration starts a workflow.
-- Verify family member behavior.
-- Verify person creation settings.
-- Verify capacity behavior.
-- Verify duplicate registration handling.
-- Verify whether registration writes active or pending members.
-- Verify leader notification flow.
+**Outcome:** A bounded Group Type design with explicit hierarchy, roles, attributes, and security.
 
-## 10. Group Attendance Deep Dive
+1. Inventory existing Group Types and look for a reusable common type before proposing another.
+2. Define whether the tree is structured or flexible.
+3. List allowed child types at every level.
+4. Define roles and mark only genuine leader roles as `Is Leader`.
+5. Assign role capabilities for viewing, editing, member management, attendance, and check-in.
+6. Place shared attributes on the base type and specialized attributes on the specialized type.
+7. Define schedule modes, location options, history, requirements, sync, and security.
+8. Test creation at every intended hierarchy level.
 
-Group attendance connects groups to recurring ministry participation. It is used by small groups, serving teams, watch parties, check-in configurations, leader toolbox, reporting, engagement workflows, and pastoral care.
+**Inspect:**
 
-RockU includes Group Attendance in the Groups training sequence ([Group Attendance](https://community.rockrms.com/rocku/groups/group-attendance)). The official docs include group attendance and reminders in the groups manual updates ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
+- Existing types and purposes
+- Attribute inheritance
+- Allowed child types
+- Role minimums and maximums
+- Group Type security
+- Attendance Digest depth requirements
 
-### Attendance Configuration
+**Do not assume:**
 
-For a group to take attendance reliably, inspect:
+- Attribute inheritance means every setting is inherited.
+- A role named Leader has `Is Leader` enabled.
+- A valid hierarchy works with the Attendance Digest.
 
-- Group Type `Takes Attendance` setting.
-- Attendance reminder setting.
-- Group schedule option.
-- Group's location and schedule.
-- Whether the group has active members.
-- Whether attendance is entered from internal UI, external toolbox, email, mobile app, check-in, or workflow.
-- Attendance occurrence creation behavior.
-- Whether attendance can be entered for past/future dates.
+[Administer Group Types](https://community.rockrms.com/documentation/engagement/groups/group-types/administer-group-types) [Group Hierarchy](https://community.rockrms.com/documentation/engagement/groups/group-types/group-hierarchy)
 
-A community watch-party example configured a Group Type with `Takes Attendance: Yes`, `Send Attendance Reminder: Yes`, and named schedule options, using workflows and metrics to track non-individual attendance counts ([Watch Party Attendance](https://community.rockrms.com/recipes/197)). That pattern is useful when attendance is conceptual or aggregate, but standard Rock attendance normally tracks individual attendance rows.
+### Recipe: Publish a group through Group Finder
 
-### Attendance Occurrence And Attendance Rows
+**Outcome:** An intended group is discoverable without exposing unnecessary location precision.
 
-Operationally, attendance reporting usually involves:
+1. Confirm the group is active and public.
+2. Confirm its Group Type is included in the finder.
+3. Configure an appropriate location and privacy precision.
+4. Use a Weekly schedule if visitors must filter by day or time.
+5. Review capacity and the block’s overcapacity behavior.
+6. Confirm the detail and registration linked pages.
+7. Test initial load, each enabled filter, map behavior, details, and registration as an anonymous visitor.
+8. If seasonal, test closed-state routes, redirects, blocks, and alternate surfaces.
 
-- `AttendanceOccurrence.GroupId`
-- `AttendanceOccurrence.LocationId`
-- `AttendanceOccurrence.ScheduleId`
-- `AttendanceOccurrence.OccurrenceDate`
-- `AttendanceOccurrence.DidNotOccur`
-- `AttendanceOccurrence.Notes`
-- `Attendance.OccurrenceId`
-- `Attendance.PersonAliasId`
-- `Attendance.DidAttend`
-- `Attendance.StartDateTime`
+**Stop when:**
 
-A workflow source snippet for `PersonGetGroupTypeAttendance` queries attendance where `a.Occurrence.Group.GroupTypeId == groupType.Id`, person alias matches the person, and `DidAttend == true`, then orders by `StartDateTime` to find the last attended record ([PersonGetGroupTypeAttendance.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs)). This confirms the common pattern: attendance is tied to a person through `PersonAlias` and to group context through occurrence.
+- The public result exposes more location detail than intended.
+- Registration points to an unverified page.
+- The group is visible through an alternate route that should be closed.
 
-### Mobile Attendance Entry
+[Intro to the Group Finder](https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder)
 
-The mobile Group Attendance Entry block displays a list of group members to mark attendance for a specified date. The developer documentation includes an important distinction: unlike web, mobile groups must have a schedule configured to use this block. It takes `GroupGuid` and has settings for days forward/back, save redirect page, and whether to show a save button ([Group Attendance Entry mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry)).
+### Recipe: Configure focused attendance entry
 
-If mobile attendance fails:
+**Outcome:** Ministry staff can enter attendance and only the related actions appropriate to that workflow.
 
-1. Verify the group has a schedule.
-2. Verify `GroupGuid` is passed correctly.
-3. Verify the group takes attendance.
-4. Verify days-forward/days-back settings.
-5. Verify the user can view/manage the group.
-6. Verify members have visible/eligible statuses.
-7. Verify the save endpoint is reachable.
-8. Verify app deployment and block settings.
+1. Select the target Group and attendance date.
+2. Confirm the valid location and schedule context.
+3. Review which related actions are needed: family changes, new family members, notes, prayer requests, or workflows.
+4. Enable only those actions in the block settings.
+5. Create separate page variants where ministries require different action sets.
+6. Confirm operator permissions.
+7. Test a representative attendance occurrence and read back the saved state.
 
-Source-code request bags for the Obsidian Group Attendance Detail block include `groupGuid`, `locationGuid`, and `date` for schedule lookup ([groupAttendanceDetailGetGroupLocationSchedulesRequestBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupAttendanceDetail/groupAttendanceDetailGetGroupLocationSchedulesRequestBag.d.ts), [GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs)). Another request bag includes `numberOfPreviousDaysToShow` and occurrence date context ([groupAttendanceDetailGetGroupLocationScheduleDatesRequestBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupAttendanceDetail/groupAttendanceDetailGetGroupLocationScheduleDatesRequestBag.d.ts)).
+**Do not assume:**
 
-### Attendance UX And Confirmation
+- Every group has a usable location or schedule.
+- Every Rapid Attendance Entry page exposes the same actions.
+- A visible workflow button proves that the workflow completed successfully.
 
-A community recipe describes adding a toast confirmation to the Obsidian Group Attendance Detail block because real-time saves could be unclear to leaders; it listens for successful or unsuccessful posts to a MarkAttendance endpoint ([Enhancing the Obsidian Group Attendance Detail Block with a Toast Confirmation](https://community.rockrms.com/recipes/461)). This is a good example of an operational issue that is not data failure: leaders may think attendance did not save even when it did. Before altering code, inspect current block version, whether Rock has added confirmation behavior, and whether users are trained.
+[Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry)
 
-### Attendance Reporting
+### Recipe: Configure attendance follow-up
 
-A community report recipe calculates attendance percentages by group and date range and includes notes as hoverable context ([Powerful Small Group Attendance Report](https://community.rockrms.com/recipes/209)). Treat the idea as useful: attendance percentage requires both attended count and active member count, plus clear handling for did-not-occur and notes. Do not copy old SQL directly into a current instance without reviewing schema, performance, and group type filters.
+**Outcome:** Leaders receive the intended reminders, digests, or absence notifications without duplicate or misrouted messages.
 
-For reporting, define:
+1. Choose the operational mechanism: reminder, digest, absence notification, or attendance-report attributes.
+2. Confirm the Group Type’s attendance settings and leader roles.
+3. For a digest, construct the required parent-region-attendance hierarchy and use Weekly schedules.
+4. Configure the correct System Communication and date or absence settings.
+5. Verify the job scope and cadence.
+6. Run a bounded test using non-production delivery controls where available.
+7. Inspect job results, occurrences, recipient selection, and duplicate-suppression state.
 
-- Which groups are in scope.
-- Whether child groups are included recursively.
-- Which member statuses count in denominator.
-- Which roles count.
-- Whether leaders count.
-- Whether pending members count.
-- Whether `DidNotOccur` is excluded or shown.
-- Whether attendance notes are included.
-- Whether attendance is by occurrence date or start date/time.
-- Whether attendance from check-in and group leader entry are both included.
-- Whether archived/inactive groups are excluded.
+**Stop when:**
 
-Release notes for Rock 18.3 fixed an issue where the Attendance Analytics block included groups whose Group Type was only an allowed child type of a selected Group Type, rather than being directly selected in block settings ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). If analytics counts look inflated or different across versions, inspect the Rock version and selected group types.
+- The hierarchy does not match the digest’s three-level requirement.
+- Recipient roles are ambiguous.
+- The test could send a real communication without authorization.
 
-## 11. Related Rock Areas: People, Attendance, Security, Locations, Schedules
+[Common Group Jobs](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs)
 
-### People
+### Recipe: Enforce a Group Type requirement
 
-Groups are person relationships. Every group member investigation eventually touches Person and PersonAlias. Check:
+**Outcome:** The intended population is evaluated and manual additions are blocked or overrideable according to policy.
 
-- Person record status.
-- Connection status.
-- Age classification.
-- Family group.
-- Primary alias.
-- Communication preferences.
-- Email/SMS availability.
-- Security role membership.
-- Duplicate records.
+1. Open the Group Type’s Group Requirements section.
+2. Select the requirement.
+3. Scope it by role, age classification, and Data View as needed.
+4. Decide whether leaders may override it.
+5. Enable pre-add enforcement when required.
+6. Test an eligible and ineligible manual addition.
+7. Inspect every workflow or integration that can add members and implement a separate eligibility check there.
+8. Configure notification recipients and the requirement-notification job if needed.
 
-The mobile CRM Group Members block is designed to display other members in a configured group type for a person from context, with family as the main use case. It requires person context and can auto-create a group depending on configuration ([Group Members mobile CRM block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members)). This is a reminder that family is also a group pattern in Rock.
+**Do not assume:**
 
-### Attendance
+- Manual-add enforcement applies to workflow additions.
+- A requirement applies to every role or age when selectors narrow it.
+- A leader receives notifications merely because the role is named Leader.
 
-Attendance has its own model and reporting logic. For groups, attendance is usually group occurrence-based. For check-in, attendance may be generated through check-in workflows and room/location schedules. Do not mix these without verifying occurrence source.
+[Applying Requirements to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) [Applying Requirements to Groups](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-groups)
 
-### Security
+### Recipe: Synchronize a group from a Data View
 
-Group security can be layered:
+**Outcome:** Membership for one role follows a reviewed population rule at a sustainable cadence.
 
-- Page view/edit/admin rights.
-- Block rights.
-- Group Type rights.
-- Group-specific rights.
-- Group member role security.
-- Leader toolbox access.
-- Security groups used elsewhere in Rock.
-- API/mobile permissions.
-- Template-level rights checks.
+1. Enable Group Sync on the Group Type.
+2. Create and validate the source Data View.
+3. Add the sync to the target group.
+4. Choose one assigned role.
+5. Set the lowest operationally acceptable frequency.
+6. Review welcome, exit, and login-creation options.
+7. Configure another sync only if another role needs independent management.
+8. Run the Group Sync job and reconcile Data View results with resulting membership.
+9. For communication lists, refresh and reconcile immediately before an authorized send.
 
-RockU includes a dedicated Group Security session ([Group Security](https://community.rockrms.com/rocku/groups/group-security)). The mobile Group Finder doc's warning about result security is one of the most important practical security notes in the source pack ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
+**Stop when:**
 
-### Locations
+- The Data View includes an unexplained population.
+- The group is a security role and login or permission effects have not been reviewed.
+- Counts do not reconcile.
 
-Locations can be named, addresses, map points, geo-fences, or group member addresses, depending on Group Type selection mode ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). For check-in or room-based groups, location hierarchy and active status are critical. A source SQL tool populates locations and connects serving team groups to locations and schedules, with room/building/campus location type values ([Populate_LocationsAndGroupSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_LocationsAndGroupSchedules.sql)).
+[Configure Group Sync](https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync)
 
-### Schedules
+### Recipe: Secure leader operations
 
-Schedules may be shared named schedules or custom schedules. Group scheduling and attendance both depend on schedule configuration, but not always the same way. Group Member Schedule Templates are separate scheduling patterns used for volunteer auto-scheduling.
+**Outcome:** Leaders can perform approved group tasks without unnecessary database or group-administration access.
 
-The Web Forms Group Member Schedule Template Detail block saves a template name and `Schedule.iCalendarContent` from a schedule builder ([GroupMemberScheduleTemplateDetail.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs)). A newer Obsidian list block queries `GroupMemberScheduleTemplate` and orders by name ([GroupMemberScheduleTemplateList.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Group/Scheduling/GroupMemberScheduleTemplateList.cs)).
+1. Inspect Group Type security.
+2. Inspect parent-group and direct-group security.
+3. Review the leader role’s capabilities.
+4. Separate `Manage Members` from Edit or Administrate access.
+5. Inspect Group Toolbox block settings and page security.
+6. Decide whether the default People search is appropriate.
+7. If not, configure an alternate controlled add-member path.
+8. Test viewing, editing, roster management, attendance, and navigation as a representative leader.
 
-## 12. Administration And Operational Guardrails
+**Do not assume:**
 
-### Naming And Hierarchy
+- Blank direct `Manage Members` rules mean no one can manage members.
+- Group administrator designation grants leader security.
+- Toolbox navigation limits replace entity security.
 
-Use names that distinguish folders, coach groups, small groups, serving teams, synced groups, security groups, and temporary groups. Avoid using only a ministry name when the group is a container. Good group tree hygiene prevents reporting errors.
+[Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group) [Use the Group Toolbox](https://community.rockrms.com/documentation/engagement/groups/group-leader-toolbox/use-the-group-toolbox)
 
-This naming recommendation follows Rock's documented distinction between structured and flexible group hierarchies: names should make the operational role of each node clear when the hierarchy itself permits several kinds of child groups ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)).
+### Recipe: Enable history and archive a group
 
-Recommended naming checks:
+**Outcome:** Group changes are snapshotted and a retired group is recoverable.
 
-- Does the group name identify its ministry or campus?
-- Does a folder/container look different from a meeting group?
-- Are coach groups clearly named?
-- Are archived groups hidden from operational views?
-- Are seasonal groups named with season/year?
-- Are synced groups stored under a clear folder?
+1. Confirm the Group Type is stable enough for retained history.
+2. Enable Group History on the Group Type.
+3. Confirm the Process Group History job runs successfully.
+4. Inspect the group timeline and member history.
+5. Archive the group instead of deleting it.
+6. Confirm it is absent from normal group-viewer surfaces.
+7. Record the restoration path through Archived Groups.
 
-### Avoid Hard-Coded IDs In Long-Lived Templates
+**Stop when:**
 
-Recipes often use Group Type IDs, Page IDs, Role IDs, Workflow Type IDs, and Note Type IDs. Those are instance-specific. When adapting patterns:
+- The job has not produced the expected history state.
+- The operational request actually calls for temporary inactivation rather than archival.
+- Downstream finder, scheduling, or workflow behavior has not been reviewed.
 
-- Prefer GUIDs where stable and appropriate.
-- Document every ID.
-- Add comments in Lava or block settings where maintainers will see them.
-- Create a validation checklist.
-- Store decisions in an implementation note.
+[Intro to Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/intro-to-group-history) [View Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history)
 
-### Use Read-Only Investigation First
+### Recipe: Move group members safely
 
-For production investigations:
+**Outcome:** Selected memberships move without unexpected loss of notes or attributes.
 
-1. Inspect current state.
-2. Confirm source of behavior.
-3. Identify the smallest safe change.
-4. Test in non-production or with a narrow scope.
-5. Apply change.
-6. Verify UI, data, and downstream reports.
+1. Confirm the exact source and destination groups.
+2. Compare destination roles and capacity.
+3. Compare Group Member Attribute keys.
+4. Record values that will not transfer.
+5. Decide whether member notes should move.
+6. Move a representative member.
+7. Verify the destination membership, role, status, notes, and retained attributes.
+8. For bulk automation, add idempotency and per-person verification before scaling.
 
-Do not bulk move, bulk archive, or mass sync groups without proof of target records.
+**Do not assume:**
 
-### Recipe Guardrails
+- Matching attribute labels mean matching keys.
+- A successful workflow means every per-person move succeeded.
+- A draft community recipe is production-ready.
 
-Community recipes are valuable because they show real ministry patterns, but the recipe pages warn that they are contributed and not reviewed or endorsed by the Rock core team ([Bulk Group Member Mover](https://community.rockrms.com/recipes/519), [Schedule Cancellation Workflow](https://community.rockrms.com/recipes/481)). For each recipe-derived solution, verify:
+[Move Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/move-group-members) [Bulk Group Member Mover](https://community.rockrms.com/recipes/519)
 
-- Rock version compatibility.
-- Security.
-- Performance.
-- Hard-coded IDs.
-- Lava commands enabled.
-- SQL access.
-- Workflow permissions.
-- Person token handling.
-- Communication consent.
-- Logging and rollback.
+## Known Gaps And Live Verification
 
-### Group Type Change Guardrail
+Before acting on an installation, verify:
 
-Changing a group's Group Type can be risky because roles, attributes, allowed children, requirements, attendance, and finder behavior may all change. A Rock Shop plugin called Group Type Change Tool exists to change a group's type while mapping roles and attributes, with required Rock version 6.0 listed in the source record ([Group Type Change Tool](https://www.rockrms.com/rockshop/plugin/53)). Before using any tool:
+- The installed Rock version and whether the relevant Group, Attendance, Finder, Toolbox, Scheduler, History, LMS, and Helix blocks are present.
+- Actual Group Type settings, inherited attributes, allowed child types, roles, requirements, sync enablement, and security.
+- Group active/public state, parentage, capacity, locations, schedules, and Group Finder block filters.
+- Job existence, enabled state, cadence, last result, and communication templates.
+- Whether Group History has produced snapshots since it was enabled.
+- Whether workflow-based membership paths enforce requirements independently.
+- Whether external BI viewers have the necessary provider licensing in addition to Rock access.
+- Whether local reports use current membership, historical snapshots, persisted datasets, or another defined truth source.
 
-- Back up or export current group, members, roles, attributes, and child groups.
-- Map old roles to new roles.
-- Map old attributes to new attributes.
-- Verify group member attributes.
-- Verify child type compatibility.
-- Verify security.
-- Test with one non-critical group.
+The following reviewed community patterns remain hypotheses until verified against the target installation:
 
-## 13. Developer, API, Lava, And Source-Code Landmarks
+- Partial navigation objects in generated REST requests may create unintended related records.
+- A successful Group Member POST may require a subsequent readback before another record can reliably link to the new membership.
+- An Obsidian Schedule Builder action may be the appropriate way to change group-location schedule links.
+- Location-level room thresholds and group-location schedule availability may require separate checks.
+- Group metric categories may need resolution from the nearest configured ancestor.
+- Historical group metrics may need point-in-time group/member snapshots.
+- Registration segments such as staff, serving, or department require explicitly configured local truth and precedence.
+- Temporary shadowing groups may be more operationally useful than a status label.
+- A failed workflow may retain successful earlier side effects.
+- Seasonal workflows may need coordinated updates across several Workflow Types and reusable Defined Values.
+- Public seasonal features may remain reachable through alternate routes or surfaces after a template flag changes.
 
-### Mobile Blocks
+The pack supplies no reviewed live result for any reader’s target installation. Do not claim that a group, job, workflow, endpoint, security rule, plugin, or report is currently configured until a bounded read-only review confirms it.
 
-Group-related mobile blocks in the source pack include:
+## Source Map
 
-- **Group Finder**: searches groups by campus, day, time, location, and custom attributes; includes `LoadResults=true`; exposes merge fields such as `DetailPage`, `Groups`, and `Distances`; warns about security filtering ([Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-- **Group Registration**: registers a person for a group using `GroupGuid`; supports group member status, group type GUID allowlist, registration workflow, family options, contact fields, connection/record status, result page, completion message, overcapacity prevention, autofill, and button text ([Group Registration mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration)).
-- **Group Attendance Entry**: marks attendance for a group using `GroupGuid`; mobile requires a configured group schedule; has days-forward/back and save-button behavior ([Group Attendance Entry mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry)).
-- **Group Member View**: views a specific member using `GroupMemberGuid`; exposes allowed actions, member details, attributes, and contact options ([Group Member View mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view)).
-- **Group Member Edit**: edits role, status, communication preference, note, attributes, and delete/navigation behavior depending on settings ([Group Member Edit mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-edit)).
-- **Schedule Preference**: lets individuals set group scheduling preferences; introduced in mobile/core version context `M v4.0 C v13.3` in the source record ([Schedule Preference mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference)).
-- **CRM Group Members**: displays other members in a configured Group Type for a person context, commonly family members; source record marks `M v5.0 C v15.2` ([Group Members mobile CRM block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members)).
+### Official Rock documentation
 
-### Request Bags And Block Paths
+- [Groups](https://community.rockrms.com/documentation/engagement/groups): concept structure and routing.
+- [Administer Group Types](https://community.rockrms.com/documentation/engagement/groups/group-types/administer-group-types): Group Type configuration, roles, attributes, hierarchy, scheduling, and inheritance.
+- [Group Hierarchy](https://community.rockrms.com/documentation/engagement/groups/group-types/group-hierarchy): structured and flexible hierarchies.
+- [Add a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group) and [Edit a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/edit-a-group): lifecycle and group configuration.
+- [Intro to Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/intro-to-group-members), [Edit a Group Member](https://community.rockrms.com/documentation/engagement/groups/group-members/edit-a-group-member), and [Move Group Members](https://community.rockrms.com/documentation/engagement/groups/group-members/move-group-members): roles, statuses, member fields, and movement.
+- [Group Schedule Types](https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types): Weekly, Custom, and Named schedule behavior.
+- [Intro to the Group Finder](https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder): visibility, filters, maps, and linked pages.
+- [Secure a Group](https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group) and [Securing a Group Type](https://community.rockrms.com/documentation/engagement/groups/secure-groups/securing-a-group-type): security layers.
+- [Use the Group Toolbox](https://community.rockrms.com/documentation/engagement/groups/group-leader-toolbox/use-the-group-toolbox): leader operations and People search security.
+- [Group Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance) and [Common Group Jobs](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs): attendance workflow routing.
+- [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email): required hierarchy and recipient behavior.
+- [Group History](https://community.rockrms.com/documentation/engagement/groups/group-history/intro-to-group-history): history purpose, enablement, processing, and archive behavior.
+- [Applying Requirements to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) and [Applying Requirements to Groups](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-groups): requirement scope and enforcement limits.
+- [Configure Group Sync](https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync): Data View-driven membership.
+- [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists): Rock 19.0 communication-list group behavior.
 
-Useful source-code landmarks:
+### Approved RockU and community-reviewed claims
 
-- `Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs` models group/location/date input for schedule lookup ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs)).
-- `Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationScheduleDatesRequestBag.cs` models group/location, previous days, and occurrence date context ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationScheduleDatesRequestBag.cs)).
-- `Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupMemberWorkflowTriggerBag.cs` models workflow trigger type, role/status qualifiers, first-attendance behavior, and placement note behavior ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupMemberWorkflowTriggerBag.cs)).
-- `Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs` models Group Type schedule exclusion ranges ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs)).
-- `Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs` models group name plus ordered location/schedule labels for the scheduler ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs)).
-- `Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs` models available and selected locations for scheduler filtering ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs)).
+- [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry): approved claims for attendance context, configurable ministry actions, and focused page variants.
+- [Community LMS session](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN): reviewed LMS structure, activities, group interaction, and staff-review patterns.
+- [Community persisted-data example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW): scheduled persisted analytics.
+- [Community reporting example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdREmjz): snapshot-style reporting.
+- [Community BI example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz): Rock authorization plus external licensing.
 
-### Lava Landmarks
+### Implementation and community examples
 
-Lava commonly appears in:
-
-- Group Detail Lava / leader toolbox templates.
-- Group Finder templates.
-- HTML blocks on custom group pages.
-- Dynamic Data blocks.
-- Workflow actions.
-- Shortcodes.
-- Emails and notifications.
-
-Community examples show Lava used to list a person's groups, render content channels, activate workflows, display group health, query attendance, and extend leader toolbox tabs ([Adding Content/Resources for Volunteers to Group Scheduler](https://community.rockrms.com/recipes/334), [Improving Rock's Group Coaching](https://community.rockrms.com/recipes/217), [Extending the Group Toolbox](https://community.rockrms.com/recipes/329), [Lava shortcode to show last group attendance](https://community.rockrms.com/recipes/290)).
-
-Agent rule: when editing Lava, identify the merge fields available in that block. Do not assume `Group`, `CurrentPerson`, `Person`, `AllowedActions`, or `PageParameter` exist unless the block documentation or live debug confirms it.
-
-### API And SQL Landmarks
-
-For API or SQL work:
-
-- Prefer API/service-layer operations for writes.
-- For read-only audits, SQL can clarify relationships quickly.
-- Avoid direct SQL writes unless explicitly approved and fully reviewed.
-- Use `Guid` when building stable links or integrations.
-- Use `Id` for internal joins and verified local queries.
-- Use `PersonAlias` when querying attendance.
-
-Source-code/reporting snippets confirm common joins:
-
-- `Schedule -> GroupLocationSchedule -> GroupLocation -> Group -> Location` ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql)).
-- `GroupTypeAssociation` hierarchy plus group/location/schedule reporting ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)).
-- `Attendance -> AttendanceOccurrence -> Group -> GroupType` plus `PersonAlias -> Person` for group type attendance ([PersonGetGroupTypeAttendance.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs)).
-
-## 14. Reporting, Analytics, And Model Map
-
-### Reporting Questions To Define
-
-Before building any groups report, define:
-
-- Are we reporting on groups, people, group members, attendance, or schedules?
-- Is the report scoped by Group Type, parent group, campus, role, status, location, schedule, or attribute?
-- Are archived groups included?
-- Are inactive groups included?
-- Are pending members included?
-- Are leaders included?
-- Are child groups recursive?
-- Is the reporting period based on occurrence date, attendance start date, or schedule date?
-- Are did-not-occur rows included?
-- Are notes included?
-- Is this report for staff, leaders, public users, or automation?
-
-These questions correspond to materially different join paths in Rock source: schedule reporting follows `Schedule -> GroupLocationSchedule -> GroupLocation`, hierarchy reporting includes `GroupTypeAssociation`, and attendance reporting traverses occurrences and person aliases ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql), [View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql), [PersonGetGroupTypeAttendance.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs)).
-
-### Model Map Coverage
-
-Model Map records in the source pack identify these Group-category models:
-
-- Group Member ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Member Assignment ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Member Historical ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Member Requirement ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Member Schedule Template ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Member Workflow Trigger ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Type ([Model Map](https://community.rockrms.com/ModelMap))
-- Group Type Role ([Model Map](https://community.rockrms.com/ModelMap))
-
-Use Model Map to identify likely entity names, then verify fields in the live instance or source code.
-
-### Data Filters
-
-A source-code data filter named `GroupMemberGroupTypeFilter` applies to `Rock.Model.GroupMember` and filters group members based on their group type ([GroupMemberGroupTypeFilter.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/GroupMembers/GroupMemberGroupTypeFilter.cs)). This matters because reports may be person-based, group-member-based, or attendance-based. Choosing the wrong entity base changes available filters and count semantics.
-
-### Attendance Analytics Caveat
-
-Rock 18.3 fixed Attendance Analytics so it includes only groups whose Group Types are directly selected in block settings, rather than also including allowed child group types of selected types ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). If comparing analytics before and after upgrade, this change can alter counts. Inspect block settings and version before treating it as a data quality issue.
-
-## 15. Version And Release Caveats
-
-### Navigation Wording
-
-Official docs may refer to `Admin Tools > Settings > General` while older docs and recipes may refer to `Admin Tools > General Settings`. Agents should not treat this as a contradiction; verify the navigation in the target Rock version.
-
-### Rock 16
-
-The source pack includes a Rock Your Groups record for Rock 16.0/16.7 noting individual groups can be manually synced on demand and Group Scheduler search can help find people when making assignments ([Rock Your Groups v16 record](https://community.rockrms.com/documentation/bookcontent/7/296)). If working in v16-era instances, confirm manual sync and scheduler search behavior in the UI.
-
-### Rock 18.1
-
-Rock Your Groups notes Group Placement updates for Rock 18.1: flexible tool access from Group Viewer or standalone block, drag-and-drop, multi-select, and URL query strings for streamlined group management ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7)). If a user expects these placement features, verify the instance is on the relevant version and that the block is the updated one.
-
-### Rock 18.3
-
-Release notes include:
-
-- Attendance Analytics fix for selected Group Types versus allowed child Group Types ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Check-in scheduled times list excludes schedules from archived/inactive groups with assigned group-location schedules ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Slingshot support for duplicate Attribute keys across different Group Types ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Removal of deprecated `GroupLocationHistoricalSchedule` table/model ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Improved Group Placement with multi-select, advanced filtering, and sorting ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Rock 19.1 Beta Context
-
-Release notes retrieved in the source pack list Rock v19.1 as released May 20, 2026 and currently in beta. Group v19.1 notes improved Group Member Requirements with `GroupMemberRequirementState`, and Group Scheduler improvements that keep occurrence date and schedules fixed while scrolling and show group names above locations ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). Treat beta behavior as version-specific. Verify whether the production instance is on stable, alpha, beta, or a patched build before relying on these features.
-
-### Mobile/Core Version Markers
-
-Developer docs include mobile/core version markers for some blocks, such as Schedule Preference `M v4.0 C v13.3` and CRM Group Members `M v5.0 C v15.2` ([Schedule Preference mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference), [Group Members mobile CRM block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members)). Verify app shell version, Rock core version, and deployed mobile block availability.
-
-## 16. Implementation Playbooks
-
-### Playbook: Build A Small Group Structure
-
-Start with the official [Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7) hierarchy, role, location, schedule, attendance, and finder model. Verify the target instance's allowed child types, role permissions, finder filters, schedules, locations, and leader access before opening the structure to staff or the public.
-
-1. Define ministry hierarchy: top-level folder, coach layer, small group layer.
-2. Create or verify Group Types:
-   - Small Group Leadership or folder type.
-   - Coach group type.
-   - Small Group type.
-3. Configure allowed child group types so the hierarchy is enforced.
-4. Configure Small Group roles: Leader, Member, optional Co-Leader.
-5. Configure location modes: address, named, or group member address depending on public finder needs.
-6. Configure schedule options so Group Finder filters work as intended.
-7. Configure attendance and reminders if leaders will report attendance.
-8. Configure group attributes for public finder filters, capacity, childcare, topic, season, or campus.
-9. Configure group member attributes only if membership-specific data is needed.
-10. Configure security and leader toolbox access.
-11. Configure Group Finder block and detail/registration pages.
-12. Test with a public user, authenticated leader, and staff user.
-13. Verify reporting counts and attendance entry.
-
-### Playbook: Build A Serving Team Scheduling Structure
-
-1. Define serving team hierarchy and whether flexible self-child hierarchy is needed.
-2. Configure Serving Team Group Type roles.
-3. Configure locations and schedules.
-4. Configure Group Member Schedule Templates if auto-scheduling will be used.
-5. Configure person schedule preference surfaces.
-6. Configure group scheduler and status board.
-7. Configure RSVP and cancellation workflows only after team communication policy is clear.
-8. Configure group administrator/scheduler owner.
-9. Verify future assignments, decline behavior, and communications.
-10. Test a full cycle: preference set, auto-schedule, RSVP, decline, replacement, attendance.
-
-RockU includes training for Group Scheduling overview, meeting details, scheduler/status board, person preferences/auto-schedule, analytics, RSVP, email requests, responses, roster, and communications ([RockU Groups](https://community.rockrms.com/rocku/groups)).
-
-### Playbook: Set Up Group Finder
-
-1. Confirm target Group Type(s).
-2. Confirm groups are active and not archived.
-3. Confirm schedules are filterable.
-4. Confirm locations are geocoded or otherwise usable.
-5. Configure campus context.
-6. Configure attribute filters.
-7. Configure result template.
-8. Add security filtering where needed.
-9. Configure detail page.
-10. Configure registration page or workflow.
-11. Test no-filter, filter, direct link, and mobile cases.
-12. Test with a group at capacity.
-13. Test unauthenticated access.
-
-### Playbook: Add Group Requirements
-
-1. Define requirement purpose: safety, training, signature, background check, form, or ministry approval.
-2. Decide whether the requirement is Group Type-wide or specific to a group/role.
-3. Define the requirement predicate and data source.
-4. Configure "does not meet" workflow if needed.
-5. Decide whether workflow auto-initiates.
-6. Test requirement state for active, pending, and inactive members.
-7. Test leader/admin visibility.
-8. Document how to resend or reset requirement workflows.
-
-A community recipe describes a helper workflow to clear and resend requirement workflows, especially with signature documents ([Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482)). Use the concept carefully: deleting or clearing linked workflows can have audit and compliance implications.
-
-### Playbook: Extend Group Leader Toolbox
-
-1. Identify the external leader toolbox page and current block template.
-2. Identify merge fields available in the block.
-3. Decide whether new functionality is a page, tab, note block, workflow entry, content channel, or report.
-4. Create any new pages with `GroupId` context where needed.
-5. Add tabs or links in the template, gated by allowed actions.
-6. Verify security for leaders and staff.
-7. Test on a real group with active and pending members.
-8. Document page IDs and group type IDs.
-
-Community examples extend the toolbox with content, stories, prayer requests, and feedback tabs ([Extending the Group Toolbox](https://community.rockrms.com/recipes/329), [Group Leader Toolbox Enhancements](https://community.rockrms.com/recipes/220)).
-
-## 17. Troubleshooting Decision Tree
-
-### A Group Does Not Appear In Group Viewer
-
-Check:
-
-1. Is the group active?
-2. Is it archived?
-3. Is the current user authorized to view it?
-4. Is it under the expected parent group?
-5. Is the Group Type allowed in the viewer's tree/filter?
-6. Is the Group Viewer block configured to show archived or inactive groups?
-7. Does a circular inherited Group Type or hierarchy issue cause timeouts?
-8. Is the page loading the correct parent group parameter?
-
-### A Child Group Type Cannot Be Added
-
-Check:
-
-1. Parent group `GroupTypeId`.
-2. Parent Group Type allowed child group types.
-3. Whether the intended child Group Type is active.
-4. Whether the user has edit/administrate access.
-5. Whether the UI is scoped to a subset of group types.
-6. Whether the group is archived or inactive.
-7. Whether inheritance or circular references are producing errors.
-
-### A Person Is In The Group But Not On The Roster
-
-Check:
-
-1. `GroupMemberStatus`.
-2. Role filter.
-3. Member start/end or inactive status if present.
-4. Security rights.
-5. Roster block settings.
-6. Whether the person is a duplicate record.
-7. Whether the roster page is using group ID or group GUID correctly.
-8. Whether the member belongs to a child group, not the selected group.
-
-### Attendance Cannot Be Entered
-
-Check:
-
-1. Group Type takes attendance.
-2. Group has a schedule if using mobile attendance.
-3. Group has location/schedule if required by the block.
-4. User can manage attendance.
-5. Block days-back/days-forward settings.
-6. Occurrence date and schedule exclusions.
-7. Group member statuses and roles.
-8. Browser/mobile app errors.
-9. Whether attendance saved but UI lacks confirmation.
-
-Mobile attendance specifically requires configured schedules according to developer documentation ([Group Attendance Entry mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry)).
-
-### Group Finder Missing Expected Groups
-
-Check:
-
-1. Group active/archive status.
-2. Group Type selected by finder block.
-3. Campus context.
-4. Attribute filters.
-5. Schedule options and whether they are filterable.
-6. Location and geocoding.
-7. Capacity and registration rules.
-8. Template security filtering.
-9. Query strings such as `LoadResults=true`.
-10. Public detail page permissions.
-
-### Attendance Counts Are Wrong
-
-Check:
-
-1. Report entity base: Person, GroupMember, Attendance, or AttendanceOccurrence.
-2. Selected Group Types.
-3. Child group recursion.
-4. Archived/inactive group filters.
-5. Member status denominator.
-6. Role denominator.
-7. Did-not-occur handling.
-8. Duplicate person records.
-9. Occurrence date range.
-10. Rock version, especially the v18.3 Attendance Analytics fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Group Scheduler Looks Wrong
-
-Check:
-
-1. Group scheduling settings on Group Type.
-2. Group locations and schedules.
-3. Group member roles.
-4. Active member status.
-5. Schedule templates.
-6. Person preferences.
-7. Auto-schedule settings.
-8. Status board display settings.
-9. Rock version. v19.1 beta notes scheduler fixed occurrence date/schedule header behavior and group names above locations ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-10. Whether a custom print/report page is needed instead of altering the scheduler UI.
-
-A Q&A response suggests custom Lava/SQL pages for print-specific volunteer lists when the scheduler board is not formatted as desired ([Remove Group member status from group scheduler board](https://community.rockrms.com/ask/developing/2801)).
-
-### Group Requirement Cannot Be Resent
-
-Check:
-
-1. Requirement configuration.
-2. Existing requirement workflow instance.
-3. Whether auto-initiate is enabled.
-4. Linked workflow state.
-5. Whether the member meets the requirement now.
-6. Whether v19.1 `GroupMemberRequirementState` behavior exists in this instance.
-7. Whether clearing/deleting linked workflow state is allowed by policy.
-
-## 18. Agent Task Recipes
-
-### Recipe: Identify Why A Group Is Not Visible
-
-Collect:
-
-- Group name or GUID.
-- Current page/block.
-- User/person context.
-- Expected viewer/finder path.
-
-Inspect:
-
-1. Group row: active, archived, parent, Group Type.
-2. Security: page, block, group type, group.
-3. Group Type: allowed hierarchy and finder settings.
-4. Finder/viewer block settings.
-5. Template logic and rights filters.
-6. Query string/page parameters.
-
-Return:
-
-- Exact hidden cause.
-- Evidence fields.
-- Safe remediation.
-- Whether the fix is data, security, block config, or template logic.
-
-### Recipe: Audit A Group Type Before Launch
-
-Inspect:
-
-- Name and purpose.
-- Allowed child group types.
-- Roles and default role.
-- Leader role.
-- Attendance settings.
-- Schedule options.
-- Schedule exclusions.
-- Location types and selection modes.
-- Group attributes.
-- Group member attributes.
-- Requirements.
-- Workflow triggers.
-- Security.
-- Finder/registration usage.
-- Reports depending on it.
-
-Return:
-
-- Launch readiness.
-- Missing configuration.
-- Risky inherited settings.
-- Live verification steps.
-
-### Recipe: Debug Group Attendance Reminder Failures
-
-Inspect:
-
-1. Group Type takes attendance.
-2. Send attendance reminder enabled.
-3. Group schedule exists.
-4. Schedule date applies and is not excluded.
-5. Group has active members/leaders.
-6. Reminder job is enabled and ran.
-7. Communication/system email settings.
-8. Member communication preferences.
-9. Attendance already entered or occurrence marked did-not-occur.
-
-Return:
-
-- Whether the problem is configuration, schedule, job, communication, or data.
-- Exact next action.
-
-### Recipe: Build A Group Finder QA Checklist
-
-Test:
-
-- Public unauthenticated search.
-- Authenticated search.
-- Campus filter.
-- Day/time filter.
-- Attribute filters.
-- Distance/location filter.
-- Direct `LoadResults=true` behavior if used.
-- Detail page.
-- Registration page.
-- Full group/capacity behavior.
-- Security-hidden group behavior.
-- Mobile rendering if mobile block is used.
-
-Return:
-
-- Pass/fail by filter.
-- Missing groups and reason.
-- Security exposure risks.
-- Block settings to adjust.
-
-### Recipe: Move Members Between Groups Safely
-
-Before move:
-
-- Export old group member IDs, people, roles, statuses, attributes.
-- Confirm target group and role mapping.
-- Check requirements.
-- Check workflow triggers.
-- Check scheduling assignments.
-- Decide whether to remove old membership or mark inactive.
-- Notify ministry owner.
-
-After move:
-
-- Verify old group membership.
-- Verify new group membership.
-- Verify role/status.
-- Verify member attributes.
-- Verify requirements.
-- Verify leader roster.
-- Verify reporting.
-
-### Recipe: Create A Custom Scheduled Volunteer Communication Page
-
-Use when Group Scheduler/status board cannot communicate with the exact cohort.
-
-Inspect:
-
-- Date range.
-- Group Type(s).
-- Groups.
-- Locations.
-- Schedules.
-- Assignment/status records.
-- Communication eligibility.
-- Security.
-
-Community examples show custom pages using Dynamic Data and communications for scheduled members ([View and Communicate with all Scheduled Group Members](https://community.rockrms.com/recipes/185)). Build the production version with reviewed SQL, permissions, and communication policy.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `19`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | Archiving a group removes it from normal group-viewer surfaces without deleting it and allows restoration later from the Archived Groups administration page. | [source](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) |
-| official | behavior | Each person in an intermediate region group whose role is marked as a leader receives that region's child-group attendance digest, while the attendance group's own leader is the target of the digest's Email Leader action. | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) |
-| official | configuration | The Group Attendance Digest expects a three-level hierarchy: one top parent, leader-bearing region or area groups beneath it, and attendance-recording groups below those regions. | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) |
-| official | configuration | Group History becomes available after the Group Type enables history and the Process Group History job has run; its timeline can show group edits and member additions or removals by date. | [source](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) |
-| official | configuration | Rock can add a group at the root of the group tree or as a child of the selected group, but child creation is unavailable when that Group Type does not permit child groups. | [source](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group) |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
-| official | configuration | A member requirement attached to a Group Type applies across that type's groups and can be limited by group role, age classification, or a Data View-defined population. | [source](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) |
-| official | configuration | Group Type requirements can allow leader overrides or prevent a person from being added until the requirement is met, enabling enforceable eligibility rules such as completed background checks. | [source](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) |
-| rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | operational_guidance | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | operational_guidance | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | source_summary | Rapid Attendance Entry can be used as a fast attendance-entry surface and can also collect related ministry information, such as family updates, notes, prayer requests, and workflow launches, when the block settings enable those actions. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| More |  | 7 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `1`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [Group Type Inheritance Transcript Insight](https://community.rockrms.com/rocku/groups/group-type-inheritance) | approved_for_public_distillation | 3 | media-insight:b9e4c6fc0514f0e1 |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 19. Source Map And Dependency Notes
-
-### Primary Official Sources
-
-- [Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7): official manual for group hierarchy, Group Type administration, locations, schedules, schedule exclusions, attributes, group viewer, attendance, finder, placement, and version updates.
-- [Rock Your Groups v16 record](https://community.rockrms.com/documentation/bookcontent/7/296): useful for older navigation wording, member attribute details, v16 sync/scheduler notes.
-- [RockU Groups](https://community.rockrms.com/rocku/groups): topic map for operational training across Group Viewer, Details, Attendance, Group Types, Inheritance, History, Locations, Purposes, Requirements, Security, Scheduling, RSVP, and Placement.
-- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): version caveats for v18.3 and v19.1 group-related behavior.
-
-### Developer Sources
-
-- [Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder): filters, query strings, merge fields, security warning.
-- [Group Registration mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration): `GroupGuid`, group type GUID allowlist, member status, workflow, capacity, person creation settings.
-- [Group Attendance Entry mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry): `GroupGuid`, mobile schedule requirement, days-forward/back behavior.
-- [Group Member View mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view): `GroupMemberGuid`, allowed actions, attributes, contact options.
-- [Group Member Edit mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-edit): role/status/member edit settings.
-- [Schedule Preference mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-preference): scheduling preferences and version markers.
-- [Group Members mobile CRM block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members): person-context group member display, family use case.
-
-### Source-Code Landmarks
-
-- [View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql): schedule to group-location relationship.
-- [View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql): Group Type association hierarchy plus group/location/schedule reporting.
-- [Populate_LocationsAndGroupSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_LocationsAndGroupSchedules.sql): example setup connecting serving teams, locations, and schedules.
-- [PersonGetGroupTypeAttendance.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs): workflow action pattern for person attendance by group type.
-- [GroupTypeGroupMemberWorkflowTriggerBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupMemberWorkflowTriggerBag.cs): workflow trigger fields.
-- [GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupAttendanceDetail/GroupAttendanceDetailGetGroupLocationSchedulesRequestBag.cs): group/location/date schedule lookup request.
-- [GroupSchedulerGroupLocationScheduleNamesBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs): scheduler location/schedule label model.
-- [GroupMemberScheduleTemplateDetail.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs): schedule template save behavior using schedule builder iCalendar content.
-
-### Community Examples
-
-Use these as patterns to evaluate, not as authoritative behavior:
-
-- [Bulk Group Member Mover](https://community.rockrms.com/recipes/519): workflow-based member move pattern.
-- [Group Finder Share Filter](https://community.rockrms.com/recipes/374): client-side shareable filter URL approach.
-- [Powerful Small Group Attendance Report](https://community.rockrms.com/recipes/209): attendance percentage reporting concept.
-- [Watch Party Attendance](https://community.rockrms.com/recipes/197): aggregate/special-purpose attendance setup.
-- [Find Circular Group Type References](https://community.rockrms.com/recipes/110): troubleshooting concept for inherited Group Type loops.
-- [Adding Content/Resources for Volunteers to Group Scheduler](https://community.rockrms.com/recipes/334): group attribute to content channel pattern.
-- [Extending the Group Toolbox](https://community.rockrms.com/recipes/329) and [Group Leader Toolbox Enhancements](https://community.rockrms.com/recipes/220): leader toolbox extension patterns.
-- [Schedule Cancellation Workflow](https://community.rockrms.com/recipes/481): schedule decline communication workflow pattern.
-- [Group Member Schedule Templates - adding 5th week and using Auto Schedule](https://community.rockrms.com/recipes/356): scheduling template caveats for fifth-week patterns.
-- [Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482): requirement workflow reset/resend pattern.
-
-### Dependency Notes
-
-Groups depend on People because group membership is person-based and attendance uses person aliases. They depend on Attendance because group participation is occurrence-based. They depend on Security because visibility and management are layered across pages, blocks, groups, group types, and templates. They depend on Locations because finder, check-in, scheduling, and maps require correct location relationships. They depend on Schedules because attendance reminders, finder day/time filters, volunteer scheduling, RSVP, and mobile attendance all depend on schedule configuration.
-
-The official groups manual covers the hierarchy, location, schedule, attendance, finder, and placement relationships together, while the mobile Group Finder documentation separately warns that returned groups do not automatically account for user security ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7), [Group Finder mobile block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-
-When an agent handles a groups task, the correct final answer should identify which dependency controlled the outcome. For example: "not visible because Group Finder block omitted the Group Type," "not schedulable because group has no location schedule," "attendance missing because mobile block requires a schedule," "counts changed because v18.3 Attendance Analytics no longer includes allowed child group types," or "member cannot be activated because a Group Member Requirement workflow remains unresolved."
+- [Rock source at immutable commit `471fd303`](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3): bounded implementation evidence for group-location-schedule relationships, attendance request context, and workflow-trigger models.
+- [Bulk Group Member Mover](https://community.rockrms.com/recipes/519): draft, non-endorsed community recipe.
+- [Triumph Guided Group Finder](https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix): vendor example of a customized finder.
+- [Rock Model Map](https://community.rockrms.com/ModelMap), [RockU Workflows](https://community.rockrms.com/rocku/workflows), and [Helix Content Blocks](https://community.rockrms.com/developer/helix/lava-applications/content-block): public sources referenced by reviewed community patterns that still require target-instance verification.

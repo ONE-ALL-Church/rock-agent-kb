@@ -3,155 +3,268 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
-        "Group"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
-      "id": "start-here-what-kind-of-document-is-broken",
-      "inspect": [
-        "Person",
-        "Group"
-      ],
-      "source_urls": [],
-      "start_with": [],
-      "title": "Start Here: What Kind Of Document Is Broken?",
-      "when": "Start Here: What Kind Of Document Is Broken?"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Workflow",
         "Page",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-entity-documents",
-      "id": "entity-documents",
+      "guide_section_id": "troubleshooting-decision-tree-a-document-type-is-missing-from-the-documents-block",
+      "id": "a-document-type-is-missing-from-the-documents-block",
       "inspect": [
-        "Workflow",
         "Page",
         "Block"
       ],
       "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents",
+        "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block"
+      ],
+      "start_with": [
+        "Confirm that the page supplies the intended entity in context.",
+        "Confirm that the Documents block’s Entity Type matches that context.",
+        "Inspect the block’s selected Document Types.",
+        "Inspect the document type’s Entity Type and any qualifier column and value.",
+        "Confirm that the document type is manually selectable if a user is trying to add it manually.",
+        "Confirm that any maximum-documents limit has not been reached. (Configure Entity Documents, Add the Block)"
+      ],
+      "title": "A document type is missing from the Documents block",
+      "when": "A document type is missing from the Documents block"
+    },
+    {
+      "do_not_assume": [
+        "Stop if they do not match."
+      ],
+      "entities": [
+        "Person",
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-entity-document-add-workflow-fails",
+      "id": "an-entity-document-add-workflow-fails",
+      "inspect": [
+        "Person",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows",
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Check the Document Type’s entity.",
-        "Check block settings.",
-        "Check whether the current page has entity context.",
-        "Check user security.",
-        "Check whether the document type is active if applicable in the current version.",
-        "Check File Type extension rules.",
-        "Check File Type storage provider.",
-        "Check file size."
+        "Identify the workflow entity type.",
+        "Identify the selected document type’s configured entity type.",
+        "Stop if they do not match.",
+        "Inspect the document type’s associated file type.",
+        "Check whether required preferred-file settings reject the uploaded file.",
+        "For a person document, verify Edit permission on both the document type and the Person Document file type.",
+        "If the problem concerns access after upload, determine whether the installation predates the Rock 17.8 linkage fix. (Add Documents Using Workflows, Rock Core Release Notes)"
       ],
-      "title": "Entity Documents",
-      "when": "Entity Documents"
+      "title": "An Entity Document Add workflow fails",
+      "when": "An Entity Document Add workflow fails"
+    },
+    {
+      "do_not_assume": [
+        "Do not broaden permissions until the precise failing layer and version are established."
+      ],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-user-cannot-view-or-download-a-document",
+      "id": "a-user-cannot-view-or-download-a-document",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Identify whether this is an entity document, merge template, unsigned signature request, or completed signature document.",
+        "For an entity document, inspect document-type, associated file-type, block, and any per-document security relevant to the installed version.",
+        "For a completed signature document on Rock 19.0, inspect associated binary file-type permissions.",
+        "For direct signed-document downloads on Rock 19.5 or later, inspect signature-template security and confirm the relevant fix is installed.",
+        "Do not broaden permissions until the precise failing layer and version are established. (Manage Entity Documents, Manage Signature Documents, Rock Core Release Notes)"
+      ],
+      "title": "A user cannot view or download a document",
+      "when": "A user cannot view or download a document"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
         "Group",
-        "GroupMember",
-        "Family"
+        "GroupMember"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-merge-documents",
-      "id": "merge-documents",
+      "guide_section_id": "troubleshooting-decision-tree-lava-fails-in-a-word-merge-template",
+      "id": "lava-fails-in-a-word-merge-template",
       "inspect": [
         "Person",
         "Group",
-        "GroupMember",
-        "Family"
+        "GroupMember"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents"
+        "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document",
+        "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents"
       ],
       "start_with": [
-        "Check the source grid’s available fields.",
-        "Use the merge screen’s field list.",
-        "Confirm template expects `Row` fields.",
-        "Confirm group member data is accessed through `Row.GroupMember` when needed.",
-        "Confirm the grid contains the expected entity type.",
-        "Check straight quotes.",
-        "Check filter syntax.",
-        "Test with a simple template."
+        "Replace curved quotation marks with straight quotation marks.",
+        "Check whether the template uses unsupported Word features: `if`, `raw`, or `lava` tags, Lava commands, or shortcodes.",
+        "Inspect the available merge fields for the actual grid source.",
+        "If the source contains GroupMember rows, use the exposed person row and access membership data through `Row.GroupMember`.",
+        "Check whether `{% Next %}` is present and whether the desired output is one complete document per row or multiple rows in one layout. (Create a Merge Document, Using Lava with Merge Documents)"
       ],
-      "title": "Merge Documents",
-      "when": "Merge Documents"
+      "title": "Lava fails in a Word merge template",
+      "when": "Lava fails in a Word merge template"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-email-addresses-are-missing-from-an-html-merge-document",
+      "id": "email-addresses-are-missing-from-an-html-merge-document",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document"
+      ],
+      "start_with": [
+        "Confirm the source row and merge field contain the email value.",
+        "Confirm the problem occurs in HTML merge output rather than in the underlying grid.",
+        "If Cloudflare is in the request path, inspect whether Scrape Shield is enabled.",
+        "If enabled, evaluate disabling Scrape Shield for the relevant zone because the official documentation identifies it as blocking email addresses in HTML merge documents.",
+        "Regenerate a bounded test document and verify the output. (Create a Merge Document)"
+      ],
+      "title": "Email addresses are missing from an HTML merge document",
+      "when": "Email addresses are missing from an HTML merge document"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-uses-the-wrong-signature-template",
+      "id": "a-workflow-uses-the-wrong-signature-template",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Inspect the fixed **Signature Document Template** action setting.",
+        "Inspect the dynamic template ID, GUID, or workflow attribute.",
+        "If both are populated, treat the fixed template as authoritative because it takes precedence.",
+        "Confirm that the selected template is active; Rock 16.1 fixed inactive-template filtering in workflow actions.",
+        "Confirm that attribute values contain the expected ID or GUID representation. (Use Electronic Signatures in a Workflow, Rock Core Release Notes)"
+      ],
+      "title": "A workflow uses the wrong signature template",
+      "when": "A workflow uses the wrong signature template"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Family",
         "Workflow",
-        "Block",
         "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-electronic-signatures",
-      "id": "electronic-signatures",
+      "guide_section_id": "troubleshooting-decision-tree-the-wrong-person-is-expected-to-sign",
+      "id": "the-wrong-person-is-expected-to-sign",
       "inspect": [
         "Person",
-        "Family",
         "Workflow",
-        "Block",
         "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow"
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati"
       ],
       "start_with": [
-        "Check template `IsActive`.",
-        "Check Rock version relative to v16.1 inactive-template filtering.",
-        "Check whether the action is configured to show Rock-native or legacy templates.",
-        "Check security.",
-        "Check Rock version relative to v15.2 inactive-template filtering.",
-        "Check registration block generation.",
-        "Check required signature template configuration.",
-        "Check whether the direct Signature Document Template field is set."
+        "Identify the document’s Applies To person.",
+        "Identify its Assigned To person.",
+        "Identify the recorded Signed By person.",
+        "For workflows, inspect the mapped Person attributes and whether the signer was logged in.",
+        "For event registration, confirm whether the registrant is classified as an adult or child.",
+        "Confirm the person completing the registration when a child is the registrant.",
+        "Check whether missing birthdate data makes the adult/child classification unreliable. (Intro to Electronic Signatures, Use Electronic Signatures in a Workflow, Use Electronic Signatures in Event Registrations)"
       ],
-      "title": "Electronic Signatures",
-      "when": "Electronic Signatures"
+      "title": "The wrong person is expected to sign",
+      "when": "The wrong person is expected to sign"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-event-registration-signatures-break-or-display-the-wrong-document",
+      "id": "event-registration-signatures-break-or-display-the-wrong-document",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm the external registration page uses the Obsidian Registration Entry block.",
+        "Confirm the required template is a current built-in electronic-signature template rather than a legacy-provider document.",
+        "Inspect the registration template’s Required Signature Document selection.",
+        "Confirm the registrant’s person match, signature-document relationship, required template, and validity.",
+        "Determine whether the installation includes the Rock 18.3 registrant relationship fix and migration. (Use Electronic Signatures in Event Registrations, Rock Core Release Notes)"
+      ],
+      "title": "Event registration signatures break or display the wrong document",
+      "when": "Event registration signatures break or display the wrong document"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-generated-pdfs",
-      "id": "generated-pdfs",
+      "guide_section_id": "troubleshooting-decision-tree-a-signed-pdf-is-not-generated-or-delivery-stalls",
+      "id": "a-signed-pdf-is-not-generated-or-delivery-stalls",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume"
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume",
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures"
       ],
       "start_with": [
-        "Check status is signed.",
-        "Check `BinaryFileId`.",
-        "Check signed date/time.",
-        "Check PDF generation configuration.",
-        "Check exception logs.",
-        "Check external rendering service if used.",
-        "Check Binary File Type storage.",
-        "Check template HTML."
+        "Separate rendering from communication delivery: first determine whether the signed PDF exists.",
+        "Inspect the signature template’s file type and completion System Communication.",
+        "Inspect the **PDF External Render Endpoint** system setting.",
+        "Determine whether the host can run Puppeteer or Chrome.",
+        "If local rendering is supported, review whether concurrent volume is exhausting server capacity.",
+        "If external rendering is required, verify endpoint configuration and reachability without exposing credentials.",
+        "After PDF generation succeeds, troubleshoot the completion email through the communications system. (Generate PDFs for Electronic Signature Documents, Set Up Electronic Signatures)"
       ],
-      "title": "Generated PDFs",
-      "when": "Generated PDFs"
+      "title": "A signed PDF is not generated or delivery stalls",
+      "when": "A signed PDF is not generated or delivery stalls"
     }
   ],
   "concept_id": "documents-signatures",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:59+00:00",
   "guide_sections": [
-    "10-generated-pdfs-deep-dive-pdf-troubleshooting",
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
-    "17-troubleshooting-decision-tree-entity-documents",
-    "17-troubleshooting-decision-tree-merge-documents",
-    "17-troubleshooting-decision-tree-electronic-signatures",
-    "17-troubleshooting-decision-tree-generated-pdfs",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template",
-    "18-agent-task-recipes-recipe-verify-a-person-has-a-valid-signed-waiver",
-    "18-agent-task-recipes-recipe-diagnose-a-failed-registration-signature",
-    "18-agent-task-recipes-recipe-audit-public-exposure-risk",
-    "18-agent-task-recipes-recipe-build-a-staff-resend-process"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-document-type-is-missing-from-the-documents-block",
+    "troubleshooting-decision-tree-an-entity-document-add-workflow-fails",
+    "troubleshooting-decision-tree-a-user-cannot-view-or-download-a-document",
+    "troubleshooting-decision-tree-lava-fails-in-a-word-merge-template",
+    "troubleshooting-decision-tree-email-addresses-are-missing-from-an-html-merge-document",
+    "troubleshooting-decision-tree-a-workflow-uses-the-wrong-signature-template",
+    "troubleshooting-decision-tree-the-wrong-person-is-expected-to-sign",
+    "troubleshooting-decision-tree-event-registration-signatures-break-or-display-the-wrong-document",
+    "troubleshooting-decision-tree-a-signed-pdf-is-not-generated-or-delivery-stalls",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-configure-an-entity-document-type-and-management-surface",
+    "agent-task-recipes-recipe-create-and-validate-a-merge-template",
+    "agent-task-recipes-recipe-configure-a-signature-template",
+    "agent-task-recipes-recipe-add-an-electronic-signature-to-a-workflow",
+    "agent-task-recipes-recipe-configure-an-event-registration-signature-requirement",
+    "agent-task-recipes-recipe-review-a-completed-signature-document-and-resend-its-receipt",
+    "agent-task-recipes-recipe-decide-whether-to-offload-signed-pdf-rendering",
+    "agent-task-recipes-recipe-evaluate-a-community-resend-or-reset-workaround"
   ]
 }

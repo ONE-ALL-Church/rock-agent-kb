@@ -13,58 +13,50 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `6-primary-entities-and-relationships-grouptype-group-groupmember`: GroupType, Group, GroupMember
-- `6-primary-entities-and-relationships-grouplocation-location-schedule`: GroupLocation, Location, Schedule
-- `8-labels-deep-dive-legacy-labels-and-next-gen-labels`: Legacy Labels And Next-Gen Labels
-- `8-labels-deep-dive-fonts-and-icons`: Fonts And Icons
-- `10-attendance-deep-dive-count-only-attendance`: Count-Only Attendance
-- `14-developer-api-lava-and-source-code-landmarks-lava-and-community-patterns`: Lava And Community Patterns
-- `17-implementation-playbooks-playbook-implement-a-qr-code-attendance-pattern`: Playbook: Implement A QR Code Attendance Pattern
-- `17-implementation-playbooks-playbook-implement-sms-text-attendance`: Playbook: Implement SMS/Text Attendance
-- `19-agent-task-recipes-recipe-decide-between-check-in-group-attendance-rapid-attendance-qr-and-sms`: Recipe: Decide Between Check-In, Group Attendance, Rapid Attendance, QR, And SMS
+- `troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links`: A REST integration creates unexpected schedules or links
+- `troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation`: Attendance appears to save but the page gives no confirmation
+- `source-map-community-patterns`: Community patterns
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-check-in-mental-model`: 3. Check-In Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-check-in-systems`: Check-In Systems
-- `5-core-configuration-and-data-model-check-in-type-individual-vs-family`: Check-In Type: Individual vs Family
-- `5-core-configuration-and-data-model-search`: Search
-- `5-core-configuration-and-data-model-group-membership-behavior`: Group Membership Behavior
-- `5-core-configuration-and-data-model-locations`: Locations
-- `5-core-configuration-and-data-model-schedules`: Schedules
-- `5-core-configuration-and-data-model-location-selection-strategy`: Location Selection Strategy
-- `6-primary-entities-and-relationships-person-personalias-and-family`: Person, PersonAlias, And Family
-- `6-primary-entities-and-relationships-grouptype-group-groupmember`: GroupType, Group, GroupMember
-- `6-primary-entities-and-relationships-grouplocation-location-schedule`: GroupLocation, Location, Schedule
-- `6-primary-entities-and-relationships-device-and-kiosk`: Device And Kiosk
-- `6-primary-entities-and-relationships-attendance-and-attendanceoccurrence`: Attendance And AttendanceOccurrence
-- `7-common-check-in-workflows-attended-check-in`: Attended Check-In
-- `7-common-check-in-workflows-check-in-manager`: Check-In Manager
-- `7-common-check-in-workflows-rapid-attendance-entry`: Rapid Attendance Entry
-- `7-common-check-in-workflows-group-attendance`: Group Attendance
-- `7-common-check-in-workflows-attendance-self-entry`: Attendance Self-Entry
-- `7-common-check-in-workflows-proximity-attendance`: Proximity Attendance
-- `8-labels-deep-dive-legacy-labels-and-next-gen-labels`: Legacy Labels And Next-Gen Labels
-- `8-labels-deep-dive-label-data-model`: Label Data Model
-- `8-labels-deep-dive-security-code-formatting`: Security Code Formatting
-- `8-labels-deep-dive-merge-fields-and-lava`: Merge Fields And Lava
-- `8-labels-deep-dive-fonts-and-icons`: Fonts And Icons
-- `8-labels-deep-dive-label-troubleshooting-branches`: Label Troubleshooting Branches
-- `9-mobile-check-in-deep-dive-configuration-checklist`: Configuration Checklist
-- `9-mobile-check-in-deep-dive-mobile-and-eligibility`: Mobile And Eligibility
-- `9-mobile-check-in-deep-dive-mobile-group-attendance-entry`: Mobile Group Attendance Entry
-- `9-mobile-check-in-deep-dive-proximity-attendance`: Proximity Attendance
-- `10-attendance-deep-dive-attendance-rows`: Attendance Rows
-- `10-attendance-deep-dive-attendanceoccurrence-sundaydate`: AttendanceOccurrence SundayDate
-- `10-attendance-deep-dive-attendance-analytics-block`: Attendance Analytics Block
-- `10-attendance-deep-dive-count-only-attendance`: Count-Only Attendance
-- `11-troubleshooting-deep-dive-symptom-no-check-in-locations-are-active`: Symptom: No Check-In Locations Are Active
-- `11-troubleshooting-deep-dive-symptom-family-search-finds-nothing`: Symptom: Family Search Finds Nothing
-- `11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape`: Symptom: Rapid Attendance Entry Too Slow Or Wrong Shape
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model-labels-depend-on-context`: Labels depend on context
+- `core-configuration-kiosks-locations-and-schedules-locations-schedules-and-room-state`: Locations, schedules, and room state
+- `core-configuration-kiosks-locations-and-schedules-eligibility-by-age-grade-and-birthdate`: Eligibility by age, grade, and birthdate
+- `core-configuration-kiosks-locations-and-schedules-check-in-relationships`: Check-in relationships
+- `mobile-check-in-preconditions`: Preconditions
+- `mobile-check-in-participant-flow`: Participant flow
+- `labels-and-printing-design-link-preview-and-print`: Design, link, preview, and print
+- `labels-and-printing-merge-data-and-dynamic-text`: Merge data and dynamic text
+- `check-in-manager-and-device-manager`: Check-In Manager And Device Manager
+- `attendance-entry-and-analysis-attendance-analytics`: Attendance Analytics
+- `registration-and-new-families`: Registration And New Families
+- `additional-check-in-options-nfc-check-in`: NFC check-in
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-a-person-or-family-cannot-be-found`: A person or family cannot be found
+- `troubleshooting-decision-tree-a-person-is-found-but-has-no-check-in-options`: A person is found but has no check-in options
+- `troubleshooting-decision-tree-a-room-is-unavailable-only-during-one-service`: A room is unavailable only during one service
+- `troubleshooting-decision-tree-mobile-check-in-reports-no-campus-no-service-or-location-failure`: Mobile check-in reports no campus, no service, or location failure
+- `troubleshooting-decision-tree-a-mobile-qr-code-does-not-print-labels`: A mobile QR code does not print labels
+- `troubleshooting-decision-tree-symptom-attendance-saved-but-label-did-not-print`: Symptom: Attendance Saved But Label Did Not Print
+- `troubleshooting-decision-tree-a-label-prints-with-wrong-or-duplicated-data`: A label prints with wrong or duplicated data
+- `troubleshooting-decision-tree-a-label-cannot-be-reprinted`: A label cannot be reprinted
+- `troubleshooting-decision-tree-check-in-manager-attendance-updates-lag`: Check-In Manager attendance updates lag
+- `troubleshooting-decision-tree-rapid-attendance-entry-is-missing-expected-actions`: Rapid Attendance Entry is missing expected actions
+- `troubleshooting-decision-tree-attendance-self-entry-does-not-record-attendance`: Attendance Self Entry does not record attendance
+- `troubleshooting-decision-tree-proximity-attendance-records-the-wrong-service-or-area`: Proximity attendance records the wrong service or area
+- `troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links`: A REST integration creates unexpected schedules or links
+- `troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation`: Attendance appears to save but the page gives no confirmation
+- `agent-task-recipes-recipe-preflight-a-standard-kiosk-session`: Recipe: Preflight a standard kiosk session
+- `agent-task-recipes-recipe-preflight-mobile-check-in`: Recipe: Preflight mobile check-in
+- `agent-task-recipes-recipe-validate-a-next-gen-label-end-to-end`: Recipe: Validate a Next-Gen label end to end
+- `agent-task-recipes-recipe-triage-a-live-service-incident`: Recipe: Triage a live-service incident
+- `agent-task-recipes-recipe-create-a-focused-rapid-attendance-entry-page`: Recipe: Create a focused Rapid Attendance Entry page
+- `agent-task-recipes-recipe-prepare-a-new-family-arrival-path`: Recipe: Prepare a new-family arrival path
+- `agent-task-recipes-recipe-reprint-a-damaged-label`: Recipe: Reprint a damaged label
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map-community-patterns`: Community patterns
 
 ## Live Verification Clarification
 

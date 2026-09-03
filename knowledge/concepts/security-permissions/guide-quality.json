@@ -1,29 +1,27 @@
 {
   "authority_coverage": [
-    "community-example",
     "official",
     "official-developer",
-    "official-model-map",
     "official-release",
     "official-training",
-    "official-triumph",
+    "org-contribution",
     "source-code",
     "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 15927 words; expected at least 1200.",
+      "message": "Guide has 7490 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 15927 words; expected no more than 9000.",
-      "passed": false
+      "message": "Guide has 7490 words; expected no more than 9000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 140 sections; expected at least 9.",
+      "message": "Guide has 53 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -43,7 +41,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 12 entity rows; expected at least 3.",
+      "message": "Guide has 13 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -67,32 +65,47 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
+      "passed": true
+    },
+    {
+      "id": "contribution_traceability",
+      "message": "Reviewed public contribution records must include source URLs or source record IDs.",
+      "passed": true
+    },
+    {
+      "id": "contribution_not_official",
+      "message": "Guides using org/community contributions must label them as examples, patterns, or non-official guidance.",
+      "passed": true
+    },
+    {
+      "id": "contribution_live_verification",
+      "message": "Contribution-influenced guides that need live verification must tell agents what to verify.",
       "passed": true
     }
   ],
   "concept_id": "security-permissions",
-  "contribution_record_count": 0,
-  "entity_count": 12,
-  "generated_at": "2026-08-12T12:50:00+00:00",
-  "guide_line_count": 1863,
-  "guide_word_count": 15927,
+  "contribution_record_count": 29,
+  "entity_count": 13,
+  "generated_at": "2026-09-03T17:23:11+00:00",
+  "guide_line_count": 582,
+  "guide_word_count": 7490,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 0,
-    "answer_claim_reference_count": 0,
-    "entity_count": 12,
-    "section_count": 140,
-    "source_count": 60,
-    "substantive_uncited_section_ratio": 0.011,
+    "answer_claim_count_in_pack": 63,
+    "answer_claim_reference_count": 56,
+    "entity_count": 13,
+    "section_count": 53,
+    "source_count": 67,
+    "substantive_uncited_section_ratio": 0.0263,
     "task_card_count": 7,
-    "word_count": 15927
+    "word_count": 7490
   },
   "private_draft_contribution_record_count": 0,
-  "score": 91,
-  "section_count": 140,
-  "source_count": 60,
-  "status": "fail",
+  "score": 100,
+  "section_count": 53,
+  "source_count": 67,
+  "status": "pass",
   "task_card_count": 7
 }

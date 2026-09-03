@@ -88,18 +88,16 @@ Identify the first configuration, schedule, device, capacity, eligibility, or wo
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/documentation/bookcontent/10/266
-- https://community.rockrms.com/documentation/bookcontent/42/350
-- https://community.rockrms.com/lava/commands/calendar-events
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs
-- https://community.rockrms.com/rocku/groups
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule
+- https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations
+- https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox
+- https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk
+- https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations
+- https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox
+- https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts

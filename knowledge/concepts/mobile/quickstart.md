@@ -18,20 +18,24 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 ## Primary Tasks
 
-- [Recipe: Inventory A Mobile App](tasks/recipe-inventory-a-mobile-app.md): Complete Inventory A Mobile App with evidence-backed checks and a verifiable outcome.
-- [Recipe: Determine Whether A Feature Can Be Used](tasks/recipe-determine-whether-a-feature-can-be-used.md): Complete Determine Whether A Feature Can Be Used with evidence-backed checks and a verifiable outcome.
-- [Recipe: Add Analytics To A Tap](tasks/recipe-add-analytics-to-a-tap.md): Complete Add Analytics To A Tap with evidence-backed checks and a verifiable outcome.
-- [Recipe: Modernize Legacy Platform XAML](tasks/recipe-modernize-legacy-platform-xaml.md): The deprecation basis is the On Device Platform doc (On Device Platform).
-- [Recipe: Review App Store Readiness](tasks/recipe-review-app-store-readiness.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Create and test a minimal mobile application](tasks/recipe-create-and-test-a-minimal-mobile-application.md): A deployed application opens in the Rock Mobile Core test shell.
+- [Recipe: Build personalized Content block output safely](tasks/recipe-build-personalized-content-block-output-safely.md): A mobile page displays current, identity-aware or entity-aware content without malformed XAML.
+- [Recipe: Add a command-driven interaction](tasks/recipe-add-a-command-driven-interaction.md): A control executes a supported command with a validated parameter.
+- [Recipe: Migrate a page from Shell v5 to v6+](tasks/recipe-migrate-a-page-from-shell-v5-to-v6.md): The page renders correctly on .NET MAUI without silently breaking retained older clients.
+- [Recipe: Prepare mobile check-in](tasks/recipe-prepare-mobile-check-in.md): A participant can identify, select, complete check-in and hand labels to a kiosk.
+- [Recipe: Prepare an App Factory publication](tasks/recipe-prepare-an-app-factory-publication.md): The publishing provider has a reviewable, secure and complete submission package.
+- [Recipe: Validate push notifications](tasks/recipe-validate-push-notifications.md): A real target device receives and opens a notification through the intended route.
+- [Recipe: Orchestrate slow media or content work](tasks/recipe-orchestrate-slow-media-or-content-work.md): Slow processing completes asynchronously and only verified output reaches public mobile content.
+- [Recipe: Validate Outreach Toolbox for ministry use](tasks/recipe-validate-outreach-toolbox-for-ministry-use.md): Authorized signed-in users can see and complete intended outreach actions, and reminders arrive.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-54: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 55-95: 2. Scope And Terminology (normal)
-- `3-rock-mobile-mental-model-rock-core-configuration` lines 100-122: Rock Core Configuration (normal)
-- `3-rock-mobile-mental-model-native-shell-runtime` lines 123-133: Native Shell Runtime (normal)
-- `3-rock-mobile-mental-model-device-and-platform-environment` lines 134-139: Device And Platform Environment (normal)
-- `3-rock-mobile-mental-model-deployment-flow` lines 140-152: Deployment Flow (normal)
+- `agent-summary` lines 18-32: Agent Summary (normal)
+- `mental-model-shell-application-and-core-are-separate-compatibility-surfaces` lines 54-68: Shell, application and core are separate compatibility surfaces (normal)
+- `mental-model-deploying-is-not-publishing` lines 69-74: Deploying is not publishing (normal)
+- `mental-model-dynamic-content-crosses-a-trust-and-context-boundary` lines 79-89: Dynamic content crosses a trust and context boundary (normal)
+- `application-configuration-and-deployment` lines 90-113: Application Configuration And Deployment (normal)
+- `content-xaml-and-lava` lines 114-117: Content, XAML And Lava (normal)
 
 ## Core Entities
 
@@ -50,14 +54,8 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 ## Version Caveats
 
-- `7.0`: Fixed an issue where the ShowPopUp command displayed the popup on a white screen instead of overlaying the triggering page when running in MAUI. Fixes: #38
-- `7.0`: Added the ExecuteCommand control, enabling command execution with configurable timing and repetition.
-- `4.0`: Added a custom ScrollView control that allows you to disable the native iOS bounce when scrolling.
-- `2.1`: Fixed bug that prevented Flyout Shell from working properly if ListItem was not the root XAML element.
-- `2.0`: Fixed bug in iOS that prevented a person from choosing the "Save..." option during a ShareFile command.
-- `6.0`: Updated all of the mobile blocks to follow the new design system.
-- `7.0`: Added the CopyToClipboard command, allowing text to be copied to the clipboard.
-- `7.0`: Fixed an issue that caused the AddEventToCalendar command to not function properly.
+- `19.1`: Fixed external links silently failing on Android when the address belonged to a site that also has an installed app handler (for example, opening a YouTube link on a device with the YouTube app installed). The link now f
+- `19.1`: Fixed Android media playback so audio from other apps now lowers in volume when Rock Mobile starts playing audio.
 
 ## Files For Agents
 

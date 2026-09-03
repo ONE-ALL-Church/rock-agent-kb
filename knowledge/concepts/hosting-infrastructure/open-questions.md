@@ -10,64 +10,48 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (164 words)
+- `agent-task-recipes-recipe-perform-a-pre-launch-infrastructure-review`: Recipe: Perform a pre-launch infrastructure review (127 words)
 
 ## Community-Supported Only
 
-- `6-primary-entities-and-relationships-communication-transport-and-smtp`: Communication Transport And SMTP
-- `6-primary-entities-and-relationships-jobs-and-background-processing`: Jobs And Background Processing
-- `7-common-hosting-and-infrastructure-workflows-refresh-development-from-production`: Refresh Development From Production
-- `8-sizing-and-service-options-deep-dive-large-pattern`: Large Pattern
-- `10-operational-readiness-deep-dive-backup-readiness`: Backup Readiness
-- `10-operational-readiness-deep-dive-restore-readiness`: Restore Readiness
-- `10-operational-readiness-deep-dive-ssl-readiness`: SSL Readiness
-- `10-operational-readiness-deep-dive-smtp-readiness`: SMTP Readiness
-- `11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-jobs`: Jobs
-- `12-administration-and-operational-guardrails-production-and-development-separation`: Production And Development Separation
-- `17-troubleshooting-decision-tree-site-is-down`: Site Is Down
-- `17-troubleshooting-decision-tree-development-environment-sends-real-messages`: Development Environment Sends Real Messages
+- `operational-readiness-smtp`: SMTP
+- `source-map-community-examples-not-promoted-to-official-behavior`: Community examples not promoted to official behavior
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-hosting-and-infrastructure-mental-model-layer-1-request-entry`: Layer 1: Request Entry
-- `3-hosting-and-infrastructure-mental-model-layer-2-web-runtime`: Layer 2: Web Runtime
-- `3-hosting-and-infrastructure-mental-model-layer-3-database-and-persistence`: Layer 3: Database And Persistence
-- `3-hosting-and-infrastructure-mental-model-layer-4-shared-services`: Layer 4: Shared Services
-- `3-hosting-and-infrastructure-mental-model-layer-5-operations-and-governance`: Layer 5: Operations And Governance
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-iis-and-windows-configuration`: IIS And Windows Configuration
-- `5-core-configuration-and-data-model-sql-configuration`: SQL Configuration
-- `5-core-configuration-and-data-model-rock-database-records-that-affect-hosting`: Rock Database Records That Affect Hosting
-- `5-core-configuration-and-data-model-azure-resource-configuration`: Azure Resource Configuration
-- `6-primary-entities-and-relationships-site-domain-and-request-handling`: Site, Domain, And Request Handling
-- `6-primary-entities-and-relationships-file-type-and-storage-provider`: File Type And Storage Provider
-- `6-primary-entities-and-relationships-communication-transport-and-smtp`: Communication Transport And SMTP
-- `6-primary-entities-and-relationships-web-farm-nodes-and-message-bus`: Web Farm Nodes And Message Bus
-- `6-primary-entities-and-relationships-authentication-services`: Authentication Services
-- `7-common-hosting-and-infrastructure-workflows-refresh-development-from-production`: Refresh Development From Production
-- `8-sizing-and-service-options-deep-dive-large-pattern`: Large Pattern
-- `9-azure-hosting-deep-dive-azure-monitoring`: Azure Monitoring
-- `10-operational-readiness-deep-dive-restore-readiness`: Restore Readiness
-- `10-operational-readiness-deep-dive-ssl-readiness`: SSL Readiness
-- `10-operational-readiness-deep-dive-smtp-readiness`: SMTP Readiness
-- `10-operational-readiness-deep-dive-security-readiness`: Security Readiness
-- `11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-operations`: Operations
-- `11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-security`: Security
-- `11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-jobs`: Jobs
-- `11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-search`: Search
-- `11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-api-integrations`: API Integrations
-- `12-administration-and-operational-guardrails-upgrade-guardrails`: Upgrade Guardrails
-- `13-developer-api-lava-and-source-code-landmarks`: 13. Developer, API, Lava, And Source-Code Landmarks
-- `13-developer-api-lava-and-source-code-landmarks-lava-endpoints`: Lava Endpoints
-- `13-developer-api-lava-and-source-code-landmarks-source-code-version-caveat`: Source-Code Version Caveat
-- `14-reporting-analytics-and-model-map-useful-operational-reports`: Useful Operational Reports
-- `14-reporting-analytics-and-model-map-model-map-usage`: Model Map Usage
-- `15-version-and-release-caveats-v19-1`: v19.1
-- `16-implementation-playbooks-playbook-production-readiness-review`: Playbook: Production Readiness Review
-- `16-implementation-playbooks-playbook-azure-cost-and-capacity-review`: Playbook: Azure Cost And Capacity Review
-- `16-implementation-playbooks-playbook-storage-provider-upgrade-review`: Playbook: Storage Provider Upgrade Review
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model-5-operational-proof`: 5. Operational proof
+- `saas-hosting`: SaaS Hosting
+- `azure-hosting-recommended-service-pattern`: Recommended service pattern
+- `azure-hosting-azure-sql-identity-setup`: Azure SQL identity setup
+- `internal-hosting-iis-configuration`: IIS configuration
+- `internal-hosting-initial-rock-installation`: Initial Rock installation
+- `web-farms-and-server-clusters-session-affinity`: Session affinity
+- `web-farms-and-server-clusters-routes-and-node-coordination`: Routes and node coordination
+- `read-only-and-analytics-database-contexts-rockcontextreadonly`: `RockContextReadOnly`
+- `read-only-and-analytics-database-contexts-rockcontextanalytics`: `RockContextAnalytics`
+- `operational-readiness-smtp`: SMTP
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-a-rock-page-is-slow`: A Rock page is slow
+- `troubleshooting-decision-tree-files-or-images-work-intermittently-in-a-web-farm`: Files or images work intermittently in a web farm
+- `troubleshooting-decision-tree-check-in-loses-state-or-behaves-differently-between-requests`: Check-in loses state or behaves differently between requests
+- `troubleshooting-decision-tree-a-scheduled-job-runs-more-than-once-in-a-web-farm`: A scheduled job runs more than once in a web farm
+- `troubleshooting-decision-tree-a-web-farm-node-is-missing-or-appears-unresponsive`: A web-farm node is missing or appears unresponsive
+- `troubleshooting-decision-tree-a-new-page-route-works-on-only-some-nodes`: A new page route works on only some nodes
+- `troubleshooting-decision-tree-rock-cannot-connect-to-sql-server`: Rock cannot connect to SQL Server
+- `troubleshooting-decision-tree-a-data-view-or-report-fails-against-the-read-only-database`: A Data View or report fails against the read-only database
+- `troubleshooting-decision-tree-analytics-still-load-the-primary-database`: Analytics still load the primary database
+- `troubleshooting-decision-tree-http-does-not-redirect-to-https`: HTTP does not redirect to HTTPS
+- `agent-task-recipes-recipe-select-a-hosting-model`: Recipe: Select a hosting model
+- `agent-task-recipes-recipe-build-an-azure-capacity-baseline`: Recipe: Build an Azure capacity baseline
+- `agent-task-recipes-recipe-prepare-a-saas-migration`: Recipe: Prepare a SaaS migration
+- `agent-task-recipes-recipe-provision-the-documented-azure-layout`: Recipe: Provision the documented Azure layout
+- `agent-task-recipes-recipe-offload-reports-and-analytics-to-a-read-only-database`: Recipe: Offload reports and analytics to a read-only database
+- `agent-task-recipes-recipe-diagnose-a-slow-rock-19-page`: Recipe: Diagnose a slow Rock 19 page
+- `agent-task-recipes-recipe-perform-a-pre-launch-infrastructure-review`: Recipe: Perform a pre-launch infrastructure review
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

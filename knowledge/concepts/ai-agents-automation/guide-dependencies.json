@@ -966,1634 +966,990 @@
   },
   "approved_media_hash": "5e1a8687aaf082a9b98152336963f462727a387de0bf0a74469e47cd2d6b7c20",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:50:57+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "00df9cfbcecc28947324a52e9d97bd4187f7bfa654395bf22552d8f82912f0a9",
-  "guide_line_count": 1283,
+  "guide_hash": "27fcb9828bccd4e265af8f03ade9481783ccc62081b25a5a0fa154b76f279fdf",
+  "guide_line_count": 665,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 11663,
+  "guide_word_count": 6997,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official-developer",
-      "content_hash": "2d3ed6cc33f23d7fdf362fea462789e558be11e2ab68e6e9bc474ba77b0d7433",
-      "excerpt_hash": "13982be29f51735b5ace9a251c433052e8c55c8b85070fb4b490c13e0ddfaf2a",
+      "content_hash": "b34711c28f4279b5f4860445fccfbcbd4aa9fa9ba466f529a33ad3a5fcbd9cca",
+      "excerpt_hash": "2dbc4ee8334dd35a3d51437488b91746fedf36b928af2a8ee11682724b13dfc6",
       "source_id": "rock_developer",
       "source_key": "790df48a4843d338",
-      "source_record_id": "rock_developer:790df48a4843d338",
+      "source_record_id": "rock_developer:article:1027",
       "url": "https://community.rockrms.com/developer/ai-agents"
     },
     {
       "authority": "official-developer",
-      "content_hash": "31d99a2c23b234b453f7fdf18953c0cb1e923de2dac86ac129a83b7a9cc2452d",
-      "excerpt_hash": "98be5762b365f9c2be6b042a80018ce245dfc29afa401d4c2187b691f448adc4",
+      "content_hash": "7626a7263bf09871183681f6ec7f9bc26b015d514fe66ed720e5539851545a8d",
+      "excerpt_hash": "8e185caa261d18a443518f9ee8baa6e3ec51e5db5923d1291d93bcebac1f7d72",
       "source_id": "rock_developer",
       "source_key": "bb48dd2bf1992df6",
-      "source_record_id": "rock_developer:bb48dd2bf1992df6",
+      "source_record_id": "rock_developer:article:1028",
       "url": "https://community.rockrms.com/developer/ai-agents/agents"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "deb3f7aceb495afb25dfe0242c0f98be532583706694cea149eae213bc67982b",
-      "excerpt_hash": "8d6ef38096464085e99b56e114cb9e2af044d4f7b9ca9a3f3fd34da6f76ef1a2",
-      "source_id": "rock_developer",
-      "source_key": "2a94aef5f83aa079",
-      "source_record_id": "rock_developer:2a94aef5f83aa079",
-      "url": "https://community.rockrms.com/developer/ai-agents/skills"
+      "authority": "official-training",
+      "content_hash": "db1718e71f8d8e894ab74533eda1c13d2f37c3225a87518e9973ddb7ef0f05c5",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
+      "source_key": "fe0b6d3b462f6c75",
+      "source_record_id": "media-insight:d03a93f4e7ef8c02",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
     },
     {
       "authority": "official-developer",
-      "content_hash": "cb4691cea9756d33113f7f16adda96886302c2541905ec7ee041132ad0af2903",
-      "excerpt_hash": "bfb285d910637c2cd5170b0927d718597ca9b4cb289f25cabf53b1df1d8e1712",
+      "content_hash": "c91dbee4f65fe5c2fbe9bacb6ed7c67785a0b21ad41d106a69dda757c1e0435c",
+      "excerpt_hash": "89a76d80c8aa7240960776686766dae25c35cc5425e3f120d537d78d765fa713",
+      "source_id": "rock_developer",
+      "source_key": "2a94aef5f83aa079",
+      "source_record_id": "rock_developer:article:1036",
+      "url": "https://community.rockrms.com/developer/ai-agents/skills"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "12c85932e302ebe4b8e759f6a754a8aaee7739d9db42a15420ce63be1ad1f31f",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "media-insight:a437d9f5be13ad57",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "23916f97906d46989f6c334dbb0193160e9a1691564ab72d862ae7dedde86587",
+      "excerpt_hash": "506be7db0f0f30a5c411606f90af220071e6d1e95d07c65529b0ed2b1a5880e4",
+      "source_id": "rock_developer",
+      "source_key": "84107cbe45e9bdf5",
+      "source_record_id": "rock_developer:article:1034",
+      "url": "https://community.rockrms.com/developer/ai-agents/agents/context-anchors"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "6b8701f7443475b6a25efd7b50f624c82667dbe2fa9367c2095f022501316fff",
+      "excerpt_hash": "f7dffabe7c3faa579d4ee0298a6d4536a8b89c61a850234306dc2b0c8dbd9feb",
+      "source_id": "rock_developer",
+      "source_key": "bdb43719d5f6f096",
+      "source_record_id": "rock_developer:article:1033",
+      "url": "https://community.rockrms.com/developer/ai-agents/agents/agent-instructions"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "87d47335dd826757749aa178a912a4c6cbaca4539c3a583aed398e46322474b4",
+      "excerpt_hash": "eb05ecd77c03692f93c63cf5e7e6e1679c5efe3933061449524a17bfb6064a03",
       "source_id": "rock_developer",
       "source_key": "4da60cf32b65caa5",
-      "source_record_id": "rock_developer:4da60cf32b65caa5",
+      "source_record_id": "rock_developer:article:1029",
       "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools"
     },
     {
       "authority": "official-developer",
-      "content_hash": "dbf0ca98126cf52b750764aaced4611737aa529e68a14fc469db86739133a465",
-      "excerpt_hash": "06003b22e41da17c1bf26dac5b9a43a107305a6030812505b6713de1b1fe7dcd",
+      "content_hash": "762fbd648962bd1ffe5249c85b74593b9b61fca7564d880e9c23503329b20265",
+      "excerpt_hash": "c3a91e38ad2278455d97d66ee60399416ab8c3b9e7985cf2c5fc7eecce0b038b",
       "source_id": "rock_developer",
-      "source_key": "84107cbe45e9bdf5",
-      "source_record_id": "rock_developer:84107cbe45e9bdf5",
-      "url": "https://community.rockrms.com/developer/ai-agents/agents/context-anchors"
+      "source_key": "e7c3d462133f0a4f",
+      "source_record_id": "rock_developer:article:2488",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7f06afdae4080ef7f62b902dec90b08633cccf48987cc7fcb801c68826933b8f",
+      "excerpt_hash": "9a9254cb2a4d4335572b5b228dddf259b528e59fa52c7ba5e91c1cda39126933",
+      "source_id": "rock_developer",
+      "source_key": "c97c2f93074313ed",
+      "source_record_id": "rock_developer:article:2854",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "dc202390ddb16d226a8902baa7375ecc0bcf60a2bcedaafe91471512a006ed60",
+      "excerpt_hash": "afeacbb2deff854b01a818620d9f6d1c12d64a3c1c97f0fbfee665e11ae8e132",
+      "source_id": "rock_developer",
+      "source_key": "ce4ad75c4d04ae37",
+      "source_record_id": "rock_developer:article:2855",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "b7a233a3135968b9fa5923d6da455896257ef022344410d15d9dd03440726c56",
+      "excerpt_hash": "1b4454c47f6cf225a31a27c73563980f04ecee9752b7d74ac576f248f8b74baa",
+      "source_id": "rock_developer",
+      "source_key": "91db7ad6dee03410",
+      "source_record_id": "rock_developer:article:2856",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/get-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "35f64eabeb5edbb1716485893aab48cb18aacb303968c74b83d626b1a5d5116d",
+      "excerpt_hash": "df87626f65cab5a61713a6f74b0433f3a0554e00bc187b29575f011704fd7f32",
+      "source_id": "rock_developer",
+      "source_key": "2a056e99824af72b",
+      "source_record_id": "rock_developer:article:2493",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d15ef77932c5bbf771d8ec751ee9ba7eba19120d8d7e07f4dc4f8e73fcc89603",
+      "excerpt_hash": "77bf3286281deb3409dd57690ee3af63c346b8fd772251e89f1633c947547ee3",
+      "source_id": "rock_developer",
+      "source_key": "e3fb143317b0a92c",
+      "source_record_id": "rock_developer:article:2487",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/tool-parameters"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "28e1ec1af925587e1aa05bb268976708dc4085ffcb8e02aabe2c156ac99cdae4",
+      "excerpt_hash": "c5dae607591f844049c7eecde871d0cc39923e9b8d03da9544e8f7c9965781f6",
+      "source_id": "rock_developer",
+      "source_key": "d8d7c232c812383f",
+      "source_record_id": "rock_developer:article:2492",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools"
     },
     {
       "authority": "source-code",
-      "content_hash": "1a9c0b348ce96141f3000f32e42ca478729117eb19d3f5af64c361243620c91f",
-      "excerpt_hash": "f7c24e4d0085ba3f0f9faea0afc8a3afb3836ba31d088317adf8eb2259ced46f",
+      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
+      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "10fdb4f14f925f90",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSession/AIAgentSession.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.cs"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
-      "authority": "official",
-      "content_hash": "0889f2dae7e2fb64b408f18b57173a9e332c4b6e49f65c5ad8ecd255c59b7768",
-      "excerpt_hash": "a44b659dd4e9f9f13cca6cce1aa8ef1e806e1a2cbd99ece3de8225aa2b62c3fa",
-      "source_id": "rock_documentation",
-      "source_key": "1007e337f89a52b2",
-      "source_record_id": "rock_documentation:1007e337f89a52b2",
-      "url": "https://community.rockrms.com/documentation/BookContent/9"
+      "authority": "official-developer",
+      "content_hash": "dc08db4a881d8a092e0973e650e0eec8e1bb3f855793dd8191691e4e4bed80dd",
+      "excerpt_hash": "fdf5e2f42feebf00d760b21586d3309d03e564a7097a6a53034e5a6765baf5b4",
+      "source_id": "rock_developer",
+      "source_key": "c5a1de077b0ba284",
+      "source_record_id": "rock_developer:article:1030",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7a7a30ced5b888f2605228442501b9250bbd9042e9e5962bca71cd21753f645d",
+      "excerpt_hash": "7a940c89b8a3973bb3246152720b408ecde69e3179f5caa81973fbc21fc85597",
+      "source_id": "rock_developer",
+      "source_key": "9d82300fec33a358",
+      "source_record_id": "rock_developer:article:1031",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8c743c35afbd710384b2997302d3dc54ca51474cdb38ac0fd797b57368e069eb",
+      "excerpt_hash": "efab0f72520fc59c238a51b89252cef8cea1eb03f74beeb9ca67cdc95b5fa986",
+      "source_id": "rock_developer",
+      "source_key": "074a2b271eca8da5",
+      "source_record_id": "rock_developer:article:2489",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a05dc1f637c5da3c",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "f8b657836ef515920ffb24bc3972839b4484c0d4ce7af54e4a47362b5ceecfe8",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
+      "source_key": "bd359c503b146774",
+      "source_record_id": "media-insight:1cb65e44984bb55c",
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "fff4bf65fda2f422b1aad1f7123da20225409f94572fbb36135a4cc5c3159f81",
+      "excerpt_hash": "0b007bf10a6a1a2e535ef58eecf7a21b6a484c47e8ce519c98943fef78b071a6",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fdb27ea49ea121dd",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b5f4e99b1c2824e72149d62bfd8aa15a5b1a9b0ae1c785a4c1e5349d98fae7a0",
+      "excerpt_hash": "c03d7df5d89646fe299ffbd19d767fe1cddbbce372d62713e50ca5de38cfe349",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f0f11fc302cccc0f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs"
     },
     {
       "authority": "official-release",
-      "content_hash": "d8f8471dbf7bef8540fbcee4c0d54ff0e0ff3b3963b1813a9dc2e794b47b72f4",
-      "excerpt_hash": "29863be45a5ed82f00403ae17604d65b39b0fdea1335ccaa39f4a18ba3b53dc3",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "4a571d454fb02f22ff910935421d6799fa0ba5a70ddc6ea5291c6bfcdeebba63",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:84adfa608cc210bc",
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "34f563863781f0c8654098ed198c8e55cfc52e547dc2adf53430030c0bc5d411",
-      "excerpt_hash": "e6a2e33cffc86344b6d449fc18ce371e2415a4ed046bf0a67d7f09563f0242ec",
-      "source_id": "rock_developer",
-      "source_key": "c5a1de077b0ba284",
-      "source_record_id": "rock_developer:c5a1de077b0ba284",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "5ac486f4272bb3c27338d83c60fa1b40acbef719af52ed292313f7c8bf26c409",
-      "excerpt_hash": "b90d5141d19b0d2270254ba35120ead61c53305402e5b904bcf0cf2619a08c65",
-      "source_id": "rock_developer",
-      "source_key": "9d82300fec33a358",
-      "source_record_id": "rock_developer:9d82300fec33a358",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "75731cc1a5d353f33239b891fa743c350109b17b61db5b20a9e8575d9fc50992",
-      "excerpt_hash": "8e07eec4a948bc4a33da25a858611c73ff676eb76164e1de7178ae1892cf09a7",
-      "source_id": "rock_developer",
-      "source_key": "c97c2f93074313ed",
-      "source_record_id": "rock_developer:c97c2f93074313ed",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3dd5ae4e594121a28ab7d768eaa0fbb6bcaf986edabe0af501ad09672c66f4c3",
-      "excerpt_hash": "bab12807ad8fd6fd6f43be936d28ae5209d61e5e179366abfa26ef2953d61672",
-      "source_id": "rock_developer",
-      "source_key": "d522a2bab06881e5",
-      "source_record_id": "rock_developer:d522a2bab06881e5",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "24e793a1943b9f4c1794268c9d42dbd388f90650f80f2669007595cd3269a95b",
-      "excerpt_hash": "a2a2dfd111240e91dd8811b00021f7e2b9a289684dbbbe73da404fc044759402",
-      "source_id": "rock_developer",
-      "source_key": "e7c3d462133f0a4f",
-      "source_record_id": "rock_developer:e7c3d462133f0a4f",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3f8f85b9b193a6404856692391ec855ce406a8b1ca0317a160960c24e21358f5",
-      "excerpt_hash": "151c34d31f9ff338dc3923c33b2457ad0a266f867cad78ddf37a4e490616d547",
-      "source_id": "rock_developer",
-      "source_key": "1f781db987dcfb78",
-      "source_record_id": "rock_developer:1f781db987dcfb78",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2514504e4907aa45d90b88022207aa33b0234bbd5a2099856f73a9022398d590",
-      "excerpt_hash": "9d640b99c4659d841b0f52590224f5a332af0c07a020575c1a93e315e7b7e716",
-      "source_id": "rock_developer",
-      "source_key": "bdb43719d5f6f096",
-      "source_record_id": "rock_developer:bdb43719d5f6f096",
-      "url": "https://community.rockrms.com/developer/ai-agents/agents/agent-instructions"
-    },
-    {
-      "authority": "official-training",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "6612b451bd0ae178",
+      "source_id": "citation",
+      "source_key": "5be159c9a36ac037",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/core-concepts/automations"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "bc1ab3f2dff77e89",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "dd0d53998f998249",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s"
     },
     {
       "authority": "official-developer",
-      "content_hash": "dfa9d59b2a2463dd30c2ec6f5d319033b133e8e5b318b9a38c605ab18c614f45",
-      "excerpt_hash": "1eafd7f2987468a7416f1c770d942fae56ccc051e3051b4332ce0accbe324c84",
-      "source_id": "rock_developer",
-      "source_key": "12be2c3ea33c535a",
-      "source_record_id": "rock_developer:12be2c3ea33c535a",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "52625a693e5186cae95680f84ff2f513f1666f65641b72288c355fc5dfa33fa7",
-      "excerpt_hash": "fccf1064a381180dac6392d6d2d8a7e49c46863b71891a5414508b3fef7ec7d4",
-      "source_id": "rock_developer",
-      "source_key": "5ff72887724b2bac",
-      "source_record_id": "rock_developer:5ff72887724b2bac",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas"
-    },
-    {
-      "authority": "official-model-map",
-      "content_hash": "ca40f768e24b565e4e07e274f7b83f0a82cc62410d9c9b8b5606cb6b062c0f45",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:494d83c698793652",
-      "url": "https://community.rockrms.com/ModelMap"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "b1c4058f500fcac20a070b2b69d9e194c11b1bdabdaf273770ff6fa4b26e0a8b",
-      "excerpt_hash": "a37dee0f49e0590352ba6b28e9c32ca2155ddd0321f04308087aac5441be07e1",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b0958cc5668e0328",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "99640f0c33634b34ef5d21693021376ec9904dc9e8734ea4db41fce1955201ad",
-      "excerpt_hash": "c75b2b1d7d824eb161ff1dd452e0165bd46f7db301b711c03f424c28abcbb823",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d09a78eb4bf1cc5d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "ea220724cc43b4115d5024986149d1ffc76a3f9789747aa411d3c1d19ac672ad",
-      "excerpt_hash": "627ec635d230d07d6e40c9436e9b3be8f7b9912417ff8f3da4f7d38ee06b491e",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "25f597a1985f1275",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "f777d5f377d25cd04c6f272872756ec6868e5cc99814d0f25e5b4d8b12c722ad",
-      "excerpt_hash": "459ee51c9a635466aa47367d58acf6f98924a7d6fc57978c4d89bc5036d3069b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5456672677a9a0f1",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "06d308038112a94ed6b6d5c3a682d823ac1ebe62e82cc316a2db86d4d0762ab7",
-      "excerpt_hash": "eee0f914f4e85a94023cc01b470a91c613c15ffd3073a30f552dd7b2887a01ab",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3b3430eb7b5233ac",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "6494d2a34769b0755f8c0afd2c26f904287e89f73a42cdd160e8a1f092593b12",
-      "excerpt_hash": "873ec13f78271957093a56e8e4e1176a3f538a9d1a25e1378bfd4c10ceef1275",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "56294128c5752361",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8235f722f109a38e2ffb525fbc10567bc125e9fd463c1af6b1872fdeea2137d5",
-      "excerpt_hash": "9a045b7368be768a8b0d907e17239dcf7f8a2ed67020e9ef3ac9c8e3ab8e69b9",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "76f4d50d3390dad6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "6494fe783687ff18d3510c9223f052ff6257e584a0b7fbfa601d87a64396cf5b",
-      "excerpt_hash": "e4a0f91a3260421052adad93b5ba8ab0f87e9a9bc27b07a52c36c40c79cd8856",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0bad5865d37c1c16",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c3faadd45a22604078d5b440e81f73c0323d7d583fc475da238c3791e788c0d5",
-      "excerpt_hash": "aa549fce62ca30786f752e1c794f93d148f2117ce320cb747e1512a31106be7d",
+      "content_hash": "9771166bc75db8e7caf0ac3074508d49bd794921af42ee313635618c346044bd",
+      "excerpt_hash": "c75360cbe4858c0184907c5458f7778112a1395bb299fdcaad918be54a3d72f9",
       "source_id": "rock_developer",
       "source_key": "ba6e1848172030f6",
-      "source_record_id": "rock_developer:ba6e1848172030f6",
+      "source_record_id": "rock_developer:article:2616",
       "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools"
     },
     {
       "authority": "official-developer",
-      "content_hash": "e0cec2c1fb4dcdf1e3d57a5f36ec5ed819ee32cccb48119d45ea3ccb5d1364cb",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "content_hash": "3457f2af1b61de5c341f2b74daaaf87b61d1061fa3208ad43410b3fe0bb6a016",
+      "excerpt_hash": "cbc38a4be6c4b0db8ab75a55234e1eb506d32b5a41f0d017bcf0f67d98e520a6",
       "source_id": "rock_developer",
-      "source_key": "3206cee519301613",
-      "source_record_id": "rock_developer:3206cee519301613",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "2ec89c7c3b803bd73b949c58cc8450294e9b753ed9e1f0862ceb8c2212c26eae",
-      "excerpt_hash": "e1dbb9055aef1577d0c11b23cbc845a342633dac1eb90f23b0d6bee4abf9d3b3",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "a7eaa9970a918ee0",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "1474c376c4659b8e50d9b9a885bcd238778ba0b4f33f76a76ae93a64b154de47",
-      "excerpt_hash": "ceca2f5c8f24567177f4cf63614bd254d17ac52f25bb5bf344e984f6948205fe",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "12b92fc5e66108f6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "3ebe8ed0ae855d3c1546cbacb1770824e78e737e3bbb2ea4862b0e225367f8a6",
-      "excerpt_hash": "840f6d0c8618afc6f96a7981ddec4fac5589f2a09071360fab136e4d51fbf221",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "be55f425cc648c97",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs"
+      "source_key": "94936e1aaf6fe1c7",
+      "source_record_id": "rock_developer:article:2491",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/addorupdate-tools"
     },
     {
       "authority": "official-developer",
-      "content_hash": "163b74dfc5350652eed56208478c79c9161d0cf3cb8760686816ecd463150d32",
-      "excerpt_hash": "b18d5d3dd1eef69879a1b8ae9ac9965d5b324247da9a25fe978a839f22c085de",
+      "content_hash": "0156141e5afc605a4f78b487e439a7811f4e9941e3252ba862022ac420ae217f",
+      "excerpt_hash": "d3247fb2c8b3eb63d963710723512478d23c95c7b671b1caacec4421019a44ca",
       "source_id": "rock_developer",
-      "source_key": "14e05aa93849adba",
-      "source_record_id": "rock_developer:14e05aa93849adba",
-      "url": "https://community.rockrms.com/developer/ai-agents/skills/creating-skills"
+      "source_key": "d522a2bab06881e5",
+      "source_record_id": "rock_developer:article:2490",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools"
     },
     {
-      "authority": "source-code",
-      "content_hash": "22f486f84bcb27150b3b731f15a835e457d2564c74540f8c2d832b226820d842",
-      "excerpt_hash": "43c5d0e7ef44c82e5838068a7c85186e57605fc37e23f1015e26f2adcff08116",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "12f7dea6ac0aa605",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgent/AIAgentService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgent/AIAgentService.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "99e72409cdd3fe77ba6f82625147fbe95860757bc61c04c11d830df497e08829",
-      "excerpt_hash": "74b99060e816c9e5b18fc94f6e81525f151ed10e478238a1d353e8214c1adf1f",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "772ca53c849ca6d6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "88ba861ea4fa2e9671c8e5f597748e29e136635bb318793d835bd98048373f33",
-      "excerpt_hash": "4dd0eb31588025dc7b3ca4cd649e155bb507a40e50a01ffe4844f6a3261d812a",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0268ac03a771a419",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": "bc6c8d3d22d98d71c591205d014f2d386972da3e9239e9ba54b44fe38d2da5f3",
-      "excerpt_hash": "ea58653a970a4e2704680c3a9e92c60043a352d2eb535cc13858af1b94779ab0",
-      "source_id": "rock_podcast_rss",
-      "source_key": "44c37d376b652418",
-      "source_record_id": "rock_podcast_rss:1cb0de155ffacb15",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": "aedc395e0b7aacc5e5f165eb4a311f24c8adb790497026eb96c1ea89eb75027e",
-      "excerpt_hash": "9afc250019b4bbfa03adffceabbe5d26d93277ecc38164b1851286e622300042",
-      "source_id": "rock_podcast_rss",
-      "source_key": "512ed4dbdfde5317",
-      "source_record_id": "rock_podcast_rss:b1a7021dcd84650d",
-      "url": "https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212"
-    },
-    {
-      "authority": "community-answer",
-      "content_hash": "a541210891ef1443446e62ec2a122a1ad0df26507619c7d8d8a956b4379c8164",
-      "excerpt_hash": "cb8a8a29382d8cb0e9f715ef421ce21cdfbe6f8f2a94f88a3f1f91ce6abc4283",
-      "source_id": "rock_qa",
-      "source_key": "7c71a22de1006d62",
-      "source_record_id": "rock_qa:7c71a22de1006d62",
-      "url": "https://community.rockrms.com/ask/developing/2708"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "bd359c503b146774",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "fe0b6d3b462f6c75",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "874c48c7aa36826b",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "9c54a75bab4e39e3",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "e9afd5bba3859930",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/shorts/tW4104R1N_o"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "d2890df9787aa1ae",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "f325315718b03eb6",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "1fae67b5dc09e2b0",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "f65e43e50f4880430b86c9898e60f78438d65ebe30ec0d938ec834735cc30538",
-      "excerpt_hash": "2f1c1e36577d64d423372609e17dc12853f962519fe2cd22269aab0d2e92533d",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "authority": "official-developer",
+      "content_hash": "a3b6e409df0d0d7b4a6b53036dffbaa813f5214180c12b9b78f0b1e44e365c18",
+      "excerpt_hash": "51aaaeaefed43dda19ab18e19e7f6b5d38be41c62d0ba478e79fed3391c3b5cc",
+      "source_id": "rock_developer",
+      "source_key": "1f781db987dcfb78",
+      "source_record_id": "rock_developer:article:2858",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
+      "confidence": "normal",
+      "end_line": 40,
+      "heading": "Agent Summary",
       "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
-      "confidence": "high",
-      "end_line": 56,
-      "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
+      "section_id": "agent-summary",
       "source_keys": [
         "790df48a4843d338",
         "bb48dd2bf1992df6",
-        "2a94aef5f83aa079",
-        "4da60cf32b65caa5",
-        "84107cbe45e9bdf5",
-        "10fdb4f14f925f90",
-        "1007e337f89a52b2",
-        "776256c424368312",
-        "4da60cf32b65caa5"
+        "fe0b6d3b462f6c75"
       ],
-      "start_line": 29
-    },
-    {
-      "confidence": "high",
-      "end_line": 109,
-      "heading": "2. Scope And Terminology",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology",
-      "source_keys": [
-        "bb48dd2bf1992df6",
-        "2a94aef5f83aa079",
-        "4da60cf32b65caa5",
-        "c5a1de077b0ba284",
-        "9d82300fec33a358",
-        "c97c2f93074313ed",
-        "d522a2bab06881e5",
-        "e7c3d462133f0a4f",
-        "1f781db987dcfb78",
-        "e7c3d462133f0a4f",
-        "9d82300fec33a358",
-        "bdb43719d5f6f096",
-        "bdb43719d5f6f096",
-        "84107cbe45e9bdf5",
-        "1007e337f89a52b2",
-        "776256c424368312"
-      ],
-      "start_line": 57
+      "start_line": 18
     },
     {
       "confidence": "normal",
-      "end_line": 137,
-      "heading": "3. AI Agents And Automation Mental Model",
-      "needs_live_verification": true,
-      "section_id": "3-ai-agents-and-automation-mental-model",
+      "end_line": 60,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": false,
+      "section_id": "scope-and-boundaries",
       "source_keys": [
-        "bdb43719d5f6f096",
-        "9d82300fec33a358"
+        "790df48a4843d338"
       ],
-      "start_line": 110
+      "start_line": 41
     },
     {
-      "confidence": "high",
-      "end_line": 165,
-      "heading": "4. Source Authority And How To Use This Guide",
-      "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "confidence": "structural",
+      "end_line": 62,
+      "heading": "Mental Model",
+      "needs_live_verification": false,
+      "section_id": "mental-model",
       "source_keys": [
-        "6612b451bd0ae178",
-        "bc1ab3f2dff77e89",
-        "dd0d53998f998249",
+        "bb48dd2bf1992df6",
+        "2a94aef5f83aa079",
         "790df48a4843d338",
-        "bb48dd2bf1992df6",
-        "2a94aef5f83aa079",
-        "4da60cf32b65caa5",
-        "bdb43719d5f6f096",
+        "dcc9c3b1df657d9f",
         "84107cbe45e9bdf5",
-        "e7c3d462133f0a4f",
-        "c5a1de077b0ba284",
-        "c97c2f93074313ed",
-        "1f781db987dcfb78",
-        "9d82300fec33a358",
-        "d522a2bab06881e5",
-        "12be2c3ea33c535a",
-        "5ff72887724b2bac",
-        "776256c424368312",
-        "1007e337f89a52b2"
-      ],
-      "start_line": 138
-    },
-    {
-      "confidence": "normal",
-      "end_line": 217,
-      "heading": "5. Core Configuration And Data Model",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model",
-      "source_keys": [
-        "e7c3d462133f0a4f",
-        "bce31f25cb8a199e",
-        "10fdb4f14f925f90",
-        "b0958cc5668e0328",
-        "d09a78eb4bf1cc5d",
-        "25f597a1985f1275",
-        "5456672677a9a0f1",
-        "3b3430eb7b5233ac",
-        "56294128c5752361",
-        "76f4d50d3390dad6",
-        "0bad5865d37c1c16"
-      ],
-      "start_line": 166
-    },
-    {
-      "confidence": "normal",
-      "end_line": 246,
-      "heading": "6. Primary Entities And Relationships",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships",
-      "source_keys": [
-        "10fdb4f14f925f90",
-        "b0958cc5668e0328",
-        "d09a78eb4bf1cc5d",
-        "5456672677a9a0f1"
-      ],
-      "start_line": 218
-    },
-    {
-      "confidence": "structural",
-      "end_line": 248,
-      "heading": "7. Common AI Agents And Automation Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-ai-agents-and-automation-workflows",
-      "source_keys": [
-        "84107cbe45e9bdf5",
-        "1f781db987dcfb78",
-        "2a94aef5f83aa079",
-        "9d82300fec33a358",
-        "ba6e1848172030f6",
-        "776256c424368312",
-        "3206cee519301613"
-      ],
-      "start_line": 247
-    },
-    {
-      "confidence": "normal",
-      "end_line": 264,
-      "heading": "Staff Person Research",
-      "needs_live_verification": false,
-      "section_id": "7-common-ai-agents-and-automation-workflows-staff-person-research",
-      "source_keys": [
-        "84107cbe45e9bdf5"
-      ],
-      "start_line": 249
-    },
-    {
-      "confidence": "normal",
-      "end_line": 278,
-      "heading": "Group Lookup And Membership Insight",
-      "needs_live_verification": false,
-      "section_id": "7-common-ai-agents-and-automation-workflows-group-lookup-and-membership-insight",
-      "source_keys": [
-        "1f781db987dcfb78"
-      ],
-      "start_line": 265
-    },
-    {
-      "confidence": "normal",
-      "end_line": 294,
-      "heading": "Event Registration Support",
-      "needs_live_verification": true,
-      "section_id": "7-common-ai-agents-and-automation-workflows-event-registration-support",
-      "source_keys": [
-        "2a94aef5f83aa079",
-        "9d82300fec33a358"
-      ],
-      "start_line": 279
-    },
-    {
-      "confidence": "normal",
-      "end_line": 309,
-      "heading": "Connection Request Creation",
-      "needs_live_verification": false,
-      "section_id": "7-common-ai-agents-and-automation-workflows-connection-request-creation",
-      "source_keys": [
-        "ba6e1848172030f6"
-      ],
-      "start_line": 295
-    },
-    {
-      "confidence": "normal",
-      "end_line": 321,
-      "heading": "Chat Message Automation",
-      "needs_live_verification": true,
-      "section_id": "7-common-ai-agents-and-automation-workflows-chat-message-automation",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 310
-    },
-    {
-      "confidence": "normal",
-      "end_line": 338,
-      "heading": "Mobile Voice Agent",
-      "needs_live_verification": true,
-      "section_id": "7-common-ai-agents-and-automation-workflows-mobile-voice-agent",
-      "source_keys": [
-        "3206cee519301613"
-      ],
-      "start_line": 322
-    },
-    {
-      "confidence": "normal",
-      "end_line": 342,
-      "heading": "8. Agent Tools And Lookup Surfaces Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive",
-      "source_keys": [
-        "e7c3d462133f0a4f"
-      ],
-      "start_line": 339
-    },
-    {
-      "confidence": "normal",
-      "end_line": 365,
-      "heading": "Lookup Tools",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-lookup-tools",
-      "source_keys": [
-        "c97c2f93074313ed",
-        "d522a2bab06881e5"
-      ],
-      "start_line": 343
-    },
-    {
-      "confidence": "normal",
-      "end_line": 373,
-      "heading": "List Tools",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-list-tools",
-      "source_keys": [
-        "e7c3d462133f0a4f"
-      ],
-      "start_line": 366
-    },
-    {
-      "confidence": "structural",
-      "end_line": 377,
-      "heading": "Get Tools",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-get-tools",
-      "source_keys": [
-        "e7c3d462133f0a4f"
-      ],
-      "start_line": 374
-    },
-    {
-      "confidence": "structural",
-      "end_line": 383,
-      "heading": "Summary Tools",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-summary-tools",
-      "source_keys": [
-        "e7c3d462133f0a4f"
-      ],
-      "start_line": 378
-    },
-    {
-      "confidence": "normal",
-      "end_line": 394,
-      "heading": "Insight Tools",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-insight-tools",
-      "source_keys": [
-        "1f781db987dcfb78"
-      ],
-      "start_line": 384
-    },
-    {
-      "confidence": "normal",
-      "end_line": 410,
-      "heading": "AvailableAttributes Tools",
-      "needs_live_verification": true,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools",
-      "source_keys": [
-        "4da60cf32b65caa5"
-      ],
-      "start_line": 395
-    },
-    {
-      "confidence": "normal",
-      "end_line": 431,
-      "heading": "AddOrUpdate Tools",
-      "needs_live_verification": false,
-      "section_id": "8-agent-tools-and-lookup-surfaces-deep-dive-addorupdate-tools",
-      "source_keys": [
-        "12be2c3ea33c535a"
-      ],
-      "start_line": 411
-    },
-    {
-      "confidence": "normal",
-      "end_line": 453,
-      "heading": "9. Permissions And Data Boundaries Deep Dive",
-      "needs_live_verification": true,
-      "section_id": "9-permissions-and-data-boundaries-deep-dive",
-      "source_keys": [
-        "4da60cf32b65caa5",
-        "1007e337f89a52b2"
-      ],
-      "start_line": 432
-    },
-    {
-      "confidence": "normal",
-      "end_line": 476,
-      "heading": "Public vs Internal Agents",
-      "needs_live_verification": false,
-      "section_id": "9-permissions-and-data-boundaries-deep-dive-public-vs-internal-agents",
-      "source_keys": [
-        "bb48dd2bf1992df6"
-      ],
-      "start_line": 454
-    },
-    {
-      "confidence": "normal",
-      "end_line": 489,
-      "heading": "Raw ID Boundary",
-      "needs_live_verification": false,
-      "section_id": "9-permissions-and-data-boundaries-deep-dive-raw-id-boundary",
-      "source_keys": [
-        "4da60cf32b65caa5"
-      ],
-      "start_line": 477
-    },
-    {
-      "confidence": "normal",
-      "end_line": 518,
-      "heading": "Sensitive Data Classes",
-      "needs_live_verification": false,
-      "section_id": "9-permissions-and-data-boundaries-deep-dive-sensitive-data-classes",
-      "source_keys": [
-        "4da60cf32b65caa5"
-      ],
-      "start_line": 490
-    },
-    {
-      "confidence": "normal",
-      "end_line": 530,
-      "heading": "Generated v2 Endpoint Boundary",
-      "needs_live_verification": true,
-      "section_id": "9-permissions-and-data-boundaries-deep-dive-generated-v2-endpoint-boundary",
-      "source_keys": [
-        "a7eaa9970a918ee0",
-        "12b92fc5e66108f6",
-        "be55f425cc648c97"
-      ],
-      "start_line": 519
-    },
-    {
-      "confidence": "high",
-      "end_line": 559,
-      "heading": "10. Automation Design And Workflows Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-automation-design-and-workflows-deep-dive",
-      "source_keys": [
-        "1007e337f89a52b2",
-        "776256c424368312",
-        "6612b451bd0ae178",
-        "bc1ab3f2dff77e89",
-        "dd0d53998f998249"
-      ],
-      "start_line": 531
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 582,
-      "heading": "Trigger Design",
-      "needs_live_verification": false,
-      "section_id": "10-automation-design-and-workflows-deep-dive-trigger-design",
-      "source_keys": [
-        "6612b451bd0ae178"
-      ],
-      "start_line": 560
-    },
-    {
-      "confidence": "structural",
-      "end_line": 595,
-      "heading": "Action Design",
-      "needs_live_verification": false,
-      "section_id": "10-automation-design-and-workflows-deep-dive-action-design",
-      "source_keys": [
-        "1007e337f89a52b2",
-        "776256c424368312",
-        "6612b451bd0ae178",
-        "bc1ab3f2dff77e89",
-        "dd0d53998f998249"
-      ],
-      "start_line": 583
-    },
-    {
-      "confidence": "structural",
-      "end_line": 609,
-      "heading": "Agent-In-The-Loop Automation",
-      "needs_live_verification": false,
-      "section_id": "10-automation-design-and-workflows-deep-dive-agent-in-the-loop-automation",
-      "source_keys": [
-        "1007e337f89a52b2",
-        "776256c424368312",
-        "6612b451bd0ae178",
-        "bc1ab3f2dff77e89",
-        "dd0d53998f998249"
-      ],
-      "start_line": 596
-    },
-    {
-      "confidence": "structural",
-      "end_line": 622,
-      "heading": "Agent-As-Reviewer Automation",
-      "needs_live_verification": true,
-      "section_id": "10-automation-design-and-workflows-deep-dive-agent-as-reviewer-automation",
-      "source_keys": [
-        "1007e337f89a52b2",
-        "776256c424368312",
-        "6612b451bd0ae178",
-        "bc1ab3f2dff77e89",
-        "dd0d53998f998249"
-      ],
-      "start_line": 610
-    },
-    {
-      "confidence": "structural",
-      "end_line": 626,
-      "heading": "11. Verification And Review Gates Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "11-verification-and-review-gates-deep-dive",
-      "source_keys": [
-        "6612b451bd0ae178",
-        "1007e337f89a52b2",
-        "ba6e1848172030f6"
-      ],
-      "start_line": 623
-    },
-    {
-      "confidence": "structural",
-      "end_line": 636,
-      "heading": "Read-Only Low-Risk Gate",
-      "needs_live_verification": true,
-      "section_id": "11-verification-and-review-gates-deep-dive-read-only-low-risk-gate",
-      "source_keys": [
-        "6612b451bd0ae178"
-      ],
-      "start_line": 627
-    },
-    {
-      "confidence": "structural",
-      "end_line": 650,
-      "heading": "Sensitive Read Gate",
-      "needs_live_verification": true,
-      "section_id": "11-verification-and-review-gates-deep-dive-sensitive-read-gate",
-      "source_keys": [
-        "6612b451bd0ae178"
-      ],
-      "start_line": 637
-    },
-    {
-      "confidence": "structural",
-      "end_line": 664,
-      "heading": "Write Preview Gate",
-      "needs_live_verification": false,
-      "section_id": "11-verification-and-review-gates-deep-dive-write-preview-gate",
-      "source_keys": [
-        "6612b451bd0ae178"
-      ],
-      "start_line": 651
-    },
-    {
-      "confidence": "structural",
-      "end_line": 674,
-      "heading": "Post-Write Verification Gate",
-      "needs_live_verification": false,
-      "section_id": "11-verification-and-review-gates-deep-dive-post-write-verification-gate",
-      "source_keys": [
-        "6612b451bd0ae178"
-      ],
-      "start_line": 665
-    },
-    {
-      "confidence": "normal",
-      "end_line": 692,
-      "heading": "Security Review Gate",
-      "needs_live_verification": true,
-      "section_id": "11-verification-and-review-gates-deep-dive-security-review-gate",
-      "source_keys": [
-        "1007e337f89a52b2"
-      ],
-      "start_line": 675
-    },
-    {
-      "confidence": "normal",
-      "end_line": 696,
-      "heading": "Debugging Gate",
-      "needs_live_verification": true,
-      "section_id": "11-verification-and-review-gates-deep-dive-debugging-gate",
-      "source_keys": [
-        "ba6e1848172030f6"
-      ],
-      "start_line": 693
-    },
-    {
-      "confidence": "structural",
-      "end_line": 698,
-      "heading": "12. Related Rock Areas: Security, Api Integrations, Workflows, Platform Configuration, Data Views, Reports, Operations, Lava",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava",
-      "source_keys": [
-        "1007e337f89a52b2",
-        "a7eaa9970a918ee0",
-        "776256c424368312",
-        "3b3430eb7b5233ac",
-        "c5a1de077b0ba284"
-      ],
-      "start_line": 697
-    },
-    {
-      "confidence": "normal",
-      "end_line": 702,
-      "heading": "Security",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-security",
-      "source_keys": [
-        "1007e337f89a52b2"
-      ],
-      "start_line": 699
-    },
-    {
-      "confidence": "normal",
-      "end_line": 706,
-      "heading": "API Integrations",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-api-integrations",
-      "source_keys": [
-        "a7eaa9970a918ee0",
-        "776256c424368312"
-      ],
-      "start_line": 703
-    },
-    {
-      "confidence": "structural",
-      "end_line": 710,
-      "heading": "Workflows",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-workflows",
-      "source_keys": [
-        "a7eaa9970a918ee0",
-        "776256c424368312"
-      ],
-      "start_line": 707
-    },
-    {
-      "confidence": "structural",
-      "end_line": 714,
-      "heading": "Platform Configuration",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-platform-configuration",
-      "source_keys": [
-        "a7eaa9970a918ee0",
-        "776256c424368312"
-      ],
-      "start_line": 711
-    },
-    {
-      "confidence": "normal",
-      "end_line": 718,
-      "heading": "Data Views",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-data-views",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 715
-    },
-    {
-      "confidence": "structural",
-      "end_line": 732,
-      "heading": "Reports",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-reports",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 719
-    },
-    {
-      "confidence": "normal",
-      "end_line": 736,
-      "heading": "Operations",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-operations",
-      "source_keys": [
-        "3b3430eb7b5233ac"
-      ],
-      "start_line": 733
-    },
-    {
-      "confidence": "normal",
-      "end_line": 740,
-      "heading": "Lava",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-lava",
-      "source_keys": [
-        "c5a1de077b0ba284"
-      ],
-      "start_line": 737
-    },
-    {
-      "confidence": "normal",
-      "end_line": 781,
-      "heading": "13. Administration And Operational Guardrails",
-      "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails",
-      "source_keys": [
-        "790df48a4843d338",
-        "14e05aa93849adba"
-      ],
-      "start_line": 741
-    },
-    {
-      "confidence": "structural",
-      "end_line": 783,
-      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "790df48a4843d338",
-        "bb48dd2bf1992df6",
-        "bdb43719d5f6f096",
-        "84107cbe45e9bdf5",
-        "4da60cf32b65caa5",
-        "e7c3d462133f0a4f",
-        "c5a1de077b0ba284",
-        "c97c2f93074313ed",
-        "1f781db987dcfb78",
-        "9d82300fec33a358",
-        "d522a2bab06881e5",
-        "12be2c3ea33c535a",
-        "5ff72887724b2bac",
-        "ba6e1848172030f6",
-        "12f7dea6ac0aa605",
-        "10fdb4f14f925f90",
-        "56294128c5752361",
-        "d09a78eb4bf1cc5d",
-        "25f597a1985f1275",
-        "b0958cc5668e0328",
-        "5456672677a9a0f1",
-        "3b3430eb7b5233ac",
-        "a7eaa9970a918ee0",
-        "772ca53c849ca6d6",
-        "12b92fc5e66108f6",
-        "0268ac03a771a419",
-        "be55f425cc648c97"
-      ],
-      "start_line": 782
-    },
-    {
-      "confidence": "normal",
-      "end_line": 802,
-      "heading": "Developer Docs",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-docs",
-      "source_keys": [
-        "790df48a4843d338",
-        "bb48dd2bf1992df6",
-        "bdb43719d5f6f096",
-        "84107cbe45e9bdf5",
-        "4da60cf32b65caa5",
-        "e7c3d462133f0a4f",
-        "c5a1de077b0ba284",
-        "c97c2f93074313ed",
-        "1f781db987dcfb78",
-        "9d82300fec33a358",
-        "d522a2bab06881e5",
-        "12be2c3ea33c535a",
-        "5ff72887724b2bac",
-        "ba6e1848172030f6"
-      ],
-      "start_line": 784
-    },
-    {
-      "confidence": "normal",
-      "end_line": 823,
-      "heading": "Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
-      "source_keys": [
-        "12f7dea6ac0aa605",
-        "10fdb4f14f925f90",
-        "56294128c5752361",
-        "d09a78eb4bf1cc5d",
-        "25f597a1985f1275",
-        "b0958cc5668e0328",
-        "5456672677a9a0f1",
-        "3b3430eb7b5233ac",
-        "a7eaa9970a918ee0",
-        "772ca53c849ca6d6",
-        "12b92fc5e66108f6",
-        "0268ac03a771a419",
-        "be55f425cc648c97"
-      ],
-      "start_line": 803
-    },
-    {
-      "confidence": "normal",
-      "end_line": 831,
-      "heading": "Native Tool Development",
-      "needs_live_verification": true,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-native-tool-development",
-      "source_keys": [
-        "9d82300fec33a358",
-        "12be2c3ea33c535a",
-        "5ff72887724b2bac"
-      ],
-      "start_line": 824
-    },
-    {
-      "confidence": "normal",
-      "end_line": 854,
-      "heading": "Lava Tool Development",
-      "needs_live_verification": true,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-tool-development",
-      "source_keys": [
-        "c5a1de077b0ba284"
-      ],
-      "start_line": 832
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 892,
-      "heading": "15. Reporting, Analytics, And Model Map",
-      "needs_live_verification": true,
-      "section_id": "15-reporting-analytics-and-model-map",
-      "source_keys": [
-        "bce31f25cb8a199e"
-      ],
-      "start_line": 855
-    },
-    {
-      "confidence": "high",
-      "end_line": 917,
-      "heading": "16. Version And Release Caveats",
-      "needs_live_verification": true,
-      "section_id": "16-version-and-release-caveats",
-      "source_keys": [
-        "776256c424368312",
-        "776256c424368312",
-        "1007e337f89a52b2",
-        "776256c424368312",
-        "776256c424368312",
-        "3206cee519301613",
-        "44c37d376b652418",
-        "512ed4dbdfde5317"
-      ],
-      "start_line": 893
-    },
-    {
-      "confidence": "structural",
-      "end_line": 919,
-      "heading": "17. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "17-implementation-playbooks",
-      "source_keys": [
-        "bb48dd2bf1992df6",
-        "bdb43719d5f6f096",
-        "d522a2bab06881e5",
-        "1f781db987dcfb78",
-        "12be2c3ea33c535a",
-        "3b3430eb7b5233ac"
-      ],
-      "start_line": 918
-    },
-    {
-      "confidence": "normal",
-      "end_line": 936,
-      "heading": "Playbook: Build A Read-Only Staff Agent",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-build-a-read-only-staff-agent",
-      "source_keys": [
-        "bb48dd2bf1992df6",
         "bdb43719d5f6f096"
       ],
-      "start_line": 920
+      "start_line": 61
     },
     {
       "confidence": "normal",
-      "end_line": 949,
-      "heading": "Playbook: Build A Custom Lookup Tool",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-build-a-custom-lookup-tool",
-      "source_keys": [
-        "d522a2bab06881e5"
-      ],
-      "start_line": 937
-    },
-    {
-      "confidence": "normal",
-      "end_line": 964,
-      "heading": "Playbook: Build A Lava Insight Tool",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-build-a-lava-insight-tool",
-      "source_keys": [
-        "1f781db987dcfb78"
-      ],
-      "start_line": 950
-    },
-    {
-      "confidence": "normal",
-      "end_line": 979,
-      "heading": "Playbook: Build A Native AddOrUpdate Tool",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-build-a-native-addorupdate-tool",
-      "source_keys": [
-        "12be2c3ea33c535a"
-      ],
-      "start_line": 965
-    },
-    {
-      "confidence": "normal",
-      "end_line": 992,
-      "heading": "Playbook: Add A Skill To An Agent",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-add-a-skill-to-an-agent",
-      "source_keys": [
-        "3b3430eb7b5233ac"
-      ],
-      "start_line": 980
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1004,
-      "heading": "Playbook: Configure Chat Message Automation",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-configure-chat-message-automation",
-      "source_keys": [
-        "3b3430eb7b5233ac"
-      ],
-      "start_line": 993
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1006,
-      "heading": "18. Troubleshooting Decision Tree",
+      "end_line": 70,
+      "heading": "Agent, skill and tool",
       "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree",
+      "section_id": "mental-model-agent-skill-and-tool",
       "source_keys": [
-        "ba6e1848172030f6",
-        "1007e337f89a52b2",
-        "12b92fc5e66108f6",
-        "776256c424368312",
-        "7c71a22de1006d62"
+        "bb48dd2bf1992df6",
+        "2a94aef5f83aa079",
+        "790df48a4843d338"
       ],
-      "start_line": 1005
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1021,
-      "heading": "Agent Does Not Call The Expected Tool",
-      "needs_live_verification": true,
-      "section_id": "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
-      "source_keys": [
-        "ba6e1848172030f6"
-      ],
-      "start_line": 1007
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1036,
-      "heading": "Tool Returns No Records",
-      "needs_live_verification": true,
-      "section_id": "18-troubleshooting-decision-tree-tool-returns-no-records",
-      "source_keys": [
-        "ba6e1848172030f6"
-      ],
-      "start_line": 1022
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1049,
-      "heading": "Tool Returns Too Much Data",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-tool-returns-too-much-data",
-      "source_keys": [
-        "ba6e1848172030f6"
-      ],
-      "start_line": 1037
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1064,
-      "heading": "Write Tool Fails",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-write-tool-fails",
-      "source_keys": [
-        "ba6e1848172030f6"
-      ],
-      "start_line": 1050
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1079,
-      "heading": "Permissions Look Wrong",
-      "needs_live_verification": true,
-      "section_id": "18-troubleshooting-decision-tree-permissions-look-wrong",
-      "source_keys": [
-        "1007e337f89a52b2"
-      ],
-      "start_line": 1065
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1092,
-      "heading": "API Endpoint Denies Access",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-api-endpoint-denies-access",
-      "source_keys": [
-        "12b92fc5e66108f6",
-        "776256c424368312"
-      ],
-      "start_line": 1080
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1105,
-      "heading": "Lava WebRequest Or External Call Behaves Unexpectedly",
-      "needs_live_verification": true,
-      "section_id": "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1093
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1107,
-      "heading": "19. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1106
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1119,
-      "heading": "Recipe: “Find The Right Person”",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-find-the-right-person",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1108
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1127,
-      "heading": "Recipe: “Summarize This Person”",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-summarize-this-person",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1120
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1138,
-      "heading": "Recipe: “Draft A Communication”",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-draft-a-communication",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1128
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1147,
-      "heading": "Recipe: “Create A Connection Request”",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-create-a-connection-request",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1139
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1156,
-      "heading": "Recipe: “Explain A Workflow Queue”",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-explain-a-workflow-queue",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1148
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1167,
-      "heading": "Recipe: “Audit Agent Security”",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-audit-agent-security",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1157
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1179,
-      "heading": "Recipe: “Build A Safe Public Agent”",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-build-a-safe-public-agent",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1168
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1189,
-      "heading": "Recipe: “Review An Agent Answer”",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-review-an-agent-answer",
-      "source_keys": [
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1180
+      "start_line": 63
     },
     {
       "confidence": "citation-only",
-      "end_line": 1215,
-      "heading": "Approved Claim Coverage",
+      "end_line": 85,
+      "heading": "Control stack",
       "needs_live_verification": true,
-      "section_id": "approved-claim-coverage",
+      "section_id": "mental-model-control-stack",
       "source_keys": [
-        "bd359c503b146774",
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 71
+    },
+    {
+      "confidence": "normal",
+      "end_line": 91,
+      "heading": "Chat, MCP, Internal and Public are separate choices",
+      "needs_live_verification": false,
+      "section_id": "mental-model-chat-mcp-internal-and-public-are-separate-choices",
+      "source_keys": [
+        "bb48dd2bf1992df6",
+        "84107cbe45e9bdf5",
+        "bdb43719d5f6f096"
+      ],
+      "start_line": 86
+    },
+    {
+      "confidence": "structural",
+      "end_line": 93,
+      "heading": "Agent Tools And Lookup Surfaces",
+      "needs_live_verification": false,
+      "section_id": "agent-tools-and-lookup-surfaces",
+      "source_keys": [
+        "4da60cf32b65caa5",
+        "e7c3d462133f0a4f",
+        "dcc9c3b1df657d9f",
+        "c97c2f93074313ed",
+        "ce4ad75c4d04ae37",
+        "91db7ad6dee03410",
+        "2a056e99824af72b",
+        "e3fb143317b0a92c",
+        "d8d7c232c812383f",
+        "d275b5b94a9da833",
+        "c5a1de077b0ba284",
+        "9d82300fec33a358",
+        "074a2b271eca8da5"
+      ],
+      "start_line": 92
+    },
+    {
+      "confidence": "normal",
+      "end_line": 110,
+      "heading": "Shape tools around intent",
+      "needs_live_verification": false,
+      "section_id": "agent-tools-and-lookup-surfaces-shape-tools-around-intent",
+      "source_keys": [
+        "4da60cf32b65caa5",
+        "e7c3d462133f0a4f",
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 94
+    },
+    {
+      "confidence": "normal",
+      "end_line": 116,
+      "heading": "Use lookup, list and get as a sequence",
+      "needs_live_verification": false,
+      "section_id": "agent-tools-and-lookup-surfaces-use-lookup-list-and-get-as-a-sequence",
+      "source_keys": [
+        "c97c2f93074313ed",
+        "ce4ad75c4d04ae37",
+        "91db7ad6dee03410",
+        "2a056e99824af72b"
+      ],
+      "start_line": 111
+    },
+    {
+      "confidence": "normal",
+      "end_line": 126,
+      "heading": "Design parameters for a model caller",
+      "needs_live_verification": false,
+      "section_id": "agent-tools-and-lookup-surfaces-design-parameters-for-a-model-caller",
+      "source_keys": [
+        "e3fb143317b0a92c",
+        "4da60cf32b65caa5",
+        "d8d7c232c812383f",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 117
+    },
+    {
+      "confidence": "normal",
+      "end_line": 139,
+      "heading": "Choose Lava or native code deliberately",
+      "needs_live_verification": false,
+      "section_id": "agent-tools-and-lookup-surfaces-choose-lava-or-native-code-deliberately",
+      "source_keys": [
+        "c5a1de077b0ba284",
+        "9d82300fec33a358",
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 127
+    },
+    {
+      "confidence": "normal",
+      "end_line": 145,
+      "heading": "Paginate according to authorization behavior",
+      "needs_live_verification": false,
+      "section_id": "agent-tools-and-lookup-surfaces-paginate-according-to-authorization-behavior",
+      "source_keys": [
+        "ce4ad75c4d04ae37",
+        "074a2b271eca8da5"
+      ],
+      "start_line": 140
+    },
+    {
+      "confidence": "structural",
+      "end_line": 147,
+      "heading": "Permissions And Data Boundaries",
+      "needs_live_verification": false,
+      "section_id": "permissions-and-data-boundaries",
+      "source_keys": [
+        "bb48dd2bf1992df6",
+        "2a94aef5f83aa079",
+        "dcc9c3b1df657d9f",
+        "a05dc1f637c5da3c",
         "fe0b6d3b462f6c75",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 146
+    },
+    {
+      "confidence": "normal",
+      "end_line": 163,
+      "heading": "Apply least privilege at every layer",
+      "needs_live_verification": true,
+      "section_id": "permissions-and-data-boundaries-apply-least-privilege-at-every-layer",
+      "source_keys": [
+        "bb48dd2bf1992df6",
+        "2a94aef5f83aa079",
+        "dcc9c3b1df657d9f",
+        "bb48dd2bf1992df6"
+      ],
+      "start_line": 148
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 180,
+      "heading": "Keep database access behind Rock controls",
+      "needs_live_verification": false,
+      "section_id": "permissions-and-data-boundaries-keep-database-access-behind-rock-controls",
+      "source_keys": [
+        "a05dc1f637c5da3c",
+        "fe0b6d3b462f6c75"
+      ],
+      "start_line": 164
+    },
+    {
+      "confidence": "normal",
+      "end_line": 186,
+      "heading": "Treat authorization changes as high-risk mutations",
+      "needs_live_verification": false,
+      "section_id": "permissions-and-data-boundaries-treat-authorization-changes-as-high-risk-mutations",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 181
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 192,
+      "heading": "Bound MCP authentication",
+      "needs_live_verification": true,
+      "section_id": "permissions-and-data-boundaries-bound-mcp-authentication",
+      "source_keys": [
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 187
+    },
+    {
+      "confidence": "normal",
+      "end_line": 210,
+      "heading": "Prompt And Tool Boundaries",
+      "needs_live_verification": true,
+      "section_id": "prompt-and-tool-boundaries",
+      "source_keys": [
+        "bdb43719d5f6f096",
         "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "bd359c503b146774",
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 193
+    },
+    {
+      "confidence": "structural",
+      "end_line": 212,
+      "heading": "Automation Design And Workflows",
+      "needs_live_verification": false,
+      "section_id": "automation-design-and-workflows",
+      "source_keys": [
+        "9d82300fec33a358",
         "dcc9c3b1df657d9f",
         "bd359c503b146774",
-        "874c48c7aa36826b",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
+        "fdb27ea49ea121dd",
+        "f0f11fc302cccc0f",
+        "776256c424368312",
+        "5be159c9a36ac037"
+      ],
+      "start_line": 211
+    },
+    {
+      "confidence": "normal",
+      "end_line": 229,
+      "heading": "Separate reasoning, drafting and execution",
+      "needs_live_verification": false,
+      "section_id": "automation-design-and-workflows-separate-reasoning-drafting-and-execution",
+      "source_keys": [
+        "9d82300fec33a358",
+        "dcc9c3b1df657d9f",
+        "bd359c503b146774"
+      ],
+      "start_line": 213
+    },
+    {
+      "confidence": "normal",
+      "end_line": 244,
+      "heading": "Use Rock workflows as bounded action surfaces",
+      "needs_live_verification": true,
+      "section_id": "automation-design-and-workflows-use-rock-workflows-as-bounded-action-surfaces",
+      "source_keys": [
+        "fdb27ea49ea121dd",
+        "f0f11fc302cccc0f",
+        "776256c424368312"
+      ],
+      "start_line": 230
+    },
+    {
+      "confidence": "normal",
+      "end_line": 257,
+      "heading": "Connect event-driven automation carefully",
+      "needs_live_verification": true,
+      "section_id": "automation-design-and-workflows-connect-event-driven-automation-carefully",
+      "source_keys": [
+        "776256c424368312"
+      ],
+      "start_line": 245
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 263,
+      "heading": "Treat generated summaries as assistance",
+      "needs_live_verification": true,
+      "section_id": "automation-design-and-workflows-treat-generated-summaries-as-assistance",
+      "source_keys": [
+        "5be159c9a36ac037"
+      ],
+      "start_line": 258
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 271,
+      "heading": "Include training in the rollout",
+      "needs_live_verification": false,
+      "section_id": "automation-design-and-workflows-include-training-in-the-rollout",
+      "source_keys": [
+        "bd359c503b146774",
         "bd359c503b146774",
         "bd359c503b146774"
       ],
-      "start_line": 1190
+      "start_line": 264
+    },
+    {
+      "confidence": "normal",
+      "end_line": 290,
+      "heading": "Verification And Review Gates",
+      "needs_live_verification": true,
+      "section_id": "verification-and-review-gates",
+      "source_keys": [
+        "ba6e1848172030f6",
+        "fe0b6d3b462f6c75"
+      ],
+      "start_line": 272
+    },
+    {
+      "confidence": "normal",
+      "end_line": 301,
+      "heading": "Version And Authority Caveats",
+      "needs_live_verification": false,
+      "section_id": "version-and-authority-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "dcc9c3b1df657d9f",
+        "776256c424368312"
+      ],
+      "start_line": 291
+    },
+    {
+      "confidence": "structural",
+      "end_line": 303,
+      "heading": "Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree",
+      "source_keys": [
+        "9d82300fec33a358",
+        "4da60cf32b65caa5",
+        "ba6e1848172030f6",
+        "84107cbe45e9bdf5",
+        "bb48dd2bf1992df6",
+        "074a2b271eca8da5",
+        "c5a1de077b0ba284",
+        "94936e1aaf6fe1c7",
+        "5be159c9a36ac037",
+        "dcc9c3b1df657d9f",
+        "fdb27ea49ea121dd"
+      ],
+      "start_line": 302
+    },
+    {
+      "confidence": "normal",
+      "end_line": 314,
+      "heading": "The agent does not show a tool",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-agent-does-not-show-a-tool",
+      "source_keys": [
+        "9d82300fec33a358"
+      ],
+      "start_line": 304
+    },
+    {
+      "confidence": "normal",
+      "end_line": 324,
+      "heading": "The agent chooses the wrong tool",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-agent-chooses-the-wrong-tool",
+      "source_keys": [
+        "4da60cf32b65caa5",
+        "ba6e1848172030f6"
+      ],
+      "start_line": 315
+    },
+    {
+      "confidence": "normal",
+      "end_line": 334,
+      "heading": "The agent acts on the wrong person or entity",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-agent-acts-on-the-wrong-person-or-entity",
+      "source_keys": [
+        "84107cbe45e9bdf5"
+      ],
+      "start_line": 325
+    },
+    {
+      "confidence": "normal",
+      "end_line": 344,
+      "heading": "The tool returns unauthorized or sensitive data",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-tool-returns-unauthorized-or-sensitive-data",
+      "source_keys": [
+        "bb48dd2bf1992df6"
+      ],
+      "start_line": 335
+    },
+    {
+      "confidence": "normal",
+      "end_line": 354,
+      "heading": "A list is incomplete, repeats items or becomes slow on later pages",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-list-is-incomplete-repeats-items-or-becomes-slow-on-later-pages",
+      "source_keys": [
+        "074a2b271eca8da5"
+      ],
+      "start_line": 345
+    },
+    {
+      "confidence": "normal",
+      "end_line": 364,
+      "heading": "A Lava tool errors or returns unexpected no-data",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-lava-tool-errors-or-returns-unexpected-no-data",
+      "source_keys": [
+        "c5a1de077b0ba284"
+      ],
+      "start_line": 355
+    },
+    {
+      "confidence": "normal",
+      "end_line": 376,
+      "heading": "A mutation was refused or changed the wrong state",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-mutation-was-refused-or-changed-the-wrong-state",
+      "source_keys": [
+        "94936e1aaf6fe1c7"
+      ],
+      "start_line": 365
     },
     {
       "confidence": "citation-only",
-      "end_line": 1236,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
+      "end_line": 385,
+      "heading": "A connection-request AI summary is missing",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-connection-request-ai-summary-is-missing",
       "source_keys": [
-        "fe0b6d3b462f6c75",
-        "bd359c503b146774",
-        "874c48c7aa36826b",
-        "9c54a75bab4e39e3",
-        "e9afd5bba3859930",
-        "d2890df9787aa1ae",
-        "f325315718b03eb6",
-        "1fae67b5dc09e2b0"
+        "5be159c9a36ac037"
       ],
-      "start_line": 1216
+      "start_line": 377
     },
     {
-      "confidence": "high",
-      "end_line": 1283,
-      "heading": "20. Source Map And Dependency Notes",
+      "confidence": "citation-only",
+      "end_line": 396,
+      "heading": "An MCP client cannot authenticate or discovers unexpected tools",
       "needs_live_verification": true,
-      "section_id": "20-source-map-and-dependency-notes",
+      "section_id": "troubleshooting-decision-tree-an-mcp-client-cannot-authenticate-or-discovers-unexpected-tools",
+      "source_keys": [
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 386
+    },
+    {
+      "confidence": "normal",
+      "end_line": 407,
+      "heading": "A workflow does not launch",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-workflow-does-not-launch",
+      "source_keys": [
+        "fdb27ea49ea121dd"
+      ],
+      "start_line": 397
+    },
+    {
+      "confidence": "structural",
+      "end_line": 409,
+      "heading": "Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "agent-task-recipes",
+      "source_keys": [
+        "d522a2bab06881e5",
+        "074a2b271eca8da5",
+        "2a056e99824af72b",
+        "94936e1aaf6fe1c7",
+        "9d82300fec33a358",
+        "dcc9c3b1df657d9f",
+        "fdb27ea49ea121dd",
+        "bb48dd2bf1992df6",
+        "ba6e1848172030f6",
+        "bd359c503b146774"
+      ],
+      "start_line": 408
+    },
+    {
+      "confidence": "normal",
+      "end_line": 440,
+      "heading": "Recipe: Design a safe read-only lookup surface",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-design-a-safe-read-only-lookup-surface",
+      "source_keys": [
+        "d522a2bab06881e5"
+      ],
+      "start_line": 410
+    },
+    {
+      "confidence": "normal",
+      "end_line": 465,
+      "heading": "Recipe: Build a bounded List and Get pair",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-bounded-list-and-get-pair",
+      "source_keys": [
+        "074a2b271eca8da5",
+        "2a056e99824af72b"
+      ],
+      "start_line": 441
+    },
+    {
+      "confidence": "normal",
+      "end_line": 494,
+      "heading": "Recipe: Add a controlled AddOrUpdate capability",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-add-a-controlled-addorupdate-capability",
+      "source_keys": [
+        "94936e1aaf6fe1c7"
+      ],
+      "start_line": 466
+    },
+    {
+      "confidence": "normal",
+      "end_line": 513,
+      "heading": "Recipe: Configure a drafting agent without send authority",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-configure-a-drafting-agent-without-send-authority",
+      "source_keys": [
+        "9d82300fec33a358",
+        "dcc9c3b1df657d9f"
+      ],
+      "start_line": 495
+    },
+    {
+      "confidence": "normal",
+      "end_line": 540,
+      "heading": "Recipe: Launch a workflow through an agent",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-launch-a-workflow-through-an-agent",
+      "source_keys": [
+        "fdb27ea49ea121dd"
+      ],
+      "start_line": 514
+    },
+    {
+      "confidence": "normal",
+      "end_line": 560,
+      "heading": "Recipe: Review a Public agent before launch",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-review-a-public-agent-before-launch",
+      "source_keys": [
+        "bb48dd2bf1992df6"
+      ],
+      "start_line": 541
+    },
+    {
+      "confidence": "normal",
+      "end_line": 579,
+      "heading": "Recipe: Diagnose incorrect tool selection",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-diagnose-incorrect-tool-selection",
+      "source_keys": [
+        "ba6e1848172030f6"
+      ],
+      "start_line": 561
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 599,
+      "heading": "Recipe: Roll out an agent-assisted process to staff",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-roll-out-an-agent-assisted-process-to-staff",
+      "source_keys": [
+        "bd359c503b146774"
+      ],
+      "start_line": 580
+    },
+    {
+      "confidence": "structural",
+      "end_line": 629,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": true,
+      "section_id": "known-gaps-and-live-verification",
+      "source_keys": [
+        "bd359c503b146774"
+      ],
+      "start_line": 600
+    },
+    {
+      "confidence": "structural",
+      "end_line": 631,
+      "heading": "Source Map",
+      "needs_live_verification": false,
+      "section_id": "source-map",
       "source_keys": [
         "790df48a4843d338",
         "bb48dd2bf1992df6",
         "bdb43719d5f6f096",
         "84107cbe45e9bdf5",
+        "2a94aef5f83aa079",
         "4da60cf32b65caa5",
         "e7c3d462133f0a4f",
-        "2a94aef5f83aa079",
-        "14e05aa93849adba",
         "c5a1de077b0ba284",
         "c97c2f93074313ed",
+        "ce4ad75c4d04ae37",
+        "91db7ad6dee03410",
         "1f781db987dcfb78",
         "9d82300fec33a358",
-        "d522a2bab06881e5",
-        "12be2c3ea33c535a",
-        "5ff72887724b2bac",
+        "074a2b271eca8da5",
+        "2a056e99824af72b",
+        "94936e1aaf6fe1c7",
+        "d8d7c232c812383f",
+        "e3fb143317b0a92c",
         "ba6e1848172030f6",
-        "3206cee519301613",
-        "1007e337f89a52b2",
         "776256c424368312",
-        "bce31f25cb8a199e",
-        "d275b5b94a9da833",
-        "6612b451bd0ae178",
-        "bc1ab3f2dff77e89",
-        "dd0d53998f998249"
+        "fe0b6d3b462f6c75",
+        "dcc9c3b1df657d9f",
+        "bd359c503b146774",
+        "5be159c9a36ac037",
+        "a05dc1f637c5da3c",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1237
+      "start_line": 630
+    },
+    {
+      "confidence": "normal",
+      "end_line": 653,
+      "heading": "Official developer documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-developer-documentation",
+      "source_keys": [
+        "790df48a4843d338",
+        "bb48dd2bf1992df6",
+        "bdb43719d5f6f096",
+        "84107cbe45e9bdf5",
+        "2a94aef5f83aa079",
+        "4da60cf32b65caa5",
+        "e7c3d462133f0a4f",
+        "c5a1de077b0ba284",
+        "c97c2f93074313ed",
+        "ce4ad75c4d04ae37",
+        "91db7ad6dee03410",
+        "1f781db987dcfb78",
+        "9d82300fec33a358",
+        "074a2b271eca8da5",
+        "2a056e99824af72b",
+        "94936e1aaf6fe1c7",
+        "d8d7c232c812383f",
+        "e3fb143317b0a92c",
+        "ba6e1848172030f6"
+      ],
+      "start_line": 632
+    },
+    {
+      "confidence": "normal",
+      "end_line": 662,
+      "heading": "Official release and media evidence",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-release-and-media-evidence",
+      "source_keys": [
+        "776256c424368312",
+        "fe0b6d3b462f6c75",
+        "dcc9c3b1df657d9f",
+        "bd359c503b146774",
+        "5be159c9a36ac037",
+        "a05dc1f637c5da3c"
+      ],
+      "start_line": 654
+    },
+    {
+      "confidence": "normal",
+      "end_line": 665,
+      "heading": "Immutable implementation evidence",
+      "needs_live_verification": false,
+      "section_id": "source-map-immutable-implementation-evidence",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 663
     }
   ],
-  "source_pack_hydrated_at": "2026-06-03T19:01:02+00:00",
+  "source_pack_hydrated_at": "2026-09-03T14:10:51+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "2d3ed6cc33f23d7fdf362fea462789e558be11e2ab68e6e9bc474ba77b0d7433",
-      "excerpt_hash": "13982be29f51735b5ace9a251c433052e8c55c8b85070fb4b490c13e0ddfaf2a",
+      "content_hash": "b34711c28f4279b5f4860445fccfbcbd4aa9fa9ba466f529a33ad3a5fcbd9cca",
+      "excerpt_hash": "2dbc4ee8334dd35a3d51437488b91746fedf36b928af2a8ee11682724b13dfc6",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "790df48a4843d338",
-      "source_record_id": "rock_developer:790df48a4843d338",
+      "source_record_id": "rock_developer:article:1027",
       "title": "AI Agents",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian",
-        "security",
         "sql"
       ],
       "url": "https://community.rockrms.com/developer/ai-agents",
@@ -2603,15 +1959,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "31d99a2c23b234b453f7fdf18953c0cb1e923de2dac86ac129a83b7a9cc2452d",
-      "excerpt_hash": "98be5762b365f9c2be6b042a80018ce245dfc29afa401d4c2187b691f448adc4",
+      "content_hash": "7626a7263bf09871183681f6ec7f9bc26b015d514fe66ed720e5539851545a8d",
+      "excerpt_hash": "8e185caa261d18a443518f9ee8baa6e3ec51e5db5923d1291d93bcebac1f7d72",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "bb48dd2bf1992df6",
-      "source_record_id": "rock_developer:bb48dd2bf1992df6",
+      "source_record_id": "rock_developer:article:1028",
       "title": "Agents",
       "topics": [
         "api",
@@ -2623,18 +1979,48 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "db1718e71f8d8e894ab74533eda1c13d2f37c3225a87518e9973ddb7ef0f05c5",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_youtube",
+      "source_key": "fe0b6d3b462f6c75",
+      "source_record_id": "media-insight:d03a93f4e7ef8c02",
+      "title": "AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight",
+      "topics": [
+        "ai",
+        "agents",
+        "mcp",
+        "voice",
+        "security",
+        "lava",
+        "tools",
+        "prompts",
+        "connected-services",
+        "roadmap",
+        "implementation"
+      ],
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "deb3f7aceb495afb25dfe0242c0f98be532583706694cea149eae213bc67982b",
-      "excerpt_hash": "8d6ef38096464085e99b56e114cb9e2af044d4f7b9ca9a3f3fd34da6f76ef1a2",
+      "content_hash": "c91dbee4f65fe5c2fbe9bacb6ed7c67785a0b21ad41d106a69dda757c1e0435c",
+      "excerpt_hash": "89a76d80c8aa7240960776686766dae25c35cc5425e3f120d537d78d765fa713",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "2a94aef5f83aa079",
-      "source_record_id": "rock_developer:2a94aef5f83aa079",
+      "source_record_id": "rock_developer:article:1036",
       "title": "Skills",
       "topics": [
         "api",
@@ -2648,18 +2034,95 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "12c85932e302ebe4b8e759f6a754a8aaee7739d9db42a15420ce63be1ad1f31f",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_youtube",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "media-insight:a437d9f5be13ad57",
+      "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218 Transcript Insight",
+      "topics": [
+        "rock-iq",
+        "mcp",
+        "oauth",
+        "permissions",
+        "tool-governance",
+        "usage-governance",
+        "skills",
+        "mobile",
+        "caching",
+        "lava-tools",
+        "sessions",
+        "model-selection"
+      ],
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "cb4691cea9756d33113f7f16adda96886302c2541905ec7ee041132ad0af2903",
-      "excerpt_hash": "bfb285d910637c2cd5170b0927d718597ca9b4cb289f25cabf53b1df1d8e1712",
+      "content_hash": "23916f97906d46989f6c334dbb0193160e9a1691564ab72d862ae7dedde86587",
+      "excerpt_hash": "506be7db0f0f30a5c411606f90af220071e6d1e95d07c65529b0ed2b1a5880e4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "84107cbe45e9bdf5",
+      "source_record_id": "rock_developer:article:1034",
+      "title": "Context Anchors",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/agents/context-anchors",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "6b8701f7443475b6a25efd7b50f624c82667dbe2fa9367c2095f022501316fff",
+      "excerpt_hash": "f7dffabe7c3faa579d4ee0298a6d4536a8b89c61a850234306dc2b0c8dbd9feb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "bdb43719d5f6f096",
+      "source_record_id": "rock_developer:article:1033",
+      "title": "Agent Instructions",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/agents/agent-instructions",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "87d47335dd826757749aa178a912a4c6cbaca4539c3a583aed398e46322474b4",
+      "excerpt_hash": "eb05ecd77c03692f93c63cf5e7e6e1679c5efe3933061449524a17bfb6064a03",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "4da60cf32b65caa5",
-      "source_record_id": "rock_developer:4da60cf32b65caa5",
+      "source_record_id": "rock_developer:article:1029",
       "title": "Writing Custom Tools",
       "topics": [
         "api",
@@ -2675,30 +2138,304 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "dbf0ca98126cf52b750764aaced4611737aa529e68a14fc469db86739133a465",
-      "excerpt_hash": "06003b22e41da17c1bf26dac5b9a43a107305a6030812505b6713de1b1fe7dcd",
+      "content_hash": "762fbd648962bd1ffe5249c85b74593b9b61fca7564d880e9c23503329b20265",
+      "excerpt_hash": "c3a91e38ad2278455d97d66ee60399416ab8c3b9e7985cf2c5fc7eecce0b038b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "84107cbe45e9bdf5",
-      "source_record_id": "rock_developer:84107cbe45e9bdf5",
-      "title": "Context Anchors",
+      "source_key": "e7c3d462133f0a4f",
+      "source_record_id": "rock_developer:article:2488",
+      "title": "Types of Tools",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/ai-agents/agents/context-anchors",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7f06afdae4080ef7f62b902dec90b08633cccf48987cc7fcb801c68826933b8f",
+      "excerpt_hash": "9a9254cb2a4d4335572b5b228dddf259b528e59fa52c7ba5e91c1cda39126933",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c97c2f93074313ed",
+      "source_record_id": "rock_developer:article:2854",
+      "title": "Lookup Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "dc202390ddb16d226a8902baa7375ecc0bcf60a2bcedaafe91471512a006ed60",
+      "excerpt_hash": "afeacbb2deff854b01a818620d9f6d1c12d64a3c1c97f0fbfee665e11ae8e132",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "ce4ad75c4d04ae37",
+      "source_record_id": "rock_developer:article:2855",
+      "title": "List Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b7a233a3135968b9fa5923d6da455896257ef022344410d15d9dd03440726c56",
+      "excerpt_hash": "1b4454c47f6cf225a31a27c73563980f04ecee9752b7d74ac576f248f8b74baa",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "91db7ad6dee03410",
+      "source_record_id": "rock_developer:article:2856",
+      "title": "Get Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/get-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "35f64eabeb5edbb1716485893aab48cb18aacb303968c74b83d626b1a5d5116d",
+      "excerpt_hash": "df87626f65cab5a61713a6f74b0433f3a0554e00bc187b29575f011704fd7f32",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "2a056e99824af72b",
+      "source_record_id": "rock_developer:article:2493",
+      "title": "Get Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d15ef77932c5bbf771d8ec751ee9ba7eba19120d8d7e07f4dc4f8e73fcc89603",
+      "excerpt_hash": "77bf3286281deb3409dd57690ee3af63c346b8fd772251e89f1633c947547ee3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e3fb143317b0a92c",
+      "source_record_id": "rock_developer:article:2487",
+      "title": "Tool Parameters",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/tool-parameters",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "28e1ec1af925587e1aa05bb268976708dc4085ffcb8e02aabe2c156ac99cdae4",
+      "excerpt_hash": "c5dae607591f844049c7eecde871d0cc39923e9b8d03da9544e8f7c9965781f6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d8d7c232c812383f",
+      "source_record_id": "rock_developer:article:2492",
+      "title": "AvailableAttributes Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
       "version": null
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "1a9c0b348ce96141f3000f32e42ca478729117eb19d3f5af64c361243620c91f",
-      "excerpt_hash": "f7c24e4d0085ba3f0f9faea0afc8a3afb3836ba31d088317adf8eb2259ced46f",
+      "change_type": null,
+      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
+      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "dc08db4a881d8a092e0973e650e0eec8e1bb3f855793dd8191691e4e4bed80dd",
+      "excerpt_hash": "fdf5e2f42feebf00d760b21586d3309d03e564a7097a6a53034e5a6765baf5b4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c5a1de077b0ba284",
+      "source_record_id": "rock_developer:article:1030",
+      "title": "Lava Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7a7a30ced5b888f2605228442501b9250bbd9042e9e5962bca71cd21753f645d",
+      "excerpt_hash": "7a940c89b8a3973bb3246152720b408ecde69e3179f5caa81973fbc21fc85597",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9d82300fec33a358",
+      "source_record_id": "rock_developer:article:1031",
+      "title": "Native Tools",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8c743c35afbd710384b2997302d3dc54ca51474cdb38ac0fd797b57368e069eb",
+      "excerpt_hash": "efab0f72520fc59c238a51b89252cef8cea1eb03f74beeb9ca67cdc95b5fa986",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "074a2b271eca8da5",
+      "source_record_id": "rock_developer:article:2489",
+      "title": "List Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a05dc1f637c5da3c",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s",
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "f8b657836ef515920ffb24bc3972839b4484c0d4ce7af54e4a47362b5ceecfe8",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_youtube",
+      "source_key": "bd359c503b146774",
+      "source_record_id": "media-insight:1cb65e44984bb55c",
+      "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214 Transcript Insight",
+      "topics": [
+        "ai-budgeting",
+        "agent-artifacts",
+        "staff-training",
+        "lms",
+        "change-management",
+        "shadow-tools"
+      ],
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "fff4bf65fda2f422b1aad1f7123da20225409f94572fbb36135a4cc5c3159f81",
+      "excerpt_hash": "0b007bf10a6a1a2e535ef58eecf7a21b6a484c47e8ce519c98943fef78b071a6",
       "kind": "github_file",
       "language": "C#",
       "matched_terms": [
@@ -2707,46 +2444,47 @@
         "ai agents",
         "aiagents",
         "agent",
-        "agents"
+        "agents",
+        "workflows"
       ],
-      "path": "Rock/Model/AI/AIAgentSession/AIAgentSession.cs",
+      "path": "Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "10fdb4f14f925f90",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSession/AIAgentSession.cs",
-      "title": "Rock/Model/AI/AIAgentSession/AIAgentSession.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.cs"
+      "source_key": "fdb27ea49ea121dd",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs",
+      "title": "Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "0889f2dae7e2fb64b408f18b57173a9e332c4b6e49f65c5ad8ecd255c59b7768",
-      "excerpt_hash": "a44b659dd4e9f9f13cca6cce1aa8ef1e806e1a2cbd99ece3de8225aa2b62c3fa",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "1007e337f89a52b2",
-      "source_record_id": "rock_documentation:1007e337f89a52b2",
-      "title": "Rock Admin Hero Guide",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "security",
-        "usage"
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b5f4e99b1c2824e72149d62bfd8aa15a5b1a9b0ae1c785a4c1e5349d98fae7a0",
+      "excerpt_hash": "c03d7df5d89646fe299ffbd19d767fe1cddbbce372d62713e50ca5de38cfe349",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "ai agent",
+        "aiagent",
+        "ai agents",
+        "aiagents",
+        "agent",
+        "agents",
+        "workflows"
       ],
-      "url": "https://community.rockrms.com/documentation/BookContent/9",
-      "version": null
+      "path": "Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f0f11fc302cccc0f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs",
+      "title": "Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs"
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "new_feature",
-      "content_hash": "d8f8471dbf7bef8540fbcee4c0d54ff0e0ff3b3963b1813a9dc2e794b47b72f4",
-      "excerpt_hash": "29863be45a5ed82f00403ae17604d65b39b0fdea1335ccaa39f4a18ba3b53dc3",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "4a571d454fb02f22ff910935421d6799fa0ba5a70ddc6ea5291c6bfcdeebba63",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "December 8, 2025",
@@ -2764,19 +2502,52 @@
       "version": "18.1"
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "5be159c9a36ac037",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s",
+      "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "34f563863781f0c8654098ed198c8e55cfc52e547dc2adf53430030c0bc5d411",
-      "excerpt_hash": "e6a2e33cffc86344b6d449fc18ce371e2415a4ed046bf0a67d7f09563f0242ec",
+      "content_hash": "9771166bc75db8e7caf0ac3074508d49bd794921af42ee313635618c346044bd",
+      "excerpt_hash": "c75360cbe4858c0184907c5458f7778112a1395bb299fdcaad918be54a3d72f9",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "c5a1de077b0ba284",
-      "source_record_id": "rock_developer:c5a1de077b0ba284",
-      "title": "Lava Tools",
+      "source_key": "ba6e1848172030f6",
+      "source_record_id": "rock_developer:article:2616",
+      "title": "Debugging Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "3457f2af1b61de5c341f2b74daaaf87b61d1061fa3208ad43410b3fe0bb6a016",
+      "excerpt_hash": "cbc38a4be6c4b0db8ab75a55234e1eb506d32b5a41f0d017bcf0f67d98e520a6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "94936e1aaf6fe1c7",
+      "source_record_id": "rock_developer:article:2491",
+      "title": "AddOrUpdate Tools",
       "topics": [
         "api",
         "development",
@@ -2784,71 +2555,22 @@
         "obsidian",
         "sql"
       ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/addorupdate-tools",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "5ac486f4272bb3c27338d83c60fa1b40acbef719af52ed292313f7c8bf26c409",
-      "excerpt_hash": "b90d5141d19b0d2270254ba35120ead61c53305402e5b904bcf0cf2619a08c65",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9d82300fec33a358",
-      "source_record_id": "rock_developer:9d82300fec33a358",
-      "title": "Native Tools",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "75731cc1a5d353f33239b891fa743c350109b17b61db5b20a9e8575d9fc50992",
-      "excerpt_hash": "8e07eec4a948bc4a33da25a858611c73ff676eb76164e1de7178ae1892cf09a7",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "c97c2f93074313ed",
-      "source_record_id": "rock_developer:c97c2f93074313ed",
-      "title": "Lookup Tools",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3dd5ae4e594121a28ab7d768eaa0fbb6bcaf986edabe0af501ad09672c66f4c3",
-      "excerpt_hash": "bab12807ad8fd6fd6f43be936d28ae5209d61e5e179366abfa26ef2953d61672",
+      "content_hash": "0156141e5afc605a4f78b487e439a7811f4e9941e3252ba862022ac420ae217f",
+      "excerpt_hash": "d3247fb2c8b3eb63d963710723512478d23c95c7b671b1caacec4421019a44ca",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "d522a2bab06881e5",
-      "source_record_id": "rock_developer:d522a2bab06881e5",
+      "source_record_id": "rock_developer:article:2490",
       "title": "Lookup Tools",
       "topics": [
         "api",
@@ -2864,38 +2586,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "24e793a1943b9f4c1794268c9d42dbd388f90650f80f2669007595cd3269a95b",
-      "excerpt_hash": "a2a2dfd111240e91dd8811b00021f7e2b9a289684dbbbe73da404fc044759402",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "e7c3d462133f0a4f",
-      "source_record_id": "rock_developer:e7c3d462133f0a4f",
-      "title": "Types of Tools",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3f8f85b9b193a6404856692391ec855ce406a8b1ca0317a160960c24e21358f5",
-      "excerpt_hash": "151c34d31f9ff338dc3923c33b2457ad0a266f867cad78ddf37a4e490616d547",
+      "content_hash": "a3b6e409df0d0d7b4a6b53036dffbaa813f5214180c12b9b78f0b1e44e365c18",
+      "excerpt_hash": "51aaaeaefed43dda19ab18e19e7f6b5d38be41c62d0ba478e79fed3391c3b5cc",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "1f781db987dcfb78",
-      "source_record_id": "rock_developer:1f781db987dcfb78",
+      "source_record_id": "rock_developer:article:2858",
       "title": "Insight Tools",
       "topics": [
         "api",
@@ -2906,710 +2605,14 @@
       ],
       "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools",
       "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2514504e4907aa45d90b88022207aa33b0234bbd5a2099856f73a9022398d590",
-      "excerpt_hash": "9d640b99c4659d841b0f52590224f5a332af0c07a020575c1a93e315e7b7e716",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "bdb43719d5f6f096",
-      "source_record_id": "rock_developer:bdb43719d5f6f096",
-      "title": "Agent Instructions",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/agents/agent-instructions",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "6612b451bd0ae178",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/core-concepts/automations",
-      "url": "https://community.rockrms.com/rocku/core-concepts/automations"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "bc1ab3f2dff77e89",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-      "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-automation"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "dd0d53998f998249",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-      "url": "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "dfa9d59b2a2463dd30c2ec6f5d319033b133e8e5b318b9a38c605ab18c614f45",
-      "excerpt_hash": "1eafd7f2987468a7416f1c770d942fae56ccc051e3051b4332ce0accbe324c84",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "12be2c3ea33c535a",
-      "source_record_id": "rock_developer:12be2c3ea33c535a",
-      "title": "Rock Tool Helper",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "52625a693e5186cae95680f84ff2f513f1666f65641b72288c355fc5dfa33fa7",
-      "excerpt_hash": "fccf1064a381180dac6392d6d2d8a7e49c46863b71891a5414508b3fef7ec7d4",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "5ff72887724b2bac",
-      "source_record_id": "rock_developer:5ff72887724b2bac",
-      "title": "Gotchas",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas",
-      "version": null
-    },
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "change_type": null,
-      "content_hash": "ca40f768e24b565e4e07e274f7b83f0a82cc62410d9c9b8b5606cb6b062c0f45",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:494d83c698793652",
-      "title": "AI Agent",
-      "topics": [
-        "ai",
-        "api",
-        "data",
-        "lava",
-        "model-map"
-      ],
-      "url": "https://community.rockrms.com/ModelMap",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "b1c4058f500fcac20a070b2b69d9e194c11b1bdabdaf273770ff6fa4b26e0a8b",
-      "excerpt_hash": "a37dee0f49e0590352ba6b28e9c32ca2155ddd0321f04308087aac5441be07e1",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b0958cc5668e0328",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs",
-      "title": "Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "99640f0c33634b34ef5d21693021376ec9904dc9e8734ea4db41fce1955201ad",
-      "excerpt_hash": "c75b2b1d7d824eb161ff1dd452e0165bd46f7db301b711c03f424c28abcbb823",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d09a78eb4bf1cc5d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs",
-      "title": "Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "ea220724cc43b4115d5024986149d1ffc76a3f9789747aa411d3c1d19ac672ad",
-      "excerpt_hash": "627ec635d230d07d6e40c9436e9b3be8f7b9912417ff8f3da4f7d38ee06b491e",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "25f597a1985f1275",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs",
-      "title": "Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "f777d5f377d25cd04c6f272872756ec6868e5cc99814d0f25e5b4d8b12c722ad",
-      "excerpt_hash": "459ee51c9a635466aa47367d58acf6f98924a7d6fc57978c4d89bc5036d3069b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5456672677a9a0f1",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs",
-      "title": "Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "06d308038112a94ed6b6d5c3a682d823ac1ebe62e82cc316a2db86d4d0762ab7",
-      "excerpt_hash": "eee0f914f4e85a94023cc01b470a91c613c15ffd3073a30f552dd7b2887a01ab",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3b3430eb7b5233ac",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs",
-      "title": "Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "6494d2a34769b0755f8c0afd2c26f904287e89f73a42cdd160e8a1f092593b12",
-      "excerpt_hash": "873ec13f78271957093a56e8e4e1176a3f538a9d1a25e1378bfd4c10ceef1275",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "56294128c5752361",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs",
-      "title": "Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8235f722f109a38e2ffb525fbc10567bc125e9fd463c1af6b1872fdeea2137d5",
-      "excerpt_hash": "9a045b7368be768a8b0d907e17239dcf7f8a2ed67020e9ef3ac9c8e3ab8e69b9",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "76f4d50d3390dad6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs",
-      "title": "Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "6494fe783687ff18d3510c9223f052ff6257e584a0b7fbfa601d87a64396cf5b",
-      "excerpt_hash": "e4a0f91a3260421052adad93b5ba8ab0f87e9a9bc27b07a52c36c40c79cd8856",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0bad5865d37c1c16",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs",
-      "title": "Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c3faadd45a22604078d5b440e81f73c0323d7d583fc475da238c3791e788c0d5",
-      "excerpt_hash": "aa549fce62ca30786f752e1c794f93d148f2117ce320cb747e1512a31106be7d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "ba6e1848172030f6",
-      "source_record_id": "rock_developer:ba6e1848172030f6",
-      "title": "Debugging Tools",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e0cec2c1fb4dcdf1e3d57a5f36ec5ed819ee32cccb48119d45ea3ccb5d1364cb",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "3206cee519301613",
-      "source_record_id": "rock_developer:3206cee519301613",
-      "title": "Voice Agent",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "mobile",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "2ec89c7c3b803bd73b949c58cc8450294e9b753ed9e1f0862ceb8c2212c26eae",
-      "excerpt_hash": "e1dbb9055aef1577d0c11b23cbc845a342633dac1eb90f23b0d6bee4abf9d3b3",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "a7eaa9970a918ee0",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "1474c376c4659b8e50d9b9a885bcd238778ba0b4f33f76a76ae93a64b154de47",
-      "excerpt_hash": "ceca2f5c8f24567177f4cf63614bd254d17ac52f25bb5bf344e984f6948205fe",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "12b92fc5e66108f6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "3ebe8ed0ae855d3c1546cbacb1770824e78e737e3bbb2ea4862b0e225367f8a6",
-      "excerpt_hash": "840f6d0c8618afc6f96a7981ddec4fac5589f2a09071360fab136e4d51fbf221",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "be55f425cc648c97",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "163b74dfc5350652eed56208478c79c9161d0cf3cb8760686816ecd463150d32",
-      "excerpt_hash": "b18d5d3dd1eef69879a1b8ae9ac9965d5b324247da9a25fe978a839f22c085de",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "14e05aa93849adba",
-      "source_record_id": "rock_developer:14e05aa93849adba",
-      "title": "Creating Skills",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/skills/creating-skills",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "22f486f84bcb27150b3b731f15a835e457d2564c74540f8c2d832b226820d842",
-      "excerpt_hash": "43c5d0e7ef44c82e5838068a7c85186e57605fc37e23f1015e26f2adcff08116",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock/Model/AI/AIAgent/AIAgentService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "12f7dea6ac0aa605",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/AI/AIAgent/AIAgentService.cs",
-      "title": "Rock/Model/AI/AIAgent/AIAgentService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgent/AIAgentService.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "99e72409cdd3fe77ba6f82625147fbe95860757bc61c04c11d830df497e08829",
-      "excerpt_hash": "74b99060e816c9e5b18fc94f6e81525f151ed10e478238a1d353e8214c1adf1f",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "772ca53c849ca6d6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "88ba861ea4fa2e9671c8e5f597748e29e136635bb318793d835bd98048373f33",
-      "excerpt_hash": "4dd0eb31588025dc7b3ca4cd649e155bb507a40e50a01ffe4844f6a3261d812a",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "ai agent",
-        "aiagent",
-        "ai agents",
-        "aiagents",
-        "agent",
-        "agents"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0268ac03a771a419",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "change_type": null,
-      "content_hash": "bc6c8d3d22d98d71c591205d014f2d386972da3e9239e9ba54b44fe38d2da5f3",
-      "excerpt_hash": "ea58653a970a4e2704680c3a9e92c60043a352d2eb535cc13858af1b94779ab0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_podcast_rss",
-      "source_key": "44c37d376b652418",
-      "source_record_id": "rock_podcast_rss:1cb0de155ffacb15",
-      "title": "Rock's Future Anchored in Vision | Ep 202",
-      "topics": [
-        "podcast",
-        "releases",
-        "ai",
-        "operations"
-      ],
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
-      "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "change_type": null,
-      "content_hash": "aedc395e0b7aacc5e5f165eb4a311f24c8adb790497026eb96c1ea89eb75027e",
-      "excerpt_hash": "9afc250019b4bbfa03adffceabbe5d26d93277ecc38164b1851286e622300042",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_podcast_rss",
-      "source_key": "512ed4dbdfde5317",
-      "source_record_id": "rock_podcast_rss:b1a7021dcd84650d",
-      "title": "What's Possible When AI Does the Heavy Lifting | Ep 212",
-      "topics": [
-        "podcast",
-        "releases",
-        "ai",
-        "operations"
-      ],
-      "url": "https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212",
-      "version": null
-    },
-    {
-      "authority": "community-answer",
-      "authority_score": 50,
-      "change_type": null,
-      "content_hash": "a541210891ef1443446e62ec2a122a1ad0df26507619c7d8d8a956b4379c8164",
-      "excerpt_hash": "cb8a8a29382d8cb0e9f715ef421ce21cdfbe6f8f2a94f88a3f1f91ce6abc4283",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_qa",
-      "source_key": "7c71a22de1006d62",
-      "source_record_id": "rock_qa:7c71a22de1006d62",
-      "title": "webrequest not running??",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "security",
-        "troubleshooting",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/ask/developing/2708",
-      "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "bd359c503b146774",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
-      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "fe0b6d3b462f6c75",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "874c48c7aa36826b",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=mYTaGxYMyyQ",
-      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "9c54a75bab4e39e3",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
-      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "e9afd5bba3859930",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/shorts/tW4104R1N_o",
-      "url": "https://www.youtube.com/shorts/tW4104R1N_o"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "d2890df9787aa1ae",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "f325315718b03eb6",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "1fae67b5dc09e2b0",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "change_type": null,
-      "content_hash": "f65e43e50f4880430b86c9898e60f78438d65ebe30ec0d938ec834735cc30538",
-      "excerpt_hash": "2f1c1e36577d64d423372609e17dc12853f962519fe2cd22269aab0d2e92533d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
-      ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "64b2e1db8957c92d8f372d114b1f3429595acc04e963636e99778bcc612788cd"
+  }
 }

@@ -18,40 +18,41 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 
 ## Primary Tasks
 
-- [Recipe: Audit One Connection Type](tasks/recipe-audit-one-connection-type.md): Complete Audit One Connection Type with evidence-backed checks and a verifiable outcome.
-- [Recipe: Explain Why A Request Is Hidden](tasks/recipe-explain-why-a-request-is-hidden.md): Cite mobile connected-state exclusion if relevant (Connection Request List mobile docs).
-- [Recipe: Validate Signup Flow](tasks/recipe-validate-signup-flow.md): Cite Add Request mobile docs for parameter behavior and v17.2/v18.1 release notes for attributes/record source if applicable (Add Connection Request mobile docs, release notes).
-- [Recipe: Build Opportunity Cards](tasks/recipe-build-opportunity-cards.md): Complete Build Opportunity Cards with evidence-backed checks and a verifiable outcome.
-- [Recipe: Investigate Connector Workload](tasks/recipe-investigate-connector-workload.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Configure a new connection pipeline](tasks/recipe-configure-a-new-connection-pipeline.md): A bounded connection type and opportunity are ready for controlled staff testing.
+- [Recipe: Triage an unassigned or overdue queue](tasks/recipe-triage-an-unassigned-or-overdue-queue.md): Every selected request has a verified owner or an explicit disposition.
+- [Recipe: Transfer and complete a request safely](tasks/recipe-transfer-and-complete-a-request-safely.md): The request reaches the correct destination with ownership and placement preserved.
+- [Recipe: Launch a connection campaign](tasks/recipe-launch-a-connection-campaign.md): An eligible audience enters a controlled, assignable follow-up queue.
+- [Recipe: Connect preregistration to staff follow-up](tasks/recipe-connect-preregistration-to-staff-follow-up.md): A preregistered family reaches a verified staff-owned next step without avoidable duplicate records.
+- [Recipe: Validate status automation](tasks/recipe-validate-status-automation.md): A status rule moves only currently eligible requests and can be retried safely.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-54: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 55-93: 2. Scope And Terminology (high)
-- `3-connections-mental-model` lines 94-119: 3. Connections Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 120-144: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-configuration-surfaces` lines 147-163: Configuration Surfaces (normal)
-- `5-core-configuration-and-data-model-connection-type-configuration` lines 164-188: Connection Type Configuration (high)
+- `agent-summary` lines 18-36: Agent Summary (normal)
+- `mental-model` lines 52-72: Mental Model (normal)
+- `opportunities` lines 73-94: Opportunities (normal)
+- `requests-and-statuses` lines 95-104: Requests And Statuses (normal)
+- `requests-and-statuses-state` lines 105-115: State (normal)
+- `requests-and-statuses-status` lines 116-123: Status (high)
 
 ## Core Entities
 
-- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the connections guide.
 - `Block`: Rock concept/entity referenced by the connections guide.
 - `Campus`: Rock concept/entity referenced by the connections guide.
-- `Check-in Configuration`: Rock concept/entity referenced by the connections guide.
+- `DataView`: Rock concept/entity referenced by the connections guide.
 - `Family`: Rock concept/entity referenced by the connections guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the connections guide.
 - `Page`: Rock concept/entity referenced by the connections guide.
 - `Person`: Rock concept/entity referenced by the connections guide.
-- `PersonAlias`: Rock concept/entity referenced by the connections guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
+- `Workflow`: Rock concept/entity referenced by the connections guide.
 
 ## Version Caveats
 
+- `19.3`: Fixed an issue where a workflow could not be removed from a Connection Opportunity or Connection Type after it had been triggered from a Connection Request. Fixes: #6875
 - `18.1`: Improved the Connection Request Board with updates to campus filtering, connector preferences, and workflow configuration. Added new block settings to define default Connection State and Status filters. Workflows on the
-- `17.2`: Fixed an issue where the Connection Opportunity Signup block only displayed request attributes defined on the opportunity itself, now correctly including attributes inherited from the Connection Type. Fixes: #6356
 
 ## Files For Agents
 

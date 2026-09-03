@@ -6,297 +6,81 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "add2a8bebb93622e020a7c84cd33a765e3c265f6bd57f15bd6c47f00059ec54a"
 ---
 
 # TV Apps
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock supports Rock-managed applications for Apple TV and Roku. In both platforms, an application behaves conceptually like a site containing pages: Rock stores application-level configuration, Lava produces platform-specific page content, and the client shell interprets commands for navigation, authentication, media playback, and other actions. Apple TV pages produce TVML; Roku pages produce SceneGraph-oriented XML rather than normal Rock CMS HTML. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs) [Roku Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started) [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 
-- Concept data-model landmarks: [TV Apps index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+Use this operating order:
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+1. Confirm that the installed Rock version supports the target platform.
+2. Inspect the Rock application record before changing page Lava.
+3. Confirm the page produces valid markup for the target shell.
+4. Inspect commands, command parameters, focus behavior, and caching separately.
+5. Treat remote authentication as a coordinated website-page, application-setting, TV-page, and client-shell workflow.
+6. Test on the actual target client before declaring the application operational.
 
-## 1. Executive Summary For Agents
+Apple TV functionality requires Rock 14 or later. Roku was introduced in Rock 16.7, so Roku availability is version-sensitive. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs) [Roku Docs](https://community.rockrms.com/developer/roku-docs) [GitHub Spotlight: 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024)
 
-Rock TV Apps let a Rock instance serve living-room applications for Apple TV and Roku by combining Rock-managed application records, Rock-managed page records, Lava-rendered XML, platform-specific shells, media commands, remote authentication, and interaction tracking. Treat a TV app as a specialized CMS surface: the shell runs on the device, but the page content, navigation targets, media URLs, personalization, context, and some operational settings come from Rock.
+## Scope And Boundaries
 
-The two supported platform families are similar in concept but different in markup and runtime behavior:
+This guide covers the supplied evidence for:
 
-- Apple TV uses TVML and the Rock Apple TV shell. Rock’s Apple TV documentation states that Apple TV support requires Rock v14 or later and is designed around TVML applications linked to Rock ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-- Roku uses Roku SceneGraph XML and Rock’s Roku shell. Roku support was introduced in Rock v16.7, and the documentation describes a Rock-managed Roku application with Lava-powered SceneGraph pages ([Roku Docs](https://community.rockrms.com/developer/roku-docs), [GitHub Spotlight v16.7 note](https://www.triumph.tech/resources/github-spotlight-1042024)).
+- Rock-managed Apple TV and Roku application records.
+- TVML and SceneGraph page rendering.
+- Lava merge fields exposed to TV pages.
+- Navigation, context, authentication, and media commands.
+- Apple TV themes, text styling, and image resources.
+- Roku controls, focus management, and layout nodes.
+- Page-view configuration, page caching, remote authentication, and operational troubleshooting.
 
-For an agent doing real Rock work, the most important operational model is:
+This guide does not establish App Store or Roku Channel Store submission procedures, shell packaging or signing, certificate management, vendor review requirements, API-key rotation procedures, or a complete inventory of every command and control. Those subjects require additional evidence or live inspection.
 
-1. Identify the TV application record.
-2. Confirm its API key, page-view tracking settings, and authentication page.
-3. Inspect the start/root page and every page GUID used by commands.
-4. Validate the page markup as TVML or SceneGraph, not HTML.
-5. Confirm the Lava merge fields and commands used by the page.
-6. Confirm media URLs are directly playable by the platform.
-7. Confirm remote authentication works through `RemoteAuthenticationSession`, the Remote Authentication block, and the selected site.
-8. Confirm caching is appropriate for personalized content.
-9. Confirm interaction records are being written only when desired.
+TV apps depend on adjacent Rock capabilities. Keep data access and custom APIs in the API and Lava concepts, general page administration in CMS, credentials and authorization in security, media-provider behavior in media, and shell packaging in the appropriate platform-specific deployment documentation. Rock’s Lava API documentation names Apple TV and Roku as possible custom API consumers, but it also warns that Lava webhooks have no security by default. [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
 
-Do not treat TV Apps as mobile apps, web pages, or generic API endpoints. They overlap with all three, but they have their own device shells, command attributes, XML dialects, caching behavior, media limitations, and remote-auth flow. Apple TV pages are TVML documents; Roku pages are SceneGraph content whose outer page component should be `Rock:Page` for initial focus behavior ([Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages), [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)).
+## Mental Model
 
-## 2. Scope And Terminology
+| Layer | Apple TV | Roku | Primary inspection |
+|---|---|---|---|
+| Rock application | Rock-managed TV application/site with application settings | Rock-managed Roku application/site with application settings | Version, API key, authentication page, interaction settings |
+| Rock page | Lava-backed page that must render valid TVML | Lava-backed page that must render SceneGraph content | Markup validity, merge fields, caching |
+| Client structure | TVML templates and controls | SceneGraph components plus Rock-provided controls | Template/control compatibility |
+| Interaction | `rockCommand` attributes interpreted by the shell | `rockCommand` plus command-specific fields on supported controls | Control support, command name, parameters |
+| Identity | Remote Authentication website page coordinated with TV login pages | Remote Authentication website page coordinated with Roku login commands and pages | Site association, code flow, timeout and success routes |
+| Media | Shell playback commands for direct media resources | Shell playback commands for direct media resources | URL format, metadata, Media Element and watch-map parameters |
 
-This guide covers Rock-powered TV applications for Apple TV and Roku. It focuses on configuration, data model, navigation, page rendering, Lava, styling, controls, authentication, media playback, operational checks, troubleshooting, and agent task recipes. It does not replace Apple’s TVML documentation, Roku’s SceneGraph reference, Rock’s REST API documentation, or source-code review. It tells agents how to connect those sources into an operational Rock mental model.
+The application record is not merely a label. It holds settings used by the shell and related workflows. A page is not ordinary HTML: its Lava output must be valid for the platform renderer. Finally, a visible control is not automatically actionable; the shell only performs an action when a supported control carries a valid command and the parameters required by that command. [Creating an Apple TV App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications) [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands)
 
-Key terms:
+## Apple TV
 
-- **TV App**: A Rock-managed application configuration used by a platform shell. In Apple TV documentation it is described as a Rock Apple TV app builder/application; in Roku documentation it is a Roku application similar to a site with multiple pages ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app), [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)).
-- **Shell**: The compiled Apple TV or Roku application installed on the device. It contacts Rock, loads app/page content, executes commands, handles media playback, and manages device-specific behavior.
-- **TVML**: Apple’s XML-like markup language for tvOS template-based interfaces. Rock Apple TV pages must render valid TVML ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-- **SceneGraph**: Roku’s XML-based UI language. Rock Roku pages render SceneGraph content, with Rock-provided custom components such as `Rock:Page`, `Rock:Button`, `Rock:ContentNode`, and `Rock:FocusGroup` ([Roku Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started), [Roku Controls](https://community.rockrms.com/developer/roku-docs/resources/controls)).
-- **Lava**: Rock’s templating language. TV pages use Lava to produce TVML or SceneGraph dynamically. Lava can also produce custom XML APIs, but Lava webhooks have security exposure that must be handled carefully ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
-- **Remote Authentication**: A code-based sign-in pattern where the TV device displays or passes a verification code, and a web page with Rock’s Remote Authentication block authorizes the session. Source code landmarks include `RemoteAuthenticationSession`, `RemoteAuthenticationSessionService`, and `RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs` ([RemoteAuthenticationSession model](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs), [RemoteAuthentication block code](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs)).
-- **Context**: App-level state, often Campus, that can be set by commands and read by Lava. Apple TV documentation says contexts are stored across viewing sessions; Roku utility documentation says Roku context is set for the lifetime of the app until closed, so agents must verify platform-specific persistence in the live instance before relying on it ([Apple TV Context](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context), [Roku Utility Commands](https://community.rockrms.com/developer/roku-docs/commands/utility)).
-- **Interaction/Page View**: Usage tracking written when page views or media interactions are enabled and not suppressed. Application settings expose page-view tracking and retention, while navigation/media commands can affect interaction behavior ([Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications), [Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation), [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands)).
+### Application configuration
 
-## 3. TV Apps Mental Model
+Apple TV is documented as a set-top extension of Rock for TVML applications linked to Rock. An administrator creates the Rock-side application under `Admin Tools > CMS Configuration > Apple TV Apps`. The application’s Rock name is private to the Rock instance and does not have to match the eventual App Store name. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs) [Creating an Apple TV App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app)
 
-A Rock TV app is best understood as a remote-rendered, device-native content surface.
+The documented application settings include:
 
-The device shell is not a browser. It does not render Rock CMS HTML. It expects platform markup. Apple TV expects TVML templates and Apple TV styling rules; Roku expects SceneGraph nodes and Roku focus/navigation patterns. Rock contributes the server-side CMS record, Lava merge fields, API connection, commands, page cache metadata, media playback parameters, interaction tracking, and remote-auth infrastructure.
+- Name and optional description.
+- Global application styles.
+- Whether page views should be recorded.
+- An API key used by the application.
+- The page-view retention period.
+- An authentication page used by the remote sign-in workflow.
 
-The normal flow is:
+Saving a new application creates a Start Screen. The Start Screen is intended to be the application’s home page and cannot be deleted. Inspect these application settings before diagnosing page content, because an incorrect API key, authentication page, or interaction setting cannot be repaired solely by editing TVML. [Creating an Apple TV App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app)
 
-1. The shell launches with compiled or demo configuration.
-2. The shell connects to Rock using an API key and application identity.
-3. The shell loads a configured page, often a start screen or root page.
-4. Rock renders that page’s TVML or SceneGraph using Lava.
-5. The shell parses the XML and shows device-native UI.
-6. User focus/selection triggers commands embedded in markup.
-7. Commands navigate to another Rock TV page, play media, set/clear context, log in/out, or perform utility behavior.
-8. Media playback and page views may write interactions.
-9. Personalized pages must consider login state, person-specific cache keys, and navigation-stack cleanup after login/logout.
+The supplied immutable Rock source also shows Apple TV application settings for application JavaScript, global styles, and an API key. This is implementation evidence from the referenced commit, not proof that every installed version exposes an identical editor or stores identical settings. [AppleTvApplicationSettings.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Tv/Classes/AppleTvApplicationSettings.cs)
 
-The mental model differs from web CMS in four important ways.
+### Pages and Lava output
 
-First, markup validity is unforgiving. A web browser may tolerate malformed HTML. A TV shell parsing TVML or SceneGraph may fail, show a blank screen, display an error shell, or fall back to a previous cached page. Agents should inspect rendered markup, not just saved Lava.
-
-Second, focus is part of the interface contract. Apple TV generally provides more built-in focus behavior. Roku requires explicit focus planning, and Rock provides `Rock:FocusGroup` to handle common vertical/horizontal focus flows because Roku applications do not provide the same automatic focus management expected from Apple TV ([Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group)).
-
-Third, navigation is command-driven. Pages are linked by platform controls that include command attributes. On Roku, commands are executed by setting `rockCommand` and command-specific fields on `Rock:Button` or `Rock:ContentNode`; multiple commands can be comma-separated for paired actions such as setting context and pushing a page ([Roku Commands](https://community.rockrms.com/developer/roku-docs/commands)). Apple TV uses analogous Rock command attributes on TVML elements for personal, navigation, media, utility, and demo behaviors ([Apple TV JavaScript Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript)).
-
-Fourth, TV app personalization is high risk for caching mistakes. A public cached page should not contain person-specific data. Roku navigation supports `rockPageCacheControl` values such as public and personal caching, and Roku pages expose cacheability settings such as Public, Private, No-Cache, and No-Store ([Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation), [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)). Apple TV pages also expose cacheability concepts in the page editor according to the adding-content walkthrough ([Apple TV Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)).
-
-## 4. Source Authority And How To Use This Guide
-
-Use source authority in this order:
-
-1. **Rock source code and model definitions** for entity fields, method behavior, generated API routes, and block implementation. Examples: `RemoteAuthenticationSession`, `RemoteAuthenticationSessionService`, `RemoteAuthenticationSessionExtensions`, `RemoteAuthentication.ascx.cs`, `AppleTvApplicationSettings`, and `RokuTvApplicationSettings` ([RemoteAuthenticationSession source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs), [RemoteAuthenticationSessionService source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs), [AppleTvApplicationSettings](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs), [RokuTvApplicationSettings](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs)).
-2. **Official Rock developer docs** for supported configuration fields, command semantics, platform guidance, and version notes ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs), [Roku Docs](https://community.rockrms.com/developer/roku-docs)).
-3. **Rock API and Lava docs** for integration surfaces, webhooks, Lava command behavior, and security warnings ([Rock API Documentation](https://community.rockrms.com/api-docs), [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
-4. **Release notes and ecosystem records** for version caveats, such as Roku being added in v16.7 ([GitHub Spotlight 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024)).
-5. **Platform documentation** for TVML and SceneGraph behavior. Rock’s docs explicitly point Apple TV builders to Apple TVML documentation and Roku builders to Roku SceneGraph reference and samples ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs), [Roku Resources](https://community.rockrms.com/developer/roku-docs/resources/roku-resources)).
-6. **Community examples and recipes** only after official and source-code records have been exhausted.
-
-When this guide says “verify in the live instance,” inspect the actual Rock instance before concluding behavior. TV app records, page GUIDs, API keys, auth pages, cache settings, block attributes, routes, security, and markup can vary by organization and by Rock version.
-
-For live verification, agents should inspect:
-
-- Admin Tools > CMS Configuration > Apple TV Apps or the equivalent TV app administration area available in the target Rock version.
-- Admin Tools > CMS Configuration > Roku Apps or the equivalent Roku application administration area available in the target Rock version.
-- The exact application record’s settings.
-- The exact page record’s rendered content, cacheability, max age, max shared age, and security.
-- Any Remote Authentication page and block attributes.
-- API key person/security configuration.
-- Interactions created during test navigation and playback.
-- The source code for the deployed Rock version if behavior differs from current `develop`.
-
-## 5. Core Configuration And Data Model
-
-### Apple TV Application Configuration
-
-The Apple TV application setup flow starts in Rock under Admin Tools > CMS Configuration > Apple TV Apps according to the creating-app documentation ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app)). The application fields called out by the source pack include:
-
-- **Name**: Private Rock-side application name. It does not have to match the App Store name.
-- **Description**: Optional internal description.
-- **Application Styles**: Global style definitions available across the application.
-- **Enable Page Views**: Whether page interaction data should be recorded.
-- **API Key**: The API key used by the TV shell to access Rock.
-- **Page View Retention Period**: The number of days to retain page-view interaction data.
-- **Application Script**: Source code exposes `ApplicationScript` on `AppleTvApplicationSettings`; the Apple docs warn that TVMLKit JS docs are generally less useful because builders should not normally modify the application JavaScript ([AppleTvApplicationSettings source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs), [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-
-The Apple settings class in source code includes `ApplicationScript`, `ApplicationStyles`, and API key-related state; verify exact property names and persisted attribute mapping against the deployed Rock version before building automation that updates application records directly ([AppleTvApplicationSettings source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs)).
-
-### Roku Application Configuration
-
-The Roku application page describes a Rock-managed application used to manage TV content ([Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)). Its settings include:
-
-- **Enable Page Views**: Whether page interactions should be written for application usage.
-- **Page View Retention Duration**: Days to retain written page interactions.
-- **API Key**: API key used to securely connect the Roku application.
-- **Authentication Page**: A website authentication page used for remote authentication in the TV application.
-
-Source code for `RokuTvApplicationSettings` includes `ApiKeyId` and `RockComponents` ([RokuTvApplicationSettings source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs)). If an agent is reconciling a Roku app record from the database, verify where these values are stored in the current Rock version: site attributes, application settings JSON, or another TV-specific table/attribute surface.
-
-### TV Page Configuration
-
-Apple TV pages must produce valid TVML. Roku pages must produce valid SceneGraph content.
-
-Apple TV page documentation lists Lava merge fields available to page content, including `CurrentPerson`, `Context`, `Campuses`, `SiteStyles`, `CurrentPage`, `CurrentPersonCanEdit`, `CurrentPersonCanAdministrate`, `PageParameter`, `TvShellVersion`, and `DeviceData` ([Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)).
-
-Roku page documentation lists these configuration options ([Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)):
-
-- **Show in Menu**: Available for Lava-built menus. The Roku shell does not use it automatically.
-- **Scenegraph Content**: SceneGraph content to display. Each page should use `Rock:Page` as the outer-most component to set initial focus.
-- **Cacheability Type**: Public, Private, No-Cache, or No-Store.
-- **Max Age**: Maximum cache duration.
-- **Max Shared Age**: Maximum duration in shared caches.
-
-The Apple adding-content walkthrough includes page creation fields such as page name, description, TVML, and cacheability ([Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)). Verify the live page editor for exact field labels because Rock UI labels and storage can shift by version.
-
-### Remote Authentication Data Model
-
-Remote authentication is backed by `RemoteAuthenticationSession`, which source code maps to the `RemoteAuthenticationSession` table and connects optionally to `Site` and `AuthorizedPersonAlias` ([RemoteAuthenticationSession source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs)). The migration creates the table with fields including `Code`, `AuthorizedPersonAliasId`, `SiteId`, and standard Rock model fields ([AddRemoteAuthenticationSession migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs)).
-
-The service behavior in source is operationally important:
-
-- A new session is started with client IP, throttle settings, device unique identifier, code issue date, and code lifetime.
-- Codes are generated with a fixed length in source (`GeneratedCodeLength = 6` in the excerpted service).
-- Verification looks for an active session matching the unique identifier and code, ordered by most recent session start.
-- Source extensions filter sessions by code lifetime, current active status, and sessions created today for throttling/selection behavior ([RemoteAuthenticationSessionService](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs), [RemoteAuthenticationSessionExtensions](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs)).
-
-The Remote Authentication block exposes a site attribute, Lava-configurable header/footer/success content, and a code expiration duration according to source snippets ([RemoteAuthentication block source](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs)). Agents should inspect the block instance on the live authentication page for the selected site, code expiration duration, and message Lava.
-
-## 6. Primary Entities And Relationships
-
-### Application To Page
-
-A TV application owns or references TV pages. The shell loads pages by GUID through commands. For Roku, navigation commands use `rockPageGuid` and can include optional query-string parameters ([Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation)). For Apple TV, TV pages expose `PageParameter`, `CurrentPage`, and TV shell/device merge fields, implying the page render pipeline includes page identity, route/query context, and shell/device state ([Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)).
-
-Operational implication: when troubleshooting a missing page, do not search by title alone. Extract the GUID from the command attribute, locate that page in Rock, verify it belongs to or is reachable by the TV app, and render it with the same parameters.
-
-### Application To API Key
-
-Both Apple TV and Roku application settings include API key configuration ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app), [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)). The API key is not a decorative setting; it is part of the connection contract between the shell and Rock. Agents should verify:
-
-- The API key exists and is active.
-- The API key is assigned to an appropriate person/security context.
-- The API key’s permissions are no broader than needed.
-- The API key is the one compiled into or configured by the shell/demo app.
-- The app is using HTTPS endpoints.
-- API key rotation has been coordinated with app deployment or demo settings.
-
-Rock’s API docs identify API v1 as legacy and API v2 as newer, but TV shell behavior must be verified from the deployed Rock TV code and shell implementation rather than assumed from general API docs ([Rock API Documentation](https://community.rockrms.com/api-docs)).
-
-### Application To Authentication Page
-
-Roku has an explicit **Authentication Page** application setting. The docs describe it as a website authentication page used to remotely authenticate into the TV application ([Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)). Apple TV sign-in setup instructs administrators to create an external page, add the Remote Authentication block, configure the site that represents the TV app, and use that page URL or a route for the sign-in experience ([Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page)).
-
-Operational implication: authentication failure may be caused by any of these, not just the login button:
-
-- The TV app has no login/authentication page configured.
-- The Remote Authentication block points to the wrong site.
-- The device is generating a session for one site while the web page verifies another.
-- The verification code expired.
-- The user is not logged into the website page.
-- The person’s authentication component does not allow the needed remote authentication method.
-- The API key does not permit the shell to create/check sessions.
-- Cache or navigation stack exposes stale login pages after successful login.
-
-### RemoteAuthenticationSession To Person And Site
-
-`RemoteAuthenticationSession` has optional relationships to `Site` and `AuthorizedPersonAlias` in source configuration ([RemoteAuthenticationSession source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs)). During a successful flow, the session begins unauthenticated and later records the person alias that authorized it. Verify the exact live fields when diagnosing historical login attempts: `Code`, `DeviceUniqueIdentifier`, `ClientIpAddress`, `AuthenticationIpAddress`, `SessionStartDateTime`, `SessionEndDateTime`, `AuthorizedPersonAliasId`, `SiteId`, and standard Rock audit fields are the fields to look for based on source snippets and generated client models ([RemoteAuthenticationSession client model](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs)).
-
-### Page To Interaction
-
-Page views and media watch progress can write interactions. Application settings decide whether page views are enabled and how long to retain them. Navigation commands can suppress interactions, and media commands use interaction GUID/watch-map fields for resume and progress behavior ([Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications), [Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media), [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands)).
-
-When analytics look wrong, inspect both settings and command-level suppression. A healthy page render does not guarantee interaction writes are enabled.
-
-## 7. Common TV Apps Workflows
-
-### Create A New Apple TV App
-
-1. Confirm Rock version is v14 or later because the Apple TV docs state that Apple TV functionality requires Rock v14+ ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-2. Create the application under Admin Tools > CMS Configuration > Apple TV Apps ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app)).
-3. Set the internal name and description.
-4. Configure global application styles if the app has shared colors, text styles, or template-specific rules.
-5. Decide whether to enable page views and set retention.
-6. Select or create the API key used by the shell.
-7. Create the start/root page using valid TVML.
-8. Add navigation commands to push or replace pages.
-9. Add media commands for video/audio playback.
-10. Add remote-auth pages if personalization is needed.
-11. Test with the Rock Core/demo app and demo key if applicable ([Testing Your App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app)).
-12. Validate launch image, app icons, top shelf images, and parallax assets before App Store submission ([App Icons](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons), [Top Shelf Image](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image), [Launch Image](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/launch-image), [Parallax Images](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images)).
-
-### Create A New Roku App
-
-1. Confirm Rock is v16.7 or later for Roku support ([Roku Docs](https://community.rockrms.com/developer/roku-docs), [GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-1042024)).
-2. Follow the Roku getting-started process and request a development application from the Core team as documented ([Roku Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started)).
-3. Create/configure the Roku application in Rock.
-4. Set page-view tracking and retention.
-5. Select the API key.
-6. Set the authentication page if login is needed.
-7. Create the root page with `Rock:Page` as the outer component.
-8. Use SceneGraph components and Rock-provided controls for commands.
-9. Use `Rock:FocusGroup` where directional focus would otherwise be ambiguous.
-10. Use `RowList` for rows of media/content, especially for scrollable content shelves ([RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist), [Roku Tips](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks)).
-11. Test on a Roku device or development shell with real network conditions.
-12. Confirm remote auth and media playback before production release.
-
-### Add A Menu Or Navigation Surface
-
-For Apple TV, choose a TVML template that naturally supports the desired navigation. The adding-content walkthrough starts with a main template and menu bar for the start screen ([Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)). For Roku, `Show in Menu` is metadata only; the shell does not consume it automatically, so create menu markup in Lava by querying or otherwise listing the pages you want to expose ([Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)).
-
-Agent checks:
-
-- Every menu item has a valid target page GUID.
-- Personalized targets use personal/private/no-store caching.
-- Context-changing menu items set context before navigation if needed.
-- Default focus points at the first useful item.
-- Back navigation makes sense after login/logout and after deep links.
-
-### Add Media Playback
-
-Apple TV and Roku both expose media commands for video/audio and both document that YouTube content cannot be played directly in TV applications ([Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media)). Agents should verify the media URL is a direct stream/file URL supported by the target platform, not just a browser page.
-
-For resume behavior, both Apple TV and Roku media docs describe `rockWatchMap` and `rockInteractionGuid` behavior. Use an existing interaction GUID plus watch map to append progress to an existing interaction; use watch map without an interaction GUID only when you want resume positioning while allowing a new interaction to be written ([Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media)).
-
-### Add Remote Sign-In
-
-Use a Remote Authentication page rather than forcing users through a TV keyboard. Apple’s sign-in walkthrough specifically positions remote sign-in as a way to authenticate from a mobile device or computer ([Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page)). Roku’s personal login command requires an application login page before using the command because that setting configures the QR code ([Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)).
-
-Agent checks:
-
-- TV application has an authentication/login page configured.
-- Website page exists, has a route, and is reachable publicly if users need it from phones.
-- Remote Authentication block is configured to the TV app’s site.
-- Code expiration duration is appropriate.
-- Login success page and timeout page GUIDs are valid.
-- Navigation stack is cleared after successful login if the app could otherwise back-navigate to anonymous content.
-- Logout behavior clears person state and updates UI.
-
-## 8. Apple TV Deep Dive
-
-### Apple TV Platform Contract
-
-Rock Apple TV is a TVML-based extension of Rock. The app builder lets administrators create and test TVML templates without custom native programming, but the runtime is still Apple TVML, not HTML ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs), [Building Your First App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app)).
-
-Agents should keep three constraints in mind:
-
-- Do not treat TVML as HTML. The Apple TV tips page explicitly warns that TVML and its styling are not HTML/CSS even when they look familiar ([Apple TV Tips](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips)).
-- Avoid custom behavior outside documented templates unless verified on a device. The templates page warns that custom work outside Div Template can be tricky because each template processes elements differently ([Apple TV Templates](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates)).
-- Do not assume JavaScript is an app-builder surface. The Apple TV docs point to TVMLKit JS for context but say builders generally should not update the app JavaScript ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-
-### Apple TV Pages And Merge Fields
-
-Apple TV page content must render valid TVML. The important merge fields are:
+Every Apple TV page must render valid TVML. The documented page context includes these Lava merge fields:
 
 - `CurrentPerson`
 - `Context`
@@ -308,801 +92,510 @@ Apple TV page content must render valid TVML. The important merge fields are:
 - `PageParameter`
 - `TvShellVersion`
 - `DeviceData`
+- `TvAppTheme`
+- `IsDemoModeEnabled`
 
-Use these fields to render personalized UI, campus-specific media, admin affordances, version-specific markup, and device-specific diagnostics ([Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)).
+Use `SiteStyles` when a page should incorporate the application’s global styles. Use person, permission, parameter, device, theme, and shell-version fields only for behavior their documented values directly support; their presence does not prove that a particular person, permission, device capability, or shell feature is available in the current request. [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)
 
-Operational pattern for safe Lava:
+The Start Screen and other pages can use Lava to conditionally render TVML. For example, navigation can display a login choice when `CurrentPerson` is absent and a profile choice when a person is present. The resulting document must still be valid TVML after Lava finishes rendering. [Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)
 
-```liquid
-{% assign campus = Context.Campus %}
-{% if CurrentPerson %}
-  {% assign greetingName = CurrentPerson.NickName %}
-{% else %}
-  {% assign greetingName = 'Guest' %}
-{% endif %}
-```
+Apple TV page settings include cacheability behavior. The documented modes are Public, Private, No-Cache, and No-Store. Public content may be stored in shared caches; Private content is limited to the client-side cache; No-Cache requires revalidation before a stored response is reused; and No-Store prevents storage. Select the mode according to the rendered content, especially when output depends on identity or other personalized values. [Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)
 
-Then use those values inside valid TVML. Do not emit raw HTML into a TVML document.
+### Commands
 
-### Apple TV Templates
+Commands are a core part of Rock’s Apple TV application model. The documented JavaScript command surface covers navigation, media, utility, and demo workflows, and inspected Rock TV templates have used `rockCommand` attributes for navigation, login, logout, and media playback. The exact page template and shell version still need to be checked before reusing a command pattern. [Apple TV JavaScript Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript)
 
-Apple TV templates are opinionated. Use the template that matches the content shape rather than forcing a web layout into TVML.
+Treat the application JavaScript as shell infrastructure rather than an ordinary page customization point. The Apple TV overview directs developers primarily to TVML and notes that the application JavaScript should not normally be updated. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)
 
-Common choices:
+## Roku
 
-- **Main/Menu Bar Template**: Start screens, top-level navigation, and app home experiences. The adding-content walkthrough uses a main template and menu bar pattern for a start screen ([Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)).
-- **Catalog Template**: Categories on one side and related content on the other; useful for series, ministries, campuses, or content groupings ([Catalog Template](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template)).
-- **List Template**: Lists of items inside a category, such as favorite messages or messages in a series ([List Template](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/list-template)).
-- **Product Template**: Detail page for a message or media item, including metadata, related content, speakers, or supporting material ([Product Template](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-template)).
-- **Showcase Template**: Row of images with associated descriptions and focus enlargement ([Showcase Template](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/showcase-template)).
-- **One Up Template**: Full-screen image browsing with left/right navigation and caption behavior ([One Up Template](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/one-up-template)).
-- **Alert Template**: Required user messages, sign-in prompts, timeout notices, or critical state ([Alert Template](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/alert-template)).
+### Application configuration
 
-If a requested design cannot be built reliably in TVML, state that plainly and propose a platform-fitting template. Apple’s reference gallery is useful for inspiration, but the docs warn that some reference layouts may require native implementation rather than TVML alone ([Apple TV References](https://community.rockrms.com/developer/apple-tv-docs/styling/references)).
+Rock’s Roku support uses Rock-managed applications and pages to deliver Roku content. The documented model resembles a website—one application with linked pages—but pages emit SceneGraph XML instead of HTML. Roku development may also require obtaining a development application from the Rock Core team through the process linked by the official getting-started documentation. Verify that this process is still current before treating it as a deployment entitlement. [Roku Docs](https://community.rockrms.com/developer/roku-docs) [Roku Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started)
 
-### Apple TV Commands
+The Roku application record includes:
 
-Apple TV docs group commands into demo, personal, navigation, media, and utility categories ([Apple TV JavaScript](https://community.rockrms.com/developer/apple-tv-docs/javascript)). The agent’s job is usually not to edit JavaScript; it is to place supported command attributes in valid TVML controls and confirm the shell handles them.
+- Enable Page Views.
+- Page View Retention Duration.
+- API Key.
+- Authentication Page.
 
-Important command families:
+The Authentication Page setting refers to the website page used for remote authentication. It is distinct from the Roku page displayed by a `login` command. Begin Roku troubleshooting at this application record before changing page Lava. [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications) [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)
 
-- **Personal commands**: login/logout. Login requires configured login page GUIDs for displaying login information, timeout behavior, and success behavior ([Apple TV Personal Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands)).
-- **Media commands**: play video/audio, with watch-map and interaction behavior ([Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands)).
-- **Demo commands**: show/update/clear demo settings when the app is compiled with demo support ([Apple TV Demo Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands)).
-- **Context/utility commands**: set and clear context, especially Campus ([Apple TV Context](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context)).
+### Pages and SceneGraph output
 
-### Apple TV Testing And Demo Key
+A Roku page displays custom Lava-driven content and renders SceneGraph-oriented XML. Each page should use `Rock:Page` as its outermost component; this wrapper also provides the page’s initial-focus setting. [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages) [Rock Page Control](https://community.rockrms.com/developer/roku-docs/resources/controls/page)
 
-The Apple TV testing doc describes requesting a demo key and using the Rock Core app on Apple TV to point the demo shell at a Rock application ([Testing Your App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app)). For agents, this means local Rock changes can often be tested before App Store/TestFlight publication, but only if the demo settings are correct.
+The documented Roku page merge fields are:
 
-Testing checklist:
+- `CurrentPerson`
+- `Context`
+- `Campuses`
+- `CurrentPage`
+- `CurrentPersonCanEdit`
+- `CurrentPersonCanAdministrate`
+- `PageParameter`
+- `TvShellVersion`
 
-- Confirm the demo key points at the intended Rock instance.
-- Restart the app after changing demo settings if the instructions require it.
-- Clear demo settings before testing compiled production configuration.
-- Test anonymous home, login page, successful login, timeout, logout, media playback, and error handling.
-- Test light and dark themes if the app uses theme-dependent styles.
-- Test with actual media URLs, not browser preview URLs.
+The page’s Show in Menu setting is not automatically consumed by the Roku shell. It exists so page Lava can use the setting when constructing navigation. A page marked for the menu will not appear unless the application’s Lava actually renders it into a menu or other navigation control. [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 
-### Apple TV Application Images
+Roku pages also expose cache configuration:
 
-Apple TV app assets are not cosmetic afterthoughts; they affect launch, App Store, top shelf, and focus behavior.
+- Public permits shared caching such as a CDN.
+- Private limits caching to the application.
+- No-Cache checks the item on each load and may reuse the last copy when it has not changed.
+- No-Store prevents caching.
+- Max Age controls the item’s cache duration.
+- Max Shared Age controls its duration in a shared cache.
 
-From the Apple TV application image docs:
+Do not use shared caching for person-specific output unless the full request and response behavior has been reviewed for identity isolation. [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 
-- App icons use layered assets for parallax; in-app icon sizes include 400x240 and 800x480, and the App Store icon uses 1280x768 ([App Icons](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons)).
-- Top shelf images include wide and standard sizes; wide sizes include 2320x720 and 4640x1440, while standard top shelf includes 1920x720 and 3840x1440 ([Top Shelf Image](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image)).
-- Launch images are static and include 1920x1080 and 3840x2160 sizes ([Launch Image](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/launch-image)).
-- Parallax images are layered images used for focus depth and motion ([Parallax Images](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images)).
+## Security And Authentication
 
-Agents should verify exact asset requirements against Apple’s current tvOS submission docs before final publication because platform submission rules can change.
+### Remote authentication architecture
 
-## 9. Roku Deep Dive
+The documented sign-in pattern avoids entering credentials with a TV remote:
 
-### Roku Platform Contract
+1. Create an external website page.
+2. Place a Remote Authentication block on that page.
+3. Associate the block with the TV application’s site.
+4. configure a route or URL to that page.
+5. Select that website page as the TV application’s Authentication Page.
+6. Create a TV-platform login page that displays the generated QR code and security code.
+7. Connect a login command to login, timeout, and success TV pages.
+8. Test the complete flow while already signed in and while signed out on the website.
 
-Roku in Rock is a SceneGraph-driven TV app surface introduced in v16.7 ([Roku Docs](https://community.rockrms.com/developer/roku-docs)). Roku development in Rock is similar to building a website in that you create an application and multiple Lava-driven pages, but the markup language is SceneGraph XML rather than HTML ([Roku Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started)).
+For Apple TV, the login page receives `{ authQrCodeUrl }` and `{ authCode }` placeholders. These use single braces and are not ordinary double-brace Lava output. The login command identifies the Apple TV login, timeout, and success pages. [Creating an Apple TV Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page)
 
-The Roku docs direct developers to Roku’s SceneGraph reference and samples for built-in components ([Roku Resources](https://community.rockrms.com/developer/roku-docs/resources/roku-resources)). Use Rock docs for Rock-specific controls and commands; use Roku docs for native SceneGraph node behavior.
+For Roku, the `login` command requires the application’s login configuration and accepts TV-page identifiers for the login display, timeout destination, and success destination. The documented default timeout is 600 seconds, and the default interval between authentication checks is five seconds. Clearing the navigation stack after successful login defaults to true so Back does not return to earlier impersonalized content. [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)
 
-### Roku Pages
+The Roku login page has two shell-recognized view IDs:
 
-A Roku page is a Rock page-like unit that renders SceneGraph content. Page settings include `Show in Menu`, `Scenegraph Content`, `Cacheability Type`, `Max Age`, and `Max Shared Age` ([Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)).
+- `lgnQrPoster`, whose image URI is populated with the login URL and verification code.
+- `lgnCodeLabel`, whose text is populated with the verification code.
 
-The page content should have `Rock:Page` as the outer-most component. This matters because `Rock:Page` provides initial focus support. The `Rock:Page` control extends Roku’s `Group` and exposes an `initialFocus` field whose value is the ID of the item that should receive focus when the page appears ([Roku Page Control](https://community.rockrms.com/developer/roku-docs/resources/controls/page)).
+These identifiers are shell contracts, not Lava merge fields. A visually correct login page that omits or changes them will not receive those values through the documented mechanism. [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)
 
-A practical pattern:
+### Source-code observation
 
-```xml
-<Rock:Page initialFocus="watchLatest">
-  <Label text="Messages" />
-  <Rock:Button
-    id="watchLatest"
-    text="Watch Latest"
-    rockCommand="pushPage"
-    rockPageGuid="00000000-0000-0000-0000-000000000000" />
-</Rock:Page>
-```
+At the supplied immutable Rock commit, remote authentication creates a six-character code, records a device unique identifier, and verifies an active session by code, issue time, lifetime, and matching device identifier. This explains why a code copied from a different or expired session may fail, but it does not establish the configured lifetime or throttle values of a particular Rock installation. [RemoteAuthenticationSessionService.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionService.cs) [RemoteAuthenticationSessionExtensions.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs)
 
-Replace the GUID with a real page GUID and verify the attribute casing expected by the deployed shell.
+The same commit describes the Remote Authentication block as a web-site block that authenticates a person to a remote system with a short-lived security code. Its initialization requires a currently authenticated website person before authentication can proceed. Treat that as implementation evidence for the referenced commit and verify the installed block version and configuration during a live review. [RemoteAuthentication.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs)
 
-### Roku Commands
+### API and webhook boundary
 
-Roku commands execute through `rockCommand` on applicable Rock controls, especially `Rock:ContentNode` and `Rock:Button` ([Roku Commands](https://community.rockrms.com/developer/roku-docs/commands), [Roku Button](https://community.rockrms.com/developer/roku-docs/resources/controls/button), [Roku Content Node](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node)).
+An application API key and a Lava webhook are separate security concerns. The presence of an API key on the TV application record does not automatically secure an independently configured Lava webhook. Rock’s Lava API guide explicitly says Lava webhooks do not include security by default and advises care with exposed data. It also explains that webhook requests are matched to configured templates by HTTP verb and URL and that each Defined Value controls the Lava commands available to its template. [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
 
-Command families:
+Before exposing TV data through a Lava webhook, inspect:
 
-- **Navigation**: `pushPage`, `replacePage`, `popPage`, `clearNavigationStack` ([Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation)).
-- **Media**: video/audio playback and interaction/watch-map behavior ([Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media)).
-- **Utility**: `setContext`, `clearContext` ([Roku Utility](https://community.rockrms.com/developer/roku-docs/commands/utility)).
-- **Personal**: login/logout-related commands ([Roku Personal](https://community.rockrms.com/developer/roku-docs/commands/personal)).
+- The exact URL and permitted HTTP verb.
+- The template’s returned fields.
+- The enabled Lava commands.
+- Whether output contains person, financial, attendance, security, or other sensitive data.
+- What compensating access control exists outside the default webhook behavior.
 
-Roku supports multiple commands by comma-separating command names. This is useful when setting context and navigating in one selection ([Roku Commands](https://community.rockrms.com/developer/roku-docs/commands)). Use this sparingly. If two commands depend on each other, test the order on a real device.
+Do not infer authorization from obscurity, an unadvertised URL, or the TV application’s separate API-key field.
 
-### Roku Navigation Caching
+## Styling And Controls
 
-Roku navigation command parameters include:
+### Apple TV themes and text
 
-- `rockPageGuid`: Target page GUID, optionally with query-string parameters.
-- `rockPageCacheControl`: Cache behavior for the target page. The docs describe options such as public and personal cache forms, with optional seconds values.
-- `rockPageShowLoading`: Whether to show loading behavior.
-- `rockPageSuppressInteraction`: Whether to suppress interaction writes ([Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation)).
+Apple TV supports Light and Dark themes. The user generally selects the theme, the application can respond with TVML media queries, and an individual page can explicitly declare a theme. Theme-aware rules use `tv-template` with `tv-theme:light` or `tv-theme:dark`. [Apple TV Themes](https://community.rockrms.com/developer/apple-tv-docs/styling/themes) [Apple TV Media Queries](https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries)
 
-Use `personal` cache control for person-specific pages. Use no-store/no-cache page settings when content changes often or contains sensitive per-person data. Use public caching only for anonymous, non-sensitive, shared content such as a public message list.
+Apple TV pages are not HTML pages. The documented styling guidance favors Apple’s TV design patterns and exposes TVML text styles, font weights, inline emphasis, font families, and text shadows. Because text shadows can be clipped when the wrapper is too small, validate them in the actual TV layout rather than assuming browser-like overflow. [Apple TV Text Style](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style)
 
-### Roku Focus Management
+### Apple TV images and icons
 
-Roku focus must be engineered. Rock’s `Rock:FocusGroup` extends `LayoutGroup` and handles vertical or horizontal focus among children. The docs state that as of 2024 Roku does not provide the same built-in focus management pattern Apple TV developers may expect ([Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group)).
+tvOS supplies built-in image resources, including button, miscellaneous, movie-rating, and TV-rating icons, along with supported SF Symbols. A custom resource embedded in the Apple TV shell can be referenced like a system resource; the documentation says to omit its file extension when referencing it. Shell embedding is a packaging concern and is not accomplished merely by placing a file in page TVML. [Apple TV Built-in Images](https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images)
 
-Use `Rock:FocusGroup` when:
+The documented app-icon design uses three visual layers for the parallax effect. The supplied sizes are 400×240 pixels for the in-app 1× icon, 800×480 for the in-app 2× icon, and 1280×768 for the App Store icon. Foreground layers are PNG and the background layer is JPG. These asset specifications do not, by themselves, establish the complete current App Store submission package. [Apple TV App Icons](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons)
 
-- A row of buttons should respond to left/right.
-- A vertical menu should respond to up/down.
-- A group of custom controls needs predictable focus traversal.
-- A page has multiple sections and focus would otherwise disappear or jump unexpectedly.
+For parallax content images, the Rock documentation specifies a directly hosted LCR file. An indirect URL may be rendered as a flat image, and LSR files are not supported by the documented workflow. [Apple TV Parallax Images](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images)
 
-Do not use focus groups as a substitute for page structure. Start with `Rock:Page initialFocus`, then group directional sections.
+### Roku controls, focus, and layout
 
-### Roku RowList
+Most Roku application structure uses built-in SceneGraph components. Rock adds custom components where it needs Rock-specific behavior. In particular, Rock’s `Button` and `ContentNode` extend the corresponding SceneGraph controls with `rockCommand` and command-parameter fields. [Roku Controls](https://community.rockrms.com/developer/roku-docs/resources/controls) [Rock Button](https://community.rockrms.com/developer/roku-docs/resources/controls/button) [Rock Content Node](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node)
 
-`RowList` is the most important Roku layout node for shelves of media/content. The docs describe it as a horizontal list pattern that can support vertical and horizontal scrollability ([Roku RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist)). Parameters include item size, row count, row heights, row item sizes, spacing, row label display, and focus animation styles.
+`Rock:Page` represents a page-level group and exposes `initialFocus`, which names the control that should receive focus when the page appears. Set that field to an actual control ID in the rendered SceneGraph. [Rock Page Control](https://community.rockrms.com/developer/roku-docs/resources/controls/page)
 
-Data binding structure:
+The Rock `FocusGroup` arranges child views horizontally or vertically and manages directional focus among them. The documentation describes this as filling a focus-management gap as of 2024: horizontal groups handle left/right movement and vertical groups handle up/down movement. Treat the date as a historical documentation qualifier and verify current shell behavior before assuming the limitation remains unchanged. [Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group)
 
-- A root `ContentNode` is assigned to the RowList content field.
-- Each child `ContentNode` under the root represents a row.
-- Each row contains child `ContentNode` items.
-- Row data can include a title.
-- Item data can include image URL fields such as poster URL.
+`RowList` is suited to horizontally scrollable content organized into rows. Its content structure requires one root `ContentNode`, child nodes for rows, and child item nodes within each row. Configuration includes item size, row count, row heights, item sizes and spacing, row spacing, labels, and focus-animation styles. Rock’s guidance recommends simple layouts and identifies `RowList` as a useful media or content-selection pattern. [Roku RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist) [Roku Tips and Tricks](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks)
 
-Agent checks for RowList bugs:
+Roku offers many SceneGraph layouts, but relatively few provide default item templates. Rock’s documentation recommends caution when choosing SceneGraph elements and aims to avoid unnecessary custom BrightScript components. [Roku Layout Nodes](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes)
 
-- Root content node exists.
-- Rows are nested correctly.
-- Items are nested under rows, not directly under the RowList.
-- Each item has the fields the item template expects.
-- Poster URLs are absolute or resolvable by Roku.
-- Row/item sizes fit the target display.
-- Focus lands on the RowList or a useful first item.
+## Commands And Media Operations
 
-### Roku Layout Guardrails
+### Roku command dispatch
 
-The Roku layout docs warn that many Roku layouts do not include default item templates and recommend caution when selecting SceneGraph elements because the Rock approach tries to avoid custom BrightScript components ([Roku Layout Nodes](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes)). The tips page is concise but important: keep layouts simple and use layout controls such as RowList for media/content selection ([Roku Tips](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks)).
+A Roku command is executed by placing `rockCommand` and the command-specific parameters on a supported control such as `Rock:Button` or `Rock:ContentNode`. Multiple commands can be executed from one control by separating their names with commas. A documented use case is setting context and then navigating to a page. [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands)
 
-For agents, this means the recommended fix for a messy Roku page is usually simplification, not adding more custom SceneGraph complexity.
+Keep command parameters on the same actionable control unless the control’s documentation says otherwise. A command name without its required page, media, context, or login fields is incomplete.
 
-## 10. Security And Authentication Deep Dive
+### Navigation and context
 
-### API Key Security
+Roku’s documented navigation commands include:
 
-TV applications use API keys to connect to Rock. Apple and Roku application settings both expose API key configuration ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app), [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)).
+- `pushPage` to add a page to the navigation stack.
+- `replacePage` to replace the top page while retaining the rest of the stack.
+- `popPage` to remove the top page.
+- `clearNavigationStack` to remove all pages except the root.
 
-Guardrails:
+Page-navigation parameters can include the target page with query parameters, cache-control behavior, whether to show a loading screen, and whether to suppress writing an interaction. The documented command-level cache choices include Public, Personal, and Private. Personal caching varies the URL by the logged-in person; Public does not. [Roku Navigation Commands](https://community.rockrms.com/developer/roku-docs/commands/navigation)
 
-- Use a dedicated API key for each TV app/environment.
-- Do not reuse a high-privilege admin API key.
-- Verify the key’s person/security context.
-- Rotate keys deliberately with shell/demo app update coordination.
-- Treat app config and demo keys as sensitive.
-- Do not expose API keys through Lava-rendered markup, public pages, logs, or screenshots.
+The `setContext` command stores a keyed context value for the lifetime of the application until it closes. `clearContext` removes the value for the specified key. When chaining context and navigation, confirm that the destination page reads the same key from `Context`. [Roku Utility Commands](https://community.rockrms.com/developer/roku-docs/commands/utility)
 
-### Remote Authentication Flow
+### Media playback and watch state
 
-Remote authentication has two halves:
+Apple TV and Roku provide commands to play video and audio. The documented direct formats are MP4 or HLS for video and MP3 for audio. Both platform guides state that YouTube content cannot be played through these TV application media commands. [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) [Roku Media Commands](https://community.rockrms.com/developer/roku-docs/commands/media)
 
-- The TV shell starts or checks a remote authentication session and displays a code/QR-driven login page.
-- The user visits a website page containing the Remote Authentication block, enters the code, and authorizes the session while logged in.
+Media commands can carry:
 
-Apple TV documentation instructs creating an external page with the Remote Authentication block and selecting the TV application site in block settings ([Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page)). Roku personal login documentation says the app must define a login page before using the login command, and the command can specify login page, timeout page, success page, timeout duration, check duration, and navigation-stack clearing behavior ([Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)).
+- A direct media URL.
+- A Rock Media Element identifier when the resource is a Rock Media Element.
+- Related entity information.
+- Resume behavior.
+- Title, subtitle, artwork, and description.
+- An existing interaction identifier.
+- A watch map.
+- For Roku video, a live-stream indicator.
 
-Source-code landmarks:
+For an existing interaction, providing its watch map supplies the resume position. Providing both the interaction identifier and watch map appends to that interaction. Providing a watch map without the interaction identifier uses the prior position for resume but creates a new interaction with a new watch map. [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) [Roku Media Commands](https://community.rockrms.com/developer/roku-docs/commands/media)
 
-- `RemoteAuthenticationSessionService.StartRemoteAuthenticationSession(...)` creates a session with client IP, device unique identifier, code issue date, and code lifetime ([service source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs)).
-- `VerifyRemoteAuthenticationSession(...)` checks active session, code, code issue date, code lifetime, and device unique identifier ([service source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs)).
-- `RemoteAuthenticationSessionExtensions` filters sessions by code and active lifetime ([extensions source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs)).
-- `RemoteAuthentication.ascx.cs` defines the block, site selector, Lava header/footer/success content, and code expiration duration ([block source](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs)).
+## Version And Authority Caveats
 
-### Remote Auth Component Selection
+- Apple TV functionality is documented for Rock 14 and later. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)
+- Roku was introduced in Rock 16.7. [Roku Docs](https://community.rockrms.com/developer/roku-docs)
+- The supplied Triumph release note independently places the Roku addition at Rock 16.7, but it is release-note evidence rather than the primary configuration reference. [GitHub Spotlight: 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024)
+- The developer articles in the evidence pack report documentation version `1.0.0`; that article version must not be confused with the installed Rock version or TV shell version.
+- Statements drawn from the Rock developer documentation describe documented product behavior. They do not prove that a particular installation has the necessary version, site records, blocks, keys, routes, pages, or shell package.
+- Source-code observations in this guide are pinned to commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. They clarify that implementation only and should not be generalized to a different release without comparison.
+- The approved claims include a bounded read-only review that found TV application administration surfaces and command patterns in one connected installation. That supports the existence of those surfaces and patterns but does not establish another organization’s configuration or a working device deployment.
+- The 2024 focus-management statement is historical documentation. Re-test it against the target Roku shell and current documentation.
+- No community contribution was supplied for this guide, so no community pattern is presented as official behavior.
 
-Rock includes a remote-auth field type and picker that lists active authentication components requiring remote authentication while excluding the PIN authentication entity type in the excerpted source ([RemoteAuthsPicker](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs), [RemoteAuthsFieldType](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs)). If a remote auth method is missing from configuration, inspect:
+## Troubleshooting Decision Tree
 
-- Whether the authentication component is active.
-- Whether it has `RequiresRemoteAuthentication`.
-- Whether it is intentionally excluded.
-- Whether the field’s Obsidian/WebForms implementation is being used in the current admin UI.
+### The TV application administration feature is missing
 
-### Page Security And Sensitive Data
+1. Identify the target platform.
+2. Confirm the installed Rock version: Apple TV requires Rock 14 or later; Roku requires Rock 16.7 or later.
+3. Confirm that the expected TV application administration blocks and site types exist in the installed package.
+4. Confirm the operator has permission to view and administer the relevant CMS configuration pages.
+5. For Roku development, verify whether the current Core-team development-application process is required and has been completed.
+6. Stop page-level debugging until the application record can be opened. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs) [Roku Docs](https://community.rockrms.com/developer/roku-docs) [Roku Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started)
 
-TV pages can render `CurrentPerson`, `Context`, page parameters, and device data. If a page includes private information, it must not be publicly cached. Combine page security, cache settings, and command cache control.
+### A page is blank, rejected, or never appears
 
-For Lava APIs, Rock’s Lava API documentation gives an explicit security warning: Lava webhook endpoints do not inherently secure the Lava they run, so be careful about exposed data ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)). If an agent finds a TV app pulling XML from Lava webhooks instead of TV page records, treat those endpoints as public unless live security proves otherwise.
+1. Confirm that the page belongs to the intended TV application.
+2. Render the Lava and inspect the final output, not just the template source.
+3. For Apple TV, validate the result as TVML.
+4. For Roku, validate it as SceneGraph XML and confirm `Rock:Page` is the outermost component.
+5. Check for missing or malformed data emitted through Lava.
+6. Inspect page cache settings to rule out an older response.
+7. Test the page in the target shell; browser rendering is not equivalent to TVML or SceneGraph rendering. [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 
-Security checklist:
+### A Roku page marked “Show in Menu” is absent
 
-- Anonymous pages render only anonymous-safe data.
-- Personalized pages require login or defensively branch on `CurrentPerson`.
-- Page cache settings do not leak person-specific data.
-- API key permissions are scoped.
-- Remote auth block is on an appropriate external page.
-- Login success clears navigation stack where needed.
-- Logout removes person state from the UI.
-- Lava commands enabled for any webhook are minimal.
-- Sensitive media URLs are not exposed to anonymous users unless intentionally public.
+1. Confirm that the page setting is enabled.
+2. Inspect the Lava that constructs the menu.
+3. Confirm that the page collection and Show in Menu value are actually read by that Lava.
+4. Confirm that the resulting SceneGraph contains an actionable menu item.
+5. Do not assume the Roku shell creates menus automatically from the setting. [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)
 
-## 11. Styling And Controls Deep Dive
+### Roku focus does not move or starts on the wrong item
 
-### Apple TV Styling
+1. Confirm the rendered page has an outer `Rock:Page`.
+2. Check that `initialFocus` exactly matches a rendered control ID.
+3. Confirm the target control is present and focusable.
+4. For a horizontal or vertical group, verify the `FocusGroup` orientation.
+5. For a `RowList`, verify the required root, row, and item `ContentNode` hierarchy.
+6. Reduce the page to a simple layout before introducing additional SceneGraph or custom BrightScript components. [Rock Page Control](https://community.rockrms.com/developer/roku-docs/resources/controls/page) [Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) [Roku RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist)
 
-Apple TV styling resembles CSS but is not full CSS and should follow Apple’s design language rather than trying to recreate a web brand pixel-for-pixel. The TV Text Style docs emphasize that Apple TV apps are not HTML and should align with Apple TV design patterns ([TV Text Style](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style)).
+### A command does nothing
 
-Styling areas:
+1. Confirm that the element is a control documented to support `rockCommand`.
+2. Check the exact command name.
+3. Check every required command-specific parameter.
+4. For navigation, verify the destination page belongs to the application and that any query parameters are valid.
+5. For chained Roku commands, verify comma separation and validate each command independently before recombining them.
+6. Inspect whether stale cached markup still contains an older command.
+7. Test in the actual shell version because a valid attribute in documentation does not prove support in an older client. [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands) [Rock Button](https://community.rockrms.com/developer/roku-docs/resources/controls/button) [Rock Content Node](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node)
 
-- **Text styles**: Use TV text style values such as body, callout, caption, footnote, headline, title variants, and related platform-defined styles. Verify exact accepted values in Apple TV docs and the deployed shell ([TV Text Style](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style)).
-- **Font weight and family**: Use documented TVML style support rather than web font assumptions.
-- **Theme media queries**: Style light/dark theme differences with TV template media queries ([Media Queries](https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries)).
-- **Page theme**: Some templates accept a theme value such as light/dark, while the user’s system preference may drive the default ([Themes](https://community.rockrms.com/developer/apple-tv-docs/styling/themes)).
-- **Built-in images**: tvOS exposes built-in image libraries and SF Symbols; custom embedded resources can also be used, and references omit file extensions for app resources ([Built in Images](https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images)).
-- **Custom Rock controls**: `RockLabel` and `RockStackView` expose styling surfaces for custom controls ([RockLabel](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rocklabel), [RockStackView](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rockstackview)).
+### Remote sign-in shows no QR code or code
 
-### Apple TV Custom Controls
+1. Confirm the application record points to the intended external website Authentication Page.
+2. Confirm that page contains the Remote Authentication block.
+3. Confirm the block is associated with the correct TV application site.
+4. Confirm the person can reach the website route.
+5. For Apple TV, verify the login page contains the single-brace `{ authQrCodeUrl }` and `{ authCode }` placeholders.
+6. For Roku, verify the page contains controls with IDs `lgnQrPoster` and `lgnCodeLabel`.
+7. Confirm the login command targets the correct login, timeout, and success TV pages. [Creating an Apple TV Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)
 
-TVML is powerful but limited; Rock provides custom controls where needed ([Control Reference](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference)).
+### A remote-authentication code is rejected
 
-The `rockCountdown` control can display a live countdown, use Lava-generated date values, and integrate with scheduled content. The docs warn that scheduled-content shortcode logic has overhead and may need caching for heavily visited pages ([Countdown](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/countdown)).
+1. Confirm the website user is authenticated.
+2. Confirm the code belongs to the currently displayed device session.
+3. Retry with a newly generated code to eliminate expiration.
+4. Confirm the website Remote Authentication block is associated with the same TV application site.
+5. Check the configured expiration and throttling settings in the installed block.
+6. Inspect server logs or the block’s returned error without exposing codes or session records.
+7. Stop before modifying authentication records directly. At the supplied source commit, verification depends on an active session, matching code timing, and the device unique identifier. [RemoteAuthentication.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs) [RemoteAuthenticationSessionService.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionService.cs)
 
-Use countdown controls for:
+### Media does not start
 
-- Service countdowns.
-- Event start times.
-- Live stream pre-roll screens.
-- Time-sensitive campaign launches.
+1. Confirm the command is attached to a supported actionable control.
+2. Confirm that video uses a direct MP4 or HLS resource, or that audio uses a direct MP3 resource.
+3. Do not use a YouTube page URL.
+4. Confirm the TV device can reach the media URL.
+5. Remove optional Media Element, interaction, watch-map, artwork, and related-entity parameters and test direct playback.
+6. Add metadata and tracking parameters back one group at a time.
+7. For live Roku video, verify the live-stream parameter and source behavior. [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) [Roku Media Commands](https://community.rockrms.com/developer/roku-docs/commands/media)
 
-Verify date timezone handling in the rendered TVML. A countdown bug is often a date-format or timezone bug rather than a control bug.
+### Playback starts at the wrong position or creates a new interaction
 
-### Roku Controls
+1. Confirm whether the intended outcome is resume-only or appending to an existing interaction.
+2. For resume-only, inspect the supplied watch map.
+3. To append, supply both the existing interaction identifier and its watch map.
+4. If only the watch map is supplied, expect the documented behavior to use its position while creating a new interaction.
+5. Confirm that the correct Rock Media Element identifier is supplied when Rock-managed watch tracking is expected. [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) [Roku Media Commands](https://community.rockrms.com/developer/roku-docs/commands/media)
 
-Rock provides custom SceneGraph controls to attach Rock command behavior:
+### A page shows stale or another context’s content
 
-- `Rock:Button` extends Roku Button and adds `rockCommand` plus command parameter fields ([Roku Button](https://community.rockrms.com/developer/roku-docs/resources/controls/button)).
-- `Rock:ContentNode` extends ContentNode and adds `rockCommand` plus command parameter fields ([Roku Content Node](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node)).
-- `Rock:Page` extends Group and represents the page root with `initialFocus` ([Roku Page Control](https://community.rockrms.com/developer/roku-docs/resources/controls/page)).
-- `Rock:FocusGroup` extends LayoutGroup for vertical/horizontal focus management ([Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group)).
+1. Determine whether the rendered output varies by person, context, query parameter, or authentication state.
+2. Inspect the page’s cacheability type, Max Age, and Max Shared Age where applicable.
+3. Inspect command-level cache control on Roku navigation.
+4. Do not use Public caching for personalized output without a reviewed isolation design.
+5. Clear or bypass the relevant cache in a controlled test.
+6. Re-render with two distinct test contexts and confirm they cannot receive each other’s output. [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages) [Roku Navigation Commands](https://community.rockrms.com/developer/roku-docs/commands/navigation) [Adding Apple TV Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content)
 
-Roku control guidance:
+## Agent Task Recipes
 
-- Use Rock controls when the element needs to execute Rock commands.
-- Use native SceneGraph controls for passive display.
-- Keep command attributes close to the selectable item.
-- Assign stable IDs to focus targets.
-- Prefer fewer, clearer focus groups over deeply nested focus zones.
-- Test with the Roku remote, not just markup inspection.
+### Recipe: Create an Apple TV application skeleton
 
-## 12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Mobile
+**Outcome:** A Rock-managed Apple TV application with a valid Start Screen and explicitly reviewed application settings.
 
-### API Integrations
+1. Confirm Rock 14 or later.
+2. Open `Admin Tools > CMS Configuration > Apple TV Apps`.
+3. Create the application with an internal name and optional description.
+4. Review global styles, page-view tracking, retention, API key, and Authentication Page.
+5. Save and open the generated Start Screen.
+6. Add the smallest valid TVML document that the target shell can render.
+7. Test the Start Screen in the target Apple TV client.
 
-TV Apps depend on Rock API access through configured API keys. Rock’s API documentation distinguishes API v1 and API v2 and links to broader API resources ([Rock API Documentation](https://community.rockrms.com/api-docs)). For TV Apps, do not assume a generic REST pattern until you inspect the shell and deployed code. Use the app configuration and TV-specific source landmarks first.
+**Inspect:**
 
-### Lava
+- Installed Rock and shell versions.
+- The generated Start Screen.
+- Final TVML after Lava rendering.
+- Page cacheability.
 
-Lava is the rendering engine for TV pages. It can query content, branch on login/context, generate XML, build page parameters, and expose media metadata. Lava can also create webhook-based XML APIs for Apple TV or Roku, but Rock’s Lava API docs warn that webhook Lava has no built-in security on execution and can expose data if misused ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
+**Do not assume:**
 
-Agent Lava rules:
+- The Rock-side name becomes the App Store name.
+- Saving the Rock record packages or publishes an App Store application.
+- Browser-valid markup is valid TVML.
 
-- Output valid XML for the platform.
-- Escape dynamic text appropriately.
-- Avoid emitting empty required attributes.
-- Cache expensive Lava only when safe.
-- Do not expose person data through public cache.
-- Verify enabled Lava commands on webhook Defined Values before trusting data access.
+**Stop when:**
 
-### CMS
+- The application record and Start Screen exist, and the target client renders the minimal page. [Creating an Apple TV App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)
 
-TV applications are CMS-adjacent. They use applications/sites, pages, routes, assets, and content structures, but the output is not HTML. Agents familiar with Rock CMS should transfer concepts like pages, security, routes, Lava, and interactions, but not HTML blocks or browser assumptions.
+### Recipe: Build a Roku content page
 
-### Security
+**Outcome:** A Roku page whose rendered SceneGraph loads with deterministic initial focus.
 
-Security includes API keys, page security, remote authentication, Lava command exposure, and cache behavior. Remote auth source code and field types are core landmarks ([RemoteAuthenticationSession source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs), [RemoteAuthsFieldType](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs)).
+1. Confirm Rock 16.7 or later and an available Roku development shell.
+2. Open the intended Roku application record and review its application settings.
+3. Create a page with the required name and cache settings.
+4. Render a `Rock:Page` as the outer component.
+5. Add one focusable `Rock:Button` with a unique ID.
+6. Set `initialFocus` to that ID.
+7. Validate the post-Lava SceneGraph.
+8. Load the page on the Roku client and test directional focus.
 
-### Media
+**Inspect:**
 
-TV Apps are often media-first. Media commands can play audio/video and write watch interactions. YouTube is explicitly unsupported for direct playback in both Apple TV and Roku docs ([Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media)). Use direct playable URLs and confirm platform codec/container support.
+- Application API and authentication settings.
+- Final SceneGraph structure.
+- Focusable control IDs.
+- Cacheability and age settings.
 
-### Mobile
+**Do not assume:**
 
-Mobile matters mainly for authentication and shared patterns. Apple TV built-in images docs compare custom resources to Rock Mobile custom resources ([Built in Images](https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images)). Remote authentication usually happens from a phone or computer. Do not confuse TV Apps with Rock Mobile apps; their markup, runtime, and submission processes differ.
+- Show in Menu creates navigation automatically.
+- HTML or TVML can be reused as SceneGraph.
+- A visible component is focusable.
 
-## 13. Administration And Operational Guardrails
+**Stop when:**
 
-Operational guardrails:
+- The page renders on the target Roku client and initial focus lands on the intended control. [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications) [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages) [Rock Page Control](https://community.rockrms.com/developer/roku-docs/resources/controls/page)
 
-- Keep separate app records for development, staging, and production when possible.
-- Use separate API keys by environment.
-- Keep page-view retention intentional; long retention may create unnecessary interaction storage, while short retention may undermine analytics.
-- Avoid public caching on pages that render `CurrentPerson`, person-specific context, or private media.
-- Treat app demo keys and API keys as secrets.
-- Keep TV pages small enough to render reliably.
-- Avoid huge images; Apple TV tips warn large images can slow loading ([Apple TV Tips](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips)).
-- Avoid SVG in Apple TV markup; the tips page notes SVG images are unsupported ([Apple TV Tips](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips)).
-- Do not build around WebView behavior on tvOS; Apple TV tips note there is no WebView implementation in tvOS ([Apple TV Tips](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips)).
-- Keep Roku layouts simple and use RowList for media/content selection ([Roku Tips](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks)).
-- Track GitHub issues for Roku feature requests/bugs through the docs’ useful links page ([Roku Useful Links](https://community.rockrms.com/developer/roku-docs/resources/useful-links)).
+### Recipe: Add Roku navigation with application context
 
-Operational checks before release:
+**Outcome:** Selecting one control sets a context value and opens a destination page that reads it.
 
-- App launches from cold start.
-- Root page renders anonymous.
-- All navigation targets load.
-- Back behavior is acceptable.
-- Login code displays.
-- Remote auth web page authorizes the device.
-- Login timeout page appears after expiration.
-- Login success page appears after authorization.
-- Logout clears personalized UI.
-- Media playback starts.
-- Media resume works if implemented.
-- Page interactions write when enabled.
-- Suppressed interactions do not write.
-- Cache headers match page sensitivity.
-- Light/dark themes are legible.
-- Images load from public/CDN paths usable by the device.
-- Device logs show no parse errors.
+1. Choose a context key and bounded value.
+2. Confirm the destination page reads that key from `Context`.
+3. Place `setContext` on a supported Rock control and test it independently.
+4. Place `pushPage` on a supported control and test the destination independently.
+5. Combine the commands with comma-separated names.
+6. Keep the context and navigation parameters on the actionable control.
+7. Test a fresh application session and a session where the context is changed.
+8. Add `clearContext` to the appropriate reset path.
 
-## 14. Developer, API, Lava, And Source-Code Landmarks
+**Inspect:**
 
-Use these source-code landmarks when the docs are not enough:
+- Exact context key spelling.
+- Destination page identifier and parameters.
+- Navigation cache control.
+- Whether the page output varies by person or context.
 
-- `Rock/Tv/Classes/AppleTvApplicationSettings.cs`: Apple TV app settings, including application script/styles and API key-related configuration ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs)).
-- `Rock/Tv/Classes/RokuTvApplicationSettings.cs`: Roku app settings, including `ApiKeyId` and `RockComponents` ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs)).
-- `Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs`: remote auth entity, table mapping, site/person alias relationships, REST generation attributes ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs)).
-- `Rock/Model/Security/RemoteAuthenticationSessionService.cs`: start/verify remote auth sessions, code generation, throttling behavior ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs)).
-- `Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs`: query filters for active sessions and code matching ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs)).
-- `RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs`: Remote Authentication block attributes and submission behavior ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs)).
-- `Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs`: picker for remote auth components ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/RemoteAuthsPicker.cs)).
-- `Rock/Field/Types/RemoteAuthsFieldType.cs`: field type for remote auth component selection ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs)).
-- `Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs`: generated API v2 model endpoint for remote authentication sessions ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs)).
-- `Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs`: generated classic REST controller ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs)).
-- `Rock.Migrations/.../202201111342049_AddRemoteAuthenticationSession.cs`: migration introducing the remote authentication session table ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs)).
+**Do not assume:**
 
-Use these documentation landmarks:
+- Context survives after the application closes.
+- Public caching is safe for context-dependent output.
+- Two individually failing commands will work when chained.
 
-- Apple TV root docs ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-- Apple TV app creation ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app)).
-- Apple TV pages and merge fields ([TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages)).
-- Apple TV sign-in ([Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page)).
-- Apple TV media commands ([Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands)).
-- Roku root docs ([Roku Docs](https://community.rockrms.com/developer/roku-docs)).
-- Roku applications ([Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)).
-- Roku pages ([Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)).
-- Roku commands ([Commands](https://community.rockrms.com/developer/roku-docs/commands)).
-- Roku resources and controls ([Resources](https://community.rockrms.com/developer/roku-docs/resources)).
-- Lava APIs ([Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)).
-- Rock API docs ([API Documentation](https://community.rockrms.com/api-docs)).
+**Stop when:**
 
-## 15. Reporting, Analytics, And Model Map
+- The destination renders the selected context, and clearing the context removes it. [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands) [Roku Utility Commands](https://community.rockrms.com/developer/roku-docs/commands/utility) [Roku Navigation Commands](https://community.rockrms.com/developer/roku-docs/commands/navigation)
 
-TV App reporting usually depends on interactions. Application settings control whether page views are written and how long they are retained for both Apple TV and Roku ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app), [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)). Media commands can write media-related interactions and watch maps ([Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media)).
+### Recipe: Configure remote TV sign-in
 
-Reporting questions agents should answer with live inspection:
+**Outcome:** A person can authenticate on a website and the TV client transitions to the configured success page.
 
-- Is page-view tracking enabled on the TV application?
-- What is the retention period?
-- Are navigation commands suppressing interactions?
-- Are media commands writing new interactions or appending to existing ones?
-- Are anonymous and authenticated interactions distinguishable?
-- Does the interaction component/channel/entity type used by the TV shell match reporting assumptions?
-- Are watch maps stored in the expected interaction data field?
-- Are page GUIDs stable enough for reporting over time?
-- Are old interactions being purged by retention policy?
+1. Create an external website page containing the Remote Authentication block.
+2. Associate the block with the intended TV application site.
+3. Give the page a reachable route.
+4. Select that website page as the application’s Authentication Page.
+5. Create distinct TV pages for login display, timeout, and success.
+6. Add the platform-specific QR-code and code placeholders or recognized Roku control IDs.
+7. Add a `login` command with the three TV-page destinations.
+8. Test QR navigation, manual-code entry, timeout, success, and Back behavior.
+9. Test while signed out of the website and while already signed in.
 
-Model map guidance:
+**Inspect:**
 
-- `RemoteAuthenticationSession` belongs to the Core domain and is not the same as an interaction. It tracks remote auth code/session state ([RemoteAuthenticationSession source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs)).
-- TV page analytics should be traced through interaction-related entities in the deployed Rock instance.
-- If the source pack is thin on exact interaction entity types for TV page views, inspect the live database and source for the current Rock version instead of inventing a model path.
-- For media resume, inspect the interaction GUID and watch map passed to the media command, then verify the resulting interaction row.
+- Website authentication state.
+- Site association on the Remote Authentication block.
+- Application Authentication Page.
+- Code expiration and check interval.
+- Navigation-stack clearing after success.
 
-## 16. Version And Release Caveats
+**Do not assume:**
 
-Known version anchors from the source pack:
+- The application API key secures the website Remote Authentication page.
+- The website Authentication Page and TV login-display page are the same page.
+- A code from one device session can authenticate another.
 
-- Apple TV functionality requires Rock v14 or greater according to the Apple TV docs ([Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)).
-- Roku was introduced in Rock v16.7 according to Roku docs and release ecosystem records ([Roku Docs](https://community.rockrms.com/developer/roku-docs), [GitHub Spotlight 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024)).
-- Remote authentication session migration appears under Version 13.0 / 1.13.1 migration path in source, so remote-auth infrastructure predates the Apple TV v14 documentation requirement ([AddRemoteAuthenticationSession migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs)).
-- Roku docs refer to focus-management limitations “as of 2024,” so verify current Roku shell behavior if working on a later Rock version ([Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group)).
-- API docs describe API v1 as legacy and API v2 as newer; do not assume TV shell endpoints without checking deployed source/shell behavior ([API Documentation](https://community.rockrms.com/api-docs)).
+**Stop when:**
 
-When upgrading Rock:
+- A newly created device session authenticates through the website and the same TV client reaches the success page without exposing prior anonymous content through Back navigation. [Creating an Apple TV Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal)
 
-- Re-test TV page rendering because parser behavior or shell expectations may change.
-- Re-test remote authentication because session lifetime, throttles, or auth component behavior may change.
-- Re-test media playback because platform media support and Rock media commands may change.
-- Re-test interaction reporting because write/suppression behavior may change.
-- Re-test Roku focus behavior and custom controls.
-- Re-test Apple TV theme and template behavior.
-- Review release notes for TV, media, Lava, API, interaction, and security changes.
+### Recipe: Add tracked media playback with resume
 
-## 17. Implementation Playbooks
+**Outcome:** A supported media resource plays and resumes according to an explicitly selected interaction strategy.
 
-### Playbook: Anonymous Sermon Library
+1. Choose a direct MP4 or HLS video URL, or a direct MP3 audio URL.
+2. Prove playback with only the command and direct URL.
+3. If the resource is a Rock Media Element, add its identifier.
+4. Add title, subtitle, artwork, and description as needed.
+5. Decide whether to resume from prior state or append to an existing interaction.
+6. For resume-only, pass the prior watch map.
+7. To append, pass both the prior interaction identifier and watch map.
+8. Test first play, interrupted play, resumed play, and completion.
+9. Confirm whether a new or existing interaction was expected.
 
-Goal: Public TV app showing sermon series and messages.
+**Inspect:**
 
-Use:
+- Media format and reachability.
+- Media Element association.
+- Resume flag.
+- Interaction identifier and watch map.
+- Live-stream treatment for Roku when applicable.
 
-- Apple TV: Catalog/List/Product templates.
-- Roku: RowList shelves and product/detail pages.
-- Lava queries for public media/content records.
-- Public caching for anonymous lists if no private data is included.
-- Media commands for playback.
-- Interactions enabled for page/media analytics.
+**Do not assume:**
 
-Checks:
+- A YouTube URL can be passed to the media command.
+- A watch map alone appends to the original interaction.
+- Playback success proves tracking success.
 
-- Media URLs are direct and platform-playable.
-- YouTube links are not used as playback URLs.
-- Page cache is public only for anonymous-safe pages.
-- Detail pages do not expose private speaker/person data.
-- Playback writes interactions if analytics are required.
+**Stop when:**
 
-Sources: [Apple TV Templates](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates), [Roku RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media).
+- Playback, metadata, resume position, and interaction behavior independently match the intended outcome. [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) [Roku Media Commands](https://community.rockrms.com/developer/roku-docs/commands/media)
 
-### Playbook: Campus Selection
+### Recipe: Make an Apple TV page theme-aware
 
-Goal: Let viewer choose a campus and personalize content.
+**Outcome:** One TVML page remains legible in both Light and Dark themes.
 
-Use:
+1. Apply global application styles through the documented site-style mechanism.
+2. Add Light and Dark `tv-template` media-query rules for colors that need to change.
+3. Use documented TVML text styles before introducing custom font choices.
+4. Test the page in both user-selected themes.
+5. If declaring a page-specific theme, retest all text, imagery, badges, and focus states.
+6. Validate shadows and overlays for clipping.
 
-- Context commands to set `Campus`.
-- Lava reads `Context.Campus`.
-- Navigation command pushes campus-specific page.
-- Clear context command for reset/change campus.
+**Inspect:**
 
-Apple TV docs describe context as able to store Rock entities by friendly name and ID/GUID, commonly Campus ([Apple TV Context](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context)). Roku utility commands provide `setContext` and `clearContext` ([Roku Utility](https://community.rockrms.com/developer/roku-docs/commands/utility)).
+- `SiteStyles` output.
+- Light and Dark contrast.
+- Text wrapper dimensions.
+- Image and overlay behavior under focus.
 
-Checks:
+**Do not assume:**
 
-- Context key matches entity friendly name expected by Lava.
-- Context value is valid ID or GUID for that entity.
-- If platform persistence matters, verify whether context persists after app restart on the specific platform/version.
-- Personalized campus page uses safe cache settings.
+- HTML/CSS behavior transfers directly to TVML.
+- A page-specific theme fixes hard-coded colors.
+- Simulator appearance proves the final television presentation.
 
-### Playbook: Remote Login With Personalized Home
+**Stop when:**
 
-Goal: User logs in from phone/computer and TV shows personalized home.
+- The target client renders readable text and recognizable focus states in both themes. [Apple TV Themes](https://community.rockrms.com/developer/apple-tv-docs/styling/themes) [Apple TV Media Queries](https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries) [Apple TV Text Style](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style)
 
-Use:
+## Known Gaps And Live Verification
 
-- Website page with Remote Authentication block.
-- TV app authentication/login page setting.
-- Login command with login page, timeout page, success page.
-- Success page that greets `CurrentPerson`.
-- Navigation stack clearing after login.
+The evidence does not establish:
 
-Checks:
+- Current App Store or Roku Channel Store submission, signing, packaging, or review requirements.
+- How the current Roku development-application request process applies to a specific organization.
+- API-key creation, scope, rotation, revocation, or storage procedures.
+- A complete Apple TV or Roku command inventory.
+- The installed schema, blocks, routes, site records, or shell versions of an arbitrary Rock instance.
+- Whether a particular media provider permits or produces compatible direct streams.
+- Current behavior of every Roku SceneGraph control or focus mechanism.
+- Accessibility behavior, overscan behavior, remote-control ergonomics, or performance on specific TV hardware.
+- Successful end-to-end deployment to a physical Apple TV or Roku device.
+- Security controls added outside the default Lava webhook mechanism.
 
-- Remote Authentication block site matches TV app.
-- Verification code appears and is accepted.
-- Code expiration is long enough for real users.
-- Timeout page appears.
-- Success page does not public-cache person data.
-- Back button cannot reveal stale anonymous/login screens if that matters.
+A bounded live review should therefore verify:
 
-Sources: [Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page), [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal), [RemoteAuthenticationSessionService](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs).
+1. Exact Rock version and installed TV components.
+2. Exact TV application record and site type.
+3. Application API key and Authentication Page configuration without exposing the key.
+4. Page ownership, security, routes, and final rendered markup.
+5. Enabled Lava commands and returned fields for any TV-facing webhook.
+6. Target shell version and device reachability.
+7. Login, timeout, logout, and navigation-stack behavior.
+8. Public, private, person-specific, and shared-cache behavior.
+9. Media playback, resume, and interaction writes.
+10. Physical-device rendering, focus, and remote-control navigation.
 
-### Playbook: Live Event Countdown
+Do not describe the app as live, authenticated, published, or device-verified until those exact outcomes have been observed.
 
-Goal: Show countdown until service/live stream.
+## Source Map
 
-Use:
-
-- Apple TV `rockCountdown`.
-- Lava date formatting from a schedule or event.
-- Short cache if schedule lookup is expensive.
-- Completed command or post-countdown page if supported by the deployed shell.
-
-Checks:
-
-- Date is in expected ISO/timezone format.
-- Countdown matches local event time on device.
-- Page cache does not keep stale dates too long.
-- Fallback content appears if no occurrence is found.
-
-Source: [Countdown](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/countdown).
-
-### Playbook: Roku Media Shelves
-
-Goal: Roku home with rows of media.
-
-Use:
-
-- `Rock:Page initialFocus`.
-- `RowList` with root content node, row content nodes, and item content nodes.
-- Item poster URLs and command fields.
-- `Rock:ContentNode` items when selecting a row item should execute a command.
-
-Checks:
-
-- RowList content hierarchy is correct.
-- Posters load on device.
-- Focus starts on the RowList or first row item.
-- Selecting an item plays media or navigates to detail.
-- Layout is simple and not dependent on custom BrightScript.
-
-Sources: [Roku RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist), [Roku Tips](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks), [Roku Content Node](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node).
-
-## 18. Troubleshooting Decision Tree
-
-### App Does Not Launch Or Shows Wrong Content
-
-1. Is the installed shell pointed at the expected Rock instance?
-2. Is demo mode active when production settings were expected, or vice versa? For Apple TV, review demo key/testing setup ([Testing Your App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app), [Demo Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands)).
-3. Is the API key valid and assigned to the app?
-4. Does the root/start page exist?
-5. Is the root/start page valid TVML or SceneGraph?
-6. Does the page render anonymous, or does Lava assume `CurrentPerson` exists?
-7. Are cache settings returning stale content?
-
-### Page Is Blank
-
-1. Render the saved Lava output and inspect the final XML.
-2. Confirm platform dialect: TVML for Apple TV, SceneGraph for Roku.
-3. Check for unescaped characters in dynamic text.
-4. Check for missing required root element. Roku should use `Rock:Page` as outer page content ([Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages)).
-5. Check for invalid image/media URLs.
-6. Check device logs for parse errors.
-7. Temporarily replace page content with a minimal valid page. If that works, reintroduce sections incrementally.
-
-### Roku Focus Does Not Move
-
-1. Does the page have `Rock:Page initialFocus` pointing at an existing ID?
-2. Are controls focusable?
-3. Are horizontal/vertical controls wrapped in `Rock:FocusGroup`?
-4. Is `layoutDirection` correct for the desired movement?
-5. Are there nested groups causing focus traps?
-6. Test with a real Roku remote.
-
-Source: [Roku Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group).
-
-### Navigation Button Does Nothing
-
-1. Is the selectable control a Rock command-capable control such as `Rock:Button` or `Rock:ContentNode` on Roku?
-2. Is `rockCommand` spelled correctly?
-3. Is the command supported by that platform?
-4. Is `rockPageGuid` a real page GUID?
-5. If multiple commands are comma-separated, does either command fail alone?
-6. Is the page target valid and accessible?
-7. Is loading suppressed or hidden by a cached previous page?
-
-Sources: [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands), [Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation).
-
-### Media Does Not Play
-
-1. Is the URL a direct platform-playable media URL?
-2. Is it a YouTube URL? If so, replace it; both Apple TV and Roku docs say YouTube playback is not supported ([Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Roku Media](https://community.rockrms.com/developer/roku-docs/commands/media)).
-3. Is HTTPS required by the platform or deployment?
-4. Does the media server support range requests and correct content type?
-5. Are captions or alternate streams supported by the target platform?
-6. Are command attributes complete?
-7. Are interaction/watch-map fields malformed?
-
-### Remote Login Fails
-
-1. Does the TV app have a login/authentication page configured?
-2. Does the login command include valid login, timeout, and success page GUIDs?
-3. Does the website authentication page exist and load publicly?
-4. Is the Remote Authentication block on that page?
-5. Does the block point to the correct TV app site?
-6. Is the code expired?
-7. Does `RemoteAuthenticationSession` show a session for the device unique identifier and code?
-8. Does `AuthorizedPersonAliasId` get populated after the user submits the code?
-9. Are IP throttles preventing new sessions?
-10. Does the shell poll often enough and long enough?
-
-Sources: [Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page), [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal), [RemoteAuthenticationSessionService](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs).
-
-### Analytics Missing
-
-1. Is page-view tracking enabled on the app?
-2. Is retention set long enough?
-3. Does navigation command suppress interactions?
-4. Are media commands writing or appending to interactions?
-5. Is the user anonymous or authenticated?
-6. Are reports looking at the right interaction channel/component/entity?
-7. Has cleanup removed old interactions?
-
-Sources: [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications), [Roku Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation), [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands).
-
-## 19. Agent Task Recipes
-
-### Recipe: Audit A TV App Configuration
-
-Collect:
-
-- Platform: Apple TV or Roku.
-- Rock version.
-- Application record name, GUID/ID if available.
-- API key ID/person.
-- Page-view enabled flag.
-- Retention days.
-- Authentication page.
-- Root/start page.
-- Global styles/components.
-- All page GUIDs referenced by commands.
-- Cache settings for each page.
-- Media URL sources.
-- Remote auth block page and attributes.
-
-Report:
-
-- Configuration summary.
-- Security concerns.
-- Cache concerns.
-- Broken page references.
-- Missing auth pieces.
-- Media risks.
-- Version caveats.
-- Live checks still needed.
-
-### Recipe: Trace A Page GUID
-
-1. Search TV page records for the GUID.
-2. Confirm platform and parent application.
-3. Render the page with relevant query parameters.
-4. Inspect final XML.
-5. Check merge fields used.
-6. Check page cache settings.
-7. Check page security.
-8. Check commands pointing out from the page.
-9. Check whether page writes interactions.
-10. Test device navigation.
-
-### Recipe: Validate Remote Auth In Data
-
-Inspect:
-
-- `RemoteAuthenticationSession` rows created during a test.
-- `Code`.
-- `DeviceUniqueIdentifier`.
-- `ClientIpAddress`.
-- `AuthenticationIpAddress`.
-- `SessionStartDateTime`.
-- `SessionEndDateTime`.
-- `SiteId`.
-- `AuthorizedPersonAliasId`.
-
-Expected flow:
-
-- New session row appears when TV login starts.
-- Code matches displayed code.
-- Authorized alias is empty before web authorization.
-- Authorized alias is populated after successful web authorization.
-- Session remains active within lifetime.
-- Shell detects success and navigates to success page.
-
-Use source behavior as a guide, but verify fields and timestamps in the deployed database ([RemoteAuthenticationSession source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs), [RemoteAuthenticationSessionService](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs)).
-
-### Recipe: Review A Roku Page For Focus
-
-Check:
-
-- `Rock:Page` exists as page root.
-- `initialFocus` references an actual control ID.
-- Horizontal controls are grouped.
-- Vertical controls are grouped.
-- IDs are unique.
-- Buttons have enough width for labels.
-- RowList has valid content hierarchy.
-- Back navigation path is clear.
-
-### Recipe: Review Apple TV Markup
-
-Check:
-
-- Document root is valid TVML.
-- Template matches content type.
-- Dynamic text is escaped.
-- Images are supported formats, not SVG.
-- No WebView assumptions.
-- Theme styles are valid.
-- Text overflow is handled.
-- Large images are compressed/resized.
-- Commands are valid for the shell.
-- Media URLs are not YouTube links.
-
-Sources: [Apple TV Tips](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips), [Apple TV Templates](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates).
-
-### Recipe: Decide Cache Policy
-
-Use public cache only when:
-
-- Page is anonymous.
-- Content is identical for all users.
-- No person/campus-sensitive data is included.
-- Stale content is acceptable for the configured duration.
-
-Use personal/private/no-store behavior when:
-
-- Page uses `CurrentPerson`.
-- Page uses person-specific watch progress.
-- Page contains private media.
-- Page uses auth state.
-- Page uses context that should not leak across viewers.
-- Page changes frequently.
-
-Verify actual headers and CDN behavior in the live environment.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `10`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
-| official | behavior | Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
-| official | configuration | A Rock Apple TV app is created as a Rock-managed TV application record under CMS configuration, with Rock-side settings that are distinct from the App Store name. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) |
-| official | configuration | A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
-| official | implementation_pattern | Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
-| official | implementation_pattern | Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas. | [source](https://community.rockrms.com/developer/roku-docs/commands) |
-| official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
-| official | source_summary | Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater. | [source](https://community.rockrms.com/developer/apple-tv-docs) |
-| official | source_summary | Rock Roku documentation describes Roku support as a way to extend Rock-powered digital ministry to Roku TV through Rock-managed Roku integration. | [source](https://community.rockrms.com/developer/roku-docs) |
-| release-note-confirmed | release_caveat | Triumph's GitHub Spotlight for the v17.0.29 pre-alpha notes that the Roku TV app feature was added for Rock v16.7, making Roku coverage version-sensitive. | [source](https://www.triumph.tech/resources/github-spotlight-1042024) |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-No approved media distillations are currently routed to this concept.
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 20. Source Map And Dependency Notes
-
-### Release Notes And Community Examples
-
-Version context matters for TV Apps because Apple TV and Roku behavior depends on both Rock server features and shell/runtime expectations. Use Rock release notes as the release authority before assuming that a TV app setting, remote-auth behavior, API route, or security hardening exists in the target instance ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Community examples are useful as examples only. A TV-related question or recipe can help an agent recognize a pattern, but it should not override official Apple TV/Roku docs, release notes, or source code. For cross-surface questions such as API access, event data, external links, or login behavior, the Rock Q&A developing area is a useful signal that real implementers hit the issue, but the answer must still be verified against current docs and the live instance ([Developing for Rock Q&A](https://community.rockrms.com/ask/developing)).
-
-Primary TV sources:
-
-- Apple TV root docs: [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs).
-- Apple TV app creation: [Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app).
-- Apple TV testing: [Testing Your App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app).
-- Apple TV content/page creation: [Adding Content](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content), [TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages).
-- Apple TV sign-in: [Creating a Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page).
-- Apple TV context: [Context](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context).
-- Apple TV templates: [Templates](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates).
-- Apple TV styling: [Styling](https://community.rockrms.com/developer/apple-tv-docs/styling), [TV Text Style](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style), [Media Queries](https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries), [Themes](https://community.rockrms.com/developer/apple-tv-docs/styling/themes), [Built in Images](https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images).
-- Apple TV media/personal/demo commands: [Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Personal Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands), [Demo Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands).
-- Roku root docs: [Roku Docs](https://community.rockrms.com/developer/roku-docs).
-- Roku getting started: [Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started).
-- Roku app settings: [Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications).
-- Roku pages: [Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages).
-- Roku commands: [Commands](https://community.rockrms.com/developer/roku-docs/commands), [Navigation](https://community.rockrms.com/developer/roku-docs/commands/navigation), [Media](https://community.rockrms.com/developer/roku-docs/commands/media), [Utility](https://community.rockrms.com/developer/roku-docs/commands/utility), [Personal](https://community.rockrms.com/developer/roku-docs/commands/personal).
-- Roku controls/layout: [Controls](https://community.rockrms.com/developer/roku-docs/resources/controls), [Button](https://community.rockrms.com/developer/roku-docs/resources/controls/button), [Content Node](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node), [Focus Group](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group), [Page](https://community.rockrms.com/developer/roku-docs/resources/controls/page), [Layout Nodes](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes), [RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist).
-- Roku support links: [Roku Resources](https://community.rockrms.com/developer/roku-docs/resources/roku-resources), [Tips and Tricks](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks), [Useful Links](https://community.rockrms.com/developer/roku-docs/resources/useful-links).
-
-Related dependencies:
-
-- API integrations: [Rock API Documentation](https://community.rockrms.com/api-docs).
-- Lava APIs and security warning: [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api).
-- Roku v16.7 release context: [GitHub Spotlight 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024).
-- Remote authentication source: [RemoteAuthenticationSession](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs), [RemoteAuthenticationSessionService](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs), [RemoteAuthenticationSessionExtensions](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs), [Remote Authentication block](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs).
-- TV app settings source: [AppleTvApplicationSettings](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs), [RokuTvApplicationSettings](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs).
-
-Dependency notes for agents:
-
-- TV Apps depend on API integrations for shell-to-Rock connectivity.
-- TV Apps depend on Lava for dynamic XML rendering.
-- TV Apps depend on CMS concepts for applications, pages, routes, styles, and content organization.
-- TV Apps depend on Security for API keys, page access, and remote authentication.
-- TV Apps depend on Media for playback URLs, watch maps, and interaction tracking.
-- TV Apps overlap with Mobile mainly through remote authentication and shared resource concepts, but they are separate runtime surfaces.
+| Guide area | Primary evidence | Authority and use |
+|---|---|---|
+| Apple TV platform and minimum version | [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs) | Official documentation; approved claim `claim:49b86c70fc03c6969d42` |
+| Apple TV application record | [Creating an Apple TV App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) | Official configuration guidance; approved claim `claim:30ff6291c1d3a92fea69` |
+| Apple TV pages and merge fields | [Apple TV Pages](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) | Official behavior; approved claim `claim:5bd2b6b4cac279be5e13` |
+| Apple TV command model | [Apple TV JavaScript Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript) | Official implementation pattern; approved claim `claim:29f4e0bbc81c08861367` |
+| Apple TV styling and assets | [Styling](https://community.rockrms.com/developer/apple-tv-docs/styling), [Themes](https://community.rockrms.com/developer/apple-tv-docs/styling/themes), [Built-in Images](https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images) | Official platform-specific guidance |
+| Roku platform and version | [Roku Docs](https://community.rockrms.com/developer/roku-docs), [GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-1042024) | Official overview plus release-note confirmation; approved claims `claim:669456b72f0978dc418a` and `claim:52b50da71870c1d611da` |
+| Roku application record | [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications) | Official configuration guidance; approved claim `claim:a43c6281e5328e7cac68` |
+| Roku pages | [Roku Pages](https://community.rockrms.com/developer/roku-docs/getting-started/pages) | Official behavior; approved claim `claim:563e520ec15928e19628` |
+| Roku commands | [Roku Commands](https://community.rockrms.com/developer/roku-docs/commands) | Official implementation pattern; approved claim `claim:9398f3fb18e8a79c0e4d` |
+| Authentication | [Apple TV Sign-in Page](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page), [Roku Personal Commands](https://community.rockrms.com/developer/roku-docs/commands/personal) | Official workflow documentation |
+| Remote-auth implementation | [RemoteAuthentication.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs), [RemoteAuthenticationSessionService.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionService.cs) | Immutable public source excerpts; implementation evidence only |
+| Media playback | [Apple TV Media Commands](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands), [Roku Media Commands](https://community.rockrms.com/developer/roku-docs/commands/media) | Official command documentation |
+| Lava webhook security | [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api) | Official security warning; approved claim `claim:410bf6750e90b7193262` |

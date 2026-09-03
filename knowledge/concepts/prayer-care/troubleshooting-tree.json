@@ -4,201 +4,225 @@
       "do_not_assume": [],
       "entities": [
         "Group",
-        "Campus",
         "Page",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",
-      "id": "request-was-submitted-but-prayer-team-cannot-see-it",
+      "guide_section_id": "troubleshooting-decision-tree-a-submitted-request-does-not-appear-for-the-prayer-team",
+      "id": "a-submitted-request-does-not-appear-for-the-prayer-team",
       "inspect": [
         "Group",
-        "Campus",
         "Page",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/prayer",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs"
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/administer-prayer-requests",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests"
       ],
       "start_with": [
-        "Is the request active?",
-        "Is it expired?",
-        "Is it approved?",
-        "Is it public/private, and does the prayer-team block filter by public?",
-        "Is it assigned to a category selected by the prayer team?",
-        "Is it urgent but hidden by a custom filter?",
-        "Is it group-associated? If yes, is `GroupGuid` present in the prayer-team URL?",
-        "Is the prayer-team user authenticated and in the right role?"
+        "Confirm the request saved successfully.",
+        "Inspect whether it is approved. If automatic approval is disabled, approve it through the administrative request list.",
+        "Confirm it is active and inspect its expiration date.",
+        "Check whether the team block is scoped to a different category.",
+        "Check whether Public Only is enabled while the request is non-public.",
+        "Inspect its flag count and whether the configured threshold unapproved it.",
+        "Determine whether it is group-associated. A normal session without `GroupGuid` excludes group requests.",
+        "Inspect the block’s maximum-results and ordering settings."
       ],
-      "title": "Request Was Submitted But Prayer Team Cannot See It",
-      "when": "Request Was Submitted But Prayer Team Cannot See It"
+      "title": "A submitted request does not appear for the prayer team",
+      "when": "A submitted request does not appear for the prayer team"
     },
     {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "Page",
-        "Attribute"
+      "do_not_assume": [
+        "Review page security; do not rely on category security to protect request content."
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-request-appears-publicly-when-it-should-not",
-      "id": "request-appears-publicly-when-it-should-not",
-      "inspect": [
-        "Group",
-        "Page",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Is `IsPublic` true?",
-        "Is the public page filtering by `IsPublic`, approval, active, and expiration?",
-        "Does the Lava template ignore flags?",
-        "Are custom attributes marked Public incorrectly?",
-        "Is the instance on a version before the v17.0 public-attribute visibility fix?",
-        "Is the request group-scoped but displayed by a custom query?",
-        "Is a cached page showing old content?",
-        "Did AI formatting remove or preserve sensitive details?"
-      ],
-      "title": "Request Appears Publicly When It Should Not",
-      "when": "Request Appears Publicly When It Should Not"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "PersonAlias",
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-approval-does-not-record-approver-or-date",
-      "id": "approval-does-not-record-approver-or-date",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Workflow",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Rock version.",
-        "Whether the block is Obsidian Prayer Request Detail.",
-        "Whether the instance includes the v17.5 fix for `ApprovedOnDateTime` and `ApprovedByPersonAliasId`.",
-        "Whether custom workflow or SQL is bypassing normal approval behavior.",
-        "Whether the user has the block’s Approve security action."
-      ],
-      "title": "Approval Does Not Record Approver Or Date",
-      "when": "Approval Does Not Record Approver Or Date"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-urgent-sorting-looks-wrong",
-      "id": "urgent-sorting-looks-wrong",
-      "inspect": [
-        "Group",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Is `IsUrgent` true, false, or null?",
-        "Is the instance on a version with the v17.5 null urgent fix?",
-        "Is the Prayer Session block or Prayer Card View using custom sort?",
-        "Is category selection excluding urgent requests?",
-        "Are group-scoped urgent requests being excluded from normal sessions?"
-      ],
-      "title": "Urgent Sorting Looks Wrong",
-      "when": "Urgent Sorting Looks Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-comment-digest-sends-too-much",
-      "id": "comment-digest-sends-too-much",
-      "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Was this the first job run?",
-        "Are all historical comments included?",
-        "Are comments filtered by last-run timestamp?",
-        "Are unapproved comments included?",
-        "Did the template include original request text and all comments?",
-        "Which email address was used?",
-        "Was the job duplicated or run manually?"
-      ],
-      "title": "Comment Digest Sends Too Much",
-      "when": "Comment Digest Sends Too Much"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Workflow",
-        "Attribute"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-sms-intake-creates-anonymous-requests",
-      "id": "sms-intake-creates-anonymous-requests",
-      "inspect": [
-        "Person",
-        "Workflow",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Does the inbound phone match a person phone number?",
-        "Is the phone normalized consistently?",
-        "Is the from-person workflow attribute populated?",
-        "Are there duplicate people with the same phone?",
-        "Is the workflow using direct SQL instead of `Prayer Request Add`?",
-        "Is person matching enabled in the workflow action?"
-      ],
-      "title": "SMS Intake Creates Anonymous Requests",
-      "when": "SMS Intake Creates Anonymous Requests"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
         "Group",
         "Page",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-group-prayer-request-appears-in-general-queue",
-      "id": "group-prayer-request-appears-in-general-queue",
+      "guide_section_id": "troubleshooting-decision-tree-a-sensitive-request-is-still-visible",
+      "id": "a-sensitive-request-is-still-visible",
       "inspect": [
         "Group",
         "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Is the request actually associated with the group?",
-        "Did a custom query ignore group filtering?",
-        "Is the normal prayer block configured differently than official group behavior?",
-        "Is the `GroupGuid` parameter present accidentally on a general page?",
-        "Is the mobile block configured to include group requests?"
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-categories",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/work-with-flagged-requests"
       ],
-      "title": "Group Prayer Request Appears In General Queue",
-      "when": "Group Prayer Request Appears In General Queue"
+      "start_with": [
+        "Identify where it is visible: administrative list, secured team page, public page, group page, or communication.",
+        "Inspect approval and public visibility separately.",
+        "Check whether the page or block is restricted to public requests.",
+        "Review page security; do not rely on category security to protect request content.",
+        "If flagging is expected to remove it, inspect the enabled flagging setting, threshold, and current count.",
+        "If AI public-appropriateness checking is expected, inspect the category’s active provider and inherited settings.",
+        "Check whether the category is a grandchild that did not receive inherited AI settings.",
+        "Have an authorized administrator edit, unapprove, or delete the request as the situation requires."
+      ],
+      "title": "A sensitive request is still visible",
+      "when": "A sensitive request is still visible"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume `RSR - Prayer Access` grants comment-entry rights by itself."
+      ],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-prayer-team-members-cannot-add-comments",
+      "id": "prayer-team-members-cannot-add-comments",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/administer-prayer-requests"
+      ],
+      "start_with": [
+        "Confirm the request allows comments.",
+        "Confirm the team page actually uses an experience that exposes comment entry.",
+        "Inspect Edit security on the Prayer Comment note type.",
+        "Do not assume `RSR - Prayer Access` grants comment-entry rights by itself.",
+        "If comment AI approvals are enabled, determine whether the comment was saved and then rejected.",
+        "Retest with the exact prayer-team account."
+      ],
+      "title": "Prayer-team members cannot add comments",
+      "when": "Prayer-team members cannot add comments"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-prayer-comment-digests-are-not-being-delivered",
+      "id": "prayer-comment-digests-are-not-being-delivered",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication"
+      ],
+      "start_with": [
+        "Confirm the Send Prayer Comments job exists, is configured, and has run successfully.",
+        "Confirm the request has Allow Comments enabled.",
+        "Inspect the job’s category selection and Include Child Categories setting.",
+        "Inspect the email stored on the prayer request rather than relying on the person’s current profile email.",
+        "Confirm that a new comment exists within the job’s unsent window.",
+        "Inspect the configured system communication and outbound communication provider.",
+        "Determine whether Save Communications is enabled before expecting a saved communication record.",
+        "Perform a bounded test with non-sensitive content and verify receipt."
+      ],
+      "title": "Prayer-comment digests are not being delivered",
+      "when": "Prayer-comment digests are not being delivered"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-group-prayer-page-is-empty-or-shows-the-wrong-scope",
+      "id": "a-group-prayer-page-is-empty-or-shows-the-wrong-scope",
+      "inspect": [
+        "Group",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests",
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests"
+      ],
+      "start_with": [
+        "Confirm the request was created with the intended `GroupGuid`.",
+        "Inspect the request’s group from its administrative details.",
+        "Remember that the association cannot be changed or removed after creation.",
+        "Confirm the prayer page URL carries the same `GroupGuid`.",
+        "Confirm the page uses Prayer Session or Prayer Card View.",
+        "Test as an intended group member.",
+        "Test as a signed-in nonmember and anonymous visitor to validate the surrounding access controls."
+      ],
+      "title": "A group prayer page is empty or shows the wrong scope",
+      "when": "A group prayer page is empty or shows the wrong scope"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-ai-processing-is-inconsistent-across-categories",
+      "id": "ai-processing-is-inconsistent-across-categories",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations"
+      ],
+      "start_with": [
+        "Confirm an active AI provider exists.",
+        "Inspect the provider selected on each relevant category.",
+        "Identify whether settings are local or inherited.",
+        "Check category depth; inheritance reaches direct children but not grandchildren.",
+        "Confirm the Prayer Request Entry block’s default category is the intended parent for automatic categorization.",
+        "Compare the displayed request with the original available to authorized administrators.",
+        "Review moderation flags, public status, and flag count independently.",
+        "Stop automated reliance if results are unsafe or materially inconsistent; retain human review."
+      ],
+      "title": "AI processing is inconsistent across categories",
+      "when": "AI processing is inconsistent across categories"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-outreach-reminders-do-not-arrive",
+      "id": "outreach-reminders-do-not-arrive",
+      "inspect": [
+        "Person",
+        "Page"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+      ],
+      "start_with": [
+        "Confirm Rock Mobile and the server are on a supported version for the intended Outreach Toolbox experience.",
+        "Confirm the person is signed in and can reach the configured page.",
+        "Inspect onboarding choices for assignment days and reminders.",
+        "Inspect the relevant job configuration and time-of-day values.",
+        "Verify push-notification permissions and delivery in the target mobile environment.",
+        "Confirm the contact has a due prayer or connection cadence.",
+        "Compare the dashboard, touchpoint history, and expected next date.",
+        "Stop calling the rollout complete until an intended user receives and acts on a real test reminder."
+      ],
+      "title": "Outreach reminders do not arrive",
+      "when": "Outreach reminders do not arrive"
     }
   ],
   "concept_id": "prayer-care",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:02+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",
-    "17-troubleshooting-decision-tree-request-appears-publicly-when-it-should-not",
-    "17-troubleshooting-decision-tree-approval-does-not-record-approver-or-date",
-    "17-troubleshooting-decision-tree-urgent-sorting-looks-wrong",
-    "17-troubleshooting-decision-tree-comment-digest-sends-too-much",
-    "17-troubleshooting-decision-tree-sms-intake-creates-anonymous-requests",
-    "17-troubleshooting-decision-tree-group-prayer-request-appears-in-general-queue",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-audit-prayer-configuration",
-    "18-agent-task-recipes-review-a-sensitive-request",
-    "18-agent-task-recipes-build-a-prayer-team-coverage-report",
-    "18-agent-task-recipes-investigate-person-prayer-history",
-    "18-agent-task-recipes-safely-extend-prayer-intake"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-submitted-request-does-not-appear-for-the-prayer-team",
+    "troubleshooting-decision-tree-a-sensitive-request-is-still-visible",
+    "troubleshooting-decision-tree-prayer-team-members-cannot-add-comments",
+    "troubleshooting-decision-tree-prayer-comment-digests-are-not-being-delivered",
+    "troubleshooting-decision-tree-a-group-prayer-page-is-empty-or-shows-the-wrong-scope",
+    "troubleshooting-decision-tree-ai-processing-is-inconsistent-across-categories",
+    "troubleshooting-decision-tree-outreach-reminders-do-not-arrive",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-configure-moderated-public-prayer-intake",
+    "agent-task-recipes-recipe-operate-the-administrator-moderation-queue",
+    "agent-task-recipes-recipe-build-a-secured-ministry-specific-prayer-queue",
+    "agent-task-recipes-recipe-create-and-verify-a-group-prayer-route",
+    "agent-task-recipes-recipe-enable-prayer-comment-digests",
+    "agent-task-recipes-recipe-add-workflow-based-care-follow-up",
+    "agent-task-recipes-recipe-introduce-ai-assistance-with-human-review",
+    "agent-task-recipes-recipe-validate-outreach-toolbox-for-prayer-touchpoints"
   ]
 }

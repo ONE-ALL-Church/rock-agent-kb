@@ -26,12 +26,12 @@ Attendance, kiosks, labels, families, schedules, locations, mobile check-in, and
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-51: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 52-87: 2. Scope And Terminology (high)
-- `3-check-in-mental-model` lines 88-124: 3. Check-In Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 125-165: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-check-in-systems` lines 170-181: Check-In Systems (normal)
-- `5-core-configuration-and-data-model-check-in-type-individual-vs-family` lines 182-189: Check-In Type: Individual vs Family (normal)
+- `agent-summary` lines 18-33: Agent Summary (normal)
+- `scope-and-boundaries` lines 34-50: Scope And Boundaries (normal)
+- `mental-model-configuration-selects-the-rules` lines 53-58: Configuration selects the rules (normal)
+- `mental-model-eligibility-is-an-intersection` lines 59-64: Eligibility is an intersection (normal)
+- `core-configuration-kiosks-locations-and-schedules-check-in-type-and-behavior` lines 75-80: Check-in type and behavior (normal)
+- `core-configuration-kiosks-locations-and-schedules-kiosk-configuration` lines 81-88: Kiosk configuration (normal)
 
 ## Core Entities
 

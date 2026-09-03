@@ -1,249 +1,76 @@
 {
   "branches": [
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "If multiple records exist, stop creation and begin a merge review; do not delete one record."
+      ],
       "entities": [
         "Person",
-        "PersonAlias",
-        "Family",
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-person-does-not-appear-in-search",
-      "id": "person-does-not-appear-in-search",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Family",
-        "Workflow",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindFamilies.cs",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person"
-      ],
-      "start_with": [
-        "Is the search surface staff UI, mobile Smart Search, check-in, Lava, or custom SQL?",
-        "Is the search type supported by that surface?",
-        "Is the person active?",
-        "Is the record type a person?",
-        "Does the search include inactive records?",
-        "Is the name stored in `NickName`, `FirstName`, or another field?",
-        "Is phone normalized correctly?",
-        "Is email on the correct person record?"
-      ],
-      "title": "Person Does Not Appear In Search",
-      "when": "Person Does Not Appear In Search"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Group",
-        "Family",
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-family-members-are-wrong",
-      "id": "family-members-are-wrong",
-      "inspect": [
-        "Person",
-        "Group",
-        "Family",
-        "Workflow",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInChildRelationshipSettingsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindRelationships.cs"
-      ],
-      "start_with": [
-        "Is the displayed \"family\" actually a family group?",
-        "Is the person in more than one family group?",
-        "Which group is primary?",
-        "Are inactive members hidden?",
-        "Are group member roles correct?",
-        "Are known relationships being displayed as family members?",
-        "Did check-in registration add a child to a new family with relationship instead of the parent's family?",
-        "Was there a bad merge?"
-      ],
-      "title": "Family Members Are Wrong",
-      "when": "Family Members Are Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Block",
-        "Attribute"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-person-attribute-does-not-display",
-      "id": "person-attribute-does-not-display",
-      "inspect": [
-        "Person",
-        "Block",
-        "Attribute"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values"
-      ],
-      "start_with": [
-        "Does the attribute definition exist?",
-        "Is the entity type `Rock.Model.Person`?",
-        "Is the category displayed by the block?",
-        "Does the current user have view access?",
-        "Does an `AttributeValue` row exist for the person?",
-        "Is the field type supported by the display surface?",
-        "Is the value cached?",
-        "Is the Lava key correct?"
-      ],
-      "title": "Person Attribute Does Not Display",
-      "when": "Person Attribute Does Not Display"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "PersonAlias",
-        "Workflow",
-        "Attribute"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-workflow-person-attribute-resolves-wrong-person",
-      "id": "workflow-person-attribute-resolves-wrong-person",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Workflow",
-        "Attribute"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/lava/workflows",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/SetPersonAttribute.cs",
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Inspect the workflow attribute field type.",
-        "Inspect raw value.",
-        "Is it a person alias GUID?",
-        "Resolve through `PersonAlias`, not `Person.Id`.",
-        "Was the person merged?",
-        "Does the workflow hide/autofill current person?",
-        "Is spouse blank behavior affected by v18.1 bug fixes?",
-        "Does the workflow action use a value from another attribute?"
-      ],
-      "title": "Workflow Person Attribute Resolves Wrong Person",
-      "when": "Workflow Person Attribute Resolves Wrong Person"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Family",
-        "Workflow"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-child-cannot-check-in-with-adult",
-      "id": "child-cannot-check-in-with-adult",
-      "inspect": [
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Family",
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindRelationships.cs",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Are they in the same family group?",
-        "Is the child active?",
-        "Is the adult active?",
-        "Does the selected family include the child?",
-        "Is a known relationship needed?",
-        "Does the relationship role have `CanCheckin`?",
-        "Does check-in prevent inactive related people?",
-        "Does group type/role allow check-in?"
-      ],
-      "title": "Child Cannot Check In With Adult",
-      "when": "Child Cannot Check In With Adult"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Group",
-        "Family",
-        "Workflow"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-registration-shows-wrong-family-member",
-      "id": "registration-shows-wrong-family-member",
-      "inspect": [
-        "Person",
-        "Group",
-        "Family",
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/488"
-      ],
-      "start_with": [
-        "Check Registration Template settings for same-family registrants.",
-        "Check v19.1 registrant eligibility settings if available.",
-        "Check age, grade, gender, and age classification.",
-        "Check whether Family Member to Register defaults blank in target version.",
-        "Check family group membership and active status.",
-        "Check whether the current person is registrar or family member.",
-        "Check custom Lava or workflow that changes registrar."
-      ],
-      "title": "Registration Shows Wrong Family Member",
-      "when": "Registration Shows Wrong Family Member"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "DataView",
         "Family"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-giving-history-looks-wrong",
-      "id": "giving-history-looks-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-person-cannot-be-found-or-a-new-record-may-be-a-duplicate",
+      "id": "a-person-cannot-be-found-or-a-new-record-may-be-a-duplicate",
       "inspect": [
-        "DataView",
+        "Person",
         "Family"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/church-management/people/families/add-a-family?Version=v19.0",
+        "https://community.rockrms.com/documentation/church-management/people/people-basics/delete-a-person?Version=v19.0"
       ],
       "start_with": [
-        "Is the request for individual or family giving?",
-        "Is \"Combine Giving With\" blank or configured?",
-        "Does the API include family giving?",
-        "Are there multiple aliases or merged records?",
-        "Is Rock v18.3+ with Giving History API fixes?",
-        "Are statement generator filters stale from a Data View in v18.1 or earlier?"
+        "Search using current identity information.",
+        "Check relevant alternate or former email Search Keys, remembering that they are matching aids rather than communication destinations.",
+        "Inspect possible duplicate results and any record-source information available in the installed version.",
+        "Confirm whether Account Protection Profile behavior affected duplicate checking.",
+        "Inspect inactive or pending records before creating a new person.",
+        "If multiple records exist, stop creation and begin a merge review; do not delete one record. Add a Family"
       ],
-      "title": "Giving History Looks Wrong",
-      "when": "Giving History Looks Wrong"
+      "title": "A person cannot be found, or a new record may be a duplicate",
+      "when": "A person cannot be found, or a new record may be a duplicate"
     },
     {
       "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Campus",
+        "Family"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-person-is-in-the-wrong-family-campus-or-household-report",
+      "id": "a-person-is-in-the-wrong-family-campus-or-household-report",
+      "inspect": [
+        "Person",
+        "Campus",
+        "Family"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/people/families/edit-a-family?Version=v19.0",
+        "https://community.rockrms.com/documentation/church-management/people/families/blended-families?Version=v19.0"
+      ],
+      "start_with": [
+        "Confirm that the correct person record is open.",
+        "List every family membership and the role in each.",
+        "Identify which family is primary.",
+        "Compare the documented household situation with the dual-family and single-family-plus-relationship patterns.",
+        "Inspect each family’s campus and address.",
+        "Evaluate reporting, mailing, and check-in consequences before moving or removing membership.",
+        "Save and then verify the final family list and primary-family ordering. Edit a Family"
+      ],
+      "title": "A person is in the wrong family, campus, or household report",
+      "when": "A person is in the wrong family, campus, or household report"
+    },
+    {
+      "do_not_assume": [
+        "Stop when the missing permission is identified; do not broaden unrelated access."
+      ],
       "entities": [
         "Person",
         "Page",
         "Block",
         "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-profile-custom-tab-exposes-too-much",
-      "id": "profile-custom-tab-exposes-too-much",
+      "guide_section_id": "troubleshooting-decision-tree-a-user-can-see-a-profile-but-cannot-view-or-edit-one-part-of-it",
+      "id": "a-user-can-see-a-profile-but-cannot-view-or-edit-one-part-of-it",
       "inspect": [
         "Person",
         "Page",
@@ -251,47 +78,244 @@
         "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/recipes/344",
-        "https://community.rockrms.com/lava/filters/attribute-filters"
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile",
+        "https://community.rockrms.com/documentation/church-management/people/person-profile-page/security-tab?Version=v19.0"
       ],
       "start_with": [
-        "Check page security.",
-        "Check block security.",
-        "Check SQL/Lava command permissions.",
-        "Check whether the query filters to context person.",
-        "Check whether records have their own security, such as registration templates.",
-        "Check whether attributes bypass security.",
-        "Test as non-admin.",
-        "Remove or restrict until reviewed."
+        "Name the page, tab, block, entity, field, and requested action.",
+        "Confirm the exact signed-in user and security roles.",
+        "Test page and tab visibility.",
+        "Test block authorization.",
+        "Test entity, attribute, note-type, signal-type, document-type, or other record authorization.",
+        "Test action-specific authorization such as edit, download, launch, or delete.",
+        "Inspect account-protection behavior if a protected person is involved.",
+        "Stop when the missing permission is identified; do not broaden unrelated access. Person Profile"
       ],
-      "title": "Profile Custom Tab Exposes Too Much",
-      "when": "Profile Custom Tab Exposes Too Much"
+      "title": "A user can see a profile but cannot view or edit one part of it",
+      "when": "A user can see a profile but cannot view or edit one part of it"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Workflow",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-note-is-missing-appears-in-the-wrong-place-or-is-visible-too-broadly",
+      "id": "a-note-is-missing-appears-in-the-wrong-place-or-is-visible-too-broadly",
+      "inspect": [
+        "Person",
+        "Workflow",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/core-concepts/note-types",
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1"
+      ],
+      "start_with": [
+        "Confirm the target person and profile block.",
+        "Identify the Note Type.",
+        "Confirm the note’s target entity.",
+        "Inspect Note Type visibility and create/edit permissions.",
+        "Review author and date metadata.",
+        "Inspect workflows and reports that consume the note.",
+        "Compare the result using the exact affected staff role.",
+        "Escalate sensitive exposure according to local policy rather than copying the note into diagnostics. Note Types"
+      ],
+      "title": "A note is missing, appears in the wrong place, or is visible too broadly",
+      "when": "A note is missing, appears in the wrong place, or is visible too broadly"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Family",
+        "Workflow",
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-attribute-is-absent-blank-stale-or-unexpectedly-overwritten",
+      "id": "an-attribute-is-absent-blank-stale-or-unexpectedly-overwritten",
+      "inspect": [
+        "Person",
+        "Group",
+        "Family",
+        "Workflow",
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/people/person-attributes/manage-person-attributes?Version=v19.0",
+        "https://community.rockrms.com/documentation/church-management/people/person-attributes/person-public-attributes?Version=v19.0"
+      ],
+      "start_with": [
+        "Confirm whether the value belongs to the person, family, or group membership.",
+        "Identify the attribute by stable key as well as display name.",
+        "Check categories and the Attribute Values block’s selected category.",
+        "Check view and edit security.",
+        "Check field type and field-specific settings.",
+        "For public forms, inspect Use Current Value, requiredness, and save timing.",
+        "Inspect workflows or imports that write the attribute.",
+        "Verify version-specific indexing or editor defects before changing data."
+      ],
+      "title": "An attribute is absent, blank, stale, or unexpectedly overwritten",
+      "when": "An attribute is absent, blank, stale, or unexpectedly overwritten"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Campus",
+        "Family",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-family-preregistration-creates-partial-or-duplicate-records",
+      "id": "family-preregistration-creates-partial-or-duplicate-records",
+      "inspect": [
+        "Person",
+        "Campus",
+        "Family",
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/people/families/pre-register-a-family?Version=v19.0",
+        "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+      ],
+      "start_with": [
+        "Test with a controlled new-family case and a controlled existing-person case.",
+        "Record which adult, child, address, contact, and attribute fields are required.",
+        "Verify the duplicate-matching result before saving.",
+        "Confirm the family and person records created.",
+        "Confirm family roles, address, campus, and check-in eligibility.",
+        "Confirm the expected family, parent, and child workflows and their entity types.",
+        "Confirm staff follow-up or connection creation.",
+        "Stop broad launch if any path creates ambiguous, duplicate, or incomplete records. Pre-Register a Family"
+      ],
+      "title": "Family preregistration creates partial or duplicate records",
+      "when": "Family preregistration creates partial or duplicate records"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-connection-request-is-missing-or-stuck",
+      "id": "a-connection-request-is-missing-or-stuck",
+      "inspect": [
+        "Person",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/engagement/connections-overview"
+      ],
+      "start_with": [
+        "Resolve the person and check for duplicates.",
+        "Confirm the Connection Type and Opportunity.",
+        "Confirm current request status.",
+        "Inspect assigned connector or staff owner.",
+        "Review activities and the next expected action.",
+        "Inspect related workflow state and automation.",
+        "Confirm whether a registration-to-connection transfer was expected.",
+        "Report the fault in the correct category rather than as a generic workflow failure."
+      ],
+      "title": "A connection request is missing or stuck",
+      "when": "A connection request is missing or stuck"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-personalized-content-appears-for-the-wrong-person-or-not-at-all",
+      "id": "personalized-content-appears-for-the-wrong-person-or-not-at-all",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms/personalization"
+      ],
+      "start_with": [
+        "Identify the expected audience rule.",
+        "Inspect the exact person data referenced by the rule.",
+        "Confirm the test person and authenticated or anonymous state.",
+        "Check fallback content.",
+        "Test cache behavior.",
+        "Test page, block, and entity authorization independently.",
+        "Stop if targeting is being used to conceal content that lacks proper authorization."
+      ],
+      "title": "Personalized content appears for the wrong person or not at all",
+      "when": "Personalized content appears for the wrong person or not at all"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Person",
+        "Group",
+        "GroupType",
+        "Schedule",
+        "Family",
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-family-analytics-or-era-values-appear-stale-or-wrong",
+      "id": "family-analytics-or-era-values-appear-stale-or-wrong",
+      "inspect": [
+        "Attendance",
+        "Person",
+        "Group",
+        "GroupType",
+        "Schedule",
+        "Family",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/people/person-family-analytics/calculate-analytics?Version=v19.0",
+        "https://community.rockrms.com/documentation/church-management/people/person-family-analytics/use-era?Version=v19.0"
+      ],
+      "start_with": [
+        "Confirm the exact Rock version and relevant release fixes.",
+        "Confirm the Family Analytics job is enabled.",
+        "Review its schedule and latest execution status.",
+        "Inspect the person’s family structure and active status.",
+        "Inspect source giving and attendance data.",
+        "Confirm which Group Types count as Weekend Service.",
+        "Check calculation-window boundary cases.",
+        "Re-run only through the authorized job workflow and verify resulting values and history."
+      ],
+      "title": "Family analytics or eRA values appear stale or wrong",
+      "when": "Family analytics or eRA values appear stale or wrong"
     }
   ],
   "concept_id": "people-families",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:20+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-person-does-not-appear-in-search",
-    "17-troubleshooting-decision-tree-family-members-are-wrong",
-    "17-troubleshooting-decision-tree-person-attribute-does-not-display",
-    "17-troubleshooting-decision-tree-workflow-person-attribute-resolves-wrong-person",
-    "17-troubleshooting-decision-tree-child-cannot-check-in-with-adult",
-    "17-troubleshooting-decision-tree-registration-shows-wrong-family-member",
-    "17-troubleshooting-decision-tree-giving-history-looks-wrong",
-    "17-troubleshooting-decision-tree-profile-custom-tab-exposes-too-much",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-identify-a-person-safely",
-    "18-agent-task-recipes-recipe-explain-why-personalias-matters",
-    "18-agent-task-recipes-recipe-inspect-a-person-attribute",
-    "18-agent-task-recipes-recipe-determine-if-a-value-is-person-id-or-alias-guid",
-    "18-agent-task-recipes-recipe-audit-a-family-for-check-in",
-    "18-agent-task-recipes-recipe-review-a-person-profile-customization",
-    "18-agent-task-recipes-recipe-triage-an-accidental-merge",
-    "18-agent-task-recipes-recipe-track-new-record-source",
-    "18-agent-task-recipes-recipe-build-a-staff-directory-from-person-attributes",
-    "18-agent-task-recipes-recipe-add-a-bookmarked-groups-like-profile-panel"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-person-cannot-be-found-or-a-new-record-may-be-a-duplicate",
+    "troubleshooting-decision-tree-a-person-is-in-the-wrong-family-campus-or-household-report",
+    "troubleshooting-decision-tree-a-user-can-see-a-profile-but-cannot-view-or-edit-one-part-of-it",
+    "troubleshooting-decision-tree-a-note-is-missing-appears-in-the-wrong-place-or-is-visible-too-broadly",
+    "troubleshooting-decision-tree-an-attribute-is-absent-blank-stale-or-unexpectedly-overwritten",
+    "troubleshooting-decision-tree-family-preregistration-creates-partial-or-duplicate-records",
+    "troubleshooting-decision-tree-a-connection-request-is-missing-or-stuck",
+    "troubleshooting-decision-tree-personalized-content-appears-for-the-wrong-person-or-not-at-all",
+    "troubleshooting-decision-tree-family-analytics-or-era-values-appear-stale-or-wrong",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-add-a-person-or-family-without-creating-a-duplicate",
+    "agent-task-recipes-recipe-correct-a-family-structure-or-household-move",
+    "agent-task-recipes-recipe-design-or-review-a-person-or-family-attribute",
+    "agent-task-recipes-recipe-audit-person-note-governance",
+    "agent-task-recipes-recipe-prepare-a-duplicate-person-merge-for-authorized-review",
+    "agent-task-recipes-recipe-validate-family-preregistration-end-to-end",
+    "agent-task-recipes-recipe-diagnose-a-connection-request-from-the-person-record",
+    "agent-task-recipes-recipe-run-a-bounded-people-data-cleanup"
   ]
 }

@@ -6,1613 +6,614 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "34d5ec693c797f6c897e84b6a832dfe7d7dbbf75e13da43403b965795d9c0001"
 ---
 
 # Engagement Tracking
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock provides several related but distinct ways to represent engagement:
 
-- Concept data-model landmarks: [Engagement Tracking index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+- **Steps** record progress through an organizational journey. Completion requires both a completion date and a status configured as complete. Programs control ordering and prerequisites, while step types control repeatability, dates, attributes, automation and other behavior. ([Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps), [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs))
+- **Streaks** calculate consecutive participation from occurrence, engagement and exclusion maps. Enrollment dates, exclusions and rebuild behavior materially affect the result. ([Intro to Streaks](https://community.rockrms.com/documentation/engagement/streaks/overview/intro-to-streaks), [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps))
+- **Assessments** collect built-in assessment results, preserve requested and self-initiated history, and expose result attributes for person Data Views. Retakes depend on the assessment type’s minimum-days and request requirements. ([Intro to Assessments](https://community.rockrms.com/documentation/engagement/assessments/overview/intro-to-assessments), [Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments))
+- **Achievements** evaluate goals against engagement or interaction data and track attempts from start through success or failure. They can launch workflows and create Steps after success. ([Intro to Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements), [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types))
+- **Reminders, Following, Interactive Experiences and Sign-Ups** support follow-up, personalized notifications, live participation and short-term opportunities. They have their own job, permission, communication, mobile and page-configuration dependencies. ([Additional Engagement Tools](https://community.rockrms.com/documentation/engagement/additional-engagement-tools))
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+An agent should first identify which record represents the desired outcome. Do not use an Achievement as if it were a manually curated journey record, a Step as if it proved consecutive attendance, or a Sign-Up registration as if it represented a completed Step.
 
-## 1. Executive Summary For Agents
+## Scope And Boundaries
 
-Engagement Tracking in Rock RMS is not one feature. It is a family of tools for representing movement, participation, completion, and readiness across a person’s relationship with the organization. The main pieces are:
+This guide covers configuration and operations for Steps, Streaks, Assessments, Achievements, Reminders, Following, Interactive Experiences and Sign-Ups. It also covers the evidence-supported connections among those tools, including Achievement-to-Step creation, Data View segmentation of assessment results, workflow launches and attendance-driven streak calculation. ([Steps](https://community.rockrms.com/documentation/engagement/steps), [Streaks](https://community.rockrms.com/documentation/engagement/streaks), [Assessments](https://community.rockrms.com/documentation/engagement/assessments), [Additional Engagement Tools](https://community.rockrms.com/documentation/engagement/additional-engagement-tools))
 
-- **Steps**: configured ministry journeys made of Step Programs, Step Types, Step Statuses, and individual Step records. Use them when the organization wants to track that a person started, completed, or repeated a meaningful ministry action such as baptism, membership, serving onboarding, training, or a discipleship milestone. See the official [Steps documentation](https://community.rockrms.com/documentation/engagement/steps).
-- **Streaks**: attendance-pattern tracking built around occurrence, engagement, and exclusion maps. Use them when the question is not merely “did this person attend?” but “how consistently has this person been participating?” See [Streaks](https://community.rockrms.com/documentation/engagement/streaks) and [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps).
-- **Assessments**: built-in tools for collecting structured self-assessment results such as DISC, Spiritual Gifts, Motivators, Emotional Intelligence, and Conflict Profile. Use them for volunteer placement, staff development, leadership coaching, and search/reporting against assessment-derived attributes. See [Assessments](https://community.rockrms.com/documentation/engagement/assessments).
-- **Achievements**: configurable goals evaluated against engagement or interaction data, with attempts, badges, workflows, prerequisites, and optional Step creation on success. Use them when an agent needs to recognize patterns automatically, such as completing a Step Program or maintaining a streak. See [Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements).
-- **Related engagement surfaces**: Reminders, Following, Interactive Experiences, Sign-Ups, Learning LMS engagement, Communications, Groups, Data Views, Reports, and Security all intersect with engagement work. The official engagement navigation lists these under [Additional Engagement Tools](https://community.rockrms.com/documentation/engagement/additional-engagement-tools).
+Related concepts retain ownership of their specialized concerns:
 
-For agents doing real Rock work, the most important rule is to identify the **engagement signal** before touching configuration. A Step is a record of a person’s movement through a configured program. A Streak is a computed or manually adjusted attendance pattern. An Assessment is a structured result stored against the person and surfaced through history, attributes, and Data Views. An Achievement is an automation layer that evaluates source data and creates attempts, badge output, workflow activity, and sometimes Steps.
+- Person matching, aliases and profile administration belong with People.
+- Group structure, attendance collection and group security belong with Groups and Check-in.
+- Workflow construction belongs with Workflows.
+- Communication transport, deliverability and consent belong with Communications.
+- General Data View and reporting design belong with Data Views and Reports.
+- Page, block, entity and role authorization belong with Security.
+- Course and learning-activity completion belongs with LMS engagement.
 
-Do not assume every engagement feature is present or configured the same way in every Rock instance. Before changing production data, inspect the live Rock version, enabled pages, block types, entity records, security, categories, workflow triggers, Step statuses, Achievement components, and relevant system jobs. Some features have important version caveats, including v18.1 additions for Core Steps, Step Analytics, Step Type transfer, and LMS engagement changes, plus v18.3 fixes for Achievement Type saving, Achievement Attempt workflow timing, and Step Program workflow trigger associations in the [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+This evidence pack contains no reviewed live-instance conclusion. Therefore, installed version, configured jobs, page blocks, security assignments, communication transport, mobile setup, geofences and actual organization data must be verified separately before an agent claims that a feature works in a particular installation.
 
-## 2. Scope And Terminology
+## Mental Model
 
-This guide covers the engagement-tracking layer around Steps, Step Programs, Step Types, Streaks, Assessments, Achievements, completion signals, journey-style tracking, and reporting. It also explains how these features connect to People, Groups, Workflows, Communications, Data Views, Reports, Security, and Learning LMS engagement.
+Treat engagement tracking as a chain from source evidence to calculated or curated outcomes:
 
-The guide does not replace live-instance review. Rock organizations frequently customize page routes, block settings, Step statuses, categories, attributes, badges, workflows, and security. When a fact depends on the local instance, this guide says what to inspect.
+1. **Activity evidence** originates in records such as attendance, interactions, giving, assessment responses or manually entered participation.
+2. **Interpretation rules** define what the evidence means. Step prerequisites, streak frequencies, occurrence maps, assessment-type policies and Achievement conditions all belong here.
+3. **Entity-level state** records a person’s Step, streak enrollment, assessment history or Achievement attempt.
+4. **Completion and progress signals** expose the result through statuses, dates, percentages, badges, charts, Data Views, workflows or communications.
+5. **Operational responses** use those signals to support follow-up, celebrate progress, send reminders or guide placement.
 
-Core terms:
+These layers are not interchangeable. For example, a streak exclusion changes streak calculation without changing underlying attendance, while an Achievement rebuild recalculates attempts rather than modifying the source participation records. ([Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date), [Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types))
 
-**Person**
-The human record being tracked. Many engagement entities reference a `PersonAlias` rather than the `Person` row directly. In source snippets, Step Program Completion and Achievement examples reference `PersonAlias` or an achiever entity rather than only a person ID. See the Step Program Completion model in [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs).
+## Steps
 
-**Step Program**
-A configured collection of Step Types that represents a journey or program. Rock’s documentation describes Step Programs as the organizing container for individual activities and accomplishments, and the admin area is reached from `People > Engagement > Steps` in the v19 docs. See [Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps) and [About Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-steps).
+### Programs, types and completion
 
-**Step Type**
-A configured activity, milestone, or ongoing engagement inside a Step Program. It has display settings, status behavior, attributes, workflow triggers, and advanced settings. See [About Step Types](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types) and [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types).
+A Step Program groups Step Types and defines shared statuses, presentation and progression rules. Its Completion Flow has three supported modes:
 
-**Step**
-The actual person-specific record that a person started, completed, or is otherwise associated with a Step Type. Step entry supports person, campus, date fields, status, and attributes depending on Step Type configuration. See [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry).
+- **Linear (Required):** steps must be completed in sequence, and custom prerequisites are removed.
+- **Linear (Preferred):** the sequence is preferred rather than mandatory, while configured prerequisites remain enforced.
+- **Non-Linear:** sequence controls display order only, while configured prerequisites remain enforced.
 
-**Step Status**
-A configured status in a Step Program. Step statuses can represent started, in progress, completed, or custom states. Source-code view models expose whether a status is a completion status, which matters for completion reporting and workflows. See [`StepStatusBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/StepTypeDetail/StepStatusBag.cs).
+A Step is complete only when it has both a completion date and a status whose configuration marks it complete. A date by itself is not sufficient. For a Rhythm engagement type, Rock does not automatically change the status: In Progress represents an active rhythm, and Completed indicates that the rhythm has ended. ([Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps), [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs))
 
-**Step Program Completion**
-A derived model representing that a person completed a full set of completed Steps for a Step Program. The source model explains that Rock records completion when there is a completed Step for each Step Type in the program and uses the newest completed Step for each type in that completion set. See [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs) and the [Model Map](https://community.rockrms.com/ModelMap) record for Step Program Completion.
+At the Step Type level, configuration controls prerequisites, whether multiple completions are allowed, whether the activity spans time and whether its date is required. A type that spans time uses separate start and end dates. A type that does not span time uses one date, which Rock treats and displays as the completion date. ([Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types), [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry))
 
-**Streak Type**
-A configured streak definition that tells Rock what population and attendance pattern to evaluate. The official docs frame it as the configuration that defines where and when to look for streaks, such as weekend attendance or small group attendance, and who should be tracked. See [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types).
+### Entry, attributes and history
 
-**Occurrence Map**
-A Streak map defining when engagement could have happened. It is the schedule frame against which participation and absence are judged. See [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps).
+An individual Step can be maintained from a Step Type or a person profile. Step Entry supports the person, optional campus, applicable dates, status, note and configured Step Attributes. Changes to a person’s Step record are included in Person History on the profile’s History tab. ([Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry))
 
-**Engagement Map**
-A person-specific Streak map indicating when the person did or did not participate.
+On a Step Type’s participant list:
 
-**Exclusion Map**
-A Streak map indicating dates to ignore for streak-count purposes. Exclusions change streak calculations but do not erase the underlying attendance record. See [Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date).
+- The start-date column appears only when the type spans time.
+- The single date for a type that does not span time appears as the completion date.
+- A Step Attribute appears in the grid when **Show in Grid** is enabled.
 
-**Assessment Type**
-A configured assessment definition under `Admin Tools > System Settings > Assessment Types`, including retake timing and whether a request is required. See [Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments).
+These display rules should be checked before concluding that a date or attribute is absent from the underlying record. ([Intro to Step Types](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types))
 
-**Assessment Request**
-An invitation for a person to complete one or more assessments. Requests can be sent from a person profile or through communications to groups using Lava patterns described in the docs. See [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests).
+### Bulk entry and automation
 
-**Achievement Type**
-A configured goal definition. It includes the achievement component, source entity type, achiever entity type, active state, workflow hooks, badge Lava, prerequisites, limits, category, display settings, and optional Step creation. See [Intro to Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements), [Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types), and [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs).
+Rock supports two bulk-maintenance paths: updating selected people from a list grid and using bulk entry from a Step Program or Step Type page. A Step Attribute with **Show on Bulk** enabled can be assigned once to all selected people. Without that setting, the attribute remains available but must be entered separately for each person. ([Use Bulk Entry With Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps))
 
-**Achievement Attempt**
-A tracked attempt by an achiever to meet an Achievement Type. Attempts can be in progress, successful, or unsuccessful as an operational concept, even where the docs describe that there is not a formal status field exposed in the same way. See [Add Achievement Attempts](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts).
+A Step Type can use an Auto-Complete Data View. When the Steps Automation job processes it, Rock still honors prerequisites and **Allow Multiple** before creating or completing Step records. Data View membership alone therefore does not guarantee that a new Step will be produced. ([Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types))
 
-## 3. Engagement Tracking Mental Model
+A reviewed community recipe describes a historical-data migration pattern using Data Views and a workflow so the source attribute’s historical date can be retained. It warns about duplicates, timeouts and failures when multiple completions are disallowed. This is a community example written for older Rock versions, not official current behavior or a generally safe migration procedure. ([Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233))
 
-Think of Rock engagement as four layers.
+### Workflows and permissions
 
-The first layer is **raw activity**. Attendance records, group membership, communication activity, LMS activity completion, interactive experience responses, and manually entered records all describe what happened. In this layer, agents ask: What was observed? Where is the source record? Is it person-specific? Is it campus-specific? Is it tied to a group, schedule, occurrence, workflow, or class?
+Official documentation supports attaching workflows at either the Step Program or Step Type level. Program workflows apply across the program; type-level workflows apply only to that Step Type. Documented program triggers include Step Completed, Status Changed and Manual. Adding Steps from a person profile also depends on Edit permission for the Steps block. ([Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs), [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types))
 
-The second layer is **structured journey tracking**. Steps turn raw or staff-entered signals into a defined ministry path. A person can have a Step in a Step Type, with a date or date range, status, campus, attributes, and possibly workflows. Step Programs create the larger structure. This is the layer for “has this person taken the next action we care about?” The official Steps docs describe program navigation, program categories, Step Type counts, and Steps Taken counts under `People > Engagement > Steps` in [About Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-steps).
+Rock 18.3 fixed a high-severity issue in which editing a Step Program could remove the Step Type association from workflow triggers and could display type-level triggers on the program detail page. Rock 19.5 also fixed a program Status Changed trigger configured with a From status of Any firing on unrelated Step saves. Verify the installed version when investigating either symptom. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-The third layer is **pattern recognition**. Streaks and Achievements look across multiple records or periods and produce a higher-level signal. A Streak answers consistency questions: how many eligible periods in a row did the person engage? An Achievement answers goal questions: did the achiever satisfy configured conditions, and should Rock record an attempt, badge, workflow, or Step? Streaks depend heavily on maps; Achievements depend heavily on components, source entities, and processing. See [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps) and [`AchievementTypeService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs).
+### Badges, metrics and charts
 
-The fourth layer is **activation and reporting**. Engagement data becomes operational only when it appears in Person Profile badges, grids, charts, Data Views, reports, workflows, communications, dashboards, or staff processes. Step badges can surface program progress on a Person Profile or connection-related screens, according to [Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges). Step charts expose trends, totals, campuses, statuses, and flow perspectives in [Chart Types](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types). Assessment results can be searched through Data Views, as the Spiritual Gifts and Emotional Intelligence articles describe for assessment-derived attributes: [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts) and [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence).
+To display a program’s progress as a badge, configure one Person badge of type Steps for the entire Step Program, then add that badge to the Person Profile page’s badge container. A Step Type’s **Show Count on Badge** setting affects only badges using Normal display mode. ([Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges))
 
-An agent should therefore diagnose engagement tasks in this order:
+Program Started and Completed totals count Step occurrences, not distinct people. A person can therefore contribute more than once when the Step Type allows multiple completions. Average completion time is measured from the earliest Step start date through the latest Step end date in the program. ([Intro to Step Programs](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-programs))
 
-1. Identify the underlying source signal.
-2. Identify the engagement abstraction that should represent it.
-3. Verify configuration and entity relationships.
-4. Verify security and page/block access.
-5. Verify automation, jobs, workflows, and version caveats.
-6. Verify reporting and staff-facing surfaces.
-7. Make changes only after rollback/readback strategy is clear.
+Chart interpretation depends on configuration:
 
-## 4. Source Authority And How To Use This Guide
+- A Step Program Trends chart includes completed Step Types.
+- A Step Type chart can display either started or completed activity.
+- Completed-status filters plot completion dates; other status filters plot start dates.
+- Impact-adjusted measures multiply each Step Type’s completion count by its configured Impact Weight.
+- A Step Flow chart’s maximum-level setting truncates the visible sequence. Absence after the final displayed level does not prove that people stopped progressing.
 
-Use source authority in this order:
+([Intro to Step Charts](https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts), [Chart Types](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types))
 
-1. **Official Rock documentation** for administrator workflows, navigation, configuration fields, and intended usage. The pack’s strongest sources are the v19 official docs for [Steps](https://community.rockrms.com/documentation/engagement/steps), [Streaks](https://community.rockrms.com/documentation/engagement/streaks), [Assessments](https://community.rockrms.com/documentation/engagement/assessments), and [Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements).
-2. **Rock source code** for entity fields, API/code-generation markers, security inheritance, validation, view-model properties, and implementation landmarks. Use snippets such as [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs), [`AchievementTypeService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs), [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs), and [`StepProgramStepTypeFieldType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/StepProgramStepTypeFieldType.cs).
-3. **Release notes** for version-sensitive behavior. The source pack includes v18.1 and v18.3 changes from the [Rock Core Release Notes](https://www.rockrms.com/releasenotes), including Core Steps, Step Type transfer, Step Analytics, Achievement Type fixes, Achievement Attempt workflow timing, and Step Program workflow-trigger association fixes.
-4. **Model Map** for reporting/model availability and naming. The pack identifies “Step Program Completion” as a model in the Engagement category via the [Model Map](https://community.rockrms.com/ModelMap).
-5. **RockU** for training coverage. The pack records an Engagement training section that includes Step Programs, Adding Steps, Steps Badges, Step Flow legacy, Step Charts, Step Types, and Steps Overview at [RockU Engagement](https://community.rockrms.com/rocku/engagement), but the hydrated page returned limited usable content, so treat it as a training pointer rather than a source for precise configuration details.
-6. **Community recipes and Q&A** for examples and edge cases only. The recipe for [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233) is useful as a historical-data migration pattern, but the page itself warns that recipes are community contributed and not core-reviewed. Use community content only after official docs and source-code records.
+### Moving Step Types and completion records
 
-How to use this guide:
+Moving a Step Type to another program preserves its Step data but removes its prerequisites and Step Attributes; those configurations must be rebuilt in the destination. Existing Program Completions are not recalculated or moved and remain associated with the programs where they were recorded. ([Move a Step Type](https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type))
 
-- Use the section headings to orient an agent in live work.
-- Use citations to jump to the official or source-code record.
-- When an instruction says “inspect,” perform live readback in the target Rock instance before deciding.
-- For public documentation work, keep source quotations short and synthesize in your own words.
-- For production operations, avoid SQL writes unless explicitly authorized, and prefer UI/API-supported operations where possible.
+Rock 18.1 introduced the ability to transfer Step Types and added a system-protected Core Steps program with initial system-protected types. Confirm version and protection state before planning a transfer. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-## 5. Core Configuration And Data Model
+As an implementation observation, Rock’s public source at commit `471fd303d111b2e46218228dbc1e93dba8856fa3` describes a Step Program Completion record as representing the point at which a person has a complete set of completed Steps, using the newest completed Step for each type. The same source makes that completion record inherit its security authority from its Step Program. This is code evidence from that commit, not proof of an installation’s version, data or authorization configuration. ([StepProgramCompletion.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs), [StepProgramCompletion.Logic.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs))
 
-### Steps Configuration
+## Streaks
 
-The Steps administrative surface is under `People > Engagement > Steps` in the v19 documentation. From there, administrators manage Step Programs, Step Types, participant lists, metrics, charts, and Step entry workflows. See [About Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-steps).
+### Types and maps
 
-A Step Program typically includes:
+A Streak Type defines the engagement source, activity target, frequency, start date and tracked population. Rock can calculate streaks from attendance or other engagement data to identify consecutive instances of participation. ([Intro to Streaks](https://community.rockrms.com/documentation/engagement/streaks/overview/intro-to-streaks), [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types))
 
-- **Name**: the public/admin name of the program.
-- **Active**: whether the program is available for tracking.
-- **Description**: context for admins and staff.
-- **Icon CSS Class**: display icon for the program.
-- **Category**: grouping managed through Category Manager for the Step Program entity type.
-- **Completion Flow**: rules controlling how participants progress through Step Types.
-- **Default List View**: grid/list presentation behavior.
-- **Statuses**: Step statuses for the program.
-- **Entity Attributes**: attributes attached to Step records or related entities depending on configuration.
-- **Workflows**: workflow triggers associated with program-level or status-related events.
+The calculation uses three maps:
 
-These fields are described in [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs). The release notes include a v18.3 bug fix where editing a Step Program could remove Step Type associations from workflow triggers, and Step Type-level triggers could appear incorrectly on the Step Program Detail block. If troubleshooting workflow triggers in v18.0-v18.2-era systems or recently upgraded environments, verify this against the [Release Notes](https://www.rockrms.com/releasenotes).
+- The **occurrence map** identifies eligible days or weeks when participation could occur.
+- The **engagement map** identifies the individual’s participation.
+- The **exclusion map** identifies excused absences.
 
-A Step Type typically includes:
+An exclusion can apply to an individual or a location. It causes an absence to be ignored, but it does not prevent recorded participation on that date from contributing positively to the streak. ([Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps))
 
-- **Name**.
-- **Active**.
-- **Description**.
-- **Highlight Color** for charts and legends.
-- **Icon** or CSS icon.
-- **Show Count on Badge**, which affects badge display for that Step Type.
-- **Engagement Type**, such as milestone versus ongoing engagement.
-- **Impact Weight**, used where the configured engagement model considers relative importance.
-- **Step Attributes**.
-- **Workflows**.
-- **Advanced Settings**.
+A Streak Type’s start date and frequency cannot be manually changed after the type is saved; correcting either generally requires a new Streak Type. If **Sync Linked Activity** is enabled, qualifying attendance or interaction records update the engagement map, and additions to the engagement map create corresponding attendance or interaction records. Verify this setting before making a supposedly map-only correction. ([Add a New Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type))
 
-See [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types). Some specific field names and exact options can vary by version, so inspect the live Step Type edit block when writing operational instructions for a local instance.
+### Enrollment and exclusions
 
-A Step record entered for a person can include:
+The enrollment date forms an individual lower boundary: engagements and absences before it are ignored. The date cannot be manually changed after the enrollment is saved. Manually enrolling someone does not populate historical attendance into the engagement map; an individual rebuild is required to derive that map from configured engagement data. ([Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail), [Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment))
 
-- Person.
-- Campus.
-- Date, Start Date, or End Date depending on whether the Step spans time.
-- Status.
-- Step attributes, if configured.
-- Context from the page path, such as entering from a Step Type page versus a Person Profile.
+An individual exclusion affects only that enrollee. The exclusion does not change underlying attendance, so the engagement graph or map may still display an absence even while the calculated streak spans the excluded date. A manually excluded date neither contributes to nor interrupts the streak. ([Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment), [Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date))
 
-The official [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry) article explains that person may be pre-filled when entering from the Person Profile, while Step-area entry requires selecting a person.
+Manual engagement-map additions update streak metrics after saving. After changing an engagement or exclusion map, save and refresh the page to confirm the displayed result. Occurrence-map changes have a different timing dependency: participant displays are not updated until the nightly cleanup job runs. ([Manually Track Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks), [Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail))
 
-### Step Status And Completion
+### Rebuild boundaries
 
-Step statuses are program-specific status records that determine whether a Step is counted as complete. The source view models expose this in a compact way: the Step Type Detail status bag has a `stepStatus` and an `isCompletionStatus` flag in [`StepStatusBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/StepTypeDetail/StepStatusBag.cs). The TypeScript version mirrors that shape in [`stepStatusBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/StepTypeDetail/stepStatusBag.d.ts).
+An individual rebuild recalculates current and longest streaks from attendance, constrains enrollment to no earlier than the Streak Type start date and includes only dates enabled by the occurrence map. It deletes the person’s existing engagement map before recreating it, so manual engagement-map edits are lost. ([Rebuild Streaks Individually](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually))
 
-Operational implication: do not infer completion from a status name alone. Inspect whether the status is configured as a completion status. A status named “Done” or “Completed” may be obvious to staff, but reporting and model behavior should be verified against the configuration.
+A Streak Type rebuild has a wider destructive boundary: it deletes and regenerates occurrence and enrollment map data from attendance records, discarding manual changes to both. For an attendance-based type, Rock derives the type start date, enrolled people, individual enrollment dates, engagement counts and applicable occurrence weeks from attendance. Weeks recorded as Didn’t Meet are excluded from the occurrence map and do not count as attendance gaps. ([Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type))
 
-### Step Program Completion Model
+## Assessments
 
-The Step Program Completion model is important for analytics and reporting. The source describes it as a record of completing a Step Program for a person. Rock’s rule, based on the source snippet, is to create a completion when there is a completed Step for each Step Type in the program, using the newest completed Step for each type as the completion set. See [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs).
+### Requests, completion and history
 
-The model includes at least these properties in the source snippet:
+From a person profile, **Request Assessment** can send one or more assessment requests with a custom message. For a larger audience, a communication can construct each assessment’s external URL from the public application root and the recipient’s URL-encoded person key. Recipients can also find requests on the external My Account page. ([Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests))
 
-- `StepProgramId`.
-- `PersonAliasId`.
-- `CampusId`.
-- `StartDateTime`.
-- `EndDateTime`.
-- Navigation to `StepProgram`.
-- Navigation to `PersonAlias`.
-- Navigation to `Campus`.
-- A collection of related `Steps`.
+Built-in assessment questions and answer formats are not configurable. For more consistent results, participants should answer according to their present characteristics and keep the same environmental context throughout the assessment. ([Take Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/take-assessments))
 
-The source also marks `StepProgramCompletion` with Rock domain `Engagement`, table name `StepProgramCompletion`, REST code generation, and a system entity type GUID. The logic file sets `ParentAuthority` to the related Step Program when present, which matters for security inheritance. See [`StepProgramCompletion.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs).
+The person profile’s History tab lists requested and self-initiated assessments. Self-initiated entries have no request date or requester. A request can be canceled or deleted only before the assessment is completed. ([View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history))
 
-Live verification: before building reports against Step Program Completion, inspect the local Rock version and schema. Confirm the model exists, confirm security behavior for the current user, confirm program statuses mark completion correctly, and confirm whether archived/inactive Step Types should be included in the local reporting question.
+### Retake controls
 
-### Streaks Configuration
+Retake eligibility is controlled by two Assessment Type settings:
 
-Streaks are configured under `People > Engagement > Streaks` in the v19 documentation. See [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types).
+1. **Minimum Days to Re-take** establishes the interval after completion.
+2. **Requires Request**, when enabled, requires a request for both initial and repeat access.
 
-A Streak Type defines:
+The documented default interval in the supplied Rock 19 material is 365 days, but an agent should inspect the installed Assessment Type instead of assuming that default remains configured. Eligible external users can access a retake from My Account or from the assessment results page. ([Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments))
 
-- The name and active state.
-- The population to track.
-- The relevant attendance source and schedule frame.
-- The start date.
-- The map and enrollment behavior.
-- Related achievements.
-- Occurrence map editing.
-- Location exclusions.
-- Enrollment list.
+### Result interpretation and segmentation
 
-The [Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail) article identifies key areas such as Streak Type information, Achievements, Occurrence Map Editor, Location Exclusions, and Streak Type Enrollment.
+Assessment results can be used in person Data Views, allowing organizations to form groups or reports from assessment responses. The evidence specifically supports these built-in result models:
 
-Streaks use three map concepts:
+- **DISC:** participants choose the statement most like and least like them from each four-statement set. Results are shown as a personality-type bar graph with supporting details. Rock simplifies each DISC scale to four levels and maps results to 16 one- or two-letter personality types. ([DISC Personality Assessment](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment))
+- **Spiritual Gifts:** results classify gifts as dominant, supportive and other; the resulting attributes can be queried with person Data Views. ([Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts))
+- **Motivators:** results include growth propensity, a composite score, ranked motivators and leading themes. When using these results for service placement, official guidance recommends considering roles aligned with the person’s five to seven highest motivators and avoiding roles centered on the five to seven lowest when practical. ([Motivators](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/motivators))
+- **Emotional Intelligence:** each question accepts one of five frequency responses. Results cover Self-Awareness, Self-Regulating, Others-Awareness, Others-Regulating, EQ in Problem Solving and EQ Under Stress. These measurements are searchable person attributes, so a Data View can filter for a measurement and rating such as High Others-Awareness. ([Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence))
+- **Conflict Engagement:** results rank five modes and three themes as high, medium or low and display mode and theme graphs. Result attributes support filters such as a High Solving theme. ([Conflict Profile](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile))
 
-- **Occurrence Map**: when participation could have occurred.
-- **Engagement Map**: when the person engaged.
-- **Exclusion Map**: dates ignored for streak calculation.
+Use these results as the assessment defines them. The evidence does not support treating any score as a clinical diagnosis or as a universal placement decision.
 
-These are defined operationally in [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps). An agent should always check maps before concluding that streak numbers are wrong.
+## Achievements
 
-### Assessments Configuration
+### Types, attempts and progress
 
-Assessment administration has three major areas:
+An Achievement Type defines a goal that Rock can evaluate automatically from engagement or interaction data. The documented configuration can use sources including giving, Step Program completion, interactions, accumulative Streak engagement and consecutive Streak engagement. An Achievement Attempt records an entity’s progress toward the goal. ([Intro to Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements), [Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types))
 
-- Overview.
-- Administer Assessments.
-- Available Assessments.
+An attempt closes when it succeeds or fails. After a failure, Rock can start a new attempt when the entity next performs the activity that begins the goal. Attempt progress is stored as a decimal fraction: `0.5` means 50 percent, and `1` means complete and successful. If **Allow Overachievement** is enabled, displayed progress may exceed 100 percent. ([Intro to Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements), [Add Achievement Attempts](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts), [Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types))
 
-See [Assessments](https://community.rockrms.com/documentation/engagement/assessments).
+An Achievement Type cannot simultaneously track overachievement and cap the number of accomplishments. Rock must interpret excess qualifying events either as progress beyond 100 percent or as another accomplishment. ([Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types))
 
-Rock’s built-in assessment set in the v19 docs includes:
+### Workflows, badges and Step integration
 
-- DISC Personality Assessment.
-- Spiritual Gifts.
-- Motivators.
-- Emotional Intelligence.
-- Conflict Profile.
+An Achievement Type can launch distinct workflows when an attempt starts, succeeds or fails. When no badge Lava template is supplied, Rock uses the Achievement icon; Step Program Completion uses the Step Program icon instead. If neither applicable icon is configured, Rock uses the default Achievement badge icon. ([Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings))
 
-See [Available Assessments](https://community.rockrms.com/documentation/engagement/assessments/available-assessments).
+With **Add Step on Success** enabled, successful completion can create a Step in the selected program and type with the selected status. Rock uses the Achievement completion date as the configured Step start or end date, respects Step prerequisites and creates repeated Steps for recurring Achievements only when the Step Type permits multiple completions. ([Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types))
 
-Assessment Type configuration lives under `Admin Tools > System Settings > Assessment Types`, according to [Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments). Important configuration includes the retake interval and whether a formal request is required. The docs state the default retake interval is 365 days, but agents should inspect the live Assessment Type before telling a user they can or cannot retake an assessment.
+### Overrides and rebuilds
 
-Assessment history is visible from a person’s Person Profile under the History tab. The history list can include assessment name, pending/complete status, requested date, requester, and other request/result details depending on the block and version. See [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history).
+Although normal processing is automated, an operator can manually add or edit an individual attempt, including start date, end date and progress. Because a progress value of `1` makes the attempt successful, an override changes more than presentation and should be treated as an outcome-changing operation. ([Add Achievement Attempts](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts))
 
-### Achievements Configuration
+Rebuilding an Achievement Type deletes and recalculates each person’s attempt data occurring after that person’s latest successful attempt. Determine the affected population and preserve review evidence before using this operation. ([Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types))
 
-Achievements are managed under `People > Engagement > Achievements` in the v19 documentation. See [Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types).
+## Reminders
 
-An Achievement Type includes:
+A Reminder Type defines the entity that can receive reminders and may be secured to particular roles or people. Manual creation requires both a type for the current entity and a page that supplies that entity as context. A workflow action can also create reminders automatically. ([Configure Reminder Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-reminder-types), [Add a Reminder](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/add-a-reminder))
 
-- Name.
-- Active state.
-- Description.
-- Category.
-- Achievement component/entity type.
-- Source entity type.
-- Achiever entity type.
-- Maximum accomplishments allowed.
-- Over-achievement behavior.
-- Prerequisite achievements.
-- Workflow launch settings for start, success, and failure.
-- Badge Lava template.
-- Results Lava template.
-- Custom summary Lava template.
-- Highlight color and icon.
-- Public/display flags.
-- Optional image files.
-- Optional Step creation on success.
+A type can notify through either a communication or a workflow. It can include the reminder note in email and can complete the reminder automatically after notification; otherwise, the reminder remains active. Communication notification sends the assigned person the system communication selected by the Process Reminders job when the reminder date arrives. The documented default template is Reminder Notification. Workflow notification launches the configured workflow and supplies attributes keyed for the reminder, reminder type, person, entity type and entity. ([Configure Reminder Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-reminder-types), [Configure Notification Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types))
 
-The source-code view model confirms many of these fields in [`AchievementTypeBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs) and [`achievementTypeBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/AchievementTypeDetail/achievementTypeBag.d.ts). The entity model confirms fields such as `Name`, `Description`, `ComponentConfigJson`, `SourceEntityTypeId`, `AchieverEntityTypeId`, `ComponentEntityTypeId`, workflow type IDs, `AchievementStepTypeId`, `AchievementStepStatusId`, and Lava template fields in [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs).
+The Process Reminders job can include or exclude selected types. **Max Reminders Per Entity Type** limits how many reminders for each entity type appear in the notification communication. Processing triggers the configured communication or workflow, may complete reminders when the type requests it and refreshes the active-reminder count shown in page headers. ([Use the Process Reminders System Job](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job))
 
-An important validation rule appears in [`AchievementType.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.Logic.cs): if `MaxAccomplishmentsAllowed` is greater than 1, `AllowOverAchievement` cannot be true. An agent configuring achievements should check this before assuming a save failure is a generic UI problem.
+In Rock 19.0, a reminder is due when its date has arrived and a communication or workflow has issued it; an active reminder with a future date is not due. Users can open Reminders from the page header, filter by status, type, date or entity and mark an item complete. A repeating reminder schedules its next occurrence from the completion date of the current occurrence, not the original due date. A blank repeat count makes recurrence indefinite. ([Intro to Reminders](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/intro-to-reminders), [Add a Reminder](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/add-a-reminder))
 
-Achievements can add Steps automatically when an achievement succeeds. The official [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types) article identifies the relevant fields: enable Add Step on Success, choose Step Program, choose Step Type, and choose Step Status. The source-code view model also exposes `addStepOnSuccess`, `stepProgram`, `achievementStepType`, and `achievementStepStatus`.
+## Following
 
-## 6. Primary Entities And Relationships
+Users can follow a person from the profile, add or remove followed people through bulk updates and manage the list under **My Settings > Following**. Under **Following Settings**, each user chooses which enabled events should produce notifications. Rock checks followed people daily and emails personalized matches. Administrators can define additional event types. ([How to Follow](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow), [Intro to Following](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/intro-to-following))
 
-### Person, PersonAlias, And Engagement Records
+A user needs View permission for a Following Event to subscribe. If that permission is gone when notifications are generated, the event is omitted. Following Event evaluation does not enforce the security of related notes or groups, so an event that represents sensitive records must be secured consistently with those records. ([Configure Follow Events](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events))
 
-Rock often stores engagement records against a `PersonAlias` rather than directly against a `Person`. The Step Program Completion source includes `PersonAliasId`, and Achievement source comments mention the original achiever was a `PersonAlias` through Streak. See [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs) and [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs).
+A Person History event can match configured demographic-history fields, old and new values, the person who made the change and a maximum lookback period. With **Match Both**, old and new values must match together. Without it, either side may match; a blank old or new value acts as a wildcard for that side. ([Person History Following Event](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/person-history-following-event))
 
-Agent implication: when reconciling records, do not join only on person ID without checking aliases. In a live SQL or API investigation, inspect PersonAlias records and any merged-person history if data appears split across people.
+Following a group makes it available from the follower’s My Dashboard. An event registration that places registrants in a group can notify every person following that group. Following Suggestions must be active to run. **Reminded Days** controls when an unfollowed suggestion can be presented again, while a blank value prevents reminders. The built-in In Group Together and In Followed Group suggestion types can limit followers and suggested people by configured group type, group, group role or security role. ([Follow a Group](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group), [Following Suggestions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/following-suggestions))
 
-### Step Program To Step Type
+## Interactive Experiences
 
-A Step Program owns many Step Types. The Step Program page shows Step Type counts and completed Step counts in the docs, and the source test creates a Step Program with many Step Types and Steps in [`StepProgramAchievementTests.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Engagement/Achievements/StepProgramAchievementTests.cs). The UI selection model also reflects this relationship: Step Type selection can be filtered by Step Program in [`StepProgramStepTypePicker.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/StepProgramStepTypePicker.cs).
+Interactive Experiences accept anonymous or personalized answers through Rock Mobile and expose submitted responses for live monitoring. The Experience Manager lets an operator monitor participation, change which actions participants see in real time and preview the participant view. ([Intro to Interactive Experiences](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences), [Use the Experience Manager](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-manager))
 
-### Step Type To Step
+The administrator controls when a question is shown and closed. When moderation is enabled, responses requiring approval are excluded from the real-time visualizer until approved. The manager supports approving or rejecting them. The presenter view can show incoming responses in real time, select a question and optionally filter responses by campus. Results can be rendered graphically or as a word cloud whose word size reflects response count. ([Handle Experience Questions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/handle-experience-questions), [Use the Experience Visualizer](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-visualizer))
 
-A Step Type can have many Step records. Each Step belongs to a person alias and can be dated, statused, attributed, and related to completion. The exact columns should be confirmed in the live schema or API model for the target Rock version.
+A schedule can restrict visibility through a Data View or required group membership. Campus association can use nearby campus geofences, the participant’s current geofence or the campus on the person record. Either geofence-based mode requires campus geofences to be configured. ([Administer Experiences](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/administer-experiences))
 
-### Step Program Completion To Step Program, PersonAlias, Campus, And Steps
+## Sign-Ups
 
-`StepProgramCompletion` relates to:
+Sign-Ups support short-term opportunities, including uses beyond serving projects, and can enforce participation thresholds. On the external Sign-Ups Finder, guests can filter by date and location, inspect an opportunity and register themselves and additional people without an event registration template. ([Intro to Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/intro-to-sign-ups))
 
-- One Step Program.
-- One PersonAlias.
-- Optional Campus.
-- A collection of Steps used for the completion set.
+In Rock 19.0, a Sign-Up project is the underlying group. People registered for different opportunities in the same project are added to that shared group. A Sign-Up Overview communication sends each recipient one message even when the recipient is registered for several selected opportunities; its `Opportunities` Lava collection can be iterated to include each registration. ([Manage Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/manage-sign-ups))
 
-The source model also declares `ParentAuthority => StepProgram`, so Step Program security can affect the completion record’s security authority. See [`StepProgramCompletion.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs).
+The default registration and reminder communications use SMS as well as email. An organization phone number must be configured on those system communications to avoid send errors. A custom Sign-Up group type must inherit from the Sign-Up Group type, be allowed as a child of the original type, provide at least one group-schedule option and a location-selection mode, and be included in the Sign-Up Finder block’s Project Types setting. ([Configure Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups))
 
-### Streak Type To Enrollments And Maps
+To register an existing group’s members, use a Sign-Up Register block in Group mode and route the project, location, schedule and group through their IdKey values; the project parameter represents the Sign-Up group. A Sign-Up Attendance Detail page identifies project, location and schedule by IdKey and the occurrence by a `yyyy-MM-dd` attendance date. Attendance reminder links can be generated through the Group Attendance Reminder system communication. ([Group Registration and Attendance for Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/group-registration-and-attendance-for-sign-up))
 
-A Streak Type defines the tracking rules. Enrollments attach people to the Streak Type, each with an enrollment date. The [Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment) article emphasizes that each individual can have a different enrollment date. Maps then drive current and longest streak calculations.
+Manage Members, Edit or Schedule permission at the project or group-type level permits adding and removing attendees. Creating a Sign-Up group requires Edit permission for the Project Type group attribute; creating one at the top level also requires Edit permission on the Sign-Up Groups block. ([Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions))
 
-### Achievement Type To Component, Source Entity, Achiever Entity, Attempts, Workflows, And Steps
+## Version And Authority Caveats
 
-An Achievement Type is component-based. Source code shows `ComponentEntityTypeId`, `SourceEntityTypeId`, and `AchieverEntityTypeId` on the entity model. It also has workflow type IDs for start, success, and failure, and optional Step Type and Step Status IDs for Step creation. See [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs).
+Most official documentation captured in this evidence pack was hydrated against the documentation’s current v19.0 presentation. Claims without explicit version scope should not be treated as proven for every earlier or later release.
 
-Achievement processing is component-based. [`AchievementTypeService.Process`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs) gets the Achievement Type cache, resolves the achievement component, gets source entities, then processes each source entity with its own data context and saves changes. Operationally, this means a processing failure may be caused by cache resolution, component resolution, source query behavior, or per-source processing.
+Explicitly versioned evidence includes:
 
-### Assessments To Person History And Attributes
+- Rock 18.1 added the Core Steps program and Step Type transfer capability.
+- Rock 18.3 fixed Step Program editing and workflow-trigger association problems.
+- Rock 19.0 evidence describes current Reminder and Sign-Up behavior in those articles.
+- Rock 19.5 fixed large Achievement Type pages timing out, Sign-Up Finder group-security filtering, unintended Step Status Changed workflow launches and a `modifystep` creation error.
+- Rock 20.0 was shown as Alpha in the captured release notes and included a fix preventing deletion of system-level Step Type attributes from the Step Type editor.
 
-Assessment request and result history appears on Person Profile History according to [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history). Specific assessment results can also be searchable through Data Views, as documented for [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts), [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence), and [Conflict Profile](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile).
+([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-Live verification: inspect the local attribute definitions and person attribute values before relying on a result field name in a Data View. Names, keys, security, and visibility can differ by version or customization.
+The Outreach Toolbox evidence is a medium-confidence official video statement about Rock v19. It describes contact-specific prayer and connection cadences, completed touchpoint history, periodic pulse updates and configurable milestone prompts. Before ministry use, review who can see the contact data and which block settings are enabled. It should not be assumed available or configured from this guide alone. ([Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s))
 
-## 7. Common Engagement Tracking Workflows
+The supplied community historical-data recipe is an example rather than official behavior. The unanswered Q&A record about Mailgun tracking provides no approved resolution and is not used as troubleshooting evidence.
 
-### Workflow: Build A Discipleship Step Program
+## Troubleshooting Decision Tree
 
-Use Steps when the organization has a defined ministry journey.
+### A Step has a completion date but is not counted as complete
 
-1. Define the ministry journey in operational terms: what must a person do, in what order, and what counts as completion?
-2. Create or edit a Step Program under `People > Engagement > Steps`, following [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs).
-3. Assign a meaningful category from Category Manager if the organization will maintain many programs.
-4. Choose a completion flow. Use strict linear flow only when Steps must be completed in order. If the local UI exposes custom prerequisites, verify each prerequisite before launch.
-5. Create Step Types for each action, following [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types).
-6. Configure statuses and mark the correct statuses as completion statuses.
-7. Add Step attributes only when the data will be used operationally.
-8. Configure workflows for staff notification, next-step automation, or external processes.
-9. Configure Step badges if staff need profile-level visibility, following [Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges).
-10. Validate charts and reports after test entries.
+1. Inspect the Step’s current status.
+2. Confirm that the status is configured as an **Is Complete** status in the Step Program.
+3. Confirm that both the completion date and completion status are present.
+4. If a workflow should have launched, inspect the program- or type-level trigger and installed Rock version.
+5. Stop when both completion signals are correct and the expected downstream behavior has been rechecked. ([Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs))
 
-Operational guardrail: do not over-model. If a Step Type will never drive reporting, workflow, staff action, or person care, it may belong as a note, group membership, or workflow state instead of a Step.
+### Step automation did not create or complete a record
 
-### Workflow: Enter An Individual Step
+1. Confirm the person currently qualifies for the Auto-Complete Data View.
+2. Confirm the Steps Automation job has processed the Step Type.
+3. Inspect unmet prerequisite Steps.
+4. If a record already exists, inspect **Allow Multiple** before expecting another occurrence.
+5. Do not assume Data View membership overrides prerequisites or repeat limits. ([Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types))
 
-Use manual Step Entry when a staff person is recording a single person’s progress.
+### A Steps badge appears but its count does not
 
-1. Open the person from Person Profile or open the Step Type participant list.
-2. Launch Step Entry.
-3. Verify the person if not pre-filled.
-4. Choose campus if the Step should be campus-specific.
-5. Set the correct date fields. If the Step spans time, use Start and End Date; otherwise use the single Date field as exposed by the block.
-6. Choose the correct status.
-7. Fill Step attributes.
-8. Save, then verify the Step appears in the Step Type list, Person Profile, badge, and chart if applicable.
+1. Confirm the badge is a Person badge of type Steps and points to the complete program.
+2. Confirm the badge was added to the Person Profile badge container.
+3. Confirm the Step Type has **Show Count on Badge** enabled.
+4. Confirm the badge uses Normal display mode; the setting does not affect other modes. ([Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges))
 
-The official entry fields are described in [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry).
+### Step metrics or charts appear inflated or use unexpected dates
 
-### Workflow: Bulk Add Or Update Steps
+1. Determine whether the metric counts Step occurrences or distinct people.
+2. Check whether the Step Type permits multiple completions.
+3. Inspect the chart’s status filter: completed statuses use completion dates; other statuses use start dates.
+4. For impact measures, inspect every applicable Step Type’s Impact Weight.
+5. For a Step Flow chart, inspect the maximum displayed level before interpreting apparent drop-off. ([Intro to Step Programs](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-programs), [Intro to Step Charts](https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts), [Chart Types](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types))
 
-Use bulk entry when records are known and consistent across many people. The v19 docs describe two paths: selecting people from a list grid and using the bulk update icon, or using bulk entry mode from Step Program or Step Type pages. See [Use Bulk Entry With Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps).
+### A manually enrolled person has a streak of zero
 
-Agent checklist:
+1. Confirm the person’s enrollment date.
+2. Inspect the occurrence map for eligible dates after enrollment.
+3. Determine whether the engagement map contains participation.
+4. If historical attendance should populate the map, consider an individual rebuild.
+5. Before rebuilding, record any manual engagement-map changes because the rebuild deletes them. ([Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment), [Rebuild Streaks Individually](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually))
 
-1. Confirm the population with a Data View or grid filter.
-2. Export or otherwise record a pre-change count if the work is high impact.
-3. Confirm whether the Step Type allows multiple Steps per person.
-4. Confirm completion status and dates.
-5. If using historical dates, do not use a workflow/action pattern that stamps today’s date unless that is acceptable.
-6. Run a small pilot batch first.
-7. Verify duplicate prevention.
-8. Verify charts and sample Person Profiles after bulk entry.
+### A Streak Type map was changed but participant totals have not updated
 
-The community recipe [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233) illustrates a historical-data migration approach using Data Views and workflow batches, with cautions about duplicate Steps, timeouts, and Step Types that do not allow multiple Steps. Because it is a community recipe, treat it as a pattern to adapt, not a core-supported procedure.
+1. Distinguish an occurrence-map edit from an individual engagement- or exclusion-map edit.
+2. For an individual map edit, save and refresh the page.
+3. For an occurrence-map edit, confirm that the nightly cleanup job has run.
+4. Inspect enrollment dates because earlier dates remain outside each person’s calculation. ([Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail), [Manually Track Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks))
 
-### Workflow: Configure A Streak Type
+### A streak spans a date that still looks absent
 
-Use Streaks when the organization wants attendance consistency.
+1. Inspect the person’s exclusion map and applicable location exclusions.
+2. Confirm whether that date was excluded.
+3. Do not treat the visible absence as proof of a calculation error: exclusions do not alter attendance data.
+4. Confirm that the excluded date neither added to nor interrupted the calculated streak. ([Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date))
 
-1. Define the engagement event: weekend attendance, group attendance, class attendance, serving attendance, or another participation signal.
-2. Define the population: all attenders, group members, campus-specific people, or another tracked subset.
-3. Define the schedule frame: weekly, service-specific, group schedule, or another occurrence pattern.
-4. Create the Streak Type under `People > Engagement > Streaks`, following [Add a New Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type).
-5. Review the Streak Type Detail page, including Achievements, Occurrence Map Editor, Location Exclusions, and Enrollment, following [Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail).
-6. Rebuild only after understanding data loss implications for maps and enrollment.
-7. Validate a known person’s attendance against their current and longest streak values.
+### A person cannot retake an assessment
 
-### Workflow: Send Assessment Requests
+1. Inspect **Minimum Days to Re-take** on the installed Assessment Type.
+2. Compare the previous completion date with that interval.
+3. Inspect **Requires Request**.
+4. If a request is required, confirm that a valid pending request exists.
+5. Check the external My Account and results-page paths only after the policy conditions pass. ([Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments))
 
-Use assessment requests when the organization wants a person or group to take one or more built-in assessments.
+### An assessment request cannot be canceled
 
-1. For an individual, open the Person Profile, use the Actions button, and choose Request Assessment as described in [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests).
-2. Select one or more assessments.
-3. Add a message.
-4. Send and verify the request appears in assessment history.
-5. For groups, use the communication/Lava approach documented in the same article, but inspect the current communication template and assessment link behavior in the local instance before sending broadly.
-6. After completion, review Person Profile History and any assessment-result attributes.
+1. Open the person’s assessment history.
+2. Confirm whether the entry is requested or self-initiated.
+3. Inspect its completion status and completion date.
+4. Stop if the assessment is complete; completed requests cannot be deleted or canceled through this operation. ([View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history))
 
-### Workflow: Configure An Achievement That Adds A Step
+### Achievement progress or attempt state looks wrong
 
-Use this when the achievement is the detection logic and the Step is the durable journey record.
+1. Interpret stored progress as a decimal fraction, not a whole-number percentage.
+2. Check whether `1` has made the attempt successful.
+3. Inspect whether **Allow Overachievement** permits display above 100 percent.
+4. Confirm that overachievement and Max Accomplishments are not being expected simultaneously.
+5. Determine whether the attempt is still open, closed successfully or closed unsuccessfully.
+6. Consider a rebuild only after documenting that it recalculates attempt data after each person’s latest success. ([Add Achievement Attempts](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts), [Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types))
 
-1. Create or edit the Achievement Type under `People > Engagement > Achievements`.
-2. Choose the correct achievement component and source.
-3. Configure maximum accomplishments and over-achievement behavior.
+### A Reminder was created but no notification occurred
+
+1. Confirm the Reminder Type’s entity type, security and notification mode.
+2. Confirm that the reminder date has arrived.
+3. Confirm that the Process Reminders job includes the type and does not exclude it.
+4. For Communication mode, inspect the job’s selected system communication.
+5. For Workflow mode, inspect the configured workflow and expected supplied attributes.
+6. Check whether automatic completion changed the reminder’s status after notification. ([Configure Notification Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types), [Use the Process Reminders System Job](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job))
+
+### A Following notification is missing
+
+1. Confirm that the recipient follows the person or group.
+2. Confirm that the event is enabled in the recipient’s Following Settings.
+3. Confirm that the recipient has View permission for the Following Event at generation time.
+4. Inspect the event’s filters and lookback window.
+5. Account for daily evaluation rather than assuming immediate delivery.
+6. For Person History matching, inspect Match Both and blank-value wildcard behavior. ([How to Follow](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow), [Configure Follow Events](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events), [Person History Following Event](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/person-history-following-event))
+
+### An Interactive Experience response is missing from the visualizer
+
+1. Confirm that the question is currently shown and not closed.
+2. Confirm that the response was submitted to the intended experience.
+3. If moderation is enabled, inspect whether the response awaits approval or was rejected.
+4. Inspect campus filtering in the manager or presenter view.
+5. If audience restrictions are involved, inspect the schedule’s Data View or group-membership condition. ([Intro to Interactive Experiences](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences), [Use the Experience Manager](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-manager))
+
+### A Sign-Up communication or attendance link fails
+
+1. For registration or reminder communication errors, confirm that an organization phone number is configured for the SMS-enabled system communication.
+2. For a registration route, verify project, location, schedule and, when applicable, group IdKeys.
+3. Remember that the project parameter represents the Sign-Up group.
+4. For attendance, confirm the occurrence date uses `yyyy-MM-dd`.
+5. Inspect project or group-type permissions before changing attendee records. ([Configure Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups), [Group Registration and Attendance for Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/group-registration-and-attendance-for-sign-up), [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions))
+
+## Agent Task Recipes
+
+### Recipe: Configure a Step journey with reliable completion signals
+
+**Outcome:** A Step Program whose order, prerequisites and completion semantics match the intended journey.
+
+1. Define the journey’s Step Types and decide whether sequence is required, preferred or display-only.
+2. Select the corresponding Completion Flow.
+3. Configure statuses and identify which statuses are complete.
+4. Configure each type’s prerequisites, repeatability and spans-time behavior.
+5. Add only the Step Attributes needed for the operational record; enable Show in Grid or Show on Bulk where appropriate.
+6. Test one participant record with the intended date and status combination.
+7. Verify the change in Person History.
+
+**Inspect:**
+
+- Completion Flow and prerequisites.
+- Complete-status configuration.
+- Date requirements and Allow Multiple.
+- Steps block Edit permission.
+
+**Do not assume:**
+
+- A completion date alone means complete.
+- A prerequisite survives moving the Step Type to another program.
+
+([Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs), [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types), [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry))
+
+### Recipe: Bulk-record a Step
+
+**Outcome:** Multiple selected people receive the intended Step data without silently losing per-person attribute differences.
+
+1. Choose either selected-person grid update or Step Program/Step Type bulk entry.
+2. Confirm the target program, type, status and applicable date fields.
+3. Apply shared attributes only when Show on Bulk is enabled and one value is correct for every selected person.
+4. Enter differing attribute values separately for each person.
+5. Verify sample records and their profile history.
+
+**Stop when:** The selected people have the intended records and a sample confirms dates, status and attributes. ([Use Bulk Entry With Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps), [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry))
+
+### Recipe: Automate Step completion from a Data View
+
+**Outcome:** The Steps Automation job creates or completes qualifying records while preserving journey rules.
+
+1. Build and validate the person Data View.
+2. Assign it as the Step Type’s Auto-Complete Data View.
+3. Inspect prerequisites and Allow Multiple.
+4. Run or wait for the configured Steps Automation job according to the installation’s operating procedure.
+5. Verify qualifying, prerequisite-blocked and already-completed examples.
+
+**Do not assume:** Every person in the Data View receives a new record; prerequisites and repeat limits remain active. ([Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types))
+
+### Recipe: Build a Streak Type safely
+
+**Outcome:** A Streak Type calculates the intended cadence from the intended source.
+
+1. Define the activity source, target population, frequency and earliest applicable date.
+2. Decide whether enrollment is required.
+3. Decide whether Sync Linked Activity’s bidirectional behavior is appropriate.
+4. Configure and inspect the occurrence map.
+5. Enroll a small test population.
+6. Verify engagement, non-engagement and exclusion examples.
+7. Confirm the operational job timing before expanding use.
+
+**Stop when:** The test cases produce the intended current and longest streaks.
+
+**Do not assume:** Start date or frequency can be corrected later; both are locked after save. ([Add a New Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type), [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps))
+
+### Recipe: Correct one person’s streak
+
+**Outcome:** A bounded correction is made without unnecessarily rebuilding the entire Streak Type.
+
+1. Inspect the occurrence map and the person’s enrollment date.
+2. Compare attendance with the engagement map.
+3. Add or remove an engagement only if the map should differ from the source-driven result.
+4. Add an individual exclusion when an absence should be ignored for that person.
+5. Save and refresh.
+6. Verify current streak, longest streak and engagement count.
+
+**Do not assume:** An exclusion removes or changes attendance.
+
+**Stop when:** The person’s calculated values match the intended maps. ([Manually Track Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks), [Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date))
+
+### Recipe: Rebuild a Streak with a controlled boundary
+
+**Outcome:** Attendance-derived streak data is regenerated at the smallest necessary scope.
+
+1. Decide whether the problem affects one enrollment or the entire Streak Type.
+2. Record existing manual map adjustments in the affected scope.
+3. Confirm the Streak Type start date and occurrence map.
+4. Use individual rebuild for one person; use type rebuild only for a type-wide regeneration need.
+5. Verify enrollment dates, maps, current streaks and longest streaks after completion.
+6. Reapply only reviewed manual exceptions that remain valid.
+
+**Stop when:** Rebuilt data is verified and expected manual changes have been reconciled. ([Rebuild Streaks Individually](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually), [Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type))
+
+### Recipe: Request and monitor assessments
+
+**Outcome:** The intended people receive valid assessment requests and their completion state can be reviewed.
+
+1. For one person, use Request Assessment from the profile, select one or more assessments and provide the custom message.
+2. For many people, use a communication that generates the assessment’s external URL from the public application root and each recipient’s URL-encoded person key.
+3. Tell recipients that requests are also available from My Account.
+4. Review pending and complete entries on person assessment histories.
+5. Cancel an incorrect request only while it remains incomplete.
+
+**Inspect:**
+
+- Assessment Type request requirement.
+- Public application root and recipient key handling.
+- Requested versus self-initiated history.
+
+([Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests), [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history))
+
+### Recipe: Build an assessment-result segment
+
+**Outcome:** A person Data View identifies people with a specified supported assessment result.
+
+1. Select the assessment and exact result measurement or attribute.
+2. Choose the documented rating or result condition.
+3. Build the person Data View filter.
+4. Validate sample included and excluded records.
+5. Use the resulting population for the separately governed grouping or reporting task.
+
+**Do not assume:** Similar-looking measurements across different assessments have the same meaning. ([Intro to Assessments](https://community.rockrms.com/documentation/engagement/assessments/overview/intro-to-assessments), [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence), [Conflict Profile](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile))
+
+### Recipe: Connect an Achievement to workflows and Steps
+
+**Outcome:** A successful Achievement produces the intended follow-up and journey record.
+
+1. Define the Achievement source, target and success conditions.
+2. Choose either overachievement or capped accomplishments.
+3. Configure start, success and failure workflows as needed.
 4. Enable Add Step on Success.
-5. Select the Step Program.
-6. Select the Step Type.
-7. Select the Step Status.
-8. Configure success workflow only if downstream action is needed.
-9. Process or trigger the achievement.
-10. Verify the Achievement Attempt and the created Step on a sample person.
+5. Select the Step Program, Step Type and status.
+6. Confirm that the target Step’s prerequisites and Allow Multiple behavior match recurring Achievement behavior.
+7. Test start, success and failure paths with bounded records.
+8. Verify the attempt, workflow result and generated Step independently.
 
-See [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types) and the source-code fields in [`AchievementTypeBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs).
+**Do not assume:** Achievement success overrides Step prerequisites or repeat limits. ([Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types), [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings), [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types))
 
-## 8. Steps Deep Dive
+### Recipe: Configure Reminder processing
 
-### What Steps Are For
+**Outcome:** A context-valid reminder produces the intended communication or workflow at its reminder date.
 
-Steps are Rock’s structured way to represent movement through a ministry path. They are not merely notes. They are configured engagement records with display, status, charting, workflow, badge, and reporting behavior. The official [Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps) frames a Step Program as the larger path and Step Types as the individual actions or accomplishments inside it.
+1. Define the Reminder Type’s entity and security.
+2. Choose Communication or Workflow notification.
+3. Configure note inclusion and automatic completion deliberately.
+4. For Communication, select the system communication in the Process Reminders job.
+5. For Workflow, configure the workflow to receive the supplied reminder-related attributes.
+6. Include the type in job processing and set any per-entity limit.
+7. Test a bounded reminder and verify delivery or workflow launch, completion behavior and header count.
 
-A useful Step Program has three qualities:
+([Configure Reminder Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-reminder-types), [Configure Notification Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types), [Use the Process Reminders System Job](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job))
 
-1. It represents a meaningful journey.
-2. It has staff action attached to it.
-3. Its data will be reported, surfaced, or automated.
+### Recipe: Configure a secure Following event
 
-Poor Step Programs usually fail one of those tests. Examples include creating Step Types for every minor interaction, using Steps as a generic note system, or adding Steps that no team owns.
+**Outcome:** Authorized subscribers receive the intended daily event without exposing related sensitive context.
 
-### Program Design
+1. Define the event and its matching conditions.
+2. Secure View permission to the intended subscribers.
+3. Review the security of related notes, groups and represented records separately.
+4. Enable the event in a test subscriber’s Following Settings.
+5. Validate matching and non-matching examples.
+6. Verify the next daily notification output.
 
-A good Step Program design starts with the end state. Ask:
+**Stop when:** The correct subscriber receives only authorized event information. ([Configure Follow Events](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events), [How to Follow](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow))
 
-- What does completion mean?
-- Does every Step Type need to be completed?
-- Can Steps be completed out of order?
-- Can a person repeat a Step Type?
-- Should completion be campus-specific?
-- Which team owns each Step Type?
-- Which statuses count as complete?
-- Which attributes are required?
-- Which workflows should fire?
-- Which staff roles need visibility?
+### Recipe: Operate a moderated Interactive Experience
 
-Step Program configuration includes name, active flag, description, icon CSS class, category, completion flow, default list view, statuses, entity attributes, and workflows, according to [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs).
+**Outcome:** Participants receive the intended actions while only approved responses appear publicly.
 
-### Completion Flow And Prerequisites
+1. Configure the schedule and any Data View, group or campus restrictions.
+2. Preview the participant experience.
+3. Open the intended question.
+4. Monitor incoming responses.
+5. Approve or reject responses requiring moderation.
+6. Select the presenter question and campus filter.
+7. Close the question when participation should end.
+8. Verify graphical or word-cloud output from approved responses.
 
-Completion flow defines how participants move through the program. The official docs identify completion flow as a key Step Program setting in [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs), and [Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps) calls out prerequisites and completion flow as core concepts.
+([Administer Experiences](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/administer-experiences), [Use the Experience Manager](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-manager), [Use the Experience Visualizer](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-visualizer))
 
-For agents, the practical issue is enforcement versus reporting. A linear program may prevent or discourage out-of-order completion depending on configuration and UI behavior. A more flexible program may still report completion when all required Step Types have completion statuses. Before answering a local question, inspect:
+### Recipe: Configure a Sign-Up registration and attendance route
 
-- Step Program completion flow.
-- Step Type prerequisites.
-- Step Type active state.
-- Step statuses and completion flags.
-- Whether the UI allows staff to override order.
-- Whether historical Step records predate current prerequisites.
+**Outcome:** Guests or an existing group can register, and authorized operators can record attendance.
 
-Special caution: moving a Step Type can remove prerequisites, according to [Move a Step Type](https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type). If a program depends on prerequisites, document them before transfer and verify them after transfer.
+1. Confirm the project’s underlying group and opportunity structure.
+2. For a custom project type, verify inheritance, child-type allowance, schedule option, location mode and Finder inclusion.
+3. Configure the external Finder for guest self-registration, or configure Sign-Up Register in Group mode for an existing group.
+4. Pass the required project, location, schedule and group IdKeys.
+5. Configure the attendance page with the required IdKeys and a `yyyy-MM-dd` occurrence date.
+6. Configure the Group Attendance Reminder communication when reminder links are needed.
+7. Verify the organization phone number on SMS-enabled registration and reminder communications.
+8. Test with an account holding the intended project or group-type permissions.
 
-### Step Type Design
+([Configure Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups), [Group Registration and Attendance for Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/group-registration-and-attendance-for-sign-up), [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions))
 
-A Step Type should represent a distinct action or milestone. Configuration fields include name, active state, description, highlight color, icon, badge-count behavior, engagement type, attributes, workflows, and advanced settings. See [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types).
+## Known Gaps And Live Verification
 
-Design guidance:
+No live Rock instance was reviewed for this guide. Before operational use, verify:
 
-- Use a clear name staff will recognize in grids and badges.
-- Use description for operational clarity, not marketing copy.
-- Use highlight colors consistently because charts and legends use them.
-- Use icons only where they help recognition.
-- Enable badge counts only when repeated completions are meaningful.
-- Treat engagement type and impact weight as reporting-sensitive settings.
-- Keep attributes minimal and reportable.
-- Test workflow triggers after any configuration change.
+- The installed Rock version and whether relevant release fixes are present.
+- Availability and configuration of the Steps Automation, nightly cleanup and Process Reminders jobs.
+- Actual Step Program statuses, prerequisites, attributes, workflow triggers and block permissions.
+- Streak Type sources, synchronization, start dates, occurrence maps, enrollment dates and manual exceptions.
+- Assessment Type retake intervals, request requirements, external paths and access controls.
+- Achievement event providers, attempt volume, workflow configuration, badge templates and Step integration.
+- Reminder entity context, security, notification communication and workflow attribute mapping.
+- Following Event visibility and the security of related notes or groups.
+- Rock Mobile configuration, audience restrictions, campus data and geofences for Interactive Experiences.
+- Sign-Up project types, page blocks, IdKey routes, communication phone numbers and attendee-management permissions.
+- Outreach Toolbox availability, block settings and contact-data visibility.
 
-### Step Entry
+The evidence pack does not establish:
 
-Step Entry is the staff-facing record maintenance page. The docs identify key fields such as Person, Campus, date fields, and status. See [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry).
+- A universal configuration for any organization.
+- Current behavior for every Rock version.
+- Installation-specific record counts or data quality.
+- Successful job execution, communication delivery, workflow completion or mobile presentation.
+- A safe automated method for historical Step migration.
+- A resolved answer for workflow-email analytics in the supplied unanswered community Q&A.
+- That built-in assessment questions can be customized; official documentation says their questions and answer formats are not configurable. ([Take Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/take-assessments))
 
-Date behavior matters. Some Steps are point-in-time milestones, such as baptism. Others span time, such as class attendance, training, mentoring, or onboarding. Agents should inspect the Step Type configuration to determine whether Rock will show Start Date and End Date or a single Date field.
+## Source Map
 
-Campus behavior matters too. If a Step is tied to a person’s campus or ministry campus, reports may need campus filtering. The [About Step Programs](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-programs) article describes campus selection affecting metrics, charts, and Step Type information on the Step Program page.
+### Official engagement documentation
 
-### Bulk Entry
+- [Steps](https://community.rockrms.com/documentation/engagement/steps): program, type, entry, automation, badge and chart documentation.
+- [Streaks](https://community.rockrms.com/documentation/engagement/streaks): maps, type configuration, enrollment, exclusions and rebuilds.
+- [Assessments](https://community.rockrms.com/documentation/engagement/assessments): requests, retakes, history and built-in assessment results.
+- [Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements): types, attempts, workflows, badges and Step creation.
+- [Additional Engagement Tools](https://community.rockrms.com/documentation/engagement/additional-engagement-tools): Reminders, Following, Interactive Experiences and Sign-Ups.
 
-Bulk Step entry is powerful but risky. [Use Bulk Entry With Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps) describes bulk update from grids and bulk entry mode from Step Program or Step Type pages.
+### Version and implementation evidence
 
-Primary risks:
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): version-specific additions and fixes.
+- [StepProgramCompletion.cs at immutable commit](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs): implementation description of Step Program Completion records.
+- [StepProgramCompletion.Logic.cs at immutable commit](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs): implementation evidence for inherited security authority.
+- [Outreach Toolbox is Here in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s): version-oriented overview of Outreach Toolbox tracking.
 
-- Duplicate Steps where multiple completions are not allowed.
-- Wrong completion date.
-- Wrong campus.
-- Wrong status.
-- Missing required attributes.
-- Workflows firing for large groups.
-- Data View population changing between review and execution.
+### Community example
 
-For historical imports, use a staged process. The community recipe [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233) notes that some automation patterns populate completion date with the current date and that workflow batches can time out around larger populations. Treat those numbers as anecdotal and instance-dependent, but the risks are real.
-
-### Step Badges
-
-Step badges surface program progress on places like Person Profile and Connection Requests, according to [Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges). The docs recommend creating a single badge for the entire Step Program rather than one badge per Step Type. Configuration includes:
-
-- Name.
-- Description.
-- Entity Type: Person.
-- Badge Type: Steps.
-- Step Program.
-
-Agent guidance:
-
-- Use badges for staff-actionable journeys.
-- Avoid overloading Person Profile with too many Step badges.
-- Confirm the badge is secured appropriately.
-- Verify whether counts display as intended for Step Types with Show Count on Badge.
-- Validate on a person with no Steps, partial Steps, and completed Steps.
-
-### Step Charts
-
-Step charts help administrators interpret Step activity. The official docs identify chart filters and chart types in [Intro to Step Charts](https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts) and [Chart Types](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types). Chart perspectives include:
-
-- Trends.
-- Totals.
-- Campuses.
-- Flow.
-- Line and bar presentations.
-- Timeframe filters.
-- Campus, measure, and status filters.
-
-Use charts to answer operational questions:
-
-- Are completions increasing or decreasing?
-- Which Step Types are bottlenecks?
-- Are campuses behaving differently?
-- Are people starting but not completing?
-- Did a campaign create a spike?
-- Did a workflow or staff process stop creating Steps?
-
-Do not use charts as the only audit source. For discrepancies, inspect underlying Step records, statuses, campus values, date ranges, active/inactive Step Types, and report filters.
-
-### Moving Step Types
-
-Rock v18.1 release notes added the ability to transfer Step Types from one Step Program to another, and the docs include [Move a Step Type](https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type). The move process asks for a destination Step Program and status remapping.
-
-Operational risks:
-
-- Statuses may not mean the same thing across programs.
-- Prerequisites can be lost.
-- Reports referencing the old program may break or change meaning.
-- Workflows tied to the old Step Program or Step Type may need review.
-- Badges and charts can shift.
-- Staff may lose expected navigation paths.
-
-Before moving a Step Type:
-
-1. Record the current Step Program, Step Type, statuses, prerequisites, workflows, attributes, badge settings, and reports.
-2. Identify all Data Views and reports referencing the Step Type.
-3. Map old statuses to semantically equivalent new statuses.
-4. Test with a non-production clone if the Step Type has many records.
-5. After moving, verify sample records and Step Program Completion behavior.
-
-### Core Steps
-
-The v18.1 release notes added a “Core Steps” Step Program with system-protected Step Types, including an initial `eRA` type, and Step Type transfer support. See the [Release Notes](https://www.rockrms.com/releasenotes). Agents should treat system-protected Step Types differently from locally created ministry Step Types. Before editing, moving, deleting, or automating Core Steps:
-
-- Inspect whether the Step Program or Step Type is system-protected.
-- Inspect source or release notes for intended use.
-- Confirm whether UI disables certain edits.
-- Avoid direct database modification.
-- Verify whether upgrades expect the records to remain intact.
-
-## 9. Streaks Deep Dive
-
-### What Streaks Are For
-
-Streaks are built to analyze consistency in attendance or participation. [Intro to Streaks](https://community.rockrms.com/documentation/engagement/streaks/overview/intro-to-streaks) describes Streaks as a way to take attendance data further by identifying meaningful engagement patterns. The docs also note that Streaks were still evolving at the time of that documentation, so agents should verify feature availability in the live Rock version.
-
-Use Streaks when:
-
-- The question is about consecutive participation.
-- Attendance records are the source of truth.
-- A ministry wants current and longest streaks.
-- Staff need to find people at risk of disengagement.
-- Achievements should be based on consecutive attendance.
-
-Do not use Streaks when:
-
-- There is no reliable occurrence schedule.
-- Attendance data is incomplete and cannot be rebuilt.
-- Manual exceptions are frequent enough to undermine trust.
-- The desired outcome is a one-time milestone better represented as a Step.
-
-### Streak Maps
-
-Streak maps are the core model. [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps) identifies three map types:
-
-- Occurrence: when participation could have happened.
-- Engagement: when a person participated.
-- Exclusion: when an absence should be ignored for streak calculation.
-
-This creates a precise mental model:
-
-- Occurrence says, “There was an opportunity.”
-- Engagement says, “This person participated.”
-- Exclusion says, “Do not penalize this date for streak purposes.”
-
-If a streak number looks wrong, inspect maps before assuming a bug.
-
-### Streak Type Setup
-
-A Streak Type tells Rock where and when to look for streaks and who is included. [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types) gives examples such as weekend attendance at a campus or small group attendance from a certain start date.
-
-Key setup questions:
-
-- What attendance source is used?
-- Which campus, location, group, group type, or schedule is in scope?
-- When should tracking begin?
-- Who should be enrolled?
-- Are historical attendance records complete?
-- Are location exclusions needed?
-- Should achievements be tied to this Streak Type?
-- Who may view or edit it?
-
-The [Add a New Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type) article warns not to treat setup lightly even if the UI looks simple. That is operationally correct: a bad Streak Type can produce authoritative-looking but misleading numbers.
-
-### Enrollment
-
-Streak enrollment connects individuals to a Streak Type. [Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment) explains that each person can have a different enrollment date. This matters because two people in the same Streak Type can have different valid tracking windows.
-
-When debugging enrollment:
-
-- Confirm the person is enrolled in the Streak Type.
-- Confirm enrollment date.
-- Confirm attendance exists after the enrollment date.
-- Confirm the occurrence map includes the relevant periods.
-- Confirm engagement map reflects attendance or manual updates.
-- Confirm exclusion map does not hide absences unexpectedly.
-
-### Manual Tracking
-
-Manual tracking lets staff update engagement or exclusion maps. [Manually Track Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks) describes selecting a period in the engagement map and saving; the docs also advise saving and refreshing to verify the page.
-
-Manual tracking is appropriate for corrections, imports, and exceptional cases. It is not a substitute for reliable attendance. If staff are manually updating many streak maps every week, the attendance process is probably the real issue.
-
-### Rebuild Behavior
-
-Streak rebuilds can be destructive to manual map changes. [Individually Rebuilding Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/individually-rebuilding-streaks) warns that an individual rebuild deletes the individual’s engagement map data and rebuilds from attendance records. [Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type) extends the concept to a whole Streak Type and warns that occurrence and enrollment data can be affected.
-
-Before using rebuild:
-
-1. Identify whether changes are individual or type-wide.
-2. Record current enrollment counts and sample map values.
-3. Identify manual map changes that would be lost.
-4. Confirm attendance records are complete.
-5. Run in a test environment if the Streak Type is important.
-6. After rebuild, verify current streak, longest streak, enrollment date, and maps for known sample people.
-
-### Excluding Dates
-
-Exclusions ignore a date for streak-count purposes but do not erase attendance reality. [Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date) describes a case where excluding an absence increases longest streak even though the engagement graph still reflects attendance data.
-
-Agent implication: if a leader asks why the graph and streak count seem inconsistent, inspect the exclusion map. The graph can still show the missed occurrence while the streak calculation ignores it.
-
-### Streaks And Achievements
-
-Streak Types can connect to Achievements from the Streak Type Detail page, according to [Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail). Source code also notes that the original Achievement sources were Streaks in [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs) and [`achievementTypeBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/AchievementTypeDetail/achievementTypeBag.d.ts).
-
-Use this relationship for goals like:
-
-- Attend three weekends in a row.
-- Maintain a small-group streak.
-- Return after a period of absence.
-- Complete a consistency-based milestone that then adds a Step.
-
-## 10. Assessments Deep Dive
-
-### What Assessments Are For
-
-Assessments help an organization understand people’s wiring, gifts, motivations, emotional intelligence, and conflict patterns. [About Assessments](https://community.rockrms.com/documentation/engagement/assessments/overview/about-assessments) describes their use for understanding strengths, calling, fit, and guidance.
-
-Assessments should be handled with care. They can support coaching, placement, and team formation, but they should not be treated as perfect psychological truth or as the sole basis for sensitive decisions.
-
-### Built-In Assessments
-
-The v19 docs list five available assessments in [Available Assessments](https://community.rockrms.com/documentation/engagement/assessments/available-assessments):
-
-- DISC Personality Assessment.
-- Spiritual Gifts.
-- Motivators.
-- Emotional Intelligence.
-- Conflict Profile.
-
-A Triumph resource also notes that those five assessments are built into Rock’s core product in [Triumph's Top 8 Personality Assessments](https://www.triumph.tech/resources/sparks-top-8-personality-assessments), but official Rock docs should be preferred for configuration and behavior.
-
-### Taking Assessments
-
-[Take Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/take-assessments) states that assessments are taken similarly, but questions and answer types vary by assessment and are not configurable. It also emphasizes present-state answering and a consistent environment.
-
-Agent guidance for assessment support:
-
-- Do not promise that questions can be customized unless verified in the live Assessment Type and current Rock version.
-- If a user asks to retake, check retake interval and request-required settings.
-- If a link fails, inspect request status, person login identity, public page access, and security.
-- If results are missing, inspect completion status and person assessment history.
-
-### Sending Requests
-
-Requests can be sent individually from a Person Profile using the Actions button, or to groups through communication/Lava patterns described in [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests).
-
-Before sending to a large group:
-
-1. Verify the sender has communication rights.
-2. Verify the recipients are correct.
-3. Test one person’s link.
-4. Confirm whether formal requests are required for that Assessment Type.
-5. Confirm retake eligibility.
-6. Confirm the message does not expose private context.
-7. Confirm tracking and analytics expectations for workflow-sent communications separately; the source pack includes an unanswered Q&A about Mailgun tracking for workflow emails at [Mailgun Tracking Not Working for Workflow Emails](https://community.rockrms.com/ask/using/2824), so do not infer workflow email analytics behavior from the Communication Wizard without testing.
-
-### Retakes
-
-[Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments) says the Assessment Type controls how much time must pass before the same person can retake an assessment, and the default is 365 days. It also notes that an assessment can be configured to require a formal request.
-
-Troubleshooting retakes:
-
-- Inspect `Admin Tools > System Settings > Assessment Types`.
-- Confirm the retake interval.
-- Confirm whether a formal request is required.
-- Check the person’s last completion date.
-- Check whether the person is using the correct identity/login.
-- Check whether the request is pending, complete, expired, or missing.
-- Confirm whether staff are looking at the same assessment type if custom or versioned types exist.
-
-### Assessment History
-
-A person’s assessment history is visible from Person Profile History according to [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history). The docs identify fields such as assessment name, status, requested date, and requester.
-
-Operationally, assessment history is the first place to inspect for:
-
-- Was a request sent?
-- Did the person complete it?
-- Was it self-initiated or request-based?
-- Which staff person requested it?
-- Are there multiple requests for the same assessment?
-- Is the result present but not appearing in a report?
-
-### Assessment Results And Data Views
-
-Some assessment results are searchable through Data Views. The Spiritual Gifts article gives an example of searching for people whose dominant gifts include Hospitality in [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts). The Emotional Intelligence article gives an example of searching for people with high Others-Awareness in [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence). The Conflict Profile article also marks SQL/Data View relevance in the pack and describes result rankings and themes in [Conflict Profile](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile).
-
-Live verification: inspect the actual Person Attribute keys and values created by the assessment in the local instance. Use the Data View builder rather than hard-coded assumptions when possible.
-
-## 11. Achievements Deep Dive
-
-### What Achievements Are For
-
-Achievements define goals measured against engagement and interaction data. [Intro to Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements) describes Achievement Types as configured goals and Achievement Attempts as the individual attempts to meet those goals.
-
-Use Achievements when:
-
-- A pattern should be evaluated automatically.
-- Staff need badge output.
-- A workflow should run when a goal starts, succeeds, or fails.
-- Completing a goal should add a Step.
-- Prerequisites should enforce a sequence of goals.
-
-Do not use Achievements when:
-
-- A simple Step is enough.
-- The data source is unreliable.
-- The success condition cannot be expressed by an available component.
-- Staff need subjective approval more than automatic evaluation.
-
-### Achievement Type Fields
-
-The official [Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types) article covers fields such as name, active state, description, and category. The source-code view model adds implementation detail for fields such as:
-
-- `achievementEntityType`.
-- `achievementStartWorkflowType`.
-- `achievementSuccessWorkflowType`.
-- `achievementFailureWorkflowType`.
-- `achievementStepType`.
-- `achievementStepStatus`.
-- `addStepOnSuccess`.
-- `allowOverAchievement`.
-- `maxAccomplishmentsAllowed`.
-- `prerequisites`.
-- `resultsLavaTemplate`.
-- `customSummaryLavaTemplate`.
-- `sourceEntityTypeId`.
-- `stepProgram`.
-
-See [`AchievementTypeBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs) and [`achievementTypeBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/AchievementTypeDetail/achievementTypeBag.d.ts).
-
-### Attempts
-
-[Add Achievement Attempts](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts) describes attempts as instances of individuals trying to meet an Achievement Type’s conditions. It also notes that attempts can be manually added or changed from the Achievement Type screen.
-
-Agent guidance:
-
-- Use attempts to inspect whether the achievement is working.
-- Compare attempt state to source data.
-- Verify target count and component configuration.
-- Check whether an attempt is in progress, successful, or failed in operational terms.
-- Review v18.3 release notes if success workflows appear to miss attempts under rapid processing.
-
-The v18.3 release notes fixed a timing issue that could prevent Achievement Type configured workflows from running when many Achievement Attempts were recorded rapidly. See [Release Notes](https://www.rockrms.com/releasenotes).
-
-### Prerequisites
-
-Achievement Type advanced settings can include prerequisite achievements. [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings) says prerequisite Achievement Types must already exist before they can be selected.
-
-Use prerequisites to enforce progression across goals. Before enabling them:
-
-- Confirm the prerequisite is stable.
-- Confirm existing achievers already have appropriate attempts.
-- Decide whether historical achievers should be backfilled.
-- Test a person with and without the prerequisite.
-- Document the dependency to avoid accidental deletion or reconfiguration.
-
-The source service deletes dependent prerequisite records when an Achievement Type is deleted because of circular-reference concerns in Entity Framework. See [`AchievementTypeService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs). That means deletion is not just visual cleanup; it can remove dependency relationships.
-
-### Workflow Launches
-
-Advanced settings allow workflow launches when an achievement starts, succeeds, or fails, according to [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings). Source-code fields confirm `AchievementStartWorkflowTypeId`, `AchievementSuccessWorkflowTypeId`, and `AchievementFailureWorkflowTypeId` in [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs).
-
-Workflow design guidance:
-
-- Use start workflows for onboarding, notification, or opening a coaching process.
-- Use success workflows for recognition, communication, Step creation validation, or next-step assignment.
-- Use failure workflows sparingly; avoid noisy automation when attempts close unsuccessfully.
-- Ensure workflows can handle the entity passed by the achievement process.
-- Test rapid processing if the source can create many attempts at once.
-
-### Badges And Lava
-
-Achievement Type advanced settings include badge Lava templates, and the source view model includes badge/results/custom summary Lava fields. See [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings) and [`AchievementTypeBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs).
-
-Operational guidance:
-
-- Keep badge Lava fast.
-- Avoid leaking sensitive source data.
-- Test empty, in-progress, successful, and failed states.
-- Confirm security on pages where badge output appears.
-- If using Lava to render assessment or Step data, inspect what objects are actually available in the Lava context.
-
-### Add Step On Success
-
-Achievements can create Steps when successfully accomplished. The official fields are:
-
-- Add Step on Success.
-- Step Program.
-- Step Type.
-- Step Status.
-
-See [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types).
-
-Agent checklist:
-
-1. Confirm the achievement success condition.
-2. Confirm Step Type allows the intended repeat behavior.
-3. Confirm Step Status is a completion status if the Step should count as completed.
-4. Confirm the Step Program selected matches the Step Type.
-5. Test one achiever.
-6. Verify no duplicate Step is created unexpectedly.
-7. Verify Step badges and Step charts update.
-
-### Processing
-
-[`AchievementTypeService.Process`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs) shows the processing shape: resolve cache, resolve component, get source entities, process each source entity in its own RockContext, disable real-time events for the bulk process, and save changes.
-
-Troubleshooting processing:
-
-- If no attempts are created, check active state, component, source entity query, and target count.
-- If attempts are created but workflows do not run, check workflow configuration, version caveats, and logs.
-- If badge output fails, check Lava templates and the achievement component.
-- If Step creation fails, check Step Program, Step Type, Step Status, duplicate rules, and security.
-- If processing is slow, inspect source entity count and component logic.
-
-## 12. Related Rock Areas: People, Groups, Workflows, Communications, Data Views, Reports, Security, Learning Lms Engagement
-
-### People
-
-Person Profile is a primary engagement surface. Agents should inspect:
-
-- Person Profile badges.
-- Actions menu for assessment requests.
-- History tab for assessment request and completion history.
-- Step lists or related tabs, depending on local page layout.
-- Person aliases if records look duplicated.
-- Security context for staff viewing sensitive assessment data.
-
-### Groups
-
-Groups influence engagement through attendance, membership, scheduling, sign-ups, and following. Streaks often depend on group attendance or campus-specific attendance. Sign-Ups use group types and project configuration, with docs pointing to group type behavior in [Configure Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups). Following can include groups, and following a group can place it within easy reach from a dashboard and interact with event registration notifications according to [Follow a Group](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group).
-
-### Workflows
-
-Workflows connect engagement data to action:
-
-- Step Program workflow triggers.
-- Step Type workflow triggers.
-- Achievement start/success/failure workflows.
-- Assessment request communications.
-- Historical Step migration workflows.
-- LMS activity completion workflows.
-
-Version caveat: v18.3 fixed a Step Program editing bug related to Step Type association on workflow triggers and a rapid Achievement Attempt workflow timing issue. See [Release Notes](https://www.rockrms.com/releasenotes).
-
-### Communications
-
-Communications support assessment requests and engagement follow-up. [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests) references using Lava codes in communications to send assessment requests to groups. Agents should verify tracking expectations. The source pack includes an unanswered community Q&A about Mailgun tracking not working for workflow emails at [Mailgun Tracking Not Working for Workflow Emails](https://community.rockrms.com/ask/using/2824); because it has no answer, use it only as a reminder to test communication analytics in the actual channel.
-
-### Data Views
-
-Data Views are essential for:
-
-- Identifying Step candidates.
-- Preventing duplicate Step imports.
-- Finding assessment-result matches.
-- Targeting communications.
-- Reporting engagement gaps.
-- Building Achievement source populations, where applicable.
-
-Assessment docs explicitly mention Data View search examples for Spiritual Gifts and EQ in [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts) and [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence).
-
-### Reports
-
-Reports should be built from the right layer:
-
-- Use raw attendance for attendance counts.
-- Use Streaks for consistency.
-- Use Steps for journey progress.
-- Use Step Program Completion for complete-program outcomes where available.
-- Use assessment attributes/history for assessment results.
-- Use Achievement Attempts for goal progress and success rates.
-
-Do not mix layers without naming the definition. “Engaged” can mean attendance, a current streak, completed Steps, an Achievement, or a staff-defined Data View.
-
-### Security
-
-Security touches:
-
-- Step Programs and Step Program Completion parent authority.
-- Step badges.
-- Assessment history and result attributes.
-- Achievement Type management.
-- Following event subscription visibility.
-- Sign-Up permissions.
-- LMS public block display.
-
-Source code shows Step Program Completion inherits parent authority from Step Program when present in [`StepProgramCompletion.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs). Following event docs say subscription availability depends on View access to the Following Event in [Configure Follow Events](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events). Sign-Up permissions are covered separately in [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions).
-
-### Learning LMS Engagement
-
-The release notes identify several Learning LMS engagement changes in v18.1 and v18.3:
-
-- v18.1 added Content Article Learning Activity type.
-- v18.1 added SMS notifications for new learning activities.
-- v18.1 improved Completion Grading System status labels and feedback.
-- v18.1 added public external block security for LMS programs, courses, and classes.
-- v18.1 updated LMS Activity completion workflow to pass `LearningClassActivityCompletion` as the entity instead of the student.
-- v18.3 added Smart Scroll to the Public Learning Class Workspace block.
-
-See [Release Notes](https://www.rockrms.com/releasenotes).
-
-Agent implication: Learning engagement can create completion signals and workflows that resemble Steps or Achievements, but it is not the same model. Inspect LMS entities, completion workflows, and public block security before joining Learning data to Step or Achievement reports.
-
-## 13. Administration And Operational Guardrails
-
-### Configuration Guardrails
-
-- Use active/inactive rather than deleting when records have history.
-- Document Step Program and Achievement dependencies.
-- Keep categories meaningful.
-- Avoid duplicate Step Types with similar names.
-- Use consistent status semantics across Step Programs.
-- Use explicit completion statuses.
-- Test badges and charts after configuration.
-- Use workflows only where action is needed.
-- Keep Lava templates efficient and secure.
-
-### Data-Change Guardrails
-
-Before bulk entry, migration, rebuild, or achievement processing:
-
-1. Identify the exact records in scope.
-2. Export or record pre-change counts.
-3. Validate a sample set.
-4. Confirm duplicate rules.
-5. Confirm workflow side effects.
-6. Confirm staff communication expectations.
-7. Run a small pilot.
-8. Verify readbacks after the operation.
-
-### Rebuild Guardrails
-
-For Streak rebuilds:
-
-- Assume manual engagement map changes can be lost.
-- Confirm attendance source completeness.
-- Record sample streak values before rebuild.
-- Verify current and longest streak after rebuild.
-- Communicate expected changes to staff.
-
-See [Individually Rebuilding Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/individually-rebuilding-streaks) and [Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type).
-
-### Version Guardrails
-
-Always inspect the Rock version. v18.1 and v18.3 changed engagement behavior materially. The [Release Notes](https://www.rockrms.com/releasenotes) include:
-
-- Core Steps Step Program with system-protected Step Types.
-- Step Type transfer.
-- Step Analytics.
-- Achievement Type creation repair after a block bug.
-- Achievement Attempt workflow timing fix.
-- Step Program workflow trigger association fix.
-- LMS engagement changes.
-
-### Public-Safe Documentation Guardrails
-
-For public knowledge-base work, avoid including:
-
-- Private SQL.
-- Live instance URLs.
-- Raw transcripts.
-- Internal implementation logs.
-- Secrets.
-- Local file paths.
-- Private source paths.
-- Sensitive assessment results.
-- Person-identifying examples.
-
-Use public source links and general procedures.
-
-## 14. Developer, API, Lava, And Source-Code Landmarks
-
-### Source Repository
-
-The Rock source repository is [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock). Source-code snippets in the pack are from the `develop` branch.
-
-### Step Program Completion
-
-- [`Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs): entity model for Step Program Completion, with Step Program, PersonAlias, Campus, date fields, and related Steps.
-- [`Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs): security parent authority points to Step Program when present.
-
-### Step Program And Step Type Picker
-
-- [`Rock/Attribute/StepProgramStepTypeFieldAttribute.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs): field attribute for selecting zero or one Step Type filtered by Step Program; source comment says stored as `StepProgram.Guid|StepType.Guid`.
-- [`Rock/Field/Types/StepProgramStepTypeFieldType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/StepProgramStepTypeFieldType.cs): field type supporting WebForms and Obsidian, parsing delimited GUIDs and returning display text.
-- [`Rock/Web/UI/Controls/Pickers/StepProgramStepTypePicker.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/StepProgramStepTypePicker.cs): composite picker that selects a Step Program and then a Step Type filtered by that program.
-- [`Rock.JavaScript.Obsidian/Framework/FieldTypes/stepProgramStepTypeField.partial.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/FieldTypes/stepProgramStepTypeField.partial.ts): Obsidian field type model.
-- [`stepProgramStepTypeFieldComponents.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/FieldTypes/stepProgramStepTypeFieldComponents.ts): Obsidian edit component using `StepProgramStepTypePicker`.
-
-### Step Status View Models
-
-- [`Rock.ViewModels/Blocks/Engagement/StepTypeDetail/StepStatusBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/StepTypeDetail/StepStatusBag.cs): status bag with Step Status and completion flag.
-- [`Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/StepTypeDetail/stepStatusBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/StepTypeDetail/stepStatusBag.d.ts): TypeScript version.
-- [`Rock.ViewModels/Blocks/Engagement/StepProgramDetail/StepStatusBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/StepProgramDetail/StepStatusBag.cs): Step Program Detail workflow trigger status model.
-
-### Achievement Models And Services
-
-- [`Rock/Model/Engagement/AchievementType/AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs): entity model with source entity, achiever entity, component, workflow hooks, Step creation fields, Lava templates, and other configuration.
-- [`AchievementType.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.Logic.cs): cache update and validation logic, including max accomplishments versus over-achievement validation.
-- [`AchievementTypeService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs): delete handling for prerequisites and component-based processing.
-- [`Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs): block view model for Achievement Type Detail.
-- [`achievementTypeBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/AchievementTypeDetail/achievementTypeBag.d.ts): TypeScript view model with Step, workflow, Lava, public, and prerequisite fields.
-
-### Lava Landmarks
-
-Lava appears in:
-
-- Assessment request communications, per [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests).
-- Achievement badge/results/custom summary templates, per [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings) and source view models.
-- Community workflow examples such as [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233).
-
-When using Lava, inspect the actual merge fields available in the block, communication, workflow action, or badge context. Do not assume a Lava object exists because a similarly named entity exists in the database.
-
-### API Notes
-
-The source marks `AchievementType` with `[CodeGenerateRest( DisableEntitySecurity = true )]` and `StepProgramCompletion` with `[CodeGenerateRest]` in their model snippets. This is a source-code signal that generated REST surfaces may exist, but agents should inspect the live API, security, and version before using endpoints. Source links: [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs) and [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs).
-
-## 15. Reporting, Analytics, And Model Map
-
-### Reporting Layers
-
-Use the right reporting layer:
-
-- **Attendance**: raw participation counts and occurrence detail.
-- **Streaks**: consecutive engagement and consistency.
-- **Steps**: journey progress and ministry milestones.
-- **Step Program Completion**: full-program completion outcomes.
-- **Assessments**: result attributes and assessment history.
-- **Achievements**: goal attempts, success, badges, workflow side effects.
-- **LMS completion**: learning progress and class activity completion.
-
-### Step Charts
-
-Step charts include trends, totals, campuses, and flow chart perspectives in [Chart Types](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types). Use them for operational review, not as a substitute for data audits.
-
-Suggested review questions:
-
-- Which Step Types have high starts and low completions?
-- Which campuses have different completion patterns?
-- Did campaign timing align with completion spikes?
-- Are inactive Step Types still affecting totals?
-- Are completion statuses configured correctly?
-- Are date filters hiding older records?
-
-### Model Map
-
-The source pack identifies [Step Program Completion](https://community.rockrms.com/ModelMap) as a model in the Engagement category. Use Model Map as a public reference for model availability and naming, then inspect source or live schema for fields and relationships.
-
-### Data View Reporting
-
-Use the version-matched [Model Map](https://community.rockrms.com/ModelMap) to confirm the Step, Achievement, Streak, Assessment, and person-identity relationships behind each Data View. Validate qualifiers, date boundaries, security, and sample-person inclusion against live records before using a result for automation or ministry follow-up.
-
-Useful Data Views include:
-
-- People with no Step in a required Step Type.
-- People with a completed Step but missing follow-up.
-- People with assessment result values matching serving criteria.
-- People with current streak below threshold.
-- People with Achievement Attempts in progress too long.
-- People who completed LMS activity but have not completed the corresponding Step.
-
-Before using Data Views operationally, verify:
-
-- Attribute keys and values.
-- Security.
-- Campus filters.
-- Active/inactive records.
-- Merged-person alias behavior.
-- Time zone/date boundaries.
-- Whether completion statuses are being used rather than status names.
-
-## 16. Version And Release Caveats
-
-### v18.1 Engagement Changes
-
-The [Release Notes](https://www.rockrms.com/releasenotes) identify these v18.1 engagement-related changes:
-
-- Added Content Article Learning Activity type.
-- Added SMS notifications for new learning activities.
-- Improved Completion Grading System labels and feedback.
-- Added Core Steps Step Program with system-protected Step Types, including initial `eRA` type.
-- Added Step Type transfer between Step Programs.
-- Added Step Analytics, including trends, totals, statuses, and campuses.
-- Added security for public LMS program, course, and class display.
-- Updated LMS Activity completion workflow to pass `LearningClassActivityCompletion` as the entity instead of Student.
-
-Agent implications:
-
-- Do not assume Core Steps are editable like custom Step Programs.
-- Do not assume older instances have Step Type transfer or Step Analytics.
-- Review LMS workflow actions after upgrade if they expected Student as entity.
-- Validate public LMS security after upgrading or adding public blocks.
-
-### v18.3 Engagement Fixes
-
-The [Release Notes](https://www.rockrms.com/releasenotes) identify v18.3 fixes:
-
-- Achievement Type Detail could save newly created Achievement Types without important settings; a post-update job repairs affected records.
-- Achievement Type workflows could fail to run when many Achievement Attempts were recorded rapidly; attempts are now saved before workflows trigger.
-- Editing a Step Program could remove Step Type association from workflow triggers, and Step Type-level triggers could display incorrectly on Step Program Detail.
-
-Agent implications:
-
-- If an Achievement Type was created during an affected version window, inspect whether its component/settings were repaired.
-- If success/failure workflows appear inconsistent around bulk processing, check version and logs.
-- If Step Program workflow triggers look wrong, check whether the instance includes the v18.3 fix.
-- If the instance is on a beta or pre-release branch, verify behavior directly.
-
-### v19 Documentation
-
-Most official documentation records in the pack are v19.0 pages. The release notes page indicates v19.1 released June 11, 2026. Because documentation and installed Rock version may differ, inspect the local instance version before applying v19.0 instructions to older systems.
-
-## 17. Implementation Playbooks
-
-### Playbook: New Step Program For Volunteer Onboarding
-
-1. Define the onboarding journey.
-2. Decide required Steps: application, background check, interview, training, placement.
-3. Create Step Program: “Volunteer Onboarding.”
-4. Add category: “Serving” or local equivalent.
-5. Configure completion flow.
-6. Add statuses: Started, In Progress, Complete, Deferred, Not Approved, or local equivalents.
-7. Mark only appropriate statuses as completion statuses.
-8. Create Step Types.
-9. Add attributes only where needed, such as ministry area, reviewer, or training provider.
-10. Configure workflows for staff notification and next-step reminders.
-11. Add a Person badge if staff need profile visibility.
-12. Create Data Views for incomplete onboarding.
-13. Test with a sample person.
-14. Verify Step charts and badge output.
-15. Document ownership and maintenance.
-
-Sources: [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs), [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types), [Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges).
-
-### Playbook: Historical Baptism Step Import
-
-1. Identify the historical source field or attribute.
-2. Create a Data View for people with the historical date.
-3. Create a Data View excluding people who already have the target Step.
-4. Confirm Step Type duplicate settings.
-5. Build a workflow or use bulk entry with the historical date preserved.
-6. Process in batches.
-7. Verify sample person records.
-8. Compare source count to Step count.
-9. Review workflow errors.
-10. Deactivate temporary Data Views or label them clearly.
-
-Use the community recipe [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233) only as a pattern, because it is not core-reviewed and must be adapted to the local instance.
-
-### Playbook: Weekend Attendance Streak
-
-1. Define campus and attendance scope.
-2. Confirm attendance records are reliable.
-3. Create Streak Type.
-4. Set start date.
-5. Configure occurrence source.
-6. Rebuild if using historical attendance, after recording pre-change data.
-7. Inspect known attenders.
-8. Add exclusions only with a policy.
-9. Connect achievements if needed.
-10. Build reports for current streak and longest streak.
-
-Sources: [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types), [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps), [Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type).
-
-### Playbook: Assessment-Driven Volunteer Placement
-
-1. Identify which assessment results matter for the role.
-2. Confirm the assessment exists and is active.
-3. Send assessment requests to candidates.
-4. Verify completions in Person Profile History.
-5. Build a Data View against result attributes.
-6. Review the result with human judgment.
-7. Add a Step or workflow action only if placement is approved.
-8. Secure assessment result visibility.
-
-Sources: [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests), [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history), [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts), [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence).
-
-### Playbook: Achievement For Consistent Attendance That Adds A Step
-
-1. Configure or verify the Streak Type.
-2. Create Achievement Type.
-3. Choose the correct achievement component/source.
-4. Set target criteria.
-5. Set max accomplishments and over-achievement behavior.
-6. Configure success workflow if needed.
-7. Enable Add Step on Success.
-8. Choose Step Program, Step Type, and Step Status.
-9. Test with one source entity/person.
-10. Verify Achievement Attempt, Step creation, badge, and charts.
-
-Sources: [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types), [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings), [`AchievementTypeService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs).
-
-## 18. Troubleshooting Decision Tree
-
-### A Step Is Missing From A Person
-
-1. Was the Step entered for the correct person alias?
-2. Is the Step Type active?
-3. Is the Step Program active?
-4. Is the user looking at the correct campus filter?
-5. Is the date outside the selected chart/list timeframe?
-6. Was the Step entered with a non-completion status?
-7. Does security hide the Step or badge?
-8. Was the Step Type moved to another program?
-9. Did a bulk import fail or skip duplicates?
-10. Inspect the Step Type participant list and Person Profile.
-
-Sources: [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry), [Move a Step Type](https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type).
-
-### Step Program Completion Looks Wrong
-
-1. Confirm each required Step Type has a completed Step.
-2. Confirm statuses are marked as completion statuses.
-3. Confirm inactive Step Types should or should not count.
-4. Confirm person alias identity.
-5. Confirm campus expectations.
-6. Inspect the Step Program Completion model in the live instance.
-7. Compare source-code rule in [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs).
-
-### Streak Count Looks Wrong
-
-1. Confirm the person is enrolled.
-2. Confirm enrollment date.
-3. Confirm occurrence map includes the relevant dates.
-4. Confirm attendance source records exist.
-5. Confirm engagement map.
-6. Confirm exclusion map.
-7. Check whether manual edits were overwritten by rebuild.
-8. Check whether location exclusions apply.
-9. Refresh after map changes.
-10. Rebuild only after backing up current map expectations.
-
-Sources: [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps), [Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment), [Individually Rebuilding Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/individually-rebuilding-streaks), [Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date).
-
-### Assessment Cannot Be Retaken
-
-1. Inspect Assessment Type configuration.
-2. Check retake interval.
-3. Check last completion date.
-4. Check whether formal request is required.
-5. Check whether a pending request exists.
-6. Confirm the person is using the right account.
-7. Confirm the assessment page is accessible.
-
-Source: [Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments).
-
-### Assessment Results Are Not Reportable
-
-1. Confirm the assessment is complete.
-2. Check Person Profile History.
-3. Inspect person attributes created by the assessment.
-4. Confirm attribute security.
-5. Confirm Data View filter is using the right attribute and value.
-6. Confirm whether result values are high/medium/low, list values, text, or structured output.
-7. Test with a known person.
-
-Sources: [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history), [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts), [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence).
-
-### Achievement Does Not Create Attempts
-
-1. Confirm Achievement Type is active.
-2. Confirm component entity type is configured.
-3. Confirm source entity type.
-4. Confirm target count.
-5. Confirm source entities query returns records.
-6. Check processing job/logs.
-7. Check version caveats.
-8. Inspect [`AchievementTypeService.Process`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs).
-
-### Achievement Saves But Behaves Incorrectly
-
-1. Check whether it was created during a version affected by the v18.3 repaired Achievement Type Detail bug.
-2. Inspect component configuration JSON.
-3. Confirm prerequisites.
-4. Confirm max accomplishments and over-achievement validation.
-5. Confirm workflows.
-6. Confirm Step creation fields.
-7. Confirm badge Lava.
-8. Review [Release Notes](https://www.rockrms.com/releasenotes).
-
-### Achievement Success Workflow Does Not Run
-
-1. Confirm success attempt exists.
-2. Confirm success workflow type is set.
-3. Confirm workflow security and activation.
-4. Check logs.
-5. Check whether many attempts were created rapidly.
-6. Verify instance includes the v18.3 timing fix from [Release Notes](https://www.rockrms.com/releasenotes).
-
-### Step Is Not Added When Achievement Succeeds
-
-1. Confirm Add Step on Success is enabled.
-2. Confirm Step Program is selected.
-3. Confirm Step Type is selected.
-4. Confirm Step Status is selected.
-5. Confirm Step Status is valid for the Step Program.
-6. Confirm duplicate rules allow the Step.
-7. Confirm Achievement Attempt is successful.
-8. Confirm workflow or processing logs.
-9. See [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types).
-
-## 19. Agent Task Recipes
-
-### Recipe: Audit A Step Program
-
-Return:
-
-- Program name, ID/GUID if available, active state, category.
-- Step Types and active state.
-- Statuses and which count as completion.
-- Completion flow and prerequisites.
-- Attributes.
-- Workflow triggers.
-- Badge configuration.
-- Chart counts.
-- Sample person verification.
-- Reports/Data Views depending on the program.
-- Version caveats.
-
-Primary sources: [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs), [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types).
-
-### Recipe: Diagnose Step Badge Display
-
-Inspect:
-
-- Badge list under `Admin Tools > Settings > General > Badges`.
-- Entity Type is Person.
-- Badge Type is Steps.
-- Step Program selected.
-- Step Type Show Count on Badge settings.
-- Person has expected Step records.
-- Security.
-- Person Profile block/zone where badges render.
-
-Source: [Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges).
-
-### Recipe: Review A Streak Type Before Rebuild
-
-Capture:
-
-- Streak Type settings.
-- Enrollment count.
-- Start date.
-- Occurrence map summary.
-- Location exclusions.
-- Sample person current/longest streak.
-- Manual map edits, if known.
-- Attendance source completeness.
-- Achievement dependencies.
-
-Sources: [Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail), [Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type).
-
-### Recipe: Verify Assessment Request Flow
-
-Check:
-
-- Assessment Type settings.
-- Retake interval.
-- Requires request setting.
-- Person Profile Actions menu.
-- Request message.
-- Person Profile History.
-- Completion status.
-- Result attributes.
-- Data View search.
-
-Sources: [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests), [Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments), [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history).
-
-### Recipe: Audit Achievement Type
-
-Return:
-
-- Name, active state, category.
-- Component/entity type.
-- Source entity type.
-- Achiever entity type.
-- Target count.
-- Max accomplishments.
-- Over-achievement setting.
-- Prerequisites.
-- Start/success/failure workflows.
-- Badge/results/custom summary Lava.
-- Add Step on Success fields.
-- Attempt counts and sample attempts.
-- Version caveats.
-
-Sources: [Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types), [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings), [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs).
-
-### Recipe: Explain Engagement Data To A Ministry User
-
-Use plain definitions:
-
-- Steps show where someone is in a configured ministry path.
-- Streaks show consistency over eligible attendance periods.
-- Assessments show self-assessment results and history.
-- Achievements show whether a configured goal has been attempted or met.
-- Reports depend on which of those definitions the ministry means by “engaged.”
-
-Then ask for the operational decision they need to make. That determines the correct data source.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `107`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | For a reminder type using Workflow notifications, Rock launches the workflow on the reminder date and supplies the reminder, reminder type, person, entity type and entity to workflow attributes whose keys match those item names. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/configure-notification-types) |
-| official | behavior | Changes to a person's step record are included in Person History on the History tab of that person's profile. | [source](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry) |
-| official | behavior | Rock calculates streaks using an occurrence map for participation opportunities, an engagement map for an individual's participation, and an exclusion map for excused absences. | [source](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps) |
-| official | behavior | Rock permits an individual achievement attempt to be added or edited manually, including its start date, end date, and progress, even though achievement processing is normally automated. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts) |
-| official | behavior | The Experience Visualizer can display answers to experience questions as graphical results or as a word cloud, where a word's size reflects how many responses it received. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/use-the-experience-visualizer) |
-| official | behavior | When Sync Linked Activity is enabled, qualifying attendance or interaction records update the person's engagement map, and engagement-map additions create corresponding attendance or interaction records. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type) |
-| official | behavior | Sign-Ups can enforce participation thresholds for short-term opportunities while supporting uses beyond serving projects. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/intro-to-sign-ups) |
-| official | behavior | When an achievement badge has no Lava template, Rock uses the achievement icon, except that Step Program Completion uses the step program icon; if no applicable icon is configured, Rock uses the default achievement badge icon. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings) |
-| official | behavior | The Process Reminders job triggers each processed reminder type's configured communication or workflow, may complete reminders when the type is configured to do so, and refreshes the active-reminder count displayed in page headers. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders/use-the-process-reminders-system-job) |
-| official | behavior | On the external site's Sign-Ups Finder page, guests can filter opportunities by date and location, review opportunity details, and register themselves and additional people without using an event registration template. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/intro-to-sign-ups) |
-| official | behavior | Interactive Experiences accept anonymous or personalized answers through the Rock Mobile app and make submitted responses available to live question monitoring in Rock. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences) |
-| official | behavior | An individual streak rebuild recalculates current and longest streak values from attendance, cannot set enrollment earlier than the streak type start date, and includes only dates enabled by the streak type occurrence map. | [source](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually) |
-| More |  | 95 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-No approved media distillations are currently routed to this concept.
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 20. Source Map And Dependency Notes
-
-### Primary Official Documentation
-
-- [Steps](https://community.rockrms.com/documentation/engagement/steps): top-level Steps documentation.
-- [Intro to Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps): core Steps concepts, Core Steps, engagement type, impact weight, prerequisites, completion flow.
-- [About Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-steps): Step Program list and navigation.
-- [About Step Programs](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-programs): program page, campus filter, metrics, chart behavior.
-- [About Step Types](https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types): Step Type page and participant progress.
-- [Use Step Entry](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry): person, campus, date/status entry behavior.
-- [Use Bulk Entry With Steps](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps): bulk update paths.
-- [Steps Badges](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges): badge setup.
-- [Move a Step Type](https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type): Step Type transfer and status remap cautions.
-- [Edit Step Programs](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs): program settings.
-- [Edit Step Types](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types): Step Type settings.
-- [Intro to Step Charts](https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts): chart filters.
-- [Chart Types](https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types): trends, totals, campuses, flow.
-
-### Streak Sources
-
-- [Streaks](https://community.rockrms.com/documentation/engagement/streaks): top-level Streaks docs.
-- [Intro to Streaks](https://community.rockrms.com/documentation/engagement/streaks/overview/intro-to-streaks): concept and caveats.
-- [Streaks Maps](https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps): occurrence, engagement, exclusion maps.
-- [Intro to Streak Types](https://community.rockrms.com/documentation/engagement/streaks/streak-types/intro-to-streak-types): Streak Type purpose.
-- [Add a New Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type): setup planning.
-- [Streak Type Detail](https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail): detail page, achievements, map editor, exclusions, enrollment.
-- [Rebuild Streak Type](https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type): rebuild behavior.
-- [Intro to Streak Enrollment](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment): enrollment dates and person-level detail.
-- [Manually Track Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks): manual engagement map edits.
-- [Individually Rebuilding Streaks](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/individually-rebuilding-streaks): individual rebuild warning.
-- [Exclude a Date](https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date): exclusion behavior.
-
-### Assessment Sources
-
-- [Assessments](https://community.rockrms.com/documentation/engagement/assessments): top-level docs.
-- [About Assessments](https://community.rockrms.com/documentation/engagement/assessments/overview/about-assessments): purpose and organizational use.
-- [Send Requests](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests): individual and group requests.
-- [Take Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/take-assessments): taking guidance and non-configurable questions.
-- [Retake Assessments](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments): Assessment Type settings and default retake interval.
-- [View Assessment History](https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history): Person Profile History.
-- [Available Assessments](https://community.rockrms.com/documentation/engagement/assessments/available-assessments): assessment list.
-- [DISC Personality Assessment](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment).
-- [Spiritual Gifts](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts).
-- [Motivators](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/motivators).
-- [Emotional Intelligence](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence).
-- [Conflict Profile](https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile).
-
-### Achievement Sources
-
-- [Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements): top-level Achievements docs.
-- [Intro to Achievements](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/intro-to-achievements): terms and concept.
-- [Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types): example detail page.
-- [Add Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types): configuration fields.
-- [Add Achievement Attempts](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-attempts): attempts.
-- [Achievement Type Advanced Settings](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings): prerequisites, workflows, badges.
-- [Configure Steps in Achievement Types](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types): Add Step on Success.
-
-### Related Engagement Sources
-
-- [Additional Engagement Tools](https://community.rockrms.com/documentation/engagement/additional-engagement-tools): Achievements, Reminders, Following, Interactive Experiences, Sign-Ups.
-- [Following](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following).
-- [How to Follow](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow).
-- [Configure Follow Events](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events).
-- [Follow a Group](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group).
-- [Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups).
-- [Configure Sign-Ups](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups).
-- [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions).
-- [Interactive Experiences](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences).
-- [Intro to Interactive Experiences](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences).
-- [Reminders](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders).
-
-### Training, Release, Model, And Community Sources
-
-- [RockU Engagement](https://community.rockrms.com/rocku/engagement): training index pointer; hydrated excerpt was limited.
-- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): version caveats for v18.1, v18.3, v19.1.
-- [Model Map](https://community.rockrms.com/ModelMap): Step Program Completion model reference.
-- [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233): community recipe for historical Step migration; use cautiously.
-- [Triumph's Top 8 Personality Assessments](https://www.triumph.tech/resources/sparks-top-8-personality-assessments): supplemental resource noting built-in Rock assessments; prefer official docs for behavior.
-- [Mailgun Tracking Not Working for Workflow Emails](https://community.rockrms.com/ask/using/2824): unanswered community Q&A; use only as a reminder to verify workflow communication analytics in the live instance.
-
-### Source-Code Sources
-
-- [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock): source repository.
-- [`StepProgramCompletion.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs): Step Program Completion entity.
-- [`StepProgramCompletion.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs): security parent authority.
-- [`StepProgramStepTypeFieldAttribute.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs): Step Program/Step Type field attribute.
-- [`StepProgramStepTypeFieldType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/StepProgramStepTypeFieldType.cs): field parsing and display.
-- [`StepProgramStepTypePicker.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/StepProgramStepTypePicker.cs): picker control.
-- [`AchievementType.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.cs): Achievement Type entity.
-- [`AchievementType.Logic.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementType.Logic.cs): cache and validation.
-- [`AchievementTypeService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs): processing and prerequisite delete handling.
-- [`AchievementTypeBag.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/AchievementTypeDetail/AchievementTypeBag.cs): block view model.
-- [`achievementTypeBag.d.ts`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/AchievementTypeDetail/achievementTypeBag.d.ts): TypeScript view model.
-- [`StepProgramAchievementTests.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Engagement/Achievements/StepProgramAchievementTests.cs): integration-test landmark for Step Program achievements.
-
-### Dependency Notes
-
-The supported entity surface is version-sensitive; use the [Rock source repository](https://github.com/SparkDevNetwork/Rock), [Model Map](https://community.rockrms.com/ModelMap), and [Rock Core Release Notes](https://www.rockrms.com/releasenotes) together, then confirm enabled components, workflows, jobs, security, and sample records in the target instance.
-
-Engagement Tracking depends on:
-
-- **People** for Person/Profile/Alias identity.
-- **Groups** for membership, attendance, scheduling, Sign-Ups, and group following.
-- **Workflows** for automation triggered by Steps, Achievements, assessment communications, and LMS completion.
-- **Communications** for assessment requests and engagement follow-up.
-- **Data Views** for segmentation, reporting, and duplicate prevention.
-- **Reports** for operational dashboards and leadership metrics.
-- **Security** for badges, results, public LMS blocks, following events, Sign-Up permissions, and engagement records.
-- **Learning LMS Engagement** for learning activity completion and class engagement signals.
-
-When source material is thin or version-sensitive, verify in the live instance instead of inventing behavior. Inspect page routes, block settings, entity records, Rock version, release notes, schema/model fields, security, workflow triggers, system jobs, and sample person readbacks before making operational claims.
+- [Adding People to Steps with Historical Data](https://community.rockrms.com/recipes/233): reviewed community migration pattern retained only as a historical example, not official Rock behavior.

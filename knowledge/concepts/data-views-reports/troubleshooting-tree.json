@@ -5,214 +5,240 @@
       "entities": [
         "DataView",
         "Group",
-        "Campus",
-        "Block"
+        "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
-      "id": "symptom-report-shows-no-rows",
+      "guide_section_id": "troubleshooting-decision-tree-a-data-view-returns-the-wrong-records",
+      "id": "a-data-view-returns-the-wrong-records",
       "inspect": [
         "DataView",
         "Group",
-        "Campus",
-        "Block"
+        "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/reporting/data-view-overview",
-        "https://community.rockrms.com/rocku/reporting/reports",
-        "https://community.rockrms.com/rocku/reporting/dynamic-report-block"
+        "https://community.rockrms.com/documentation/church-management/reporting/data-views/add-a-data-view",
+        "https://community.rockrms.com/documentation/church-management/reporting/data-views/persist-data-views"
       ],
       "start_with": [
-        "Does the underlying Data View show rows in Tools > Data Views?",
-        "Does the current user have permission?",
-        "Does the Report reference the intended Data View?",
-        "Are runtime filters applied on the Dynamic Report block?",
-        "Are date filters relative to today/timezone?",
-        "Did a referenced category/value/group/campus get deleted?",
-        "Does a related child Data View return rows?",
-        "Did a filter component fail after upgrade?"
+        "Confirm the Data View entity type.",
+        "Read the full filter tree and identify all “all” versus “any” groups.",
+        "Inspect nested Data Views and their entity relationships.",
+        "Check whether the Data View or a child uses persisted results.",
+        "Compare known included and excluded examples.",
+        "Inspect source fields, attributes, aliases, and duplicate risk.",
+        "Review downstream consumers before editing.",
+        "If the installed filter component or schema is uncertain, stop and perform a bounded read-only live review. Add a Data View,"
       ],
-      "title": "Symptom: Report Shows No Rows",
-      "when": "Symptom: Report Shows No Rows"
+      "title": "A Data View returns the wrong records",
+      "when": "A Data View returns the wrong records"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
-        "DataView",
-        "Group",
-        "Campus"
+        "DataView"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-report-shows-too-many-rows",
-      "id": "symptom-report-shows-too-many-rows",
+      "guide_section_id": "troubleshooting-decision-tree-a-report-is-slow",
+      "id": "a-report-is-slow",
       "inspect": [
-        "Person",
-        "DataView",
-        "Group",
-        "Campus"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Any/all filter groups.",
-        "Missing active/deceased/archived exclusions.",
-        "Person vs group member row grain.",
-        "Related Data View join path.",
-        "Runtime filter overrides.",
-        "Report field filtering hidden in display.",
-        "Duplicate rows from one-to-many relationships.",
-        "Security: admin sees more than target user."
-      ],
-      "title": "Symptom: Report Shows Too Many Rows",
-      "when": "Symptom: Report Shows Too Many Rows"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "DataView",
-        "Campus"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-report-is-slow",
-      "id": "symptom-report-is-slow",
-      "inspect": [
-        "DataView",
-        "Campus"
+        "DataView"
       ],
       "source_urls": [
-        "https://www.triumph.tech/resources/what-is-maxdop"
+        "https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports",
+        "https://community.rockrms.com/documentation/church-management/reporting/reports/persist-data-views-in-reports"
       ],
       "start_with": [
-        "Data View execution time.",
-        "Deep related Data View chains.",
-        "Unbounded date ranges.",
-        "Large exports.",
-        "Lava per-row logic.",
-        "SQL scans.",
-        "Missing date/campus/account filters.",
-        "Analytics table alternative."
+        "Inspect the Report’s recorded run duration and usage.",
+        "Open its source Data View and inspect that Data View’s run duration.",
+        "Identify nested Data Views and expensive filters.",
+        "Confirm whether the freshness requirement permits persistence.",
+        "If persistence is already enabled, verify the recalculation job and interval.",
+        "Check the row limit and remove fields not needed for display, export, or Lava.",
+        "Escalate to a bounded SQL or persisted-dataset design only when native optimization is insufficient. Intro to Reports,"
       ],
-      "title": "Symptom: Report Is Slow",
-      "when": "Symptom: Report Is Slow"
+      "title": "A Report is slow",
+      "when": "A Report is slow"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Report the verified “as of” time; do not describe snapshot data as current."
+      ],
       "entities": [
         "DataView",
-        "Page",
-        "Block"
+        "Schedule"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-dynamic-report-differs-from-data-view-editor",
-      "id": "symptom-dynamic-report-differs-from-data-view-editor",
+      "guide_section_id": "troubleshooting-decision-tree-results-are-correct-but-stale",
+      "id": "results-are-correct-but-stale",
       "inspect": [
         "DataView",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/reporting/data-views/persist-data-views",
+        "https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job"
+      ],
+      "start_with": [
+        "Determine whether the source is live, persisted, metric-based, BI-based, or externally cached.",
+        "For a persisted Data View, check its interval and nested persisted dependencies.",
+        "For a metric, check the metric schedule and Calculate Metrics job.",
+        "For BI, check the owning Process BI Analytics job and its enabled processes.",
+        "For external BI, check the gateway and dataset refresh.",
+        "Report the verified “as of” time; do not describe snapshot data as current. Persist Data Views,"
+      ],
+      "title": "Results are correct but stale",
+      "when": "Results are correct but stale"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume ordinary entity permissions will filter Report rows."
+      ],
+      "entities": [
+        "DataView",
+        "Group",
+        "GroupType",
         "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Block runtime filters.",
-        "Multiple Data View filter capability in the block/version.",
-        "Query string parameters.",
-        "Current user security.",
-        "Persisted value usage.",
-        "Data View filter overrides.",
-        "Report columns with conditional Lava.",
-        "Page-specific context."
-      ],
-      "title": "Symptom: Dynamic Report Differs From Data View Editor",
-      "when": "Symptom: Dynamic Report Differs From Data View Editor"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Campus"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-bi-dashboard-is-wrong",
-      "id": "symptom-bi-dashboard-is-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-report-exposes-unexpected-sensitive-data",
+      "id": "a-report-exposes-unexpected-sensitive-data",
       "inspect": [
-        "Campus"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "BI job last success.",
-        "Dataset refresh time.",
-        "Power BI credentials.",
-        "Model/table version compatibility.",
-        "Date/campus filters.",
-        "Row-level security.",
-        "Rock UI reconciliation.",
-        "Analytics table refresh."
-      ],
-      "title": "Symptom: BI Dashboard Is Wrong",
-      "when": "Symptom: BI Dashboard Is Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-lava-sql-report-is-unsafe",
-      "id": "symptom-lava-sql-report-is-unsafe",
-      "inspect": [
+        "DataView",
+        "Group",
+        "GroupType",
         "Page",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/commands/sql-commands"
+        "https://community.rockrms.com/documentation/church-management/reporting/reports/secure-report-data"
       ],
       "start_with": [
-        "SQL enabled on block.",
-        "Page/block security.",
-        "User input interpolation.",
-        "Parameter use.",
-        "Timeout use.",
-        "Write statements.",
-        "Cache flush after writes.",
-        "PII/finance/minor exposure."
+        "Stop distributing or exporting the result.",
+        "Inspect visible and hidden Report fields.",
+        "Review Report, page, and block security.",
+        "Test as the intended role and a denied user.",
+        "Review the source Data View for populations or group types that should be excluded.",
+        "Do not assume ordinary entity permissions will filter Report rows."
       ],
-      "title": "Symptom: Lava SQL Report Is Unsafe",
-      "when": "Symptom: Lava SQL Report Is Unsafe"
+      "title": "A Report exposes unexpected sensitive data",
+      "when": "A Report exposes unexpected sensitive data"
     },
     {
       "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-symptom-data-view-fails-after-upgrade",
-      "id": "symptom-data-view-fails-after-upgrade",
-      "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Installed Rock version.",
-        "Filter component entity type exists.",
-        "Plugin installed/enabled.",
-        "Selection string deserializes.",
-        "Referenced IDs/GUIDs still exist.",
-        "Obsidian component data migration.",
-        "Cache invalidation.",
-        "Exception logs."
+      "entities": [
+        "DataView",
+        "Block"
       ],
-      "title": "Symptom: Data View Fails After Upgrade",
-      "when": "Symptom: Data View Fails After Upgrade"
+      "guide_section_id": "troubleshooting-decision-tree-a-dynamic-report-filter-does-not-behave-as-expected",
+      "id": "a-dynamic-report-filter-does-not-behave-as-expected",
+      "inspect": [
+        "DataView",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block"
+      ],
+      "start_with": [
+        "Confirm that the selected Report uses the expected Data View.",
+        "Inspect whether the filter is visible, configurable, and toggleable.",
+        "Check whether the filter belongs to the top-level or nested Data View.",
+        "Validate the supported URL parameter name and value format.",
+        "Test with no URL parameters before testing prepopulation.",
+        "Verify that disabling the filter cannot broaden access beyond the intended population."
+      ],
+      "title": "A Dynamic Report filter does not behave as expected",
+      "when": "A Dynamic Report filter does not behave as expected"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "DataView"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-lava-entity-query-ignores-its-filters",
+      "id": "a-lava-entity-query-ignores-its-filters",
+      "inspect": [
+        "DataView"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/entity-commands"
+      ],
+      "start_with": [
+        "Check whether `id` is supplied.",
+        "If it is, remove it when the desired behavior depends on `where`, `dataview`, or `dynamicparameters`.",
+        "Ensure parameter values such as `where` are enclosed in single quotes.",
+        "Confirm the entity and requested fields.",
+        "Stop and use a bounded read-only test if the installed Lava version is uncertain."
+      ],
+      "title": "A Lava Entity query ignores its filters",
+      "when": "A Lava Entity query ignores its filters"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-bi-report-is-empty-or-missing-a-domain",
+      "id": "a-bi-report-is-empty-or-missing-a-domain",
+      "inspect": [
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job",
+        "https://community.rockrms.com/documentation/church-management/reporting/power-bi/intro-to-bi"
+      ],
+      "start_with": [
+        "Confirm that Process BI Analytics is scheduled.",
+        "Confirm that it has completed at least once.",
+        "Inspect whether the required domain process is enabled.",
+        "Check whether another BI job instance owns that process.",
+        "Verify the external dataset or gateway refresh after Rock’s job completes.",
+        "Confirm that the report uses published `Analytics` views rather than incomplete source tables. Use the BI Job,"
+      ],
+      "title": "A BI report is empty or missing a domain",
+      "when": "A BI report is empty or missing a domain"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Label"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-dashboard-totals-disagree",
+      "id": "dashboard-totals-disagree",
+      "inspect": [
+        "Label"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard"
+      ],
+      "start_with": [
+        "Name the grain of every metric.",
+        "Define each population once.",
+        "Check joins for one-to-many or many-to-many multiplication.",
+        "Compare totals with a simpler independent query or Rock surface.",
+        "Test a multi-record example, an excluded example, and a recent example.",
+        "Confirm snapshot timestamps are aligned.",
+        "Label non-additive measures instead of forcing them to reconcile. Manage Event Registrations,"
+      ],
+      "title": "Dashboard totals disagree",
+      "when": "Dashboard totals disagree"
     }
   ],
   "concept_id": "data-views-reports",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:11+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
-    "17-troubleshooting-decision-tree-symptom-report-shows-too-many-rows",
-    "17-troubleshooting-decision-tree-symptom-report-is-slow",
-    "17-troubleshooting-decision-tree-symptom-dynamic-report-differs-from-data-view-editor",
-    "17-troubleshooting-decision-tree-symptom-bi-dashboard-is-wrong",
-    "17-troubleshooting-decision-tree-symptom-lava-sql-report-is-unsafe",
-    "17-troubleshooting-decision-tree-symptom-data-view-fails-after-upgrade",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-answer-what-does-this-report-actually-show",
-    "18-agent-task-recipes-recipe-answer-can-i-change-this-data-view",
-    "18-agent-task-recipes-recipe-build-people-who-attended-x-but-not-y",
-    "18-agent-task-recipes-recipe-build-lapsed-givers",
-    "18-agent-task-recipes-recipe-build-where-are-our-reporting-tools",
-    "18-agent-task-recipes-recipe-validate-a-bi-finance-dashboard",
-    "18-agent-task-recipes-recipe-audit-reporting-security",
-    "18-agent-task-recipes-recipe-diagnose-slow-reporting"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-data-view-returns-the-wrong-records",
+    "troubleshooting-decision-tree-a-report-is-slow",
+    "troubleshooting-decision-tree-results-are-correct-but-stale",
+    "troubleshooting-decision-tree-a-report-exposes-unexpected-sensitive-data",
+    "troubleshooting-decision-tree-a-dynamic-report-filter-does-not-behave-as-expected",
+    "troubleshooting-decision-tree-a-lava-entity-query-ignores-its-filters",
+    "troubleshooting-decision-tree-a-bi-report-is-empty-or-missing-a-domain",
+    "troubleshooting-decision-tree-dashboard-totals-disagree",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-create-a-reusable-operational-report",
+    "agent-task-recipes-recipe-convert-duplicated-reports-into-one-dynamic-report",
+    "agent-task-recipes-recipe-introduce-persistence-for-a-slow-data-view",
+    "agent-task-recipes-recipe-diagnose-an-empty-bi-dashboard",
+    "agent-task-recipes-recipe-validate-a-registration-analytics-dashboard"
   ]
 }

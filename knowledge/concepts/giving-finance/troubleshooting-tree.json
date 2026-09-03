@@ -4,178 +4,238 @@
       "do_not_assume": [],
       "entities": [
         "Person",
-        "PersonAlias",
-        "Family"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",
-      "id": "a-gift-is-missing-from-a-person-s-giving-history",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Family"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Search for the transaction by amount/date/gateway code.",
-        "Confirm it exists in `FinancialTransaction`.",
-        "Confirm `AuthorizedPersonAliasId` points to the expected person/business.",
-        "Confirm transaction type is included in giving history.",
-        "Confirm transaction details exist.",
-        "Confirm date range.",
-        "Confirm account filters.",
-        "Confirm combine-giving/API include-family behavior."
-      ],
-      "title": "A Gift Is Missing From A Person's Giving History",
-      "when": "A Gift Is Missing From A Person's Giving History"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "DataView"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-statement",
-      "id": "a-gift-is-missing-from-a-statement",
-      "inspect": [
-        "Person",
-        "DataView"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Confirm the transaction is a contribution or selected transaction type.",
-        "Confirm detail account is selected/included.",
-        "Confirm transaction date is inside statement date range.",
-        "Confirm currency type is selected.",
-        "Confirm refunded/corrected settings.",
-        "Confirm authorized person/business.",
-        "Confirm combine-giving settings.",
-        "Confirm address requirements."
-      ],
-      "title": "A Gift Is Missing From A Statement",
-      "when": "A Gift Is Missing From A Statement"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
+        "Schedule",
+        "Page",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-batch-total-does-not-match",
-      "id": "batch-total-does-not-match",
+      "guide_section_id": "troubleshooting-decision-tree-a-gateway-accepted-a-payment-but-no-rock-transaction-is-visible",
+      "id": "a-gateway-accepted-a-payment-but-no-rock-transaction-is-visible",
       "inspect": [
+        "Person",
+        "Schedule",
+        "Page",
         "Block"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/church-management/finance/online-giving/use-batches-for-online-giving"
       ],
       "start_with": [
-        "Confirm control amount.",
-        "Sum transaction details in the batch.",
-        "Count transactions and compare item count.",
-        "Look for pending/failed text-giving records.",
-        "Check refunds/reversals.",
-        "Check split gifts and negative corrections.",
-        "Check moved transactions.",
-        "Check whether Transaction List block account summary settings are honored in this version."
+        "Confirm whether the gift was same-day one-time, future-dated one-time, or scheduled. Same-day one-time gifts create a Rock transaction after gateway acceptance; future-dated and recurring gifts follow scheduled processing.",
+        "Verify the exact giving page and gateway selected by its block.",
+        "For scheduled processing, inspect the applicable download or charge process and its timing rather than expecting an immediate transaction.",
+        "Search using the authorized person or business, transaction date range, source, amount, and account without assuming a single account detail.",
+        "If the gateway shows a payment but Rock remains empty, stop before creating a manual duplicate. Preserve the provider reference and investigate synchronization."
       ],
-      "title": "Batch Total Does Not Match",
-      "when": "Batch Total Does Not Match"
+      "title": "A gateway accepted a payment, but no Rock transaction is visible",
+      "when": "A gateway accepted a payment, but no Rock transaction is visible"
     },
     {
-      "do_not_assume": [],
-      "entities": [
-        "Schedule"
+      "do_not_assume": [
+        "Do not rename or move financial records until the expected grouping rule and downstream reconciliation impact are understood."
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-recurring-gift-did-not-run",
-      "id": "recurring-gift-did-not-run",
+      "entities": [
+        "Group",
+        "Schedule",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-transaction-is-in-the-wrong-batch-or-no-expected-batch-exists",
+      "id": "a-transaction-is-in-the-wrong-batch-or-no-expected-batch-exists",
       "inspect": [
-        "Schedule"
+        "Group",
+        "Schedule",
+        "Block"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs"
+        "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/configure-a-gateway",
+        "https://community.rockrms.com/documentation/church-management/finance/online-giving/use-batches-for-online-giving"
       ],
       "start_with": [
-        "Confirm scheduled transaction is active.",
-        "Confirm next payment date/frequency.",
-        "Confirm gateway profile exists and is active.",
-        "Confirm saved payment token is valid.",
-        "Confirm gateway/download jobs.",
-        "Check exception logs.",
-        "Check donor communication logs.",
-        "Confirm account details are valid/active."
+        "Inspect the transaction’s originating block and batch-name prefix.",
+        "Inspect the gateway’s batch schedule and time offset.",
+        "Check whether the candidate batch was open.",
+        "Compare the transaction time with the batch start and end times.",
+        "For automated downloads, determine whether the batch is still pending.",
+        "Do not rename or move financial records until the expected grouping rule and downstream reconciliation impact are understood. Configure a Gateway"
       ],
-      "title": "Recurring Gift Did Not Run",
-      "when": "Recurring Gift Did Not Run"
+      "title": "A transaction is in the wrong batch or no expected batch exists",
+      "when": "A transaction is in the wrong batch or no expected batch exists"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-receipt-language-is-wrong",
-      "id": "receipt-language-is-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-batch-has-an-amount-count-account-or-currency-variance",
+      "id": "a-batch-has-an-amount-count-account-or-currency-variance",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes"
+        "https://community.rockrms.com/documentation/church-management/finance/financial-components/batches"
       ],
       "start_with": [
-        "Identify the system email/template.",
-        "Inspect merge fields available for the receipt.",
-        "Inspect account `PublicName` and `IsTaxDeductible`.",
-        "Check v18.1 public-name behavior for Giving Receipt System Emails (Rock Core Release Notes).",
-        "Test split transactions.",
-        "Test non-deductible payments.",
-        "Review custom Lava/shortcodes.",
-        "If using community shortcode patterns, review them for security and multi-account behavior (Giving Receipt System Email Shortcodes)."
+        "Compare transaction total with control amount.",
+        "Compare transaction count with control count.",
+        "Switch to transaction-detail rows when transactions split across accounts.",
+        "Compare totals by account and currency type.",
+        "Review unmatched imported transactions and contributor matching separately.",
+        "Review the batch audit log for edits.",
+        "Stop before closing, reopening, deleting, or exporting the batch if the variance is unresolved."
       ],
-      "title": "Receipt Language Is Wrong",
-      "when": "Receipt Language Is Wrong"
+      "title": "A batch has an amount, count, account, or currency variance",
+      "when": "A batch has an amount, count, account, or currency variance"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Workflow",
-        "Attribute"
+        "Person",
+        "Family"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-external-import-created-duplicates",
-      "id": "external-import-created-duplicates",
+      "guide_section_id": "troubleshooting-decision-tree-a-statement-omits-a-gift-includes-an-unexpected-gift-or-combines-the-wrong-people",
+      "id": "a-statement-omits-a-gift-includes-an-unexpected-gift-or-combines-the-wrong-people",
       "inspect": [
-        "Workflow",
-        "Attribute"
+        "Person",
+        "Family"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/finance/track-giving/family-giving",
+        "https://community.rockrms.com/documentation/church-management/finance/contribution-statements/use-contribution-statement-templates"
+      ],
       "start_with": [
-        "Identify source transaction IDs.",
-        "Search Rock transaction attributes/integration table for source IDs.",
-        "Confirm idempotency logic.",
-        "Confirm webhook retry behavior.",
-        "Confirm workflow re-entry paths.",
-        "Confirm batch naming and dates.",
-        "Void/remove duplicates only with finance approval.",
-        "Add duplicate detection before re-enabling automation."
+        "Confirm the statement period and selected population.",
+        "Inspect `Combine Giving With` and whether the person gives individually or with a family.",
+        "Confirm the authorized person or business on the transaction.",
+        "Inspect the template’s account, transaction-type, currency-type, refund, and same-day-correction filters.",
+        "Inspect pledge settings separately from received contributions.",
+        "Check minimum contribution and paper-suppression settings.",
+        "Generate a single-person test and compare it with the source transaction details before changing production templates. Family Giving"
       ],
-      "title": "External Import Created Duplicates",
-      "when": "External Import Created Duplicates"
+      "title": "A statement omits a gift, includes an unexpected gift, or combines the wrong people",
+      "when": "A statement omits a gift, includes an unexpected gift, or combines the wrong people"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Family"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-giving-analytics-does-not-match-a-transaction-date-total",
+      "id": "giving-analytics-does-not-match-a-transaction-date-total",
+      "inspect": [
+        "Group",
+        "Family"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-analytics"
+      ],
+      "start_with": [
+        "Identify whether the question concerns exact dollars, transaction details, people, or giving patterns.",
+        "Compare the same account, transaction-type, currency, and giving-unit filters.",
+        "Account for Giving Analytics’ ministry-week and Sunday-date grouping.",
+        "Check whether family combining changes the displayed giving unit.",
+        "Use transaction-detail reporting for ledger reconciliation; retain Giving Analytics for people-and-pattern analysis."
+      ],
+      "title": "Giving Analytics does not match a transaction-date total",
+      "when": "Giving Analytics does not match a transaction-date total"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Campus",
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-giving-overview-journey-or-alerts-appear-stale-or-incorrect",
+      "id": "giving-overview-journey-or-alerts-appear-stale-or-incorrect",
+      "inspect": [
+        "Campus",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-automation",
+        "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-journey"
+      ],
+      "start_with": [
+        "Confirm Giving Automation is enabled.",
+        "Inspect the job’s latest completed run and configured update days.",
+        "Verify included transaction types and accounts.",
+        "For Giving Journey, inspect rule order because the first matching stage wins.",
+        "For alerts, inspect campus, account, alert type, and downstream workflow or connection settings.",
+        "Recalculate or change configuration only after the source transactions and expected inclusion rules are established. Giving Automation"
+      ],
+      "title": "Giving Overview, Journey, or alerts appear stale or incorrect",
+      "when": "Giving Overview, Journey, or alerts appear stale or incorrect"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-text-giving-setup-processing-refund-or-failure-messaging-does-not-work",
+      "id": "text-giving-setup-processing-refund-or-failure-messaging-does-not-work",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/finance/text-giving/configure-text-giving"
+      ],
+      "start_with": [
+        "Confirm the SMS Pipeline received the message and matched the intended person.",
+        "Check the giving or setup keyword and amount parsing.",
+        "Confirm registration/setup and the Utility Payment Entry configuration.",
+        "Verify the selected account, gateway, and maximum amount.",
+        "Inspect Processing Delay Minutes before testing a text refund.",
+        "If delayed processing is enabled, inspect the Charge Future Transactions job’s SMS sender; otherwise inspect the pipeline’s failure response.",
+        "If response saving is enabled, use communication history to trace the automated reply."
+      ],
+      "title": "Text Giving setup, processing, refund, or failure messaging does not work",
+      "when": "Text Giving setup, processing, refund, or failure messaging does not work"
+    },
+    {
+      "do_not_assume": [
+        "Stop when one layer remains unverified; do not describe the dashboard as secured or available based on the other layer alone."
+      ],
+      "entities": [
+        "DataView",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-users-can-see-finance-data-they-should-not-see-or-cannot-see-an-embedded-dashboard",
+      "id": "users-can-see-finance-data-they-should-not-see-or-cannot-see-an-embedded-dashboard",
+      "inspect": [
+        "DataView",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/finance/advanced-finance/security-for-finance",
+        "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
+      ],
+      "start_with": [
+        "Test the Rock page, block, data view, and report as the affected user.",
+        "Distinguish Finance Worker from Finance Administration permissions.",
+        "Check object-level view permissions even if report creation is protected.",
+        "For embedded BI, verify Rock authorization and external identity, licensing, and report permissions independently.",
+        "Stop when one layer remains unverified; do not describe the dashboard as secured or available based on the other layer alone. Security for Finance"
+      ],
+      "title": "Users can see finance data they should not see, or cannot see an embedded dashboard",
+      "when": "Users can see finance data they should not see, or cannot see an embedded dashboard"
     }
   ],
   "concept_id": "giving-finance",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:52+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",
-    "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-statement",
-    "17-troubleshooting-decision-tree-batch-total-does-not-match",
-    "17-troubleshooting-decision-tree-recurring-gift-did-not-run",
-    "17-troubleshooting-decision-tree-receipt-language-is-wrong",
-    "17-troubleshooting-decision-tree-external-import-created-duplicates",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-read-only-finance-record-inspection",
-    "18-agent-task-recipes-recipe-statement-eligibility-explanation",
-    "18-agent-task-recipes-recipe-safe-account-cleanup-assessment",
-    "18-agent-task-recipes-recipe-giving-automation-review",
-    "18-agent-task-recipes-recipe-pledge-progress-analysis"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-gateway-accepted-a-payment-but-no-rock-transaction-is-visible",
+    "troubleshooting-decision-tree-a-transaction-is-in-the-wrong-batch-or-no-expected-batch-exists",
+    "troubleshooting-decision-tree-a-batch-has-an-amount-count-account-or-currency-variance",
+    "troubleshooting-decision-tree-a-statement-omits-a-gift-includes-an-unexpected-gift-or-combines-the-wrong-people",
+    "troubleshooting-decision-tree-giving-analytics-does-not-match-a-transaction-date-total",
+    "troubleshooting-decision-tree-giving-overview-journey-or-alerts-appear-stale-or-incorrect",
+    "troubleshooting-decision-tree-text-giving-setup-processing-refund-or-failure-messaging-does-not-work",
+    "troubleshooting-decision-tree-users-can-see-finance-data-they-should-not-see-or-cannot-see-an-embedded-dashboard",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-trace-a-public-gift-end-to-end",
+    "agent-task-recipes-recipe-validate-an-online-giving-page-before-launch",
+    "agent-task-recipes-recipe-reconcile-an-online-batch",
+    "agent-task-recipes-recipe-generate-and-validate-contribution-statements",
+    "agent-task-recipes-recipe-build-a-detail-preserving-finance-report",
+    "agent-task-recipes-recipe-transfer-scheduled-giving-to-a-new-gateway"
   ]
 }

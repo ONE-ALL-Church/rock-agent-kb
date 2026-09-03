@@ -6,1278 +6,660 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "64b2e1db8957c92d8f372d114b1f3429595acc04e963636e99778bcc612788cd"
 ---
 
 # AI Agents And Automation
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock’s agent framework separates responsibility across three layers:
 
-- Concept data-model landmarks: [AI Agents And Automation index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+- An **agent** defines the audience, interaction mode, instructions, available skills and access.
+- A **skill** groups related tools and supplies shared usage context and security.
+- A **tool** performs one bounded unit of work, such as looking up an entity, retrieving details, calculating a summary or making a specific change.
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+Treat those layers as independent controls. An agent being available does not imply that every attached skill or tool is authorized, and a tool being visible does not replace entity-level permission checks. Only expose tools appropriate for the agent’s audience and the authenticated person using it. Public agents require especially narrow tools because they must be safe for untrusted use. [AI Agents](https://community.rockrms.com/developer/ai-agents) and [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-## 1. Executive Summary For Agents
+Use tools to constrain the model’s choices:
 
-Rock AI Agents are configured operational actors inside Rock RMS. They are not just chat prompts. An agent is a governed execution surface that combines instructions, enabled skills, callable tools, user/session context, Rock security, and persisted chat/session data. The most important practical rule is that an agent should only be able to see and do what the current person, API key, configured agent, enabled skill, and individual tool are permitted to see and do. Rock's developer guidance frames agents as powerful assistants that must remain understandable and safe because they operate near the organization's live ministry data ([AI Agents](https://community.rockrms.com/developer/ai-agents)).
+1. Resolve natural-language names through lookup or list tools.
+2. Pass `IdKey` values between tools instead of exposing raw integer IDs.
+3. Retrieve only the fields needed for the current decision.
+4. Require prerequisites and confirmation before outbound, destructive or security-sensitive actions.
+5. Return a structured success, no-data or error result.
+6. Read the changed record or resulting state back before calling the task complete.
 
-For implementation work, treat an agent as a controlled interface over Rock operations:
+Never give an AI integration unrestricted database access or an open-ended facility for generating and executing SQL. Route operational access through reviewed Rock code that applies authorization and business rules. A narrowly secured tool containing reviewed, static SQL is different from arbitrary model-generated SQL, but it still requires parameter sanitation, bounded output and authorization design. [Approved claims `claim:a181b9ddd5b0e689895b` and `claim:c3921cb1d8b61e06c713`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s)
 
-- The **Agent** decides the operating persona, available skills, instructions, and usage context ([Agents](https://community.rockrms.com/developer/ai-agents/agents)).
-- A **Skill** groups related tools, supplies shared domain context, and provides a security management boundary ([Skills](https://community.rockrms.com/developer/ai-agents/skills)).
-- A **Tool** performs a specific lookup, read, insight, summary, or mutation action ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
-- A **Context Anchor** pins an entity such as a person or group into the session so the model has stable reference context across turns ([Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors)).
-- An **AI Agent Session** stores the relationship between an agent and a person, with child records for history and anchors according to Rock source model snippets ([AIAgentSession.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.cs)).
-- Automation extends this pattern beyond chat by letting configured events trigger actions in Rock. Rock 18.1 introduced Automations as an autonomous trigger/action pattern, and release notes identify a Chat Message automation trigger plus fallback chat notification event in the Communication module ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+No Rock instance was inspected for this guide. Installed version, AI provider, agent configuration, permissions, enabled tools, workflow settings and actual side effects remain live-verification requirements.
 
-The operational posture should be conservative. Give agents narrow tools, expose IdKeys instead of raw integer IDs, use lookup/list/get patterns so the model does not guess identifiers, require explicit human approval before communications or destructive changes, and verify results against live Rock state before treating a response as fact. Rock's custom tool guidance specifically warns against exposing raw Rock integer IDs to the model and emphasizes tool security before attaching tools to agents ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
+## Scope And Boundaries
 
-For real work, an agent should follow this sequence:
+This guide covers:
 
-1. Identify the current task, target entity, and authority boundary.
-2. Use lookup tools to translate human labels into safe identifiers.
-3. Use list/get/summary/insight tools to retrieve only the minimum facts needed.
-4. For writes, prepare a draft or proposed action first.
-5. Require an approval gate for sensitive or irreversible work.
-6. Execute through a narrow tool.
-7. Re-read live state and report what changed.
-8. Preserve enough evidence for audit, troubleshooting, and follow-up.
+- Agent, skill and tool responsibilities.
+- Chat, MCP, Internal and Public boundaries.
+- Tool naming, parameters, lookup surfaces and result shapes.
+- Lava and native-tool design.
+- Least privilege, data minimization and SQL boundaries.
+- Prompt layering and conversation context.
+- Workflow-oriented automation and durable handoffs.
+- Approval, read-back and operational review gates.
+- Troubleshooting and live-verification practices.
 
-If a fact is not present in the source pack or visible through a live Rock inspection surface, this guide says what to inspect rather than inventing behavior.
+Detailed administration of Rock security, APIs, workflows, reports, Data Views, Lava or provider configuration belongs in those concepts. This guide covers how an agent should interact with those surfaces without replacing their owning documentation.
 
-## 2. Scope And Terminology
+Current developer documentation describes the framework for developers comfortable with Lava, SQL or C#, and emphasizes that building agent capabilities carries responsibility for both safety and clarity. [AI Agents](https://community.rockrms.com/developer/ai-agents)
 
-This guide covers Rock RMS AI Agents, agent skills, custom tools, lookup surfaces, prompt/tool boundaries, permissions, automation patterns, verification gates, and live operational review. It is written for agents and implementers who will perform real Rock work: reading person records, summarizing groups, finding registrations, drafting communications, inspecting configuration, triggering workflows, or building custom tools.
+The evidence pack contains current developer-documentation excerpts, official media guidance, release notes and selected source-code excerpts at an immutable commit. Source-code observations describe that commit’s implementation; they do not prove that the same feature is installed, configured or enabled in a particular Rock instance.
 
-It intentionally connects multiple Rock areas because agent work does not live in one module. A safe agent implementation depends on Security, API Integrations, Workflows, Platform Configuration, Data Views, Reports, Operations, and Lava. These dependencies are explicit in the concept pack and are treated as part of the agent operating model.
+## Mental Model
 
-Core terms:
+### Agent, skill and tool
 
-**Agent**  
-An agent is the configured Rock object that defines what skills and tools are available and what instructions guide the model's behavior. Rock's developer docs describe agents as the central point for AI in Rock and note that organizations may configure multiple agents for different audiences, such as internal staff and volunteers ([Agents](https://community.rockrms.com/developer/ai-agents/agents)).
+An agent is the orchestration boundary. It selects the persona, instructions, skills and tools available for a particular use. Separate agents can therefore serve different risk profiles: a staff agent may have broad internal read access, a volunteer agent may have fewer or non-mutating tools, and a public agent should expose only capabilities safe for any visitor. [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-**Skill**  
-A skill groups related tools and supplies shared context. For example, a registration skill can explain how registration templates, instances, registrations, and registrants relate so that individual tools do not repeat that domain explanation. Skills also provide a convenient security boundary ([Skills](https://community.rockrms.com/developer/ai-agents/skills)).
+A skill is a coherent group of tools with shared usage context. Skills reduce repeated instructions and provide a security-management boundary. Avoid adding overlapping skills merely because a local term differs from Rock terminology; existing tools plus concise organization instructions may already cover the use case. Too many skills and tools increase context size, cost and tool-selection ambiguity. [Skills](https://community.rockrms.com/developer/ai-agents/skills)
 
-**Tool**  
-A tool is the action surface the agent can call. Rock supports tools written in Lava and native C#. Tools can retrieve data, summarize records, produce insights, or add/update data when designed for writes ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools), [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools), [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)).
+A tool is one bounded operation. A request that sounds like one task may require several tool calls—for example, locating a person, resolving a group and then adding the person to that group. Treat each call as its own authorization and validation boundary. [AI Agents](https://community.rockrms.com/developer/ai-agents)
 
-**Lookup Tool**  
-A lookup tool returns a small set of possible items needed as inputs to other tools. It usually has no filters and should return just enough fields for safe selection. Rock's Lava and native tool docs both present lookup tools as a load, format, return pattern ([Lava Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools), [Native Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools)).
+### Control stack
 
-**List Tool**  
-A list tool returns matching records, often with filters, but should not be treated as a full-detail read. It helps narrow candidates before a get/summary/detail tool is called. Rock's tool type guidance distinguishes lookup, list, get, summary, insights, available attributes, and add/update patterns ([Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)).
+A production decision should pass through all applicable controls:
 
-**Get Tool**  
-A get tool retrieves detail for one known item. It should accept a safe identifier, typically an IdKey or similar, not a raw integer ID exposed directly to the model.
+1. **Agent availability:** May this person use this agent?
+2. **Audience and channel:** Is it Internal or Public, and Chat or MCP?
+3. **Skill availability:** Is the capability group attached and authorized?
+4. **Tool availability:** Is this exact operation exposed?
+5. **Entity authorization:** May the current person view or modify the target?
+6. **Business rules:** Is the operation valid in the target’s current state?
+7. **Human approval:** Has a required outbound, destructive or sensitive action been confirmed?
+8. **Read-back:** Does the authoritative Rock state show the intended result?
 
-**Summary Tool**  
-A summary tool returns a human-oriented rollup of one entity or a related collection. Use summaries for staff-facing explanations, review pages, and evidence gates.
+Rock’s pre-release design was described as applying permissions as the authenticated person using the agent, including through MCP, rather than giving the agent unrestricted administrative access. That statement remains release-sensitive: verify the shipped version and every enabled tool’s authorization behavior. [Approved claim `claim:2a7ef23854b5dd315c7d`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s)
 
-**Insight Tool**  
-An insight tool performs aggregation or analysis rather than retrieving one entity. Rock's Lava insight docs define the pattern as filter/aggregate, format, and return ([Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools)).
+### Chat, MCP, Internal and Public are separate choices
 
-**AvailableAttributes Tool**  
-An available attributes tool tells the agent what attribute keys or fields are valid for a target entity type before it attempts an update or filter. Rock identifies this as a recommended tool type in the native tool family and tool taxonomy ([Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)).
+Chat agents operate inside Rock and can receive context anchors from the chat host. MCP agents expose tools to an external client and do not support Rock chat context anchors. Internal versus Public determines the intended audience and can affect which fields a tool returns; it does not replace skill, tool or entity security. [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-**AddOrUpdate Tool**  
-An add/update tool changes Rock data. It must be narrow, permission checked, validation-heavy, and ideally guarded by an explicit approval step. Rock's native tool examples include guardrail attributes such as never sending a communication without explicit approval ([Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)).
+Context anchors help keep a Chat conversation focused on a particular entity, such as the person whose profile is open. They are hints, not guarantees, and only one anchor per entity type can be present. Tool code does not establish anchors; the chat host does. [Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors) and [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions)
 
-**Context Window**  
-The context window is the information available to the model during a request. Long instructions, verbose tool descriptions, large lookup payloads, and unbounded chat history compete for that space. Rock's instruction docs warn that instructions are included with every request and can affect processing time and cost ([Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions)).
+## Agent Tools And Lookup Surfaces
 
-**System Prompt / Instructions**  
-The system prompt is built from multiple sources: core prompt, organization prompt, agent instructions, skill instructions, current person template, context anchors, and conversation history according to Rock's agent instruction docs ([Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions)).
+### Shape tools around intent
 
-**Context Anchor**  
-A context anchor ties the session to a target entity so ambiguous follow-up questions continue to refer to the intended subject. Rock's example is a person anchor that helps keep “his wife” attached to the intended person rather than a recently mentioned child ([Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors)).
+Use clear `VerbNoun` names such as `LookupConnectionTypes`, `ListGroups`, `GetGroup`, `GetConnectionRequestSummary`, `GetPersonAvailableAttributes`, `AddOrUpdateGroup` or `SendCommunication`. Names, parameter descriptions, prerequisites and return descriptions help the model choose the correct operation. [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) and [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)
 
-**Automation**  
-Automation means a configured event causes actions to run without a staff member manually starting each step. Rock 18.1 documentation describes Automations as trigger-driven activities, and release notes identify chat-message-triggered automation as a communication feature ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+The recommended types have different jobs:
 
-**Live Verification**  
-Live verification is the act of confirming the current Rock state through UI, API, SQL, reports, logs, or model endpoints instead of trusting a generated statement. This guide treats live verification as mandatory for write decisions, security claims, financial/person data claims, and operational incident work.
+- **Lookup:** Returns a bounded reference set used as input to other tools. It commonly returns `IdKey`, name and only the metadata needed to select correctly.
+- **List:** Returns filtered matching records. Large sets should be paginated.
+- **Get:** Returns one identified record with the details needed for the task.
+- **Summary:** Returns aggregate information, often grouped by a defined dimension.
+- **Insights:** Returns an opinionated analysis over filtered or aggregated data rather than individual records.
+- **AvailableAttributes:** Returns attribute definitions and value-format information, not the entity’s attribute values.
+- **AddOrUpdate:** Creates a new record when no target key is provided or updates an identified record when one is provided.
+- **Action:** Performs a stateful operation such as launching a workflow or sending a communication. Prerequisites and guardrails should describe required state and confirmation.
 
-## 3. AI Agents And Automation Mental Model
+Delete operations belong in the taxonomy but should be omitted entirely when the agent does not need them. Tool-level controls are intended to allow capabilities such as drafting while withholding sending. [Approved claim `claim:903c8ff9b5d2590fd616`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
 
-The safest mental model is not “chatbot with database access.” The safer model is “a controlled Rock operator with bounded tools, bounded memory, explicit context, and review gates.”
+### Use lookup, list and get as a sequence
 
-An agent request flows through several layers:
+Lookup and list tools should help the model resolve the target without flooding its context. A lookup generally returns the reference set needed by another tool; a list accepts meaningful filters; a get retrieves the selected record’s fuller representation. This division lets a list remain compact while a get supplies details only when needed. [Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools), [List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) and [Get Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/get-tools)
 
-1. The person or external caller starts a chat, voice, MCP, or automation-triggered request.
-2. Rock resolves the configured agent and current person/API authority.
-3. Rock builds prompt context from core, organization, agent, skill, current-person, anchor, and history sources ([Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions)).
-4. The model decides whether to answer directly or call an enabled tool.
-5. The tool executes under Rock security and tool-specific validation.
-6. The result is returned to the agent in a compact, structured format.
-7. The agent explains, asks follow-up questions, proposes actions, or calls another tool.
-8. For writes, approval and post-write verification should happen before the task is considered complete.
+Do not return every entity property by default. Return enough information to distinguish candidates and make the next decision. Large descriptions, unused fields and full result objects stored repeatedly in conversation history consume context and may be summarized away later. Native Get-tool guidance recommends storing a compact reference in history and calling the Get tool again if full details are needed. [Native Get Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools)
 
-This stack has three separate boundaries that must not be blurred:
+### Design parameters for a model caller
 
-**The model boundary**  
-The model can reason, summarize, ask clarifying questions, select tools, and compose drafts. It should not be trusted as the source of truth for live Rock state unless it just used a reliable tool and cites or reports the retrieved evidence.
+Native-tool parameters should be flat, top-level method arguments rather than nested parameter objects. Use explicit names such as `personIdKey` or `communicationIdKey`, not a context-free `idKey`. Required and optional behavior should be expressed clearly through the parameter signature and descriptions; truly optional nullable inputs should default to `null`. [Tool Parameters](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/tool-parameters)
 
-**The tool boundary**  
-Tools are the only way an agent should perform live retrieval or mutation. They must be named clearly, typed narrowly, and designed for least privilege. A tool that can update arbitrary Lava, run arbitrary SQL, or call arbitrary endpoints is usually too broad for a general-purpose agent.
+Never expose a raw Rock integer `Id` to the model. Accept and return `IdKey` values, converting internally when Rock code needs an integer identifier. [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)
 
-**The human/review boundary**  
-Some actions are too sensitive for autonomous execution even when technically possible: sending communications, changing security, updating giving data, changing workflow type configuration, editing person/family records at scale, deleting records, or changing public-facing content. These should be draft-first or approval-first workflows. Rock's native tool docs show this guardrail posture through communication examples that require explicit approval before sending ([Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)).
+AvailableAttributes tools are important when qualifiers determine which attributes apply. For an existing entity, load that entity. For a new entity, create an in-memory representation and set the qualifying values before retrieving definitions. The result should identify attribute keys, field types and formatting expectations needed by the later AddOrUpdate call. [AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools)
 
-Automation fits beside agents, not underneath them. An automation trigger can start an action because something happened, such as a chat message. An agent can help decide, summarize, or draft. A workflow can carry state, assignments, approvals, and branching. A scheduled job can run time-based processing. A Data View can define the population. A report can expose evidence. Lava can render or transform. The strongest implementations use each Rock surface for what it does best instead of forcing all behavior into a single prompt.
+The supplied immutable source excerpts show this pattern across workflows, connection requests, content-channel items, CMS blocks and pages: an existing entity key can be used for edits, while creation paths use a parent type or other qualifier to construct the applicable attribute surface. This is implementation evidence from commit [`471fd303d111b2e46218228dbc1e93dba8856fa3`](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills), not proof of an installation’s available tools.
 
-## 4. Source Authority And How To Use This Guide
+### Choose Lava or native code deliberately
 
-Use this guide as a synthesis, not as a replacement for official configuration screens or source inspection. The highest-authority records in the source pack are Rock developer docs, Rock documentation, release notes, model map entries, and Rock source-code snippets.
+Lava supports low-code tools inside Rock. The documented Lava tool types are:
 
-Authority order for this topic:
+- **AI Prompt:** Supplies stored instructions to the agent.
+- **Execute Lava:** Runs Lava and returns a shaped result.
 
-1. **Live Rock instance** for current configuration, exact version, installed plugins, security, data shape, and whether a feature is enabled.
-2. **Rock source code** for entity relationships, generated REST endpoints, security annotations, save hooks, and model properties.
-3. **Official Rock developer docs** for intended implementation patterns around agents, skills, tools, instructions, and context anchors.
-4. **Official Rock documentation and release notes** for feature availability and operational changes.
-5. **Rock Model Map** for identifying model families and categories.
-6. **Community Q&A and podcasts** for examples, directional context, and operational caution, but not as primary authority for implementation facts.
+An Execute Lava tool has a name, description, prompt and parameters. Its response should use the agent-tool filters to distinguish `Success`, `NoData` and `Error`, attach private instructions, compact or suppress history content, add metadata and supply secured Rock reference routes. `NoData` represents a successful operation with no returned items; it is not an error. [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)
 
-Reviewed RockU media distillations can help route agent work to the right Rock area, but they are training context rather than implementation authority. For automation topics, use the approved public-safe RockU notes for [Automations Transcript Insight](https://community.rockrms.com/rocku/core-concepts/automations) at 00:25, [Data Automation Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) at 00:15, and [Connection Request Status Automation Transcript Insight](https://community.rockrms.com/rocku/engagement/connection-request-status-automation) at 00:41 as routing and review cues, then verify exact behavior against official docs and the live Rock instance.
+Native tools use compiled C# and Rock infrastructure for more complex logic, external integrations or heavier data work. Native methods should return `AgentToolResult`, use intentionally shaped result objects and provide actionable error results. Native metadata can describe purpose, usage, guardrails, prerequisites, examples, return shape and chat preamble. A method without an `AgentToolGuid` is not registered as a tool. [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)
 
-Use the source pack this way:
+Use cache objects when available and entity services or commands when they better preserve Rock behavior. The SQL examples in the summit were intentionally simplified teaching examples; they should not be copied into production without authorization, business-rule and query-cost analysis. [Approved claim `claim:725a3342f3dc657cc546`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s)
 
-- For agent concepts and terminology, start with [AI Agents](https://community.rockrms.com/developer/ai-agents), [Agents](https://community.rockrms.com/developer/ai-agents/agents), [Skills](https://community.rockrms.com/developer/ai-agents/skills), and [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools).
-- For prompt composition and instruction weight, use [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions).
-- For context stability, use [Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors) and source model records for `AIAgentSessionAnchor`.
-- For tool categories, use [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools).
-- For Lava tool implementation, use [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools), [Lava Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools), and [Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools).
-- For native C# tool implementation, use [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools), [Native Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools), [Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper), and [Gotchas](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas).
-- For generated model/API landmarks, use the Rock GitHub files listed in Section 14.
-- For release caveats, use [Rock Core Release Notes](https://www.rockrms.com/releasenotes) and [Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9).
+### Paginate according to authorization behavior
 
-When this guide says “verify live,” inspect the live Rock instance through the relevant surface: Admin Tools, AI Agents settings, AI Skills, security dialogs, Inspect Security, Power Tools/API, model endpoints, Data Views, reports, workflow history, job history, exception logs, communication history, or direct SQL if that is part of your organization's approved read-only support process.
+For large Lava list results, paginate and use the conventional `pageNumber` parameter where applicable. Sanitize every string interpolated into SQL with `SanitizeSql`; prompt instructions do not prevent a user from supplying malicious input. [Lava List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools)
 
-## 5. Core Configuration And Data Model
+Native list tools that apply per-item authorization should use cursor pagination. Page-number offsets can become incorrect or increasingly expensive when unauthorized items are filtered out while walking earlier pages. Page-number pagination is appropriate only when an offset can be trusted without per-item security filtering. [Native List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools)
 
-The core configuration starts in Rock's AI Agent settings area. Rock's tool type docs direct administrators to `Admin Tools > Settings > AI Agents > AI Skills` to inspect default tools for a skill ([Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)). In a live instance, inspect both the agent list and skill/tool configuration because the exact fields, installed defaults, and UI labels may vary by Rock version.
+## Permissions And Data Boundaries
 
-At minimum, inspect these configuration surfaces:
+### Apply least privilege at every layer
 
-- AI Agents list.
-- Individual agent detail.
-- Agent instructions.
-- Public vs internal usage setting.
-- Chat vs MCP usage setting, if present.
-- Skills attached to the agent.
-- Skill security.
-- Skill instructions.
-- Tools attached to each skill.
-- Tool type, name, description, parameters, prompt/code, and security.
-- Context anchor support and current session anchors.
-- Prompt templates or organization-level instructions.
-- Current person template.
-- Enabled mobile/voice surfaces.
-- API or MCP exposure settings.
-- Logs/session history retention settings, if available.
+Configure security before attaching a tool to an agent. Rock’s documentation says new agents default to the `RSR - Rock Administrator` security role and remain locked down until access is explicitly granted. A staff-facing agent may begin with an appropriate staff role, but each organization must decide the actual access boundary. [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-Rock's source model snippets identify several AI domain models:
+Skill security keeps related tools consistent, but individual tool review remains necessary. A skill that includes both read and write capabilities may be too broad for a public, volunteer or drafting-only agent. Tool availability and Rock authorization must both pass; neither substitutes for the other. [Skills](https://community.rockrms.com/developer/ai-agents/skills) and [approved claim `claim:903c8ff9b5d2590fd616`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
 
-- `AIAgent`
-- `AIAgentSession`
-- `AIAgentSessionAnchor`
-- `AIAgentSessionHistory`
-- `AIAgentSkill`
+For a Public agent:
 
-The Model Map source records place these in the AI category ([Model Map](https://community.rockrms.com/ModelMap)). The source snippets provide deeper operational detail:
+- Include only tools safe for an unknown, potentially hostile user.
+- Review every returned field for public suitability.
+- Do not assume that the Public designation automatically removes every field your organization considers sensitive.
+- Test both normal and adversarial prompts.
+- Exclude write, send, delete and administrative tools unless a separately reviewed public use case truly requires them.
 
-`AIAgentSession` represents an existing chat session for a specific agent and person. The class includes an `AIAgentId`, a `PersonAliasId`, navigation to `AIAgent`, navigation to `PersonAlias`, and collections of `AIAgentSessionHistory` and `AIAgentSessionAnchor` records ([AIAgentSession.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.cs)). The snippet also shows `CodeGenExclude( CodeGenFeature.DefaultRestController )` and `CodeGenerateRest( DisableEntitySecurity = true )`, which means implementers should inspect the generated v2 endpoints and security annotations rather than assuming normal v1 generated controller behavior.
+Rock documents that tools may omit or substitute properties according to audience—for example, returning a public-safe representation instead of an internal one—but the organization remains responsible for configuring security on the agent, skills and tools. [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-`AIAgentSessionHistory` represents messages associated with a session. The source excerpt shows `AIAgentSessionId`, message role, and a required relationship back to `AIAgentSession`, with cascade delete from session to history ([AIAgentSessionHistory.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs)).
+### Keep database access behind Rock controls
 
-`AIAgentSessionAnchor` represents an anchor for additional context in a session. The class stores the session, entity type, entity ID, and additional settings. The source comment states the intent: anchor a session to an entity such as a person or group, and avoid multiple anchors on the same entity type ([AIAgentSessionAnchor.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs)). Its service includes `UpdateFromEntity`, and the excerpt shows special handling beginning with `Person`, which means anchor display/context content is not just raw entity IDs but derived from entity-specific logic ([AIAgentSessionAnchorService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs)).
+Do not give the model a general API key with unrestricted data access, direct database credentials or an arbitrary SQL executor. Managed Rock code should validate identifiers, apply permissions, preserve business rules and restrict both inputs and outputs. [Approved claim `claim:a181b9ddd5b0e689895b`](https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s)
 
-`AIAgentSkill` is the join between an agent and a skill. The source excerpt shows required `AIAgentId` and `AISkillId`, navigation to `AIAgent` and `AISkill`, and cascade delete on both relationships ([AIAgentSkill.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs)). Its save hook flushes the agent cache after save, which is operationally important: after adding/removing skills, the agent's cached configuration should rebuild ([AIAgentSkill.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs)).
+Static SQL inside a reviewed Lava tool is still code. It must:
 
-Save hooks also set timestamps on session, anchor, and history records when added if defaults were not already set, according to the source snippets for `AIAgentSession.SaveHook`, `AIAgentSessionAnchor.SaveHook`, and `AIAgentSessionHistory.SaveHook` ([AIAgentSession.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs), [AIAgentSessionAnchor.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.SaveHook.cs), [AIAgentSessionHistory.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.SaveHook.cs)).
+- Accept explicit, bounded parameters.
+- Convert `IdKey` values internally.
+- Sanitize string inputs.
+- Select only required columns.
+- Limit and paginate large result sets.
+- Enforce the applicable authorization boundary.
+- Avoid bypassing entity business logic for updates.
+- Return a structured `AgentToolResult`.
 
-For live verification, inspect:
+The summit explicitly distinguished such reviewed, narrow SQL from model-generated SQL executed at runtime, which was strongly discouraged because it bypasses Rock security and business logic. [Approved claims `claim:c3921cb1d8b61e06c713` and `claim:4b7b8d0b0379ceb7587f`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s)
 
-- Whether the Rock version has the AI models installed.
-- Whether the tables exist and match the source branch being referenced.
-- Whether generated v2 endpoints are enabled in the target environment.
-- Whether the current person/API key has the required v2 model endpoint permissions.
-- Whether entity security is intentionally disabled at the generated endpoint layer and replaced with controller action security, session ownership checks, or other service logic.
-- Whether the organization's configured retention policy treats session history as sensitive data.
+### Treat authorization changes as high-risk mutations
 
-## 6. Primary Entities And Relationships
+The supplied v20-alpha source excerpt includes tools for listing supported authorization actions, listing direct and inherited rules, adding or updating a rule and deleting a rule. Those implementations require administrative access to the secured entity, attach guardrails to mutations and refuse changes that would remove the caller’s own administrative access through the tool. They also recommend reading the ordered rule list back after a change. [Immutable source excerpt](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills)
 
-The core relationship graph is:
+Because that is source-code evidence from a particular commit, do not infer that these tools are installed, enabled or attached to an agent. If present, keep them off general-purpose agents and require an explicit review of entity, action, subject, allow/deny choice and rule order before mutation.
 
-`AIAgent` -> many `AIAgentSkill` -> `AISkill`  
-`AIAgent` -> many `AIAgentSession`  
-`PersonAlias` -> many `AIAgentSession`  
-`AIAgentSession` -> many `AIAgentSessionHistory`  
-`AIAgentSession` -> many `AIAgentSessionAnchor`  
-`AIAgentSessionAnchor` -> one `EntityType` and one target entity ID
+### Bound MCP authentication
 
-The `AIAgentSession` source says the session is for a specific agent and person, and the `PersonAliasId` is used so one person cannot view another person's chat history ([AIAgentSession.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.cs)). That statement should shape every agent-history report, API integration, or admin tool. A session history viewer must not simply list all records for anyone who can hit a generated endpoint. It must preserve the intended ownership boundary or require a clearly authorized administrative role.
+Rock’s planned MCP flow was described as using OAuth so that the external harness—not the language model—holds and renews the access token, avoiding exposure of a general Rock API key to the model. Administrators must verify the released implementation’s client authorization, scopes, expiry and revocation behavior. [Approved claim `claim:2a2a9fc94666d58b0e4f`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s)
 
-The `AIAgentSessionHistory` source shows a required parent session and cascade delete. If a session is deleted, history records should be expected to delete with it in the code branch represented by the source snippet ([AIAgentSessionHistory.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs)). Verify this in the live database before building a cleanup job or compliance export because schema can vary by version and migration state.
+Do not treat OAuth as sufficient by itself. The authenticated identity, agent configuration, skill and tool exposure, entity permissions and tool implementation still determine what an MCP client can do.
 
-The `AIAgentSessionAnchor` source shows a required parent session and an entity reference through `EntityType` plus entity ID ([AIAgentSessionAnchor.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs)). Because anchors point at arbitrary entity types, anchor handling must respect the target entity's security and sensitivity. A person anchor, group anchor, workflow anchor, financial account anchor, or registration anchor should not all be treated equally.
+## Prompt And Tool Boundaries
 
-The `AIAgentSkill` relationship is a classic join between `AIAgent` and `AISkill`, with cascade delete on both parent relationships in the source snippet ([AIAgentSkill.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs)). Operationally, this means removing an agent or skill can remove join rows. It does not mean removing a skill is safe without review; it may alter what tools an agent can call and can invalidate staff workflows.
+Rock’s prompt context is layered across the core prompt, organization prompt, agent instructions, skill instructions and current-person context. Context anchors and conversation history add further request context. Keep each layer concise because repeated instructions consume tokens on every request. Add instructions when testing demonstrates a need, and place each rule at the narrowest layer that owns it. [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions) and [approved claim `claim:57e32b4d554a759231a1`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s)
 
-Recommended relationship checks before changing an agent:
+Use the layers this way:
 
-- Count the skills attached to the agent.
-- List tools under each skill.
-- Record tool names, types, write capability, and security.
-- Identify sessions using the agent.
-- Identify whether the agent is used by docked chat, public chat, MCP, mobile voice, or automations.
-- Confirm whether removing a skill affects cached configuration and whether cache flush occurs automatically.
-- Confirm whether agent session history should remain after an agent is disabled or removed.
+- **Organization prompt:** Stable organization-wide terminology or policy.
+- **Agent instructions:** Persona, audience behavior and general ambiguity handling.
+- **Skill instructions:** Relationships and conventions shared by a related tool set.
+- **Tool schema and annotations:** Exact purpose, parameters, prerequisites, result shape and safety guardrails.
+- **Current-person context:** The authenticated user information needed for the request.
+- **Context anchor:** The primary entity supplied by a Chat host.
+- **Conversation history:** Prior turns that may help continuity but may later be summarized.
 
-## 7. Common AI Agents And Automation Workflows
+Instructions do not enforce authorization. A sentence such as “only show permitted records” is not a substitute for filtering records in Rock code. Likewise, a prompt that says “never send without approval” should be reinforced by omitting the send tool from drafting agents or by enforcing a confirmation prerequisite at the action boundary.
 
-### Staff Person Research
+Rock-side skills and tools provide capabilities. An external harness may also contain organization-specific skills or business rules that guide how those capabilities are used. Govern and version both layers; do not assume MCP tool definitions contain the organization’s full operating policy. [Approved claim `claim:538f1a4e0ad7c90f7c5a`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s)
 
-A staff member asks: “Summarize Ted Decker's family, recent attendance, and active serving roles.”
+## Automation Design And Workflows
 
-A safe workflow:
+### Separate reasoning, drafting and execution
 
-1. Use a person lookup/list tool to identify the person by name.
-2. If multiple matches exist, ask the user to choose.
-3. Set or rely on a person context anchor.
-4. Use get/summary tools for family, attendance, and serving.
-5. Cite the live surfaces used in the response.
-6. Avoid exposing sensitive fields unless the staff user has access.
-7. If the user asks to change a record, switch to draft/approval mode.
+A safe automation normally has distinct stages:
 
-The context anchor matters because follow-up questions like “What about his wife?” can otherwise drift to the wrong recently mentioned person. Rock's context anchor docs describe this exact ambiguity class ([Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors)).
+1. Gather bounded, authorized data.
+2. Resolve ambiguous entities.
+3. Produce a proposed result or draft.
+4. Validate prerequisites and current state.
+5. Obtain approval where required.
+6. Invoke the narrow action tool.
+7. Read the result back from Rock.
+8. Produce a durable handoff or audit artifact when the work must outlive the conversation.
 
-### Group Lookup And Membership Insight
+This pattern allows an organization to automate research and drafting without automatically enabling outbound or destructive actions. It follows Rock’s per-tool control model and native-tool support for purpose, prerequisite and guardrail annotations. [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) and [approved claim `claim:903c8ff9b5d2590fd616`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
 
-A staff member asks: “Which small groups have more than ten active members but no leader?”
+When work must survive the chat, create a durable file or handoff artifact rather than leaving the result only in transient conversation history. [Approved claim `claim:679a38216f2b07097624`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=713s)
 
-Use the tool taxonomy:
+### Use Rock workflows as bounded action surfaces
 
-1. Lookup group types or campuses if needed.
-2. Run an insight tool that aggregates group membership by status and role.
-3. Return counts and candidate group IdKeys/names.
-4. Offer a get/summary tool for a selected group.
-5. Do not update roles without explicit confirmation.
+The supplied source excerpt at commit `471fd303d111b2e46218228dbc1e93dba8856fa3` shows a `LaunchWorkflow` tool that:
 
-This is a good insight-tool use case because the question is analytic rather than “fetch one record.” Rock's insight tool pattern is specifically for filtered, aggregated output ([Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools)).
+- Resolves a workflow type with a security check.
+- Can restrict launches to workflow types configured on the agent’s Workflow skill.
+- Applies supplied attribute values through helper logic.
+- Returns a configuration-specific error when the workflow exists but is not launchable by that agent.
 
-### Event Registration Support
+That is a useful implementation pattern: combine the current person’s Rock access with an agent-specific allowlist rather than treating view access as universal permission to launch every workflow. [LaunchWorkflow source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs)
 
-A staff member asks: “Find people registered for Men's Retreat who still owe a balance and draft a reminder.”
+The same commit includes a Get tool that retrieves a workflow’s current state, attributes, activities and actions after applying security. Use a read operation like this for post-launch verification rather than relying only on the action tool’s success message. [GetWorkflow source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs)
 
-A safe agent does not jump straight to communication. It should:
+Rock v20.0 release notes, dated September 2, 2026 and marked Alpha in the supplied pack, describe a Workflow Builder AI skill that can discover installed action components and create, edit or remove workflow definitions and related structures. That capability is administrative and release-sensitive; verify version, packaging, configuration and tool exposure before use. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-1. Lookup registration instances or event names.
-2. List matching registrations with safe identifiers.
-3. Get balance/status details through authorized finance/event tools.
-4. Draft the reminder only.
-5. Require explicit approval before sending.
-6. Use a communication tool with a hard guardrail: no send without approval.
-7. Verify the communication record after sending.
+### Connect event-driven automation carefully
 
-Rock's skill docs use event registration as an example of a domain where shared skill context can explain relationships among templates, instances, registrations, and registrants ([Skills](https://community.rockrms.com/developer/ai-agents/skills)). Rock's native tool docs show guardrail patterns around communications ([Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)).
+Rock 18.1 release notes describe a Chat Message Automation Trigger and a Send Fallback Chat Notification Automation Event for alternate notification methods when a person lacks an active personal device or has notifications disabled. Treat this as a version-specific communication automation surface, not evidence that any particular instance has configured a trigger or fallback path. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-### Connection Request Creation
+For event-driven automation, verify:
 
-A user asks: “Add a connection request for Ted Decker. He is interested in greeters. High importance.”
+- The installed Rock version contains the trigger and event.
+- The trigger is active and scoped to the intended messages.
+- The fallback channel is configured.
+- Recipient selection and consent rules are correct.
+- Duplicate or recursive triggering is prevented.
+- Test events produce the expected workflow or notification records.
 
-Safe flow:
+### Treat generated summaries as assistance
 
-1. Lookup the person.
-2. Lookup connection types/opportunities, preferably through a cache-backed native lookup tool when available.
-3. Confirm exact person and opportunity if ambiguous.
-4. Prepare the add request.
-5. Use an add/update tool that validates IdKeys and current person's authorization.
-6. Return the created request's safe reference and a post-create summary.
+Connection-request AI summaries and insights require both a configured prompt on the connection type and a configured AI provider. Their output is generated assistance, not authoritative person data. [Approved claim `claim:069aa7a39db4563841a2`](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s)
 
-Rock's debugging docs use a similar example when explaining how to ask an agent to explain which tools it considered ([Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)).
+Do not write a generated inference back as verified person data without a separate, authorized workflow and human review. When a summary affects pastoral follow-up or another consequential decision, inspect the underlying Rock records and identify uncertainty.
 
-### Chat Message Automation
+### Include training in the rollout
 
-Rock release notes identify a Chat Message automation trigger and a fallback chat notification automation event in the Communication module for Rock 18.1 ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). Treat this as an automation surface, not a generic agent capability. Before using it:
+AI automation is partly an operational adoption problem. Staff who do not understand the intended Rock workflow are more likely to create disconnected shadow processes that fragment data and accountability. [Approved claim `claim:4b083dda9f0d9ccc4aff`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2042s)
 
-- Verify the installed Rock version.
-- Inspect the automation trigger type list.
-- Inspect the event/action configuration.
-- Confirm the chat channel, recipient population, and notification fallback rules.
-- Confirm whether email/SMS fallback touches communication preferences or compliance rules.
-- Test with a non-production group before broad rollout.
-- Review resulting communication records and failure logs.
+Rock’s LMS can assign role-specific curricula and track completion, subject to installed-version configuration and permissions. Train staff before expecting them to train volunteers; staff-first sequencing creates training multipliers and reduces inconsistent data practices. [Approved claims `claim:91be2ad338eb6b1cdaed` and `claim:c8c3a60f71790dd3616d`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s)
 
-### Mobile Voice Agent
+When an upgrade changes an agent or Rock interface, prepare and distribute a short targeted video before staff encounter the change. [Approved claim `claim:c9c1fa08cb4d501e6`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1714s)
 
-The mobile Voice Agent block is documented as a conversational voice assistant that opens a live audio session, streams microphone input, plays spoken responses, and can show a transcript. The docs mark it `C 19.0 S 19.0` and describe using it for questions exposed through an MCP agent ([Voice Agent](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent)).
+## Verification And Review Gates
 
-Operationally, voice increases the need for narrow tools and clear confirmation. A voice UI is faster and more ambiguous than typed admin work. Use it for read-only self-service or heavily guarded actions unless the live Rock configuration proves appropriate security and consent patterns.
+Use evidence appropriate to the claim being made:
 
-Verify live:
+- **Tool schema or configuration:** Inspect the installed agent, skill, tool and parameters.
+- **Authorization:** Test with representative identities, including an allowed user and a denied user.
+- **Read behavior:** Compare the tool’s returned records and fields with authorized Rock views.
+- **Mutation:** Use a controlled target, obtain required approval and read the target back afterward.
+- **Outbound action:** Confirm the created draft, recipient and content before sending; verify delivery state separately.
+- **Workflow launch:** Verify that the workflow exists, is active and has the intended attribute values and activities.
+- **Generated summary:** Inspect the configured prompt and provider, then compare the output with its underlying records.
+- **MCP:** Verify client authorization, authenticated person, token scope, tool discovery and revocation.
+- **Public agent:** Test adversarial prompts and confirm that sensitive fields and dangerous tools remain inaccessible.
+- **Performance:** Exercise pagination, large result sets and expensive filters without assuming a small test dataset represents production.
 
-- Block settings.
-- Personal settings.
-- Permissions.
-- Whether transcript display is enabled.
-- Which agent/MCP endpoint the block uses.
-- Whether the user is authenticated.
-- Whether the exposed tools are appropriate for a mobile audience.
-- Whether audio/transcript handling meets organizational privacy policy.
+A successful tool response proves only what that response states. It does not by itself prove that an outbound message was delivered, a scheduled process will continue running, a public user cannot discover another path or a workflow completed all downstream work.
 
-## 8. Agent Tools And Lookup Surfaces Deep Dive
+Use built-in tool logs during debugging to inspect calls, inputs and results. Temporary debugging prompts can ask the model which tools it considered and why it did or did not call them, but model-reported reasoning is diagnostic context, not proof that authorization or execution succeeded. [Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools) and [approved claim `claim:4b7b8d0b0379ceb7587f`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s)
 
-Rock's recommended tool taxonomy is based on verb prefixes: lookup, list, get, summary, insights, available attributes, and add/update ([Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)). Tool names matter because the model uses the name and description to decide which tool to call. A vague tool name creates routing errors. A broad tool description creates overuse. A missing tool creates guessing.
+## Version And Authority Caveats
 
-### Lookup Tools
+- The developer-documentation excerpts in this pack identify documentation version `1.0.0`. Confirm the documentation applicable to the installed Rock release.
+- Rock v20.0 was listed as Alpha on September 2, 2026 in the supplied release-note snapshot. Its Workflow Builder, Core Administration and Community Knowledge Base AI skills should be treated as pre-production until the organization verifies a supported release and installed behavior. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- Summit and Rock Cast statements about MCP, OAuth, authenticated-person permissions and tool controls were pre-release guidance. They describe intended design, not guaranteed behavior in every released or installed version. [RockIQ Rapid Fire Q&A](https://www.youtube.com/watch?v=dpYJiOAiJYM)
+- The supplied source-code excerpts all reference immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. They can clarify implementation at that revision but cannot establish an instance’s schema, plugins, configuration or deployment state.
+- Rock 17.5 release notes describe a fix for permission checks on a model’s `./DataView/{id}` endpoint. If an agent integration uses that surface on an older release, confirm version applicability before diagnosing authorization solely as bad configuration. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- A historical community question about Lava `webrequest` behavior is not sufficient authority for current agent-tool troubleshooting and should not be generalized to modern Rock versions.
+- Community sessions and partner material in the pack provide implementation context and examples, not universal Rock behavior.
+- No reviewed live-instance evidence was supplied.
 
-Lookup tools are for translating human language into stable, safe inputs for other tools. A lookup should generally return all candidates when the set is small enough for context. Examples include campuses, group types, connection types, defined value sets, financial accounts visible to the user, or registration templates.
+## Troubleshooting Decision Tree
 
-Rock's Lava lookup docs describe the pattern as loading data, formatting it, and returning it ([Lava Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools)). The native lookup docs add an important implementation preference: use cache objects when possible, and filter by active status and authorization when relevant ([Native Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools)).
+### The agent does not show a tool
 
-A good lookup result contains:
+1. Confirm the installed Rock version and packaging include the tool.
+2. Confirm the method or Lava tool is registered; native methods require an `AgentToolGuid`.
+3. Confirm the skill is attached to the intended agent.
+4. Confirm the tool is enabled within that skill.
+5. Confirm the current person can use the agent, skill and tool.
+6. Confirm the agent type is correct; Chat and MCP are separate configurations.
+7. For an external client, refresh tool discovery after authorization or configuration changes.
+8. Inspect tool logs before changing the prompt. [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)
 
-- Display name.
-- Safe identifier such as IdKey.
-- Optional short qualifier such as campus, status, or parent name.
-- Only fields required by downstream tools.
-- No raw integer IDs unless the tool documentation for the target Rock version explicitly makes that safe for the model.
+### The agent chooses the wrong tool
 
-A bad lookup result contains:
+1. Check whether tool names follow a clear verb-and-entity pattern.
+2. Compare overlapping tool purposes and remove redundant capabilities.
+3. Inspect parameter names, descriptions, prerequisites and return descriptions.
+4. Verify that lookup, list and get responsibilities are distinct.
+5. Temporarily ask the model to explain which tools it considered.
+6. Shorten or relocate conflicting organization, agent or skill instructions.
+7. Retest with representative phrasing and ambiguous phrasing. [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) and [Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)
 
-- Hundreds or thousands of records without filtering.
-- Raw integer IDs exposed to the model.
-- Sensitive fields not needed for selection.
-- Large descriptions that consume context.
-- Inactive or unauthorized records mixed with active authorized records.
-- Ambiguous labels without enough disambiguation.
+### The agent acts on the wrong person or entity
 
-### List Tools
+1. Inspect the current Chat context anchor, if applicable.
+2. Remember that MCP agents do not receive Rock context anchors.
+3. Resolve the target through a lookup or list operation.
+4. If multiple candidates remain, stop and ask for clarification.
+5. Pass the selected `IdKey`, never a raw integer ID.
+6. Use Get to read the selected entity before mutation.
+7. Read the entity back after mutation. [Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors)
 
-Rock's [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools) guidance provides the product taxonomy; use list tools for bounded candidate selection rather than unrestricted export.
+### The tool returns unauthorized or sensitive data
 
-List tools return candidate records matching filters. Use list tools when the set is too large for a lookup or when the user supplies search criteria. A person list tool, for example, should not return every person. It should accept search terms, campus, status, or other constrained filters and return a limited candidate set.
+1. Disable the tool on the affected agent if exposure may continue.
+2. Confirm whether the agent is Internal or Public.
+3. Inspect agent, skill, tool and entity permissions separately.
+4. Review the result object for fields that should be omitted or replaced for Public use.
+5. Confirm authorization filtering occurs in code rather than only in instructions.
+6. Test with a least-privileged identity and an anonymous or public path where applicable.
+7. Review logs for prior calls and follow the organization’s incident process if data was exposed. [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-A list tool should answer: “Which records might the user mean?” It should not answer: “Here is every detail about each record.” Follow with a get or summary tool for details.
+### A list is incomplete, repeats items or becomes slow on later pages
 
-### Get Tools
+1. Identify whether per-item authorization is applied.
+2. If it is, verify that the native tool uses cursor pagination.
+3. If it is not, confirm page-number ordering is deterministic.
+4. Check that filters and cursor or page values are returned as metadata.
+5. Confirm the result set is bounded and returns only required fields.
+6. Inspect query cost on production-like volume.
+7. Do not solve context pressure by removing authorization checks. [Native List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools)
 
-A get tool retrieves one entity by safe identifier. It should be used after lookup/list selection. It should validate the identifier, check authorization, and return a predictable shape. For sensitive records, use role-aware output. For example, a person get tool for a staff agent may include family and contact data, while a volunteer agent may only include name and public serving information.
+### A Lava tool errors or returns unexpected no-data
 
-### Summary Tools
+1. Inspect tool logs for the supplied parameters and status.
+2. Confirm the tool accepted `IdKey` and converted it internally.
+3. Sanitize every string used in SQL.
+4. Distinguish `NoData` from `Error`.
+5. Confirm the selected fields and joins match the requested result.
+6. Verify authorization rather than assuming a valid identifier implies visibility.
+7. Replace raw SQL with cache objects or entity commands when that better preserves Rock behavior. [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)
 
-Summary tools assemble domain-specific context. They are useful for agents because they reduce multi-tool chatter and present a coherent evidence bundle. A person summary might include household, connection requests, recent interactions, and active group membership. A workflow summary might include status, current activities, assignments, and last action date.
+### A mutation was refused or changed the wrong state
 
-Do not let summary tools become unbounded data dumps. Decide what operational question the summary supports.
+1. Stop additional write calls.
+2. Read the target’s current state.
+3. Confirm the target `IdKey`, current person and agent.
+4. Check required lookup and Get prerequisites.
+5. Confirm the person has both tool access and entity-level authorization.
+6. Verify the action is allowed in the entity’s current state.
+7. Review tool parameters, especially nullable fields and add-versus-update behavior.
+8. Require a fresh confirmation before retrying.
+9. Read the result back after any retry. [AddOrUpdate Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/addorupdate-tools)
 
-### Insight Tools
+### A connection-request AI summary is missing
 
-Insight tools aggregate. They are appropriate for questions like:
+1. Confirm the connection type has an AI prompt configured.
+2. Confirm an AI provider is configured and available.
+3. Confirm the installed version supports the feature.
+4. Check permissions and logs for the requesting person.
+5. Retest with a suitable connection request.
+6. Treat any generated result as assistance rather than authoritative person data. [Approved claim `claim:069aa7a39db4563841a2`](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s)
 
-- “How many open connection requests are older than 14 days?”
-- “Which groups have no active leaders?”
-- “Which registration instances have unpaid balances?”
-- “Which workflows are stuck in the same activity?”
+### An MCP client cannot authenticate or discovers unexpected tools
 
-Rock's Lava insight guidance frames the pattern as filtering/aggregating, formatting, and returning ([Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools)). Inputs should be filters. Outputs should be intentionally shaped metrics and candidate records.
+1. Confirm the installed MCP implementation and supported Rock version.
+2. Verify the external client registration and authorization.
+3. Confirm the authenticated Rock person.
+4. Inspect scopes, token expiry and revocation behavior.
+5. Confirm the intended MCP agent is selected.
+6. Review its attached skills and tools.
+7. Test an allowed and denied operation.
+8. Revoke the client if the discovered capability exceeds the intended boundary. [Approved claims `claim:2a2a9fc94666d58b0e4f` and `claim:2a7ef23854b5dd315c7d`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s)
 
-### AvailableAttributes Tools
+### A workflow does not launch
 
-The official [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) guidance establishes the tool contract, but attribute keys and writable scope must still be loaded from the target instance.
+1. Confirm the workflow type exists and is active.
+2. Confirm the current person is authorized for it.
+3. Confirm the Workflow skill is attached to the agent.
+4. Check whether the agent’s configuration limits launchable workflow types.
+5. Retrieve AvailableAttributes for the workflow type before supplying values.
+6. Inspect the action result and logs for validation errors.
+7. Read the workflow back to verify activation and supplied values.
+8. Do not infer downstream completion merely because launch succeeded. [LaunchWorkflow source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs)
 
-Use available-attributes tools before allowing an agent to update entity attributes or build attribute filters. Attribute keys are often site-specific, and the model cannot know them reliably. A tool should return the exact attribute keys, names, field types, allowed values, and whether each is writable for the current user.
+## Agent Task Recipes
 
-Verify live:
+### Recipe: Design a safe read-only lookup surface
 
-- Entity type.
-- Attribute category.
-- Attribute key.
-- Field type.
-- Defined type/defined value dependency.
-- Whether attribute values are inherited, entity-specific, or global.
-- Whether security applies at the entity, attribute, category, or edit block level.
+**Outcome:** The agent can resolve a natural-language reference to an authorized Rock entity without receiving unnecessary data.
 
-### AddOrUpdate Tools
+1. Identify the downstream tool and the exact identifier it needs.
+2. Determine the smallest useful selection fields, normally an `IdKey`, name and limited disambiguating metadata.
+3. Use a cache object when available; otherwise use a secured entity query.
+4. Filter out inactive or unauthorized entries when required.
+5. Return structured results through `AgentToolResult`.
+6. Store a compact history representation.
+7. Test no matches, one match, multiple matches and a denied record.
 
-[Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) documents native tool support patterns; write tools should add authorization, validation, preview, and post-write verification around those primitives.
+**Inspect:**
 
-Add/update tools are write tools. They should be narrow and high-friction by design.
+- Audience-specific fields.
+- Entity authorization.
+- Maximum result size.
+- Whether a List tool with filters is more appropriate.
 
-A safe add/update tool requires:
+**Do not assume:**
 
-- Specific operation name.
-- Specific target entity type.
-- Safe input identifiers.
-- Strong validation.
-- Authorization checks.
-- Clear preview output.
-- Explicit approval for sensitive changes.
-- Post-write readback.
-- Helpful error reporting.
-- Audit trail or workflow handoff when appropriate.
+- A small development dataset will stay small.
+- A Public agent designation automatically sanitizes every field.
+- Prompt instructions enforce data access.
 
-Do not build a generic “run SQL” or “update any entity” agent tool for routine staff use. If such a tool exists for an internal admin agent, isolate it behind strong security, logging, and human review.
+**Stop when:**
 
-## 9. Permissions And Data Boundaries Deep Dive
+- The target cannot be identified uniquely.
+- Required authorization cannot be enforced.
+- The result set cannot be bounded. [Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools)
 
-Rock's custom tool guidance states that tools inherit Rock's security and that a person can only run a tool if they have access to it ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)). This is necessary but not sufficient. A safe implementation also needs data minimization, prompt minimization, output minimization, and review gates.
+### Recipe: Build a bounded List and Get pair
 
-Security layers to verify:
+**Outcome:** The agent can search a large entity set and retrieve details only for the selected item.
 
-- User authentication.
-- Person role membership.
-- Agent access.
-- Skill access.
-- Tool access.
-- Target entity authorization.
-- Attribute authorization.
-- API endpoint authorization.
-- Workflow type/view/edit authorization.
-- Page/block authorization.
-- Communication permissions.
-- Data View/report permissions.
-- External provider/API permissions.
+1. Define a `List<Entity>` tool with explicit filters and deterministic ordering.
+2. Use cursor pagination when per-item authorization is required.
+3. Return only the fields needed to distinguish candidates.
+4. Define a `Get<Entity>` tool accepting the selected `IdKey`.
+5. Enforce security while loading the entity.
+6. Shape and sanitize the full result.
+7. Keep only a compact reference in conversation history.
+8. Test pagination, invalid keys, denied entities and repeated retrieval.
 
-Rock's Admin Hero Guide describes the broader Rock security model, including security roles, inherited permissions, elevated security levels, and the Inspect Security/Verify Security block for checking effective permissions ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)). For agent work, Inspect Security is not optional when behavior does not match expectations. Use it to verify the current person's effective permissions on the relevant entity type and entity ID.
+**Inspect:**
 
-### Public vs Internal Agents
+- Query cost.
+- Per-item authorization.
+- Cursor or page metadata.
+- Public versus Internal result shapes.
 
-Rock's agent docs distinguish public and internal use cases ([Agents](https://community.rockrms.com/developer/ai-agents/agents)). A public agent should be treated as hostile-environment software. It should expose only tools safe for anonymous or minimally authenticated users. An internal staff agent can have broader capabilities, but still should be segmented by role.
+**Do not assume:**
 
-Public agent rules:
+- Page-number pagination is safe with per-item filtering.
+- Every entity property belongs in the agent context. [Native List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools) and [Native Get Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools)
 
-- No broad person search.
-- No private family data.
-- No financial/giving detail unless authenticated and scoped to the current person.
-- No arbitrary workflow launch with user-controlled payloads.
-- No raw API access.
-- No unrestricted Lava/webrequest execution.
-- No staff-only report data.
-- No security configuration data.
+### Recipe: Add a controlled AddOrUpdate capability
 
-Internal agent rules:
+**Outcome:** An authorized user can create or edit one entity through a validated, auditable tool.
 
-- Segment by staff role.
-- Avoid all-staff access to finance, counseling, HR, security, and system administration tools.
-- Keep volunteer-facing agents separate from staff agents.
-- Prefer read-only tools before write tools.
-- Require approval for communication and record mutation.
+1. Decide whether the same tool should support both create and update.
+2. Accept an optional entity `IdKey`; treat its presence as update and absence as create.
+3. Add explicit qualifier keys required for creation.
+4. Retrieve available attributes before accepting attribute values.
+5. Load existing entities with security checks or create through Rock’s managed entity infrastructure.
+6. Validate required fields and state-dependent rules.
+7. Apply attributes through reviewed helper or entity logic.
+8. Save only when no validation errors remain.
+9. Return a bounded full result with a compact history reference.
+10. Read the entity back independently before reporting completion.
 
-### Raw ID Boundary
+**Inspect:**
 
-Rock's custom tool docs warn not to expose raw Rock integer IDs to the model ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)). Use IdKeys or another safe abstraction. The operational reason is simple: a model that sees raw IDs may reuse them incorrectly, interpolate them into future calls, or mix IDs across entity types.
+- Add and edit permissions.
+- Attribute visibility and editability.
+- Null, set and clear semantics.
+- Downstream workflows or side effects.
 
-Safe pattern:
+**Stop when:**
 
-1. Lookup returns `name` and `idKey`.
-2. List returns `displayName`, `idKey`, and disambiguators.
-3. Get accepts only `idKey`.
-4. Add/update accepts only `idKey` for related entities.
-5. Tool internally resolves IdKey to integer ID.
-6. Tool validates entity type and authorization before use.
+- The target is ambiguous.
+- A required qualifier is missing.
+- Approval is required but absent.
+- The read-back differs from the requested state. [AddOrUpdate Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/addorupdate-tools)
 
-### Sensitive Data Classes
+### Recipe: Configure a drafting agent without send authority
 
-Apply the authorization and output-shaping boundaries from [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) before exposing any of these classes to a model.
+**Outcome:** Staff can research and compose a communication while sending remains a separate approved action.
 
-Treat these as sensitive by default:
+1. Create or select an Internal agent for the intended staff group.
+2. Attach only the read tools needed to resolve recipients and context.
+3. Attach a compose or draft tool.
+4. Omit send and delete tools from the agent.
+5. If a separate send agent is required, restrict it to a smaller role and add an explicit confirmation prerequisite.
+6. Test that drafting succeeds for an authorized user.
+7. Test that direct and indirect requests to send are refused.
+8. Review returned recipient data for least privilege.
 
-- Person identity and contact information.
-- Children and family relationships.
-- Attendance patterns.
-- Giving/financial records.
-- Prayer/care/counseling notes.
-- Background checks.
-- Security roles and elevated permissions.
-- Workflow payloads.
-- Communication history.
-- API keys and tokens.
-- Attribute values that encode private ministry, HR, medical, legal, or pastoral context.
+**Do not assume:**
 
-If a tool must expose sensitive data, document:
+- An instruction saying “do not send” is equivalent to withholding the send tool.
+- Draft creation proves delivery.
+- Recipient identity may be inferred safely. [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) and [approved claim `claim:903c8ff9b5d2590fd616`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
 
-- Why the data is needed.
-- Which agent can use it.
-- Which skill contains it.
-- Which roles can run it.
-- What fields it returns.
-- What it never returns.
-- Whether results are stored in session history.
-- How users can audit access.
+### Recipe: Launch a workflow through an agent
 
-### Generated v2 Endpoint Boundary
+**Outcome:** The agent launches one permitted workflow with valid attribute values and verifies the resulting record.
 
-The source snippets for AI models show generated v2 controllers with routes such as:
+1. Lookup the permitted workflow types.
+2. Resolve the requested type to an `IdKey`.
+3. Retrieve its available attributes and formatting requirements.
+4. Gather missing required values from the user.
+5. Confirm any consequential side effects.
+6. Call the launch action once.
+7. Capture the returned workflow reference.
+8. Retrieve the workflow and verify activation, status and supplied values.
+9. Produce a durable handoff when another person or process must continue the work.
 
-- `api/v2/models/aiagents`
-- `api/v2/models/aiagentskills`
-- `api/v2/models/aiagentsessions`
-- `api/v2/models/aiagentsessionanchors`
-- `api/v2/models/aiagentsessionhistories`
+**Inspect:**
 
-The generated controller snippets show authentication and `EXECUTE_UNRESTRICTED_READ` / `EXECUTE_UNRESTRICTED_WRITE` action security annotations for read/write operations, with entity security disabled in the model code generation attributes ([AIAgentsController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs), [AIAgentSessionsController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs), [AIAgentSessionHistoriesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs)). Do not expose these endpoints to integrations without verifying exact permission grants, endpoint availability, and whether the endpoint behavior enforces the ownership expectations documented in the models.
+- Agent-specific launchable workflow configuration.
+- Current-person authorization.
+- Workflow activation state.
+- Downstream activities that remain pending.
 
-## 10. Automation Design And Workflows Deep Dive
+**Stop when:**
 
-Automation in Rock should be designed as event-driven operations with explicit scope. Rock 18.1 documentation describes Automations as trigger-driven activities ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)). Release notes mention a Chat Message trigger and fallback chat notification event in Communication ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+- The type is not allowlisted for the agent.
+- Required values cannot be validated.
+- Launch succeeded but read-back is unavailable. [LaunchWorkflow source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs)
 
-The reviewed RockU automation lessons reinforce the same operational posture: treat automation training as a way to identify the right Rock surface and review path, not as a substitute for live configuration checks. Use [Automations Transcript Insight](https://community.rockrms.com/rocku/core-concepts/automations) at 00:25 for general automation routing, [Data Automation Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) at 00:15 when the automation depends on reporting or population logic, and [Connection Request Status Automation Transcript Insight](https://community.rockrms.com/rocku/engagement/connection-request-status-automation) at 00:41 when connection-process status changes or ministry follow-up workflows are involved.
+### Recipe: Review a Public agent before launch
 
-A mature automation design answers:
+**Outcome:** The public surface exposes only reviewed, non-sensitive and non-destructive capabilities.
 
-- What event starts it?
-- What entity is the event about?
-- What population is in scope?
-- What permissions are required?
-- What data is read?
-- What data is changed?
-- What happens on failure?
-- What evidence is retained?
-- Who reviews exceptions?
-- How is the automation disabled quickly?
+1. Inventory every attached skill and tool.
+2. Remove all capabilities not required by the public use case.
+3. Review each tool’s parameters, return fields and reference routes.
+4. Confirm that entity authorization and audience sanitization occur in code.
+5. Test anonymous and least-privileged access.
+6. Test prompt injection, identifier guessing, broad listing and requests for internal data.
+7. Confirm write, send, delete and administration operations are absent.
+8. Review logs and remediate every unexpected call or field.
+9. Repeat the review after version, plugin, tool or prompt changes.
 
-Agents and automations should cooperate through Rock-native state where possible:
+**Do not assume:**
 
-- Use **Workflows** for stateful approvals, assignments, retries, and human review.
-- Use **Data Views** for population definitions.
-- Use **Reports** for operational monitoring.
-- Use **Lava** for rendering, formatting, and low-code tool logic.
-- Use **Jobs** for scheduled background processing.
-- Use **API integrations** for external systems.
-- Use **AI tools** for selection, summarization, drafting, and bounded actions.
+- Friendly agent instructions prevent hostile requests.
+- Public mode alone establishes the organization’s privacy policy.
+- A successful normal-path test covers adversarial use. [Agents](https://community.rockrms.com/developer/ai-agents/agents)
 
-### Trigger Design
+### Recipe: Diagnose incorrect tool selection
 
-Use Rock's official [Automations](https://community.rockrms.com/rocku/core-concepts/automations) surface for trigger/action ownership and keep broad event filtering outside the model whenever deterministic criteria are available.
+**Outcome:** The model consistently chooses the intended tool for representative requests.
 
-A trigger should be specific enough that downstream logic is simple. Avoid triggers that fire on every broad event and rely on the agent to decide whether anything matters. The agent should not be the primary filter for noisy or sensitive automation.
+1. Capture a minimal failing prompt.
+2. Inspect the agent’s available skills and tools.
+3. Compare names, purposes, prerequisites, parameter descriptions and return descriptions.
+4. Remove overlapping or unused tools from the test agent.
+5. Add temporary debugging instructions asking which tools were considered.
+6. Adjust the narrowest responsible instruction or schema description.
+7. Retest the failing prompt, close variations and an intentionally ambiguous request.
+8. Remove temporary debugging instructions before production use.
+9. Review tool logs to confirm actual calls.
 
-Good trigger examples:
+**Stop when:**
 
-- New chat message in a specific channel.
-- Registration completed for a specific template.
-- Workflow entered a specific activity.
-- Connection request remains open past a threshold.
-- Data View population changed, if supported by the installed version and architecture.
-- Scheduled review window for stale records.
+- Correct selection depends on information the user did not provide; ask for clarification instead.
+- A prompt change would attempt to compensate for missing authorization or validation code. [Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)
 
-Weak trigger examples:
+### Recipe: Roll out an agent-assisted process to staff
 
-- Any person updated.
-- Any workflow changed.
-- Any communication sent.
-- Any chat message anywhere.
-- Any entity interaction, without filtering.
+**Outcome:** Staff understand the approved use case, review boundary and authoritative Rock workflow before volunteer rollout.
 
-### Action Design
+1. Document the approved tasks and prohibited actions.
+2. Assign role-specific training through the configured LMS where available.
+3. Demonstrate how to verify generated output against Rock records.
+4. Provide a short video before any interface change.
+5. Require staff completion before expanding access.
+6. Pilot with a small staff group and review tool logs and data quality.
+7. Correct the process and training.
+8. Train volunteers only after staff can support the workflow consistently.
 
-Actions should be idempotent where possible. If the automation reruns, it should not duplicate communications, create duplicate connection requests, or repeatedly overwrite the same value.
+**Inspect:**
 
-Use these patterns:
+- LMS configuration and permissions.
+- Completion reporting.
+- Shadow tools or duplicate data processes.
+- Support questions after the interface change. [Approved claims `claim:91be2ad338eb6b1cdaed`, `claim:c8c3a60f71790dd3616d` and `claim:c9c1fa08cb4d501e6`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s)
 
-- Store a marker attribute or workflow action date.
-- Check existing open records before creating a new one.
-- Use unique keys when integrating externally.
-- Log run IDs.
-- Re-read after write.
-- Send failures to an exception workflow or report.
+## Known Gaps And Live Verification
 
-### Agent-In-The-Loop Automation
+No live-instance review was supplied. Before production use, verify:
 
-A strong pattern is “automation gathers, agent drafts, human approves, tool executes.”
+- Installed Rock version and release channel.
+- Whether AI Agents are included in the installed package.
+- Configured AI provider, model and provider permissions.
+- Agent type: Chat or MCP.
+- Audience type: Internal or Public.
+- Agent, skill and individual tool authorization.
+- Entity-level view, edit, administer and specialized actions.
+- Which tools are actually attached and discoverable.
+- Whether destructive, outbound or authorization-management tools are absent from general agents.
+- Prompt layers and their effective combined content.
+- Context-anchor behavior in the actual Chat host.
+- MCP client registration, authenticated identity, token scopes, expiry and revocation.
+- Tool result sanitation for Internal and Public audiences.
+- Raw integer ID exposure in parameters, results, history content and logs.
+- SQL sanitation, query cost, authorization filtering and business-rule coverage.
+- Pagination behavior on production-scale data.
+- AvailableAttributes behavior for installed schema, qualifiers, plugins and custom attributes.
+- Workflow allowlists, launch behavior and post-launch read-back.
+- Connection-type prompt and AI-provider configuration for generated summaries.
+- Chat automation triggers and fallback-notification configuration.
+- Tool logging, retention and access.
+- Staff training assignments and completion tracking.
+- Durable handoff requirements for work that must survive a conversation.
 
-Example: chat support escalation.
+Evidence gaps remain for provider-specific behavior, model-specific tool-selection limits, exact production availability of pre-release capabilities, upgrade paths, licensing and packaging, usage-cost controls, log-retention defaults and the complete released MCP authorization model. Do not fill these gaps from names, roadmap statements or source-tree presence.
 
-1. Chat message trigger fires.
-2. Automation gathers message, sender, channel, and recent context.
-3. Agent drafts an internal summary and recommended response.
-4. Workflow assigns review to a staff role.
-5. Staff approves or edits.
-6. Communication tool sends.
-7. Automation records outcome and fallback notification status.
+## Source Map
 
-### Agent-As-Reviewer Automation
+### Official developer documentation
 
-An agent can classify or summarize data for human review without writing to core records. This is useful for:
+- [AI Agents](https://community.rockrms.com/developer/ai-agents): Agent, skill, tool, context-window and system-prompt concepts.
+- [Agents](https://community.rockrms.com/developer/ai-agents/agents): Public versus Internal, Chat versus MCP and default agent security.
+- [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions): Prompt layers, context anchors and conversation history.
+- [Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors): Chat-only entity anchoring and ambiguity limits.
+- [Skills](https://community.rockrms.com/developer/ai-agents/skills): Skill grouping, shared context, security and context-size considerations.
+- [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools): Tool security, naming and `IdKey` boundary.
+- [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools): Lookup, List, Get, Summary, Insights, AvailableAttributes, AddOrUpdate and Action patterns.
+- [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools): Execute Lava result statuses, filters, metadata, history and reference routes.
+- [Lava Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools): Minimal lookup results and `IdKey` conversion.
+- [Lava List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools): Filtering, pagination, minimum fields and `SanitizeSql`.
+- [Lava Get Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/get-tools): Single-record result and error handling.
+- [Lava Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools): Filtered aggregate analysis.
+- [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools): Native annotations, structured results, guardrails and error handling.
+- [Native List Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools): Page-number versus cursor pagination.
+- [Native Get Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools): Secured entity retrieval, sanitation and compact history.
+- [AddOrUpdate Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/addorupdate-tools): Create/update branching, validation and save behavior.
+- [AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools): Attribute definitions for existing and not-yet-created entities.
+- [Tool Parameters](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/tool-parameters): Flat, explicit and nullable parameter design.
+- [Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools): Tool-selection diagnostics.
 
-- Categorizing open-ended form responses.
-- Summarizing care request themes.
-- Drafting follow-up tasks.
-- Ranking stale workflow queues.
-- Explaining why a report row appears.
-- Preparing weekly operational summaries.
+### Official release and media evidence
 
-Still verify outputs against live records. The agent's classification is a recommendation unless written and approved through a controlled workflow.
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): Version-specific AI, workflow, API and automation changes.
+- [AI Summit: The Community’s First Look at Rock’s AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8): Approved operational claims about architecture, prompts, Lava tools, SQL boundaries and logging.
+- [RockIQ Rapid Fire Q&A from the AI Summit](https://www.youtube.com/watch?v=dpYJiOAiJYM): Release-sensitive claims about MCP, OAuth, authenticated-person permissions, tool controls and local business-rule layers.
+- [AI Voice Models & the Hidden Costs of Untrained Staff](https://www.youtube.com/watch?v=bu5nPeAVCAo): Durable artifacts, staff training, LMS assignments and change management.
+- [Connections Helps Prevent Your People from Falling Through the Cracks](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s): Connection-request AI summary prerequisites and authority caveat.
+- [Ladies and Gentlemen, Your RX26 Keynote Speaker](https://www.youtube.com/watch?v=mYTaGxYMyyQ&t=557s): Direct-database-access warning.
 
-## 11. Verification And Review Gates Deep Dive
+### Immutable implementation evidence
 
-Every agent workflow should define verification gates. The correct gate depends on risk.
-
-### Read-Only Low-Risk Gate
-
-For low-risk reads, the agent should cite the tool result in plain language and identify ambiguity.
-
-Examples:
-
-- “I found two matching people. Which one do you mean?”
-- “The group appears active, but I did not inspect schedule/capacity.”
-- “This is based on current list results; open the record for full detail.”
-
-### Sensitive Read Gate
-
-For sensitive reads, verify authorization and minimize output.
-
-Examples:
-
-- Giving summaries.
-- Care/counseling notes.
-- Family relationships involving minors.
-- Background check status.
-- Security role membership.
-
-The agent should say what it inspected, not dump everything it saw.
-
-### Write Preview Gate
-
-Before a write, show the exact proposed change:
-
-- Target entity.
-- Current value.
-- New value.
-- Reason.
-- Tool to be used.
-- Consequences.
-- Whether notification will be sent.
-
-Require explicit approval. Avoid interpreting vague approval for a different action.
-
-### Post-Write Verification Gate
-
-After a write:
-
-1. Re-read the target record.
-2. Confirm the field or related record changed.
-3. Report created IDs as safe references, not raw IDs where possible.
-4. Record any side effects.
-5. Surface failures or partial success.
-
-### Security Review Gate
-
-Before attaching a tool to a production agent:
-
-- Verify tool security.
-- Verify skill security.
-- Verify agent security.
-- Test as a user with expected access.
-- Test as a user without expected access.
-- Test with ambiguous input.
-- Test with invalid IdKey.
-- Test with unauthorized target entity.
-- Test with large result sets.
-- Test with sensitive fields.
-- Confirm session history does not leak data to unauthorized users.
-
-Rock's Inspect Security/Verify Security block is the live tool to understand effective permissions when access is confusing ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)).
-
-### Debugging Gate
-
-When the agent chooses the wrong tool, Rock's debugging docs suggest adding instructions asking the model to explain which tools it considered and why it did or did not call them ([Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)). Use this in development and test contexts. Do not expose internal reasoning prompts as a routine production user feature unless your organization is comfortable with that behavior.
-
-## 12. Related Rock Areas: Security, Api Integrations, Workflows, Platform Configuration, Data Views, Reports, Operations, Lava
-
-### Security
-
-Security is the first dependency. Agents do not replace Rock security; they amplify the consequences of misconfiguration. Review roles, inherited permissions, item permissions, elevated security levels, and effective access through Inspect Security ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)).
-
-### API Integrations
-
-AI tools and external agents may use Rock APIs, including generated v2 model endpoints. The source snippets show AI model endpoints under `api/v2/models/...` with authenticated, secured operations ([AIAgentsController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs)). Verify API key permissions, endpoint security, and version-specific behavior. Rock 17.5 release notes fixed a DataView endpoint permission issue where permission checks could target the wrong entity ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)); this is a reminder to verify behavior on the installed version rather than assuming endpoint authorization is always obvious.
-
-### Workflows
-
-Workflows are the best place for stateful human review. Use them for approval, escalation, exception handling, retries, and assignment. Agents can draft workflow notes, summarize context, or propose next actions, but workflows should own operational state.
-
-### Platform Configuration
-
-Platform settings can affect prompts, organization context, enabled providers, API access, mobile blocks, security roles, and Lava availability. Inspect global AI settings, organization prompts, current person templates, and any provider credentials in the live instance. Do not infer these from source docs alone.
-
-### Data Views
-
-Data Views are useful for defining populations, but agents should not blindly execute DataView-driven actions. Verify Data View filters, entity type, security, and result counts. If using model DataView endpoints, account for version-specific permission behavior such as the Rock 17.5 fix noted above ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Reports
-
-Reports are the audit surface for agent-enabled operations. Build reports for:
-
-- Tool usage.
-- Sessions by agent.
-- Recent sensitive requests.
-- Failed tools.
-- Automation runs.
-- Communications drafted/sent.
-- Records changed by automation.
-- Exception queues.
-- Security review status.
-
-### Operations
-
-Operational work includes monitoring, cache behavior, exception logs, job history, retention, backup, and rollback. The `AIAgentSkill` save hook flushing the agent cache is a source-code signal that cached agent configuration exists and can matter after changes ([AIAgentSkill.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs)). If a change does not appear to take effect, verify cache behavior before assuming the tool is broken.
-
-### Lava
-
-Lava is a first-class way to build tools. Rock's Lava tool docs describe tools with name, description, prompt, and parameters, and note that Lava can use SQL and Entity Commands ([Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)). Lava is powerful enough to change data; treat Lava tool prompts as code, review them, and secure them accordingly.
-
-## 13. Administration And Operational Guardrails
-
-The official [AI Agents](https://community.rockrms.com/developer/ai-agents) and [Creating Skills](https://community.rockrms.com/developer/ai-agents/skills/creating-skills) guidance should be the baseline for ownership, security, and tool attachment.
-
-Recommended guardrails:
-
-- Maintain separate agents for public, volunteer, staff, finance, system admin, and experimental work.
-- Keep public agents read-only unless a specific workflow requires authenticated, narrow writes.
-- Attach tools through skills, not ad hoc sprawl.
-- Secure skills before adding tools.
-- Use explicit tool naming and descriptions.
-- Avoid raw IDs in model-visible input/output.
-- Prefer IdKey-based inputs.
-- Validate all tool parameters.
-- Use pagination and hard result limits.
-- Use cache objects for stable lookup data when available.
-- Return compact structured results.
-- Store enough evidence for review, but do not over-retain sensitive session content.
-- Require approval for communications, deletions, security changes, financial changes, and broad updates.
-- Run role-based testing before production release.
-- Review release notes before upgrading AI/automation behavior.
-- Maintain a rollback plan for agent configuration changes.
-
-Operational checks:
-
-- List all agents and classify audience.
-- List all skills attached to each agent.
-- Identify write-capable tools.
-- Identify tools that call SQL, Entity Commands, APIs, or external services.
-- Identify tools that expose sensitive data.
-- Verify security for each skill/tool.
-- Verify session history access.
-- Verify mobile/voice exposure.
-- Verify automation triggers/actions.
-- Verify provider credentials and quotas.
-- Review exception logs after agent tests.
-- Review communication logs after communication-tool tests.
-- Review workflow history for approval paths.
-
-For live review, build an “AI Agent Inventory” report or dashboard that includes agent, audience, enabled skills, tool count, write tool count, security roles, last modified date, active sessions, and owner/reviewer.
-
-## 14. Developer, API, Lava, And Source-Code Landmarks
-
-### Developer Docs
-
-Primary developer documentation:
-
-- [AI Agents](https://community.rockrms.com/developer/ai-agents)
-- [Agents](https://community.rockrms.com/developer/ai-agents/agents)
-- [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions)
-- [Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors)
-- [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)
-- [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)
-- [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)
-- [Lava Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools)
-- [Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools)
-- [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)
-- [Native Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools)
-- [Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper)
-- [Native Tool Gotchas](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas)
-- [Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)
-
-### Source-Code Landmarks
-
-Use these files as source-code anchors for model/API behavior:
-
-- [`Rock/Model/AI/AIAgent/AIAgentService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgent/AIAgentService.cs)
-- [`Rock/Model/AI/AIAgentSession/AIAgentSession.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.cs)
-- [`Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSession/AIAgentSession.SaveHook.cs)
-- [`Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchor.cs)
-- [`Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionAnchor/AIAgentSessionAnchorService.cs)
-- [`Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSessionHistory/AIAgentSessionHistory.cs)
-- [`Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.cs)
-- [`Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs)
-
-Generated v2 REST controllers:
-
-- [`AIAgentsController.CodeGenerated.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs)
-- [`AIAgentSkillsController.CodeGenerated.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSkillsController.CodeGenerated.cs)
-- [`AIAgentSessionsController.CodeGenerated.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs)
-- [`AIAgentSessionAnchorsController.CodeGenerated.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionAnchorsController.CodeGenerated.cs)
-- [`AIAgentSessionHistoriesController.CodeGenerated.cs`](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionHistoriesController.CodeGenerated.cs)
-
-### Native Tool Development
-
-Native tools inherit from `AgentSkillComponent` according to Rock's native tool docs ([Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)). Use native tools when you need compiled logic, heavier database work, external API integration, shared services, strong validation, or better testability.
-
-Rock Tool Helper exists to standardize repetitive native-tool concerns such as validation, error collection, pagination, safe entity access, attribute handling, update methods, save methods, and summaries ([Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper)). Use it instead of hand-rolling inconsistent error behavior.
-
-Native tool gotcha: when projecting queryable objects in LINQ to Entities, object initialization shape must be identical when the same result type is initialized in more than one place. Rock's gotchas page calls this out because otherwise EF can throw a structurally incompatible initialization error ([Gotchas](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas)).
-
-### Lava Tool Development
-
-A Lava tool has name, description, prompt, and parameters. The model uses the name and description for tool selection, so those fields are part of behavior, not decoration ([Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)).
-
-Lava tools are useful for:
-
-- Quick lookups.
-- Low-code summaries.
-- SQL-backed insights.
-- Formatting outputs.
-- Internal admin experiments.
-- Site-specific workflows where compiled deployment is too heavy.
-
-Use native tools instead when:
-
-- Complex authorization is required.
-- The tool changes sensitive records.
-- The logic is shared across agents.
-- You need robust tests.
-- You need external API integration with secrets.
-- You need consistent pagination/errors.
-- Performance matters.
-
-## 15. Reporting, Analytics, And Model Map
-
-The source pack includes Model Map records for AI Agent, AI Agent Session, AI Agent Session Anchor, AI Agent Session History, and AI Agent Skill, all in the AI category ([Model Map](https://community.rockrms.com/ModelMap)). Use the Model Map as a discovery layer, then verify exact columns and relationships in the live database or source branch.
-
-Recommended reports:
-
-**Agent Inventory**  
-Agent name, audience, active status, public/internal classification, chat/MCP/mobile use, owner, reviewer, last modified.
-
-**Skill Inventory**  
-Skill name, description, instructions present, security roles, attached agents, tool count, write tool count.
-
-**Tool Inventory**  
-Tool name, type, implementation type, parameters, security, sensitive data flag, write flag, external API flag, SQL/Lava flag.
-
-**Session Activity**  
-Agent, current person/person alias, session start, last message, message count, anchor count. Confirm access rules before exposing this report.
-
-**Sensitive Tool Usage**  
-Tool calls involving finance, person data, family data, workflow payloads, security, communications, or API keys.
-
-**Automation Outcomes**  
-Trigger, action, entity, started date, completed date, result, exception, retry count.
-
-**Post-Write Verification Failures**  
-Any write tool where readback did not match expected state.
-
-**Security Review Dashboard**  
-Agents/skills/tools missing owner, missing review date, containing write tools, or exposed to broad roles.
-
-Analytics cautions:
-
-- Session history may contain sensitive user input and retrieved data.
-- Summaries can leak sensitive data even if the original fields are secured elsewhere.
-- Anchors can reveal entity interest even if the agent did not print details.
-- Tool failures can include identifiers or validation details.
-- Reports should apply role security and retention policy.
-
-## 16. Version And Release Caveats
-
-Version matters. The source pack reflects records retrieved on June 3, 2026, including Rock release pages and source snippets from the `develop` branch. Do not assume every feature exists in a production instance.
-
-Known caveats from the pack:
-
-- Rock release notes list Rock v19.1 as released May 20, 2026 and currently in Beta at retrieval time, with many module sections visible on the release page ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Rock release notes list Rock v18.3 as released May 20, 2026 and currently in Alpha at retrieval time ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Rock 18.1 documentation notes Automations and entity interaction tracking updates ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)).
-- Rock 18.1 release notes mention the Chat Message automation trigger and Send Fallback Chat Notification automation event ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Rock 17.5 release notes fixed a DataView endpoint permission issue that could deny access even when a Person or API Key had explicit DataView permission ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- The mobile Voice Agent block is marked `C 19.0 S 19.0` in mobile docs ([Voice Agent](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent)).
-- Podcast records mention AI Agents in v19/v20 roadmap discussions, but use podcasts as directional context, not as configuration authority ([Rock Cast Ep 202](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision), [Rock Cast Ep 212](https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212)).
-
-Before implementing, verify:
-
-- Installed Rock version.
-- Whether AI Agent pages exist.
-- Whether the organization has enabled the relevant provider/integration.
-- Whether the AI models/tables exist.
-- Whether the generated v2 endpoints are available.
-- Whether mobile Voice Agent is available for the installed app/server versions.
-- Whether Automation trigger/action types exist.
-- Whether release-note fixes are present in the environment.
-
-## 17. Implementation Playbooks
-
-### Playbook: Build A Read-Only Staff Agent
-
-Start from the official [Agents](https://community.rockrms.com/developer/ai-agents/agents) and [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions) guidance, then constrain every live tool to the intended staff role.
-
-1. Define audience: staff only.
-2. Identify top read tasks: person lookup, group summary, connection request status, registration summary, workflow queue summary.
-3. Create or select an agent.
-4. Write short agent instructions: be precise, ask when ambiguous, use tools for live data, do not infer missing records.
-5. Attach only read-only skills.
-6. Review skill security.
-7. Review each tool's returned fields.
-8. Test as admin.
-9. Test as ordinary staff user.
-10. Test as unauthorized user.
-11. Review session history output.
-12. Publish with owner and review date.
-
-### Playbook: Build A Custom Lookup Tool
-
-1. Decide downstream tool input.
-2. Return only safe identifiers and display labels.
-3. Prefer cache objects in native tools when available ([Native Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools)).
-4. Filter inactive records unless there is a clear reason not to.
-5. Filter unauthorized records.
-6. Keep result count small enough for context.
-7. Add disambiguators.
-8. Test empty, one-result, multi-result, unauthorized, and large-result cases.
-9. Confirm no raw integer IDs are visible to the model.
-10. Attach to the correct skill and secure it.
-
-### Playbook: Build A Lava Insight Tool
-
-1. Define the operational question.
-2. Define filter parameters.
-3. Use SQL or entity commands as appropriate.
-4. Aggregate in the query where possible.
-5. Format compactly.
-6. Return metrics plus a small candidate list.
-7. Include caveats if the result depends on status values, date windows, or site-specific attributes.
-8. Test with known records.
-9. Verify performance on production-sized data.
-10. Secure the skill/tool.
-
-Rock's insight docs support the filter/aggregate/format/return pattern ([Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools)).
-
-### Playbook: Build A Native AddOrUpdate Tool
-
-1. Define one write operation.
-2. Use `AgentSkillComponent`.
-3. Use Rock Tool Helper patterns for validation and errors where possible ([Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper)).
-4. Accept IdKeys, not raw IDs.
-5. Resolve and authorize every target entity.
-6. Validate field values.
-7. Return a preview before write if the workflow supports it.
-8. Require explicit approval for sensitive actions.
-9. Save through Rock services.
-10. Re-read and return a concise confirmation.
-11. Log or expose enough audit data for review.
-12. Test invalid values and unauthorized targets.
-
-### Playbook: Add A Skill To An Agent
-
-1. Inspect current agent and attached skills.
-2. Inspect the new skill's tools.
-3. Review write tools.
-4. Review skill instructions.
-5. Review skill security.
-6. Attach the skill.
-7. Confirm cache refresh or manually clear cache if behavior indicates stale configuration. The source save hook for `AIAgentSkill` flushes agent cache on save in the referenced branch ([AIAgentSkill.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AI/AIAgentSkill/AIAgentSkill.SaveHook.cs)).
-8. Test tool availability.
-9. Test unauthorized access.
-10. Update inventory/reporting.
-
-### Playbook: Configure Chat Message Automation
-
-1. Verify Rock version supports the trigger/action.
-2. Inspect Automation triggers for Chat Message.
-3. Define channel/population scope.
-4. Define action: notify, create workflow, summarize, assign, or fallback notification.
-5. Confirm communication preferences and fallback routes.
-6. Test in a limited channel.
-7. Review generated workflow/communication records.
-8. Add monitoring report.
-9. Document disable steps.
-
-## 18. Troubleshooting Decision Tree
-
-### Agent Does Not Call The Expected Tool
-
-Check:
-
-1. Is the tool attached to a skill?
-2. Is the skill attached to the agent?
-3. Does the user have access to the agent, skill, and tool?
-4. Is the tool name clear?
-5. Does the tool description match the request?
-6. Do agent or skill instructions discourage the tool?
-7. Is the request ambiguous?
-8. Is cached configuration stale?
-9. Does a similar tool have a better name/description?
-10. Use debugging instructions in a test prompt to ask what tools were considered ([Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)).
-
-### Tool Returns No Records
-
-Check:
-
-1. Current person's authorization.
-2. Active/inactive filters.
-3. Campus/group/entity filters.
-4. Date filters and timezone.
-5. IdKey decoding.
-6. Attribute key spelling.
-7. Data View/report security.
-8. Whether the record exists in live Rock.
-9. Whether the tool is using stale cache.
-10. Whether SQL joins accidentally exclude rows.
-
-### Tool Returns Too Much Data
-
-Check:
-
-1. Missing filters.
-2. Lookup used where list was needed.
-3. Summary returning raw child collections.
-4. Sensitive fields included unnecessarily.
-5. Lack of pagination.
-6. No result cap.
-7. Overly broad current-person access.
-8. Tool description causing overuse.
-
-### Write Tool Fails
-
-Check:
-
-1. Approval was explicit.
-2. IdKey resolves.
-3. Target entity exists.
-4. Current person has edit/write permission.
-5. Required fields are present.
-6. Attribute field values are valid.
-7. Workflow/activity state allows the change.
-8. Save validation errors.
-9. ExceptionLog.
-10. Post-write readback.
-
-### Permissions Look Wrong
-
-Check:
-
-1. Tool security.
-2. Skill security.
-3. Agent security.
-4. Entity security.
-5. Page/block security.
-6. Security role membership.
-7. Elevated security levels.
-8. Inherited permissions.
-9. API key permissions.
-10. Inspect Security / Verify Security for the person, entity type, and entity ID ([Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)).
-
-### API Endpoint Denies Access
-
-Check:
-
-1. Authentication.
-2. API key/person permissions.
-3. Generated v2 route path.
-4. Required action security such as unrestricted read/write in generated controller snippets ([AIAgentSessionsController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs)).
-5. Version-specific bugs or release notes.
-6. DataView endpoint behavior if using DataView routes, especially around the Rock 17.5 permission fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-7. Whether endpoint behavior intentionally bypasses entity security but relies on action-level security.
-8. Whether a custom controller or block action is safer than direct model endpoint use.
-
-### Lava WebRequest Or External Call Behaves Unexpectedly
-
-A community Q&A record describes a case where Lava `webrequest` calls appeared to fail silently even though direct API access worked ([webrequest not running??](https://community.rockrms.com/ask/developing/2708)). Treat community Q&A as example-level evidence only, but use it as a troubleshooting reminder:
-
-- Test the endpoint outside Lava.
-- Test from the Rock server.
-- Confirm headers and token format.
-- Check Lava command availability/security.
-- Check exception logs.
-- Check network/TLS/firewall behavior.
-- Avoid embedding long-lived tokens directly in Lava prompts.
-- Prefer native tools or secured integrations for important external API calls.
-
-## 19. Agent Task Recipes
-
-### Recipe: “Find The Right Person”
-
-Use when a user gives a name, email, phone, or partial identity.
-
-1. Search with a list tool.
-2. Return limited candidates with disambiguators.
-3. Ask the user to choose if more than one plausible match exists.
-4. Set context anchor after selection.
-5. Continue with get/summary tools.
-
-Never assume the first name match is correct when the requested action is sensitive.
-
-### Recipe: “Summarize This Person”
-
-1. Confirm person anchor or selected IdKey.
-2. Get authorized person summary.
-3. Include only fields relevant to the request.
-4. Separate verified facts from missing data.
-5. Offer next safe actions.
-
-### Recipe: “Draft A Communication”
-
-1. Identify audience through Data View, group, registration, or list tool.
-2. Count recipients.
-3. Inspect communication channel constraints.
-4. Draft message.
-5. Present preview.
-6. Require explicit approval.
-7. Send through a guarded tool.
-8. Verify communication record.
-
-### Recipe: “Create A Connection Request”
-
-1. Lookup person.
-2. Lookup connection type/opportunity.
-3. Confirm status/priority/comment.
-4. Create through add tool.
-5. Verify created request.
-6. Report next owner/follow-up if available.
-
-### Recipe: “Explain A Workflow Queue”
-
-1. Identify workflow type.
-2. Use list/insight tool for active workflows by activity/status.
-3. Aggregate age and assignment.
-4. Return bottlenecks.
-5. Offer selected workflow summaries.
-6. Do not terminate or advance workflows without approval.
-
-### Recipe: “Audit Agent Security”
-
-1. Inventory agents.
-2. Inventory skills per agent.
-3. Inventory tools per skill.
-4. Mark write-capable tools.
-5. Mark sensitive-read tools.
-6. Verify security roles.
-7. Test representative users.
-8. Document findings and remediation.
-
-### Recipe: “Build A Safe Public Agent”
-
-1. Define anonymous/authenticated boundary.
-2. Use only public-safe tools.
-3. Avoid broad person search.
-4. Use current-person-only data for authenticated users.
-5. Avoid internal reports.
-6. Avoid raw IDs.
-7. Avoid write tools unless backed by a workflow with validation.
-8. Test as anonymous, authenticated user, and staff.
-9. Review transcripts/session history.
-
-### Recipe: “Review An Agent Answer”
-
-1. Identify which tool results support the answer.
-2. Re-run the live lookup/get/report if needed.
-3. Check date/time and version assumptions.
-4. Check whether ambiguous entities were resolved.
-5. Check security and sensitive-field handling.
-6. If the answer included an action, verify the record changed.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `18`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | operational_guidance | Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| official | operational_guidance | Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
-| official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| More |  | 6 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `16`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
-| [AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight](https://www.youtube.com/watch?v=bu5nPeAVCAo) | approved_for_public_distillation | 6 | media-insight:1cb65e44984bb55c |
-| [Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight](https://www.youtube.com/watch?v=mYTaGxYMyyQ) | approved_for_public_distillation | 1 | media-insight:0eaf921555a4c075 |
-| [Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) | approved_for_public_distillation | 1 | media-insight:70eec93ffcb16fc8 |
-| [Last Chance to Register for the AI Summit Transcript Insight](https://www.youtube.com/shorts/tW4104R1N_o) | approved_for_public_distillation | 1 | media-insight:5287d1b4b5bb8aaf |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) | approved_for_public_distillation | 3 | media-insight:1b335b58b0acc8b1 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6) | approved_for_public_distillation | 3 | media-insight:56972ff0f97e563a |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz) | approved_for_public_distillation | 3 | media-insight:5c9737a6d00c5149 |
-| More |  | 8 additional reviewed media records are tracked in `approved-media.md`. |  |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 20. Source Map And Dependency Notes
-
-Primary source dependencies:
-
-- Rock AI concept and terminology: [AI Agents](https://community.rockrms.com/developer/ai-agents)
-- Agent configuration and public/internal distinction: [Agents](https://community.rockrms.com/developer/ai-agents/agents)
-- Prompt composition and instruction sources: [Agent Instructions](https://community.rockrms.com/developer/ai-agents/agents/agent-instructions)
-- Context stability and anchors: [Context Anchors](https://community.rockrms.com/developer/ai-agents/agents/context-anchors)
-- Tool security and raw ID warning: [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)
-- Tool taxonomy: [Types of Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools)
-- Skill grouping and security boundary: [Skills](https://community.rockrms.com/developer/ai-agents/skills)
-- Skill creation fields: [Creating Skills](https://community.rockrms.com/developer/ai-agents/skills/creating-skills)
-- Lava implementation: [Lava Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools)
-- Lava lookup pattern: [Lava Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools)
-- Lava insight pattern: [Insight Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools)
-- Native implementation: [Native Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools)
-- Native lookup and cache/authorization pattern: [Native Lookup Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools)
-- Native helper patterns: [Rock Tool Helper](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper)
-- Native EF projection caveat: [Gotchas](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas)
-- Tool debugging: [Debugging Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools)
-- Mobile voice surface: [Voice Agent](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent)
-- General Rock security and Inspect Security: [Rock Admin Hero Guide](https://community.rockrms.com/documentation/BookContent/9)
-- Release caveats: [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
-- Model discovery: [Model Map](https://community.rockrms.com/ModelMap)
-- Source repository: [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock)
-- RockU automation training context: [Automations Transcript Insight](https://community.rockrms.com/rocku/core-concepts/automations), especially the 00:25 approved public-safe insight for AI, automation, and responsible tool use.
-- RockU data automation training context: [Data Automation Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-automation), especially the 00:15 approved public-safe insight for AI, automation, and responsible tool use.
-- RockU connection-process training context: [Connection Request Status Automation Transcript Insight](https://community.rockrms.com/rocku/engagement/connection-request-status-automation), especially the 00:41 approved public-safe insight for AI, automation, and responsible tool use.
-
-Topic dependencies:
-
-- **Security** supplies effective access, inherited permissions, elevated security, and verification.
-- **API Integrations** supply external and v2 model access surfaces.
-- **Workflows** supply approvals, state, exceptions, and human review.
-- **Platform Configuration** supplies organization prompts, providers, and global settings.
-- **Data Views** supply reusable populations and report filters.
-- **Reports** supply operational visibility.
-- **Operations** supplies monitoring, cache, logs, versioning, and incident response.
-- **Lava** supplies low-code tool implementation and formatting.
-
-Review notes for maintainers:
-
-- Verify the exact installed Rock version before publishing this guide as authoritative.
-- Validate all source-code inferences against the target release branch, not only `develop`.
-- Confirm the live UI labels for AI Agents, AI Skills, Automations, and Voice Agent settings.
-- Confirm generated v2 endpoint permissions in a live test environment before documenting API access as supported.
-- Add organization-specific standards for transcript retention, sensitive data handling, approval workflows, and external AI provider usage.
+Selected source excerpts were supplied from [`SparkDevNetwork/Rock` commit `471fd303d111b2e46218228dbc1e93dba8856fa3`](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills). They illustrate Data View cursor paging, AvailableAttributes implementations, workflow read and launch tools and authorization-management guardrails. They are implementation evidence for that commit, not evidence of any organization’s installed configuration.

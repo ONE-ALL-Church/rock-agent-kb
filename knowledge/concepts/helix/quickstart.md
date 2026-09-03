@@ -18,33 +18,33 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 
 ## Primary Tasks
 
-- [Recipe: Find The Endpoint Behind A Button](tasks/recipe-find-the-endpoint-behind-a-button.md): Complete Find The Endpoint Behind A Button with evidence-backed checks and a verifiable outcome.
-- [Recipe: Determine Whether A Helix App Is Public-Safe](tasks/recipe-determine-whether-a-helix-app-is-public-safe.md): Complete Determine Whether A Helix App Is Public-Safe with evidence-backed checks and a verifiable outcome.
-- [Recipe: Upgrade A Plugin-Era Helix App](tasks/recipe-upgrade-a-plugin-era-helix-app.md): Complete Upgrade A Plugin-Era Helix App with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review A Community Recipe Before Use](tasks/recipe-review-a-community-recipe-before-use.md): Complete Review A Community Recipe Before Use with evidence-backed checks and a verifiable outcome.
-- [Recipe: Add Observability To A Complex Endpoint](tasks/recipe-add-observability-to-a-complex-endpoint.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Inspect an existing Helix application before changing it](tasks/recipe-inspect-an-existing-helix-application-before-changing-it.md): A bounded map of the current application flow and its security-sensitive surfaces.
+- [Recipe: Build a read-only HTMX result fragment](tasks/recipe-build-a-read-only-htmx-result-fragment.md): A page-hosted query interaction that returns only authorized display content.
+- [Recipe: Build a validated mutation form](tasks/recipe-build-a-validated-mutation-form.md): A non-GET endpoint that rejects unauthorized or invalid direct calls as well as invalid browser submissions.
+- [Recipe: Render endpoint content on first paint](tasks/recipe-render-endpoint-content-on-first-paint.md): Endpoint-generated content appears during the initial page render without a second request or avoidable layout shift.
+- [Recipe: Validate a rendered Helix dashboard](tasks/recipe-validate-a-rendered-helix-dashboard.md): Evidence that source targeting, authorization, data semantics, interaction behavior, and responsive layout all work in the actual page context.
+- [Recipe: Decide whether to replace a Lava Application](tasks/recipe-decide-whether-to-replace-a-lava-application.md): A documented decision to retain Helix or move to a purpose-built solution.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-45: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 46-81: 2. Scope And Terminology (normal)
-- `3-helix-mental-model` lines 82-112: 3. Helix Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 113-127: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-lava-application-configuration` lines 130-153: Lava Application Configuration (normal)
-- `5-core-configuration-and-data-model-lava-endpoint-configuration` lines 154-172: Lava Endpoint Configuration (normal)
+- `agent-summary` lines 18-25: Agent Summary (normal)
+- `scope-and-boundaries` lines 26-43: Scope And Boundaries (normal)
+- `mental-model` lines 44-68: Mental Model (normal)
+- `overview-and-roadmap` lines 69-82: Overview And Roadmap (normal)
+- `htmx` lines 83-105: HTMX (normal)
+- `lava-applications` lines 106-118: Lava Applications (normal)
 
 ## Core Entities
 
+- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the helix guide.
 - `Block`: Rock concept/entity referenced by the helix guide.
 - `Campus`: Rock concept/entity referenced by the helix guide.
-- `Family`: Rock concept/entity referenced by the helix guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the helix guide.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the helix guide.
 - `Person`: Rock concept/entity referenced by the helix guide.
-- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the helix guide.
 
 ## Version Caveats

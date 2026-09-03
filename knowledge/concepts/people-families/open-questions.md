@@ -10,62 +10,42 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (196 words)
 
 ## Community-Supported Only
 
-- `7-common-people-and-families-workflows-delete-or-deactivate-a-person`: Delete Or Deactivate A Person
-- `7-common-people-and-families-workflows-track-how-a-person-record-was-created`: Track How A Person Record Was Created
-- `14-reporting-analytics-and-model-map-family-reporting`: Family Reporting
-- `14-reporting-analytics-and-model-map-data-views-and-automation`: Data Views And Automation
-- `14-reporting-analytics-and-model-map-profile-custom-reports`: Profile Custom Reports
-- `16-implementation-playbooks-playbook-recover-from-wrong-merge`: Playbook: Recover From Wrong Merge
-- `18-agent-task-recipes-recipe-triage-an-accidental-merge`: Recipe: Triage An Accidental Merge
-- `18-agent-task-recipes-recipe-build-a-staff-directory-from-person-attributes`: Recipe: Build A Staff Directory From Person Attributes
-- `18-agent-task-recipes-recipe-add-a-bookmarked-groups-like-profile-panel`: Recipe: Add A Bookmarked Groups-Like Profile Panel
-- `19-source-map-and-dependency-notes-community-recipes-used-as-examples-only`: Community Recipes Used As Examples Only
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-people-and-families-mental-model`: 3. People And Families Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-person`: Person
-- `5-core-configuration-and-data-model-personalias`: PersonAlias
-- `5-core-configuration-and-data-model-family-group`: Family Group
-- `5-core-configuration-and-data-model-groupmember-and-grouptyperole`: GroupMember And GroupTypeRole
-- `5-core-configuration-and-data-model-known-relationships`: Known Relationships
-- `5-core-configuration-and-data-model-notes-tags-following-badges-assessments-background-checks`: Notes, Tags, Following, Badges, Assessments, Background Checks
-- `6-primary-entities-and-relationships-person-to-personalias`: Person To PersonAlias
-- `6-primary-entities-and-relationships-person-to-family-group`: Person To Family Group
-- `6-primary-entities-and-relationships-family-group-to-grouplocation-and-location`: Family Group To GroupLocation And Location
-- `6-primary-entities-and-relationships-group-or-family-to-attributes`: Group Or Family To Attributes
-- `6-primary-entities-and-relationships-person-to-communications`: Person To Communications
-- `7-common-people-and-families-workflows-search-for-a-person`: Search For A Person
-- `7-common-people-and-families-workflows-add-or-edit-an-individual`: Add Or Edit An Individual
-- `7-common-people-and-families-workflows-add-or-edit-a-family`: Add Or Edit A Family
-- `7-common-people-and-families-workflows-merge-duplicate-records`: Merge Duplicate Records
-- `7-common-people-and-families-workflows-delete-or-deactivate-a-person`: Delete Or Deactivate A Person
-- `7-common-people-and-families-workflows-add-person-or-family-attributes`: Add Person Or Family Attributes
-- `7-common-people-and-families-workflows-track-how-a-person-record-was-created`: Track How A Person Record Was Created
-- `7-common-people-and-families-workflows-run-person-based-automation`: Run Person-Based Automation
-- `8-person-model-deep-dive-identity-fields`: Identity Fields
-- `8-person-model-deep-dive-names`: Names
-- `8-person-model-deep-dive-demographics`: Demographics
-- `8-person-model-deep-dive-contact-fields`: Contact Fields
-- `8-person-model-deep-dive-logins-account-protection-impersonation-and-passwordless-login`: Logins, Account Protection, Impersonation, And Passwordless Login
-- `9-families-deep-dive-family-as-group`: Family As Group
-- `9-families-deep-dive-family-giving`: Family Giving
-- `10-attributes-deep-dive-attribute-lava-filters`: Attribute Lava Filters
-- `10-attributes-deep-dive-entity-commands-and-attribute-prefetch`: Entity Commands And Attribute Prefetch
-- `10-attributes-deep-dive-attribute-migration-and-source-control`: Attribute Migration And Source Control
-- `11-related-rock-areas-groups-security-communications-check-in-communications`: Communications
-- `12-administration-and-operational-guardrails-before-merging`: Before Merging
-- `13-developer-api-lava-and-source-code-landmarks-person-lava-filters`: Person Lava Filters
-- `13-developer-api-lava-and-source-code-landmarks-setpersonattribute-workflow-action`: SetPersonAttribute Workflow Action
-- `13-developer-api-lava-and-source-code-landmarks-personattributeforms-block`: PersonAttributeForms Block
-- `13-developer-api-lava-and-source-code-landmarks-mobile-person-profile-block`: Mobile Person Profile Block
+- `agent-summary`: Agent Summary
+- `person-model-and-record-lifecycle-editing-inactivating-and-preserving-history`: Editing, inactivating, and preserving history
+- `person-profile-and-access-boundaries-tags-signals-and-badges`: Tags, signals, and badges
+- `families-membership-and-relationships-known-relationships`: Known relationships
+- `person-and-family-attributes-public-self-service-attributes`: Public self-service attributes
+- `person-notes-and-note-type-governance`: Person Notes And Note-Type Governance
+- `data-integrity-duplicates-and-merge-preparation`: Data Integrity, Duplicates, And Merge Preparation
+- `data-integrity-duplicates-and-merge-preparation-rock-v19-merge-evidence`: Rock v19 merge evidence
+- `family-preregistration-and-follow-up`: Family Preregistration And Follow-Up
+- `connections-as-person-centered-process-state`: Connections As Person-Centered Process State
+- `personalization-and-person-data`: Personalization And Person Data
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-a-person-cannot-be-found-or-a-new-record-may-be-a-duplicate`: A person cannot be found, or a new record may be a duplicate
+- `troubleshooting-decision-tree-a-person-is-in-the-wrong-family-campus-or-household-report`: A person is in the wrong family, campus, or household report
+- `troubleshooting-decision-tree-a-user-can-see-a-profile-but-cannot-view-or-edit-one-part-of-it`: A user can see a profile but cannot view or edit one part of it
+- `troubleshooting-decision-tree-a-note-is-missing-appears-in-the-wrong-place-or-is-visible-too-broadly`: A note is missing, appears in the wrong place, or is visible too broadly
+- `troubleshooting-decision-tree-an-attribute-is-absent-blank-stale-or-unexpectedly-overwritten`: An attribute is absent, blank, stale, or unexpectedly overwritten
+- `troubleshooting-decision-tree-family-preregistration-creates-partial-or-duplicate-records`: Family preregistration creates partial or duplicate records
+- `troubleshooting-decision-tree-a-connection-request-is-missing-or-stuck`: A connection request is missing or stuck
+- `troubleshooting-decision-tree-personalized-content-appears-for-the-wrong-person-or-not-at-all`: Personalized content appears for the wrong person or not at all
+- `troubleshooting-decision-tree-family-analytics-or-era-values-appear-stale-or-wrong`: Family analytics or eRA values appear stale or wrong
+- `agent-task-recipes-recipe-add-a-person-or-family-without-creating-a-duplicate`: Recipe: Add a person or family without creating a duplicate
+- `agent-task-recipes-recipe-correct-a-family-structure-or-household-move`: Recipe: Correct a family structure or household move
+- `agent-task-recipes-recipe-design-or-review-a-person-or-family-attribute`: Recipe: Design or review a person or family attribute
+- `agent-task-recipes-recipe-audit-person-note-governance`: Recipe: Audit Person Note governance
+- `agent-task-recipes-recipe-prepare-a-duplicate-person-merge-for-authorized-review`: Recipe: Prepare a duplicate-person merge for authorized review
+- `agent-task-recipes-recipe-validate-family-preregistration-end-to-end`: Recipe: Validate family preregistration end to end
+- `agent-task-recipes-recipe-diagnose-a-connection-request-from-the-person-record`: Recipe: Diagnose a connection request from the person record
+- `agent-task-recipes-recipe-run-a-bounded-people-data-cleanup`: Recipe: Run a bounded people-data cleanup
 
 ## Live Verification Clarification
 

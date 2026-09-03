@@ -18,22 +18,25 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 
 ## Primary Tasks
 
-- [Recipe: Find Available Attributes For An Add Or Update Operation](tasks/recipe-find-available-attributes-for-an-add-or-update-operation.md): The AvailableAttributes developer docs explicitly distinguish available attribute definitions from actual values and note the add-operation case where no existing entity exists (AvailableAttributes Tools).
-- [Recipe: Explain A Platform Configuration Object To A User](tasks/recipe-explain-a-platform-configuration-object-to-a-user.md): Complete Explain A Platform Configuration Object To A User with evidence-backed checks and a verifiable outcome.
-- [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md): Complete Safely Answer “Can We Delete This?” with evidence-backed checks and a verifiable outcome.
-- [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md): Example: For a missing content channel item attribute category, cite the release note and then instruct inspection of the live content channel type, attribute entity type, qualifier, and category assignment (Rock Core Release Notes).
-- [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md): Complete Triage Attribute Security with evidence-backed checks and a verifiable outcome.
-- [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md): Complete Convert A Free-Text Attribute To A Defined Value with evidence-backed checks and a verifiable outcome.
-- [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Add and verify a campus attribute](tasks/recipe-add-and-verify-a-campus-attribute.md): A secured campus attribute is visible and stores the intended value on Campus Details.
+- [Recipe: Place person attributes on a profile tab](tasks/recipe-place-person-attributes-on-a-profile-tab.md): A selected category of Person Attributes appears in the intended profile location.
+- [Recipe: Audit a Defined Value source mismatch](tasks/recipe-audit-a-defined-value-source-mismatch.md): Capture, storage, and reporting use the same intentional Defined Type.
+- [Recipe: Operate seasonal Defined Value options](tasks/recipe-operate-seasonal-defined-value-options.md): A stable vocabulary exposes only the intended seasonal options.
+- [Recipe: Stage a campus](tasks/recipe-stage-a-campus.md): A campus is configured without prematurely exposing it as active.
+- [Recipe: Move an expensive dashboard calculation to scheduled storage](tasks/recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage.md): The dashboard reads a verified stored result instead of rebuilding all history on every request.
+- [Recipe: Secure an embedded BI report](tasks/recipe-secure-an-embedded-bi-report.md): Only appropriately authorized and licensed users can open the embedded report.
+- [Recipe: Preflight a v19 configuration change](tasks/recipe-preflight-a-v19-configuration-change.md): A version-sensitive feature is enabled with its dependencies and risks tested.
+- [Recipe: Design a bounded Rock agent tool](tasks/recipe-design-a-bounded-rock-agent-tool.md): An authorized tool performs one clear task and returns a controlled result.
+- [Recipe: Plan a Rock upgrade as configuration change](tasks/recipe-plan-a-rock-upgrade-as-configuration-change.md): The upgrade covers technical validation, security maintenance, and staff adoption.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-48: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 49-104: 2. Scope And Terminology (normal)
-- `3-platform-configuration-mental-model` lines 105-145: 3. Platform Configuration Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 146-172: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-entity-types` lines 175-199: Entity Types (normal)
-- `5-core-configuration-and-data-model-attributes` lines 200-211: Attributes (normal)
+- `agent-summary` lines 18-32: Agent Summary (normal)
+- `scope-and-boundaries` lines 33-46: Scope And Boundaries (normal)
+- `mental-model` lines 47-64: Mental Model (high)
+- `attributes-and-attribute-values-choose-the-owning-entity-first` lines 67-83: Choose the owning entity first (normal)
+- `attributes-and-attribute-values-separate-the-definition-from-stored-values` lines 84-97: Separate the definition from stored values (normal)
+- `attributes-and-attribute-values-present-attributes-intentionally` lines 98-103: Present attributes intentionally (normal)
 
 ## Core Entities
 
@@ -43,18 +46,17 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 - `Campus`: Rock concept/entity referenced by the platform-configuration guide.
 - `Check-in Configuration`: Rock concept/entity referenced by the platform-configuration guide.
 - `DefinedType`: Rock concept/entity referenced by the platform-configuration guide.
-- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
-- `Family`: Rock concept/entity referenced by the platform-configuration guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `GroupMember`: Rock concept/entity referenced by the platform-configuration guide.
-- `GroupType`: Rule container for groups, including attendance/check-in settings and inherited behavior.
 - `Label`: Rock concept/entity referenced by the platform-configuration guide.
+- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
+- `Page`: Rock concept/entity referenced by the platform-configuration guide.
+- `Person`: Rock concept/entity referenced by the platform-configuration guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 
 ## Version Caveats
 
 - `19.1`: Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729
 - `17.2`: Fixed an issue where the list of attribute categories shown when editing a Content Channel Item attribute from the Content Channel Type Detail block included incorrect or unrelated categories. This made it difficult to a
-- `18.2`: Fixed an issue where the Attribute Editor did not correctly save configuration changes when creating an Attribute designed to store other Attributes (e.g., an Attribute of type Attribute). This affected scenarios such as
 
 ## Files For Agents
 

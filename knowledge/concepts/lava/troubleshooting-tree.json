@@ -2,259 +2,309 @@
   "branches": [
     {
       "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-the-lava-renders-blank",
-      "id": "the-lava-renders-blank",
-      "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Is the merge field available in this context?",
-        "Is the variable name correct and case-correct?",
-        "Is the entity command returning rows?",
-        "Did `id` override `where` unintentionally?",
-        "Is the shortcode active?",
-        "Is an include file path resolving?",
-        "Is output hidden by CSS?",
-        "Is security filtering all results?"
-      ],
-      "title": "The Lava Renders Blank",
-      "when": "The Lava Renders Blank"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
         "Person",
-        "Block"
+        "Workflow",
+        "Block",
+        "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-the-command-says-it-is-not-authorized",
-      "id": "the-command-says-it-is-not-authorized",
+      "guide_section_id": "troubleshooting-decision-tree-lava-renders-blank-or-a-merge-field-is-missing",
+      "id": "lava-renders-blank-or-a-merge-field-is-missing",
       "inspect": [
         "Person",
-        "Block"
+        "Workflow",
+        "Block",
+        "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/commands",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/456"
+        "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
       ],
       "start_with": [
-        "Is the command enabled in the block?",
-        "Is it enabled in the shortcode if used inside a shortcode?",
-        "Is it inherited from default enabled commands?",
-        "Did v19.1 command security fixes alter behavior?",
-        "Is the command name correct?",
-        "Is the template executing in a context that disallows that command, such as remote Lava?",
-        "Does the current user or REST key person have needed security?"
+        "Identify the exact surface: CMS, workflow, job, communication, endpoint, mobile shell or TV application.",
+        "Confirm whether the expected merge field exists there.",
+        "Check anonymous versus authenticated execution and the actual `CurrentPerson`.",
+        "For workflow attributes, verify the attribute key, requested representation and field type.",
+        "For Rock Mobile, determine whether the content is static, dynamic, local or server-processed.",
+        "Test missing-data branches explicitly. Lava Tips for Workflows,"
       ],
-      "title": "The Command Says It Is Not Authorized",
-      "when": "The Command Says It Is Not Authorized"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Campus",
-        "Attribute"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-entity-query-returns-the-wrong-rows",
-      "id": "entity-query-returns-the-wrong-rows",
-      "inspect": [
-        "Campus",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Property names in Model Map.",
-        "`where` expression syntax.",
-        "Whether `id` is present.",
-        "Whether query string `dynamicparameters` overrides values.",
-        "Security filtering.",
-        "`limit` and `offset`.",
-        "Campus/status filters.",
-        "Whether attributes are properties or require `Attribute` filter."
-      ],
-      "title": "Entity Query Returns The Wrong Rows",
-      "when": "Entity Query Returns The Wrong Rows"
+      "title": "Lava renders blank or a merge field is missing",
+      "when": "Lava renders blank or a merge field is missing"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-sql-errors",
-      "id": "sql-errors",
+      "guide_section_id": "troubleshooting-decision-tree-a-parser-error-points-at-an-innocent-looking-line",
+      "id": "a-parser-error-points-at-an-innocent-looking-line",
       "inspect": [
         "Block"
       ],
-      "source_urls": [
-        "https://community.rockrms.com/lava/commands/sql-commands"
-      ],
-      "start_with": [
-        "Is `Sql` enabled?",
-        "Is syntax valid in SQL Server?",
-        "Are parameters declared on the command line?",
-        "Are reserved names used as parameter names?",
-        "Is timeout too low?",
-        "Is a non-query statement missing required command-style configuration?",
-        "Is user input directly interpolated?",
-        "Are permissions or DB restrictions blocking the operation?"
-      ],
-      "title": "SQL Errors",
-      "when": "SQL Errors"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-fluid-migration-errors",
-      "id": "fluid-migration-errors",
-      "inspect": [],
       "source_urls": [
         "https://community.rockrms.com/lava/fluid/differences"
       ],
       "start_with": [
-        "Missing commas in include calls.",
-        "`&&` instead of `and`.",
-        "Nested comments.",
-        "Regex backslash escaping.",
-        "Sort/OrderBy differences.",
-        "Single quote inside single-quoted strings.",
-        "Variable names starting with numbers.",
-        "Split/null/empty behavior."
+        "Inspect preceding output expressions and filter arguments.",
+        "Check for an unclosed quote, missing delimiter or incomplete filter parameter.",
+        "Check Fluid-specific rules: include commas, `and` instead of `&&`, unsupported nested comments and invalid escapes.",
+        "Reduce nested assignments and conditions to small independently rendered blocks.",
+        "Retest using the target engine and surface. Community reports note that parsing may fail later than the malformed expression, so the reported line may be downstream of the cause."
       ],
-      "title": "Fluid Migration Errors",
-      "when": "Fluid Migration Errors"
+      "title": "A parser error points at an innocent-looking line",
+      "when": "A parser error points at an innocent-looking line"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Block"
+        "DataView"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-shortcode-output-leaks-or-variables-collide",
-      "id": "shortcode-output-leaks-or-variables-collide",
+      "guide_section_id": "troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration",
+      "id": "an-entity-command-returns-no-rows-or-fails-before-iteration",
       "inspect": [
-        "Block"
+        "DataView"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes",
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/lava/commands/entity-commands"
       ],
       "start_with": [
-        "Shortcode scope behavior.",
-        "Nested shortcode behavior.",
-        "`blockContent` handling.",
-        "Whether caller and shortcode use the same variable names.",
-        "v19.1 nested blockContent fix status.",
-        "Whether the shortcode uses shared scope intentionally."
+        "Confirm the command is registered and enabled on this surface.",
+        "If `id` is present, remove expectations that `where`, `dataview` or `dynamicparameters` will also apply.",
+        "Ensure parameter values such as `where` are enclosed in single quotes.",
+        "Inspect the fully rendered Dynamic LINQ expression.",
+        "Check blank identifiers, quote escaping and types.",
+        "Add a small limit and test a literal stable lookup.",
+        "Stop if the only proposed workaround is an unbounded query."
       ],
-      "title": "Shortcode Output Leaks Or Variables Collide",
-      "when": "Shortcode Output Leaks Or Variables Collide"
+      "title": "An entity command returns no rows or fails before iteration",
+      "when": "An entity command returns no rows or fails before iteration"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Block"
+        "Workflow",
+        "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-page-shows-another-person-s-data",
-      "id": "page-shows-another-person-s-data",
+      "guide_section_id": "troubleshooting-decision-tree-a-modify-command-appears-to-succeed-but-data-is-unchanged",
+      "id": "a-modify-command-appears-to-succeed-but-data-is-unchanged",
       "inspect": [
         "Person",
-        "Block"
+        "Workflow",
+        "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/lava/remote-lava"
+        "https://community.rockrms.com/lava/commands/modify-entity"
       ],
       "start_with": [
-        "Block cache duration.",
-        "Lava `cache` command key.",
-        "Output cache containing `CurrentPerson`.",
-        "Two-pass cache implementation.",
-        "CDN/proxy cache.",
-        "Security-disabled entity commands.",
-        "Remote Lava identity.",
-        "Whether current person was hardcoded during testing."
+        "Resolve and display the intended entity identity in a safe diagnostic context.",
+        "Check `ModifyResult.Success`, validation errors and the returned object.",
+        "Capture the canonical ID immediately.",
+        "Read the saved record back.",
+        "For person updates, verify that an alias, anonymous match or workflow-created record was resolved to the intended Person.",
+        "Preserve existing attribute values when conditional paths omit fields.",
+        "Stop before writing children when the parent result is blank or unverified."
       ],
-      "title": "Page Shows Another Person's Data",
-      "when": "Page Shows Another Person's Data"
+      "title": "A modify command appears to succeed but data is unchanged",
+      "when": "A modify command appears to succeed but data is unchanged"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume a transaction rollback cleared the render’s tracked state."
+      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-later-write-fails-with-an-earlier-validation-error",
+      "id": "a-later-write-fails-with-an-earlier-validation-error",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/modify-entity"
+      ],
+      "start_with": [
+        "Stop the render after the first failed modify command.",
+        "Do not assume a transaction rollback cleared the render’s tracked state.",
+        "Move experimental or risky creates into a separate render.",
+        "Retry only after validating the failed entity’s required fields.",
+        "Reproduce the behavior on the target version before classifying it as a change-tracker issue. This symptom comes from reviewed community evidence, not official universal behavior."
+      ],
+      "title": "A later write fails with an earlier validation error",
+      "when": "A later write fails with an earlier validation error"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Block"
+        "Workflow",
+        "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-web-request-fails",
-      "id": "web-request-fails",
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing",
+      "id": "a-workflow-starts-but-submitted-values-are-missing",
       "inspect": [
-        "Block"
+        "Workflow",
+        "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/commands/web-request-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
+        "https://community.rockrms.com/lava/commands/workflow-activate-commands"
       ],
       "start_with": [
-        "`WebRequest` enabled.",
-        "URL reachable from Rock server.",
-        "TLS requirements.",
-        "Method.",
-        "Headers.",
-        "Body content type.",
-        "Response content type.",
-        "Timeout."
+        "Compare each extra `workflowactivate` key with the target workflow and activity attribute keys.",
+        "Confirm each value uses the field type’s stored format.",
+        "Remove obsolete parameters and create missing attributes intentionally.",
+        "Inspect the created workflow’s stored values.",
+        "Verify raw versus formatted values for selections and object fields."
       ],
-      "title": "Web Request Fails",
-      "when": "Web Request Fails"
+      "title": "A workflow starts but submitted values are missing",
+      "when": "A workflow starts but submitted values are missing"
     },
     {
       "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-shortcode-displays-as-raw-text",
+      "id": "a-shortcode-displays-as-raw-text",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/shortcodes/types-of-shortcodes",
+        "https://community.rockrms.com/lava/filters/other-filters"
+      ],
+      "start_with": [
+        "Confirm the shortcode is registered and its type matches the caller’s syntax.",
+        "Determine whether the value is being treated as stored text rather than a template.",
+        "If execution is intentional, inspect edit permissions and enabled commands before applying `RunLava`.",
+        "Test the result under anonymous and intended authenticated roles.",
+        "Stop if untrusted editors can supply executable Lava. Types of Shortcodes,"
+      ],
+      "title": "A shortcode displays as raw text",
+      "when": "A shortcode displays as raw text"
+    },
+    {
+      "do_not_assume": [
+        "Do not use administrator success as access proof."
+      ],
       "entities": [
-        "Person",
-        "Device",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience",
+      "id": "a-helix-endpoint-works-for-administrators-but-not-its-audience",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+      ],
+      "start_with": [
+        "Test as anonymous, intended role and administrator.",
+        "Inspect page, block, endpoint and parent Lava Application authorization.",
+        "Check the endpoint security mode.",
+        "Check the endpoint’s enabled-command allowlist.",
+        "Verify the route from both the hosted Content block and direct endpoint path.",
+        "Do not use administrator success as access proof. This layered preflight includes community-derived checks that require target-instance confirmation."
+      ],
+      "title": "A Helix endpoint works for administrators but not its audience",
+      "when": "A Helix endpoint works for administrators but not its audience"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume endpoint-rendered JavaScript or stylesheet commands register usable assets."
+      ],
+      "entities": [
         "Page"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-mobile-lava-breaks",
-      "id": "mobile-lava-breaks",
+      "guide_section_id": "troubleshooting-decision-tree-an-htmx-fragment-loses-scripts-styles-or-ui-state",
+      "id": "an-htmx-fragment-loses-scripts-styles-or-ui-state",
       "inspect": [
-        "Person",
-        "Device",
         "Page"
       ],
       "source_urls": [
+        "https://community.rockrms.com/developer/helix/overview"
+      ],
+      "start_with": [
+        "Determine whether the dependency belongs in the host shell.",
+        "Do not assume endpoint-rendered JavaScript or stylesheet commands register usable assets.",
+        "Keep endpoint output focused on replaceable inner content.",
+        "Reapply local UI state after `htmx:afterSwap`, or send it as request state.",
+        "Verify first render, swap, refresh and back navigation.",
+        "Test direct endpoint rendering and the hosted page separately. These checks are community patterns requiring live verification."
+      ],
+      "title": "An HTMX fragment loses scripts, styles or UI state",
+      "when": "An HTMX fragment loses scripts, styles or UI state"
+    },
+    {
+      "do_not_assume": [
+        "Do not expect `CurrentPerson` in bundled static content."
+      ],
+      "entities": [
+        "Person",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-rock-mobile-content-is-stale-anonymous-or-invalid-xaml",
+      "id": "rock-mobile-content-is-stale-anonymous-or-invalid-xaml",
+      "inspect": [
+        "Person",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
         "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
       ],
       "start_with": [
-        "Is Lava processed server-side or client-side?",
-        "Is the filter available locally in the shell version?",
-        "Are strings escaped?",
-        "Are `PageParameter`, `CurrentPerson`, `Device`, `PageValues`, `AppValues`, or `DeviceTheme` available?",
-        "Are quotes or ampersands breaking markup?",
-        "Are mobile-specific commands available?"
+        "Check whether the Content block is static or dynamic.",
+        "Confirm whether Lava runs locally or on the server.",
+        "Do not expect `CurrentPerson` in bundled static content.",
+        "Check whether every filter used is supported in the shell.",
+        "Escape markup-sensitive text and encode URL components.",
+        "Validate XAML with punctuation-heavy test records.",
+        "Test the actual shell versions in scope. Mobile Content,"
       ],
-      "title": "Mobile Lava Breaks",
-      "when": "Mobile Lava Breaks"
+      "title": "Rock Mobile content is stale, anonymous or invalid XAML",
+      "when": "Rock Mobile content is stale, anonymous or invalid XAML"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-remote-lava-route-exposes-more-than-intended",
+      "id": "a-remote-lava-route-exposes-more-than-intended",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/lava-api",
+        "https://community.rockrms.com/lava/remote-lava"
+      ],
+      "start_with": [
+        "Treat a Defined Value Lava webhook as unsecured until a separate control is verified.",
+        "Inspect route and method matching.",
+        "Review the execution identity and all enabled commands.",
+        "Remove credentials from browser-visible code.",
+        "Bound data access and response fields.",
+        "Test anonymous calls and unexpected methods.",
+        "Stop if the route can accept arbitrary Lava under a privileged key. Creating APIs Using Lava,"
+      ],
+      "title": "A remote Lava route exposes more than intended",
+      "when": "A remote Lava route exposes more than intended"
     }
   ],
   "concept_id": "lava",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:51+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-the-lava-renders-blank",
-    "17-troubleshooting-decision-tree-the-command-says-it-is-not-authorized",
-    "17-troubleshooting-decision-tree-entity-query-returns-the-wrong-rows",
-    "17-troubleshooting-decision-tree-sql-errors",
-    "17-troubleshooting-decision-tree-fluid-migration-errors",
-    "17-troubleshooting-decision-tree-shortcode-output-leaks-or-variables-collide",
-    "17-troubleshooting-decision-tree-page-shows-another-person-s-data",
-    "17-troubleshooting-decision-tree-web-request-fails",
-    "17-troubleshooting-decision-tree-mobile-lava-breaks",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-inventory-lava-risk-on-a-page",
-    "18-agent-task-recipes-recipe-review-a-shortcode-for-production",
-    "18-agent-task-recipes-recipe-find-legacy-attribute-lava",
-    "18-agent-task-recipes-recipe-safely-use-securityenabled-false",
-    "18-agent-task-recipes-recipe-create-a-staff-friendly-link-copy-shortcode",
-    "18-agent-task-recipes-recipe-add-a-translation-shortcode",
-    "18-agent-task-recipes-recipe-generate-labels-with-lava",
-    "18-agent-task-recipes-recipe-build-an-agent-lava-tool"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-lava-renders-blank-or-a-merge-field-is-missing",
+    "troubleshooting-decision-tree-a-parser-error-points-at-an-innocent-looking-line",
+    "troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration",
+    "troubleshooting-decision-tree-a-modify-command-appears-to-succeed-but-data-is-unchanged",
+    "troubleshooting-decision-tree-a-later-write-fails-with-an-earlier-validation-error",
+    "troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing",
+    "troubleshooting-decision-tree-a-shortcode-displays-as-raw-text",
+    "troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience",
+    "troubleshooting-decision-tree-an-htmx-fragment-loses-scripts-styles-or-ui-state",
+    "troubleshooting-decision-tree-rock-mobile-content-is-stale-anonymous-or-invalid-xaml",
+    "troubleshooting-decision-tree-a-remote-lava-route-exposes-more-than-intended",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-review-an-existing-lava-surface-safely",
+    "agent-task-recipes-recipe-build-a-bounded-read-only-entity-view",
+    "agent-task-recipes-recipe-prepare-a-lava-entity-write",
+    "agent-task-recipes-recipe-preflight-a-workflow-activation",
+    "agent-task-recipes-recipe-publish-a-reusable-shortcode",
+    "agent-task-recipes-recipe-build-a-read-only-helix-active-search-page",
+    "agent-task-recipes-recipe-validate-a-rock-mobile-lava-block",
+    "agent-task-recipes-recipe-design-a-lava-backed-ai-tool"
   ]
 }

@@ -6,1492 +6,765 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "3c7b0a1fd48d121e5a004909e5827ced63f3776ca4ce24b7f72c1046ad7fee69"
 ---
 
 # Rock Mobile
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock Mobile is a native mobile extension of Rock RMS. A working implementation spans four distinct layers:
 
-- Concept data-model landmarks: [Rock Mobile index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+1. **Rock Core** supplies data, authentication, APIs, configuration and server-processed content.
+2. **The Application** defines pages, blocks, XAML, navigation, branding and other organization-controlled settings.
+3. **The Mobile Shell** provides native navigation, authentication, API access and platform capabilities on iOS and Android.
+4. **Publishing** compiles and distributes shell releases through the app stores; this is separate from deploying application content from Rock. [Mobile Docs](https://community.rockrms.com/developer/mobile-docs) [Mobile Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon)
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+For agent work, establish the Rock Core version and Mobile Shell version before selecting a feature or control. Documentation marks minimum shell requirements with `M` and minimum Rock Core requirements with `C`; a feature can require both. Then determine whether a requested change belongs to deployable application content or requires a new store release. [Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)
 
-## 1. Executive Summary For Agents
+Use dynamic Content blocks when content must be fresh or personalized. Static Content block output is included in the deployed application bundle, requires another deploy to change, and processes Lava without `CurrentPerson`. Escape all dynamic strings before inserting them into XAML. [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 
-Rock Mobile is the native mobile application layer for Rock RMS. It is not simply a responsive website wrapper. A Rock Mobile app is a configured mobile application in Rock Core, rendered by a native shell, populated by Rock pages, blocks, XAML layouts, commands, controls, styling, content, authentication, and API-backed data. The official mobile documentation describes it as a native mobile extension of Rock RMS for applications linked to Rock ([Mobile Docs](https://community.rockrms.com/developer/mobile-docs)).
+Treat mobile check-in as a configured check-in channel, not an independent attendance system. Confirm normal check-in first, configure virtual kiosk devices and campus boundaries, connect the launcher to the intended devices, configuration and areas, and test the identity, availability and label-printing paths. [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration)
 
-For agent work, the most important mental model is this:
+## Scope And Boundaries
 
-- Rock Core stores the mobile app configuration, pages, blocks, content, colors, API connection details, and deployment bundle.
-- The Rock Mobile shell is the compiled native app distributed through iOS and Android app stores, usually through App Factory.
-- XAML defines much of the mobile UI surface.
-- Commands define behavior: navigation, browser opening, app actions, clipboard, reload, calendar integration, haptics, and other native or Rock-specific interactions.
-- Controls provide reusable visual and behavioral elements such as WebView, Context Menu, ExecuteCommand, cards, media players, countdowns, forms, and other XAML surfaces.
-- Blocks bridge Rock feature areas into the mobile app: CMS, check-in, communication, connection, core, CRM, events, finance, groups, prayer, reminders, security, and workflow.
-- Deployment publishes server-side mobile configuration changes so devices can load the updated app bundle at launch or refresh ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
-- Shell updates are separate from Rock configuration deploys. Shell updates are required for new native shell capabilities, platform SDK compliance, and store availability ([Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements)).
+This guide covers the evidence-supported Rock Mobile application lifecycle:
 
-An agent diagnosing or implementing Rock Mobile should always separate four layers before making conclusions:
+- Application creation, navigation and deployment
+- XAML, Lava and the Content block
+- Commands, command parameters and selected controls
+- Shell and platform compatibility
+- Mobile check-in configuration and participant flow
+- Push notifications and selected publishing-sensitive features
+- App Factory, developer accounts, store assets and Android signing
+- Rock Mobile release and .NET MAUI migration practices
+- The mobile-facing Outreach Toolbox evidence supplied for Rock v19
+- A community-reviewed workflow pattern for slow background processing
 
-1. **Core data/configuration**: application record, page tree, block settings, app colors, API key, push/giving/auth settings, security permissions, Rock version.
-2. **Deployed mobile bundle**: whether the current app configuration has been deployed, whether dynamic content bypasses deployment, whether the device has pulled the latest bundle.
-3. **Native shell version**: whether the installed app shell supports the command/control/block property being used.
-4. **Device/platform behavior**: iOS versus Android differences, OS minimums, WebView scaling, safe area, push permissions, app store review credentials, and MAUI migration behavior.
+The guide does not define Rock’s underlying API, general CMS architecture, check-in configuration model or security authorization system in full. Those topics own their broader behavior. Here they appear only where they directly affect a mobile implementation.
 
-Most mobile failures are not “the app is broken.” They are mismatches between those layers: a block requiring a newer shell, a Core feature requiring a newer Rock server, a page changed but not deployed, a WebView missing mobile viewport markup, an Android keystore or store-account issue, a push transport configuration gap, an iOS-only behavior difference, or a command introduced in a later shell than the app currently uses.
+The supplied evidence does not verify any particular organization’s current application, store account, shell build, page permissions, notification transport or check-in setup. Some mobile check-in claims include a reviewed, public-safe read-only conclusion confirming that the relevant structural configuration surfaces exist, but that conclusion does not prove that a specific launcher, campus boundary or app is configured correctly.
 
-When source material is thin, do not invent internal database behavior. Inspect the live Rock instance: mobile application configuration under Admin Tools > CMS Configuration, page/block settings, API key assignment, security authorization, defined communication transports and mediums, mobile deployment status, Rock server version, app shell version, and any relevant logs or app-store/App Factory records.
+## Mental Model
 
-## 2. Scope And Terminology
+### Shell, application and core are separate compatibility surfaces
 
-This guide covers Rock Mobile as represented in the source pack: mobile shell concepts, XAML, commands, controls, blocks, app configuration, App Factory publishing concerns, release caveats, OS requirements, and related areas such as API, check-in, CMS, and security.
+The Shell is the native runtime. It handles navigation, authentication, API calls and other platform work. The Application contains the organization’s pages, blocks, content and visual configuration. Rock Core is the server to which the shell connects. A page can therefore fail because of its application markup, the shell’s capabilities, the Rock server version, connectivity or configuration. [Mobile Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon)
 
-The guide does not attempt to reproduce every mobile block reference page because the pack mostly includes index-level hydrated records for many block groups rather than full block property details. Where the source pack only proves that a block family exists, this guide says what to inspect in a live Rock instance or the official block page rather than inventing block settings.
+Never use “the app version” as an unqualified compatibility answer. Record at least:
 
-Use these terms consistently:
+- Rock Core version
+- Mobile Shell version
+- iOS or Android version
+- Phone or tablet
+- Whether the application deployment is current
+- Whether the change requires store publishing
 
-**Application**  
-The configured Rock Mobile app in Rock. It includes mobile pages, blocks, branding, configuration, and visual settings. The mobile lexicon describes the application as the collection of mobile blocks, content, branding, and configurable areas ([Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon)).
+The documentation’s `M` and `C` tags describe minimum Mobile Shell and Rock Core versions respectively. They can appear at the block, component or setting level. [Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)
 
-**Core**  
-The Rock server powering the mobile app. Core provides APIs, data, blocks, authentication, content, deployment bundles, and server-version-dependent behavior ([Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon)).
+### Deploying is not publishing
 
-**Shell**  
-The compiled native iOS/Android app. Shell version determines which native commands, controls, MAUI behavior, OS SDK support, and native capabilities are available. Some docs mark features with mobile-shell badges such as `M v7.0` ([Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)).
+Deploying from the Rock application page distributes application configuration, pages, blocks and bundled content. After a normal configuration or static-content change, deploy again and reload the app. Dynamic Content blocks are the documented exception: their content can refresh from the server without a new deployment. [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)
 
-**App Factory**  
-The publishing service for Rock Mobile apps. App Factory handles compiling and publishing apps to the stores, and is the normal path for churches that do not compile and publish native shells themselves ([App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory)).
+Publishing distributes a compiled shell through Apple or Google. Shell upgrades and native resources compiled into the shell require the publishing path. Store approval is external to Rock, so a completed Rock deployment is not evidence that a store update was submitted, approved or installed. [App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory) [Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources)
 
-**Deploy**  
-A Rock-side action that publishes configuration, pages, blocks, and content for app users. It is not the same as an app-store shell update. Deployment is required after many server-side mobile configuration changes ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
+### XAML declares views; commands provide behavior
 
-**Device Type**  
-The app’s device context, usually Phone or Tablet, used by Rock Mobile to choose appropriate layouts ([Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon)).
+XAML describes native page structure and controls. Commands are bindable actions that can be invoked by buttons, gestures, menus, behaviors and other compatible views. A command parameter supplies the target or input. Because the same command structure is reusable, the agent should reason about the action independently from the control that triggers it. [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)
 
-**XAML**  
-The markup used to define Rock Mobile native layouts and controls. Agents should treat XAML as native UI markup, not as HTML. CSS support exists but is constrained by .NET MAUI styling support ([Styling](https://community.rockrms.com/developer/mobile-docs/styling)).
+### Dynamic content crosses a trust and context boundary
 
-**Command**  
-An executable action attached to a control or behavior. Commands are commonly bound to `Command` properties and may accept a parameter. The docs emphasize that command structure is consistent enough that a command used by a button can be reused by other command-capable controls or gestures ([Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)).
+The Content block renders XAML and can process Lava. With Dynamic Content enabled, Rock retrieves fresh content on each page initialization. With it disabled, content is bundled into the deployed application and requires another deploy to change. Lava still runs in the static case, but `CurrentPerson` is unavailable. Server-side Lava also depends on the relevant block settings and enabled Lava commands. [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 
-**Control**  
-A XAML visual or behavioral element. Rock Mobile supplies controls such as WebView, Context Menu, ExecuteCommand, CommandReference, cards, media controls, and extensions.
+This means freshness, identity context and markup safety must be treated separately:
 
-**Block**  
-A Rock feature unit rendered on a mobile page. Blocks exist across CMS, check-in, communication, connection, core, CRM, events, finance, groups, prayer, reminders, security, and workflow areas as shown by the mobile developer navigation ([Developers](https://community.rockrms.com/developer/mobile-docs/developers)).
+- Dynamic does not automatically mean the required Lava commands are enabled.
+- A signed-in shell does not give static Content block Lava a `CurrentPerson`.
+- A valid Lava result is not necessarily valid XAML.
+- A page context must be passed and configured before a Content block can use its context entity.
 
-**Dynamic Content**  
-A mobile content behavior where selected content changes can appear without a new deploy. The deployment docs specifically distinguish normal app changes requiring deployment from dynamic content that can update without redeploying ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
+## Application Configuration And Deployment
 
-## 3. Rock Mobile Mental Model
+Create or select mobile applications under **Admin Tools > CMS Configuration > Mobile Applications**. A new application starts from an application record in Rock, after which pages and blocks are added through its Application page. [Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app)
 
-Rock Mobile is a three-part system: Rock Core configuration, native shell runtime, and device/platform environment.
+The documented application types are:
 
-### Rock Core Configuration
+- **Flyout:** the common configuration, with a slide-out navigation panel.
+- **Tabbed:** appropriate when the app has a small set of top-level destinations.
+- **Blank:** removes flyout and tab navigation and is reserved for a specific need.
 
-A mobile app begins in Rock under Admin Tools > CMS Configuration > Mobile Applications. The first-app guide says to create or select a mobile application from that area ([Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app)). The app configuration then determines application type, orientation, pages, API key, flyout XAML, and homepage routing logic ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)).
+The internal Application Name identifies the application in Rock; it does not set the public store name. Application settings also define orientation, foundational pages, an API key and homepage routing behavior. [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)
 
-The Core side owns:
+For Flyout applications, the default XAML includes a menu-items binding that incorporates pages marked for navigation. Lava is not supported in Flyout XAML; adding it can crash the app at launch. Homepage Routing Logic is a different context: it supports client-side Lava and must output a valid mobile page GUID. It can route a person toward login or onboarding based on the available shell variables. [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)
 
-- Mobile application record.
-- Application type: blank, flyout, or tabbed.
-- Lock orientation setting.
-- Mobile page tree.
-- Page blocks and block settings.
-- API key used by the mobile app.
-- Flyout XAML for navigation.
-- Homepage routing logic.
-- Palette colors and styling values.
-- Content and dynamic content.
-- Push-notification configuration.
-- Communication transport and mediums.
-- Auth/login configuration and security rules.
-- Deployment state.
+Treat the mobile API key as a credential. The documented publishing guidance recommends a complex organization-specific value composed of letters and numbers because some special characters do not compile successfully during App Factory publishing. Changing the API key after store deployment disrupts installed clients and should be coordinated through the publishing provider. Do not expose the key in documentation, logs or screenshots. [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)
 
-If an agent changes mobile pages, block settings, application colors, app configuration, or navigation, assume a deploy is required unless the change is explicitly a dynamic content path ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
+To test an application:
 
-### Native Shell Runtime
+1. Confirm its Application page shows a successful deployment.
+2. Connect the Rock Mobile Core test app using the application ID, the Rock server’s public API URL and the configured API key.
+3. Launch and exercise the application on the intended device types and platforms.
+4. After deployable changes, deploy again and reload the app.
+5. Do not expect an unexposed localhost installation to be reachable from the mobile shell. [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)
 
-The shell is the native app that interprets the deployed mobile configuration and renders pages. The shell includes native dependencies and features. Commands, controls, and behaviors can require a specific shell version. The Core & Shell Dependencies doc explains that features may be tagged with a mobile shell requirement (`M`) and/or a Rock Core requirement (`C`) ([Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)).
+## Content, XAML And Lava
 
-Agent rule: never assume a feature is available because the Rock server was upgraded. Confirm both:
+A Content block renders the XAML placed in its Content setting. Mobile pages can be assembled from layouts, standard MAUI controls and Rock Mobile controls. Multiple child elements need an appropriate containing layout. The current layout choice must also account for the shell generation because Shell v6 moved Rock Mobile from Xamarin Forms to .NET MAUI. [Adding Content](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/adding-content) [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)
 
-- Rock Core version.
-- Installed shell version in App Factory records, release notes, device app version, or app-store build metadata.
+### Dynamic versus static content
 
-A shell update is not normally required for every Rock-side content change, but it is required when the app needs new native capabilities, bug fixes in the shell, MAUI changes, OS support, store compliance, or feature tags that exceed the current shell version.
+Use **Dynamic Content = Yes** when a page must retrieve current server content on each initialization. Use static content only when bundling and deploy-controlled updates are intentional. Static Content block changes require a new Rock application deployment, and its Lava has no `CurrentPerson` context. [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 
-### Device And Platform Environment
+Before relying on personalization, inspect:
 
-Rock Mobile runs in iOS and Android contexts. Some features are platform-specific or behave differently across platforms. The Context Menu docs explicitly warn that Android limitations mean some menu features are richer on iOS and not every property translates to Android ([Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu)). The WebView docs warn that WebView content is contained and cannot control the native shell or native page ([Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)).
+- Dynamic Content
+- Process Lava on Server
+- Enabled Lava Commands
+- Authentication state
+- The block’s Context Entity Type
+- The page’s matching context parameter
+- The actual parameter supplied by the navigation command
 
-The MAUI migration is a major mental-model shift. Rock Mobile V6 moved from Xamarin Forms to .NET MAUI because Xamarin Forms support ended in May 2024. The migration guide highlights layout changes, scrolling, request sizing, removal or replacement of older elements, safe-area padding, and shell-update forcing as topics that can affect existing apps ([Migrating to .NET MAUI (V6)](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)).
+The Content block supports entity context when the block entity type and the page’s context parameter name agree. The documentation recommends passing context by GUID. A missing or invalid context should produce a bounded fallback instead of assuming the entity exists. [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 
-### Deployment Flow
+### Escaping XAML-producing Lava
 
-A typical Rock Mobile configuration change flows this way:
+Rock Mobile documentation identifies which Lava filters can execute locally in the shell. When Lava outputs XAML, escape titles, names, user-entered strings, URLs and other values that can contain markup-sensitive characters such as ampersands or quotes. URL parameters must also be encoded for their destination. [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 
-1. Admin or developer updates mobile app configuration, pages, blocks, XAML, colors, or content.
-2. The application page shows deployment status.
-3. The admin clicks Deploy.
-4. Rock produces a new deployed bundle.
-5. The app pulls the latest deployment when opened at the splash/launch screen or when reloaded under the documented testing flow.
-6. Dynamic content may update without a new deployment if the relevant content block is configured for that behavior ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
+A reviewed community pattern extends that rule operationally: test the page with punctuation-bearing names, titles and URLs, because one unescaped record can make an otherwise valid template fail to parse. Treat that as a troubleshooting practice, not a claim that every failure is an escaping problem.
 
-If a device does not reflect changes, inspect deployment status first, then whether the device has reloaded from the splash/launch process, then whether the changed content is dynamic or non-dynamic, then shell/Core version compatibility.
+## Commands
 
-## 4. Source Authority And How To Use This Guide
+Rock Mobile and .NET MAUI use commands for most actions and events. A control commonly exposes a `Command` property and a `CommandParameter`; some controls expose multiple named command properties. A command used by a button can also be attached to another compatible trigger, such as a gesture. [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)
 
-Use sources in this order:
+Command parameters have several supported shapes:
 
-1. Official Rock Mobile developer docs and Rock Mobile release notes.
-2. Rock Core source-code or generated model/view-model records.
-3. Official Rock docs, RockU, Model Map, and release notes when present in the pack.
-4. Community recipes only as examples, never as authoritative behavior.
+- A direct scalar value for a command that accepts shorthand input
+- A typed parameter object
+- Nested `Parameter` values for query-string-like input
+- A XAML-extension shorthand form
+- A collection of `CommandReference` items for an aggregate operation
 
-This source pack is strongest for:
+The shorthand form is compact but does not support parameter arrays. When the shorthand value contains commas, the documented pattern encloses that value appropriately so the parser does not split it as separate properties. [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)
 
-- Mobile app creation and configuration.
-- Deployment behavior.
-- Shell/Core dependency concept.
-- App Factory publishing concerns.
-- OS version requirements.
-- MAUI migration.
-- Commands and a subset of controls.
-- Release-note feature and bug history.
-- Check-in view-model/source-code landmarks from Rock Core.
-- Push notifications, app-store metadata, Android keystore, Rock logins, image resources, in-app giving.
-- Block family coverage via official mobile docs navigation.
+Commands are broadly reusable, but their context requirements differ. The `Callback` command is documented as functioning only in Content-derived blocks, while page-overlay commands require page context. Deeply nested action controls can lose the expected binding context; in those cases, use an explicit named reference to the parent binding context rather than assuming the nested object inherits the right command source. [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)
 
-This source pack is thin for:
+`CommandReference` represents a command and its parameter so one command can be supplied to another structure. Its `CommandParameter` became the default content property in Mobile Shell v3. [Command Reference](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference)
 
-- Full property tables for every mobile block.
-- Complete command parameter definitions for all commands.
-- Exact database table relationships for mobile application records.
-- Current App Factory operational policies beyond the hydrated docs.
-- Exact source-code implementation for Rock Mobile shell internals.
-- Full Model Map records.
+Shell v7 adds two useful command-triggering mechanisms:
 
-When a fact needs live verification, inspect the live Rock instance rather than guessing. Common live checks include:
+- `EventToCommandBehavior` links a named control event, such as a text-change event, to a command. [Event To Command Behavior](https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors/event-to-command-behavior)
+- `ExecuteCommand` runs a command during initialization, optionally after a delay or repeatedly. Its settings include `Enabled`, `Delay`, `Repeat`, `RepeatCount`, `StartWithExecution`, `Command` and `CommandParameter`. An unlimited repeating action should be intentional and should have a clear lifecycle. [Execute Command](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command)
 
-- Admin Tools > CMS Configuration > Mobile Applications.
-- Specific mobile application detail page.
-- Application type, orientation, API key, page list, flyout XAML, homepage routing.
-- Page/block tree and block settings.
-- Deployment status and last deploy time.
-- Dynamic Content settings.
-- Rock server version.
-- Mobile shell version/build in App Factory or store metadata.
-- Security permissions on pages, blocks, APIs, communication features, and content channels.
-- Communication transports, push medium settings, Firebase/service-account configuration.
-- Person/device/push notification records if troubleshooting push delivery.
-- Exception log and communication history.
-- App-store review credentials and developer-account invitations.
+## Controls
 
-Community recipes in the pack demonstrate real-world patterns, such as live captions/translation via a mobile layout and WebView-style integration ([Recipe 469](https://community.rockrms.com/recipes/469)) or a countdown-driven refresh/redirect pattern ([Recipe 402](https://community.rockrms.com/recipes/402)). Treat these as examples to adapt after security and performance review; the recipe pages themselves warn that community recipes are not reviewed or endorsed by the Rock core team.
+Rock Mobile provides content controls, developer controls, behaviors, effects and XAML extensions in addition to underlying MAUI controls. The supplied evidence lists controls for content, media, context, forms, responsive layout, navigation helpers, QR display, embedded web content and other mobile experiences. Availability still depends on the documented `M` and `C` requirements for the particular control. [Content Controls](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls) [Developer Controls](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls)
 
-## 5. Core Configuration And Data Model
+### Platform and device adaptation
 
-### Creating The Mobile Application
+The legacy `Rock:OnDevicePlatform` and `Rock:OnDeviceType` extensions can select property values or entire nodes for a platform or device class. Both are deprecated in Rock Mobile v6 and later because .NET MAUI provides built-in XAML extensions for those cases. Do not copy legacy syntax into a v6+ page without checking the current MAUI form. [On Device Platform](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform) [On Device Type](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type)
 
-The official first-app guide starts under Admin Tools > CMS Configuration > Mobile Applications, where a user can create a new app or open an existing one ([Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app)). Agents should not assume mobile apps live under the normal website page tree. Mobile applications have their own configuration surface.
+`PaletteColor` makes named application colors available in XAML, allowing controls to use the configured application palette instead of repeating literal colors. [Palette Color](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color)
 
-Minimum implementation checklist:
+### Context menus
 
-- Confirm the mobile application record exists.
-- Capture the application identifier used by the Rock Mobile Core app testing flow.
-- Confirm the app’s API URL.
-- Confirm the app’s API key.
-- Confirm application type.
-- Confirm page tree and homepage.
-- Confirm deploy status.
+A Rock Mobile context menu can attach native menu behavior to many controls. Its structure consists of `Menu`, `MenuGroup` and `MenuAction`; actions can invoke commands and pass parameters. iOS exposes more of the documented native menu behavior than Android, including some title and system-icon capabilities. Test both platforms and do not infer Android parity from an iOS result. [Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu)
 
-The source pack references “Application Id,” “API URL,” “API Key,” and “Rock Core App Connection” in the deployment/testing doc headings ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)). If those values are needed operationally, inspect the app’s deployment/testing documentation panel in the live Rock UI.
+A context menu can conflict with other tap recognizers. The documented attached click-command properties allow a normal tap action and a long-press menu to coexist. Opening the menu immediately on click is supported when the menu is attached to a button. [Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu)
 
-### Application Type
+### Borders and migration-era controls
 
-The App Configuration doc lists these application types:
+Shell v6 introduced `StyledBorder` as a CSS-compatible wrapper around MAUI’s `Border`. The older `Frame` and Rock `StyledView` remain present but are deprecated in the migration guidance. Prefer `StyledBorder` when CSS compatibility is required in a v6+ implementation, but verify the shell minimum before rendering it to older clients. [Styled Border](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/styled-border) [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)
 
-- Blank, marked by the docs as not recommended.
-- Flyout, marked by the docs as recommended.
-- Tabbed ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)).
+### Web views
 
-Operational interpretation:
+Rock’s `WebView` wraps the MAUI control and adds an initial activity indicator. Its content is isolated from the native page: an action inside the web view cannot directly initiate native shell navigation. The embedded page should include a viewport meta tag, and the WebView must not be placed inside a `ScrollView`, where its content can be clipped. A blank iframe on iOS may be a CORS failure whose error is not visibly surfaced. [Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)
 
-- Use **Flyout** when you want a common mobile app navigation pattern with a menu, many pages, and flexible growth.
-- Use **Tabbed** when the primary app experience is a small set of persistent top-level destinations.
-- Avoid **Blank** unless a custom shell/navigation strategy has been intentionally designed and tested.
+### Platform-specific visual effects
 
-When troubleshooting navigation, application type matters. A flyout problem may be in Flyout XAML, page registration, page security, shell version, or a page’s root XAML. Release notes mention a v2.1 fix for Flyout Shell behavior when `ListItem` was not the root XAML element ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+The documented Blur Effect is an iOS visual effect with a minimum Mobile Shell v4 requirement. Controls with their own background need a transparent background for the blur to show correctly, and removing shadow effects is recommended. Treat it as an iOS enhancement with a deliberate non-iOS experience. [Blur Effect](https://community.rockrms.com/developer/mobile-docs/essentials/controls/effects/blur-effect)
 
-### Lock Orientation
+Shell chrome—including status, navigation and tab bars—has specific CSS properties. Some properties are platform- or shell-version-specific; for example, selected and unselected tab colors require Mobile Shell v2, while documented iOS navigation-bar transparency and blur require v4. [Shell Components](https://community.rockrms.com/developer/mobile-docs/styling/style-guide/shell-components)
 
-The App Configuration doc includes Lock Orientation as a configuration area ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)). The source pack does not provide the full option list. In a live instance, inspect whether orientation is unlocked, portrait-locked, landscape-locked, or otherwise represented. For most church mobile apps, portrait should be the default expectation unless tablet/kiosk or media-display workflows demand another orientation.
+## Mobile Check-In
 
-Agent check:
+Mobile check-in is a contactless flow that runs on a participant’s mobile device. It uses Rock’s existing check-in configuration and can hand completed selections to a configured iPad kiosk for label printing by displaying a QR code. [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview)
 
-- If layout works on one device but breaks on another, verify orientation settings.
-- If a tablet layout is not used, verify device type and orientation.
-- If the shell rotates unexpectedly, verify app config and native shell behavior.
+### Prerequisites and configuration
 
-### Application Pages
+Before enabling the mobile channel, verify:
 
-Application pages are the mobile page tree. The App Configuration doc lists Application Pages as a core configuration area ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)). The source pack does not include a database schema for mobile pages, so agents should inspect the live page list in the mobile application record.
+1. The public site is served over HTTPS.
+2. The Google API key required for geofencing is configured.
+3. The underlying groups, locations, schedules and check-in configuration already work through normal check-in.
+4. Each campus has an appropriate virtual device using the check-in kiosk device type.
+5. Each device has the intended campus geofence and relevant campus locations.
+6. Campuses requiring different boundaries use separate device records.
+7. The Mobile Check-in Launcher enables the correct devices and lists the correct check-in configuration, theme and areas for the campuses served by that page. [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration)
 
-For each page, capture:
+A reviewed read-only conclusion in the evidence pack confirmed the structural presence of launcher settings for devices, configuration, theme, areas, identification and fallback messages, along with kiosk-device and schedule-related records. It did not verify any particular launcher instance or geofence.
 
-- Page name.
-- Page GUID/identifier if linking through commands, push notifications, or redirects.
-- Page route or order if visible.
-- Blocks on page.
-- Security authorization.
-- Phone layout XAML.
-- Tablet layout XAML.
-- Whether the page is native-block-based or URL/WebView-style.
-- Query string dependencies.
-- Required shell/Core versions for blocks and controls.
+An immutable public source snapshot also models kiosk resolution as matching a kiosk from location or campus selection, then returning availability and a message. When available, the resulting configuration contains the kiosk, template and enabled areas. This is implementation evidence, not proof of an installed configuration. [KioskResolutionBag at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs) [KioskAvailabilityBag at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs)
 
-Release notes for v3.0 mention support for pages displaying a URL instead of native Rock blocks ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). If a mobile page behaves like a website wrapper, verify whether it is configured as a URL page, as a WebView control inside XAML, or as a native mobile block page.
+### Participant flow
 
-### API Key
+The participant flow follows the normal check-in sequence:
 
-The App Configuration and Deploying docs both point to API Key as part of mobile configuration/testing ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration), [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)). The source pack does not enumerate the exact API permissions required. Do not assume an API key is valid because it is present.
+1. Identify the person, using login, phone lookup or another configured identity step.
+2. Choose the family members or individual checking in.
+3. Select eligible check-in options and complete the transaction.
+4. Display the QR code when a label-printing handoff is needed.
+5. Scan the QR code at the configured kiosk to print labels. [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview)
 
-Agent checks:
+Both family and individual flows are supported by the supplied approved claims. On first use, identity confirmation occurs before selection. When the same device is recognized later, the returning-user experience can begin closer to the selection step. Do not describe device recognition as a replacement for all identity or security checks. [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in)
 
-- Confirm the API key field is populated.
-- Confirm the key belongs to the intended Rock user or API identity.
-- Confirm that identity has only the permissions required by the app.
-- Verify page and block authorization separately from API key presence.
-- If a mobile app loads but data calls fail, inspect Rock security, API endpoint authorization, exception logs, and the specific block action/API endpoint.
+The QR code is the label-printing bridge, not the check-in transaction itself. If the participant adds selections after completing check-in, the QR payload can be updated rather than requiring an independent label-handoff workflow for each change. This behavior still needs end-to-end verification with the target kiosk and printer environment. [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in)
 
-### Flyout XAML
+### Availability and fallback states
 
-Flyout XAML is a configuration section in the official app configuration doc ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)). It defines the flyout navigation surface. Because XAML is interpreted by the mobile shell, failures can come from syntax, missing controls, unsupported shell version, invalid bindings, security-hidden pages, or root-element assumptions.
+The participant can encounter fallback screens when:
 
-When editing or diagnosing Flyout XAML:
+- No device matches the location or campus
+- The participant is outside the configured geofence
+- No service is currently available within the check-in window
+- No eligible check-in option is available
 
-- Validate that page references point to mobile app pages, not website pages.
-- Confirm referenced icons or image resources exist and are available in the deployed bundle or compiled shell.
-- Confirm command bindings match the current shell.
-- Confirm required controls are supported by shell version.
-- Test both iOS and Android if the flyout includes context menus, platform-specific layout, or native effects.
-- Redeploy after XAML changes.
+The launcher’s fallback and prompt text can be customized and can use Lava. Write early-flow copy without assuming Rock already knows the person’s identity. [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration)
 
-### Homepage Routing Logic
+## Mobile Engagement And Background Work
 
-The App Configuration doc lists Homepage Routing Logic ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)). The pack does not include the full syntax. In a live app, inspect whether routing is based on login state, page parameters, campus, app state, or custom Lava/XAML logic. For agents, homepage routing is a high-risk area because it can make the app appear blank, send unauthenticated users into restricted pages, or break app-store review credentials.
+When a mobile or web content process depends on slow external work, a community-reviewed implementation pattern uses a Rock workflow to own orchestration rather than blocking the interface. The workflow exposes explicit processing states, retries and completion checks; only a completed and verified output should be linked into public pages or mobile content. [Media Watch community example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr)
 
-Operational checks:
+This is an implementation pattern, not a guarantee that a specific provider, workflow action or mobile block is installed. Before adopting it, verify the available workflow actions, provider authentication, retry behavior, failure states and who can publish the completed result.
 
-- Test signed-out launch.
-- Test signed-in launch.
-- Test app-store review login accounts.
-- Test locked/non-confirmed account behavior if using login.
-- Test launch after a push notification deep link.
-- Test after logout.
-- Test with no network or slow network if possible.
+## Outreach Toolbox
 
-### Palette Colors And Styling Values
+Official release material presents Outreach Toolbox as a Rock v19 signed-in mobile experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Its dashboard can surface people due for relationship-care actions. [Outreach Toolbox in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4) [Outreach dashboard overview](https://www.youtube.com/shorts/c6T9Ha13jKE)
 
-The Palette Color XAML extension lets XAML reference named application palette colors. The source pack lists color names available as of Rock Server 1.12.5, including `Text-Color`, `Heading-Color`, `Background-Color`, `App-Primary`, `App-Secondary`, `App-Success`, `App-Info`, `App-Danger`, `App-Warning`, `App-Light`, `App-Dark`, and `App-Brand` ([Palette Color](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color)).
+The supplied evidence describes:
 
-Use palette references when XAML needs to follow app branding without hardcoding hex values. For live troubleshooting:
+- Onboarding choices for assignment days and reminder preferences
+- Configurable jobs that determine reminder time-of-day values
+- Contact-specific prayer and connection cadences
+- Completed-touchpoint history
+- Periodic pulse updates
+- Configurable milestone prompts
 
-- Inspect application colors in the mobile app configuration.
-- Inspect the active `Mobile Style Framework`; Standard, Blended, and Legacy modes materially change how much of the app can respond to dark mode.
-- Confirm CSS and XAML color references use the same intended palette names.
-- Prefer semantic interface and accent values such as `Interface-Strongest`, `Interface-Softest`, `Primary-Strong`, and `Primary-Soft` over hardcoded white/black/brand colors when the surface must survive light and dark appearances ([Colors](https://community.rockrms.com/developer/mobile-docs/styling/style-guide/colors), [Migrating](https://community.rockrms.com/developer/mobile-docs/styling/style-guide/migrating)).
-- Confirm dark mode behavior on iOS and Android. Release notes record a v4.0 fix for a dark-mode picker color issue in `BibleBrowser` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- Confirm shell version if a color property is ignored. Release notes record a v7.0 fix where `Tag.TextColor` was not respected ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+Before ministry use, verify current shell support, page placement, authentication requirements, block settings, permissions to view contact data, job scheduling and actual push delivery in the target environment. The release material is not evidence that the feature is enabled or authorized in a particular app. [Outreach Toolbox in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4)
 
-For detailed dark-mode x-ray fields, CSS/XAML examples, shell chrome checks, and screenshot evidence rules, use [Rock Mobile CSS X-Ray Design Resource](resources/css-xray-design-resource.md#dark-mode-and-color-scheme-workflow).
+## Push Notifications
 
-## 6. Primary Entities And Relationships
+Rock Mobile push notifications can target individuals, communication lists or everyone with the app installed, including recipients who are not signed in. The open action can link to a mobile page or show communication details; a page destination must belong to the mobile application. [Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)
 
-The source pack does not provide full Rock database schema records for Rock Mobile application tables. The relationships below are operationally useful but should be verified in a live Rock instance or Model Map before writing SQL, migrations, or automation.
+Push delivery requires both publishing-time and Rock-side configuration. The documented setup includes the provider service-account configuration, the communication transport and medium, the app’s notification-permission request and the recipient device state. Do not expose service-account material in tickets, documentation or test output.
 
-### Mobile Application Relationship Map
+The app can request permission automatically or invoke the `EnablePushNotifications` command from a user action. If permission was requested but notifications are disabled, the app can direct the user to application settings. Core v15.2 introduced an updated service integration that may require coordinated service-account configuration but not necessarily a store shell update. [Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)
 
-The official [Rock Mobile documentation](https://community.rockrms.com/developer/mobile-docs) and [Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes) define the supported shell and publishing surface. Use the version-matched Model Map and live app configuration to verify exact page, block, API-key, security, communication, and deployment relationships before changing records.
+## App Publishing
 
-A Rock Mobile implementation typically includes:
+The official mobile documentation describes App Factory as the service used to compile the shell and publish Rock Mobile apps to Apple and Google stores. Publishing covers native shell releases; it is distinct from deploying application pages and content from Rock. [App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory) [Mobile Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon)
 
-- **Mobile Application**: top-level app configuration.
-- **Pages**: mobile app pages attached to the application.
-- **Blocks**: feature blocks placed on pages.
-- **Layouts/XAML**: phone/tablet layout markup for pages, flyout, and custom content.
-- **API key**: identity for app/Core communication.
-- **Deployment bundle**: published state consumed by devices.
-- **Content entities**: content channels, structured content, media, workflows, events, groups, prayer requests, communications, depending on blocks.
-- **Security entities**: users, roles, authorization rules, login records.
-- **Communication entities**: transports, mediums, push subscriptions/device identifiers.
-- **Store/app publishing records**: App Factory, Apple, Google, keystore, developer accounts.
+### Developer-account ownership and access
 
-Before making data changes, locate the specific records in Rock UI or Model Map. Do not infer table names from mobile docs alone.
+Current App Factory documentation requires organizations to host the app under their own Apple and Google developer accounts and grant the App Factory team the access needed to publish. Owning the accounts gives the organization store control but also makes it responsible for renewals, agreements, policy changes, verification and other account maintenance. The same documentation notes that older apps hosted under provider accounts can be delisted after the service relationship ends. [Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts)
 
-### Page, Block, And Security Relationships
+Store review also requires working app credentials. The documented process uses separate Apple-review and Google-review logins, kept active for initial publishing and later shell updates. These accounts can be limited demo accounts without special Rock permissions. Supply credentials only through the provider’s approved secure channel. [Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins)
 
-A mobile page can host one or more mobile blocks. Each block may read and write Rock data. Page security and block-specific security both matter. If a block fails only for anonymous users or only for a specific role, inspect:
+### Store listing and graphics
 
-- Page authorization.
-- Block authorization.
-- Entity-specific security, such as content channel item visibility, group access, finance account visibility, or workflow type security.
-- API key user permissions.
-- Current person context after login.
+The iOS product page includes the app name, icon, subtitle, screenshots, description, keywords, update notes, categories, support URL and other metadata. The documented app name and subtitle limits are 30 characters each. The support URL is required and must lead to real contact information. App Factory can generate default icons and screenshots, but requested branding and featured screens should be reviewed before submission. [App Store Product Page](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page)
 
-The mobile developer navigation lists Security as a block family ([Security Blocks](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security)), and the broader mobile docs list login, Auth0, and Entra under CMS login ([Developers](https://community.rockrms.com/developer/mobile-docs/developers)). The pack does not include full login/Auth0/Entra pages, so verify login provider details in live configuration.
+The supplied App Factory graphics requirements include:
 
-### Check-In Source-Code Landmarks
+- Launch image: `2048×2048`, with a `720×1440` safe area
+- iOS icon: `1024×1024`, with no transparent pixels
+- Android background and foreground icon layers, store icon, notification icon and feature graphic
+- Store previews for the specified iPhone, iPad, Android phone and Android tablet formats
 
-The source pack includes multiple Rock Core view-model files for check-in. These are not mobile-shell internals, but they are useful for understanding next-generation check-in data exchanged by blocks and APIs.
+Treat these as the supplied documentation snapshot and confirm the current submission template before producing final assets, because store requirements can change. [Store Graphics & Icons](https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons)
 
-Key source-code landmarks:
+### Android signing
 
-- `CheckInSecurityCodesSettingsBag` configures security-code length and format. The code comments state that Rock generates alpha-numeric characters first, then alphabetic, then numeric, and total length is the sum of all configured counts ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInSecurityCodesSettingsBag.cs), [TypeScript source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/checkInSecurityCodesSettingsBag.d.ts)).
-- `CheckInKioskFeaturesSettingsBag` includes kiosk features such as allowing checkout at kiosk, enabling presence, and allowing removal of “Can Check-in” relationships without supervisor login for next-gen check-in ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInKioskFeaturesSettingsBag.cs)).
-- `KioskConfigurationBag` contains kiosk details, check-in template, and enabled areas for a kiosk startup payload ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs)).
-- `SavedKioskConfigurationBag` stores campus, template, kiosk device, area ids, and theme-like saved configuration details in browser local storage for web kiosk configuration retrieval ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SavedKioskConfigurationBag.cs)).
-- `ActiveAttendanceBag` tracks a minimal attendance record with encrypted identifiers for attendance, group, location, and status ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs)).
-- `ReprintAttendanceBag` contains person name, security code, group, location, schedule, and attendance identifiers needed to reprint labels ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs)).
-- `PrintResponseBag` returns new labels, legacy labels, and error messages for print operations ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/PrintResponseBag.cs)).
-- `EditFamilyResponseBag`, `SaveFamilyOptionsBag`, and `SaveFamilyResponseBag` describe registration/edit-family payloads and outcomes, including SMS toggles, address display requirements, family attributes, relationship choices, grade-prompt rules, and whether check-in after registration is allowed ([EditFamilyResponseBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/EditFamilyResponseBag.cs), [SaveFamilyOptionsBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SaveFamilyOptionsBag.cs), [SaveFamilyResponseBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SaveFamilyResponseBag.cs)).
-- `GetScheduledLocationsResponseBag` returns schedules and scheduled group-location items for selection ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs)).
-- `LocationStatusItemBag` indicates whether a location is currently open or closed ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs)).
-- `SubscribeToRealTimeResponseBag` includes identifier mappings used when subscribing to real-time check-in messages ([C# source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SubscribeToRealTimeResponseBag.cs)).
+The Android keystore signs the app and establishes continuity between releases. Updates must use the same signing identity. If an existing app is being replaced, the original keystore may be required; without it, and absent a supported signing arrangement, publishing a new store application may be necessary. Do not share or expose a keystore. [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)
 
-These records matter when an agent is diagnosing mobile check-in or proximity attendance because they show the operational shape of kiosk configuration, attendance state, label printing, scheduled location selection, and family registration. They do not prove every UI behavior. Verify the relevant block action, Rock version, and app shell in the live instance.
+New Android publications use Android App Bundles, and the documented App Factory process enrolls apps in Play App Signing. Verify the live console state instead of assuming enrollment from the existence of a bundle file. [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)
 
-## 7. Common Rock Mobile Workflows
+### Compiled image resources
 
-### Build A First App
+App Factory can compile selected images into the shell. This avoids network loading and visual pop-in but increases the application download size. Those assets are not processed by the server or CDN, so optimize them before submission. Changing them requires provider coordination and another store update. [Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources)
 
-Use the official sequence:
+The documented resource URI incorporates the compiled filename. Escape the filename when producing it through Lava, and account for the provider’s filename normalization. Do not use compiled resources for frequently changing imagery. [Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources)
 
-1. Create the mobile application in Admin Tools > CMS Configuration > Mobile Applications ([Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app)).
-2. Configure application type, orientation, pages, API key, flyout XAML, and homepage routing ([App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)).
-3. Add content/pages/blocks using mobile-compatible blocks.
-4. Deploy the app.
-5. Test using the Rock Mobile Core app connection details, including Application Id, API URL, and API Key as applicable ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
+### In-app giving
 
-Agent implementation guardrail: after every configuration change, record whether a deploy is required and whether the device must reload.
+As of Mobile Shell v7, Rock Mobile documentation identifies native giving controls. An embedded web view is another possible integration, but store approval and configuration remain the responsibility of the submitting organization, its support partner and the giving provider. The supplied documentation also describes Apple nonprofit-verification and payment-policy requirements; if native or WebView giving is unsuitable, it directs the app to an external-browser flow. Confirm current store policy and provider requirements at submission time. [In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)
 
-### Change A Page Or Block
+## Mobile Releases
 
-Workflow:
+### Core and shell compatibility
 
-1. Identify mobile application.
-2. Identify page.
-3. Identify block instance.
-4. Inspect block settings and required shell/Core tags.
-5. Make the change.
-6. Deploy unless it is dynamic content.
-7. Reload app from splash/launch or test workflow.
-8. Test signed-out and signed-in if security or personalization is involved.
-9. Test iOS and Android for native controls, WebView, context menu, push, or media behavior.
+A newer Rock Core version does not prove that a feature is available in the installed shell, and a newer shell does not prove that the server supports the feature. Check both documented version tags. [Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)
 
-### Add A WebView Integration
+The shell is designed for forward compatibility with later Rock Core versions where possible, but it still needs periodic store updates to target supported iOS and Android versions. The supplied Android guidance recommends an annual update cadence and says an update is needed at least every one to two years to avoid Play availability problems as target-API requirements advance. [Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements)
 
-The WebView control embeds a web page in a mobile app page and wraps the platform WebView with an initial activity indicator ([Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)). The docs warn that WebView content is contained and cannot affect the native shell or native page. Therefore, a WebView button cannot directly run a native Rock Mobile navigation command unless bridged by a supported mechanism not present in this source pack.
+The release-note snapshot supplied with this guide includes Rock Mobile releases through v19.4, dated August 28, 2026. Release notes also declare minimum operating-system and Rock versions for major shell releases. Use the current release entry applicable to the installed build, not merely the newest entry on the page. [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)
 
-Agent checklist:
+### Xamarin Forms to .NET MAUI
 
-- Confirm the external page is mobile-responsive.
-- Add a mobile viewport meta tag to the web page as the WebView docs recommend ([Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)).
-- Do not place WebView in layout conditions where it has no explicit size or collapses invisibly.
-- Confirm authentication/session expectations.
-- Verify iOS and Android rendering.
-- Verify external content does not visually fight native navigation bars or tab bars. The in-app giving doc makes a similar warning for embedded giving pages ([In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)).
-- Confirm privacy/security implications for third-party content.
+Mobile Shell v5 and earlier use Xamarin Forms; v6 and later use .NET MAUI. Much XAML remains recognizable, but the migration includes breaking layout and control behavior that must be tested. [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)
 
-Community examples include embedding live captions/translation into Rock Mobile ([Recipe 469](https://community.rockrms.com/recipes/469)). Treat that as a pattern, not a guarantee of best practice.
+Evidence-supported migration risks include:
 
-### Configure Push Notifications
+- Complex `StackLayout` behavior
+- Scrolling inside unconstrained layouts
+- Width and height requests
+- Changes involving the Xamarin Community Toolkit
+- Gradient transparency
+- The `Zone` control’s move from `StackLayout` to `Grid`
+- Deprecation of `Frame` and `StyledView`
+- The move from safe-area effects toward MAUI-era behavior
+- Legacy platform and device XAML extensions
 
-The push-notification doc describes mobile push as a communication path that can target individuals, communication lists, or everyone with the app installed, even if not signed in ([Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)). It lists major areas: authoring notifications, configuration, service account JSON, communications, communication transport, communication mediums, setting up the app, sending, alternative methods, and personal device ID.
+A reviewed community pattern recommends treating these as separate migration recipes rather than performing one blanket textual conversion. Inventory each pattern, preserve intentional expansion with a suitable layout, bound scrolling content, gate MAUI-only controls when old shells remain in service and visually test actual pages on both shell generations. This operational pattern still requires target-app verification. [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)
 
-Operational flow:
+Legacy styling documentation applies to applications targeting Rock versions before 17 or Mobile Shell versions before 6. Do not mix legacy and current styling instructions without recording the target versions. [Legacy Styling](https://community.rockrms.com/developer/mobile-docs/styling/legacy)
 
-1. Confirm the shell/app was built with push capability through App Factory.
-2. Configure the required service account JSON or provider credentials in Rock.
-3. Confirm communication transport exists and is active.
-4. Confirm communication medium is configured.
-5. Confirm the mobile app setup is completed.
-6. Confirm devices have requested and granted notification permissions.
-7. Send a test push to a known person/device.
-8. Inspect communication records and any exception logs.
-9. Test open actions: Link to Mobile Page or Show Details. The push doc notes that Link to Mobile Page should reference a mobile app page, not a non-mobile site page, and can include query strings ([Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)).
+### Release-specific behavior
 
-Release caveats:
+Release notes are evidence for behavior in the stated release, not every earlier shell. For example, the supplied v19.1 records fixes for Android external links and Android audio behavior. If those symptoms occur, identify the installed shell before concluding that the documented fix is present. [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)
 
-- v2.2 fixed an iOS push-notification delivery issue under a specific settings combination ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added ability to detect push-notification state in XAML and an app value indicating whether push permission had been requested ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+## Version And Authority Caveats
 
-### Publish Or Update Through App Factory
+- **Official documentation** describes intended configuration and supported behavior, subject to its `M` and `C` version gates.
+- **Release notes** describe additions and fixes for named releases. They do not prove that a device has installed that release.
+- **RockU check-in material** supplies operational guidance. Several approved claims were accompanied by a reviewed read-only structural check, but no particular organization’s launcher or geofence was certified.
+- **Public source excerpts** are pinned to immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. They clarify implementation shapes but do not establish an installation’s version, configuration or runtime outcome.
+- **Community-reviewed patterns** in this guide are examples for troubleshooting and orchestration. They are not universal product guarantees.
+- **Outreach Toolbox material** is official release-oriented evidence centered on Rock v19, but current shell compatibility, authentication, placement, jobs and permissions must be verified before rollout.
+- **Store policies and graphics requirements** can change independently of Rock. Reconfirm them during an actual submission.
+- **Live verification was not performed for this synthesis.** Any installation-dependent conclusion belongs in a separate bounded, read-only review.
 
-App Factory exists because compiling and publishing native apps requires platform expertise ([App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory)). App Factory can publish under either the organization’s Apple/Google developer accounts or Triumph Tech’s accounts, depending on the arrangement ([Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts)).
+## Troubleshooting Decision Tree
 
-Publishing checklist:
+### Changes do not appear in the app
 
-- Decide whose developer accounts host the app.
-- If using organization-owned accounts, invite App Factory with required Apple/Google access.
-- If using Triumph-hosted accounts, understand delisting risk if the subscription ends; the Developer Accounts doc notes apps hosted under Triumph accounts may be delisted after subscription end ([Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts)).
-- Provide app-store product metadata: app name, icon, subtitle, screenshots, description, promotional text, keywords, categories, support URL, marketing URL, copyright ([App Store Product Page](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page)).
-- Provide Android keystore if replacing an existing Android app. The Android Keystore doc states updates must be signed consistently and losing the keystore can mean losing update access unless Play App Signing applies ([Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)).
-- Provide app-store review Rock login credentials. The Rock Logins doc says app stores require credentials for review and recommends separate Apple and Google review logins with no special permissions beyond demo access ([Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins)).
-- Provide image resources to compile into shell if needed, knowing those require store updates to change ([Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources)).
-- Confirm in-app giving compliance if native or WebView giving is present ([In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)).
+1. Identify whether the changed item is dynamic Content block output, static content, page configuration, branding or a compiled shell resource.
+2. If it is dynamic content, reload the page and verify the server-rendering settings.
+3. Otherwise, check the Application page’s deployment status, deploy the change and reload the app.
+4. If the change is a compiled image or shell capability, verify that a store update was published and installed.
+5. Stop when the device is confirmed to be running the intended deployment and shell; do not keep editing content to compensate for a stale client. [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app) [Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources)
 
-### Upgrade From Xamarin Forms To MAUI
+### The test shell cannot connect
 
-Rock Mobile V6 is the MAUI transition. The migration doc explains that Xamarin Forms lost Microsoft support in May 2024 and that V6 moved to .NET MAUI for support, performance, SDK access, features, controls, and bug fixes ([Migrating to .NET MAUI (V6)](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)).
+1. Confirm the application is deployed and shows a successful status.
+2. Recheck the Application ID, public API URL and API key.
+3. Confirm the server is publicly reachable; a normal device cannot connect directly to localhost.
+4. Check whether the API key changed after the client was configured.
+5. Stop before rotating a published application’s API key without provider coordination. [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)
 
-Migration workflow:
+### The app crashes immediately after opening
 
-1. Inventory all custom XAML.
-2. Inventory custom CSS and Downhill classes.
-3. Inventory platform-specific extensions such as Rock’s legacy `OnDevicePlatform`, deprecated in V6 and later in favor of built-in MAUI platform support ([On Device Platform](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform)).
-4. Check layout behavior, scrolling, `WidthRequest`, `HeightRequest`, old `Frame`/`StyledView` usage, Zone control usage, and safe-area padding topics from the migration doc ([Migrating to .NET MAUI (V6)](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)).
-5. Test pages on iOS and Android.
-6. Test push, login, media, WebView, flyout/tab navigation, and dynamic content.
-7. Review release notes for known v6/v7 follow-up fixes.
+1. Inspect Flyout XAML for Lava; Lava is not supported there.
+2. Confirm Homepage Routing Logic returns a valid mobile page GUID.
+3. Check whether the rendered page includes a control unavailable in the installed shell.
+4. Validate generated XAML and escape dynamic attribute values.
+5. Reproduce on both iOS and Android if platform-specific markup is present. [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) [Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)
 
-## 8. Commands Deep Dive
+### Personalized content is blank or anonymous
 
-Commands are the behavior layer of Rock Mobile. The docs frame commands as a shared structure used by .NET MAUI and Rock Mobile for actions and events. A control exposes a `Command` property or specialized command property; the command may accept a parameter; and the same command pattern can be reused across different command-capable contexts ([Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)).
+1. Check whether the Content block is static; static Lava has no `CurrentPerson`.
+2. Verify Dynamic Content and Process Lava on Server.
+3. Inspect enabled Lava commands.
+4. Confirm that the shell user is authenticated.
+5. If the block uses entity context, verify the entity type, page parameter name and passed GUID.
+6. Provide a safe missing-context state instead of dereferencing a null entity. [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 
-### Command Binding Pattern
+### One record causes a XAML page to fail
 
-Confirm command names, binding context, and parameter contracts against the official [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands) reference for the deployed shell version. The example below is a pattern only; verify it on the target page and both supported platforms.
+1. Capture the type of value that differs: title, name, URL, query parameter or user-entered text.
+2. Escape the value for XAML.
+3. URL-encode values placed in a URL or query string.
+4. Test ampersands, apostrophes, quotes, commas and other punctuation.
+5. Confirm that the required Lava filter is available in the actual processing context. [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 
-A typical command pattern is:
+### A command does nothing
 
-```xml
-<Button
-    Text="Open"
-    Command="{Binding OpenBrowser}"
-    CommandParameter="https://example.org" />
-```
+1. Verify the command exists in the installed shell.
+2. Confirm that the triggering control exposes the expected command property.
+3. Validate the parameter shape accepted by that command.
+4. If shorthand syntax contains commas, check its quoting.
+5. For nested action panels, menus or templates, explicitly reference the parent binding context.
+6. Check whether the command requires a Content-derived block or page context.
+7. Stop when the command works in a minimal control; then restore surrounding nesting one layer at a time. [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)
 
-This is an original example following the documented command model, not a copied source example. The exact command names and parameter types must be confirmed against the command reference and shell version.
+### A WebView is blank, clipped or cannot navigate natively
 
-Agent checks:
+1. Confirm the source page is reachable from the device.
+2. Add the mobile viewport meta tag to the embedded page.
+3. Remove the WebView from any containing `ScrollView`.
+4. If an iframe is blank on iOS, investigate CORS against the API domain.
+5. Do not expect JavaScript or links inside the WebView to invoke native shell commands directly. [Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)
 
-- Is the command name correct for the current shell?
-- Is the command exposed by the current binding context?
-- Does the control support the `Command` property or a named command property?
-- Does the command require a structured parameter object?
-- Does the command require a mobile page GUID, route, URL, or query string?
-- Was the page deployed after adding the command?
-- Is the failure platform-specific?
+### A page layout breaks after moving to Shell v6
 
-### CommandReference
+1. Identify the original shell and confirm the target is v6 or later.
+2. Inventory `StackLayout`, expansion options, scrolling containers, hard size requests, `Zone`, `Frame`, `StyledView`, safe-area effects and legacy platform extensions.
+3. Replace only the pattern being tested; do not apply an undifferentiated search-and-replace.
+4. Use constrained grid regions where scrolling or expansion requires them.
+5. Use a v6-compatible border control where appropriate.
+6. Render and visually inspect every affected page on representative phone and tablet layouts. [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)
 
-`CommandReference` lets a command be passed as a parameter to another command or object. The source pack says it has `Command` and `CommandParameter` properties, and in mobile shell v3.0 the command parameter became the default content property ([Command Reference](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference)). This is important when composing commands such as aggregate or multi-step command flows.
+### A context menu works differently on Android
 
-Use cases:
+1. Identify whether the missing behavior is an iOS-only title, system icon or native-menu feature.
+2. Verify the action command and parameter independently of its icon or presentation.
+3. Add an Android-safe visual alternative.
+4. Test tap and long-press behavior separately when another recognizer is attached. [Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu)
 
-- Set context, then navigate.
-- Run a command from a menu action.
-- Pass a command into a reusable control.
-- Combine state mutation and UI feedback.
+### Push notifications are not arriving
 
-Version caveat: if syntax using child content for `CommandParameter` fails, verify shell version is at least the version where that behavior was introduced.
+1. Confirm the app has been through notification-capable publishing configuration.
+2. Verify the Rock communication transport and push medium.
+3. Confirm the provider service-account configuration is current without exposing it.
+4. Check whether the device was asked for permission and whether permission is currently enabled.
+5. Verify the recipient scope and the mobile-page destination.
+6. If using the updated service integration, confirm the applicable Rock Core requirement and provider coordination.
+7. Test actual delivery on both target platforms; a queued communication is not proof of device receipt. [Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)
 
-### ExecuteCommand Control
+### Mobile check-in cannot find a kiosk
 
-`ExecuteCommand` was added in shell v7.0. It is a developer control that executes a command on initialization and can delay or repeat execution. The docs list properties including `Delay`, `Enabled`, `Repeat`, `RepeatCount`, `StartWithExecution`, `Command`, and `CommandParameter` ([Execute Command](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command)). The v7.0 release notes also record the new ExecuteCommand control ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+1. Confirm HTTPS and the geofencing API prerequisite.
+2. Verify location permission and the participant’s current campus or boundary.
+3. Inspect the virtual kiosk device type, campus geofence and associated campus locations.
+4. Confirm that the launcher enables that device.
+5. If campus boundaries differ, confirm separate device records exist.
+6. Test campus selection as well as location-based resolution when the configured experience offers both. [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration)
 
-Use cases:
+### Mobile check-in finds a kiosk but says no service is available
 
-- Delayed reload.
-- Periodic state refresh.
-- Deferred navigation after rendering.
-- Timed UI state changes.
-- Lightweight polling where a block does not provide native refresh behavior.
+1. Confirm normal check-in works for the same configuration.
+2. Check current schedules and check-in windows.
+3. Verify the launcher’s selected configuration and areas.
+4. Confirm the person or family has an eligible option.
+5. Inspect the configured fallback message so it accurately explains the current stage.
+6. Retry only after correcting the configuration or entering a valid time window. [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in)
 
-Guardrails:
+### Check-in completes but labels do not print
 
-- Avoid unbounded repeats unless the page is designed for it.
-- Consider battery and network cost.
-- Do not use `ExecuteCommand` to hide a server-side data problem.
-- Confirm it does not run repeatedly after navigation or page resume in a way that causes duplicate writes.
-- Confirm shell v7.0 or later.
+1. Confirm attendance/check-in completion separately from printing.
+2. Verify that the QR code represents the latest completed selections.
+3. Confirm the scanning device is the intended configured kiosk.
+4. Test the kiosk-to-printer path using ordinary check-in.
+5. Scan the mobile QR code and verify the print response on the kiosk.
+6. Do not repeat the check-in transaction merely to regenerate the label handoff. [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in)
 
-### Commands From Release Notes
+### A store update cannot replace the existing Android app
 
-The release notes establish a timeline for several command capabilities:
+1. Confirm the package and store listing being replaced.
+2. Resolve ownership of the original signing keystore.
+3. Check Play App Signing state in the live Google Play account.
+4. Coordinate the required signing material through an approved secure channel.
+5. If the signing identity cannot be recovered or transferred, stop and evaluate a new store application rather than attempting an unsigned replacement. [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)
 
-- v2.0 added `WriteInteraction`, allowing an interaction write after an action ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v2.0 added logout parameter syntax for reload or navigation after logout ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added `AddEventToCalendar` for device calendar insertion ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added `SetViewProperty` for changing a view property in response to an action ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added `PerformHapticFeedback` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added `MapAddress` to open an address or coordinates in a native mapping app ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added a command to open application settings ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v4.0 added `ReloadPage` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v4.0 added toast functionality used by `ShowToast` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v7.0 added `CopyToClipboard` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v7.0 fixed `AddEventToCalendar` behavior ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v7.0 fixed a MAUI popup overlay issue for `ShowPopUp` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+### The app is unavailable on newer Android devices
 
-Agent rule: if a command does not work, check the shell version before debugging XAML. A v3.0 command will not be reliable in a v2.x shell; a v7.0 command such as `CopyToClipboard` or `ExecuteCommand` requires v7.0.
+1. Identify the installed store build and its target API.
+2. Compare it with the current Google Play requirement.
+3. Check the latest supported Rock Mobile shell.
+4. Request, publish and verify a shell update.
+5. Adopt a recurring review cadence rather than waiting for delisting. [Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements)
 
-### Operational Command Troubleshooting
+### Outreach Toolbox is missing or reminders do not fire
 
-Use the official [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands) reference and [Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes), then inspect the target page's deployed XAML, binding context, parameters, security, shell version, and platform logs. A command that works in preview or one operating system is not proof that the production bundle is correct.
+1. Confirm the installed Rock and Mobile Shell versions support the intended experience.
+2. Verify the user is signed in.
+3. Confirm page placement and access authorization.
+4. Inspect the relevant block settings and contact-data permissions.
+5. Check onboarding selections, assignment days and reminder preferences.
+6. Verify the configured jobs and their time-of-day values.
+7. Test an actual push notification on the target device.
+8. Stop before treating a scheduled job run as proof of notification delivery. [Outreach Toolbox in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4)
 
-Use this branch:
+## Agent Task Recipes
 
-1. **Command does nothing**
-   - Verify shell supports command.
-   - Verify binding context exposes command.
-   - Verify control supports command property.
-   - Verify parameter type and syntax.
-   - Check page deployed.
-   - Check app reloaded.
+### Recipe: Create and test a minimal mobile application
 
-2. **Command runs on one platform only**
-   - Check platform limitations.
-   - Check OS permissions.
-   - Check release notes for platform-specific fixes.
-   - Test latest shell.
+**Outcome:** A deployed application opens in the Rock Mobile Core test shell.
 
-3. **Navigation command opens wrong page**
-   - Confirm mobile page GUID/route, not website page.
-   - Check query string.
-   - Check security.
-   - Check homepage routing after login/logout.
+1. Create the application under Mobile Applications.
+2. Select Flyout or Tabbed navigation unless the use case specifically requires Blank.
+3. Configure an organization-specific alphanumeric API key.
+4. Create or open the homepage.
+5. Add one Content block with minimal valid XAML.
+6. Deploy the application.
+7. Connect the test shell using the Application ID, public API URL and API key.
+8. Launch on at least one target device.
 
-4. **Command writes duplicate records**
-   - Check repeated triggers.
-   - Check `ExecuteCommand` repeat settings.
-   - Check page lifecycle/resume behavior.
-   - Check button double-tap prevention or command enabled state.
+**Inspect:**
 
-5. **Popup/toast/media command has visual issues**
-   - Check MAUI shell version.
-   - Check v7.0 popup fix.
-   - Check dark mode and safe area.
-   - Check whether command is called before page render completes.
+- Deployment status
+- Correct application ID
+- Public reachability
+- Shell and Core versions
 
-## 9. Controls Deep Dive
+**Do not assume:**
 
-Controls are the XAML building blocks for Rock Mobile UI. They may wrap MAUI controls, add Rock-specific behavior, or expose native capabilities.
+- Saving automatically deploys
+- A localhost server is reachable
+- The Rock application name becomes the store name
 
-### WebView
+**Stop when:**
 
-Rock’s WebView control wraps the standard WebView and adds an initial activity indicator until the page loads ([Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)). It should generally be used instead of the plain MAUI WebView according to the docs. Important constraints:
+- The intended deployed page renders in the test shell. [Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app) [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)
 
-- WebView content is contained.
-- WebView content cannot affect the app shell or native page.
-- A web page embedded in WebView should include a mobile viewport meta tag.
-- WebView layout must have enough size to render; if a WebView appears blank, inspect parent layout sizing first.
+### Recipe: Build personalized Content block output safely
 
-Operational uses:
+**Outcome:** A mobile page displays current, identity-aware or entity-aware content without malformed XAML.
 
-- External giving page fallback.
-- Live captions or translations.
-- Legacy web content.
-- Third-party integrations.
-- Temporary migration bridge while native blocks are built.
+1. Enable Dynamic Content when fresh server output or `CurrentPerson` is required.
+2. Configure server-side Lava processing and only the Lava commands needed.
+3. For entity context, select the entity type and define the matching page parameter.
+4. Pass the entity GUID through the navigation command.
+5. Handle missing authentication or context explicitly.
+6. Escape all dynamic XAML text.
+7. URL-encode query values.
+8. Test signed-out, signed-in, missing-context and punctuation-heavy records.
 
-Risks:
+**Do not assume:**
 
-- Inconsistent authentication.
-- Poor mobile scaling.
-- Navigation conflict with native bars/tabs.
-- External content downtime.
-- App-store review concerns.
-- Accessibility gaps.
+- Static content has `CurrentPerson`
+- Authentication alone establishes block entity context
+- Valid Lava output is valid XAML
 
-### Context Menu
+**Stop when:**
 
-The Context Menu control family supports native context menus attached to many controls. The docs identify `Menu`, `MenuAction`, and `MenuGroup` as the main pieces and warn that iOS has richer native support than Android ([Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu)).
+- Each context state renders a deliberate page rather than an exception. [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava)
 
-Use context menus for:
+### Recipe: Add a command-driven interaction
 
-- Secondary actions.
-- Share/copy/save actions.
-- Content item actions.
-- Admin or leader-only quick actions.
-- More options without cluttering the primary mobile layout.
+**Outcome:** A control executes a supported command with a validated parameter.
 
-Guardrails:
+1. Check the command’s `M` and `C` requirements.
+2. Confirm whether it needs block or page context.
+3. Start with a minimal button or equivalent control.
+4. Supply the simplest supported parameter form.
+5. If the parameter is structured, use the documented typed object.
+6. If nested controls lose the binding, reference the parent binding context explicitly.
+7. Test the action and its cancellation or failure path.
+8. Move the working command into the final gesture, menu or behavior.
 
-- Do not hide primary user flows inside context menus.
-- Test Android; not all iOS menu properties translate.
-- Keep menu actions permission-aware.
-- Use clear labels and icons if supported.
-- Verify commands attached to `MenuAction`.
+**Inspect:**
 
-### PaletteColor XAML Extension
+- Command availability
+- Parameter type
+- Binding context
+- Target page, URL or entity
 
-The Palette Color extension lets XAML use named app colors ([Palette Color](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color)). Use it instead of hardcoded colors when the color is part of the app brand or semantic palette.
+**Stop when:**
 
-Operational pattern:
+- The action and its failure state work in the intended nesting context. [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands)
 
-```xml
-<Label
-    Text="Welcome"
-    TextColor="{Rock:PaletteColor App-Primary}" />
-```
+### Recipe: Migrate a page from Shell v5 to v6+
 
-This example is short and follows the documented pattern. Confirm namespace usage in the live XAML context.
+**Outcome:** The page renders correctly on .NET MAUI without silently breaking retained older clients.
 
-### OnDevicePlatform And MAUI Platform Support
+1. Record the current and target shell versions.
+2. Inventory migration-sensitive layouts, controls, effects and extensions.
+3. Separate layout, scrolling, sizing, control and styling changes.
+4. Replace deprecated controls only where the target shell supports the replacement.
+5. If both generations must remain active, render only markup compatible with the requesting shell.
+6. Verify the actual shell-version value used by the target environment before writing a version gate.
+7. Deploy the shared content.
+8. Test an old-shell client and a v6+ client separately.
+9. Visually inspect phone and tablet layouts.
 
-The Rock-specific On Device Platform extension is deprecated in Rock Mobile V6 and later because .NET MAUI has a built-in XAML platform extension ([On Device Platform](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform)). Agents should flag legacy `OnDevicePlatform` usage during MAUI migration.
+**Do not assume:**
 
-Use platform-specific values carefully:
+- Removing an expansion suffix preserves expansion
+- A text replacement proves visual compatibility
+- A marketing version string matches the runtime shell-version format
 
-- Prefer shared layout when possible.
-- Use platform-specific adjustments for native spacing, safe area, menu behavior, and visual polish.
-- Test both iOS and Android.
-- Avoid platform forks that create unmaintainable duplicate UI.
+**Stop when:**
 
-### Cards And Styling
+- Each supported shell receives parseable markup and the important layouts are visually verified. [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)
 
-The source pack includes official card pages for card elements and CSS card styling ([Elements of a Card](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/elements-of-a-card), [Styling Cards With CSS](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/styling-cards-with-css)). Hydrated excerpts are navigation-heavy rather than property-rich, so agents should use the official pages for exact card structure.
+### Recipe: Prepare mobile check-in
 
-Practical guidance:
+**Outcome:** A participant can identify, select, complete check-in and hand labels to a kiosk.
 
-- Use cards for repeated content items, not as a universal layout wrapper.
-- Keep tap targets large enough for mobile.
-- Avoid over-nesting.
-- Use palette and Downhill classes consistently.
-- Verify card content does not overflow on smaller phones.
-- Verify text color in light/dark mode.
+1. Validate ordinary check-in for the target groups, locations, schedules and configuration.
+2. Confirm HTTPS and geofencing prerequisites.
+3. Create a virtual check-in kiosk device for each distinct campus boundary.
+4. Configure campus geofences and relevant locations.
+5. Configure the launcher’s devices, check-in configuration, theme and valid areas.
+6. Review identity, welcome-back and fallback copy.
+7. Test first-time identification.
+8. Test a recognized returning device.
+9. Test family and individual selection.
+10. Test outside-boundary, closed-window and no-option states.
+11. Complete check-in and scan the QR code at the label kiosk.
+12. Add a selection and verify the updated handoff.
 
-### Behaviors
+**Do not assume:**
 
-The behaviors docs are present as a mobile controls category ([Behaviors](https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors)). Release notes for v7.0 specifically add `EventToCommandBehavior`, which triggers a command when a specified event occurs ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). This is useful when a control event needs to invoke command logic without custom shell code.
+- A launcher record proves its selections are correct
+- A successful check-in proves printing
+- A generated QR code proves kiosk scanning or printer output
 
-Agent checks:
+**Stop when:**
 
-- Confirm shell v7.0 for `EventToCommandBehavior`.
-- Confirm event name is valid for the target control.
-- Confirm command is available in binding context.
-- Avoid event loops where command changes the property that re-triggers the event.
+- Attendance and label printing are independently verified through the intended route. [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in)
 
-### Media Controls
+### Recipe: Prepare an App Factory publication
 
-Release notes add or modify media controls over time:
+**Outcome:** The publishing provider has a reviewable, secure and complete submission package.
 
-- v2.0 added a new `MediaPlayer` control with improved on-screen controls and common UI between devices ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v2.0 added `MediaProgressBar` for better media-progress compatibility than a plain slider ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v3.0 added support for transport media controls on lock screens ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v7.0 added `AllowsPictureInPicturePlayback` to `MediaPlayer` ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v7.0 fixed crashes caused by `PlayAudio` and `PlayVideo` media commands ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+1. Confirm ownership and active status of the Apple and Google developer accounts.
+2. Complete current account agreements, renewals and verification.
+3. Grant only the publishing access required by the documented process.
+4. Create separate, limited Rock review logins for the two stores.
+5. Confirm the desired shell version and its Core and OS requirements.
+6. Prepare the store name, subtitle, description, categories, support URL, screenshots and graphics.
+7. Resolve Android signing continuity before attempting replacement.
+8. Identify compiled resources and optimize them before submission.
+9. Provide secrets and credentials only through approved secure channels.
+10. Submit through the provider workflow.
+11. Read back submission, review and release status from both stores.
+12. Install the released build and verify its shell version and core journeys.
 
-Operational media checks:
+**Do not assume:**
 
-- Verify stream URLs.
-- Verify app transport/security requirements.
-- Test background and lock-screen behavior.
-- Test Android full-screen player behavior; v2.0 fixed a case where screen elements partially showed through full-screen media on Android ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- Test PiP only on shell v7.0+ and supported devices.
+- Provider receipt means store submission
+- Store submission means approval
+- Approval means release
+- Release means the target device installed the update
 
-### Form Fields And Responsive Inputs
+**Stop when:**
 
-The source pack includes legacy form-fields styling and a v4.0 release note for responsive memo fields in mobile workflows ([Form Fields](https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components/form-fields), [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). When workflows render poorly, distinguish:
+- Both stores and representative devices show the intended released build. [App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory) [Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts) [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)
 
-- Form field block settings.
-- Mobile shell version.
-- CSS class support.
-- MAUI layout behavior.
-- Keyboard overlap/safe-area behavior.
-- Memo/long-text responsiveness.
+### Recipe: Validate push notifications
 
-## 10. Mobile Releases Deep Dive
+**Outcome:** A real target device receives and opens a notification through the intended route.
 
-### Release Version Table
+1. Verify publishing-time notification configuration.
+2. Confirm the Rock transport, medium and provider configuration.
+3. Request notification permission through the intended app experience.
+4. Confirm the device reports notifications enabled.
+5. Send to a bounded test recipient.
+6. Verify receipt while signed in.
+7. Where required, verify receipt while signed out.
+8. Open the notification and confirm the mobile-page or detail action.
+9. Test both platforms before broad release.
 
-The OS Version Requirements doc provides minimum OS requirements by shell version ([OS Version Requirements](https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements)):
+**Stop when:**
 
-| Shell | Release Date | Android SDK | Android Version | iOS Version |
-|---|---:|---:|---:|---:|
-| v7.0 | 07/16/2025 | 25 | 7.1 | 14.0 |
-| v6.0 | 10/20/2024 | 25 | 7.1 | 12.0 |
-| v5.0 | 10/31/2023 | 25 | 7.1 | 12.0 |
-| v4.1 | 05/09/2023 | 25 | 7.1 | 12.0 |
-| v4.0 | 02/03/2023 | 25 | 7.1 | 12.0 |
-| v3.0 | 06/17/2022 | 23 | 6.0 | 12.0 |
-| v2.2 | 01/19/2022 | 23 | 6.0 | 12.0 |
-| v2.1 | 12/15/2021 | 23 | 6.0 | 12.0 |
-| v2.0 | 09/15/2021 | 23 | 6.0 | 12.0 |
-| v1.0 | 08/24/2020 | 23 | 6.0 | 8.0 |
+- Receipt and open behavior are observed on the target devices. [Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)
 
-Agent warning: do not confuse “Android SDK” in this table with current Google Play target API requirements. The shell update requirements doc says Google updates Android/API policy over time and existing apps must target recent API levels within policy windows or may become unavailable to new users on newer OS versions ([Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements)). Verify current App Factory guidance and app-store policy before release planning.
+### Recipe: Orchestrate slow media or content work
 
-### v7.0
+**Outcome:** Slow processing completes asynchronously and only verified output reaches public mobile content.
 
-Rock Mobile v7.0, released July 16, 2025, is the latest shell version in this source pack. Highlights include:
+1. Define explicit queued, processing, retry, failed and completed states.
+2. Start the work through a workflow rather than holding the mobile interface open.
+3. Record bounded retry behavior and a terminal failure state.
+4. Poll or receive the provider’s completion result.
+5. Validate the resulting asset.
+6. Link it into mobile or web content only after completion.
+7. Surface failure or review-needed status to an operator.
 
-- ExecuteCommand control.
-- CopyToClipboard command.
-- EventToCommandBehavior.
-- Anchor-based navigation support that scrolls to a specific element when the page loads.
-- Proximity Attendance using BLE beacon detection for check-in/check-out.
-- Chat View block.
-- Tabler Icons support.
-- MediaPlayer PiP property.
-- AddEventToCalendar fix.
-- Tag TextColor fix.
-- Html FollowHyperlinks fix.
-- ShowPopUp MAUI overlay fix.
-- Group Schedule Signup scheduled location fix.
-- Workflow Entry form result message fix ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+**Do not assume:**
 
-Operational significance:
+- A provider accepted the job because a request returned successfully
+- A generated URL points to a complete, public-safe asset
+- Workflow completion automatically publishes content
 
-- If implementing command automation, prefer v7.0 where possible.
-- If using proximity attendance, verify BLE permissions, beacon setup, check-in configuration, Core version requirements, and device platform behavior.
-- If troubleshooting MAUI popup or hyperlink behavior, v7.0 may contain relevant fixes.
-- iOS minimum rises to 14.0 in v7.0 ([OS Version Requirements](https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements)).
+**Stop when:**
 
-### v6.0
+- The verified output is linked or the workflow reaches a visible terminal failure state. [Media Watch community example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr)
 
-v6.0, released October 20, 2024, is the MAUI transition version. Release notes list a minimum Rock version of v12.6 in the hydrated release-note excerpt and include broad design-system updates for mobile blocks ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). The migration doc explains the move from Xamarin Forms to .NET MAUI ([Migrating to .NET MAUI (V6)](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)).
+### Recipe: Validate Outreach Toolbox for ministry use
 
-Operational significance:
+**Outcome:** Authorized signed-in users can see and complete intended outreach actions, and reminders arrive.
 
-- Expect layout differences.
-- Audit deprecated controls.
-- Re-test scrolling, sizing, safe-area padding, and old styling.
-- Expect design-system changes across mobile blocks.
+1. Establish the target Core and Shell versions.
+2. Confirm the mobile feature and pages are installed.
+3. Verify signed-in routing.
+4. Review block settings and data visibility.
+5. Configure or validate assignment days and reminder preferences.
+6. Inspect the jobs that control reminder timing.
+7. Test prayer and connection cadence records.
+8. Complete a touchpoint and confirm history.
+9. Test milestone or pulse behavior that is intentionally enabled.
+10. Verify an actual reminder on a target device.
 
-### v5.0 And Earlier
+**Stop when:**
 
-The source pack includes fewer detailed records for v5.0, but release notes show ongoing CMS, communication, connection, core, CRM, group, mobile, and reminders changes ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). If working on a v5.0 or earlier app, assume MAUI migration is pending and plan a deeper regression pass.
+- The intended user can complete the full authorized workflow and receive the expected reminder. [Outreach Toolbox in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4)
 
-### v4.0
+## Known Gaps And Live Verification
 
-v4.0, released February 3, 2023, added:
+A bounded, read-only target-instance review is still required to answer any of the following:
 
-- Custom ScrollView with optional native iOS bounce disabling.
-- Responsive Memo fields in mobile workflows.
-- ReloadPage command.
-- Toast functionality for ShowToast.
-- Mobile-related user preferences.
-- Dark-mode picker fix for BibleBrowser ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+- Which Mobile Shell and Rock Core versions are actually in service
+- Whether every target device has installed the intended store build
+- Which application pages, blocks, navigation settings and permissions are active
+- Whether Dynamic Content, server Lava and enabled-command settings match the intended context
+- The runtime format of any shell-version variable used for conditional XAML
+- Whether provider or plugin-specific blocks are installed
+- Whether mobile check-in devices, boundaries, locations, schedules, configurations and areas are correct
+- Whether ordinary check-in works for the same operational scope
+- Whether QR scanning and label printing work on the intended kiosk and printer
+- Whether push transports, service credentials and device permissions are current
+- Whether Outreach Toolbox pages, jobs, authorization and notification delivery are active
+- Whether Apple and Google accounts, agreements, review credentials and signing assets remain valid
+- Whether current store policies or graphics templates differ from the supplied documentation snapshot
+- Whether a reported issue reproduces on the exact platform, OS and shell combination
 
-### v3.0
+The evidence pack does not include a reviewed live conclusion for a specific app’s configuration, deployment, store status or physical-device behavior. Do not convert documentation, a clean deployment status, a scheduled job, a generated QR code or a store submission into a claim of end-to-end completion.
 
-v3.0, released June 17, 2022, added many foundational commands and blocks:
+## Source Map
 
-- Mobile Connection blocks for managing Connection Requests, requiring Rock Server v13.0.
-- Add To Group mobile block.
-- AddEventToCalendar.
-- SetViewProperty.
-- CommandReference default content node behavior.
-- PrayForRequest command.
-- PerformHapticFeedback.
-- MapAddress.
-- Command to open application settings.
-- Push-notification detection in XAML.
-- URL page support.
-- Transport media controls.
-- Login, registration, and onboarding improvements requiring Rock Server v13.0 for some features ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+### Official Rock Mobile documentation
 
-### v2.x
+- [Mobile Docs](https://community.rockrms.com/developer/mobile-docs) — platform scope and support routes
+- [Mobile Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon) — shell, application, core, deploy and publishing concepts
+- [Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app) — application creation
+- [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) — navigation, pages, API key, Flyout XAML and routing
+- [Adding Content](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/adding-content) — pages, blocks and XAML
+- [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app) — deployment and test-shell connection
+- [Content block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) — dynamic content, Lava and entity context
+- [Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava) — local Lava capability and escaping
+- [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands) — command binding and parameters
+- [Content Controls](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls) — control catalog
+- [Developer Controls](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls) — developer-control catalog
+- [Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies) — `M` and `C` compatibility tags
+- [Migrating to .NET MAUI](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) — Shell v6 migration
+- [Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements) — operating-system and store cadence
+- [App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory) — publishing service and review process
+- [Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts) — account ownership and provider access
+- [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore) — Android signing continuity
+- [Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications) — notification configuration and permission flow
+- [In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving) — shell v7 giving and publishing caveats
+- [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes) — release-specific requirements, additions and fixes
 
-v2.0 added MediaPlayer, Bible controls, Expander, RadioButtonList, WriteInteraction, logout parameter syntax, and MediaProgressBar. v2.1 and v2.2 include important iOS fixes for launch, iOS 15 rendering, tab-bar colors, onboarding crash, notifications, and iOS 12 launch behavior ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
+### Official RockU and release media
 
-Operational significance: if a site still runs v2.x, expect many modern controls and fixes to be unavailable.
+- [Mobile Check-in Overview](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) — prerequisites, participant flow and label handoff
+- [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) — virtual devices, boundaries and launcher configuration
+- [Using Mobile Check-in](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) — family, individual, returning-user and fallback flows
+- [Outreach Toolbox in v19](https://www.youtube.com/watch?v=LNcx8t0mlQ4) — signed-in outreach experience, cadence and reminders
+- [Outreach dashboard overview](https://www.youtube.com/shorts/c6T9Ha13jKE) — due outreach and prayer actions
 
-## 11. Related Rock Areas: Api, Check In, Cms, Security
+### Community-reviewed example
 
-### API
+- [Media Watch](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) — workflow orchestration pattern for slow background processing
 
-Rock Mobile depends on Core APIs. The pack proves API URL and API key are part of deployment/testing and app configuration ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app), [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration)). It does not enumerate API endpoints or authorization rules.
+### Immutable implementation evidence
 
-Agent API checklist:
-
-- Confirm API URL points to the intended Rock instance.
-- Confirm SSL/TLS is valid.
-- Confirm API key is active.
-- Confirm API identity has correct permissions.
-- Confirm endpoints used by blocks are allowed.
-- Confirm CORS or transport issues only if a web layer is involved; native app calls may differ from browser calls.
-- Check Rock exception logs for API errors.
-- Check app shell version if the API payload shape changed.
-
-### Check-In
-
-Mobile check-in appears as an official block family ([Check-in Blocks](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in)). v6.0 added the check-in block, and v7.0 added Proximity Attendance with BLE beacon detection plus check-in bug fixes ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-
-Agent check-in tasks should inspect:
-
-- Check-in configuration template.
-- Kiosk configuration.
-- Areas.
-- Groups and locations.
-- Schedules.
-- Attendance records.
-- Presence settings.
-- Security code settings.
-- Label printing configuration.
-- Family registration/edit settings.
-- Check-in page parameters.
-- Proximity Attendance beacon configuration if applicable.
-- Shell version and Rock Core version.
-
-The source-code view-models give concrete check-in payload landmarks, including security-code settings, kiosk features, active attendance, scheduled locations, label printing, family editing, and real-time subscriptions ([CheckInSecurityCodesSettingsBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInSecurityCodesSettingsBag.cs), [KioskConfigurationBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs)).
-
-### CMS
-
-CMS is central to Rock Mobile. The mobile docs list CMS blocks such as Content, Content Channel Item View, Content Collection View, Daily Challenge Entry, Hero, Lava Item List, Login, Profile Details, Register, Structured Content View, Workflow Entry, and Voice Agent ([CMS Blocks](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms)). The release notes include many CMS changes, commands, controls, and fixes ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-
-Agent CMS checklist:
-
-- Confirm content channel item status and dates.
-- Confirm content security.
-- Confirm Lava output is valid XAML where used.
-- Confirm dynamic content setting.
-- Confirm deployment after non-dynamic changes.
-- Confirm login and registration block requirements.
-- Confirm shell/Core tags for block settings.
-- Confirm media and image URLs.
-
-### Security
-
-Security is relevant at several layers:
-
-- Rock page/block authorization.
-- API key identity.
-- Person login and authentication provider.
-- App-store review logins.
-- Push notification targeting.
-- Android keystore ownership.
-- Developer-account access.
-- Giving compliance.
-- External WebView content.
-
-The Android Keystore doc is a security-critical source: the signing key prevents unauthorized app updates and may be required when replacing an existing Android app ([Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)). The Rock Logins doc says app-store review credentials should remain active and do not need special permissions ([Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins)). The Developer Accounts doc warns about account ownership and App Factory access arrangements ([Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts)).
-
-Agent security rule: do not grant broad admin permissions to solve a mobile failure until the failing page/block/API/security path has been isolated.
-
-## 12. Administration And Operational Guardrails
-
-### Deployment Guardrails
-
-- After app configuration changes, deploy.
-- After page/block changes, deploy unless explicitly dynamic content.
-- After color changes, deploy.
-- After flyout XAML changes, deploy.
-- After dynamic content changes, verify whether dynamic content is enabled and whether deploy is bypassed.
-- After deploy, reload app to force latest bundle retrieval ([Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app)).
-
-### Shell Update Guardrails
-
-The shell update requirements doc says Rock Mobile aims to keep shell versions compatible with future Rock Core versions so organizations are not required to update until they need latest additions, but OS and store policies still force occasional shell updates ([Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements)).
-
-Maintain:
-
-- Current shell version.
-- Current Rock Core version.
-- Minimum supported iOS/Android versions.
-- Store policy deadlines.
-- App Factory update path.
-- Regression checklist for MAUI and platform behavior.
-- Test accounts.
-
-### App Store Guardrails
-
-From App Store Product Page docs, collect and maintain:
-
-- App name.
-- Icon.
-- Subtitle.
-- Screenshots.
-- Description.
-- Promotional text.
-- Keywords.
-- What’s New text.
-- Ratings/reviews strategy.
-- Categories.
-- Support URL.
-- Marketing URL.
-- Copyright ([App Store Product Page](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page)).
-
-The app name has a store metadata limit of 30 characters according to the source excerpt. Verify current Apple and Google policies before final submission because store metadata rules can change.
-
-### Developer Account Guardrails
-
-If hosted under the organization’s accounts:
-
-- Keep Apple Developer and Google Play accounts active.
-- Keep billing and legal agreements current.
-- Maintain App Factory access.
-- Use least privilege but enough publishing access.
-- Preserve ownership continuity.
-
-If hosted under Triumph accounts:
-
-- Understand subscription dependency and possible delisting after subscription end ([Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts)).
-
-### Android Keystore Guardrails
-
-- Treat keystore as a critical secret.
-- Store in controlled password vault.
-- Document alias/password ownership.
-- Confirm Play App Signing status.
-- If replacing an existing Android app, obtain original keystore early.
-- Never email keystore casually.
-- Verify App Factory’s secure transfer process ([Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)).
-
-### Image Resource Guardrails
-
-Image resources compiled into the shell improve performance and avoid network pop-in, but they increase app size and require store updates to change ([Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources)).
-
-Use compiled resources for:
-
-- Splash-critical brand assets.
-- Frequently used static icons.
-- Assets that must appear immediately.
-- Assets not expected to change often.
-
-Use network/CDN assets for:
-
-- Event images.
-- Sermon graphics.
-- Rotating campaign art.
-- Content team-managed media.
-- Assets that benefit from server/CDN optimization.
-
-### In-App Giving Guardrails
-
-As of shell v7.0, Rock Mobile has native controls for in-app giving, according to the in-app giving doc ([In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)). WebView giving may be possible, but the doc warns that approval and configuration responsibility belongs to the submitting church/support partner/giving platform, and Apple approval may require nonprofit registration through Benevity ([In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)).
-
-Agent checks:
-
-- Confirm shell v7.0 if using native giving controls.
-- Confirm giving platform compliance.
-- Confirm Apple/Google submission requirements.
-- Confirm Benevity registration status if Apple requires it.
-- Confirm WebView page styling does not conflict with native navigation.
-- Confirm finance security and account availability.
-- Confirm test transactions in non-production mode when possible.
-
-## 13. Developer, API, Lava, And Source-Code Landmarks
-
-### XAML And Lava
-
-Rock Mobile XAML can be generated or influenced by Lava in mobile blocks and layouts. The source pack includes mobile docs topics tagged with Lava and a community recipe using Lava schedule logic to choose between a countdown and an online-service button ([Recipe 402](https://community.rockrms.com/recipes/402)). Use Lava carefully because invalid output can produce invalid XAML.
-
-Agent Lava checks:
-
-- Render Lava output in a safe test context.
-- Confirm XML escaping for dynamic text.
-- Confirm date/time formatting.
-- Confirm GUIDs/page references.
-- Confirm anonymous versus authenticated Lava context.
-- Confirm performance of Lava queries or commands.
-- Avoid heavy SQL in mobile page render paths.
-
-### Styling
-
-Rock Mobile supports CSS-style classes, but the styling docs warn that XAML styling is first-class in .NET MAUI, CSS has a supporting role, not all web CSS properties are supported, and CSS property behavior in .NET MAUI differs from the web ([Styling](https://community.rockrms.com/developer/mobile-docs/styling)).
-
-For selector targeting and design-audit work, use the concept resource [Rock Mobile CSS X-Ray Design Resource](resources/css-xray-design-resource.md). It gives a capture schema for page/block/app x-ray data, a selector ladder for `.ios`, `.android`, `.phone`, `.tablet`, `.page-*`, `.block-*`, control selectors, inherited selectors, and explicit XAML `StyleClass` hooks, plus Downhill utility-family notes grounded in Rock's public `Rock.DownhillCss` source. It now also includes a dedicated [dark mode and color-scheme workflow](resources/css-xray-design-resource.md#dark-mode-and-color-scheme-workflow) that ties Rock Mobile Colors, Style Framework migration, shell chrome, hardcoded color scans, and light/dark screenshot verification together. For block-specific selector callouts recovered from official docs screenshots, use [Rock Mobile Block Selector Image Audit](resources/block-selector-image-audit.md) and the machine-readable [mobile-block-selector-xray.jsonl](mobile-block-selector-xray.jsonl).
-
-Agent styling checks:
-
-- Prefer XAML styling for precise layout.
-- Use Downhill/CSS classes for consistency where supported.
-- Verify CSS properties are supported in MAUI.
-- Check legacy styling pages when maintaining older apps.
-- Verify design-system changes in v6.0.
-- Test dark mode and platform differences, including shell chrome, WebView/HTML surfaces, form controls, tags/buttons/cards, image assets, and platform-specific iOS/Android behavior.
-
-### Source-Code Landmarks
-
-Use GitHub source snippets as deeper implementation landmarks, especially for check-in and Obsidian view-model payloads:
-
-- Check-in security code configuration: [C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInSecurityCodesSettingsBag.cs), [TypeScript](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/checkInSecurityCodesSettingsBag.d.ts)
-- Check-in kiosk features: [C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInKioskFeaturesSettingsBag.cs)
-- Kiosk startup configuration: [C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs)
-- Web kiosk details: [C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs)
-- Active attendance: [C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs)
-- Scheduled locations: [C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs)
-- Reprint attendance and labels: [ReprintAttendanceBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs), [PrintResponseBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/PrintResponseBag.cs)
-- Family edit/save payloads: [EditFamilyResponseBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/EditFamilyResponseBag.cs), [SaveFamilyOptionsBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SaveFamilyOptionsBag.cs), [SaveFamilyResponseBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SaveFamilyResponseBag.cs)
-
-Do not assume develop-branch source exactly matches a production instance. Always verify Rock version and installed code.
-
-## 14. Reporting, Analytics, And Model Map
-
-### Interaction Tracking
-
-v2.0 added `WriteInteraction`, a command that writes a new interaction after a person performs an action ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). Use this for intentional analytics events, but do not over-instrument every tap.
-
-Agent checks:
-
-- Confirm interaction channel/component naming.
-- Confirm person context.
-- Confirm anonymous behavior.
-- Confirm duplicate writes are not caused by repeated command triggers.
-- Confirm retention/reporting expectations.
-
-### Mobile Preferences
-
-v4.0 added mobile-related user preferences ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)). If behavior differs between users on the same app version, inspect relevant user preferences where exposed in Rock.
-
-### Communication Reporting
-
-Push notifications use the Rock communication system. Inspect:
-
-- Communication history.
-- Recipients.
-- Medium.
-- Transport.
-- Send status.
-- Exceptions.
-- Device identifiers/personal device IDs, where exposed by push documentation ([Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)).
-
-### Check-In Reporting
-
-For mobile check-in and proximity attendance, inspect:
-
-- Attendance records.
-- Attendance status.
-- Group.
-- Location.
-- Schedule.
-- Security code.
-- Presence status if enabled.
-- Label print response/errors.
-- Scheduled location state.
-
-The view-model source shows how active attendance, reprint attendance, scheduled locations, and location status are represented in next-gen check-in payloads ([ActiveAttendanceBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs), [ReprintAttendanceBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs), [LocationStatusItemBag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs)).
-
-### Model Map
-
-This pack does not include full Model Map records for mobile application entities. Before writing SQL or automation against mobile app records, verify:
-
-- Entity names.
-- Table names.
-- Foreign keys.
-- Attribute-backed configuration.
-- Page/block storage tables.
-- Deployment bundle storage.
-- API key storage.
-- Communication transport/medium schema.
-- Device/push subscription schema.
-
-Use the live Rock Model Map or database metadata rather than deriving database names from UI labels.
-
-## 15. Version And Release Caveats
-
-### Core And Shell Tags
-
-The Core & Shell Dependencies doc explains that some items require specific mobile shell versions (`M`) and some require specific Rock Core versions (`C`) ([Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies)). Agents must check both.
-
-Examples from the source pack:
-
-- `ExecuteCommand` requires mobile shell v7.0 ([Execute Command](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command)).
-- `CommandReference` default content property behavior starts in mobile shell v3.0 ([Command Reference](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference)).
-- Some v3.0 login, registration, onboarding, and connection features require Rock Server v13.0 according to release notes ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- v6.0 release notes list a minimum Rock version of v12.6 in the hydrated excerpt ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- Native in-app giving controls are described as available as of shell v7.0 ([In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)).
-
-### MAUI Caveats
-
-V6 MAUI migration can affect:
-
-- Layout behavior.
-- Scrolling.
-- Width/height requests.
-- Xamarin Community Toolkit usage.
-- Gradient transparency.
-- Zone control.
-- Old `Frame`/`StyledView`.
-- Safe area padding.
-- Shell update forcing ([Migrating to .NET MAUI (V6)](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6)).
-
-### Platform Caveats
-
-- Context menus are more feature-complete on iOS than Android ([Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu)).
-- iOS dark mode has had control-specific fixes ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- iOS push delivery had version-specific fixes ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- iOS minimum version rises to 14.0 in v7.0 ([OS Version Requirements](https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements)).
-- Android app availability can depend on Google target API policies, not just minimum OS support ([Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements)).
-
-## 16. Implementation Playbooks
-
-### Playbook: Add A New Native Mobile Page
-
-1. Open the mobile application.
-2. Add a page under Application Pages.
-3. Choose phone/tablet layout strategy.
-4. Add mobile-compatible blocks.
-5. Configure block settings.
-6. Set page security.
-7. Add navigation entry in Flyout XAML or tab configuration.
-8. Verify any command/control shell requirements.
-9. Deploy.
-10. Test on iOS and Android.
-11. Test signed-out and signed-in if relevant.
-
-### Playbook: Add A Push Notification Campaign
-
-1. Confirm push is configured through App Factory and Rock.
-2. Confirm service account JSON/provider configuration.
-3. Confirm communication transport and medium.
-4. Confirm target audience.
-5. Choose Open Action: mobile page link or detail display.
-6. If linking to a page, use a mobile page and correct query string ([Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications)).
-7. Send to internal test device.
-8. Verify notification receipt, tap behavior, and communication record.
-9. Send production campaign.
-
-### Playbook: Add In-App Giving
-
-1. Confirm shell v7.0+ for native giving controls ([In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving)).
-2. Confirm Rock finance/giving configuration.
-3. Confirm platform submission requirements.
-4. Confirm Apple nonprofit/Benevity requirements if applicable.
-5. Choose native controls or WebView path.
-6. If WebView, style page to avoid conflict with native nav.
-7. Test app-store review credentials.
-8. Test giving flow with non-production/test mode when possible.
-9. Coordinate App Factory submission metadata.
-
-### Playbook: Prepare For Shell Update
-
-1. Identify current shell version.
-2. Identify target shell version.
-3. Review OS minimum changes.
-4. Review release notes between versions.
-5. Audit custom XAML and CSS.
-6. If moving to v6+, run MAUI migration review.
-7. Confirm App Factory account access and store credentials.
-8. Confirm review Rock logins are active.
-9. Test build on iOS and Android.
-10. Deploy Rock-side changes if required.
-11. Submit store update.
-
-### Playbook: Diagnose “Change Not Showing”
-
-1. Confirm whether the changed item is configuration, page, block, color, XAML, or dynamic content.
-2. If not dynamic content, confirm Deploy was clicked.
-3. Confirm deployment completed.
-4. Restart/reload app to pull latest deployment.
-5. Confirm device points to correct API URL/application.
-6. Confirm page is not cached or routed elsewhere.
-7. Confirm user has security access.
-8. Confirm shell supports the changed command/control/block property.
-9. Test on another device.
-
-### Playbook: Diagnose WebView Blank Screen
-
-1. Confirm URL loads in mobile browser.
-2. Confirm HTTPS/certificate.
-3. Confirm WebView has explicit layout space.
-4. Confirm the page has mobile viewport meta tag ([Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view)).
-5. Confirm authentication/session behavior.
-6. Confirm external page is not blocking embedding or mobile user agents.
-7. Test iOS and Android.
-8. Check Rock exception logs only if the WebView content is hosted by Rock.
-
-## 17. Troubleshooting Decision Tree
-
-### App Does Not Launch
-
-- Check shell version and OS minimums.
-- Check device OS.
-- Check app-store build.
-- Check iOS launch fixes if on old v2.x shells.
-- Check API URL reachability.
-- Check app-store review credentials only if failure occurs during review.
-- Check Rock availability and SSL.
-
-### App Launches But Shows Old Content
-
-- Was the app deployed?
-- Was the changed content dynamic?
-- Did the app reload after deploy?
-- Is the device pointed at the correct application ID/API URL?
-- Is homepage routing sending the user to another page?
-- Is security hiding the updated block?
-
-### Page Is Blank
-
-- Invalid XAML.
-- Block exception.
-- Missing shell feature.
-- Missing Core feature.
-- WebView sizing problem.
-- Page security.
-- Homepage routing issue.
-- API key or authorization issue.
-- Missing deploy.
-
-### Button Or Action Does Nothing
-
-- Command unsupported in shell.
-- Wrong binding context.
-- Missing command parameter.
-- Invalid page GUID/URL.
-- Command attached to wrong property.
-- Disabled control.
-- Platform permission denied.
-- Page not deployed.
-
-### Push Notification Not Received
-
-- Device permission not granted.
-- Push permission not requested.
-- Service account/provider missing.
-- Transport inactive.
-- Medium misconfigured.
-- Person/device not registered.
-- Target audience empty.
-- iOS shell version has known issue.
-- App not built with push capability.
-- Communication send failed.
-
-### Push Opens Wrong Page
-
-- Open Action references non-mobile page.
-- Wrong mobile page GUID.
-- Missing query string.
-- Target page requires login.
-- Homepage routing overrides deep link.
-- User lacks page authorization.
-
-### WebView Looks Wrong
-
-- Missing viewport meta tag.
-- Page not mobile responsive.
-- CSS conflicts with native nav.
-- WebView container size wrong.
-- External page uses unsupported features.
-- Authentication redirect inside WebView.
-- Platform-specific rendering issue.
-
-### Check-In Fails
-
-- Wrong configuration template.
-- Kiosk not configured.
-- Areas missing.
-- Schedules inactive.
-- Locations closed.
-- Page parameters not applied; v7.0 fixed a check-in page parameter loading issue ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- Family mode edge case; v7.0 fixed an error for families with only one person ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-- Security code settings wrong.
-- Label printing error.
-- Presence setting causing pending state.
-- Shell/Core mismatch.
-
-### MAUI Upgrade Regression
-
-- Layout changed.
-- Scroll behavior changed.
-- Width/height request behavior changed.
-- Deprecated controls.
-- Safe area padding.
-- Legacy platform extension.
-- Popup overlay bug fixed in v7.0.
-- CSS property unsupported in MAUI.
-
-## 18. Agent Task Recipes
-
-### Recipe: Inventory A Mobile App
-
-Collect:
-
-- Mobile application name and identifier.
-- Application type.
-- Orientation setting.
-- API URL.
-- API key identity.
-- Pages.
-- Homepage routing.
-- Flyout/tab XAML.
-- Blocks by page.
-- Security by page/block.
-- Deployment status.
-- Shell version.
-- Rock Core version.
-- Push configuration.
-- Giving configuration.
-- App Factory account ownership.
-- Store metadata status.
-
-### Recipe: Determine Whether A Feature Can Be Used
-
-1. Find official docs page.
-2. Look for `M` shell tag.
-3. Look for `C` Core tag.
-4. Check release notes.
-5. Confirm live shell version.
-6. Confirm live Rock version.
-7. Confirm OS minimum impact.
-8. Test in Rock Mobile Core app or staging shell.
-
-### Recipe: Add Analytics To A Tap
-
-1. Verify `WriteInteraction` is available in shell v2.0+ ([Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes)).
-2. Define interaction naming.
-3. Attach command to tap target.
-4. Prevent duplicate triggers.
-5. Deploy.
-6. Test as anonymous and authenticated user.
-7. Verify interaction record/report.
-
-### Recipe: Modernize Legacy Platform XAML
-
-1. Search XAML for legacy Rock OnDevicePlatform usage.
-2. Confirm app is v6+ MAUI.
-3. Replace with MAUI built-in platform extension where appropriate.
-4. Verify CSS alternative if styling-only.
-5. Test iOS and Android.
-6. Deploy.
-
-The deprecation basis is the On Device Platform doc ([On Device Platform](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform)).
-
-### Recipe: Review App Store Readiness
-
-1. App name within current store limits.
-2. Icon provided.
-3. Screenshots current.
-4. Description and promotional text current.
-5. Keywords and categories selected.
-6. Support URL works.
-7. Marketing URL works if used.
-8. Copyright correct.
-9. Review logins active.
-10. Developer account access confirmed.
-11. Android keystore secured.
-12. Push/giving disclosures ready.
-
-Use App Store Product Page, Rock Logins, Developer Accounts, and Android Keystore docs as primary sources ([App Store Product Page](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page), [Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins), [Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts), [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore)).
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `21`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
-| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
-| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
-| official | release_caveat | Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both. | [source](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies) |
-| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| official | release_caveat | Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
-| official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
-| rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
-| rocku-confirmed | operational_guidance | Treat each mobile check-in device record like a virtual kiosk: use the check-in kiosk device type, configure the campus geofence, associate the relevant campus locations, and create separate devices when campuses need distinct boundaries. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
-| More |  | 9 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-No approved media distillations are currently routed to this concept.
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 19. Source Map And Dependency Notes
-
-### Primary Official Mobile Docs
-
-- [Mobile Docs](https://community.rockrms.com/developer/mobile-docs): Rock Mobile concept entry point.
-- [Lexicon](https://community.rockrms.com/developer/mobile-docs/lexicon): basic terms such as application, App Factory, Core, deploy, device type, Downhill CSS, publishing.
-- [Creating An App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app): where mobile applications are created in Rock.
-- [App Configuration](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration): application type, orientation, pages, API key, flyout XAML, homepage routing.
-- [Deploying Your App](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app): deployment, testing, application ID, API URL, API key, Rock Core app connection.
-- [Core & Shell Dependencies](https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies): shell/Core version tags.
-- [OS Version Requirements](https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements): shell release dates and minimum OS table.
-- [Migrating to .NET MAUI (V6)](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6): Xamarin-to-MAUI migration.
-
-### Commands And Controls
-
-- [Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands): command model.
-- [Command Reference](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference): command-as-parameter model.
-- [Execute Command](https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command): v7.0 timed/repeated command execution.
-- [Context Menu](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu): native context menu controls and platform caveats.
-- [Web View](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view): embedded web content and containment limits.
-- [Palette Color](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color): XAML access to palette colors.
-- [On Device Platform](https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform): legacy platform extension deprecated in V6+.
-- [Styling](https://community.rockrms.com/developer/mobile-docs/styling): CSS/MAUI styling caveats.
-- [Rock Mobile CSS X-Ray Design Resource](resources/css-xray-design-resource.md): practical selector-targeting schema and Downhill utility summary for mobile UI design/audit work.
-- [Rock Mobile Block Selector Image Audit](resources/block-selector-image-audit.md): block-specific selector and settings clues recovered from official block documentation screenshots and style-class tables.
-- [Elements of a Card](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/elements-of-a-card) and [Styling Cards With CSS](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/styling-cards-with-css): card source pages.
-
-### Blocks
-
-- [Developers](https://community.rockrms.com/developer/mobile-docs/developers): mobile developer navigation and block families.
-- [CMS](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms)
-- [Check-in](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in)
-- [Communication](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication)
-- [Connection](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection)
-- [Core](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core)
-- [CRM](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm)
-- [Events](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events)
-- [Finance](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance)
-- [Groups](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups)
-- [Prayer](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/prayer)
-- [Reminders](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders)
-- [Security](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security)
-
-### App Factory And Store Operations
-
-- [App Factory](https://community.rockrms.com/developer/mobile-docs/app-factory): publishing service context.
-- [Developer Accounts](https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts): account ownership and invitations.
-- [Shell Update Requirements](https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements): store/OS update pressure.
-- [App Store Product Page](https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page): app-store metadata.
-- [Android Keystore](https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore): Android signing and ownership.
-- [Image Resources](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources): compiled shell image resources.
-- [Push Notifications](https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications): push configuration and sending.
-- [Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins): app-store review credentials.
-- [In-App Giving](https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving): native/WebView giving and approval caveats.
-
-### Release Notes
-
-- [Rock Mobile Release Notes](https://www.rockrms.com/mobilereleasenotes): command/control/block additions, MAUI changes, bug fixes, version dates, minimums.
-
-### Source-Code Landmarks
-
-- [CheckInSecurityCodesSettingsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInSecurityCodesSettingsBag.cs)
-- [CheckInKioskFeaturesSettingsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInKioskFeaturesSettingsBag.cs)
-- [KioskConfigurationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs)
-- [WebKioskBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/WebKioskBag.cs)
-- [ActiveAttendanceBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs)
-- [GetScheduledLocationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs)
-- [ReprintAttendanceBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs)
-- [PrintResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/PrintResponseBag.cs)
-- [EditFamilyResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/EditFamilyResponseBag.cs)
-- [SaveFamilyOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SaveFamilyOptionsBag.cs)
-- [SaveFamilyResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SaveFamilyResponseBag.cs)
-- [SavedKioskConfigurationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SavedKioskConfigurationBag.cs)
-- [SubscribeToRealTimeResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/SubscribeToRealTimeResponseBag.cs)
-- [LocationStatusItemBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs)
-
-### Community Examples
-
-- [Add live captions & translation to your Rock Mobile app](https://community.rockrms.com/recipes/469): third-party caption/translation integration pattern.
-- [Mobile App Countdown to Page Refresh or Redirect](https://community.rockrms.com/recipes/402): schedule-aware countdown and redirect pattern.
-
-Community recipes should be reviewed for security, performance, maintainability, and current Rock compatibility before implementation.
+- [KioskResolutionBag](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs) — kiosk resolution result at commit `471fd303d111b2e46218228dbc1e93dba8856fa3`
+- [KioskAvailabilityBag](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs) — availability and resolved configuration at the same commit

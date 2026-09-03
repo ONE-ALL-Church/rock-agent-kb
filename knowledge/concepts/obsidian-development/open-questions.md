@@ -13,49 +13,33 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
+- `scope-and-boundaries`: Scope And Boundaries
+- `caching-api-calls`: Caching API Calls
+- `development-environment-plugin-development`: Plugin Development
+- `troubleshooting-decision-tree-an-older-component-fails-with-syntaxerror-15`: An Older Component Fails With `SyntaxError 15`
+- `agent-task-recipes-recipe-cache-a-read-request`: Recipe: Cache A Read Request
+- `agent-task-recipes-recipe-verify-a-community-suggested-block-action-save-path`: Recipe: Verify A Community-Suggested Block-Action Save Path
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `3-obsidian-development-mental-model`: 3. Obsidian Development Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model`: 5. Core Configuration And Data Model
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `7-common-obsidian-development-workflows-build-a-new-core-list-block`: Build A New Core List Block
-- `7-common-obsidian-development-workflows-build-a-detail-block`: Build A Detail Block
-- `7-common-obsidian-development-workflows-convert-webforms-behavior-to-obsidian`: Convert WebForms Behavior To Obsidian
-- `7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen`: Troubleshoot An Existing Obsidian Screen
-- `8-blocks-deep-dive-c-block-responsibilities`: C# Block Responsibilities
-- `8-blocks-deep-dive-typescript-component-responsibilities`: TypeScript Component Responsibilities
-- `8-blocks-deep-dive-block-actions`: Block Actions
-- `8-blocks-deep-dive-blockcrumbs-and-navigation-context`: BlockCrumbs And Navigation Context
-- `8-blocks-deep-dive-detail-blocks`: Detail Blocks
-- `8-blocks-deep-dive-list-blocks`: List Blocks
-- `8-blocks-deep-dive-person-preferences`: Person Preferences
-- `9-grid-reference-deep-dive-standard-column-properties`: Standard Column Properties
-- `9-grid-reference-deep-dive-textcolumn`: TextColumn
-- `9-grid-reference-deep-dive-booleancolumn`: BooleanColumn
-- `9-grid-reference-deep-dive-labelcolumn`: LabelColumn
-- `9-grid-reference-deep-dive-highlightdetailcolumn`: HighlightDetailColumn
-- `9-grid-reference-deep-dive-personcolumn`: PersonColumn
-- `9-grid-reference-deep-dive-selectcolumn`: SelectColumn
-- `9-grid-reference-deep-dive-reordercolumn`: ReorderColumn
-- `9-grid-reference-deep-dive-securitycolumn`: SecurityColumn
-- `10-field-types-deep-dive-converting-core-field-types`: Converting Core Field Types
-- `10-field-types-deep-dive-field-type-gallery`: Field Type Gallery
-- `10-field-types-deep-dive-common-field-type-failure-modes`: Common Field Type Failure Modes
-- `11-development-environment-deep-dive-core-development-setup`: Core Development Setup
-- `11-development-environment-deep-dive-vs-code-debugging`: VS Code Debugging
-- `11-development-environment-deep-dive-plugin-development-setup`: Plugin Development Setup
-- `11-development-environment-deep-dive-build-and-type-checking`: Build And Type Checking
-- `12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-cms`: CMS
-- `12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-platform-configuration`: Platform Configuration
-- `12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-workflows`: Workflows
-- `13-administration-and-operational-guardrails-security-first`: Security First
-- `13-administration-and-operational-guardrails-configuration-hygiene`: Configuration Hygiene
-- `13-administration-and-operational-guardrails-admin-ui-expectations`: Admin UI Expectations
-- `15-reporting-analytics-and-model-map-field-types-and-filtering`: Field Types And Filtering
+- `components-forms-and-typescript-contracts`: Components, Forms, And TypeScript Contracts
+- `grid-reference-labels-and-number-badges`: Labels And Number Badges
+- `grid-reference-attribute-person-and-rock-field-columns`: Attribute, Person, And Rock Field Columns
+- `field-types-core-field-type-conversion`: Core Field Type Conversion
+- `development-environment-plugin-development`: Plugin Development
+- `development-environment-debugging`: Debugging
+- `troubleshooting-decision-tree-a-save-reports-success-but-the-intended-values-do-not-persist`: A Save Reports Success But The Intended Values Do Not Persist
+- `troubleshooting-decision-tree-a-grid-is-slow-even-with-a-small-page-size`: A Grid Is Slow Even With A Small Page Size
+- `troubleshooting-decision-tree-a-picker-can-be-cleared-or-submitted-unexpectedly`: A Picker Can Be Cleared Or Submitted Unexpectedly
+- `troubleshooting-decision-tree-an-older-component-fails-with-syntaxerror-15`: An Older Component Fails With `SyntaxError 15`
+- `agent-task-recipes-recipe-implement-a-secure-block-action`: Recipe: Implement A Secure Block Action
+- `agent-task-recipes-recipe-scaffold-and-harden-a-detail-block`: Recipe: Scaffold And Harden A Detail Block
+- `agent-task-recipes-recipe-build-a-grid-with-reliable-actions`: Recipe: Build A Grid With Reliable Actions
+- `agent-task-recipes-recipe-add-a-core-field-type-to-obsidian`: Recipe: Add A Core Field Type To Obsidian
+- `agent-task-recipes-recipe-create-a-universal-plugin-picker`: Recipe: Create A Universal Plugin Picker
+- `agent-task-recipes-recipe-coordinate-same-page-blocks-with-browser-bus`: Recipe: Coordinate Same-Page Blocks With Browser Bus
+- `agent-task-recipes-recipe-cache-a-read-request`: Recipe: Cache A Read Request
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

@@ -10,27 +10,28 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Inspect An Existing Apple TV App](tasks/recipe-inspect-an-existing-apple-tv-app.md) | `Person`, `Device`, `Page` | `Person`, `Device`, `Page` |
-| [Recipe: Diagnose A Broken Button](tasks/recipe-diagnose-a-broken-button.md) | `Family`, `Page` | `Family`, `Page` |
-| [Recipe: Add A New Page Safely](tasks/recipe-add-a-new-page-safely.md) | `Page` | `Page` |
-| [Recipe: Review For Security](tasks/recipe-review-for-security.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
-| [Recipe: Review For Performance](tasks/recipe-review-for-performance.md) | `Schedule`, `Page` | `Schedule`, `Page` |
+| [Recipe: Create a minimal Rock Apple TV application](tasks/recipe-create-a-minimal-rock-apple-tv-application.md) | `Page` | `Page` |
+| [Recipe: Add a cache-aware TVML page](tasks/recipe-add-a-cache-aware-tvml-page.md) | `Person`, `Page` | `Person`, `Page` |
+| [Recipe: Implement remote sign-in](tasks/recipe-implement-remote-sign-in.md) | `Person`, `Device`, `Page`, `Block` | `Person`, `Device`, `Page`, `Block` |
+| [Recipe: Add tracked video or audio playback](tasks/recipe-add-tracked-video-or-audio-playback.md) |  |  |
+| [Recipe: Build a theme-safe styling pass](tasks/recipe-build-a-theme-safe-styling-pass.md) | `Family`, `Page` | `Family`, `Page` |
+| [Recipe: Prepare the application image package](tasks/recipe-prepare-the-application-image-package.md) |  |  |
+| [Recipe: Test through demo mode](tasks/recipe-test-through-demo-mode.md) | `Page` | `Page` |
+| [Recipe: Review a Lava API before connecting it to Apple TV](tasks/recipe-review-a-lava-api-before-connecting-it-to-apple-tv.md) | `Person` | `Person` |
 
 ## Entities
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
-| `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
-| `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
+| `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
-| `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats
@@ -42,58 +43,41 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `2-scope-and-terminology` | normal | live verification |
-| `3-apple-tv-apps-mental-model` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | normal | live verification |
-| `5-core-configuration-and-data-model-apple-tv-app-record` | normal | live verification |
-| `5-core-configuration-and-data-model-tv-page-record` | normal | live verification |
-| `5-core-configuration-and-data-model-page-list-block-options` | normal | live verification |
-| `5-core-configuration-and-data-model-remote-authentication-data-model` | normal | live verification |
-| `5-core-configuration-and-data-model-lava-endpoint-and-api-context` | normal | live verification |
-| `6-primary-entities-and-relationships-apple-tv-app-to-site` | normal | live verification |
-| `6-primary-entities-and-relationships-apple-tv-app-to-tv-pages` | normal | live verification |
-| `6-primary-entities-and-relationships-tv-pages-to-lava-merge-fields` | normal | live verification |
-| `6-primary-entities-and-relationships-tv-pages-to-commands` | normal | live verification |
-| `7-common-apple-tv-apps-workflows-create-a-new-app` | normal | live verification |
-| `7-common-apple-tv-apps-workflows-add-a-content-page` | normal | live verification |
-| `7-common-apple-tv-apps-workflows-build-a-campus-selector` | normal | live verification |
-| `7-common-apple-tv-apps-workflows-add-login` | normal | live verification |
-| `7-common-apple-tv-apps-workflows-play-media` | normal | live verification |
-| `8-building-your-first-apple-tv-app-deep-dive-step-1-confirm-preconditions` | normal | live verification |
-| `8-building-your-first-apple-tv-app-deep-dive-step-2-create-the-app` | normal | live verification |
-| `8-building-your-first-apple-tv-app-deep-dive-step-3-create-the-start-screen` | normal | live verification |
-| `8-building-your-first-apple-tv-app-deep-dive-step-6-add-images` | normal | live verification |
-| `8-building-your-first-apple-tv-app-deep-dive-step-7-test-the-app` | normal | live verification |
-| `9-apple-tv-sign-in-and-authentication-deep-dive-server-setup` | normal | live verification |
-| `9-apple-tv-sign-in-and-authentication-deep-dive-security-guardrails` | normal | live verification |
-| `10-apple-tv-javascript-commands-deep-dive-navigation-commands` | normal | live verification |
-| `10-apple-tv-javascript-commands-deep-dive-media-commands` | normal | live verification |
-| `10-apple-tv-javascript-commands-deep-dive-personal-commands` | normal | live verification |
-| `10-apple-tv-javascript-commands-deep-dive-utility-commands` | normal | live verification |
-| `10-apple-tv-javascript-commands-deep-dive-demo-commands` | normal | live verification |
-| `11-apple-tv-styling-deep-dive` | normal | live verification |
-| `11-apple-tv-styling-deep-dive-style-placement` | structural | live verification |
-| `11-apple-tv-styling-deep-dive-global-styles` | normal | live verification |
-| `11-apple-tv-styling-deep-dive-themes-and-media-queries` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media` | normal | live verification |
-| `13-administration-and-operational-guardrails-environment-separation` | structural | live verification |
-| `13-administration-and-operational-guardrails-api-key-hygiene` | structural | live verification |
-| `13-administration-and-operational-guardrails-release-gate` | structural | live verification |
-| `15-reporting-analytics-and-model-map` | normal | live verification |
-| `16-version-and-release-caveats` | normal | live verification |
-| `17-implementation-playbooks-playbook-weekend-messages-app` | normal | live verification |
-| `17-implementation-playbooks-playbook-campus-aware-app` | normal | live verification |
-| `17-implementation-playbooks-playbook-remote-login` | normal | live verification |
-| `17-implementation-playbooks-playbook-media-resume` | structural | live verification |
-| `18-troubleshooting-decision-tree-navigation-does-not-work` | normal | live verification |
-| `18-troubleshooting-decision-tree-styles-do-not-apply` | structural | live verification |
-| `19-agent-task-recipes-recipe-diagnose-a-broken-button` | structural | live verification |
-| `19-agent-task-recipes-recipe-add-a-new-page-safely` | structural | live verification |
-| `19-agent-task-recipes-recipe-review-for-security` | structural | live verification |
-| `19-agent-task-recipes-recipe-review-for-performance` | structural | live verification |
-| `approved-claim-coverage` | normal | live verification |
-| `20-source-map-and-dependency-notes-release-notes-and-community-examples` | normal | live verification |
+| `agent-summary` | normal | live verification |
+| `scope-and-boundaries` | normal | live verification |
+| `mental-model` | normal | live verification |
+| `creating-and-configuring-an-application` | normal | live verification |
+| `pages-lava-and-cache-behavior-page-content-and-merge-fields` | normal | live verification |
+| `pages-lava-and-cache-behavior-creating-page-content` | normal | live verification |
+| `pages-lava-and-cache-behavior-cacheability` | normal | live verification |
+| `sign-in-logout-and-remote-authentication-tv-side-login-flow` | normal | live verification |
+| `sign-in-logout-and-remote-authentication-logout-and-navigation-state` | normal | live verification |
+| `javascript-and-rock-commands` | normal | live verification |
+| `templates-and-rock-specific-controls-choosing-a-tvml-template` | normal | live verification |
+| `styling-themes-and-text-tvml-styling-model` | normal | live verification |
+| `styling-themes-and-text-light-and-dark-themes` | normal | live verification |
+| `application-images-top-shelf-images` | normal | live verification |
+| `testing-and-demo-mode` | normal | live verification |
+| `lava-apis-and-security` | normal | live verification |
+| `version-and-authority-caveats` | normal | live verification |
+| `troubleshooting-decision-tree-the-application-or-start-screen-does-not-load` | normal | live verification |
+| `troubleshooting-decision-tree-a-page-is-blank-malformed-or-rejected` | normal | live verification |
+| `troubleshooting-decision-tree-login-shows-no-qr-code-or-manual-code` | normal | live verification |
+| `troubleshooting-decision-tree-back-navigation-exposes-the-pre-login-or-personalized-page-unexpectedly` | normal | live verification |
+| `troubleshooting-decision-tree-video-or-audio-does-not-play` | normal | live verification |
+| `troubleshooting-decision-tree-playback-resumes-incorrectly-or-creates-duplicate-interactions` | normal | live verification |
+| `troubleshooting-decision-tree-colors-or-badges-disappear-in-one-theme` | normal | live verification |
+| `troubleshooting-decision-tree-a-template-change-does-not-appear` | normal | live verification |
+| `troubleshooting-decision-tree-demo-commands-do-not-work` | normal | live verification |
+| `troubleshooting-decision-tree-a-countdown-immediately-navigates-or-starts-media` | normal | live verification |
+| `troubleshooting-decision-tree-a-lava-webhook-exposes-more-data-than-expected` | normal | live verification |
+| `agent-task-recipes-recipe-create-a-minimal-rock-apple-tv-application` | normal | live verification |
+| `agent-task-recipes-recipe-add-a-cache-aware-tvml-page` | normal | live verification |
+| `agent-task-recipes-recipe-implement-remote-sign-in` | normal | live verification |
+| `agent-task-recipes-recipe-add-tracked-video-or-audio-playback` | normal | live verification |
+| `agent-task-recipes-recipe-build-a-theme-safe-styling-pass` | normal | live verification |
+| `agent-task-recipes-recipe-prepare-the-application-image-package` | normal | live verification |
+| `agent-task-recipes-recipe-test-through-demo-mode` | normal | live verification |
+| `agent-task-recipes-recipe-review-a-lava-api-before-connecting-it-to-apple-tv` | normal | live verification |
+| `known-gaps-and-live-verification` | normal | live verification |
+| `source-map` | normal | live verification |

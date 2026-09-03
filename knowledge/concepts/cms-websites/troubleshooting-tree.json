@@ -3,236 +3,361 @@
     {
       "do_not_assume": [],
       "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-page-is-missing-or-visible-to-the-wrong-visitor",
+      "id": "a-page-is-missing-or-visible-to-the-wrong-visitor",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/routes",
+        "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
+      ],
+      "start_with": [
+        "Confirm the requested domain maps to the intended site.",
+        "Resolve the actual page through the route, short link, redirect, or `/page/{id}`.",
+        "Inspect the page’s parent hierarchy and inherited authorization.",
+        "Inspect block view authorization and block scope.",
+        "Identify required route, query, virtual, and context parameters.",
+        "Test anonymously, as the intended role, and as an administrator.",
+        "Compare results without treating administrator override as proof.",
+        "If behavior differs after a recent route edit, check the installed version against route-related release fixes. Routes,"
+      ],
+      "title": "A page is missing or visible to the wrong visitor",
+      "when": "A page is missing or visible to the wrong visitor"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-saved-page-block-route-or-style-change-does-not-appear",
+      "id": "a-saved-page-block-route-or-style-change-does-not-appear",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration"
+      ],
+      "start_with": [
+        "Verify the edit was made on the block, page, site, theme, or endpoint actually rendering the request.",
+        "Check page-, layout-, and site-scoped copies of similar blocks.",
+        "Check approval, versioning, display date range, and exclusive end-date behavior.",
+        "Check HTML, content-channel, application, and browser caching.",
+        "For themes, confirm the save compiled Less and inspect the generated CSS plus overrides.",
+        "For deployed file content, read back the saved artifact or hash.",
+        "Clear cache only after identifying which cache could retain the old value.",
+        "If a route edit is stale, compare the installation with the relevant route fix in release notes."
+      ],
+      "title": "A saved page, block, route, or style change does not appear",
+      "when": "A saved page, block, route, or style change does not appear"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Campus",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-wrong-personalized-or-contextual-content-appears",
+      "id": "the-wrong-personalized-or-contextual-content-appears",
+      "inspect": [
+        "Person",
+        "Group",
+        "Campus",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms/personalization",
+        "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/html-block-context"
+      ],
+      "start_with": [
+        "Record the exact route, parameters, login state, person, campus, or group used in the test.",
+        "Confirm the site has the required personalization setting enabled.",
+        "Inspect the audience rule and source person data.",
+        "Inspect context entity type and the parameter or setter that establishes it.",
+        "Check fallback content.",
+        "Disable or vary caching in a controlled test.",
+        "Inspect page, block, and entity authorization separately.",
+        "Retest with representative actors. Personalization,"
+      ],
+      "title": "The wrong personalized or contextual content appears",
+      "when": "The wrong personalized or contextual content appears"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-content-channel-item-is-missing-duplicated-or-exposed",
+      "id": "a-content-channel-item-is-missing-duplicated-or-exposed",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm the channel and item.",
+        "Check item status, dates, attributes, and personalization.",
+        "Inspect the list block’s channel, filters, Lava template, and detail-page settings.",
+        "Inspect the page, route, context parameters, and block security.",
+        "Review what the list exposes even when the detail view is restricted.",
+        "Check for duplicate attribute keys if the item list fails to load on an affected version.",
+        "If direct-link breadcrumbs fail on an older installation, compare against the v17.1 fix.",
+        "Test list and detail routes independently. Content Channel View,"
+      ],
+      "title": "A content-channel item is missing, duplicated, or exposed",
+      "when": "A content-channel item is missing, duplicated, or exposed"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer",
+      "id": "a-page-parameter-filter-does-not-update-its-consumer",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block"
+      ],
+      "start_with": [
+        "Compare the configured filter key with the consumer’s expected key.",
+        "Determine whether the consumer is an Obsidian listener, legacy block, redirect, or Lava lookup.",
+        "Inspect legacy reload mode.",
+        "For virtual parameters, verify the Obsidian block is listening.",
+        "For query-string consumers, verify the full reload and resulting URL.",
+        "Check defaults, pagination, sorting, and HTMX include behavior.",
+        "Test first load, change, refresh, and back navigation."
+      ],
+      "title": "A Page Parameter Filter does not update its consumer",
+      "when": "A Page Parameter Filter does not update its consumer"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor",
+      "id": "a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+      ],
+      "start_with": [
+        "Confirm the page and Lava Application Content block render for the visitor.",
+        "Inspect endpoint security mode.",
+        "Inspect parent application authorization where applicable.",
+        "Inspect the endpoint’s enabled Lava Commands.",
+        "Verify request method and CSRF behavior for state-changing requests.",
+        "Test the endpoint as anonymous and as the intended role.",
+        "Compare the hosted caret-route request with direct endpoint execution.",
+        "Stop if success depends only on administrator override."
+      ],
+      "title": "A Helix endpoint works for an administrator but fails for the intended visitor",
+      "when": "A Helix endpoint works for an administrator but fails for the intended visitor"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-an-htmx-result-is-correct-but-its-controls-assets-or-metadata-are-wrong",
+      "id": "an-htmx-result-is-correct-but-its-controls-assets-or-metadata-are-wrong",
+      "inspect": [],
+      "source_urls": [],
+      "start_with": [
+        "Inspect the anonymous initial response.",
+        "Inspect the swapped fragment separately.",
+        "Confirm the partial returns only the intended target content.",
+        "Verify scripts and styles are loaded by the host shell.",
+        "Reapply or server-render view, sort, expansion, and ARIA state after swaps.",
+        "Put crawl-critical metadata on the initial route.",
+        "Test refresh, back navigation, no-JavaScript behavior, and the intended actor states.",
+        "Verify security server-side regardless of visible controls."
+      ],
+      "title": "An HTMX result is correct but its controls, assets, or metadata are wrong",
+      "when": "An HTMX result is correct but its controls, assets, or metadata are wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-page-is-slow",
+      "id": "a-page-is-slow",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-load-time"
+      ],
+      "start_with": [
+        "Reproduce the exact route and actor state.",
+        "Open Page Debug Timings from the page-load-time control.",
+        "Identify the largest request, block initialization, task trace, or query.",
+        "Compare cached and uncached behavior.",
+        "Isolate expensive blocks or customizations.",
+        "Retest after one bounded change rather than inferring the cause from total page time."
+      ],
+      "title": "A page is slow",
+      "when": "A page is slow"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-web-form-fails-validation-nests-incorrectly-or-receives-bot-submissions",
+      "id": "a-web-form-fails-validation-nests-incorrectly-or-receives-bot-submissions",
+      "inspect": [
+        "Workflow",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+      ],
+      "start_with": [
+        "Identify whether the surface uses WebForms, Helix Lava Forms, a workflow form, or another block.",
+        "For nested-form behavior, verify the Helix form boundary.",
+        "Confirm installed Rock version and CAPTCHA availability.",
+        "Inspect organization- and block-level CAPTCHA mode.",
+        "Test visible, invisible, or disabled behavior as configured.",
+        "Submit the exposed form anonymously and as the intended authenticated role.",
+        "Verify completion and error behavior without relying only on visual presence."
+      ],
+      "title": "A web form fails validation, nests incorrectly, or receives bot submissions",
+      "when": "A web form fails validation, nests incorrectly, or receives bot submissions"
+    },
+    {
+      "do_not_assume": [
+        "Do not expect `CurrentPerson` in bundled static processing."
+      ],
+      "entities": [
+        "Person",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-mobile-content-is-stale-or-lacks-currentperson",
+      "id": "mobile-content-is-stale-or-lacks-currentperson",
+      "inspect": [
+        "Person",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+      ],
+      "start_with": [
+        "Determine whether the Content block is static or dynamic.",
+        "Confirm whether Lava is processed on the server.",
+        "Inspect enabled commands and context entity.",
+        "For static content, verify the latest shell deployment.",
+        "Do not expect `CurrentPerson` in bundled static processing.",
+        "Test the actual target shell and account state."
+      ],
+      "title": "Mobile content is stale or lacks `CurrentPerson`",
+      "when": "Mobile content is stale or lacks `CurrentPerson`"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options",
+      "id": "a-generated-short-link-is-blank-or-uses-the-wrong-options",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/filters/other-filters"
+      ],
+      "start_with": [
+        "Confirm the input URL is nonempty.",
+        "Confirm at least one intended site has shortening enabled.",
+        "Verify optional arguments in the documented order.",
+        "Inspect fallback behavior for invalid values.",
+        "Generate one controlled link.",
+        "Read the stored link and open the final URL.",
+        "Stop before bulk use if the site, token, overwrite, category, length, or pinning value is unverified."
+      ],
+      "title": "A generated short link is blank or uses the wrong options",
+      "when": "A generated short link is blank or uses the wrong options"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
         "Page"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-the-page-returns-not-found",
-      "id": "the-page-returns-not-found",
+      "guide_section_id": "troubleshooting-decision-tree-background-generated-media-is-linked-before-it-is-ready",
+      "id": "background-generated-media-is-linked-before-it-is-ready",
       "inspect": [
+        "Workflow",
         "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/cms/short-links",
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
       ],
       "start_with": [
-        "If the URL is a short link, inspect Short Links first (Short Links).",
-        "If the host is wrong, inspect Site domains.",
-        "If the route is wrong, inspect page routes.",
-        "If the page exists but user lacks View, inspect page security.",
-        "If only content item detail links fail, inspect Content Channel Item View query parameter and item status.",
-        "If breadcrumbs cause Page Not Found on direct item links, check version around the v17.1 breadcrumb fix (Rock Release Notes)."
+        "Identify the workflow or provider job responsible for generation.",
+        "Record explicit queued, processing, retry, failed, and completed states.",
+        "Confirm retry limits and failure reporting.",
+        "Verify the output exists and is readable.",
+        "Test the public page or app that consumes it.",
+        "Publish the link only after completion and readback."
       ],
-      "title": "The Page Returns Not Found",
-      "when": "The Page Returns Not Found"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
-      "id": "the-page-loads-but-content-is-missing",
-      "inspect": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Check block exists and is in a rendered zone.",
-        "Check block View security.",
-        "Check block settings.",
-        "Check content channel/item status and dates.",
-        "Check item security.",
-        "Check category/page parameter filters.",
-        "Check Lava errors.",
-        "Check cache duration and cache tags."
-      ],
-      "title": "The Page Loads But Content Is Missing",
-      "when": "The Page Loads But Content Is Missing"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-the-wrong-content-shows",
-      "id": "the-wrong-content-shows",
-      "inspect": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Check route-to-page mapping.",
-        "Check block query parameter name.",
-        "Check `display most recent` behavior on content item view.",
-        "Check listing/detail page configuration.",
-        "Check cache.",
-        "Check shared HTML context.",
-        "Check personalization.",
-        "Check whether content was edited in a different channel/item than the one displayed."
-      ],
-      "title": "The Wrong Content Shows",
-      "when": "The Wrong Content Shows"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-authors-cannot-edit-content",
-      "id": "authors-cannot-edit-content",
-      "inspect": [
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Check page/block Edit security.",
-        "Check Content Channel security.",
-        "Check item security.",
-        "Check whether management block is the correct version/type.",
-        "Check approval configuration.",
-        "Check browser console/server logs.",
-        "If delete buttons behave unexpectedly, check the v18.2 Content Channel delete authorization fix (Rock Release Notes)."
-      ],
-      "title": "Authors Cannot Edit Content",
-      "when": "Authors Cannot Edit Content"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-lava-works-for-staff-but-not-public",
-      "id": "lava-works-for-staff-but-not-public",
-      "inspect": [
-        "Person",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Check block View security.",
-        "Check enabled commands.",
-        "Check whether Lava depends on `CurrentPerson`.",
-        "Check whether public user lacks entity access.",
-        "Check whether a command is disabled in the public block instance.",
-        "Check caching by person.",
-        "Check null handling."
-      ],
-      "title": "Lava Works For Staff But Not Public",
-      "when": "Lava Works For Staff But Not Public"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-analytics-are-empty",
-      "id": "analytics-are-empty",
-      "inspect": [
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/261",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts"
-      ],
-      "start_with": [
-        "For page views, confirm site Log Page Views is enabled (Easy Page Views Reporting).",
-        "For content items, confirm item view interaction logging settings (ContentChannelItemView settings source).",
-        "Confirm user identity rules.",
-        "Confirm crawler exclusion.",
-        "Confirm interaction token generation and de-duplication behavior (ContentChannelItemView options source).",
-        "Confirm reporting query filters and date range.",
-        "Confirm aggregation jobs if used."
-      ],
-      "title": "Analytics Are Empty",
-      "when": "Analytics Are Empty"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Workflow"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-files-or-documents-are-accessible-to-the-wrong-users",
-      "id": "files-or-documents-are-accessible-to-the-wrong-users",
-      "inspect": [
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Inspect File Type security.",
-        "Inspect BinaryFile.",
-        "Inspect Document and Document Type.",
-        "Inspect entity document linkage.",
-        "Check v18.2 document upload linkage fix if using Entity Document Add workflow action (Rock Release Notes).",
-        "Test direct file URLs and document URLs.",
-        "Restrict public links until verified."
-      ],
-      "title": "Files Or Documents Are Accessible To The Wrong Users",
-      "when": "Files Or Documents Are Accessible To The Wrong Users"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
-      "id": "styling-or-icons-are-broken",
-      "inspect": [
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/cms/font-awesome-5-1",
-        "https://community.rockrms.com/rocku/cms/tabler-icons"
-      ],
-      "start_with": [
-        "Confirm theme and layout.",
-        "Confirm CSS/JS files load.",
-        "Confirm icon library: Font Awesome legacy versus Tabler Icons (Font Awesome 5 Legacy, Tabler Icons).",
-        "Confirm compiled theme assets are current.",
-        "Confirm CDN/browser cache.",
-        "Confirm no CMS block injected conflicting CSS/JS."
-      ],
-      "title": "Styling Or Icons Are Broken",
-      "when": "Styling Or Icons Are Broken"
+      "title": "Background-generated media is linked before it is ready",
+      "when": "Background-generated media is linked before it is ready"
     }
   ],
   "concept_id": "cms-websites",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:08+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-the-page-returns-not-found",
-    "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
-    "17-troubleshooting-decision-tree-the-wrong-content-shows",
-    "17-troubleshooting-decision-tree-authors-cannot-edit-content",
-    "17-troubleshooting-decision-tree-lava-works-for-staff-but-not-public",
-    "17-troubleshooting-decision-tree-analytics-are-empty",
-    "17-troubleshooting-decision-tree-files-or-documents-are-accessible-to-the-wrong-users",
-    "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-find-the-block-that-controls-this-text",
-    "18-agent-task-recipes-recipe-why-is-this-content-item-not-public",
-    "18-agent-task-recipes-recipe-can-i-enable-sql-in-this-html-block",
-    "18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items",
-    "18-agent-task-recipes-recipe-review-a-community-recipe-before-installing",
-    "18-agent-task-recipes-recipe-build-a-page-view-report",
-    "18-agent-task-recipes-recipe-troubleshoot-required-watching"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-page-is-missing-or-visible-to-the-wrong-visitor",
+    "troubleshooting-decision-tree-a-saved-page-block-route-or-style-change-does-not-appear",
+    "troubleshooting-decision-tree-the-wrong-personalized-or-contextual-content-appears",
+    "troubleshooting-decision-tree-a-content-channel-item-is-missing-duplicated-or-exposed",
+    "troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer",
+    "troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor",
+    "troubleshooting-decision-tree-an-htmx-result-is-correct-but-its-controls-assets-or-metadata-are-wrong",
+    "troubleshooting-decision-tree-a-page-is-slow",
+    "troubleshooting-decision-tree-a-web-form-fails-validation-nests-incorrectly-or-receives-bot-submissions",
+    "troubleshooting-decision-tree-mobile-content-is-stale-or-lacks-currentperson",
+    "troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options",
+    "troubleshooting-decision-tree-background-generated-media-is-linked-before-it-is-ready",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-publish-a-page-and-block-safely",
+    "agent-task-recipes-recipe-copy-a-page-hierarchy-without-carrying-stale-configuration",
+    "agent-task-recipes-recipe-audit-an-advanced-html-or-stored-lava-surface",
+    "agent-task-recipes-recipe-change-a-theme-without-surprising-other-sites-or-pages",
+    "agent-task-recipes-recipe-publish-a-content-channel-list-and-detail-experience",
+    "agent-task-recipes-recipe-build-and-verify-personalized-content",
+    "agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer",
+    "agent-task-recipes-recipe-build-a-bounded-helix-active-search-page",
+    "agent-task-recipes-recipe-launch-a-landing-page",
+    "agent-task-recipes-recipe-retire-a-seasonal-public-feature",
+    "agent-task-recipes-recipe-publish-background-generated-video",
+    "agent-task-recipes-recipe-configure-mobile-cms-content-with-the-correct-freshness-and-identity"
   ]
 }

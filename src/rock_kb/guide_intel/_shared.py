@@ -303,7 +303,14 @@ CHECK_IN_TASK_CARDS = [
         "guide_sections": ["Attendance Data Model, Analytics, And Reporting", "Agent Task Recipes"],
         "live_records": ["Attendance", "AttendanceOccurrence", "Group", "Schedule", "Location", "Campus"],
         "entities": ["Attendance", "AttendanceOccurrence", "PersonAlias", "Group", "Schedule", "Location", "Campus"],
-        "source_keywords": ["AttendanceOccurrence", "SundayDate", "DidAttend", "spCheckin"],
+        "source_keywords": [
+            "AttendanceOccurrence",
+            "SundayDate",
+            "DidAttend",
+            "spCheckin",
+            "Attendance Analytics",
+            "attendance",
+        ],
         "steps": [
             "Join Attendance through AttendanceOccurrence before interpreting group, schedule, location, or date.",
             "Filter on DidAttend when the report should count actual attendance.",

@@ -597,1784 +597,731 @@
   },
   "approved_media_hash": "7a6fcdc5ad1730f973f009f134901155877d4c84e30189ce172baddeba7cdced",
   "approved_media_path": "knowledge/concepts/roku/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:51:19+00:00",
   "concept_id": "roku",
-  "guide_hash": "1b2989d0d7d2df62a7ac5aa1df8b4a10ad83f18db508949b7a237fd77b9ef546",
-  "guide_line_count": 1254,
+  "guide_hash": "a6b25db0d712bc39e69c23330a4fb3c59cbacb29240057d799b73e5144ca80de",
+  "guide_line_count": 694,
   "guide_path": "knowledge/concepts/roku/guide.md",
-  "guide_word_count": 12615,
+  "guide_word_count": 6046,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official-developer",
-      "content_hash": "861a0dd76a0be74b3f05cc6dce34696a1307871260794445b0027e1739b5f656",
-      "excerpt_hash": "249c7c8185e16824ad28695412f535d63350accbdf4b3895bab40a3eb0531267",
+      "content_hash": "a785a654184c534f1ffcc56039f6bb285514dcf24d9b8ca759f25681de29f3aa",
+      "excerpt_hash": "028fdad62a0f0458800ff11e265540a411b30d142dd71722d01e8151b5d38d69",
       "source_id": "rock_developer",
       "source_key": "35d2e6eb8d06e01f",
-      "source_record_id": "rock_developer:35d2e6eb8d06e01f",
+      "source_record_id": "rock_developer:article:186",
       "url": "https://community.rockrms.com/developer/roku-docs"
     },
     {
       "authority": "official-developer",
-      "content_hash": "513924263a3dc286260de7ad0a1451652a5b7470e68a607fe18c25674e570c7d",
-      "excerpt_hash": "584c8402d9628489f6b939684dd60fd2bb1e0cabbac5f76f1cf5240a7b0704d7",
-      "source_id": "rock_developer",
-      "source_key": "9cff0c87fd8eab29",
-      "source_record_id": "rock_developer:9cff0c87fd8eab29",
-      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "d2879fdc9c08afaa22b231cfe797565b3e230daa8eab109c9c3b1447d872143a",
-      "excerpt_hash": "289c33fc496af38f3c861c559faa65a17276f6f38daa958072cb012535b23f4d",
-      "source_id": "rock_developer",
-      "source_key": "6449dcd93497b4cd",
-      "source_record_id": "rock_developer:6449dcd93497b4cd",
-      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "5f94432834eb56fedb2bae09fed9a59e2e69ff2fe28507027490f871c4cb6ab6",
-      "excerpt_hash": "50f911cb6c0f10e1659df5c8908922652ba7f5853c1b3049f6cd56f616a0fb73",
-      "source_id": "rock_developer",
-      "source_key": "91b354dd91739896",
-      "source_record_id": "rock_developer:91b354dd91739896",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/page"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "10032c2241b02373a75bfa06c9edae034ef408c2c25953fcf9177757b6b02876",
-      "excerpt_hash": "a749f2435bdfdecfd10a40e80030e185b854cc4ec62df480dc44d22567abdcb9",
-      "source_id": "rock_developer",
-      "source_key": "c7b7775a95829f15",
-      "source_record_id": "rock_developer:c7b7775a95829f15",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "89c7e74c9163377540875f8d3307f2a5ff3010701c74a150b5f022ec03cc2635",
-      "excerpt_hash": "514b1c1efd4dfa288da973b98113d74cce510d8c1793c0223a2deada5f1ea374",
-      "source_id": "rock_developer",
-      "source_key": "f57b11bcb577a69a",
-      "source_record_id": "rock_developer:f57b11bcb577a69a",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/button"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "523aadb5661a4d3335367e5f68bf64363b1b6d3d5212c5294c4e6232eea865be",
-      "excerpt_hash": "8b23d012f7e0368008bfd50b3833feba3c0e683a00ced95bc94144f5e36a456a",
-      "source_id": "rock_developer",
-      "source_key": "caf3064fdd8e0589",
-      "source_record_id": "rock_developer:caf3064fdd8e0589",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/content-node"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "bd943786bdade2fef4a1a0dab505cb9c17dfa4c81898861ae112cec3fd5d7013",
-      "excerpt_hash": "5498c1868d05831a04eeefc3010d0900b2e50fabab2aaa6cdcfda4f2a5106a35",
+      "content_hash": "e489863fb80ab1d59d84ef07aea01bc6c6ff1139d776ce17a76bf96c80a00fb4",
+      "excerpt_hash": "2e86dd5a86a54bd67b2dcab7a3352a3549ce2e6ece67eed510e9d288d93996b4",
       "source_id": "rock_developer",
       "source_key": "88927e5c477c53ec",
-      "source_record_id": "rock_developer:88927e5c477c53ec",
+      "source_record_id": "rock_developer:article:311",
       "url": "https://community.rockrms.com/developer/roku-docs/getting-started"
     },
     {
       "authority": "official-developer",
-      "content_hash": "e8f66e946cecfc7c4704f46e2a6d852e3d3c639cfde720e96bb44d5a0ac8696c",
-      "excerpt_hash": "362b422c2929b42d9cc3def908c3bbcb69aa1931c9b698b9adeaaa5b23e8076f",
+      "content_hash": "9e76e07b143383404d7a30abbc5668966a865ce254c5b57311766079ec8221c7",
+      "excerpt_hash": "ae4c95d79864a60cd697bc23e66e6ac78cb0615d0056c82b32da11e0af6eec60",
       "source_id": "rock_developer",
-      "source_key": "d2a026ca28d1f029",
-      "source_record_id": "rock_developer:d2a026ca28d1f029",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/roku-resources"
+      "source_key": "9cff0c87fd8eab29",
+      "source_record_id": "rock_developer:article:315",
+      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
     },
     {
       "authority": "official-developer",
-      "content_hash": "33c3f2c51fd27c59db3a99be230e4a738f1370421dbfc4e51d0ebcfa27f9aacb",
-      "excerpt_hash": "dcb2e3425088b23544e82cce360d4c095a52c6b8b5edf683db33b97d8c36d595",
+      "content_hash": "3d65662e4c590a6c9f0c5731b015c45eb1fa2f0e9941c3466c38bb8240e559ac",
+      "excerpt_hash": "6879fbdb20cf273e753f38fb411e328190f2eb476a0c43fc9efae93c26c4cdf8",
       "source_id": "rock_developer",
-      "source_key": "044170dca04e8bbb",
-      "source_record_id": "rock_developer:044170dca04e8bbb",
-      "url": "https://community.rockrms.com/lava"
+      "source_key": "6449dcd93497b4cd",
+      "source_record_id": "rock_developer:article:316",
+      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
     },
     {
       "authority": "official-developer",
-      "content_hash": "8cdcaed52ca4be42a0bce54bfe7adb13f330cf4e36dd64da154ed8cd17be1fab",
-      "excerpt_hash": "52e195bcf87b1ba72723f9a29213467214c0cbe10ed03666553ccdc1aa219e71",
-      "source_id": "rock_developer",
-      "source_key": "3d7f0942c946fafb",
-      "source_record_id": "rock_developer:3d7f0942c946fafb",
-      "url": "https://community.rockrms.com/lava/commands/entity-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c5f16bd30ae3d554c73b677a7164a7a17e3e49a4c8e9fc571530630c35a260c0",
-      "excerpt_hash": "29db4fea6d78f5cda3ec644b7e6255b45fea64e434b1677be09e46f800059683",
+      "content_hash": "dd0ab1e8688da725025ab3f72b6179018a41899a240e8549b26c242939784828",
+      "excerpt_hash": "010bbb205cdb0e15a8b972a8133bd06d1fca88c18bcaaaf177143e4634e826b8",
       "source_id": "rock_developer",
       "source_key": "8f58264f88176697",
-      "source_record_id": "rock_developer:8f58264f88176697",
+      "source_record_id": "rock_developer:article:312",
       "url": "https://community.rockrms.com/developer/roku-docs/commands"
     },
     {
       "authority": "official-developer",
-      "content_hash": "fab0dfe7dd4a44f72f611552b97088c1efceff2b5a8e31ec2bbb0ed8d2b70491",
-      "excerpt_hash": "328153e07a39e6e90f54050c82583c6bcb6b708a593d5e1529274932e16c092d",
-      "source_id": "rock_developer",
-      "source_key": "3dcea5dedfa14514",
-      "source_record_id": "rock_developer:3dcea5dedfa14514",
-      "url": "https://community.rockrms.com/developer/roku-docs/commands/utility"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "45d8ce741cac2e75b612f7392cdac1974d0120c672a904589977c890760ed759",
-      "excerpt_hash": "4bee8e42daab0cba22db35c0af32c04f85e87adeef07b91b2bb08978fa78ec94",
-      "source_id": "rock_developer",
-      "source_key": "85b8188a0c8e80db",
-      "source_record_id": "rock_developer:85b8188a0c8e80db",
-      "url": "https://community.rockrms.com/developer/roku-docs/commands/personal"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "b57854b0f3f5340233e6688c81643f5cefdc2ab5bb345918aaa5f2e7e2d04e4f",
-      "excerpt_hash": "fd94440bdc67b0c4943fd7ca65526453adc6172d9c1c3eafc8f3fbc994976b17",
-      "source_id": "rock_developer",
-      "source_key": "ea6301618f3d0bb1",
-      "source_record_id": "rock_developer:ea6301618f3d0bb1",
-      "url": "https://community.rockrms.com/developer/roku-docs/commands/navigation"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "93c29503121e2c89ce79ba9a98224982b05bdab65f717731a93cea0f770cdeef",
-      "excerpt_hash": "d11c2124519049524f17325ac6a1ba20a2aa694c3cb7f391a5ca7d36596d1fcb",
-      "source_id": "rock_developer",
-      "source_key": "643c380d40ffe79d",
-      "source_record_id": "rock_developer:643c380d40ffe79d",
-      "url": "https://community.rockrms.com/lava/commands/interaction-write"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "134cc99754cbc20c7fba6bf1b660a999c2fefff2d55ec932feee1dcf4189eded",
-      "excerpt_hash": "e2b0001640fd4f526fd68f08d51a13ff0b3f4bf506fc904f954b7be4413c66e9",
-      "source_id": "rock_developer",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "rock_developer:30be60a23d3d0317",
-      "url": "https://community.rockrms.com/lava/commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a97afa0b0e9e554e10d9b05c4cfb9c4471197ec62edfcca8b8261fc0ad74717e",
-      "excerpt_hash": "fd72590dc67e151c07379a70792123dd6c355a29a08f58f8eb2ecb5490ec9b6c",
-      "source_id": "rock_developer",
-      "source_key": "6f19b884e4da0469",
-      "source_record_id": "rock_developer:6f19b884e4da0469",
-      "url": "https://community.rockrms.com/lava/filters/attribute-filters"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "b3600a0914a988335e7c6da3ca6e827c7d1c6c3c6eda041fe48bd70f5fd00cce",
-      "excerpt_hash": "26f37b32a2c23249bc4730a6491f968d58acc59bc9ecab8418e29169fd9a2804",
-      "source_id": "rock_developer",
-      "source_key": "67fb9e58129fe0e5",
-      "source_record_id": "rock_developer:67fb9e58129fe0e5",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "0b760223241d0fb3003177341c2ab31d4cf9f677f111d6c8b0cbe78e550206e4",
-      "excerpt_hash": "4b82c8293bc4631484038dbf2047dde1ad12c9a7e5fe2ee8c633fc3d8a1474bb",
-      "source_id": "rock_developer",
-      "source_key": "2382cf965ae9e435",
-      "source_record_id": "rock_developer:2382cf965ae9e435",
-      "url": "https://community.rockrms.com/developer/roku-docs/commands/media"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "5d5ae15f9c1c6303440f04b8bf605f7639ac491a802134f39f037eb45ed0d649",
-      "excerpt_hash": "948b2a83885c38265e04415056cab9899407ed45ef39a308dc8f4cd68d5430ca",
-      "source_id": "rock_developer",
+      "content_hash": "515a442368f17babef1f2f494ea4c6da1ef226bcfa2056c6bb31fac75d9db38e",
+      "excerpt_hash": "a51d6a9678834d33d2287bb710462573248a0af8d35a229ad9764f51e36a5539",
+      "source_id": "rock_lava_docs",
       "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
       "url": "https://community.rockrms.com/lava/lava-api"
     },
     {
       "authority": "official-developer",
-      "content_hash": "50c84afc7404e79748cb8c17e35328779104026d7836523fe0c282ba7c51fa72",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "content_hash": "7535be08b13c11e4d620dd5e6aabbe7b6997ab365d20120dcfa98d48f9a7c9b8",
+      "excerpt_hash": "b94884c02ee85fb04eebb3278e918cf1205ca5cb57e18fa9364b53e03f2554af",
       "source_id": "rock_developer",
-      "source_key": "14e4b0253d1428ca",
-      "source_record_id": "rock_developer:14e4b0253d1428ca",
-      "url": "https://community.rockrms.com/api-docs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "c02b6ec41c06e41475ffaf0073e9e335fc84bc5fde7f7a11d09d512f98f1a7c2",
-      "excerpt_hash": "b5845f06f03b46d3c888483a3f7378b5a49206e82795e48b26962cde173e9e4e",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9d693bdfb00ebabc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "65324b26ed7b877b748945f58041c228160bc695c55c42882aaaa64c5ce4413a",
-      "excerpt_hash": "337f96c627acdf2f703dde0741618dd9cbe9c39e0001188e53c792383a29fcc4",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "af3c7989909a45eb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplicationService.cs"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": "8faecf0c48a66ce596527af8f747d3dd61fc7f34d995ed382363ff36ab7d9965",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "triumph_resources",
-      "source_key": "9d0ccce785ef64bb",
-      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
-      "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
+      "source_key": "c7b7775a95829f15",
+      "source_record_id": "rock_developer:article:325",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls"
     },
     {
       "authority": "official-developer",
-      "content_hash": "0b44aadbec82e038e5da1d8f4b47826a7ee7f4e2f8e4c6e20c65c8dfbac09c70",
-      "excerpt_hash": "c4bee1295390dad0b3f593357361f8ff0a3083ccfaef3b5013969cff9da979df",
+      "content_hash": "45d57f1f2e3326b6e559a5491b734bba08c13e52643dd4732eafaea050c3a131",
+      "excerpt_hash": "d1575acecf04d9dddf08fb15d33feaef716efcfbec5f81911f8924bb1f57a81c",
       "source_id": "rock_developer",
-      "source_key": "6ad836de36757aea",
-      "source_record_id": "rock_developer:6ad836de36757aea",
-      "url": "https://community.rockrms.com/lava/commands/interaction-content-channel-item-write"
+      "source_key": "91b354dd91739896",
+      "source_record_id": "rock_developer:article:324",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/page"
     },
     {
       "authority": "official-developer",
-      "content_hash": "a451416963774f8bd08ddb683c24e896e84d6198c8b73b6462594d06753e2728",
-      "excerpt_hash": "4d56f2dc05c1926c4691541b123205f807cb484f917205799869037f2382483e",
+      "content_hash": "4325d1eea81ac9a1b50c31c1e462f286b6efd2a95d3a3a3079a3da436370acc0",
+      "excerpt_hash": "d410532341725e3cefff9d57dc219d2b41070fa87d60bb9e313ee4ec13dd1073",
       "source_id": "rock_developer",
-      "source_key": "c21b05c41322edb1",
-      "source_record_id": "rock_developer:c21b05c41322edb1",
-      "url": "https://community.rockrms.com/lava/commands/interaction-intent-write"
+      "source_key": "ea6301618f3d0bb1",
+      "source_record_id": "rock_developer:article:317",
+      "url": "https://community.rockrms.com/developer/roku-docs/commands/navigation"
     },
     {
       "authority": "official-developer",
-      "content_hash": "28749e274c460b79cbe9bbc52a40a775681c430724a441eccac845d40c25b31e",
-      "excerpt_hash": "9a5d17c347cf3b91fc5a418bc733755cf873eaf5cae1654d3175c78d1d8c1f5b",
+      "content_hash": "2428c57d5104932e815b5c59264dd6d2c888f69c44a9da8cef2d2f3485e4ca4d",
+      "excerpt_hash": "b399401898c106602c66b9144f8a9176835e39d1756c047f3d507c692dd667c3",
       "source_id": "rock_developer",
-      "source_key": "663210b198d98d94",
-      "source_record_id": "rock_developer:663210b198d98d94",
-      "url": "https://community.rockrms.com/lava/commands/personalize-commands"
+      "source_key": "f57b11bcb577a69a",
+      "source_record_id": "rock_developer:article:321",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/button"
     },
     {
       "authority": "official-developer",
-      "content_hash": "4b83d2c7232aff6353f9080ca7d45beb7cf58b5c0679661e68a7892f4f7b70fe",
-      "excerpt_hash": "58364ebdea968e9b582e5e256f7bf1bfea7ae32581ccc230c67c35d554e6e906",
+      "content_hash": "3006556b19b4db6e7c86106d6d430ad038ddb32b49db32e4eb1bc4dbc713e17b",
+      "excerpt_hash": "b19923c09bedaace96dfa733367d961b715689eaf9079319961941ddbefc7c31",
       "source_id": "rock_developer",
-      "source_key": "a20a2cf1b118835e",
-      "source_record_id": "rock_developer:a20a2cf1b118835e",
-      "url": "https://community.rockrms.com/lava/commands/adaptivemessage-commands"
+      "source_key": "caf3064fdd8e0589",
+      "source_record_id": "rock_developer:article:322",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/content-node"
     },
     {
       "authority": "official-developer",
-      "content_hash": "471c59b8570b124c18b4c1c5472589eddb53bb3c55573017ecd95dc5a1a5985c",
-      "excerpt_hash": "02d5752d11361738718b9f525e11e57b29efaaedb8606e648510ab36ffed59d9",
+      "content_hash": "92df30d3dcd7593513aaea9cdfd7abf0ca887510acdfc0dbfba9402b19ba63b7",
+      "excerpt_hash": "78171ce98374f5139fad50be5284ccfbf10e8b753e610d5b5d6a213f3e5e39c1",
+      "source_id": "rock_developer",
+      "source_key": "67fb9e58129fe0e5",
+      "source_record_id": "rock_developer:article:323",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "3b0f5ae61c37231e74cae6d3659e984e2814c6eb01d1c83bb1ac829f2aa7e093",
+      "excerpt_hash": "af0fe3ffa24e3a9e25fbd5b35ead68f461c7dbe78f4f73722d417243ed24f308",
+      "source_id": "rock_developer",
+      "source_key": "3dcea5dedfa14514",
+      "source_record_id": "rock_developer:article:319",
+      "url": "https://community.rockrms.com/developer/roku-docs/commands/utility"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "aa0f00b9727e856b6208e047e639b3766a8ed744b177c44b727c350ed2bc3384",
+      "excerpt_hash": "f47cdf039cf7d5583f541d3c5391665d9ebbba8c0c3a9442806b88ae1f6d8050",
+      "source_id": "rock_developer",
+      "source_key": "85b8188a0c8e80db",
+      "source_record_id": "rock_developer:article:320",
+      "url": "https://community.rockrms.com/developer/roku-docs/commands/personal"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8b5cbfea7e004e1630656e34f6bf7cf9cdb54b3ce3486a10c4982a1d37d89265",
+      "excerpt_hash": "b241713894bb51a799ec6885e37784665882bfa3610b19779af2e99b1f23ca98",
+      "source_id": "rock_developer",
+      "source_key": "2382cf965ae9e435",
+      "source_record_id": "rock_developer:article:318",
+      "url": "https://community.rockrms.com/developer/roku-docs/commands/media"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "db48ce69c0490c1be08738ce72209a17bca72f819cd2bcbaecfc9a9b897611bc",
+      "excerpt_hash": "f66c4c2dd31f85753322193b62c9faf84240be5618b97dea846a724334047a29",
       "source_id": "rock_developer",
       "source_key": "1447c23cdfa5050e",
-      "source_record_id": "rock_developer:1447c23cdfa5050e",
+      "source_record_id": "rock_developer:article:328",
       "url": "https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks"
     },
     {
       "authority": "official-developer",
-      "content_hash": "af2da6b568b77361fbf4d21b1a18437bb2df03b3aeed13e65c667bb296fe41c9",
-      "excerpt_hash": "1ee9ba68053dea7926520bc7caaf33477e954ad691a1e9745989ac4193169947",
+      "content_hash": "7531a94f65b0d1777ff693886a04f8380697936086fb599a6d105e8ede7c52cb",
+      "excerpt_hash": "0f1bfc4958b2c12989d55e48682b88be85e664cb0db2496dacae4961f30e7f7a",
       "source_id": "rock_developer",
       "source_key": "adf644383b6c167b",
-      "source_record_id": "rock_developer:adf644383b6c167b",
+      "source_record_id": "rock_developer:article:326",
       "url": "https://community.rockrms.com/developer/roku-docs/resources/layout-nodes"
     },
     {
       "authority": "official-developer",
-      "content_hash": "af541814d896358c00a79b77ce8fb825f65f17f3f600ffa7c01cd8219bc240b6",
-      "excerpt_hash": "393a646fc516b98f808eb16e0d94ba583e86c76b34baaa3b092f468d427ba31c",
+      "content_hash": "047cca942ce22cb8dacf8e3c9f17f1247b78f1c0ca247ff0143917123203e8d5",
+      "excerpt_hash": "fd224441bf31465aa016a1605493d424dbfd0b8a15a9348b72e079b1b955e32c",
       "source_id": "rock_developer",
       "source_key": "fd9640894bfc6e71",
-      "source_record_id": "rock_developer:fd9640894bfc6e71",
+      "source_record_id": "rock_developer:article:330",
       "url": "https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "eaf198f2079edd5d",
+      "source_record_id": "",
+      "url": "https://developer.roku.com/en-gb/docs/references/references-overview.md"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "da724fbc28d1451e",
+      "source_record_id": "",
+      "url": "https://github.com/rokudev/samples"
+    },
+    {
       "authority": "official-developer",
-      "content_hash": "f249787bc00572269196a081d3099f8e53675b990674122113da0629bc30a2d1",
-      "excerpt_hash": "36ea454c90845d07df95fa16505c7960d9c99ac0c1e69ea50655a44df16b77e5",
+      "content_hash": "4b5c17775ccf4d408aa11bce8f33cf2988800345bcf7647323c84f97515e67c0",
+      "excerpt_hash": "21d6414aa9cc1946f97dfd3fecb9a7d653af94e2ec0b0bba60e8c7d76735c168",
       "source_id": "rock_developer",
-      "source_key": "64f25905a1430064",
-      "source_record_id": "rock_developer:64f25905a1430064",
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/useful-links"
+      "source_key": "d2a026ca28d1f029",
+      "source_record_id": "rock_developer:article:327",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/roku-resources"
+    },
+    {
+      "authority": "official-triumph",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "triumph_resources",
+      "source_key": "9d0ccce785ef64bb",
+      "source_record_id": "",
+      "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
     },
     {
       "authority": "source-code",
       "content_hash": "89bfd3aee656950b573fdf93f24a327c7a4384bd81f335d81c55f4f4db4aedbc",
       "excerpt_hash": "b7b9ac7ccc7c5d4086acb52d9e3785bb66769829daf1a6482486b83db2310569",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "68e5a821254562e5",
+      "source_key": "280d40ec96df0c0b",
       "source_record_id": "SparkDevNetwork/Rock:Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs"
     },
     {
       "authority": "official-developer",
-      "content_hash": "fe6e9a19a431554e0b3cc01c5371e9f8d23c145b7b70627ac58cb37773926c69",
-      "excerpt_hash": "0a90910a3c5ae8c6365d23c1bc67ab2a28eb2346a344b4dc9f20d3392d314ac3",
+      "content_hash": "cb6496ac7d913d281c1ead9ac57a8df744fc993bd0a0926876ebeb2d673d7659",
+      "excerpt_hash": "399002d26b4550caaa2ba3639bfbbdc260619dc1137b86a0dd2ba538094bf61e",
       "source_id": "rock_developer",
-      "source_key": "78b1a0a9975427ba",
-      "source_record_id": "rock_developer:78b1a0a9975427ba",
-      "url": "https://community.rockrms.com/lava/commands/cache-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3e807653ca4c5bfcb5a2fe1053c255e4b71ed23b67b1078c11b3fe553a3a9598",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "source_id": "rock_developer",
-      "source_key": "655ed379a713ded8",
-      "source_record_id": "rock_developer:655ed379a713ded8",
-      "url": "https://community.rockrms.com/lava/filters/array-filters"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c70534e4ef08e0ff18b4fa941c7dbded32ca2d915404e2889ded9e2b1ec654ad",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "source_id": "rock_developer",
-      "source_key": "030d6d918f3ce140",
-      "source_record_id": "rock_developer:030d6d918f3ce140",
-      "url": "https://community.rockrms.com/lava/filters/date-filters"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "89ac4d1fb05f671790e57f280e4eafb833d6c516b73105c75ed0266a38d9ce8e",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "source_id": "rock_developer",
-      "source_key": "f0e5d9f51f966be9",
-      "source_record_id": "rock_developer:f0e5d9f51f966be9",
-      "url": "https://community.rockrms.com/lava/filters/numeric-filters"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2c3c00db166765762fc1a2ddc31c1cbecc79fe8d2ddfe20cf558efca415d41c5",
-      "excerpt_hash": "0893876f81bf0b65b1b17d2f5efef6d470f00c67dd36546909e5c1fafa8083e7",
-      "source_id": "rock_developer",
-      "source_key": "b76e00f4cafbfba8",
-      "source_record_id": "rock_developer:b76e00f4cafbfba8",
-      "url": "https://community.rockrms.com/lava/commands/sql-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "b15f9c6bc1298bc2d290b1cfdb6f65dcd3b11d2b231e20ac38751455fc209217",
-      "excerpt_hash": "efc25edaf0d267b9cc4d394fa5f3c7acc2e6a6daaa3ebbab321f48a2b4cb84c9",
-      "source_id": "rock_developer",
-      "source_key": "1a7cdd8d2a7f15eb",
-      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
-      "url": "https://community.rockrms.com/lava/remote-lava"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "b08a33b067b8251b3568481afad50a54cf176f89c8836c834cc26dbda9e708ed",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "source_id": "rock_developer",
-      "source_key": "be18a55d805e40d5",
-      "source_record_id": "rock_developer:be18a55d805e40d5",
-      "url": "https://community.rockrms.com/lava/fluid"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "6c37210e40beee0e7ec0c051ab05862ed14526122cd8c34431fe3ffbd1cd0222",
-      "excerpt_hash": "2074b60b4e05afeba8167f91483dcd7d2be397793822acce5a3c2e178fd67344",
-      "source_id": "rock_developer",
-      "source_key": "e4041265ea398ac0",
-      "source_record_id": "rock_developer:e4041265ea398ac0",
-      "url": "https://community.rockrms.com/lava/commands/calendar-events"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3a0ff40dbcddad1d932686d2854c769aedb6872d62413cde53f240ae6b3cc57f",
-      "excerpt_hash": "43d5ac1f75f736b035916418ac0df389b401ca7df8f56da061c432746243e583",
-      "source_id": "rock_developer",
-      "source_key": "939d4b862980eb5f",
-      "source_record_id": "rock_developer:939d4b862980eb5f",
-      "url": "https://community.rockrms.com/lava/commands/event-scheduled-instance"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "6dc1d7483d09fb1f055620d0b88ac497b4cc86fcb302661233c238c950c159dc",
-      "excerpt_hash": "9d203e686a9e1cb20b810f58964252cf25529221c58eac5d4d45df1b3d9cdc0c",
-      "source_id": "rock_developer",
-      "source_key": "74ebb0215dc00eda",
-      "source_record_id": "rock_developer:74ebb0215dc00eda",
-      "url": "https://community.rockrms.com/lava/commands/setculture-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "59719ef76672e8b8a0c0d7df034c0d18899bbeac788774dcaa25d08d3bff5a7d",
-      "excerpt_hash": "73b5ddd5d60a87ef93a26312f30f67cf978c62f2c1667ffb5845b69e49226d04",
-      "source_id": "rock_developer",
-      "source_key": "092cca0be1ff5961",
-      "source_record_id": "rock_developer:092cca0be1ff5961",
-      "url": "https://community.rockrms.com/lava/commands/print-zpl"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "4c0fe1130f878c66",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "official-release",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "",
-      "url": "https://www.rockrms.com/releasenotes"
-    },
-    {
-      "authority": "community-answer",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_qa",
-      "source_key": "b7e0389038fbb3ed",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/ask/developing"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "148ff83ff7d88869c4491164d0bef6224195046b565aed81e9f85ddb0998fae4",
-      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "64f25905a1430064",
+      "source_record_id": "rock_developer:article:329",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/useful-links"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
       "confidence": "normal",
-      "end_line": 50,
-      "heading": "1. Executive Summary For Agents",
+      "end_line": 33,
+      "heading": "Agent Summary",
       "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
+      "section_id": "agent-summary",
       "source_keys": [
         "35d2e6eb8d06e01f",
-        "9cff0c87fd8eab29",
-        "6449dcd93497b4cd",
-        "91b354dd91739896",
-        "c7b7775a95829f15",
-        "f57b11bcb577a69a",
-        "caf3064fdd8e0589"
-      ],
-      "start_line": 29
-    },
-    {
-      "confidence": "normal",
-      "end_line": 74,
-      "heading": "2. Scope And Terminology",
-      "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology",
-      "source_keys": [
         "88927e5c477c53ec",
         "9cff0c87fd8eab29",
         "6449dcd93497b4cd",
-        "c7b7775a95829f15",
-        "d2a026ca28d1f029",
-        "044170dca04e8bbb",
-        "3d7f0942c946fafb",
-        "c7b7775a95829f15",
         "8f58264f88176697",
-        "3dcea5dedfa14514",
-        "6449dcd93497b4cd",
-        "85b8188a0c8e80db",
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
+        "53ad1133e1cb2d0a"
       ],
-      "start_line": 51
+      "start_line": 18
     },
     {
       "confidence": "normal",
-      "end_line": 92,
-      "heading": "3. Roku Apps Mental Model",
-      "needs_live_verification": true,
-      "section_id": "3-roku-apps-mental-model",
+      "end_line": 60,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": false,
+      "section_id": "scope-and-boundaries",
+      "source_keys": [
+        "35d2e6eb8d06e01f",
+        "8f58264f88176697",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 34
+    },
+    {
+      "confidence": "normal",
+      "end_line": 75,
+      "heading": "Mental Model",
+      "needs_live_verification": false,
+      "section_id": "mental-model",
       "source_keys": [
         "9cff0c87fd8eab29",
         "6449dcd93497b4cd",
-        "ea6301618f3d0bb1",
-        "30be60a23d3d0317",
-        "3d7f0942c946fafb",
-        "6f19b884e4da0469",
+        "c7b7775a95829f15",
+        "8f58264f88176697"
+      ],
+      "start_line": 61
+    },
+    {
+      "confidence": "normal",
+      "end_line": 98,
+      "heading": "Getting Started And Application Configuration",
+      "needs_live_verification": true,
+      "section_id": "getting-started-and-application-configuration",
+      "source_keys": [
+        "88927e5c477c53ec",
+        "9cff0c87fd8eab29",
+        "35d2e6eb8d06e01f",
+        "9cff0c87fd8eab29"
+      ],
+      "start_line": 76
+    },
+    {
+      "confidence": "normal",
+      "end_line": 142,
+      "heading": "Page Authoring And Caching",
+      "needs_live_verification": true,
+      "section_id": "page-authoring-and-caching",
+      "source_keys": [
+        "6449dcd93497b4cd",
         "91b354dd91739896",
+        "6449dcd93497b4cd",
+        "6449dcd93497b4cd",
+        "6449dcd93497b4cd",
+        "ea6301618f3d0bb1"
+      ],
+      "start_line": 99
+    },
+    {
+      "confidence": "normal",
+      "end_line": 181,
+      "heading": "SceneGraph Controls And Focus",
+      "needs_live_verification": false,
+      "section_id": "scenegraph-controls-and-focus",
+      "source_keys": [
+        "c7b7775a95829f15",
+        "91b354dd91739896",
+        "f57b11bcb577a69a",
+        "caf3064fdd8e0589",
         "67fb9e58129fe0e5",
-        "9cff0c87fd8eab29",
-        "6449dcd93497b4cd",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435"
+        "67fb9e58129fe0e5"
       ],
-      "start_line": 75
+      "start_line": 143
     },
     {
       "confidence": "normal",
-      "end_line": 118,
-      "heading": "4. Source Authority And How To Use This Guide",
+      "end_line": 209,
+      "heading": "Roku Command Model",
       "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "section_id": "roku-command-model",
       "source_keys": [
-        "35d2e6eb8d06e01f",
-        "d2a026ca28d1f029",
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
-        "53ad1133e1cb2d0a",
-        "14e4b0253d1428ca",
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "9d0ccce785ef64bb",
-        "35d2e6eb8d06e01f"
+        "8f58264f88176697",
+        "8f58264f88176697"
       ],
-      "start_line": 93
+      "start_line": 182
     },
     {
-      "confidence": "structural",
-      "end_line": 122,
-      "heading": "5. Core Configuration And Data Model",
+      "confidence": "normal",
+      "end_line": 234,
+      "heading": "Navigation Commands",
       "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
+      "section_id": "navigation-commands",
       "source_keys": [
-        "9cff0c87fd8eab29",
-        "85b8188a0c8e80db",
-        "9d693bdfb00ebabc",
-        "6449dcd93497b4cd",
-        "91b354dd91739896"
+        "ea6301618f3d0bb1",
+        "ea6301618f3d0bb1"
       ],
-      "start_line": 119
+      "start_line": 210
     },
     {
       "confidence": "normal",
-      "end_line": 136,
-      "heading": "Application Configuration",
+      "end_line": 260,
+      "heading": "Application Context Commands",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-application-configuration",
+      "section_id": "application-context-commands",
       "source_keys": [
-        "9cff0c87fd8eab29",
-        "9cff0c87fd8eab29",
-        "85b8188a0c8e80db",
-        "9d693bdfb00ebabc"
-      ],
-      "start_line": 123
-    },
-    {
-      "confidence": "normal",
-      "end_line": 148,
-      "heading": "Page Configuration",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-page-configuration",
-      "source_keys": [
-        "6449dcd93497b4cd",
-        "6449dcd93497b4cd",
-        "6449dcd93497b4cd",
-        "91b354dd91739896",
-        "6449dcd93497b4cd",
-        "6449dcd93497b4cd"
-      ],
-      "start_line": 137
-    },
-    {
-      "confidence": "normal",
-      "end_line": 164,
-      "heading": "Lava Merge Fields",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-lava-merge-fields",
-      "source_keys": [
-        "6449dcd93497b4cd"
-      ],
-      "start_line": 149
-    },
-    {
-      "confidence": "normal",
-      "end_line": 216,
-      "heading": "6. Primary Entities And Relationships",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships",
-      "source_keys": [
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "6449dcd93497b4cd",
-        "85b8188a0c8e80db",
         "3dcea5dedfa14514",
-        "2382cf965ae9e435",
+        "6449dcd93497b4cd",
+        "3dcea5dedfa14514"
+      ],
+      "start_line": 235
+    },
+    {
+      "confidence": "normal",
+      "end_line": 287,
+      "heading": "Remote Authentication And Personal Commands",
+      "needs_live_verification": true,
+      "section_id": "remote-authentication-and-personal-commands",
+      "source_keys": [
         "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435",
-        "643c380d40ffe79d",
-        "6ad836de36757aea",
-        "c21b05c41322edb1"
-      ],
-      "start_line": 165
-    },
-    {
-      "confidence": "structural",
-      "end_line": 218,
-      "heading": "7. Common Roku Apps Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-roku-apps-workflows",
-      "source_keys": [
-        "88927e5c477c53ec",
-        "35d2e6eb8d06e01f",
-        "6449dcd93497b4cd",
         "85b8188a0c8e80db",
-        "2382cf965ae9e435",
-        "663210b198d98d94",
-        "a20a2cf1b118835e"
-      ],
-      "start_line": 217
-    },
-    {
-      "confidence": "normal",
-      "end_line": 233,
-      "heading": "Build A First App",
-      "needs_live_verification": true,
-      "section_id": "7-common-roku-apps-workflows-build-a-first-app",
-      "source_keys": [
-        "88927e5c477c53ec",
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 219
-    },
-    {
-      "confidence": "normal",
-      "end_line": 250,
-      "heading": "Add A Page",
-      "needs_live_verification": true,
-      "section_id": "7-common-roku-apps-workflows-add-a-page",
-      "source_keys": [
-        "6449dcd93497b4cd",
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 234
-    },
-    {
-      "confidence": "normal",
-      "end_line": 256,
-      "heading": "Build A Menu",
-      "needs_live_verification": true,
-      "section_id": "7-common-roku-apps-workflows-build-a-menu",
-      "source_keys": [
-        "6449dcd93497b4cd"
-      ],
-      "start_line": 251
-    },
-    {
-      "confidence": "normal",
-      "end_line": 272,
-      "heading": "Add Login",
-      "needs_live_verification": true,
-      "section_id": "7-common-roku-apps-workflows-add-login",
-      "source_keys": [
+        "85b8188a0c8e80db",
         "85b8188a0c8e80db",
         "85b8188a0c8e80db"
       ],
-      "start_line": 257
+      "start_line": 261
     },
     {
       "confidence": "normal",
-      "end_line": 286,
-      "heading": "Play Media",
-      "needs_live_verification": false,
-      "section_id": "7-common-roku-apps-workflows-play-media",
+      "end_line": 323,
+      "heading": "Media Playback And Watch Progress",
+      "needs_live_verification": true,
+      "section_id": "media-playback-and-watch-progress",
       "source_keys": [
+        "2382cf965ae9e435",
+        "2382cf965ae9e435",
+        "2382cf965ae9e435",
         "2382cf965ae9e435"
       ],
-      "start_line": 273
-    },
-    {
-      "confidence": "normal",
-      "end_line": 292,
-      "heading": "Personalize Content",
-      "needs_live_verification": false,
-      "section_id": "7-common-roku-apps-workflows-personalize-content",
-      "source_keys": [
-        "663210b198d98d94",
-        "a20a2cf1b118835e"
-      ],
-      "start_line": 287
-    },
-    {
-      "confidence": "normal",
-      "end_line": 298,
-      "heading": "8. Roku Getting Started Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "8-roku-getting-started-deep-dive",
-      "source_keys": [
-        "88927e5c477c53ec"
-      ],
-      "start_line": 293
-    },
-    {
-      "confidence": "normal",
-      "end_line": 313,
-      "heading": "Provisioning",
-      "needs_live_verification": true,
-      "section_id": "8-roku-getting-started-deep-dive-provisioning",
-      "source_keys": [
-        "88927e5c477c53ec"
-      ],
-      "start_line": 299
-    },
-    {
-      "confidence": "normal",
-      "end_line": 333,
-      "heading": "Page Construction",
-      "needs_live_verification": true,
-      "section_id": "8-roku-getting-started-deep-dive-page-construction",
-      "source_keys": [
-        "91b354dd91739896",
-        "f57b11bcb577a69a"
-      ],
-      "start_line": 314
-    },
-    {
-      "confidence": "normal",
-      "end_line": 350,
-      "heading": "Device Validation",
-      "needs_live_verification": true,
-      "section_id": "8-roku-getting-started-deep-dive-device-validation",
-      "source_keys": [
-        "1447c23cdfa5050e"
-      ],
-      "start_line": 334
+      "start_line": 288
     },
     {
       "confidence": "normal",
       "end_line": 354,
-      "heading": "9. Roku Commands Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "9-roku-commands-deep-dive",
+      "heading": "Layout Nodes And RowList",
+      "needs_live_verification": true,
+      "section_id": "layout-nodes-and-rowlist",
       "source_keys": [
-        "8f58264f88176697",
-        "f57b11bcb577a69a",
-        "caf3064fdd8e0589"
+        "1447c23cdfa5050e",
+        "adf644383b6c167b",
+        "fd9640894bfc6e71",
+        "fd9640894bfc6e71",
+        "eaf198f2079edd5d",
+        "da724fbc28d1451e",
+        "d2a026ca28d1f029"
       ],
-      "start_line": 351
+      "start_line": 324
     },
     {
       "confidence": "normal",
-      "end_line": 371,
-      "heading": "Multiple Commands",
-      "needs_live_verification": false,
-      "section_id": "9-roku-commands-deep-dive-multiple-commands",
+      "end_line": 372,
+      "heading": "Security And API Guardrails",
+      "needs_live_verification": true,
+      "section_id": "security-and-api-guardrails",
       "source_keys": [
-        "8f58264f88176697"
+        "53ad1133e1cb2d0a"
       ],
       "start_line": 355
     },
     {
       "confidence": "normal",
-      "end_line": 392,
-      "heading": "Navigation Commands",
+      "end_line": 389,
+      "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
-      "section_id": "9-roku-commands-deep-dive-navigation-commands",
+      "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "ea6301618f3d0bb1",
-        "ea6301618f3d0bb1",
-        "85b8188a0c8e80db"
+        "35d2e6eb8d06e01f",
+        "9d0ccce785ef64bb",
+        "280d40ec96df0c0b"
       ],
-      "start_line": 372
+      "start_line": 373
+    },
+    {
+      "confidence": "structural",
+      "end_line": 391,
+      "heading": "Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree",
+      "source_keys": [
+        "9cff0c87fd8eab29",
+        "53ad1133e1cb2d0a",
+        "6449dcd93497b4cd",
+        "ea6301618f3d0bb1",
+        "91b354dd91739896",
+        "67fb9e58129fe0e5",
+        "8f58264f88176697",
+        "f57b11bcb577a69a",
+        "caf3064fdd8e0589",
+        "85b8188a0c8e80db",
+        "2382cf965ae9e435",
+        "fd9640894bfc6e71"
+      ],
+      "start_line": 390
     },
     {
       "confidence": "normal",
-      "end_line": 405,
-      "heading": "Cache Control In Navigation",
-      "needs_live_verification": false,
-      "section_id": "9-roku-commands-deep-dive-cache-control-in-navigation",
+      "end_line": 401,
+      "heading": "The Roku application cannot connect to Rock",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-roku-application-cannot-connect-to-rock",
+      "source_keys": [
+        "9cff0c87fd8eab29",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 392
+    },
+    {
+      "confidence": "normal",
+      "end_line": 411,
+      "heading": "A page is blank or does not render as expected",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-page-is-blank-or-does-not-render-as-expected",
       "source_keys": [
         "6449dcd93497b4cd",
         "ea6301618f3d0bb1"
       ],
-      "start_line": 393
+      "start_line": 402
     },
     {
       "confidence": "normal",
-      "end_line": 421,
-      "heading": "Utility Commands",
+      "end_line": 420,
+      "heading": "Remote focus starts nowhere or moves in the wrong direction",
       "needs_live_verification": false,
-      "section_id": "9-roku-commands-deep-dive-utility-commands",
+      "section_id": "troubleshooting-decision-tree-remote-focus-starts-nowhere-or-moves-in-the-wrong-direction",
       "source_keys": [
-        "3dcea5dedfa14514"
-      ],
-      "start_line": 406
-    },
-    {
-      "confidence": "normal",
-      "end_line": 445,
-      "heading": "Media Commands",
-      "needs_live_verification": true,
-      "section_id": "9-roku-commands-deep-dive-media-commands",
-      "source_keys": [
-        "2382cf965ae9e435",
-        "2382cf965ae9e435",
-        "2382cf965ae9e435"
-      ],
-      "start_line": 422
-    },
-    {
-      "confidence": "normal",
-      "end_line": 460,
-      "heading": "Personal Commands",
-      "needs_live_verification": false,
-      "section_id": "9-roku-commands-deep-dive-personal-commands",
-      "source_keys": [
-        "85b8188a0c8e80db",
-        "85b8188a0c8e80db",
-        "85b8188a0c8e80db"
-      ],
-      "start_line": 446
-    },
-    {
-      "confidence": "normal",
-      "end_line": 464,
-      "heading": "10. Roku Controls Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-roku-controls-deep-dive",
-      "source_keys": [
-        "c7b7775a95829f15"
-      ],
-      "start_line": 461
-    },
-    {
-      "confidence": "normal",
-      "end_line": 486,
-      "heading": "Rock:Page",
-      "needs_live_verification": true,
-      "section_id": "10-roku-controls-deep-dive-rock-page",
-      "source_keys": [
-        "91b354dd91739896"
-      ],
-      "start_line": 465
-    },
-    {
-      "confidence": "normal",
-      "end_line": 498,
-      "heading": "Rock:Button",
-      "needs_live_verification": true,
-      "section_id": "10-roku-controls-deep-dive-rock-button",
-      "source_keys": [
-        "f57b11bcb577a69a"
-      ],
-      "start_line": 487
-    },
-    {
-      "confidence": "normal",
-      "end_line": 515,
-      "heading": "Rock:ContentNode",
-      "needs_live_verification": false,
-      "section_id": "10-roku-controls-deep-dive-rock-contentnode",
-      "source_keys": [
-        "caf3064fdd8e0589"
-      ],
-      "start_line": 499
-    },
-    {
-      "confidence": "normal",
-      "end_line": 529,
-      "heading": "Rock:FocusGroup",
-      "needs_live_verification": true,
-      "section_id": "10-roku-controls-deep-dive-rock-focusgroup",
-      "source_keys": [
+        "91b354dd91739896",
         "67fb9e58129fe0e5"
       ],
-      "start_line": 516
+      "start_line": 412
     },
     {
       "confidence": "normal",
-      "end_line": 535,
-      "heading": "Built-In SceneGraph Nodes",
+      "end_line": 429,
+      "heading": "Selecting a button or content item does nothing",
       "needs_live_verification": true,
-      "section_id": "10-roku-controls-deep-dive-built-in-scenegraph-nodes",
+      "section_id": "troubleshooting-decision-tree-selecting-a-button-or-content-item-does-nothing",
       "source_keys": [
-        "c7b7775a95829f15",
-        "d2a026ca28d1f029"
+        "8f58264f88176697",
+        "f57b11bcb577a69a",
+        "caf3064fdd8e0589"
       ],
-      "start_line": 530
+      "start_line": 421
     },
     {
       "confidence": "normal",
-      "end_line": 539,
-      "heading": "11. Roku Layouts And Resources Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "11-roku-layouts-and-resources-deep-dive",
-      "source_keys": [
-        "adf644383b6c167b"
-      ],
-      "start_line": 536
-    },
-    {
-      "confidence": "normal",
-      "end_line": 575,
-      "heading": "RowList",
+      "end_line": 437,
+      "heading": "Back navigation returns to the wrong screen",
       "needs_live_verification": true,
-      "section_id": "11-roku-layouts-and-resources-deep-dive-rowlist",
+      "section_id": "troubleshooting-decision-tree-back-navigation-returns-to-the-wrong-screen",
       "source_keys": [
-        "fd9640894bfc6e71",
-        "fd9640894bfc6e71",
+        "ea6301618f3d0bb1",
+        "85b8188a0c8e80db"
+      ],
+      "start_line": 430
+    },
+    {
+      "confidence": "normal",
+      "end_line": 447,
+      "heading": "Personalized content is stale or appears for the wrong person",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-personalized-content-is-stale-or-appears-for-the-wrong-person",
+      "source_keys": [
+        "6449dcd93497b4cd",
+        "ea6301618f3d0bb1",
+        "85b8188a0c8e80db"
+      ],
+      "start_line": 438
+    },
+    {
+      "confidence": "normal",
+      "end_line": 457,
+      "heading": "The QR login flow does not complete",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-qr-login-flow-does-not-complete",
+      "source_keys": [
+        "9cff0c87fd8eab29",
+        "85b8188a0c8e80db"
+      ],
+      "start_line": 448
+    },
+    {
+      "confidence": "normal",
+      "end_line": 467,
+      "heading": "Video or audio does not play",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-video-or-audio-does-not-play",
+      "source_keys": [
+        "2382cf965ae9e435"
+      ],
+      "start_line": 458
+    },
+    {
+      "confidence": "normal",
+      "end_line": 475,
+      "heading": "Playback resumes but creates a new interaction",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-playback-resumes-but-creates-a-new-interaction",
+      "source_keys": [
+        "2382cf965ae9e435"
+      ],
+      "start_line": 468
+    },
+    {
+      "confidence": "normal",
+      "end_line": 483,
+      "heading": "A RowList has no rows or items",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-rowlist-has-no-rows-or-items",
+      "source_keys": [
         "fd9640894bfc6e71"
       ],
-      "start_line": 540
+      "start_line": 476
+    },
+    {
+      "confidence": "structural",
+      "end_line": 485,
+      "heading": "Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "agent-task-recipes",
+      "source_keys": [
+        "88927e5c477c53ec",
+        "9cff0c87fd8eab29",
+        "6449dcd93497b4cd",
+        "91b354dd91739896",
+        "67fb9e58129fe0e5",
+        "ea6301618f3d0bb1",
+        "8f58264f88176697",
+        "3dcea5dedfa14514",
+        "85b8188a0c8e80db",
+        "2382cf965ae9e435",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 484
     },
     {
       "confidence": "normal",
-      "end_line": 588,
-      "heading": "Layout Simplicity",
-      "needs_live_verification": false,
-      "section_id": "11-roku-layouts-and-resources-deep-dive-layout-simplicity",
+      "end_line": 511,
+      "heading": "Recipe: Prepare A Roku Development Readiness Review",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-prepare-a-roku-development-readiness-review",
       "source_keys": [
-        "1447c23cdfa5050e"
+        "88927e5c477c53ec",
+        "9cff0c87fd8eab29"
       ],
-      "start_line": 576
+      "start_line": 486
     },
     {
       "confidence": "normal",
-      "end_line": 598,
-      "heading": "Roku Resources",
-      "needs_live_verification": false,
-      "section_id": "11-roku-layouts-and-resources-deep-dive-roku-resources",
+      "end_line": 537,
+      "heading": "Recipe: Author A Focusable Roku Page Skeleton",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-author-a-focusable-roku-page-skeleton",
       "source_keys": [
-        "d2a026ca28d1f029"
+        "6449dcd93497b4cd",
+        "91b354dd91739896",
+        "67fb9e58129fe0e5"
       ],
-      "start_line": 589
+      "start_line": 512
+    },
+    {
+      "confidence": "normal",
+      "end_line": 557,
+      "heading": "Recipe: Build And Validate A Navigation Action",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-and-validate-a-navigation-action",
+      "source_keys": [
+        "ea6301618f3d0bb1",
+        "8f58264f88176697"
+      ],
+      "start_line": 538
+    },
+    {
+      "confidence": "normal",
+      "end_line": 576,
+      "heading": "Recipe: Add Campus Or Other Application Context",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-add-campus-or-other-application-context",
+      "source_keys": [
+        "3dcea5dedfa14514",
+        "8f58264f88176697",
+        "6449dcd93497b4cd"
+      ],
+      "start_line": 558
     },
     {
       "confidence": "normal",
       "end_line": 602,
-      "heading": "Useful Links And Feedback",
-      "needs_live_verification": false,
-      "section_id": "11-roku-layouts-and-resources-deep-dive-useful-links-and-feedback",
+      "heading": "Recipe: Configure A Remote Login Journey",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-configure-a-remote-login-journey",
       "source_keys": [
-        "64f25905a1430064"
+        "9cff0c87fd8eab29",
+        "85b8188a0c8e80db"
       ],
-      "start_line": 599
+      "start_line": 577
     },
     {
-      "confidence": "structural",
-      "end_line": 606,
-      "heading": "12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Tv Apps",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps",
+      "confidence": "normal",
+      "end_line": 624,
+      "heading": "Recipe: Configure Resumable Media Playback",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-configure-resumable-media-playback",
       "source_keys": [
-        "64f25905a1430064"
+        "2382cf965ae9e435"
       ],
       "start_line": 603
     },
     {
       "confidence": "normal",
-      "end_line": 619,
-      "heading": "API Integrations",
+      "end_line": 645,
+      "heading": "Recipe: Review A Roku-Related Lava Endpoint",
       "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-api-integrations",
+      "section_id": "agent-task-recipes-recipe-review-a-roku-related-lava-endpoint",
       "source_keys": [
-        "9cff0c87fd8eab29",
-        "14e4b0253d1428ca"
-      ],
-      "start_line": 607
-    },
-    {
-      "confidence": "normal",
-      "end_line": 635,
-      "heading": "Lava",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava",
-      "source_keys": [
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
-        "68e5a821254562e5",
-        "3d7f0942c946fafb",
-        "78b1a0a9975427ba",
-        "6f19b884e4da0469",
-        "655ed379a713ded8",
-        "030d6d918f3ce140",
-        "f0e5d9f51f966be9",
-        "643c380d40ffe79d",
-        "663210b198d98d94",
-        "a20a2cf1b118835e"
-      ],
-      "start_line": 620
-    },
-    {
-      "confidence": "normal",
-      "end_line": 639,
-      "heading": "CMS",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms",
-      "source_keys": [
-        "9d693bdfb00ebabc"
-      ],
-      "start_line": 636
-    },
-    {
-      "confidence": "normal",
-      "end_line": 656,
-      "heading": "Security",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-security",
-      "source_keys": [
-        "6f19b884e4da0469",
-        "30be60a23d3d0317",
-        "b76e00f4cafbfba8",
-        "1a7cdd8d2a7f15eb"
-      ],
-      "start_line": 640
-    },
-    {
-      "confidence": "normal",
-      "end_line": 660,
-      "heading": "Media",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media",
-      "source_keys": [
-        "2382cf965ae9e435"
-      ],
-      "start_line": 657
-    },
-    {
-      "confidence": "normal",
-      "end_line": 664,
-      "heading": "TV Apps",
-      "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-tv-apps",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "67fb9e58129fe0e5"
-      ],
-      "start_line": 661
-    },
-    {
-      "confidence": "structural",
-      "end_line": 666,
-      "heading": "13. Administration And Operational Guardrails",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "6449dcd93497b4cd",
-        "ea6301618f3d0bb1",
-        "9cff0c87fd8eab29",
-        "2382cf965ae9e435",
-        "68e5a821254562e5",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 665
-    },
-    {
-      "confidence": "normal",
-      "end_line": 670,
-      "heading": "Version Gate",
-      "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-version-gate",
-      "source_keys": [
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 667
-    },
-    {
-      "confidence": "structural",
-      "end_line": 674,
-      "heading": "Environment Separation",
-      "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-environment-separation",
-      "source_keys": [
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 671
-    },
-    {
-      "confidence": "structural",
-      "end_line": 678,
-      "heading": "Secret Handling",
-      "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-secret-handling",
-      "source_keys": [
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 675
-    },
-    {
-      "confidence": "normal",
-      "end_line": 691,
-      "heading": "Cache Policy",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-cache-policy",
-      "source_keys": [
-        "6449dcd93497b4cd",
-        "ea6301618f3d0bb1"
-      ],
-      "start_line": 679
-    },
-    {
-      "confidence": "normal",
-      "end_line": 703,
-      "heading": "Interaction Tracking",
-      "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-interaction-tracking",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435"
-      ],
-      "start_line": 692
-    },
-    {
-      "confidence": "normal",
-      "end_line": 715,
-      "heading": "Lava Command Policy",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-lava-command-policy",
-      "source_keys": [
-        "68e5a821254562e5",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 704
-    },
-    {
-      "confidence": "structural",
-      "end_line": 730,
-      "heading": "Content Governance",
-      "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-content-governance",
-      "source_keys": [
-        "68e5a821254562e5",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 716
-    },
-    {
-      "confidence": "structural",
-      "end_line": 734,
-      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "88927e5c477c53ec",
-        "9cff0c87fd8eab29",
-        "6449dcd93497b4cd",
-        "8f58264f88176697",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435",
-        "3dcea5dedfa14514",
-        "85b8188a0c8e80db",
-        "c7b7775a95829f15",
-        "adf644383b6c167b",
-        "fd9640894bfc6e71",
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
-        "3d7f0942c946fafb",
-        "6f19b884e4da0469",
-        "78b1a0a9975427ba",
-        "b76e00f4cafbfba8",
-        "643c380d40ffe79d",
-        "6ad836de36757aea",
-        "c21b05c41322edb1",
-        "663210b198d98d94",
-        "a20a2cf1b118835e",
-        "1a7cdd8d2a7f15eb",
-        "53ad1133e1cb2d0a",
-        "14e4b0253d1428ca",
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "68e5a821254562e5"
-      ],
-      "start_line": 731
-    },
-    {
-      "confidence": "normal",
-      "end_line": 749,
-      "heading": "Official Roku Docs",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-official-roku-docs",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "88927e5c477c53ec",
-        "9cff0c87fd8eab29",
-        "6449dcd93497b4cd",
-        "8f58264f88176697",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435",
-        "3dcea5dedfa14514",
-        "85b8188a0c8e80db",
-        "c7b7775a95829f15",
-        "adf644383b6c167b",
-        "fd9640894bfc6e71"
-      ],
-      "start_line": 735
-    },
-    {
-      "confidence": "normal",
-      "end_line": 765,
-      "heading": "Rock Lava Docs",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-rock-lava-docs",
-      "source_keys": [
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
-        "3d7f0942c946fafb",
-        "6f19b884e4da0469",
-        "78b1a0a9975427ba",
-        "b76e00f4cafbfba8",
-        "643c380d40ffe79d",
-        "6ad836de36757aea",
-        "c21b05c41322edb1",
-        "663210b198d98d94",
-        "a20a2cf1b118835e",
-        "1a7cdd8d2a7f15eb",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 750
+      "start_line": 625
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 679,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": false,
+      "section_id": "known-gaps-and-live-verification",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 646
     },
     {
       "confidence": "normal",
-      "end_line": 769,
-      "heading": "API Docs",
+      "end_line": 694,
+      "heading": "Source Map",
       "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-api-docs",
+      "section_id": "source-map",
       "source_keys": [
-        "14e4b0253d1428ca"
-      ],
-      "start_line": 766
-    },
-    {
-      "confidence": "normal",
-      "end_line": 779,
-      "heading": "Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
-      "source_keys": [
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "68e5a821254562e5"
-      ],
-      "start_line": 770
-    },
-    {
-      "confidence": "normal",
-      "end_line": 804,
-      "heading": "15. Reporting, Analytics, And Model Map",
-      "needs_live_verification": true,
-      "section_id": "15-reporting-analytics-and-model-map",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435",
-        "643c380d40ffe79d",
-        "6ad836de36757aea",
-        "c21b05c41322edb1"
-      ],
-      "start_line": 780
-    },
-    {
-      "confidence": "normal",
-      "end_line": 826,
-      "heading": "16. Version And Release Caveats",
-      "needs_live_verification": true,
-      "section_id": "16-version-and-release-caveats",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "9d0ccce785ef64bb",
-        "be18a55d805e40d5",
-        "044170dca04e8bbb",
-        "6f19b884e4da0469",
-        "e4041265ea398ac0",
-        "939d4b862980eb5f",
-        "6ad836de36757aea",
-        "c21b05c41322edb1",
-        "a20a2cf1b118835e",
-        "74ebb0215dc00eda",
-        "092cca0be1ff5961",
-        "67fb9e58129fe0e5",
-        "2382cf965ae9e435"
-      ],
-      "start_line": 805
-    },
-    {
-      "confidence": "structural",
-      "end_line": 828,
-      "heading": "17. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "17-implementation-playbooks",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "6449dcd93497b4cd",
-        "30be60a23d3d0317",
-        "fd9640894bfc6e71",
-        "8f58264f88176697",
-        "3dcea5dedfa14514",
-        "85b8188a0c8e80db",
-        "ea6301618f3d0bb1"
-      ],
-      "start_line": 827
-    },
-    {
-      "confidence": "normal",
-      "end_line": 861,
-      "heading": "Playbook: Create A Minimal Roku Home Page",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-create-a-minimal-roku-home-page",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "6449dcd93497b4cd",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 829
-    },
-    {
-      "confidence": "normal",
-      "end_line": 878,
-      "heading": "Playbook: Build A Media Row",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-build-a-media-row",
-      "source_keys": [
-        "fd9640894bfc6e71"
-      ],
-      "start_line": 862
-    },
-    {
-      "confidence": "normal",
-      "end_line": 894,
-      "heading": "Playbook: Add Campus Selection",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-add-campus-selection",
-      "source_keys": [
-        "8f58264f88176697",
-        "3dcea5dedfa14514"
-      ],
-      "start_line": 879
-    },
-    {
-      "confidence": "normal",
-      "end_line": 912,
-      "heading": "Playbook: Add Login",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-add-login",
-      "source_keys": [
-        "85b8188a0c8e80db"
-      ],
-      "start_line": 895
-    },
-    {
-      "confidence": "normal",
-      "end_line": 929,
-      "heading": "Playbook: Tune Caching",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-tune-caching",
-      "source_keys": [
-        "6449dcd93497b4cd",
-        "ea6301618f3d0bb1"
-      ],
-      "start_line": 913
-    },
-    {
-      "confidence": "structural",
-      "end_line": 931,
-      "heading": "18. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree",
-      "source_keys": [
-        "35d2e6eb8d06e01f",
-        "91b354dd91739896",
-        "67fb9e58129fe0e5",
-        "6449dcd93497b4cd",
-        "85b8188a0c8e80db",
-        "ea6301618f3d0bb1",
-        "6f19b884e4da0469",
-        "2382cf965ae9e435",
-        "9cff0c87fd8eab29",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 930
-    },
-    {
-      "confidence": "normal",
-      "end_line": 945,
-      "heading": "App Does Not Load",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-app-does-not-load",
-      "source_keys": [
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 932
-    },
-    {
-      "confidence": "structural",
-      "end_line": 958,
-      "heading": "Page Loads Blank",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-page-loads-blank",
-      "source_keys": [
-        "35d2e6eb8d06e01f"
-      ],
-      "start_line": 946
-    },
-    {
-      "confidence": "normal",
-      "end_line": 972,
-      "heading": "Focus Is Broken",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-focus-is-broken",
-      "source_keys": [
-        "91b354dd91739896",
-        "67fb9e58129fe0e5"
-      ],
-      "start_line": 959
-    },
-    {
-      "confidence": "structural",
-      "end_line": 984,
-      "heading": "Navigation Goes To The Wrong Page",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-navigation-goes-to-the-wrong-page",
-      "source_keys": [
-        "91b354dd91739896",
-        "67fb9e58129fe0e5"
-      ],
-      "start_line": 973
-    },
-    {
-      "confidence": "normal",
-      "end_line": 997,
-      "heading": "Menu Does Not Update",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-menu-does-not-update",
-      "source_keys": [
-        "6449dcd93497b4cd"
-      ],
-      "start_line": 985
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1012,
-      "heading": "Login QR Does Not Show",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-login-qr-does-not-show",
-      "source_keys": [
-        "85b8188a0c8e80db"
-      ],
-      "start_line": 998
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1026,
-      "heading": "Authenticated Content Does Not Personalize",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-authenticated-content-does-not-personalize",
-      "source_keys": [
-        "6449dcd93497b4cd",
-        "ea6301618f3d0bb1",
-        "6f19b884e4da0469"
-      ],
-      "start_line": 1013
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1039,
-      "heading": "Video Does Not Play",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-video-does-not-play",
-      "source_keys": [
-        "2382cf965ae9e435"
-      ],
-      "start_line": 1027
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1052,
-      "heading": "Resume Does Not Work",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
-      "source_keys": [
-        "2382cf965ae9e435"
-      ],
-      "start_line": 1040
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1066,
-      "heading": "Interactions Are Missing Or Excessive",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-interactions-are-missing-or-excessive",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1053
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1068,
-      "heading": "19. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1067
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1081,
-      "heading": "Recipe: Inventory Existing Roku App",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-inventory-existing-roku-app",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1069
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1100,
-      "heading": "Recipe: Review A Roku Page For Safety",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-review-a-roku-page-for-safety",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1082
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1113,
-      "heading": "Recipe: Convert A Static Media List To Dynamic RowList",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-convert-a-static-media-list-to-dynamic-rowlist",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1101
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1124,
-      "heading": "Recipe: Diagnose A Cache Leak",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-diagnose-a-cache-leak",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1114
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1137,
-      "heading": "Recipe: Add A Safe Diagnostic Page",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-add-a-safe-diagnostic-page",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1125
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1153,
-      "heading": "Recipe: Validate Post-Upgrade Roku Behavior",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-validate-post-upgrade-roku-behavior",
-      "source_keys": [
-        "9cff0c87fd8eab29",
-        "ea6301618f3d0bb1",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1138
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1179,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
-        "6449dcd93497b4cd",
-        "67fb9e58129fe0e5",
-        "2382cf965ae9e435",
-        "9cff0c87fd8eab29",
-        "9cff0c87fd8eab29",
-        "6449dcd93497b4cd",
-        "adf644383b6c167b",
-        "6449dcd93497b4cd",
-        "8f58264f88176697",
-        "c7b7775a95829f15",
-        "35d2e6eb8d06e01f",
-        "88927e5c477c53ec"
-      ],
-      "start_line": 1154
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1192,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
-      "source_keys": [
-        "4c0fe1130f878c66"
-      ],
-      "start_line": 1180
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1194,
-      "heading": "20. Source Map And Dependency Notes",
-      "needs_live_verification": false,
-      "section_id": "20-source-map-and-dependency-notes",
-      "source_keys": [
-        "776256c424368312",
-        "b7e0389038fbb3ed",
         "35d2e6eb8d06e01f",
         "88927e5c477c53ec",
         "9cff0c87fd8eab29",
         "6449dcd93497b4cd",
+        "91b354dd91739896",
         "8f58264f88176697",
         "ea6301618f3d0bb1",
-        "2382cf965ae9e435",
         "3dcea5dedfa14514",
         "85b8188a0c8e80db",
+        "2382cf965ae9e435",
         "c7b7775a95829f15",
         "f57b11bcb577a69a",
         "caf3064fdd8e0589",
         "67fb9e58129fe0e5",
-        "91b354dd91739896",
         "adf644383b6c167b",
         "fd9640894bfc6e71",
-        "d2a026ca28d1f029",
         "1447c23cdfa5050e",
-        "64f25905a1430064",
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
-        "3d7f0942c946fafb",
-        "6f19b884e4da0469",
-        "78b1a0a9975427ba",
-        "b76e00f4cafbfba8",
-        "53ad1133e1cb2d0a",
-        "1a7cdd8d2a7f15eb",
-        "14e4b0253d1428ca",
-        "643c380d40ffe79d",
-        "6ad836de36757aea",
-        "c21b05c41322edb1",
-        "663210b198d98d94",
-        "a20a2cf1b118835e",
-        "be18a55d805e40d5",
-        "d275b5b94a9da833",
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "68e5a821254562e5"
-      ],
-      "start_line": 1193
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1254,
-      "heading": "Release Notes And Community Examples",
-      "needs_live_verification": true,
-      "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
-      "source_keys": [
-        "776256c424368312",
-        "b7e0389038fbb3ed",
-        "35d2e6eb8d06e01f",
-        "88927e5c477c53ec",
-        "9cff0c87fd8eab29",
-        "6449dcd93497b4cd",
-        "8f58264f88176697",
-        "ea6301618f3d0bb1",
-        "2382cf965ae9e435",
-        "3dcea5dedfa14514",
-        "85b8188a0c8e80db",
-        "c7b7775a95829f15",
-        "f57b11bcb577a69a",
-        "caf3064fdd8e0589",
-        "67fb9e58129fe0e5",
-        "91b354dd91739896",
-        "adf644383b6c167b",
-        "fd9640894bfc6e71",
         "d2a026ca28d1f029",
-        "1447c23cdfa5050e",
         "64f25905a1430064",
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
-        "3d7f0942c946fafb",
-        "6f19b884e4da0469",
-        "78b1a0a9975427ba",
-        "b76e00f4cafbfba8",
-        "53ad1133e1cb2d0a",
-        "1a7cdd8d2a7f15eb",
-        "14e4b0253d1428ca",
-        "643c380d40ffe79d",
-        "6ad836de36757aea",
-        "c21b05c41322edb1",
-        "663210b198d98d94",
-        "a20a2cf1b118835e",
-        "be18a55d805e40d5",
-        "d275b5b94a9da833",
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "68e5a821254562e5"
+        "53ad1133e1cb2d0a"
       ],
-      "start_line": 1195
+      "start_line": 680
     }
   ],
-  "source_pack_hydrated_at": "2026-06-08T19:39:25+00:00",
+  "source_pack_hydrated_at": "2026-09-03T16:12:17+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "861a0dd76a0be74b3f05cc6dce34696a1307871260794445b0027e1739b5f656",
-      "excerpt_hash": "249c7c8185e16824ad28695412f535d63350accbdf4b3895bab40a3eb0531267",
+      "content_hash": "a785a654184c534f1ffcc56039f6bb285514dcf24d9b8ca759f25681de29f3aa",
+      "excerpt_hash": "028fdad62a0f0458800ff11e265540a411b30d142dd71722d01e8151b5d38d69",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "35d2e6eb8d06e01f",
-      "source_record_id": "rock_developer:35d2e6eb8d06e01f",
+      "source_record_id": "rock_developer:article:186",
       "title": "👋 Roku Docs",
       "topics": [
         "api",
@@ -2390,15 +1337,38 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "513924263a3dc286260de7ad0a1451652a5b7470e68a607fe18c25674e570c7d",
-      "excerpt_hash": "584c8402d9628489f6b939684dd60fd2bb1e0cabbac5f76f1cf5240a7b0704d7",
+      "content_hash": "e489863fb80ab1d59d84ef07aea01bc6c6ff1139d776ce17a76bf96c80a00fb4",
+      "excerpt_hash": "2e86dd5a86a54bd67b2dcab7a3352a3549ce2e6ece67eed510e9d288d93996b4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "88927e5c477c53ec",
+      "source_record_id": "rock_developer:article:311",
+      "title": "💻 Getting Started",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/roku-docs/getting-started",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9e76e07b143383404d7a30abbc5668966a865ce254c5b57311766079ec8221c7",
+      "excerpt_hash": "ae4c95d79864a60cd697bc23e66e6ac78cb0615d0056c82b32da11e0af6eec60",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "9cff0c87fd8eab29",
-      "source_record_id": "rock_developer:9cff0c87fd8eab29",
+      "source_record_id": "rock_developer:article:315",
       "title": "Applications",
       "topics": [
         "api",
@@ -2414,15 +1384,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "d2879fdc9c08afaa22b231cfe797565b3e230daa8eab109c9c3b1447d872143a",
-      "excerpt_hash": "289c33fc496af38f3c861c559faa65a17276f6f38daa958072cb012535b23f4d",
+      "content_hash": "3d65662e4c590a6c9f0c5731b015c45eb1fa2f0e9941c3466c38bb8240e559ac",
+      "excerpt_hash": "6879fbdb20cf273e753f38fb411e328190f2eb476a0c43fc9efae93c26c4cdf8",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "6449dcd93497b4cd",
-      "source_record_id": "rock_developer:6449dcd93497b4cd",
+      "source_record_id": "rock_developer:article:316",
       "title": "Pages",
       "topics": [
         "api",
@@ -2437,200 +1407,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "5f94432834eb56fedb2bae09fed9a59e2e69ff2fe28507027490f871c4cb6ab6",
-      "excerpt_hash": "50f911cb6c0f10e1659df5c8908922652ba7f5853c1b3049f6cd56f616a0fb73",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "91b354dd91739896",
-      "source_record_id": "rock_developer:91b354dd91739896",
-      "title": "Page",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/page",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "10032c2241b02373a75bfa06c9edae034ef408c2c25953fcf9177757b6b02876",
-      "excerpt_hash": "a749f2435bdfdecfd10a40e80030e185b854cc4ec62df480dc44d22567abdcb9",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "c7b7775a95829f15",
-      "source_record_id": "rock_developer:c7b7775a95829f15",
-      "title": "Controls",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "89c7e74c9163377540875f8d3307f2a5ff3010701c74a150b5f022ec03cc2635",
-      "excerpt_hash": "514b1c1efd4dfa288da973b98113d74cce510d8c1793c0223a2deada5f1ea374",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f57b11bcb577a69a",
-      "source_record_id": "rock_developer:f57b11bcb577a69a",
-      "title": "Button",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/button",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "523aadb5661a4d3335367e5f68bf64363b1b6d3d5212c5294c4e6232eea865be",
-      "excerpt_hash": "8b23d012f7e0368008bfd50b3833feba3c0e683a00ced95bc94144f5e36a456a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "caf3064fdd8e0589",
-      "source_record_id": "rock_developer:caf3064fdd8e0589",
-      "title": "Content Node",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/content-node",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "bd943786bdade2fef4a1a0dab505cb9c17dfa4c81898861ae112cec3fd5d7013",
-      "excerpt_hash": "5498c1868d05831a04eeefc3010d0900b2e50fabab2aaa6cdcfda4f2a5106a35",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "88927e5c477c53ec",
-      "source_record_id": "rock_developer:88927e5c477c53ec",
-      "title": "💻 Getting Started",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/getting-started",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e8f66e946cecfc7c4704f46e2a6d852e3d3c639cfde720e96bb44d5a0ac8696c",
-      "excerpt_hash": "362b422c2929b42d9cc3def908c3bbcb69aa1931c9b698b9adeaaa5b23e8076f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "d2a026ca28d1f029",
-      "source_record_id": "rock_developer:d2a026ca28d1f029",
-      "title": "Roku Resources",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/roku-resources",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "33c3f2c51fd27c59db3a99be230e4a738f1370421dbfc4e51d0ebcfa27f9aacb",
-      "excerpt_hash": "dcb2e3425088b23544e82cce360d4c095a52c6b8b5edf683db33b97d8c36d595",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "044170dca04e8bbb",
-      "source_record_id": "rock_developer:044170dca04e8bbb",
-      "title": "Lava",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "8cdcaed52ca4be42a0bce54bfe7adb13f330cf4e36dd64da154ed8cd17be1fab",
-      "excerpt_hash": "52e195bcf87b1ba72723f9a29213467214c0cbe10ed03666553ccdc1aa219e71",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "3d7f0942c946fafb",
-      "source_record_id": "rock_developer:3d7f0942c946fafb",
-      "title": "Entity",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/entity-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c5f16bd30ae3d554c73b677a7164a7a17e3e49a4c8e9fc571530630c35a260c0",
-      "excerpt_hash": "29db4fea6d78f5cda3ec644b7e6255b45fea64e434b1677be09e46f800059683",
+      "content_hash": "dd0ab1e8688da725025ab3f72b6179018a41899a240e8549b26c242939784828",
+      "excerpt_hash": "010bbb205cdb0e15a8b972a8133bd06d1fca88c18bcaaaf177143e4634e826b8",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "8f58264f88176697",
-      "source_record_id": "rock_developer:8f58264f88176697",
+      "source_record_id": "rock_developer:article:312",
       "title": "⚡ Commands",
       "topics": [
         "api",
@@ -2645,62 +1430,86 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "fab0dfe7dd4a44f72f611552b97088c1efceff2b5a8e31ec2bbb0ed8d2b70491",
-      "excerpt_hash": "328153e07a39e6e90f54050c82583c6bcb6b708a593d5e1529274932e16c092d",
+      "content_hash": "515a442368f17babef1f2f494ea4c6da1ef226bcfa2056c6bb31fac75d9db38e",
+      "excerpt_hash": "a51d6a9678834d33d2287bb710462573248a0af8d35a229ad9764f51e36a5539",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
+      "title": "Creating APIs Using Lava",
+      "topics": [
+        "api",
+        "cms",
+        "development",
+        "lava",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/lava-api",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7535be08b13c11e4d620dd5e6aabbe7b6997ab365d20120dcfa98d48f9a7c9b8",
+      "excerpt_hash": "b94884c02ee85fb04eebb3278e918cf1205ca5cb57e18fa9364b53e03f2554af",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "3dcea5dedfa14514",
-      "source_record_id": "rock_developer:3dcea5dedfa14514",
-      "title": "Utility",
+      "source_key": "c7b7775a95829f15",
+      "source_record_id": "rock_developer:article:325",
+      "title": "Controls",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/roku-docs/commands/utility",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "45d8ce741cac2e75b612f7392cdac1974d0120c672a904589977c890760ed759",
-      "excerpt_hash": "4bee8e42daab0cba22db35c0af32c04f85e87adeef07b91b2bb08978fa78ec94",
+      "content_hash": "45d57f1f2e3326b6e559a5491b734bba08c13e52643dd4732eafaea050c3a131",
+      "excerpt_hash": "d1575acecf04d9dddf08fb15d33feaef716efcfbec5f81911f8924bb1f57a81c",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "85b8188a0c8e80db",
-      "source_record_id": "rock_developer:85b8188a0c8e80db",
-      "title": "Personal",
+      "source_key": "91b354dd91739896",
+      "source_record_id": "rock_developer:article:324",
+      "title": "Page",
       "topics": [
         "api",
         "development",
         "lava",
-        "obsidian",
-        "security"
+        "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/roku-docs/commands/personal",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/page",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "b57854b0f3f5340233e6688c81643f5cefdc2ab5bb345918aaa5f2e7e2d04e4f",
-      "excerpt_hash": "fd94440bdc67b0c4943fd7ca65526453adc6172d9c1c3eafc8f3fbc994976b17",
+      "content_hash": "4325d1eea81ac9a1b50c31c1e462f286b6efd2a95d3a3a3079a3da436370acc0",
+      "excerpt_hash": "d410532341725e3cefff9d57dc219d2b41070fa87d60bb9e313ee4ec13dd1073",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "ea6301618f3d0bb1",
-      "source_record_id": "rock_developer:ea6301618f3d0bb1",
+      "source_record_id": "rock_developer:article:317",
       "title": "Navigation",
       "topics": [
         "api",
@@ -2715,86 +1524,61 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "93c29503121e2c89ce79ba9a98224982b05bdab65f717731a93cea0f770cdeef",
-      "excerpt_hash": "d11c2124519049524f17325ac6a1ba20a2aa694c3cb7f391a5ca7d36596d1fcb",
+      "content_hash": "2428c57d5104932e815b5c59264dd6d2c888f69c44a9da8cef2d2f3485e4ca4d",
+      "excerpt_hash": "b399401898c106602c66b9144f8a9176835e39d1756c047f3d507c692dd667c3",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "643c380d40ffe79d",
-      "source_record_id": "rock_developer:643c380d40ffe79d",
-      "title": "Interaction Write",
+      "source_key": "f57b11bcb577a69a",
+      "source_record_id": "rock_developer:article:321",
+      "title": "Button",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/lava/commands/interaction-write",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/button",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "134cc99754cbc20c7fba6bf1b660a999c2fefff2d55ec932feee1dcf4189eded",
-      "excerpt_hash": "e2b0001640fd4f526fd68f08d51a13ff0b3f4bf506fc904f954b7be4413c66e9",
+      "content_hash": "3006556b19b4db6e7c86106d6d430ad038ddb32b49db32e4eb1bc4dbc713e17b",
+      "excerpt_hash": "b19923c09bedaace96dfa733367d961b715689eaf9079319961941ddbefc7c31",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "rock_developer:30be60a23d3d0317",
-      "title": "Getting Started",
+      "source_key": "caf3064fdd8e0589",
+      "source_record_id": "rock_developer:article:322",
+      "title": "Content Node",
       "topics": [
         "api",
         "development",
         "lava",
-        "obsidian",
-        "security"
+        "obsidian"
       ],
-      "url": "https://community.rockrms.com/lava/commands",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/content-node",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "a97afa0b0e9e554e10d9b05c4cfb9c4471197ec62edfcca8b8261fc0ad74717e",
-      "excerpt_hash": "fd72590dc67e151c07379a70792123dd6c355a29a08f58f8eb2ecb5490ec9b6c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6f19b884e4da0469",
-      "source_record_id": "rock_developer:6f19b884e4da0469",
-      "title": "Attributes",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/filters/attribute-filters",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "b3600a0914a988335e7c6da3ca6e827c7d1c6c3c6eda041fe48bd70f5fd00cce",
-      "excerpt_hash": "26f37b32a2c23249bc4730a6491f968d58acc59bc9ecab8418e29169fd9a2804",
+      "content_hash": "92df30d3dcd7593513aaea9cdfd7abf0ca887510acdfc0dbfba9402b19ba63b7",
+      "excerpt_hash": "78171ce98374f5139fad50be5284ccfbf10e8b753e610d5b5d6a213f3e5e39c1",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "67fb9e58129fe0e5",
-      "source_record_id": "rock_developer:67fb9e58129fe0e5",
+      "source_record_id": "rock_developer:article:323",
       "title": "Focus Group",
       "topics": [
         "api",
@@ -2809,15 +1593,61 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "0b760223241d0fb3003177341c2ab31d4cf9f677f111d6c8b0cbe78e550206e4",
-      "excerpt_hash": "4b82c8293bc4631484038dbf2047dde1ad12c9a7e5fe2ee8c633fc3d8a1474bb",
+      "content_hash": "3b0f5ae61c37231e74cae6d3659e984e2814c6eb01d1c83bb1ac829f2aa7e093",
+      "excerpt_hash": "af0fe3ffa24e3a9e25fbd5b35ead68f461c7dbe78f4f73722d417243ed24f308",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "3dcea5dedfa14514",
+      "source_record_id": "rock_developer:article:319",
+      "title": "Utility",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/roku-docs/commands/utility",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "aa0f00b9727e856b6208e047e639b3766a8ed744b177c44b727c350ed2bc3384",
+      "excerpt_hash": "f47cdf039cf7d5583f541d3c5391665d9ebbba8c0c3a9442806b88ae1f6d8050",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "85b8188a0c8e80db",
+      "source_record_id": "rock_developer:article:320",
+      "title": "Personal",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/roku-docs/commands/personal",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8b5cbfea7e004e1630656e34f6bf7cf9cdb54b3ce3486a10c4982a1d37d89265",
+      "excerpt_hash": "b241713894bb51a799ec6885e37784665882bfa3610b19779af2e99b1f23ca98",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "2382cf965ae9e435",
-      "source_record_id": "rock_developer:2382cf965ae9e435",
+      "source_record_id": "rock_developer:article:318",
       "title": "Media",
       "topics": [
         "api",
@@ -2832,225 +1662,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "5d5ae15f9c1c6303440f04b8bf605f7639ac491a802134f39f037eb45ed0d649",
-      "excerpt_hash": "948b2a83885c38265e04415056cab9899407ed45ef39a308dc8f4cd68d5430ca",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
-      "title": "Creating APIs Using Lava",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/lava-api",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "50c84afc7404e79748cb8c17e35328779104026d7836523fe0c282ba7c51fa72",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "14e4b0253d1428ca",
-      "source_record_id": "rock_developer:14e4b0253d1428ca",
-      "title": "API Documentation",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/api-docs",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "c02b6ec41c06e41475ffaf0073e9e335fc84bc5fde7f7a11d09d512f98f1a7c2",
-      "excerpt_hash": "b5845f06f03b46d3c888483a3f7378b5a49206e82795e48b26962cde173e9e4e",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava",
-        "cms",
-        "applications"
-      ],
-      "path": "Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9d693bdfb00ebabc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "title": "Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "65324b26ed7b877b748945f58041c228160bc695c55c42882aaaa64c5ce4413a",
-      "excerpt_hash": "337f96c627acdf2f703dde0741618dd9cbe9c39e0001188e53c792383a29fcc4",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava",
-        "cms",
-        "applications"
-      ],
-      "path": "Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "af3c7989909a45eb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "title": "Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplicationService.cs"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "change_type": null,
-      "content_hash": "8faecf0c48a66ce596527af8f747d3dd61fc7f34d995ed382363ff36ab7d9965",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "triumph_resources",
-      "source_key": "9d0ccce785ef64bb",
-      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
-      "title": "GitHub Spotlight: 10/4/2024",
-      "topics": [
-        "ai",
-        "github",
-        "implementation",
-        "mobile",
-        "operations",
-        "releases",
-        "resources",
-        "security",
-        "triumph"
-      ],
-      "url": "https://www.triumph.tech/resources/github-spotlight-1042024",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "0b44aadbec82e038e5da1d8f4b47826a7ee7f4e2f8e4c6e20c65c8dfbac09c70",
-      "excerpt_hash": "c4bee1295390dad0b3f593357361f8ff0a3083ccfaef3b5013969cff9da979df",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6ad836de36757aea",
-      "source_record_id": "rock_developer:6ad836de36757aea",
-      "title": "Interaction Content Channel Item Write",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/interaction-content-channel-item-write",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a451416963774f8bd08ddb683c24e896e84d6198c8b73b6462594d06753e2728",
-      "excerpt_hash": "4d56f2dc05c1926c4691541b123205f807cb484f917205799869037f2382483e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "c21b05c41322edb1",
-      "source_record_id": "rock_developer:c21b05c41322edb1",
-      "title": "Interaction Intent Write",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/interaction-intent-write",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "28749e274c460b79cbe9bbc52a40a775681c430724a441eccac845d40c25b31e",
-      "excerpt_hash": "9a5d17c347cf3b91fc5a418bc733755cf873eaf5cae1654d3175c78d1d8c1f5b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "663210b198d98d94",
-      "source_record_id": "rock_developer:663210b198d98d94",
-      "title": "Personalize",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/personalize-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "4b83d2c7232aff6353f9080ca7d45beb7cf58b5c0679661e68a7892f4f7b70fe",
-      "excerpt_hash": "58364ebdea968e9b582e5e256f7bf1bfea7ae32581ccc230c67c35d554e6e906",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "a20a2cf1b118835e",
-      "source_record_id": "rock_developer:a20a2cf1b118835e",
-      "title": "Adaptive Message",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/adaptivemessage-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "471c59b8570b124c18b4c1c5472589eddb53bb3c55573017ecd95dc5a1a5985c",
-      "excerpt_hash": "02d5752d11361738718b9f525e11e57b29efaaedb8606e648510ab36ffed59d9",
+      "content_hash": "db48ce69c0490c1be08738ce72209a17bca72f819cd2bcbaecfc9a9b897611bc",
+      "excerpt_hash": "f66c4c2dd31f85753322193b62c9faf84240be5618b97dea846a724334047a29",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "1447c23cdfa5050e",
-      "source_record_id": "rock_developer:1447c23cdfa5050e",
+      "source_record_id": "rock_developer:article:328",
       "title": "Tips and Tricks",
       "topics": [
         "api",
@@ -3065,15 +1685,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "af2da6b568b77361fbf4d21b1a18437bb2df03b3aeed13e65c667bb296fe41c9",
-      "excerpt_hash": "1ee9ba68053dea7926520bc7caaf33477e954ad691a1e9745989ac4193169947",
+      "content_hash": "7531a94f65b0d1777ff693886a04f8380697936086fb599a6d105e8ede7c52cb",
+      "excerpt_hash": "0f1bfc4958b2c12989d55e48682b88be85e664cb0db2496dacae4961f30e7f7a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "adf644383b6c167b",
-      "source_record_id": "rock_developer:adf644383b6c167b",
+      "source_record_id": "rock_developer:article:326",
       "title": "Layout Nodes",
       "topics": [
         "api",
@@ -3088,15 +1708,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "af541814d896358c00a79b77ce8fb825f65f17f3f600ffa7c01cd8219bc240b6",
-      "excerpt_hash": "393a646fc516b98f808eb16e0d94ba583e86c76b34baaa3b092f468d427ba31c",
+      "content_hash": "047cca942ce22cb8dacf8e3c9f17f1247b78f1c0ca247ff0143917123203e8d5",
+      "excerpt_hash": "fd224441bf31465aa016a1605493d424dbfd0b8a15a9348b72e079b1b955e32c",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "fd9640894bfc6e71",
-      "source_record_id": "rock_developer:fd9640894bfc6e71",
+      "source_record_id": "rock_developer:article:330",
       "title": "RowList",
       "topics": [
         "api",
@@ -3108,27 +1728,57 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "eaf198f2079edd5d",
+      "source_record_id": "",
+      "title": "https://developer.roku.com/en-gb/docs/references/references-overview.md",
+      "url": "https://developer.roku.com/en-gb/docs/references/references-overview.md"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "da724fbc28d1451e",
+      "source_record_id": "",
+      "title": "https://github.com/rokudev/samples",
+      "url": "https://github.com/rokudev/samples"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "f249787bc00572269196a081d3099f8e53675b990674122113da0629bc30a2d1",
-      "excerpt_hash": "36ea454c90845d07df95fa16505c7960d9c99ac0c1e69ea50655a44df16b77e5",
+      "content_hash": "4b5c17775ccf4d408aa11bce8f33cf2988800345bcf7647323c84f97515e67c0",
+      "excerpt_hash": "21d6414aa9cc1946f97dfd3fecb9a7d653af94e2ec0b0bba60e8c7d76735c168",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "64f25905a1430064",
-      "source_record_id": "rock_developer:64f25905a1430064",
-      "title": "Useful Links",
+      "source_key": "d2a026ca28d1f029",
+      "source_record_id": "rock_developer:article:327",
+      "title": "Roku Resources",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/roku-docs/resources/useful-links",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/roku-resources",
       "version": null
+    },
+    {
+      "authority": "official-triumph",
+      "authority_score": 105,
+      "kind": "citation_only",
+      "source_id": "triumph_resources",
+      "source_key": "9d0ccce785ef64bb",
+      "source_record_id": "",
+      "title": "https://www.triumph.tech/resources/github-spotlight-1042024",
+      "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
     },
     {
       "authority": "source-code",
@@ -3145,326 +1795,41 @@
       "path": "Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "68e5a821254562e5",
+      "source_key": "280d40ec96df0c0b",
       "source_record_id": "SparkDevNetwork/Rock:Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs",
       "title": "Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Web/UI/Controls/Pickers/LavaCommandsPicker.cs"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "fe6e9a19a431554e0b3cc01c5371e9f8d23c145b7b70627ac58cb37773926c69",
-      "excerpt_hash": "0a90910a3c5ae8c6365d23c1bc67ab2a28eb2346a344b4dc9f20d3392d314ac3",
+      "content_hash": "cb6496ac7d913d281c1ead9ac57a8df744fc993bd0a0926876ebeb2d673d7659",
+      "excerpt_hash": "399002d26b4550caaa2ba3639bfbbdc260619dc1137b86a0dd2ba538094bf61e",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "78b1a0a9975427ba",
-      "source_record_id": "rock_developer:78b1a0a9975427ba",
-      "title": "Cache",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/cache-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3e807653ca4c5bfcb5a2fe1053c255e4b71ed23b67b1078c11b3fe553a3a9598",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "655ed379a713ded8",
-      "source_record_id": "rock_developer:655ed379a713ded8",
-      "title": "Arrays",
+      "source_key": "64f25905a1430064",
+      "source_record_id": "rock_developer:article:329",
+      "title": "Useful Links",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/lava/filters/array-filters",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c70534e4ef08e0ff18b4fa941c7dbded32ca2d915404e2889ded9e2b1ec654ad",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "030d6d918f3ce140",
-      "source_record_id": "rock_developer:030d6d918f3ce140",
-      "title": "Date Filters",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/filters/date-filters",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "89ac4d1fb05f671790e57f280e4eafb833d6c516b73105c75ed0266a38d9ce8e",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f0e5d9f51f966be9",
-      "source_record_id": "rock_developer:f0e5d9f51f966be9",
-      "title": "Numeric Filters",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/filters/numeric-filters",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2c3c00db166765762fc1a2ddc31c1cbecc79fe8d2ddfe20cf558efca415d41c5",
-      "excerpt_hash": "0893876f81bf0b65b1b17d2f5efef6d470f00c67dd36546909e5c1fafa8083e7",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b76e00f4cafbfba8",
-      "source_record_id": "rock_developer:b76e00f4cafbfba8",
-      "title": "SQL",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/sql-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "b15f9c6bc1298bc2d290b1cfdb6f65dcd3b11d2b231e20ac38751455fc209217",
-      "excerpt_hash": "efc25edaf0d267b9cc4d394fa5f3c7acc2e6a6daaa3ebbab321f48a2b4cb84c9",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "1a7cdd8d2a7f15eb",
-      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
-      "title": "Using Lava Remotely",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/remote-lava",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "b08a33b067b8251b3568481afad50a54cf176f89c8836c834cc26dbda9e708ed",
-      "excerpt_hash": "66b96b8a070fe40faeca9dade5cffca95248d854a6a0bf6ad0ef5ecf39269f11",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "be18a55d805e40d5",
-      "source_record_id": "rock_developer:be18a55d805e40d5",
-      "title": "About Lava Fluid",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/fluid",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "6c37210e40beee0e7ec0c051ab05862ed14526122cd8c34431fe3ffbd1cd0222",
-      "excerpt_hash": "2074b60b4e05afeba8167f91483dcd7d2be397793822acce5a3c2e178fd67344",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "e4041265ea398ac0",
-      "source_record_id": "rock_developer:e4041265ea398ac0",
-      "title": "Calendar Events",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/calendar-events",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3a0ff40dbcddad1d932686d2854c769aedb6872d62413cde53f240ae6b3cc57f",
-      "excerpt_hash": "43d5ac1f75f736b035916418ac0df389b401ca7df8f56da061c432746243e583",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "939d4b862980eb5f",
-      "source_record_id": "rock_developer:939d4b862980eb5f",
-      "title": "Event Scheduled Instance",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/event-scheduled-instance",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "6dc1d7483d09fb1f055620d0b88ac497b4cc86fcb302661233c238c950c159dc",
-      "excerpt_hash": "9d203e686a9e1cb20b810f58964252cf25529221c58eac5d4d45df1b3d9cdc0c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "74ebb0215dc00eda",
-      "source_record_id": "rock_developer:74ebb0215dc00eda",
-      "title": "Set Culture",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/setculture-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "59719ef76672e8b8a0c0d7df034c0d18899bbeac788774dcaa25d08d3bff5a7d",
-      "excerpt_hash": "73b5ddd5d60a87ef93a26312f30f67cf978c62f2c1667ffb5845b69e49226d04",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "092cca0be1ff5961",
-      "source_record_id": "rock_developer:092cca0be1ff5961",
-      "title": "Print ZPL",
-      "topics": [
-        "api",
-        "check-in",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/print-zpl",
-      "version": null
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "4c0fe1130f878c66",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/dashboard-design-part-1",
-      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "official-release",
-      "authority_score": 95,
-      "kind": "citation_only",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "",
-      "title": "https://www.rockrms.com/releasenotes",
-      "url": "https://www.rockrms.com/releasenotes"
-    },
-    {
-      "authority": "community-answer",
-      "authority_score": 50,
-      "kind": "citation_only",
-      "source_id": "rock_qa",
-      "source_key": "b7e0389038fbb3ed",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/ask/developing",
-      "url": "https://community.rockrms.com/ask/developing"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "change_type": null,
-      "content_hash": "148ff83ff7d88869c4491164d0bef6224195046b565aed81e9f85ddb0998fae4",
-      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
-      ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
+      "url": "https://community.rockrms.com/developer/roku-docs/resources/useful-links",
       "version": null
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "692a9e2e363a64d1bcc3e5685934418c1e59419b4d642478315b564b44cd5911"
+  }
 }

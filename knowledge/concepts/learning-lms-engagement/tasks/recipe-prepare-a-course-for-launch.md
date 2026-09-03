@@ -48,13 +48,15 @@ Prepare a course or class for learners by checking structure, activities, schedu
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/43/354
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
-- https://www.triumph.tech/resources/github-spotlight-11142025
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LearningCourseRequirementsController.CodeGenerated.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LearningCourseRequirementService.CodeGenerated.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/LearningCourseRequirementsController.CodeGenerated.cs
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-program
+- https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity
+- https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan
+- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
+- https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example

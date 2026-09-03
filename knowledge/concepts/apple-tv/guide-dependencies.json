@@ -615,2022 +615,1066 @@
   },
   "approved_media_hash": "7fc1276035689e0bc28de6fa9192a1f6b6e43c65b5e505ca6b8cf94e52f6c4f6",
   "approved_media_path": "knowledge/concepts/apple-tv/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:51:18+00:00",
   "concept_id": "apple-tv",
-  "guide_hash": "3025f6ab2395e75ef596d26995ca81d0e2396111ec2094fe900afb7ee964bd57",
-  "guide_line_count": 1387,
+  "guide_hash": "b2a98510caf9ed3666651cde220f822327691b63e60c5bb99d64da2e21a72493",
+  "guide_line_count": 837,
   "guide_path": "knowledge/concepts/apple-tv/guide.md",
-  "guide_word_count": 13780,
+  "guide_word_count": 7341,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official-developer",
-      "content_hash": "8e917b21a35ae95932da9dc24ed7a2c5e632d7d61014aabde4271b6069f2c166",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "1927b6ce4aec2879ef5bc580426c26828b97066923a6196eb84722de31feee8f",
+      "excerpt_hash": "34520bc4e7057fa37e33a099aa918a293204125fc9b181429bfc91b8b51308b6",
       "source_id": "rock_developer",
       "source_key": "74ac83f99a50c012",
-      "source_record_id": "rock_developer:74ac83f99a50c012",
+      "source_record_id": "rock_developer:article:120",
       "url": "https://community.rockrms.com/developer/apple-tv-docs"
     },
     {
       "authority": "official-developer",
-      "content_hash": "3d828acf9dde650f4a0ff07c5420cd7c63177ca83551be61eba345b104453c45",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "890414cb71e4b76e1950bfb8ef69a304d1ba6859cd30eb48235dce74a4739be0",
+      "excerpt_hash": "5b5064cbaccefaf644e74297ce136a7df02701ab033cc7fb164b32867d608f91",
       "source_id": "rock_developer",
-      "source_key": "932435f94ca1318b",
-      "source_record_id": "rock_developer:932435f94ca1318b",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands"
+      "source_key": "66cd0caee02b1e4b",
+      "source_record_id": "rock_developer:article:125",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app"
     },
     {
       "authority": "official-developer",
-      "content_hash": "9ed796d11addcc4ba14afe0500ce7f6f6101cbf0e1789ff8b497d1ebf667a639",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "cdd19c3ec809d5e85afded53609c7a1c44c12fd6d6daa57f86e39f023a428bf0",
+      "excerpt_hash": "48abb55bf2dddcb546502af81544da16f75902e5a31e1a237a9d4dbfa8dc462c",
       "source_id": "rock_developer",
       "source_key": "67f84804d07244b3",
-      "source_record_id": "rock_developer:67f84804d07244b3",
+      "source_record_id": "rock_developer:article:130",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
     },
     {
       "authority": "official-developer",
-      "content_hash": "58cc708c1df7e0e59081d2adba2a066d4a6f9d4706572db1cfa7e37ae79c4a28",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "6a32ad68187be4955b430fcdd2f20d2246c7a95a898ae3230ce324e168737bc4",
+      "excerpt_hash": "62d9ebda3adfec963b75e85706fb4ec89f4def19c9aae5d84fedc2dd2e228246",
       "source_id": "rock_developer",
       "source_key": "3ba68d9da851fa21",
-      "source_record_id": "rock_developer:3ba68d9da851fa21",
+      "source_record_id": "rock_developer:article:129",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips"
     },
     {
       "authority": "official-developer",
-      "content_hash": "307c3d4673f451a4f6a87681adb351e1565babf3b4155f6a10deaa08446a2465",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "66cd0caee02b1e4b",
-      "source_record_id": "rock_developer:66cd0caee02b1e4b",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "6b67075edd631dbbb1c4866d7e1cd67d03c000b904b568a9ec338de45f315ad6",
-      "excerpt_hash": "4311dbd5c2d4b6bb17fd114caac2cf1afd466a50b3b41688393f3b5d96cc79f3",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c3c0f4c33c08cbcc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvAppDetail/appleTvAppBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvAppDetail/appleTvAppBag.d.ts"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3d745308f55b66061a43d93a1684015e4d2c465ad4d23982a67f488cfbb03306",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "c13215c9a2a19257",
-      "source_record_id": "rock_developer:c13215c9a2a19257",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3880e4776b6c2807e001a15fe2f9edfef2fdb25ab05e5762be55278c1d04e5b9",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "e30c7a7ac3b2db18",
-      "source_record_id": "rock_developer:e30c7a7ac3b2db18",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "0c4e9bd5caf6a072b75b2f004cc1cb68d82d2e44ad3124427068bf1310209285",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "4f0249164a4754aa",
-      "source_record_id": "rock_developer:4f0249164a4754aa",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "1d5a71dbc05e4225f024a7bcf87a916f338772d2c055a0def8888ae7b03d4984",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "cfb27d047d34889f",
-      "source_record_id": "rock_developer:cfb27d047d34889f",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "efb61227097199b3ea3bec999cf3a63f0203eaa5c4ad3e23bdf6b04adf96cf52",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "1812a37f85b606ee",
-      "source_record_id": "rock_developer:1812a37f85b606ee",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/getting-started"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "cb8885fa5ea2ae119cc04de13db1c211fd0f95fbc56b113856303dbd1af06f42",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "49f163b045df6d34",
-      "source_record_id": "rock_developer:49f163b045df6d34",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/developer/rocktvapp"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a3632995a34d64422cac69a727118b70708a55132b2a0b85540b8e1a252ad578",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "9920fce31a291515",
-      "source_record_id": "rock_developer:9920fce31a291515",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "a6c5da53bb4b12168a72fd37fa44aacd54c9ec2ab2ef14eff6880011adf8b9ce",
-      "excerpt_hash": "34463319743a30e761a88e9979a448b66a936617c0c009f908d91f3ed5b98ce5",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9dc3ad5461e444fa",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "a48eb7449efaf0b585b516f2933f6e62a67c21d925ce53ecbf21b5cf6f427be5",
-      "excerpt_hash": "007435896399e4db87772e3ee7688fee3912b7a2cae34a8fe538328380045847",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "a183a0fe156ec11e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "6471e5c7cee7b51d49b0b2fc3f827a79c7d4f03d30af77877efaea1423675fb4",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "b9cc9349b4c9959a",
-      "source_record_id": "rock_developer:b9cc9349b4c9959a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/navigation-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "37f7c047a30d9ccd97fb88401fde519ffbe73ab7b69848be9b50fcd222217387",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "df5f5656f226bfd9",
-      "source_record_id": "rock_developer:df5f5656f226bfd9",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "0072eaa127bd3e4b1561ea9ee8ae31d4cb49a2463dc346f70496fba5ef8eb8af",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "ba947b77a8b51f3c",
-      "source_record_id": "rock_developer:ba947b77a8b51f3c",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/utility-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "eb3011267c2037c13dec9781f576a29f5a331b75ce4bf807a6973aba0d25678c",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "2b28876f69bbf8c4da2d747eac04db7de3f7e6ec906c708b0756191ebd12cdfe",
+      "excerpt_hash": "b0355a8c3880ec357365d906e73059f18ec72518715ee5b915c36de862fb967b",
       "source_id": "rock_developer",
       "source_key": "6d27b12b2bdc524a",
-      "source_record_id": "rock_developer:6d27b12b2bdc524a",
+      "source_record_id": "rock_developer:article:133",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates"
     },
     {
       "authority": "official-developer",
-      "content_hash": "89079fa30cce70650b943c328711281e8252c0101093690f09d0ea8143d649ac",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "f9bca85af2b3634a615f19ed49013e29516e4ec4867873e63fdc79ae13cca489",
+      "excerpt_hash": "fbc5daac9451700e967039b55d9871760fe6a76db0cc56df17f8c72057c9971f",
       "source_id": "rock_developer",
-      "source_key": "916efcb86f30b516",
-      "source_record_id": "rock_developer:916efcb86f30b516",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/references"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "7e4c316c8961f098bcdc26dd73d2fc316dd8ce0e9cd074f5dadf13a3cc71bfe1",
-      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
-    },
-    {
-      "authority": "official-api",
-      "content_hash": "1f1bcb6e4d528c0e81be5f48c20d802aeb6a78ba71c275c9c380a7d1c369384c",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
-      "source_id": "rock_api_docs",
-      "source_key": "14e4b0253d1428ca",
-      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
-      "url": "https://community.rockrms.com/api-docs"
+      "source_key": "bebe310f7206f19a",
+      "source_record_id": "rock_developer:article:139",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style"
     },
     {
       "authority": "official-developer",
-      "content_hash": "4a19a710f25833e7e781662387bdb7b29c03905ec1d029b6e843d1988f85a566",
-      "excerpt_hash": "ba049b536c4b840d15e5f3d832f7785960cbb580dc1fda7fc9cfee59e645f5f9",
-      "source_id": "rock_lava_docs",
-      "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
-      "url": "https://community.rockrms.com/lava/lava-api"
+      "content_hash": "c732da0cc00fdcb5195e75947398798e51774ba5199d23a71ea385a0ba6a1e03",
+      "excerpt_hash": "687453b25474424db2bef71eff5c92655c50589aa5ebc8aeaa63647a7af13390",
+      "source_id": "rock_developer",
+      "source_key": "cfb27d047d34889f",
+      "source_record_id": "rock_developer:article:171",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands"
     },
     {
-      "authority": "official-triumph",
-      "content_hash": "10d7d69e722632f0206faa2c73d9dbd1ed5e0935ae048718c4f66aa6b258ac54",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "triumph_resources",
-      "source_key": "9d0ccce785ef64bb",
-      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
-      "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
+      "authority": "official-developer",
+      "content_hash": "27c3ce0baaa76b3fe33b2b94214affca3465f9cad34a947a0541bf2bc0be9629",
+      "excerpt_hash": "b37bdede06168636ba65609ddb68b8ba5156da46f078c3346852f9a9bfea6524",
+      "source_id": "rock_developer",
+      "source_key": "df5f5656f226bfd9",
+      "source_record_id": "rock_developer:article:173",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "9d93234607a37f1a007c40e061d3272e568a0dcfa7ca721ff9b55119384ec5db",
+      "excerpt_hash": "f85c6879e858e436a0a1cbd84517648a57544c3590de2210dbe6c7d474f5701b",
+      "source_id": "rock_developer",
+      "source_key": "e30c7a7ac3b2db18",
+      "source_record_id": "rock_developer:article:170",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "0804ed7f19879850304b412239ce82451a343ac59571a5999553c29d3f618591",
+      "excerpt_hash": "4a0b5abfd7e4ff63812ac3c39aaec5ea4546270813c002d1a96851cb0012079b",
+      "source_id": "rock_developer",
+      "source_key": "6fc4bd35a367373a",
+      "source_record_id": "rock_developer:article:127",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "aa716cba462ff99fcfc862148fc80de270ef0b881b60d75c35f0e280591eb40c",
+      "excerpt_hash": "de0d49337f77b98691017dc7f25eedd1eb21d4cfd2d77c38cd57f9de38c4afb1",
+      "source_id": "rock_developer",
+      "source_key": "9920fce31a291515",
+      "source_record_id": "rock_developer:article:132",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8cf513d5b0c1ecd4511bcd056e367a53fa777ab5f95b36bf12724ef2763fadb1",
+      "excerpt_hash": "127065bff9824c8826666d86cb77fcac44185f04c9884395ce5d40d9dce6f2f9",
+      "source_id": "rock_developer",
+      "source_key": "4f0249164a4754aa",
+      "source_record_id": "rock_developer:article:128",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "6975149d63939bbf02723eebe1d5363998d984f22830b751b704c4a52e5fe951",
+      "excerpt_hash": "a259b49ba5dc88f6b0e61d6703f23b95d9d514583c61286b3034735835d36fbd",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "777ff3ae14af2790",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Tv/RemoteAuthentication.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs"
     },
     {
       "authority": "source-code",
       "content_hash": "1f12273d89c3c022001328b9c6b5bc2aef16be665cccad111eab9c24739f8c85",
       "excerpt_hash": "35e8b546f60536d95ed38aefab6293c1f8b9f82c4113f764e47fd79409533a7f",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "ec2bead07b6e067b",
+      "source_key": "a91ae18d779a7d04",
       "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
     },
     {
       "authority": "official-developer",
-      "content_hash": "44ac8ac8487151728ba44fa617dbf970c71937595842c8e45539254a99998599",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "6fc4bd35a367373a",
-      "source_record_id": "rock_developer:6fc4bd35a367373a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "82b1d3f6c257b653cbf210871ccfc6b81ee6f51709df85649ccd9f45908a301c",
-      "excerpt_hash": "59c9237e8a0ab2e41cf929fa70657f18426459e8a6831e293f6fb28be62cb829",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "93b1477e75ee28fe",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "aeacf4cf4a175a8267d3ab582d9eb7efb9ac821ff77b8d8591b3793428723524",
-      "excerpt_hash": "8a5ddefe8c407fab8db0edeacddaa03e3447f35a3e8c7f266b755a326c3768a3",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "844e694b828806a0",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "99ebb9f9ea282cdb30ccc6a78514eb4ce45bfd5753cb7ae86720dc45d0df8df7",
-      "excerpt_hash": "2b1222f415065e5b2fc12e56eb49821866e2f9f31ae4d2392c16246af8fd83a2",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "29b70070a9b3ab9d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "7b084fb8d351562b4dfffd30ca33885e11c2d3c410bf94c5084669b728cbf13b",
-      "excerpt_hash": "c3e2b8b1f5ad4eb79b7357a7480453e2f8e440f6dc38d47542607baf1eb7568c",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "489761c69361347a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
-      "excerpt_hash": "09b6a3d9937992085cc7ae5e7e7895656e6ea4ae9ce763150b379e430f56ed6b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "543ea1d48ed32f6d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "aa4c1cd1e3cc1fd8456f21c9a0d9f9e5d183b8af834004ac89600857cbfebc50",
-      "excerpt_hash": "d77279e48093767bcb4e355bd14b9cd3d183e84da26e8ab1260afafe55fda584",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3ae3d12b5b28eccc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c70b8349e0c715f31c0d2d85bf24857bd30ba126dbafbda9a9c1eab85be6033e",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "e85fe2a609c23654",
-      "source_record_id": "rock_developer:e85fe2a609c23654",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/main-template"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "eb9f2f8078d7a0ef1a25679d3af698d3ea887dfc89b66e28542a84f5f5b0b8c0",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "4bc82ed44da3c8ce",
-      "source_record_id": "rock_developer:4bc82ed44da3c8ce",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/stack-template"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a9841a3b39e93c5d8226b35e519a2d1ff67d3d052b596f615b3721296a6d7ae4",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "14edde9c59892def",
-      "source_record_id": "rock_developer:14edde9c59892def",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "b82a34b4132f3388cedfce741e5cbb282266c265fb36b3972c518dd73757cc8e",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "39f3b2037e59c56e",
-      "source_record_id": "rock_developer:39f3b2037e59c56e",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-template"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "aed01384a6bb3a3907ab7ca6fdcc345d3b01c02a4526839769bc354a9ebe0388",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "bfeef041ce99dea2",
-      "source_record_id": "rock_developer:bfeef041ce99dea2",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-bundle-template"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c4e4697508f695c5491fd793d1fae199d3c0b8a0d86afdd1758e2b0b4b0eb764",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "f9244193b2aeca2f",
-      "source_record_id": "rock_developer:f9244193b2aeca2f",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/list-template"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "123a28847c45f99eb6970e79dcc4d39aab25ea61d848c395f9e9ae5312af2b4a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "22886ac19bd420b3",
-      "source_record_id": "rock_developer:22886ac19bd420b3",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "9cd67ba128c9ab0aeb6fedb4a2ae87e3d77fe3617a894e532183bb2b4c8f2742",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "8bd94903787e54cec8c8733262fc9f0337368a1cd9b3bf883e6d1ee7867cc3df",
+      "excerpt_hash": "afa57af3f9a92a814437bd6b1f55235571085e9918133000fbd174b9381257cd",
       "source_id": "rock_developer",
       "source_key": "fba8695fc1d9c23d",
-      "source_record_id": "rock_developer:fba8695fc1d9c23d",
+      "source_record_id": "rock_developer:article:152",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/alert-template"
     },
     {
       "authority": "official-developer",
-      "content_hash": "e94797f5e5329c3b72bd0ba7654a1caa9ae394a5b1f78581a70e730dc347c8bd",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "0dabe86e07502290b6eab01347c9ff38dcfda6a38c89f659a35dc71f46d26294",
+      "excerpt_hash": "13192192899d87ab79dd7e7207930faa01f6cb70b3a8abd2468b409ae90865a2",
       "source_id": "rock_developer",
-      "source_key": "e57e0c4018acb868",
-      "source_record_id": "rock_developer:e57e0c4018acb868",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/descriptive-alert-template"
+      "source_key": "22886ac19bd420b3",
+      "source_record_id": "rock_developer:article:157",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template"
     },
     {
       "authority": "official-developer",
-      "content_hash": "916191e4ba40dc03c8cf4c6b33dd40e51e9a96d0decbc698fe8bcf3a94f84f03",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "9974f8a9a96b552ed3df5dfb80b6896792fb972cbe86e3d983ad3301dd57219d",
+      "excerpt_hash": "c100a862c201f95e001955b08228f8ea180ed400df4bf3019216e59d6dc0ac5f",
       "source_id": "rock_developer",
-      "source_key": "36eb3209e9744258",
-      "source_record_id": "rock_developer:36eb3209e9744258",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/div-template"
+      "source_key": "39f3b2037e59c56e",
+      "source_record_id": "rock_developer:article:161",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-template"
     },
     {
       "authority": "official-developer",
-      "content_hash": "5f66017e480eac6ef35eb43b9d735027713a02247256f12583865c017de1d0b0",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "1fecdff0c13d1396d158a4249fe2577085d303a85c4057bc15f07c096e3c4221",
+      "excerpt_hash": "77ef821b953b47d53a271727bd4de79a2bf33e589925ad0f5c75b61cae82a092",
       "source_id": "rock_developer",
-      "source_key": "4155cc8ec235808f",
-      "source_record_id": "rock_developer:4155cc8ec235808f",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images"
+      "source_key": "0b3b89c73c5dc876",
+      "source_record_id": "rock_developer:article:150",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/licensing"
     },
     {
       "authority": "official-developer",
-      "content_hash": "1c1349f760f32db9e1281585fd29e769c1c9d3a6e44a8310c7fc652ada8697f2",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "fd30763b52c600d5",
-      "source_record_id": "rock_developer:fd30763b52c600d5",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "1e303e008dd102b0292315c5e0be586fa737afad8f6426f4a566bc3047ad6ea9",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "6322e385e72f55ea",
-      "source_record_id": "rock_developer:6322e385e72f55ea",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "6ec7adf0c6f3c5e3cc9c219c183d0459a00183440c6e3f001a480e97307dc141",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "9143aa02bac0fa8a",
-      "source_record_id": "rock_developer:9143aa02bac0fa8a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/launch-image"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "33763905dd2b3327b56a42ef8fe77e78d769643f0fe81b9f93a6e48fe7663865",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "9e5428982f3d333a",
-      "source_record_id": "rock_developer:9e5428982f3d333a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "50c478af2daf476592ec7ce4fb43afe7fb075aa6799e30977232536c5a4d7308",
-      "excerpt_hash": "df90ac73993394836d03e6e65c72fdd9b04731bb852560426315167355b898dd",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "2aa8d37e7332b898",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "cbca978d83a8c325c382e3e78fad089effe9bf7268bec8261855c0278a4b81cb",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "bebe310f7206f19a",
-      "source_record_id": "rock_developer:bebe310f7206f19a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "42d93a492ffedfedb4fb948517f863b066bc7c74fd5430beb7ee5c2ed7081cc5",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "8a4a79ea31348a1e",
-      "source_record_id": "rock_developer:8a4a79ea31348a1e",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "76678dcca68efa01da5ab025cd75263ba402081cc91e5407ce14d133c0f97868",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "623e1064845b167a",
-      "source_record_id": "rock_developer:623e1064845b167a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a4a2f7d7bb9d1e5e6a79634f3302e8013bf7749fbbfc7e5fbd7667f3c025fd34",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "source_id": "rock_developer",
-      "source_key": "fd72c9ef06a4aeb0",
-      "source_record_id": "rock_developer:fd72c9ef06a4aeb0",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "dbd414a93babf2b47fe2d5e4d2259c109e0fdd2f4d3b6980c2c1c8c89ee89f7a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "aa971b4741c1047fba3ffc1b068d077813fce05d3b12ab03f365f12b476d79c5",
+      "excerpt_hash": "0fdf4fe4a20c14d6aacfe6e4f66367716794672e6f95490cc72ff9fdc3c25dcf",
       "source_id": "rock_developer",
       "source_key": "a3b635f6fceebbea",
-      "source_record_id": "rock_developer:a3b635f6fceebbea",
+      "source_record_id": "rock_developer:article:134",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference"
     },
     {
       "authority": "official-developer",
-      "content_hash": "93a4103ecfbebe7d128478823d928cc543a7b14e9b848c7af809b026be55118a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "d82d7a77fa2af88d29c0f8aa6c163741682c71863f491cdef6d1118597f0c598",
+      "excerpt_hash": "170968af4b1fa33d35d68f4518311b4927cc6f69f30a3d03a95463e4b454bbef",
       "source_id": "rock_developer",
       "source_key": "de808cef120240e6",
-      "source_record_id": "rock_developer:de808cef120240e6",
+      "source_record_id": "rock_developer:article:166",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/countdown"
     },
     {
       "authority": "official-developer",
-      "content_hash": "20f6d75c92386678bfd69d3878970b5902f16c6fae7e1bb3d7465fcc30769d13",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "f3d5c122724c48c45441b37401fbcceb2fde515b56544cd6fb44116591266d88",
+      "excerpt_hash": "127018d3df0c11360887fdd242e28f720e8337c859f45456385f69e503542fd5",
       "source_id": "rock_developer",
       "source_key": "f578f5f7b46aad4f",
-      "source_record_id": "rock_developer:f578f5f7b46aad4f",
+      "source_record_id": "rock_developer:article:168",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rockstackview"
     },
     {
       "authority": "official-developer",
-      "content_hash": "9e96bebcbc02b4916e2d279766082a5932451c408108ce68f61e3aa60a06af5a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "5cb26f8a142c24c9177e024338029d48aae29a7f2fe1a5f1739edb38155bd186",
+      "excerpt_hash": "2d2dab3a8e4431b507bfa39a0032c3e9d885231580a7ddf150a820cda2a6a65d",
       "source_id": "rock_developer",
       "source_key": "49379f2ee0526451",
-      "source_record_id": "rock_developer:49379f2ee0526451",
+      "source_record_id": "rock_developer:article:169",
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rocklabel"
     },
     {
       "authority": "official-developer",
-      "content_hash": "b23f5b680479d4c7b326455ddcb624451e558acae648d74ed5ff9c5ef94d6408",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "6ed9fb8109eff0b0365c335a72dc78a0e73e991a8b725899e3577710ee5b7804",
+      "excerpt_hash": "609f6068ea62231731112de3891a1b0056ba24dc3f9eed12e8ad9bd2a6de1d07",
       "source_id": "rock_developer",
-      "source_key": "f6a918bb7ec48274",
-      "source_record_id": "rock_developer:f6a918bb7ec48274",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/menu-bar-template"
+      "source_key": "8a4a79ea31348a1e",
+      "source_record_id": "rock_developer:article:141",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes"
     },
     {
       "authority": "official-developer",
-      "content_hash": "fc68f451c936a7613669e9be6a1ea3682c93d61e2ead0053c47daa4aee9a5937",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "ab5fb24424e5a2e83b570ea6d9f175dd5f822dc0e5e31bdf13e62e28741cc5f3",
+      "excerpt_hash": "7019fb96e39047c54446a87f91fe6be261e9cd00a60172d8f607e8bea4f5639e",
       "source_id": "rock_developer",
-      "source_key": "80679876651d7dc7",
-      "source_record_id": "rock_developer:80679876651d7dc7",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "4c0fe1130f878c66",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "7cf9c01c97ba95d5",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
-      "authority": "official-release",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "",
-      "url": "https://www.rockrms.com/releasenotes"
-    },
-    {
-      "authority": "community-answer",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_qa",
-      "source_key": "b7e0389038fbb3ed",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/ask/developing"
+      "source_key": "623e1064845b167a",
+      "source_record_id": "rock_developer:article:140",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries"
     },
     {
       "authority": "official-developer",
-      "content_hash": "18180e82f485346350a4abb195ddbb9abdd0d6cd3c008106669c30696ce4303a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "0081cd4c44b7fdca608215360cd4e8bd6b0795698a12c155251e4c05621ec295",
+      "excerpt_hash": "45aeaaaff0584566349ba6cd2ec9df1e37934378183fc4cda235282c35845e74",
       "source_id": "rock_developer",
-      "source_key": "6a561cbd301f44dd",
-      "source_record_id": "rock_developer:6a561cbd301f44dd",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/parade-template"
+      "source_key": "fd72c9ef06a4aeb0",
+      "source_record_id": "rock_developer:article:142",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images"
     },
     {
       "authority": "official-developer",
-      "content_hash": "3b12f1dd3a9b802ded4c034bfaf4528cad76c51ac70121bd709cc6c57b8b76ba",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "a23c8225f94a9dce8dd41503999404f0c4002dcb4ca064ffb14fef7fdedfd31a",
+      "excerpt_hash": "091bc6fe0aaf4da167d4a1e0120dfdb7f705cd07ac86e9f29f8284a81f638376",
       "source_id": "rock_developer",
-      "source_key": "54d7fb4ca133b04a",
-      "source_record_id": "rock_developer:54d7fb4ca133b04a",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/compilation-template"
+      "source_key": "916efcb86f30b516",
+      "source_record_id": "rock_developer:article:143",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/references"
     },
     {
       "authority": "official-developer",
-      "content_hash": "e40b7e14208e413de48358944325d9a06dfa1ac8b9648198e087789a7e85aaba",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "eb069e1caaa1163a0a8e4158f061f18dcd7e416d44ce7364e81d6ba442f6e3a6",
+      "excerpt_hash": "5e3feb94b33c7d789ec059490603971e850aeca292f6d8d33f98d3ef13dba6b9",
       "source_id": "rock_developer",
-      "source_key": "1848302423acf670",
-      "source_record_id": "rock_developer:1848302423acf670",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/one-up-template"
+      "source_key": "fd30763b52c600d5",
+      "source_record_id": "rock_developer:article:146",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons"
     },
     {
       "authority": "official-developer",
-      "content_hash": "fc06b052fc3d84d5f1123ad19962a5b07d00cbddb76aeb0a7f3b0e8e74dfb6ca",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "fd9b497776617d4616de162ae3a348e1b1a271e8dbd357322317492c4e5b8982",
+      "excerpt_hash": "7e63dbf2293465139168b887fb93a001a5dc286ce393a404a5108788ac7dc0bc",
       "source_id": "rock_developer",
-      "source_key": "51791057be198caf",
-      "source_record_id": "rock_developer:51791057be198caf",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/rating-template"
+      "source_key": "9e5428982f3d333a",
+      "source_record_id": "rock_developer:article:149",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images"
     },
     {
       "authority": "official-developer",
-      "content_hash": "a558489a8aab7ff01e1a57bbd164426766dee94bd40cf7bd10f26b669e2d77cb",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "158b24dc36e598fb363b0c68d39489e61896bf91edcc3538bb84c30c834a8ec5",
+      "excerpt_hash": "915250d6eddb3f6f274026326b6d1f32727c54f2ed8deb7c4f865b3aa16fc0a3",
       "source_id": "rock_developer",
-      "source_key": "7ebe89b2ae54e736",
-      "source_record_id": "rock_developer:7ebe89b2ae54e736",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/showcase-template"
+      "source_key": "9143aa02bac0fa8a",
+      "source_record_id": "rock_developer:article:148",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/launch-image"
     },
     {
       "authority": "official-developer",
-      "content_hash": "ed47cbeb229fea32d8dfeafb46360da676b1885d7933e5f26fc287b5a4545426",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "daee22c8f75a24b373ae4725aa2d4f78ec48dfb725ffeb09017caf25ca6b53bf",
+      "excerpt_hash": "1d4d52ec00dfbdb5b2c55a1673e224dd20e45a383574c7627e6460ddcb96b227",
       "source_id": "rock_developer",
-      "source_key": "a3c5bc25c6a8e3ed",
-      "source_record_id": "rock_developer:a3c5bc25c6a8e3ed",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling"
+      "source_key": "6322e385e72f55ea",
+      "source_record_id": "rock_developer:article:147",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image"
     },
     {
       "authority": "official-developer",
-      "content_hash": "e04a6fef6ee96a5f8a97958e021ab0a0e20fd861a98cdf06f00293c013305160",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "34565b8e2d5b18ef8cfcc1eae96c375cf971e36d418f7abd492abbed3e5b7ba2",
+      "excerpt_hash": "c9ffe9d09c1ad2301893c8b51654390213b69f1f3e7641bd9f17826c54ed1f0c",
       "source_id": "rock_developer",
-      "source_key": "0137078fdb6164bb",
-      "source_record_id": "rock_developer:0137078fdb6164bb",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling"
+      "source_key": "c13215c9a2a19257",
+      "source_record_id": "rock_developer:article:126",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "515a442368f17babef1f2f494ea4c6da1ef226bcfa2056c6bb31fac75d9db38e",
+      "excerpt_hash": "2c56fa2c70314dcf45fc4f13fa7a02d614f89bb1c899f548f25432b639343669",
+      "source_id": "rock_lava_docs",
+      "source_key": "53ad1133e1cb2d0a",
+      "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
+      "url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c249f4bd41b03e3673d743afa4fc5b59a2939e67cbb4abce139e2226d8b3f836",
+      "excerpt_hash": "ffe35dc57dea9e6ca6cba28ab10bb6f3a83402ce91a7abd15a3ea7eb74c046a4",
+      "source_id": "rock_developer",
+      "source_key": "14edde9c59892def",
+      "source_record_id": "rock_developer:article:124",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
       "confidence": "normal",
-      "end_line": 50,
-      "heading": "1. Executive Summary For Agents",
+      "end_line": 37,
+      "heading": "Agent Summary",
       "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
-      "source_keys": [
-        "74ac83f99a50c012",
-        "932435f94ca1318b",
-        "67f84804d07244b3",
-        "3ba68d9da851fa21",
-        "66cd0caee02b1e4b",
-        "c3c0f4c33c08cbcc",
-        "c13215c9a2a19257",
-        "e30c7a7ac3b2db18",
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 29
-    },
-    {
-      "confidence": "normal",
-      "end_line": 88,
-      "heading": "2. Scope And Terminology",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology",
+      "section_id": "agent-summary",
       "source_keys": [
         "74ac83f99a50c012",
         "66cd0caee02b1e4b",
-        "c3c0f4c33c08cbcc",
         "67f84804d07244b3",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 18
+    },
+    {
+      "confidence": "normal",
+      "end_line": 59,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": true,
+      "section_id": "scope-and-boundaries",
+      "source_keys": [
         "3ba68d9da851fa21",
-        "1812a37f85b606ee",
-        "67f84804d07244b3",
-        "49f163b045df6d34",
-        "932435f94ca1318b",
-        "9920fce31a291515",
-        "4f0249164a4754aa",
-        "9dc3ad5461e444fa",
-        "a183a0fe156ec11e",
+        "6d27b12b2bdc524a"
+      ],
+      "start_line": 38
+    },
+    {
+      "confidence": "normal",
+      "end_line": 73,
+      "heading": "Mental Model",
+      "needs_live_verification": true,
+      "section_id": "mental-model",
+      "source_keys": [
         "66cd0caee02b1e4b",
-        "1812a37f85b606ee",
-        "c13215c9a2a19257",
+        "67f84804d07244b3",
+        "bebe310f7206f19a",
+        "6d27b12b2bdc524a",
+        "cfb27d047d34889f",
+        "df5f5656f226bfd9",
         "e30c7a7ac3b2db18"
       ],
-      "start_line": 51
+      "start_line": 60
     },
     {
       "confidence": "normal",
-      "end_line": 130,
-      "heading": "3. Apple TV Apps Mental Model",
+      "end_line": 91,
+      "heading": "Creating And Configuring An Application",
       "needs_live_verification": true,
-      "section_id": "3-apple-tv-apps-mental-model",
-      "source_keys": [
-        "b9cc9349b4c9959a",
-        "df5f5656f226bfd9",
-        "ba947b77a8b51f3c",
-        "cfb27d047d34889f",
-        "6d27b12b2bdc524a",
-        "b9cc9349b4c9959a",
-        "916efcb86f30b516"
-      ],
-      "start_line": 89
-    },
-    {
-      "confidence": "normal",
-      "end_line": 154,
-      "heading": "4. Source Authority And How To Use This Guide",
-      "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
-      "source_keys": [
-        "74ac83f99a50c012",
-        "d275b5b94a9da833",
-        "14e4b0253d1428ca",
-        "53ad1133e1cb2d0a",
-        "9d0ccce785ef64bb",
-        "a183a0fe156ec11e",
-        "ec2bead07b6e067b"
-      ],
-      "start_line": 131
-    },
-    {
-      "confidence": "structural",
-      "end_line": 156,
-      "heading": "5. Core Configuration And Data Model",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
-      "source_keys": [
-        "66cd0caee02b1e4b",
-        "1812a37f85b606ee",
-        "c3c0f4c33c08cbcc",
-        "74ac83f99a50c012",
-        "67f84804d07244b3",
-        "6fc4bd35a367373a",
-        "93b1477e75ee28fe",
-        "b9cc9349b4c9959a",
-        "844e694b828806a0",
-        "a183a0fe156ec11e",
-        "29b70070a9b3ab9d",
-        "ec2bead07b6e067b",
-        "489761c69361347a",
-        "53ad1133e1cb2d0a",
-        "543ea1d48ed32f6d"
-      ],
-      "start_line": 155
-    },
-    {
-      "confidence": "normal",
-      "end_line": 186,
-      "heading": "Apple TV App Record",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-apple-tv-app-record",
-      "source_keys": [
-        "66cd0caee02b1e4b",
-        "66cd0caee02b1e4b",
-        "1812a37f85b606ee",
-        "66cd0caee02b1e4b",
-        "c3c0f4c33c08cbcc",
-        "c3c0f4c33c08cbcc",
-        "74ac83f99a50c012",
-        "c3c0f4c33c08cbcc"
-      ],
-      "start_line": 157
-    },
-    {
-      "confidence": "normal",
-      "end_line": 195,
-      "heading": "TV Page Record",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-tv-page-record",
-      "source_keys": [
-        "67f84804d07244b3",
-        "6fc4bd35a367373a",
-        "93b1477e75ee28fe",
-        "b9cc9349b4c9959a"
-      ],
-      "start_line": 187
-    },
-    {
-      "confidence": "normal",
-      "end_line": 199,
-      "heading": "Page List Block Options",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-page-list-block-options",
-      "source_keys": [
-        "844e694b828806a0"
-      ],
-      "start_line": 196
-    },
-    {
-      "confidence": "normal",
-      "end_line": 207,
-      "heading": "Remote Authentication Data Model",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-remote-authentication-data-model",
-      "source_keys": [
-        "a183a0fe156ec11e",
-        "29b70070a9b3ab9d",
-        "29b70070a9b3ab9d",
-        "a183a0fe156ec11e",
-        "ec2bead07b6e067b",
-        "ec2bead07b6e067b",
-        "489761c69361347a"
-      ],
-      "start_line": 200
-    },
-    {
-      "confidence": "normal",
-      "end_line": 211,
-      "heading": "Lava Endpoint And API Context",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-lava-endpoint-and-api-context",
-      "source_keys": [
-        "53ad1133e1cb2d0a",
-        "543ea1d48ed32f6d"
-      ],
-      "start_line": 208
-    },
-    {
-      "confidence": "structural",
-      "end_line": 213,
-      "heading": "6. Primary Entities And Relationships",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships",
-      "source_keys": [
-        "66cd0caee02b1e4b",
-        "844e694b828806a0",
-        "6fc4bd35a367373a",
-        "67f84804d07244b3",
-        "b9cc9349b4c9959a",
-        "ba947b77a8b51f3c",
-        "cfb27d047d34889f",
-        "df5f5656f226bfd9",
-        "932435f94ca1318b",
-        "a183a0fe156ec11e",
-        "3ae3d12b5b28eccc"
-      ],
-      "start_line": 212
-    },
-    {
-      "confidence": "normal",
-      "end_line": 231,
-      "heading": "Apple TV App To Site",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-apple-tv-app-to-site",
+      "section_id": "creating-and-configuring-an-application",
       "source_keys": [
         "66cd0caee02b1e4b"
       ],
-      "start_line": 214
+      "start_line": 74
     },
     {
-      "confidence": "normal",
-      "end_line": 245,
-      "heading": "Apple TV App To TV Pages",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-apple-tv-app-to-tv-pages",
+      "confidence": "structural",
+      "end_line": 93,
+      "heading": "Pages, Lava, And Cache Behavior",
+      "needs_live_verification": false,
+      "section_id": "pages-lava-and-cache-behavior",
       "source_keys": [
-        "844e694b828806a0",
+        "67f84804d07244b3",
         "6fc4bd35a367373a"
       ],
-      "start_line": 232
+      "start_line": 92
     },
     {
       "confidence": "normal",
-      "end_line": 265,
-      "heading": "TV Pages To Lava Merge Fields",
+      "end_line": 114,
+      "heading": "Page content and merge fields",
       "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-tv-pages-to-lava-merge-fields",
+      "section_id": "pages-lava-and-cache-behavior-page-content-and-merge-fields",
       "source_keys": [
         "67f84804d07244b3"
       ],
-      "start_line": 246
+      "start_line": 94
     },
     {
       "confidence": "normal",
-      "end_line": 271,
-      "heading": "TV Pages To Commands",
+      "end_line": 120,
+      "heading": "Creating page content",
       "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-tv-pages-to-commands",
+      "section_id": "pages-lava-and-cache-behavior-creating-page-content",
       "source_keys": [
-        "b9cc9349b4c9959a",
-        "ba947b77a8b51f3c",
-        "cfb27d047d34889f",
-        "df5f5656f226bfd9",
-        "932435f94ca1318b"
+        "6fc4bd35a367373a"
       ],
-      "start_line": 266
+      "start_line": 115
     },
     {
       "confidence": "normal",
-      "end_line": 285,
-      "heading": "Remote Authentication Session To Site And Person Alias",
+      "end_line": 131,
+      "heading": "Cacheability",
+      "needs_live_verification": true,
+      "section_id": "pages-lava-and-cache-behavior-cacheability",
+      "source_keys": [
+        "6fc4bd35a367373a"
+      ],
+      "start_line": 121
+    },
+    {
+      "confidence": "normal",
+      "end_line": 144,
+      "heading": "Application Context",
       "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-remote-authentication-session-to-site-and-person-alias",
-      "source_keys": [
-        "a183a0fe156ec11e",
-        "3ae3d12b5b28eccc"
-      ],
-      "start_line": 272
-    },
-    {
-      "confidence": "structural",
-      "end_line": 287,
-      "heading": "7. Common Apple TV Apps Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-apple-tv-apps-workflows",
-      "source_keys": [
-        "74ac83f99a50c012",
-        "6fc4bd35a367373a",
-        "e85fe2a609c23654",
-        "4bc82ed44da3c8ce",
-        "1812a37f85b606ee",
-        "9920fce31a291515",
-        "ba947b77a8b51f3c",
-        "932435f94ca1318b",
-        "4f0249164a4754aa",
-        "9dc3ad5461e444fa",
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 286
-    },
-    {
-      "confidence": "normal",
-      "end_line": 310,
-      "heading": "Create A New App",
-      "needs_live_verification": true,
-      "section_id": "7-common-apple-tv-apps-workflows-create-a-new-app",
-      "source_keys": [
-        "74ac83f99a50c012",
-        "6fc4bd35a367373a",
-        "e85fe2a609c23654",
-        "4bc82ed44da3c8ce"
-      ],
-      "start_line": 288
-    },
-    {
-      "confidence": "normal",
-      "end_line": 333,
-      "heading": "Add A Content Page",
-      "needs_live_verification": true,
-      "section_id": "7-common-apple-tv-apps-workflows-add-a-content-page",
-      "source_keys": [
-        "6fc4bd35a367373a",
-        "1812a37f85b606ee"
-      ],
-      "start_line": 311
-    },
-    {
-      "confidence": "normal",
-      "end_line": 345,
-      "heading": "Build A Campus Selector",
-      "needs_live_verification": true,
-      "section_id": "7-common-apple-tv-apps-workflows-build-a-campus-selector",
+      "section_id": "application-context",
       "source_keys": [
         "9920fce31a291515",
-        "ba947b77a8b51f3c",
-        "932435f94ca1318b",
         "9920fce31a291515"
       ],
-      "start_line": 334
+      "start_line": 132
     },
     {
-      "confidence": "normal",
-      "end_line": 367,
-      "heading": "Add Login",
-      "needs_live_verification": true,
-      "section_id": "7-common-apple-tv-apps-workflows-add-login",
+      "confidence": "structural",
+      "end_line": 146,
+      "heading": "Sign-In, Logout, And Remote Authentication",
+      "needs_live_verification": false,
+      "section_id": "sign-in-logout-and-remote-authentication",
       "source_keys": [
         "4f0249164a4754aa",
-        "9dc3ad5461e444fa"
+        "777ff3ae14af2790",
+        "cfb27d047d34889f",
+        "a91ae18d779a7d04"
       ],
-      "start_line": 346
+      "start_line": 145
     },
     {
       "confidence": "normal",
-      "end_line": 386,
-      "heading": "Play Media",
-      "needs_live_verification": true,
-      "section_id": "7-common-apple-tv-apps-workflows-play-media",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 368
-    },
-    {
-      "confidence": "normal",
-      "end_line": 390,
-      "heading": "8. Building Your First Apple TV App Deep Dive",
+      "end_line": 158,
+      "heading": "Server-side setup",
       "needs_live_verification": false,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive",
-      "source_keys": [
-        "14edde9c59892def"
-      ],
-      "start_line": 387
-    },
-    {
-      "confidence": "normal",
-      "end_line": 404,
-      "heading": "Step 1: Confirm Preconditions",
-      "needs_live_verification": true,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-1-confirm-preconditions",
-      "source_keys": [
-        "74ac83f99a50c012"
-      ],
-      "start_line": 391
-    },
-    {
-      "confidence": "normal",
-      "end_line": 419,
-      "heading": "Step 2: Create The App",
-      "needs_live_verification": true,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-2-create-the-app",
-      "source_keys": [
-        "66cd0caee02b1e4b"
-      ],
-      "start_line": 405
-    },
-    {
-      "confidence": "normal",
-      "end_line": 433,
-      "heading": "Step 3: Create The Start Screen",
-      "needs_live_verification": true,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-3-create-the-start-screen",
-      "source_keys": [
-        "6fc4bd35a367373a",
-        "e85fe2a609c23654"
-      ],
-      "start_line": 420
-    },
-    {
-      "confidence": "normal",
-      "end_line": 445,
-      "heading": "Step 4: Add Content Pages",
-      "needs_live_verification": false,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-4-add-content-pages",
-      "source_keys": [
-        "4bc82ed44da3c8ce",
-        "39f3b2037e59c56e",
-        "bfeef041ce99dea2",
-        "f9244193b2aeca2f",
-        "22886ac19bd420b3",
-        "fba8695fc1d9c23d",
-        "e57e0c4018acb868",
-        "36eb3209e9744258"
-      ],
-      "start_line": 434
-    },
-    {
-      "confidence": "normal",
-      "end_line": 469,
-      "heading": "Step 5: Wire Navigation",
-      "needs_live_verification": false,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-5-wire-navigation",
-      "source_keys": [
-        "b9cc9349b4c9959a",
-        "932435f94ca1318b",
-        "ba947b77a8b51f3c"
-      ],
-      "start_line": 446
-    },
-    {
-      "confidence": "normal",
-      "end_line": 482,
-      "heading": "Step 6: Add Images",
-      "needs_live_verification": true,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-6-add-images",
-      "source_keys": [
-        "4155cc8ec235808f",
-        "fd30763b52c600d5",
-        "6322e385e72f55ea",
-        "9143aa02bac0fa8a",
-        "9e5428982f3d333a",
-        "3ba68d9da851fa21"
-      ],
-      "start_line": 470
-    },
-    {
-      "confidence": "normal",
-      "end_line": 506,
-      "heading": "Step 7: Test The App",
-      "needs_live_verification": true,
-      "section_id": "8-building-your-first-apple-tv-app-deep-dive-step-7-test-the-app",
-      "source_keys": [
-        "c13215c9a2a19257",
-        "e30c7a7ac3b2db18"
-      ],
-      "start_line": 483
-    },
-    {
-      "confidence": "normal",
-      "end_line": 510,
-      "heading": "9. Apple TV Sign-In And Authentication Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive",
-      "source_keys": [
-        "4f0249164a4754aa"
-      ],
-      "start_line": 507
-    },
-    {
-      "confidence": "normal",
-      "end_line": 530,
-      "heading": "Server Setup",
-      "needs_live_verification": true,
-      "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-server-setup",
+      "section_id": "sign-in-logout-and-remote-authentication-server-side-setup",
       "source_keys": [
         "4f0249164a4754aa",
-        "9dc3ad5461e444fa",
-        "2aa8d37e7332b898",
-        "9dc3ad5461e444fa"
+        "777ff3ae14af2790"
       ],
-      "start_line": 511
+      "start_line": 147
     },
     {
       "confidence": "normal",
-      "end_line": 540,
-      "heading": "TVML Setup",
-      "needs_live_verification": false,
-      "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-tvml-setup",
+      "end_line": 175,
+      "heading": "TV-side login flow",
+      "needs_live_verification": true,
+      "section_id": "sign-in-logout-and-remote-authentication-tv-side-login-flow",
+      "source_keys": [
+        "cfb27d047d34889f",
+        "4f0249164a4754aa",
+        "a91ae18d779a7d04"
+      ],
+      "start_line": 159
+    },
+    {
+      "confidence": "normal",
+      "end_line": 181,
+      "heading": "Logout and navigation state",
+      "needs_live_verification": true,
+      "section_id": "sign-in-logout-and-remote-authentication-logout-and-navigation-state",
       "source_keys": [
         "cfb27d047d34889f"
       ],
-      "start_line": 531
+      "start_line": 176
     },
     {
       "confidence": "normal",
-      "end_line": 560,
-      "heading": "Session Lifecycle",
+      "end_line": 196,
+      "heading": "JavaScript And Rock Commands",
+      "needs_live_verification": true,
+      "section_id": "javascript-and-rock-commands",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "74ac83f99a50c012"
+      ],
+      "start_line": 182
+    },
+    {
+      "confidence": "normal",
+      "end_line": 219,
+      "heading": "Media Playback And Interaction Progress",
       "needs_live_verification": false,
-      "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-session-lifecycle",
-      "source_keys": [
-        "ec2bead07b6e067b",
-        "ec2bead07b6e067b",
-        "489761c69361347a"
-      ],
-      "start_line": 541
-    },
-    {
-      "confidence": "normal",
-      "end_line": 576,
-      "heading": "Security Guardrails",
-      "needs_live_verification": true,
-      "section_id": "9-apple-tv-sign-in-and-authentication-deep-dive-security-guardrails",
-      "source_keys": [
-        "3ae3d12b5b28eccc"
-      ],
-      "start_line": 561
-    },
-    {
-      "confidence": "normal",
-      "end_line": 580,
-      "heading": "10. Apple TV JavaScript Commands Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-apple-tv-javascript-commands-deep-dive",
-      "source_keys": [
-        "932435f94ca1318b"
-      ],
-      "start_line": 577
-    },
-    {
-      "confidence": "normal",
-      "end_line": 605,
-      "heading": "Navigation Commands",
-      "needs_live_verification": true,
-      "section_id": "10-apple-tv-javascript-commands-deep-dive-navigation-commands",
-      "source_keys": [
-        "b9cc9349b4c9959a",
-        "b9cc9349b4c9959a"
-      ],
-      "start_line": 581
-    },
-    {
-      "confidence": "normal",
-      "end_line": 617,
-      "heading": "Media Commands",
-      "needs_live_verification": true,
-      "section_id": "10-apple-tv-javascript-commands-deep-dive-media-commands",
+      "section_id": "media-playback-and-interaction-progress",
       "source_keys": [
         "df5f5656f226bfd9",
         "df5f5656f226bfd9"
       ],
-      "start_line": 606
-    },
-    {
-      "confidence": "normal",
-      "end_line": 625,
-      "heading": "Personal Commands",
-      "needs_live_verification": true,
-      "section_id": "10-apple-tv-javascript-commands-deep-dive-personal-commands",
-      "source_keys": [
-        "cfb27d047d34889f"
-      ],
-      "start_line": 618
-    },
-    {
-      "confidence": "normal",
-      "end_line": 647,
-      "heading": "Utility Commands",
-      "needs_live_verification": true,
-      "section_id": "10-apple-tv-javascript-commands-deep-dive-utility-commands",
-      "source_keys": [
-        "ba947b77a8b51f3c",
-        "ba947b77a8b51f3c"
-      ],
-      "start_line": 626
-    },
-    {
-      "confidence": "normal",
-      "end_line": 659,
-      "heading": "Demo Commands",
-      "needs_live_verification": true,
-      "section_id": "10-apple-tv-javascript-commands-deep-dive-demo-commands",
-      "source_keys": [
-        "e30c7a7ac3b2db18"
-      ],
-      "start_line": 648
-    },
-    {
-      "confidence": "normal",
-      "end_line": 663,
-      "heading": "11. Apple TV Styling Deep Dive",
-      "needs_live_verification": true,
-      "section_id": "11-apple-tv-styling-deep-dive",
-      "source_keys": [
-        "1812a37f85b606ee"
-      ],
-      "start_line": 660
+      "start_line": 197
     },
     {
       "confidence": "structural",
-      "end_line": 677,
-      "heading": "Style Placement",
-      "needs_live_verification": true,
-      "section_id": "11-apple-tv-styling-deep-dive-style-placement",
-      "source_keys": [
-        "1812a37f85b606ee"
-      ],
-      "start_line": 664
-    },
-    {
-      "confidence": "normal",
-      "end_line": 691,
-      "heading": "Global Styles",
-      "needs_live_verification": true,
-      "section_id": "11-apple-tv-styling-deep-dive-global-styles",
-      "source_keys": [
-        "1812a37f85b606ee"
-      ],
-      "start_line": 678
-    },
-    {
-      "confidence": "normal",
-      "end_line": 697,
-      "heading": "Text Styling",
+      "end_line": 221,
+      "heading": "Templates And Rock-Specific Controls",
       "needs_live_verification": false,
-      "section_id": "11-apple-tv-styling-deep-dive-text-styling",
+      "section_id": "templates-and-rock-specific-controls",
       "source_keys": [
-        "bebe310f7206f19a",
-        "bebe310f7206f19a"
+        "6d27b12b2bdc524a",
+        "fba8695fc1d9c23d",
+        "22886ac19bd420b3",
+        "39f3b2037e59c56e",
+        "0b3b89c73c5dc876",
+        "a3b635f6fceebbea",
+        "de808cef120240e6",
+        "f578f5f7b46aad4f",
+        "49379f2ee0526451"
       ],
-      "start_line": 692
+      "start_line": 220
     },
     {
       "confidence": "normal",
-      "end_line": 709,
-      "heading": "Themes And Media Queries",
+      "end_line": 235,
+      "heading": "Choosing a TVML template",
       "needs_live_verification": true,
-      "section_id": "11-apple-tv-styling-deep-dive-themes-and-media-queries",
+      "section_id": "templates-and-rock-specific-controls-choosing-a-tvml-template",
       "source_keys": [
-        "8a4a79ea31348a1e",
-        "623e1064845b167a"
+        "6d27b12b2bdc524a",
+        "fba8695fc1d9c23d",
+        "22886ac19bd420b3",
+        "39f3b2037e59c56e",
+        "0b3b89c73c5dc876"
       ],
-      "start_line": 698
+      "start_line": 222
     },
     {
       "confidence": "normal",
-      "end_line": 715,
-      "heading": "Built-In Images And Resources",
+      "end_line": 251,
+      "heading": "Custom Rock controls",
       "needs_live_verification": false,
-      "section_id": "11-apple-tv-styling-deep-dive-built-in-images-and-resources",
-      "source_keys": [
-        "fd72c9ef06a4aeb0"
-      ],
-      "start_line": 710
-    },
-    {
-      "confidence": "normal",
-      "end_line": 728,
-      "heading": "Rock Custom Controls",
-      "needs_live_verification": false,
-      "section_id": "11-apple-tv-styling-deep-dive-rock-custom-controls",
+      "section_id": "templates-and-rock-specific-controls-custom-rock-controls",
       "source_keys": [
         "a3b635f6fceebbea",
         "de808cef120240e6",
         "f578f5f7b46aad4f",
         "49379f2ee0526451"
       ],
-      "start_line": 716
-    },
-    {
-      "confidence": "normal",
-      "end_line": 745,
-      "heading": "Styling Pitfalls",
-      "needs_live_verification": false,
-      "section_id": "11-apple-tv-styling-deep-dive-styling-pitfalls",
-      "source_keys": [
-        "3ba68d9da851fa21"
-      ],
-      "start_line": 729
+      "start_line": 236
     },
     {
       "confidence": "structural",
-      "end_line": 747,
-      "heading": "12. Related Rock Areas: Api Integrations, Lava, Cms, Security, Media, Tv Apps",
+      "end_line": 253,
+      "heading": "Styling, Themes, And Text",
       "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps",
+      "section_id": "styling-themes-and-text",
       "source_keys": [
-        "14e4b0253d1428ca",
-        "67f84804d07244b3",
-        "53ad1133e1cb2d0a",
-        "844e694b828806a0",
-        "9dc3ad5461e444fa",
-        "a183a0fe156ec11e",
-        "3ae3d12b5b28eccc",
-        "df5f5656f226bfd9",
-        "9d0ccce785ef64bb"
+        "bebe310f7206f19a",
+        "8a4a79ea31348a1e",
+        "623e1064845b167a",
+        "fd72c9ef06a4aeb0",
+        "916efcb86f30b516"
       ],
-      "start_line": 746
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 760,
-      "heading": "API Integrations",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-api-integrations",
-      "source_keys": [
-        "14e4b0253d1428ca"
-      ],
-      "start_line": 748
+      "start_line": 252
     },
     {
       "confidence": "normal",
-      "end_line": 774,
-      "heading": "Lava",
+      "end_line": 277,
+      "heading": "TVML styling model",
       "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava",
+      "section_id": "styling-themes-and-text-tvml-styling-model",
       "source_keys": [
-        "67f84804d07244b3",
+        "bebe310f7206f19a",
+        "bebe310f7206f19a",
+        "bebe310f7206f19a"
+      ],
+      "start_line": 254
+    },
+    {
+      "confidence": "normal",
+      "end_line": 283,
+      "heading": "Light and dark themes",
+      "needs_live_verification": true,
+      "section_id": "styling-themes-and-text-light-and-dark-themes",
+      "source_keys": [
+        "8a4a79ea31348a1e",
+        "623e1064845b167a"
+      ],
+      "start_line": 278
+    },
+    {
+      "confidence": "normal",
+      "end_line": 289,
+      "heading": "Built-in resources and references",
+      "needs_live_verification": false,
+      "section_id": "styling-themes-and-text-built-in-resources-and-references",
+      "source_keys": [
+        "fd72c9ef06a4aeb0",
+        "916efcb86f30b516"
+      ],
+      "start_line": 284
+    },
+    {
+      "confidence": "structural",
+      "end_line": 291,
+      "heading": "Application Images",
+      "needs_live_verification": false,
+      "section_id": "application-images",
+      "source_keys": [
+        "fd30763b52c600d5",
+        "9e5428982f3d333a",
+        "9143aa02bac0fa8a",
+        "6322e385e72f55ea"
+      ],
+      "start_line": 290
+    },
+    {
+      "confidence": "normal",
+      "end_line": 306,
+      "heading": "App icons",
+      "needs_live_verification": false,
+      "section_id": "application-images-app-icons",
+      "source_keys": [
+        "fd30763b52c600d5"
+      ],
+      "start_line": 292
+    },
+    {
+      "confidence": "normal",
+      "end_line": 310,
+      "heading": "Parallax content images",
+      "needs_live_verification": false,
+      "section_id": "application-images-parallax-content-images",
+      "source_keys": [
+        "9e5428982f3d333a"
+      ],
+      "start_line": 307
+    },
+    {
+      "confidence": "normal",
+      "end_line": 317,
+      "heading": "Launch images",
+      "needs_live_verification": false,
+      "section_id": "application-images-launch-images",
+      "source_keys": [
+        "9143aa02bac0fa8a"
+      ],
+      "start_line": 311
+    },
+    {
+      "confidence": "normal",
+      "end_line": 326,
+      "heading": "Top Shelf images",
+      "needs_live_verification": true,
+      "section_id": "application-images-top-shelf-images",
+      "source_keys": [
+        "6322e385e72f55ea"
+      ],
+      "start_line": 318
+    },
+    {
+      "confidence": "normal",
+      "end_line": 347,
+      "heading": "Testing And Demo Mode",
+      "needs_live_verification": true,
+      "section_id": "testing-and-demo-mode",
+      "source_keys": [
+        "c13215c9a2a19257",
+        "e30c7a7ac3b2db18"
+      ],
+      "start_line": 327
+    },
+    {
+      "confidence": "normal",
+      "end_line": 364,
+      "heading": "Lava APIs And Security",
+      "needs_live_verification": true,
+      "section_id": "lava-apis-and-security",
+      "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 761
+      "start_line": 348
     },
     {
       "confidence": "normal",
-      "end_line": 778,
-      "heading": "CMS",
+      "end_line": 376,
+      "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms",
+      "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "844e694b828806a0"
+        "74ac83f99a50c012",
+        "3ba68d9da851fa21",
+        "6322e385e72f55ea",
+        "916efcb86f30b516",
+        "0b3b89c73c5dc876"
       ],
-      "start_line": 775
+      "start_line": 365
     },
     {
-      "confidence": "normal",
-      "end_line": 794,
-      "heading": "Security",
+      "confidence": "structural",
+      "end_line": 378,
+      "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-security",
+      "section_id": "troubleshooting-decision-tree",
       "source_keys": [
-        "9dc3ad5461e444fa",
-        "a183a0fe156ec11e",
-        "3ae3d12b5b28eccc"
+        "74ac83f99a50c012",
+        "66cd0caee02b1e4b",
+        "67f84804d07244b3",
+        "6d27b12b2bdc524a",
+        "3ba68d9da851fa21",
+        "4f0249164a4754aa",
+        "cfb27d047d34889f",
+        "777ff3ae14af2790",
+        "df5f5656f226bfd9",
+        "8a4a79ea31348a1e",
+        "623e1064845b167a",
+        "bebe310f7206f19a",
+        "9e5428982f3d333a",
+        "fd30763b52c600d5",
+        "fd72c9ef06a4aeb0",
+        "6fc4bd35a367373a",
+        "c13215c9a2a19257",
+        "e30c7a7ac3b2db18",
+        "de808cef120240e6",
+        "53ad1133e1cb2d0a"
       ],
-      "start_line": 779
+      "start_line": 377
     },
     {
       "confidence": "normal",
-      "end_line": 798,
-      "heading": "Media",
+      "end_line": 390,
+      "heading": "The application or Start Screen does not load",
       "needs_live_verification": true,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media",
+      "section_id": "troubleshooting-decision-tree-the-application-or-start-screen-does-not-load",
+      "source_keys": [
+        "74ac83f99a50c012",
+        "66cd0caee02b1e4b",
+        "67f84804d07244b3"
+      ],
+      "start_line": 379
+    },
+    {
+      "confidence": "normal",
+      "end_line": 401,
+      "heading": "A page is blank, malformed, or rejected",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-page-is-blank-malformed-or-rejected",
+      "source_keys": [
+        "67f84804d07244b3",
+        "6d27b12b2bdc524a",
+        "3ba68d9da851fa21"
+      ],
+      "start_line": 391
+    },
+    {
+      "confidence": "normal",
+      "end_line": 414,
+      "heading": "Login shows no QR code or manual code",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-login-shows-no-qr-code-or-manual-code",
+      "source_keys": [
+        "4f0249164a4754aa",
+        "cfb27d047d34889f",
+        "777ff3ae14af2790"
+      ],
+      "start_line": 402
+    },
+    {
+      "confidence": "normal",
+      "end_line": 424,
+      "heading": "Back navigation exposes the pre-login or personalized page unexpectedly",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-back-navigation-exposes-the-pre-login-or-personalized-page-unexpectedly",
+      "source_keys": [
+        "cfb27d047d34889f"
+      ],
+      "start_line": 415
+    },
+    {
+      "confidence": "normal",
+      "end_line": 436,
+      "heading": "Video or audio does not play",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-video-or-audio-does-not-play",
       "source_keys": [
         "df5f5656f226bfd9"
       ],
-      "start_line": 795
+      "start_line": 425
     },
     {
-      "confidence": "citation-only",
-      "end_line": 802,
-      "heading": "TV Apps",
-      "needs_live_verification": false,
-      "section_id": "12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-tv-apps",
+      "confidence": "normal",
+      "end_line": 447,
+      "heading": "Playback resumes incorrectly or creates duplicate interactions",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-playback-resumes-incorrectly-or-creates-duplicate-interactions",
       "source_keys": [
-        "9d0ccce785ef64bb"
+        "df5f5656f226bfd9"
       ],
-      "start_line": 799
+      "start_line": 437
+    },
+    {
+      "confidence": "normal",
+      "end_line": 457,
+      "heading": "Colors or badges disappear in one theme",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-colors-or-badges-disappear-in-one-theme",
+      "source_keys": [
+        "8a4a79ea31348a1e",
+        "623e1064845b167a",
+        "bebe310f7206f19a"
+      ],
+      "start_line": 448
+    },
+    {
+      "confidence": "normal",
+      "end_line": 468,
+      "heading": "A parallax image is flat or missing",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree-a-parallax-image-is-flat-or-missing",
+      "source_keys": [
+        "9e5428982f3d333a",
+        "fd30763b52c600d5",
+        "fd72c9ef06a4aeb0"
+      ],
+      "start_line": 458
+    },
+    {
+      "confidence": "normal",
+      "end_line": 479,
+      "heading": "A template change does not appear",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-template-change-does-not-appear",
+      "source_keys": [
+        "6fc4bd35a367373a",
+        "c13215c9a2a19257",
+        "e30c7a7ac3b2db18"
+      ],
+      "start_line": 469
+    },
+    {
+      "confidence": "normal",
+      "end_line": 490,
+      "heading": "Demo commands do not work",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-demo-commands-do-not-work",
+      "source_keys": [
+        "e30c7a7ac3b2db18",
+        "c13215c9a2a19257"
+      ],
+      "start_line": 480
+    },
+    {
+      "confidence": "normal",
+      "end_line": 500,
+      "heading": "A countdown immediately navigates or starts media",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-countdown-immediately-navigates-or-starts-media",
+      "source_keys": [
+        "de808cef120240e6"
+      ],
+      "start_line": 491
+    },
+    {
+      "confidence": "normal",
+      "end_line": 511,
+      "heading": "A Lava webhook exposes more data than expected",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-lava-webhook-exposes-more-data-than-expected",
+      "source_keys": [
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 501
     },
     {
       "confidence": "structural",
-      "end_line": 804,
-      "heading": "13. Administration And Operational Guardrails",
+      "end_line": 513,
+      "heading": "Agent Task Recipes",
       "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails",
+      "section_id": "agent-task-recipes",
       "source_keys": [
-        "9d0ccce785ef64bb",
+        "66cd0caee02b1e4b",
+        "67f84804d07244b3",
         "6fc4bd35a367373a",
-        "b9cc9349b4c9959a",
-        "c3c0f4c33c08cbcc",
+        "6d27b12b2bdc524a",
+        "4f0249164a4754aa",
+        "cfb27d047d34889f",
+        "df5f5656f226bfd9",
+        "bebe310f7206f19a",
+        "8a4a79ea31348a1e",
+        "623e1064845b167a",
         "fd30763b52c600d5",
-        "6322e385e72f55ea",
         "9143aa02bac0fa8a",
+        "6322e385e72f55ea",
+        "9e5428982f3d333a",
+        "c13215c9a2a19257",
+        "e30c7a7ac3b2db18",
+        "53ad1133e1cb2d0a"
+      ],
+      "start_line": 512
+    },
+    {
+      "confidence": "normal",
+      "end_line": 552,
+      "heading": "Recipe: Create a minimal Rock Apple TV application",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-create-a-minimal-rock-apple-tv-application",
+      "source_keys": [
+        "66cd0caee02b1e4b",
+        "67f84804d07244b3"
+      ],
+      "start_line": 514
+    },
+    {
+      "confidence": "normal",
+      "end_line": 584,
+      "heading": "Recipe: Add a cache-aware TVML page",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-add-a-cache-aware-tvml-page",
+      "source_keys": [
+        "6fc4bd35a367373a",
+        "67f84804d07244b3",
+        "6d27b12b2bdc524a"
+      ],
+      "start_line": 553
+    },
+    {
+      "confidence": "normal",
+      "end_line": 625,
+      "heading": "Recipe: Implement remote sign-in",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-implement-remote-sign-in",
+      "source_keys": [
+        "4f0249164a4754aa",
+        "cfb27d047d34889f"
+      ],
+      "start_line": 585
+    },
+    {
+      "confidence": "normal",
+      "end_line": 657,
+      "heading": "Recipe: Add tracked video or audio playback",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-add-tracked-video-or-audio-playback",
+      "source_keys": [
+        "df5f5656f226bfd9"
+      ],
+      "start_line": 626
+    },
+    {
+      "confidence": "normal",
+      "end_line": 688,
+      "heading": "Recipe: Build a theme-safe styling pass",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-theme-safe-styling-pass",
+      "source_keys": [
+        "bebe310f7206f19a",
+        "8a4a79ea31348a1e",
+        "623e1064845b167a"
+      ],
+      "start_line": 658
+    },
+    {
+      "confidence": "normal",
+      "end_line": 719,
+      "heading": "Recipe: Prepare the application image package",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-prepare-the-application-image-package",
+      "source_keys": [
+        "fd30763b52c600d5",
+        "9143aa02bac0fa8a",
+        "6322e385e72f55ea",
         "9e5428982f3d333a"
       ],
-      "start_line": 803
+      "start_line": 689
     },
     {
-      "confidence": "structural",
-      "end_line": 818,
-      "heading": "Ownership",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-ownership",
-      "source_keys": [
-        "9d0ccce785ef64bb"
-      ],
-      "start_line": 805
-    },
-    {
-      "confidence": "structural",
-      "end_line": 822,
-      "heading": "Environment Separation",
+      "confidence": "normal",
+      "end_line": 749,
+      "heading": "Recipe: Test through demo mode",
       "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-environment-separation",
+      "section_id": "agent-task-recipes-recipe-test-through-demo-mode",
       "source_keys": [
-        "9d0ccce785ef64bb"
+        "c13215c9a2a19257",
+        "e30c7a7ac3b2db18"
       ],
-      "start_line": 819
+      "start_line": 720
     },
     {
-      "confidence": "structural",
-      "end_line": 833,
-      "heading": "API Key Hygiene",
+      "confidence": "normal",
+      "end_line": 780,
+      "heading": "Recipe: Review a Lava API before connecting it to Apple TV",
       "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-api-key-hygiene",
+      "section_id": "agent-task-recipes-recipe-review-a-lava-api-before-connecting-it-to-apple-tv",
       "source_keys": [
-        "9d0ccce785ef64bb"
+        "53ad1133e1cb2d0a"
       ],
-      "start_line": 823
+      "start_line": 750
+    },
+    {
+      "confidence": "normal",
+      "end_line": 804,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": true,
+      "section_id": "known-gaps-and-live-verification",
+      "source_keys": [
+        "3ba68d9da851fa21",
+        "cfb27d047d34889f"
+      ],
+      "start_line": 781
     },
     {
       "confidence": "normal",
       "end_line": 837,
-      "heading": "Caching And Personalization",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-caching-and-personalization",
-      "source_keys": [
-        "6fc4bd35a367373a",
-        "b9cc9349b4c9959a"
-      ],
-      "start_line": 834
-    },
-    {
-      "confidence": "normal",
-      "end_line": 850,
-      "heading": "Analytics And Retention",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-analytics-and-retention",
-      "source_keys": [
-        "c3c0f4c33c08cbcc"
-      ],
-      "start_line": 838
-    },
-    {
-      "confidence": "normal",
-      "end_line": 863,
-      "heading": "Image Operations",
-      "needs_live_verification": false,
-      "section_id": "13-administration-and-operational-guardrails-image-operations",
-      "source_keys": [
-        "fd30763b52c600d5",
-        "6322e385e72f55ea",
-        "9143aa02bac0fa8a",
-        "9e5428982f3d333a"
-      ],
-      "start_line": 851
-    },
-    {
-      "confidence": "structural",
-      "end_line": 879,
-      "heading": "Release Gate",
+      "heading": "Source Map",
       "needs_live_verification": true,
-      "section_id": "13-administration-and-operational-guardrails-release-gate",
+      "section_id": "source-map",
       "source_keys": [
-        "fd30763b52c600d5",
-        "6322e385e72f55ea",
-        "9143aa02bac0fa8a",
-        "9e5428982f3d333a"
-      ],
-      "start_line": 864
-    },
-    {
-      "confidence": "normal",
-      "end_line": 910,
-      "heading": "14. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "14-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "c3c0f4c33c08cbcc",
-        "93b1477e75ee28fe",
-        "844e694b828806a0",
-        "9dc3ad5461e444fa",
-        "a183a0fe156ec11e",
-        "ec2bead07b6e067b",
-        "489761c69361347a",
-        "3ae3d12b5b28eccc",
-        "543ea1d48ed32f6d"
-      ],
-      "start_line": 880
-    },
-    {
-      "confidence": "normal",
-      "end_line": 939,
-      "heading": "15. Reporting, Analytics, And Model Map",
-      "needs_live_verification": true,
-      "section_id": "15-reporting-analytics-and-model-map",
-      "source_keys": [
-        "66cd0caee02b1e4b",
-        "df5f5656f226bfd9",
-        "a183a0fe156ec11e",
-        "29b70070a9b3ab9d"
-      ],
-      "start_line": 911
-    },
-    {
-      "confidence": "normal",
-      "end_line": 960,
-      "heading": "16. Version And Release Caveats",
-      "needs_live_verification": true,
-      "section_id": "16-version-and-release-caveats",
-      "source_keys": [
-        "74ac83f99a50c012",
-        "29b70070a9b3ab9d",
-        "74ac83f99a50c012",
-        "6322e385e72f55ea",
-        "ba947b77a8b51f3c",
-        "f6a918bb7ec48274",
-        "9d0ccce785ef64bb",
-        "14e4b0253d1428ca"
-      ],
-      "start_line": 940
-    },
-    {
-      "confidence": "structural",
-      "end_line": 962,
-      "heading": "17. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "17-implementation-playbooks",
-      "source_keys": [
-        "6fc4bd35a367373a",
-        "6d27b12b2bdc524a",
-        "df5f5656f226bfd9",
-        "9920fce31a291515",
-        "67f84804d07244b3",
-        "ba947b77a8b51f3c",
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 961
-    },
-    {
-      "confidence": "normal",
-      "end_line": 992,
-      "heading": "Playbook: Weekend Messages App",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-weekend-messages-app",
-      "source_keys": [
-        "6fc4bd35a367373a",
-        "6d27b12b2bdc524a",
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 963
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1013,
-      "heading": "Playbook: Campus-Aware App",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-campus-aware-app",
-      "source_keys": [
-        "9920fce31a291515",
-        "67f84804d07244b3",
-        "ba947b77a8b51f3c"
-      ],
-      "start_line": 993
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1040,
-      "heading": "Playbook: Remote Login",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-remote-login",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 1014
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1059,
-      "heading": "Playbook: Media Resume",
-      "needs_live_verification": true,
-      "section_id": "17-implementation-playbooks-playbook-media-resume",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 1041
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1074,
-      "heading": "Playbook: Production Readiness Audit",
-      "needs_live_verification": false,
-      "section_id": "17-implementation-playbooks-playbook-production-readiness-audit",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 1060
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1076,
-      "heading": "18. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "cfb27d047d34889f",
-        "f6a918bb7ec48274",
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1075
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1091,
-      "heading": "App Does Not Launch",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-app-does-not-launch",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 1077
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1104,
-      "heading": "Page Is Blank",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-page-is-blank",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "cfb27d047d34889f"
-      ],
-      "start_line": 1092
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1116,
-      "heading": "Navigation Does Not Work",
-      "needs_live_verification": true,
-      "section_id": "18-troubleshooting-decision-tree-navigation-does-not-work",
-      "source_keys": [
-        "f6a918bb7ec48274"
-      ],
-      "start_line": 1105
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1132,
-      "heading": "Sign-In Fails",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-sign-in-fails",
-      "source_keys": [
-        "f6a918bb7ec48274"
-      ],
-      "start_line": 1117
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1146,
-      "heading": "Media Will Not Play",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-media-will-not-play",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1133
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1157,
-      "heading": "Resume Does Not Work",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1147
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1169,
-      "heading": "Styles Do Not Apply",
-      "needs_live_verification": true,
-      "section_id": "18-troubleshooting-decision-tree-styles-do-not-apply",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1158
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1182,
-      "heading": "Images Do Not Render",
-      "needs_live_verification": false,
-      "section_id": "18-troubleshooting-decision-tree-images-do-not-render",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1170
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1184,
-      "heading": "19. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1183
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1197,
-      "heading": "Recipe: Inspect An Existing Apple TV App",
-      "needs_live_verification": false,
-      "section_id": "19-agent-task-recipes-recipe-inspect-an-existing-apple-tv-app",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1185
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1210,
-      "heading": "Recipe: Diagnose A Broken Button",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-diagnose-a-broken-button",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1198
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1223,
-      "heading": "Recipe: Add A New Page Safely",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-add-a-new-page-safely",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1211
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1236,
-      "heading": "Recipe: Review For Security",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-review-for-security",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1224
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1250,
-      "heading": "Recipe: Review For Performance",
-      "needs_live_verification": true,
-      "section_id": "19-agent-task-recipes-recipe-review-for-performance",
-      "source_keys": [
-        "df5f5656f226bfd9"
-      ],
-      "start_line": 1237
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1276,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
-        "df5f5656f226bfd9",
-        "67f84804d07244b3",
-        "67f84804d07244b3",
-        "66cd0caee02b1e4b",
-        "4f0249164a4754aa",
-        "6fc4bd35a367373a",
-        "fd30763b52c600d5",
-        "bebe310f7206f19a",
-        "80679876651d7dc7",
-        "4f0249164a4754aa",
-        "df5f5656f226bfd9",
-        "74ac83f99a50c012"
-      ],
-      "start_line": 1251
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1290,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
-      "source_keys": [
-        "4c0fe1130f878c66",
-        "7cf9c01c97ba95d5"
-      ],
-      "start_line": 1277
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1292,
-      "heading": "20. Source Map And Dependency Notes",
-      "needs_live_verification": false,
-      "section_id": "20-source-map-and-dependency-notes",
-      "source_keys": [
-        "776256c424368312",
-        "b7e0389038fbb3ed",
         "74ac83f99a50c012",
         "14edde9c59892def",
         "66cd0caee02b1e4b",
-        "c13215c9a2a19257",
         "6fc4bd35a367373a",
         "67f84804d07244b3",
-        "3ba68d9da851fa21",
         "9920fce31a291515",
         "4f0249164a4754aa",
-        "6d27b12b2bdc524a",
-        "f9244193b2aeca2f",
-        "fba8695fc1d9c23d",
-        "e57e0c4018acb868",
-        "36eb3209e9744258",
-        "e85fe2a609c23654",
-        "6a561cbd301f44dd",
-        "22886ac19bd420b3",
-        "54d7fb4ca133b04a",
-        "f6a918bb7ec48274",
-        "1848302423acf670",
-        "39f3b2037e59c56e",
-        "bfeef041ce99dea2",
-        "51791057be198caf",
-        "7ebe89b2ae54e736",
-        "4bc82ed44da3c8ce",
-        "932435f94ca1318b",
-        "b9cc9349b4c9959a",
-        "df5f5656f226bfd9",
         "cfb27d047d34889f",
-        "ba947b77a8b51f3c",
-        "e30c7a7ac3b2db18",
-        "a3c5bc25c6a8e3ed",
-        "1812a37f85b606ee",
-        "bebe310f7206f19a",
-        "623e1064845b167a",
-        "8a4a79ea31348a1e",
-        "fd72c9ef06a4aeb0",
-        "4155cc8ec235808f",
-        "fd30763b52c600d5",
-        "6322e385e72f55ea",
-        "9143aa02bac0fa8a",
-        "9e5428982f3d333a",
-        "a3b635f6fceebbea",
-        "de808cef120240e6",
-        "0137078fdb6164bb",
-        "f578f5f7b46aad4f",
-        "49379f2ee0526451",
-        "14e4b0253d1428ca",
-        "53ad1133e1cb2d0a",
-        "d275b5b94a9da833",
-        "9d0ccce785ef64bb",
-        "c3c0f4c33c08cbcc",
-        "93b1477e75ee28fe",
-        "844e694b828806a0",
-        "9dc3ad5461e444fa",
-        "a183a0fe156ec11e",
-        "ec2bead07b6e067b",
-        "489761c69361347a",
-        "3ae3d12b5b28eccc",
-        "543ea1d48ed32f6d"
-      ],
-      "start_line": 1291
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1387,
-      "heading": "Release Notes And Community Examples",
-      "needs_live_verification": true,
-      "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
-      "source_keys": [
-        "776256c424368312",
-        "b7e0389038fbb3ed",
+        "777ff3ae14af2790",
+        "a91ae18d779a7d04",
         "74ac83f99a50c012",
-        "14edde9c59892def",
-        "66cd0caee02b1e4b",
-        "c13215c9a2a19257",
-        "6fc4bd35a367373a",
-        "67f84804d07244b3",
-        "3ba68d9da851fa21",
-        "9920fce31a291515",
-        "4f0249164a4754aa",
-        "6d27b12b2bdc524a",
-        "f9244193b2aeca2f",
-        "fba8695fc1d9c23d",
-        "e57e0c4018acb868",
-        "36eb3209e9744258",
-        "e85fe2a609c23654",
-        "6a561cbd301f44dd",
-        "22886ac19bd420b3",
-        "54d7fb4ca133b04a",
-        "f6a918bb7ec48274",
-        "1848302423acf670",
-        "39f3b2037e59c56e",
-        "bfeef041ce99dea2",
-        "51791057be198caf",
-        "7ebe89b2ae54e736",
-        "4bc82ed44da3c8ce",
-        "932435f94ca1318b",
-        "b9cc9349b4c9959a",
         "df5f5656f226bfd9",
-        "cfb27d047d34889f",
-        "ba947b77a8b51f3c",
         "e30c7a7ac3b2db18",
-        "a3c5bc25c6a8e3ed",
-        "1812a37f85b606ee",
-        "bebe310f7206f19a",
-        "623e1064845b167a",
-        "8a4a79ea31348a1e",
-        "fd72c9ef06a4aeb0",
-        "4155cc8ec235808f",
-        "fd30763b52c600d5",
-        "6322e385e72f55ea",
-        "9143aa02bac0fa8a",
-        "9e5428982f3d333a",
+        "c13215c9a2a19257",
+        "6d27b12b2bdc524a",
+        "fba8695fc1d9c23d",
+        "22886ac19bd420b3",
+        "39f3b2037e59c56e",
+        "0b3b89c73c5dc876",
         "a3b635f6fceebbea",
         "de808cef120240e6",
-        "0137078fdb6164bb",
         "f578f5f7b46aad4f",
         "49379f2ee0526451",
-        "14e4b0253d1428ca",
-        "53ad1133e1cb2d0a",
-        "d275b5b94a9da833",
-        "9d0ccce785ef64bb",
-        "c3c0f4c33c08cbcc",
-        "93b1477e75ee28fe",
-        "844e694b828806a0",
-        "9dc3ad5461e444fa",
-        "a183a0fe156ec11e",
-        "ec2bead07b6e067b",
-        "489761c69361347a",
-        "3ae3d12b5b28eccc",
-        "543ea1d48ed32f6d"
+        "bebe310f7206f19a",
+        "8a4a79ea31348a1e",
+        "623e1064845b167a",
+        "fd72c9ef06a4aeb0",
+        "916efcb86f30b516",
+        "fd30763b52c600d5",
+        "9e5428982f3d333a",
+        "9143aa02bac0fa8a",
+        "6322e385e72f55ea",
+        "3ba68d9da851fa21",
+        "53ad1133e1cb2d0a"
       ],
-      "start_line": 1293
+      "start_line": 805
     }
   ],
-  "source_pack_hydrated_at": "2026-06-08T19:32:03+00:00",
+  "source_pack_hydrated_at": "2026-09-03T14:19:50+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "8e917b21a35ae95932da9dc24ed7a2c5e632d7d61014aabde4271b6069f2c166",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "1927b6ce4aec2879ef5bc580426c26828b97066923a6196eb84722de31feee8f",
+      "excerpt_hash": "34520bc4e7057fa37e33a099aa918a293204125fc9b181429bfc91b8b51308b6",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "74ac83f99a50c012",
-      "source_record_id": "rock_developer:74ac83f99a50c012",
+      "source_record_id": "rock_developer:article:120",
       "title": "Apple TV Docs",
       "topics": [
         "api",
@@ -2645,38 +1689,39 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "3d828acf9dde650f4a0ff07c5420cd7c63177ca83551be61eba345b104453c45",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "890414cb71e4b76e1950bfb8ef69a304d1ba6859cd30eb48235dce74a4739be0",
+      "excerpt_hash": "5b5064cbaccefaf644e74297ce136a7df02701ab033cc7fb164b32867d608f91",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "932435f94ca1318b",
-      "source_record_id": "rock_developer:932435f94ca1318b",
-      "title": "Commands",
+      "source_key": "66cd0caee02b1e4b",
+      "source_record_id": "rock_developer:article:125",
+      "title": "Creating An App",
       "topics": [
         "api",
         "development",
         "lava",
-        "obsidian"
+        "obsidian",
+        "security"
       ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "9ed796d11addcc4ba14afe0500ce7f6f6101cbf0e1789ff8b497d1ebf667a639",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "cdd19c3ec809d5e85afded53609c7a1c44c12fd6d6daa57f86e39f023a428bf0",
+      "excerpt_hash": "48abb55bf2dddcb546502af81544da16f75902e5a31e1a237a9d4dbfa8dc462c",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "67f84804d07244b3",
-      "source_record_id": "rock_developer:67f84804d07244b3",
+      "source_record_id": "rock_developer:article:130",
       "title": "TV Pages",
       "topics": [
         "api",
@@ -2691,15 +1736,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "58cc708c1df7e0e59081d2adba2a066d4a6f9d4706572db1cfa7e37ae79c4a28",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "6a32ad68187be4955b430fcdd2f20d2246c7a95a898ae3230ce324e168737bc4",
+      "excerpt_hash": "62d9ebda3adfec963b75e85706fb4ec89f4def19c9aae5d84fedc2dd2e228246",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "3ba68d9da851fa21",
-      "source_record_id": "rock_developer:3ba68d9da851fa21",
+      "source_record_id": "rock_developer:article:129",
       "title": "Tips",
       "topics": [
         "api",
@@ -2714,335 +1759,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "307c3d4673f451a4f6a87681adb351e1565babf3b4155f6a10deaa08446a2465",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "66cd0caee02b1e4b",
-      "source_record_id": "rock_developer:66cd0caee02b1e4b",
-      "title": "Creating An App",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "6b67075edd631dbbb1c4866d7e1cd67d03c000b904b568a9ec338de45f315ad6",
-      "excerpt_hash": "4311dbd5c2d4b6bb17fd114caac2cf1afd466a50b3b41688393f3b5d96cc79f3",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "apple tv",
-        "appletv",
-        "tv app",
-        "tvapp",
-        "javascript"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvAppDetail/appleTvAppBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c3c0f4c33c08cbcc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvAppDetail/appleTvAppBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvAppDetail/appleTvAppBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvAppDetail/appleTvAppBag.d.ts"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3d745308f55b66061a43d93a1684015e4d2c465ad4d23982a67f488cfbb03306",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "c13215c9a2a19257",
-      "source_record_id": "rock_developer:c13215c9a2a19257",
-      "title": "Testing Your App",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3880e4776b6c2807e001a15fe2f9edfef2fdb25ab05e5762be55278c1d04e5b9",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "e30c7a7ac3b2db18",
-      "source_record_id": "rock_developer:e30c7a7ac3b2db18",
-      "title": "Demo Commands",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "0c4e9bd5caf6a072b75b2f004cc1cb68d82d2e44ad3124427068bf1310209285",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "4f0249164a4754aa",
-      "source_record_id": "rock_developer:4f0249164a4754aa",
-      "title": "Creating a Sign-in Page",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "1d5a71dbc05e4225f024a7bcf87a916f338772d2c055a0def8888ae7b03d4984",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "cfb27d047d34889f",
-      "source_record_id": "rock_developer:cfb27d047d34889f",
-      "title": "Personal Commands",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "efb61227097199b3ea3bec999cf3a63f0203eaa5c4ad3e23bdf6b04adf96cf52",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "1812a37f85b606ee",
-      "source_record_id": "rock_developer:1812a37f85b606ee",
-      "title": "Getting Started",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/getting-started",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "cb8885fa5ea2ae119cc04de13db1c211fd0f95fbc56b113856303dbd1af06f42",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "49f163b045df6d34",
-      "source_record_id": "rock_developer:49f163b045df6d34",
-      "title": "RockTvApp",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/developer/rocktvapp",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a3632995a34d64422cac69a727118b70708a55132b2a0b85540b8e1a252ad578",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9920fce31a291515",
-      "source_record_id": "rock_developer:9920fce31a291515",
-      "title": "Context",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a6c5da53bb4b12168a72fd37fa44aacd54c9ec2ab2ef14eff6880011adf8b9ce",
-      "excerpt_hash": "34463319743a30e761a88e9979a448b66a936617c0c009f908d91f3ed5b98ce5",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9dc3ad5461e444fa",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs",
-      "title": "RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a48eb7449efaf0b585b516f2933f6e62a67c21d925ce53ecbf21b5cf6f427be5",
-      "excerpt_hash": "007435896399e4db87772e3ee7688fee3912b7a2cae34a8fe538328380045847",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "a183a0fe156ec11e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-      "title": "Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "6471e5c7cee7b51d49b0b2fc3f827a79c7d4f03d30af77877efaea1423675fb4",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b9cc9349b4c9959a",
-      "source_record_id": "rock_developer:b9cc9349b4c9959a",
-      "title": "Navigation Commands",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/navigation-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "37f7c047a30d9ccd97fb88401fde519ffbe73ab7b69848be9b50fcd222217387",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "df5f5656f226bfd9",
-      "source_record_id": "rock_developer:df5f5656f226bfd9",
-      "title": "Media Commands",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "0072eaa127bd3e4b1561ea9ee8ae31d4cb49a2463dc346f70496fba5ef8eb8af",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "ba947b77a8b51f3c",
-      "source_record_id": "rock_developer:ba947b77a8b51f3c",
-      "title": "Utility Commands",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/utility-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "eb3011267c2037c13dec9781f576a29f5a331b75ce4bf807a6973aba0d25678c",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "2b28876f69bbf8c4da2d747eac04db7de3f7e6ec906c708b0756191ebd12cdfe",
+      "excerpt_hash": "b0355a8c3880ec357365d906e73059f18ec72518715ee5b915c36de862fb967b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "6d27b12b2bdc524a",
-      "source_record_id": "rock_developer:6d27b12b2bdc524a",
+      "source_record_id": "rock_developer:article:133",
       "title": "Templates",
       "topics": [
         "api",
@@ -3057,15 +1782,473 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "89079fa30cce70650b943c328711281e8252c0101093690f09d0ea8143d649ac",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "f9bca85af2b3634a615f19ed49013e29516e4ec4867873e63fdc79ae13cca489",
+      "excerpt_hash": "fbc5daac9451700e967039b55d9871760fe6a76db0cc56df17f8c72057c9971f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "bebe310f7206f19a",
+      "source_record_id": "rock_developer:article:139",
+      "title": "TV Text Style",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c732da0cc00fdcb5195e75947398798e51774ba5199d23a71ea385a0ba6a1e03",
+      "excerpt_hash": "687453b25474424db2bef71eff5c92655c50589aa5ebc8aeaa63647a7af13390",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "cfb27d047d34889f",
+      "source_record_id": "rock_developer:article:171",
+      "title": "Personal Commands",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "27c3ce0baaa76b3fe33b2b94214affca3465f9cad34a947a0541bf2bc0be9629",
+      "excerpt_hash": "b37bdede06168636ba65609ddb68b8ba5156da46f078c3346852f9a9bfea6524",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "df5f5656f226bfd9",
+      "source_record_id": "rock_developer:article:173",
+      "title": "Media Commands",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9d93234607a37f1a007c40e061d3272e568a0dcfa7ca721ff9b55119384ec5db",
+      "excerpt_hash": "f85c6879e858e436a0a1cbd84517648a57544c3590de2210dbe6c7d474f5701b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e30c7a7ac3b2db18",
+      "source_record_id": "rock_developer:article:170",
+      "title": "Demo Commands",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "0804ed7f19879850304b412239ce82451a343ac59571a5999553c29d3f618591",
+      "excerpt_hash": "4a0b5abfd7e4ff63812ac3c39aaec5ea4546270813c002d1a96851cb0012079b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6fc4bd35a367373a",
+      "source_record_id": "rock_developer:article:127",
+      "title": "Adding Content",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "aa716cba462ff99fcfc862148fc80de270ef0b881b60d75c35f0e280591eb40c",
+      "excerpt_hash": "de0d49337f77b98691017dc7f25eedd1eb21d4cfd2d77c38cd57f9de38c4afb1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9920fce31a291515",
+      "source_record_id": "rock_developer:article:132",
+      "title": "Context",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/context",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8cf513d5b0c1ecd4511bcd056e367a53fa777ab5f95b36bf12724ef2763fadb1",
+      "excerpt_hash": "127065bff9824c8826666d86cb77fcac44185f04c9884395ce5d40d9dce6f2f9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "4f0249164a4754aa",
+      "source_record_id": "rock_developer:article:128",
+      "title": "Creating a Sign-in Page",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "6975149d63939bbf02723eebe1d5363998d984f22830b751b704c4a52e5fe951",
+      "excerpt_hash": "a259b49ba5dc88f6b0e61d6703f23b95d9d514583c61286b3034735835d36fbd",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "remote authentication",
+        "remoteauthentication",
+        "authentication"
+      ],
+      "path": "Rock.Blocks/Tv/RemoteAuthentication.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "777ff3ae14af2790",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Tv/RemoteAuthentication.cs",
+      "title": "Rock.Blocks/Tv/RemoteAuthentication.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "1f12273d89c3c022001328b9c6b5bc2aef16be665cccad111eab9c24739f8c85",
+      "excerpt_hash": "35e8b546f60536d95ed38aefab6293c1f8b9f82c4113f764e47fd79409533a7f",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "security",
+        "remote authentication",
+        "remoteauthentication",
+        "authentication"
+      ],
+      "path": "Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a91ae18d779a7d04",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "title": "Rock/Model/Security/RemoteAuthenticationSessionService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8bd94903787e54cec8c8733262fc9f0337368a1cd9b3bf883e6d1ee7867cc3df",
+      "excerpt_hash": "afa57af3f9a92a814437bd6b1f55235571085e9918133000fbd174b9381257cd",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "fba8695fc1d9c23d",
+      "source_record_id": "rock_developer:article:152",
+      "title": "Alert Template",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/alert-template",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "0dabe86e07502290b6eab01347c9ff38dcfda6a38c89f659a35dc71f46d26294",
+      "excerpt_hash": "13192192899d87ab79dd7e7207930faa01f6cb70b3a8abd2468b409ae90865a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "22886ac19bd420b3",
+      "source_record_id": "rock_developer:article:157",
+      "title": "Catalog Template",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9974f8a9a96b552ed3df5dfb80b6896792fb972cbe86e3d983ad3301dd57219d",
+      "excerpt_hash": "c100a862c201f95e001955b08228f8ea180ed400df4bf3019216e59d6dc0ac5f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "39f3b2037e59c56e",
+      "source_record_id": "rock_developer:article:161",
+      "title": "Product Template",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-template",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1fecdff0c13d1396d158a4249fe2577085d303a85c4057bc15f07c096e3c4221",
+      "excerpt_hash": "77ef821b953b47d53a271727bd4de79a2bf33e589925ad0f5c75b61cae82a092",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "0b3b89c73c5dc876",
+      "source_record_id": "rock_developer:article:150",
+      "title": "Licensing",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/licensing",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "aa971b4741c1047fba3ffc1b068d077813fce05d3b12ab03f365f12b476d79c5",
+      "excerpt_hash": "0fdf4fe4a20c14d6aacfe6e4f66367716794672e6f95490cc72ff9fdc3c25dcf",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a3b635f6fceebbea",
+      "source_record_id": "rock_developer:article:134",
+      "title": "Control Reference",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d82d7a77fa2af88d29c0f8aa6c163741682c71863f491cdef6d1118597f0c598",
+      "excerpt_hash": "170968af4b1fa33d35d68f4518311b4927cc6f69f30a3d03a95463e4b454bbef",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "de808cef120240e6",
+      "source_record_id": "rock_developer:article:166",
+      "title": "Countdown",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/countdown",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f3d5c122724c48c45441b37401fbcceb2fde515b56544cd6fb44116591266d88",
+      "excerpt_hash": "127018d3df0c11360887fdd242e28f720e8337c859f45456385f69e503542fd5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f578f5f7b46aad4f",
+      "source_record_id": "rock_developer:article:168",
+      "title": "RockStackView",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rockstackview",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "5cb26f8a142c24c9177e024338029d48aae29a7f2fe1a5f1739edb38155bd186",
+      "excerpt_hash": "2d2dab3a8e4431b507bfa39a0032c3e9d885231580a7ddf150a820cda2a6a65d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "49379f2ee0526451",
+      "source_record_id": "rock_developer:article:169",
+      "title": "RockLabel",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rocklabel",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "6ed9fb8109eff0b0365c335a72dc78a0e73e991a8b725899e3577710ee5b7804",
+      "excerpt_hash": "609f6068ea62231731112de3891a1b0056ba24dc3f9eed12e8ad9bd2a6de1d07",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8a4a79ea31348a1e",
+      "source_record_id": "rock_developer:article:141",
+      "title": "Themes",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ab5fb24424e5a2e83b570ea6d9f175dd5f822dc0e5e31bdf13e62e28741cc5f3",
+      "excerpt_hash": "7019fb96e39047c54446a87f91fe6be261e9cd00a60172d8f607e8bea4f5639e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "623e1064845b167a",
+      "source_record_id": "rock_developer:article:140",
+      "title": "Media Queries",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "0081cd4c44b7fdca608215360cd4e8bd6b0795698a12c155251e4c05621ec295",
+      "excerpt_hash": "45aeaaaff0584566349ba6cd2ec9df1e37934378183fc4cda235282c35845e74",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "fd72c9ef06a4aeb0",
+      "source_record_id": "rock_developer:article:142",
+      "title": "Built in Images",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a23c8225f94a9dce8dd41503999404f0c4002dcb4ca064ffb14fef7fdedfd31a",
+      "excerpt_hash": "091bc6fe0aaf4da167d4a1e0120dfdb7f705cd07ac86e9f29f8284a81f638376",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "916efcb86f30b516",
-      "source_record_id": "rock_developer:916efcb86f30b516",
+      "source_record_id": "rock_developer:article:143",
       "title": "References",
       "topics": [
         "api",
@@ -3077,58 +2260,127 @@
       "version": null
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
+      "authority": "official-developer",
+      "authority_score": 90,
       "change_type": null,
-      "content_hash": "7e4c316c8961f098bcdc26dd73d2fc316dd8ce0e9cd074f5dadf13a3cc71bfe1",
-      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
+      "content_hash": "eb069e1caaa1163a0a8e4158f061f18dcd7e416d44ce7364e81d6ba442f6e3a6",
+      "excerpt_hash": "5e3feb94b33c7d789ec059490603971e850aeca292f6d8d33f98d3ef13dba6b9",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
-      ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
-    },
-    {
-      "authority": "official-api",
-      "authority_score": 88,
-      "change_type": null,
-      "content_hash": "1f1bcb6e4d528c0e81be5f48c20d802aeb6a78ba71c275c9c380a7d1c369384c",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_api_docs",
-      "source_key": "14e4b0253d1428ca",
-      "source_record_id": "rock_api_docs:14e4b0253d1428ca",
-      "title": "API Documentation",
+      "source_id": "rock_developer",
+      "source_key": "fd30763b52c600d5",
+      "source_record_id": "rock_developer:article:146",
+      "title": "App Icons",
       "topics": [
         "api",
         "development",
-        "integrations",
         "lava",
-        "sql"
+        "obsidian"
       ],
-      "url": "https://community.rockrms.com/api-docs",
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "4a19a710f25833e7e781662387bdb7b29c03905ec1d029b6e843d1988f85a566",
-      "excerpt_hash": "ba049b536c4b840d15e5f3d832f7785960cbb580dc1fda7fc9cfee59e645f5f9",
+      "content_hash": "fd9b497776617d4616de162ae3a348e1b1a271e8dbd357322317492c4e5b8982",
+      "excerpt_hash": "7e63dbf2293465139168b887fb93a001a5dc286ce393a404a5108788ac7dc0bc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9e5428982f3d333a",
+      "source_record_id": "rock_developer:article:149",
+      "title": "Parallax Images",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "158b24dc36e598fb363b0c68d39489e61896bf91edcc3538bb84c30c834a8ec5",
+      "excerpt_hash": "915250d6eddb3f6f274026326b6d1f32727c54f2ed8deb7c4f865b3aa16fc0a3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9143aa02bac0fa8a",
+      "source_record_id": "rock_developer:article:148",
+      "title": "Launch Image",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/launch-image",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "daee22c8f75a24b373ae4725aa2d4f78ec48dfb725ffeb09017caf25ca6b53bf",
+      "excerpt_hash": "1d4d52ec00dfbdb5b2c55a1673e224dd20e45a383574c7627e6460ddcb96b227",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6322e385e72f55ea",
+      "source_record_id": "rock_developer:article:147",
+      "title": "Top Shelf Image",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "34565b8e2d5b18ef8cfcc1eae96c375cf971e36d418f7abd492abbed3e5b7ba2",
+      "excerpt_hash": "c9ffe9d09c1ad2301893c8b51654390213b69f1f3e7641bd9f17826c54ed1f0c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c13215c9a2a19257",
+      "source_record_id": "rock_developer:article:126",
+      "title": "Testing Your App",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "515a442368f17babef1f2f494ea4c6da1ef226bcfa2056c6bb31fac75d9db38e",
+      "excerpt_hash": "2c56fa2c70314dcf45fc4f13fa7a02d614f89bb1c899f548f25432b639343669",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3149,262 +2401,18 @@
       "version": null
     },
     {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "change_type": null,
-      "content_hash": "10d7d69e722632f0206faa2c73d9dbd1ed5e0935ae048718c4f66aa6b258ac54",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "triumph_resources",
-      "source_key": "9d0ccce785ef64bb",
-      "source_record_id": "triumph_resources:9d0ccce785ef64bb",
-      "title": "GitHub Spotlight: 10/4/2024",
-      "topics": [
-        "ai",
-        "github",
-        "implementation",
-        "mobile",
-        "operations",
-        "releases",
-        "resources",
-        "security",
-        "triumph"
-      ],
-      "url": "https://www.triumph.tech/resources/github-spotlight-1042024",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "1f12273d89c3c022001328b9c6b5bc2aef16be665cccad111eab9c24739f8c85",
-      "excerpt_hash": "35e8b546f60536d95ed38aefab6293c1f8b9f82c4113f764e47fd79409533a7f",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "security",
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ec2bead07b6e067b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-      "title": "Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
-    },
-    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "44ac8ac8487151728ba44fa617dbf970c71937595842c8e45539254a99998599",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6fc4bd35a367373a",
-      "source_record_id": "rock_developer:6fc4bd35a367373a",
-      "title": "Adding Content",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "82b1d3f6c257b653cbf210871ccfc6b81ee6f51709df85649ccd9f45908a301c",
-      "excerpt_hash": "59c9237e8a0ab2e41cf929fa70657f18426459e8a6831e293f6fb28be62cb829",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "apple tv",
-        "appletv",
-        "tv app",
-        "tvapp",
-        "javascript"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "93b1477e75ee28fe",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "aeacf4cf4a175a8267d3ab582d9eb7efb9ac821ff77b8d8591b3793428723524",
-      "excerpt_hash": "8a5ddefe8c407fab8db0edeacddaa03e3447f35a3e8c7f266b755a326c3768a3",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "apple tv",
-        "appletv",
-        "tv app",
-        "tvapp",
-        "javascript"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "844e694b828806a0",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "99ebb9f9ea282cdb30ccc6a78514eb4ce45bfd5753cb7ae86720dc45d0df8df7",
-      "excerpt_hash": "2b1222f415065e5b2fc12e56eb49821866e2f9f31ae4d2392c16246af8fd83a2",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "29b70070a9b3ab9d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
-      "title": "Rock.Migrations/Migrations/Version 13.0/Version 1.13.1/202201111342049_AddRemoteAuthenticationSession.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "7b084fb8d351562b4dfffd30ca33885e11c2d3c410bf94c5084669b728cbf13b",
-      "excerpt_hash": "c3e2b8b1f5ad4eb79b7357a7480453e2f8e440f6dc38d47542607baf1eb7568c",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "security",
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "489761c69361347a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-      "title": "Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
-      "excerpt_hash": "09b6a3d9937992085cc7ae5e7e7895656e6ea4ae9ce763150b379e430f56ed6b",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "lava",
-        "cms",
-        "security",
-        "javascript"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "543ea1d48ed32f6d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "aa4c1cd1e3cc1fd8456f21c9a0d9f9e5d183b8af834004ac89600857cbfebc50",
-      "excerpt_hash": "d77279e48093767bcb4e355bd14b9cd3d183e84da26e8ab1260afafe55fda584",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3ae3d12b5b28eccc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c70b8349e0c715f31c0d2d85bf24857bd30ba126dbafbda9a9c1eab85be6033e",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "e85fe2a609c23654",
-      "source_record_id": "rock_developer:e85fe2a609c23654",
-      "title": "Main Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/main-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "eb9f2f8078d7a0ef1a25679d3af698d3ea887dfc89b66e28542a84f5f5b0b8c0",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "4bc82ed44da3c8ce",
-      "source_record_id": "rock_developer:4bc82ed44da3c8ce",
-      "title": "Stack Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/stack-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a9841a3b39e93c5d8226b35e519a2d1ff67d3d052b596f615b3721296a6d7ae4",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
+      "content_hash": "c249f4bd41b03e3673d743afa4fc5b59a2939e67cbb4abce139e2226d8b3f836",
+      "excerpt_hash": "ffe35dc57dea9e6ca6cba28ab10bb6f3a83402ce91a7abd15a3ea7eb74c046a4",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "14edde9c59892def",
-      "source_record_id": "rock_developer:14edde9c59892def",
+      "source_record_id": "rock_developer:article:124",
       "title": "📱Building Your First App",
       "topics": [
         "api",
@@ -3414,737 +2422,14 @@
       ],
       "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app",
       "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "b82a34b4132f3388cedfce741e5cbb282266c265fb36b3972c518dd73757cc8e",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "39f3b2037e59c56e",
-      "source_record_id": "rock_developer:39f3b2037e59c56e",
-      "title": "Product Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "aed01384a6bb3a3907ab7ca6fdcc345d3b01c02a4526839769bc354a9ebe0388",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "bfeef041ce99dea2",
-      "source_record_id": "rock_developer:bfeef041ce99dea2",
-      "title": "Product Bundle Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-bundle-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c4e4697508f695c5491fd793d1fae199d3c0b8a0d86afdd1758e2b0b4b0eb764",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f9244193b2aeca2f",
-      "source_record_id": "rock_developer:f9244193b2aeca2f",
-      "title": "List Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/list-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "123a28847c45f99eb6970e79dcc4d39aab25ea61d848c395f9e9ae5312af2b4a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "22886ac19bd420b3",
-      "source_record_id": "rock_developer:22886ac19bd420b3",
-      "title": "Catalog Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "9cd67ba128c9ab0aeb6fedb4a2ae87e3d77fe3617a894e532183bb2b4c8f2742",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "fba8695fc1d9c23d",
-      "source_record_id": "rock_developer:fba8695fc1d9c23d",
-      "title": "Alert Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/alert-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e94797f5e5329c3b72bd0ba7654a1caa9ae394a5b1f78581a70e730dc347c8bd",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "e57e0c4018acb868",
-      "source_record_id": "rock_developer:e57e0c4018acb868",
-      "title": "Descriptive Alert Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/descriptive-alert-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "916191e4ba40dc03c8cf4c6b33dd40e51e9a96d0decbc698fe8bcf3a94f84f03",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "36eb3209e9744258",
-      "source_record_id": "rock_developer:36eb3209e9744258",
-      "title": "Div Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/div-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "5f66017e480eac6ef35eb43b9d735027713a02247256f12583865c017de1d0b0",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "4155cc8ec235808f",
-      "source_record_id": "rock_developer:4155cc8ec235808f",
-      "title": "Application Images",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "1c1349f760f32db9e1281585fd29e769c1c9d3a6e44a8310c7fc652ada8697f2",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "fd30763b52c600d5",
-      "source_record_id": "rock_developer:fd30763b52c600d5",
-      "title": "App Icons",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "1e303e008dd102b0292315c5e0be586fa737afad8f6426f4a566bc3047ad6ea9",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6322e385e72f55ea",
-      "source_record_id": "rock_developer:6322e385e72f55ea",
-      "title": "Top Shelf Image",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "6ec7adf0c6f3c5e3cc9c219c183d0459a00183440c6e3f001a480e97307dc141",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9143aa02bac0fa8a",
-      "source_record_id": "rock_developer:9143aa02bac0fa8a",
-      "title": "Launch Image",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/launch-image",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "33763905dd2b3327b56a42ef8fe77e78d769643f0fe81b9f93a6e48fe7663865",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9e5428982f3d333a",
-      "source_record_id": "rock_developer:9e5428982f3d333a",
-      "title": "Parallax Images",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "50c478af2daf476592ec7ce4fb43afe7fb075aa6799e30977232536c5a4d7308",
-      "excerpt_hash": "df90ac73993394836d03e6e65c72fdd9b04731bb852560426315167355b898dd",
-      "kind": "github_file",
-      "language": "ASP.NET Web Forms",
-      "matched_terms": [
-        "remote authentication",
-        "remoteauthentication",
-        "authentication"
-      ],
-      "path": "RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "2aa8d37e7332b898",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-      "title": "RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "cbca978d83a8c325c382e3e78fad089effe9bf7268bec8261855c0278a4b81cb",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "bebe310f7206f19a",
-      "source_record_id": "rock_developer:bebe310f7206f19a",
-      "title": "TV Text Style",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "42d93a492ffedfedb4fb948517f863b066bc7c74fd5430beb7ee5c2ed7081cc5",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "8a4a79ea31348a1e",
-      "source_record_id": "rock_developer:8a4a79ea31348a1e",
-      "title": "Themes",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "76678dcca68efa01da5ab025cd75263ba402081cc91e5407ce14d133c0f97868",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "623e1064845b167a",
-      "source_record_id": "rock_developer:623e1064845b167a",
-      "title": "Media Queries",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a4a2f7d7bb9d1e5e6a79634f3302e8013bf7749fbbfc7e5fbd7667f3c025fd34",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "fd72c9ef06a4aeb0",
-      "source_record_id": "rock_developer:fd72c9ef06a4aeb0",
-      "title": "Built in Images",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "dbd414a93babf2b47fe2d5e4d2259c109e0fdd2f4d3b6980c2c1c8c89ee89f7a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "a3b635f6fceebbea",
-      "source_record_id": "rock_developer:a3b635f6fceebbea",
-      "title": "Control Reference",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "93a4103ecfbebe7d128478823d928cc543a7b14e9b848c7af809b026be55118a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "de808cef120240e6",
-      "source_record_id": "rock_developer:de808cef120240e6",
-      "title": "Countdown",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/countdown",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "20f6d75c92386678bfd69d3878970b5902f16c6fae7e1bb3d7465fcc30769d13",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f578f5f7b46aad4f",
-      "source_record_id": "rock_developer:f578f5f7b46aad4f",
-      "title": "RockStackView",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rockstackview",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "9e96bebcbc02b4916e2d279766082a5932451c408108ce68f61e3aa60a06af5a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "49379f2ee0526451",
-      "source_record_id": "rock_developer:49379f2ee0526451",
-      "title": "RockLabel",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling/rocklabel",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "b23f5b680479d4c7b326455ddcb624451e558acae648d74ed5ff9c5ef94d6408",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f6a918bb7ec48274",
-      "source_record_id": "rock_developer:f6a918bb7ec48274",
-      "title": "Menu Bar Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/menu-bar-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "fc68f451c936a7613669e9be6a1ea3682c93d61e2ead0053c47daa4aee9a5937",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "80679876651d7dc7",
-      "source_record_id": "rock_developer:80679876651d7dc7",
-      "title": "💻 Javascript",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript",
-      "version": null
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "4c0fe1130f878c66",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/dashboard-design-part-1",
-      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "7cf9c01c97ba95d5",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
-      "authority": "official-release",
-      "authority_score": 95,
-      "kind": "citation_only",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "",
-      "title": "https://www.rockrms.com/releasenotes",
-      "url": "https://www.rockrms.com/releasenotes"
-    },
-    {
-      "authority": "community-answer",
-      "authority_score": 50,
-      "kind": "citation_only",
-      "source_id": "rock_qa",
-      "source_key": "b7e0389038fbb3ed",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/ask/developing",
-      "url": "https://community.rockrms.com/ask/developing"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "18180e82f485346350a4abb195ddbb9abdd0d6cd3c008106669c30696ce4303a",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6a561cbd301f44dd",
-      "source_record_id": "rock_developer:6a561cbd301f44dd",
-      "title": "Parade Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/parade-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3b12f1dd3a9b802ded4c034bfaf4528cad76c51ac70121bd709cc6c57b8b76ba",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "54d7fb4ca133b04a",
-      "source_record_id": "rock_developer:54d7fb4ca133b04a",
-      "title": "Compilation Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/compilation-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e40b7e14208e413de48358944325d9a06dfa1ac8b9648198e087789a7e85aaba",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "1848302423acf670",
-      "source_record_id": "rock_developer:1848302423acf670",
-      "title": "One Up Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/one-up-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "fc06b052fc3d84d5f1123ad19962a5b07d00cbddb76aeb0a7f3b0e8e74dfb6ca",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "51791057be198caf",
-      "source_record_id": "rock_developer:51791057be198caf",
-      "title": "Rating Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/rating-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a558489a8aab7ff01e1a57bbd164426766dee94bd40cf7bd10f26b669e2d77cb",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "7ebe89b2ae54e736",
-      "source_record_id": "rock_developer:7ebe89b2ae54e736",
-      "title": "Showcase Template",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/showcase-template",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "ed47cbeb229fea32d8dfeafb46360da676b1885d7933e5f26fc287b5a4545426",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "a3c5bc25c6a8e3ed",
-      "source_record_id": "rock_developer:a3c5bc25c6a8e3ed",
-      "title": "🎨 Styling",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e04a6fef6ee96a5f8a97958e021ab0a0e20fd861a98cdf06f00293c013305160",
-      "excerpt_hash": "9ab23edc87176876e48832f3c56c85378251c764304abb5e32c84cc86b3242dc",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "0137078fdb6164bb",
-      "source_record_id": "rock_developer:0137078fdb6164bb",
-      "title": "Control Styling",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
-      "version": null
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "36991b0283d96e45ef721418b8716542ddedb18f14b94ae950794b74c944ebc4"
+  }
 }

@@ -48,15 +48,15 @@ Trace eligibility from person/family search through configuration, group type, g
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs
-- https://community.rockrms.com/rocku/check-in/schedules
-- https://community.rockrms.com/documentation/bookcontent/10/266
-- https://community.rockrms.com/rocku/check-in
-- https://community.rockrms.com/rocku/check-in/rapid-attendance-entry
-- https://community.rockrms.com/rocku/check-in/locations
-- https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
-- https://community.rockrms.com/ask/using/2804
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk
+- https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/individual-vs-family-check-in
+- https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/check-in-relationships
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
 - https://community.rockrms.com/rocku/check-in/check-in-manager-1
-- https://community.rockrms.com/rocku/check-in/check-in-manager
-- https://community.rockrms.com/recipes/483
-- https://community.rockrms.com/recipes/116
+- https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/use-grade-and-age-matching-behavior
+- https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/configure-by-birthdate
+- https://community.rockrms.com/documentation/church-management/check-in/attendance/use-attendance-analytics
+- https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile
+- https://community.rockrms.com/documentation/church-management/check-in/printing/reprint-a-label
+- https://community.rockrms.com/documentation/church-management/check-in/prepare-for-check-in/view-the-administration-screen
+- https://community.rockrms.com/documentation/church-management/check-in/registration/intro-to-registration

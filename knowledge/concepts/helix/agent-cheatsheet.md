@@ -10,26 +10,26 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Find The Endpoint Behind A Button](tasks/recipe-find-the-endpoint-behind-a-button.md) |  |  |
-| [Recipe: Determine Whether A Helix App Is Public-Safe](tasks/recipe-determine-whether-a-helix-app-is-public-safe.md) | `Person`, `Attribute` | `Person`, `Attribute` |
-| [Recipe: Upgrade A Plugin-Era Helix App](tasks/recipe-upgrade-a-plugin-era-helix-app.md) |  |  |
-| [Recipe: Review A Community Recipe Before Use](tasks/recipe-review-a-community-recipe-before-use.md) | `Group`, `Page`, `Block` | `Group`, `Page`, `Block` |
-| [Recipe: Add Observability To A Complex Endpoint](tasks/recipe-add-observability-to-a-complex-endpoint.md) | `Block` | `Block` |
+| [Recipe: Inspect an existing Helix application before changing it](tasks/recipe-inspect-an-existing-helix-application-before-changing-it.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Build a read-only HTMX result fragment](tasks/recipe-build-a-read-only-htmx-result-fragment.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
+| [Recipe: Build a validated mutation form](tasks/recipe-build-a-validated-mutation-form.md) |  |  |
+| [Recipe: Render endpoint content on first paint](tasks/recipe-render-endpoint-content-on-first-paint.md) | `Page` | `Page` |
+| [Recipe: Validate a rendered Helix dashboard](tasks/recipe-validate-a-rendered-helix-dashboard.md) | `Label`, `Page`, `Block` | `Label`, `Page`, `Block` |
+| [Recipe: Decide whether to replace a Lava Application](tasks/recipe-decide-whether-to-replace-a-lava-application.md) |  |  |
 
 ## Entities
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
+| `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats
@@ -43,43 +43,31 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `3-helix-mental-model` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | normal | live verification |
-| `5-core-configuration-and-data-model-lava-application-configuration` | normal | live verification |
-| `5-core-configuration-and-data-model-lava-endpoint-configuration` | normal | live verification |
-| `6-primary-entities-and-relationships` | normal | live verification |
-| `7-common-helix-workflows-read-only-partial-refresh` | normal | live verification |
-| `7-common-helix-workflows-admin-utility` | community-supported | live verification |
-| `7-common-helix-workflows-guided-search-or-finder` | citation-only | live verification |
-| `8-overview-and-roadmap-deep-dive` | normal | live verification |
-| `9-htmx-deep-dive` | normal | live verification |
-| `10-lava-applications-deep-dive` | normal | live verification |
-| `10-lava-applications-deep-dive-configuration-rigging-strategy` | normal | live verification |
-| `11-lava-endpoints-deep-dive-routing` | normal | live verification |
-| `11-lava-endpoints-deep-dive-merge-fields-and-request-body` | normal | live verification |
-| `12-forms-and-controls-deep-dive-lava-form-pattern` | normal | live verification |
-| `12-forms-and-controls-deep-dive-loading-indicators` | normal | live verification |
-| `13-security-and-observability-deep-dive-security-principles` | normal | live verification |
-| `13-security-and-observability-deep-dive-observability` | normal | live verification |
-| `14-strategies-and-limitations-deep-dive` | normal | live verification |
-| `15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-lava` | normal | live verification |
-| `15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-workflows` | structural | live verification |
-| `15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-htmx` | normal | live verification |
-| `16-administration-and-operational-guardrails` | normal | live verification |
-| `17-developer-api-lava-and-source-code-landmarks` | normal | live verification |
-| `18-reporting-analytics-and-model-map` | normal | live verification |
-| `19-version-and-release-caveats` | normal | live verification |
-| `20-implementation-playbooks-playbook-a-build-a-read-only-results-panel` | normal | live verification |
-| `20-implementation-playbooks-playbook-b-build-a-safe-update-form` | normal | live verification |
-| `20-implementation-playbooks-playbook-c-convert-a-static-lava-page-to-helix` | structural | live verification |
-| `20-implementation-playbooks-playbook-d-audit-an-existing-helix-app` | structural | live verification |
-| `21-troubleshooting-decision-tree-the-button-does-nothing` | normal | live verification |
-| `21-troubleshooting-decision-tree-endpoint-is-slow` | normal | live verification |
-| `21-troubleshooting-decision-tree-endpoint-modifies-wrong-data` | structural | live verification |
-| `22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button` | structural | live verification |
-| `22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app` | structural | live verification |
-| `22-agent-task-recipes-recipe-review-a-community-recipe-before-use` | structural | live verification |
-| `approved-claim-coverage` | normal | live verification |
-| `23-source-map-and-dependency-notes` | normal | live verification |
+| `agent-summary` | normal | live verification |
+| `htmx` | normal | live verification |
+| `lava-applications` | normal | live verification |
+| `lava-applications-editing-with-magnus` | normal | live verification |
+| `lava-endpoints` | normal | live verification |
+| `lava-endpoints-security-modes` | normal | live verification |
+| `lava-endpoints-request-merge-fields` | normal | live verification |
+| `lava-endpoints-enabled-commands-and-endpoint-responses` | normal | live verification |
+| `forms-and-controls-control-shortcodes` | normal | live verification |
+| `forms-and-controls-loading-indicators` | normal | live verification |
+| `security-and-observability-endpoint-security-review` | normal | live verification |
+| `strategies-and-limitations-reviewed-community-patterns` | normal | live verification |
+| `version-and-authority-caveats` | normal | live verification |
+| `troubleshooting-decision-tree-an-htmx-action-does-nothing-or-updates-the-wrong-region` | normal | live verification |
+| `troubleshooting-decision-tree-the-endpoint-returns-not-found-or-the-wrong-handler-runs` | normal | live verification |
+| `troubleshooting-decision-tree-a-user-is-denied-while-an-administrator-succeeds` | normal | live verification |
+| `troubleshooting-decision-tree-body-or-rawbody-is-empty-or-unavailable` | normal | live verification |
+| `troubleshooting-decision-tree-a-loading-spinner-is-missing` | normal | live verification |
+| `troubleshooting-decision-tree-endpoint-injected-styles-or-scripts-do-not-load` | normal | live verification |
+| `troubleshooting-decision-tree-an-endpoint-is-slow-or-makes-excessive-database-calls` | normal | live verification |
+| `troubleshooting-decision-tree-sorting-or-filtering-resets-after-refresh` | normal | live verification |
+| `agent-task-recipes-recipe-inspect-an-existing-helix-application-before-changing-it` | normal | live verification |
+| `agent-task-recipes-recipe-build-a-read-only-htmx-result-fragment` | normal | live verification |
+| `agent-task-recipes-recipe-build-a-validated-mutation-form` | normal | live verification |
+| `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard` | community-supported | live verification |
+| `agent-task-recipes-recipe-decide-whether-to-replace-a-lava-application` | normal | live verification |
+| `known-gaps-and-live-verification` | needs-citation | needs-citation |
+| `source-map-community-examples` | community-supported | community-supported |

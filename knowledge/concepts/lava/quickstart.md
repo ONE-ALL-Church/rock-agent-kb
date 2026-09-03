@@ -18,42 +18,40 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 
 ## Primary Tasks
 
-- [Recipe: Inventory Lava Risk On A Page](tasks/recipe-inventory-lava-risk-on-a-page.md): Complete Inventory Lava Risk On A Page with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review A Shortcode For Production](tasks/recipe-review-a-shortcode-for-production.md): Complete Review A Shortcode For Production with evidence-backed checks and a verifiable outcome.
-- [Recipe: Find Legacy Attribute Lava](tasks/recipe-find-legacy-attribute-lava.md): Source pattern: Finding and Fixing Legacy Lava.
-- [Recipe: Safely Use `securityenabled:'false'`](tasks/recipe-safely-use-securityenabled-false.md): Source: Entity, Attributes.
-- [Recipe: Create A Staff-Friendly Link Copy Shortcode](tasks/recipe-create-a-staff-friendly-link-copy-shortcode.md): Pattern from community recipe: a shortcode can generate a copyable public URL for staff workflows, such as registration or forms (Easy Copy Url Shortcode).
-- [Recipe: Add A Translation Shortcode](tasks/recipe-add-a-translation-shortcode.md): Complete Add A Translation Shortcode with evidence-backed checks and a verifiable outcome.
-- [Recipe: Generate Labels With Lava](tasks/recipe-generate-labels-with-lava.md): Source: Print ZPL.
-- [Recipe: Build An Agent Lava Tool](tasks/recipe-build-an-agent-lava-tool.md): ```json
+- [Recipe: Review an existing Lava surface safely](tasks/recipe-review-an-existing-lava-surface-safely.md): A bounded risk assessment without changing the target.
+- [Recipe: Build a bounded read-only entity view](tasks/recipe-build-a-bounded-read-only-entity-view.md): A limited list using an Entity command.
+- [Recipe: Prepare a Lava entity write](tasks/recipe-prepare-a-lava-entity-write.md): An idempotent, verifiable single-entity change plan.
+- [Recipe: Preflight a workflow activation](tasks/recipe-preflight-a-workflow-activation.md): A workflow is activated with verified attribute values.
+- [Recipe: Publish a reusable shortcode](tasks/recipe-publish-a-reusable-shortcode.md): A stable shortcode contract for content authors.
+- [Recipe: Build a read-only Helix active-search page](tasks/recipe-build-a-read-only-helix-active-search-page.md): A server-rendered page enhanced with bounded HTMX filtering.
+- [Recipe: Validate a Rock Mobile Lava block](tasks/recipe-validate-a-rock-mobile-lava-block.md): Correct, fresh and valid mobile output for the supported shells.
+- [Recipe: Design a Lava-backed AI tool](tasks/recipe-design-a-lava-backed-ai-tool.md): A narrow tool the model can select and use without excessive access.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-53: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 54-98: 2. Scope And Terminology (normal)
-- `3-lava-mental-model` lines 99-140: 3. Lava Mental Model (normal)
-- `5-core-configuration-and-data-model-lava-engine-liquid-framework` lines 170-188: Lava Engine Liquid Framework (normal)
-- `5-core-configuration-and-data-model-default-enabled-lava-commands` lines 189-200: Default Enabled Lava Commands (normal)
-- `5-core-configuration-and-data-model-html-block-command-enablement` lines 201-211: HTML Block Command Enablement (normal)
+- `agent-summary` lines 18-31: Agent Summary (normal)
+- `mental-model` lines 40-62: Mental Model (normal)
+- `core-syntax-and-engine` lines 63-80: Core Syntax And Engine (normal)
+- `core-syntax-and-engine-fluid-and-dotliquid` lines 81-99: Fluid and DotLiquid (normal)
+- `filters` lines 100-112: Filters (normal)
+- `filters-dates-and-time-zones` lines 119-124: Dates and time zones (normal)
 
 ## Core Entities
 
-- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the lava guide.
 - `Block`: Rock concept/entity referenced by the lava guide.
-- `Campus`: Rock concept/entity referenced by the lava guide.
 - `DataView`: Rock concept/entity referenced by the lava guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
-- `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the lava guide.
-- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the lava guide.
 - `Person`: Rock concept/entity referenced by the lava guide.
+- `PersonAlias`: Rock concept/entity referenced by the lava guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the lava guide.
 
 ## Version Caveats
 
-- `19.1`: Added a new Shortcode Scope Behavior property to the Lava Shortcode Entity. This setting allows Rock administrators to choose whether variables defined inside a shortcode should be isolated from or shared with the surrou
 
 ## Files For Agents
 

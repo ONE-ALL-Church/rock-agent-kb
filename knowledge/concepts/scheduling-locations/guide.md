@@ -6,1139 +6,630 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "0d767c57b8088b1c7f6877fbd459cdee0ac4308186401786847592ac0b0acd32"
 ---
 
 # Scheduling And Locations
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Treat scheduling in Rock as a relationship among four distinct concerns:
 
-- Concept data-model landmarks: [Scheduling And Locations index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+1. **Location** describes where something happens. Named Locations can form a campus/building/room hierarchy or represent operational positions such as “Audio.”
+2. **Schedule** describes when something happens.
+3. **Group-location-schedule configuration** determines which groups can use which locations at which times, especially in check-in and volunteer scheduling.
+4. **Calendar or reservation records** serve different publication and resource-planning purposes and should not be assumed to synchronize automatically.
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+For check-in, first confirm the Named Location, then its group association, schedule assignment, kiosk scope, current open/closed state and threshold state. For volunteer scheduling, confirm the location and schedule definitions before examining assignments, preferences or communications. For calendar and reservation issues, identify the owning record and any explicit linkage before comparing dates, locations or contacts. These relationships are described in the official [location](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations), [check-in](https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk) and [group scheduling](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) documentation.
 
-## 1. Executive Summary For Agents
+Rock v19 adds an important reporting behavior: occurrences from recurring iCalendar schedules are materialized as `ScheduleDate` rows. Date-based SQL or Lava written for v19 should use those generated dates instead of implementing a second recurrence-expansion system. This is an approved v19 claim supported by the official [Rock Cast episode at 06:26](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s).
 
-Scheduling and Locations in Rock RMS are not a single feature. They are a shared operational layer used by check-in, group scheduling, attendance, events, mobile experiences, Lava content, and reservation workflows. The core pattern is simple: a `Schedule` answers *when*, a `Location` answers *where*, and linking tables such as `GroupLocation`, `GroupLocationSchedule`, and schedule-capacity configuration answer *which group or opportunity can use which place at which time*.
+## Scope And Boundaries
 
-For agents doing real Rock work, the highest-value habit is to identify which scheduling surface is involved before troubleshooting:
+This guide owns operational guidance for:
 
-- Check-in scheduling is driven by check-in configuration, group/location pairs, active schedules, device location scope, room status, thresholds, and workflow filters.
-- Group scheduling is driven by group type scheduling settings, group locations, schedules, capacities, assignments, attendance records, RSVP or scheduling workflows, and person availability/preferences.
-- Event calendars are driven by event items, event item occurrences, calendars, audiences, campuses, occurrence schedules, and Lava/mobile calendar rendering.
-- Reservations are commonly handled through the Room Management plugin rather than Rock core. Reservation records, approval state, resources, room locations, and `ReservationLinkage` relationships may exist only if that plugin is installed and current.
+- Positional and Named Locations.
+- Campus, building, room and position-style location structures.
+- Check-in group/location/schedule configuration.
+- Room availability, open/closed state and check-in thresholds.
+- Group schedule types, exclusions, volunteer availability and scheduling communications.
+- Rock event calendars and iCalendar delivery where they intersect with schedules.
+- Room-reservation-to-calendar coordination patterns supported by the supplied community evidence.
 
-When a schedule or location issue appears, do not start with broad assumptions. Inspect the live entity chain:
+Detailed check-in workflows, group administration, event registration, CMS presentation and communication-provider configuration belong to their respective concepts. For example, this guide explains how a room becomes available at a scheduled check-in time, but not the entire check-in workflow. Similarly, it explains calendar publication settings but not the complete event-registration lifecycle. The official documentation separates these subjects into [Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations), [Group Schedules](https://community.rockrms.com/documentation/engagement/groups/group-schedules), [Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars) and [Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations).
 
-1. Identify the surface: check-in, group scheduling, calendar, reservation, LMS, mobile, or custom Lava.
-2. Identify the expected `Schedule`, `Location`, `Group`, `Campus`, `Device`, `EventItemOccurrence`, or reservation record.
-3. Confirm active/archive status and dates.
-4. Confirm the linking rows that make the object available.
-5. Confirm time behavior: Rock time zone, server time, schedule active window, exclusions, and effective start/end dates.
-6. Confirm filters: check-in workflow filters, group type settings, campus context, audience/campus filters, schedule category exclusions, thresholds, and security.
-7. Confirm version-specific behavior from release notes before treating an unexpected result as configuration error.
+The evidence pack contains cross-tagged v19 claims about Connections training and proof-of-work CAPTCHA. Those belong to the Connections, CMS, security and platform-configuration concepts and are not promoted into scheduling behavior here.
 
-The most important source-backed operational warning is that schedules and locations are reused across contexts. A schedule can be attached to more than one group location, a location can sit in a hierarchy, a group can use multiple locations, and a check-in schedule builder can copy enabled locations between schedules. The NextGen check-in documentation specifically warns against deleting `GroupLocationSchedule` rows using only `ScheduleId` because the same schedule can be used in different check-in configurations; include the matching group/location context in any cleanup or repair operation ([Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42/350)).
+No live Rock instance was reviewed for this guide. Menu placement, block generation, installed plugins, permissions and local data must therefore be verified before changing a production system.
 
-## 2. Scope And Terminology
+## Mental Model
 
-This guide covers the concept family called Scheduling And Locations:
+A useful operating model is:
 
-- Locations, rooms, campuses, buildings, positions, addresses, and location hierarchy.
-- Schedules, service times, schedule categories, recurring patterns, single-date schedules, effective dates, exclusions, check-in offsets, and display text.
-- Group meeting details, group scheduler, schedule status board, person preferences, auto scheduling, RSVP, schedule cancellation, and attendance.
-- Check-in scheduled locations, available rooms, overflow rooms, open/closed room state, room thresholds, device location scope, and location selection strategies.
-- Event calendars, event item occurrences, calendar audiences, mobile event lists, iCalendar exports, and Lava calendar commands.
-- Room reservations and reservation-to-calendar workflows where the Room Management plugin is installed.
-- Operational reporting, version caveats, troubleshooting, and agent recipes.
+- A **positional location** supplies geographic position but gains meaning through its use by a family, group or another feature.
+- A **Named Location** combines position with an organizational identity and can participate in a hierarchy.
+- A **group location** associates a group with a location.
+- A **group-location-schedule relationship** makes that pairing active at selected times.
+- A **runtime location state** can still make a scheduled check-in room unavailable by closing it or reaching a threshold.
+- A **calendar event occurrence** publishes an event occurrence; it is not automatically the same record as a room reservation or volunteer assignment.
+- An **iCalendar feed or file** transports schedule information to external calendar software; it does not replace the Rock records that generated it.
 
-Terms used throughout:
+Rock’s v19 location documentation distinguishes positional and Named Locations and describes address, point and geo-fence descriptors. It also states that Named Locations must be configured before use elsewhere in Rock. The check-in documentation then describes locations as hierarchical records tied to groups and enabled through schedules. [Intro to Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations) and [Configure Locations for a Kiosk](https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk) provide the documented model.
 
-- **Location**: A Rock `Location` record representing a physical or logical place. It can be a campus, building, room, position, point, geofence, address, or other organization-specific place type. Rock documents Named Locations under check-in and describes them as hierarchical objects edited under Admin Tools > Check-in > Named Locations in check-in contexts ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
-- **Campus**: A Rock campus usually has a relationship to a location, and many scheduling views use campus as a filter or context. Event mobile blocks can accept `CampusGuid` or use campus context ([Calendar Event List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list)).
-- **Schedule**: A Rock `Schedule` record describing a recurring or one-time time pattern. Schedules can be grouped in categories, selected by check-in and groups, used by Lava commands, exported as iCalendar, and referenced in APIs.
-- **Group Location**: A link from a `Group` to a `Location`, often representing where a group meets or where a serving assignment occurs.
-- **Group Location Schedule**: A link that says a specific group-location pair is active for a schedule. In check-in and group scheduling, this is the operational join that answers “this group at this location during this schedule.”
-- **Attendance Occurrence**: A dated occurrence for a group/location/schedule combination, used for attendance, scheduling assignments, RSVP, and analytics.
-- **Reservation**: In this guide, reservation usually means a Room Management plugin reservation unless a local Rock instance has a different reservation system. Verify the installed plugin, namespace, tables, and version before assuming a schema.
-- **Resource**: In Room Management contexts, resources are items requested with rooms and may have approval routing separate from locations. The plugin schema and table names can differ by plugin version and vendor namespace.
+An immutable source snapshot also models check-in as an explicit group, location and schedule combination. This is implementation evidence from commit `471fd303d111b2e46218228dbc1e93dba8856fa3`, not proof of any installation’s configuration. [CheckInGroupLocationSchedule.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/CheckIn/CheckInGroupLocationSchedule.cs)
 
-## 3. Scheduling And Locations Mental Model
+## Locations
 
-The mental model is a layered graph.
+### Positional And Named Locations
 
-At the bottom, Rock has reusable primitives:
+Rock supports three location descriptors in the supplied v19 documentation:
 
-- `Location` records provide place identity.
-- `Schedule` records provide time identity.
-- Defined Values and Categories classify both of those records.
-- Campuses connect ministry context to places and filters.
-- Devices can be scoped to locations.
+- A street address.
+- A latitude/longitude point, resolved from an address or selected with the location picker.
+- A geo-fence drawn around a geographic area.
 
-On top of those primitives, Rock builds feature-specific relationships:
+Positional Locations describe a place but depend on their context—such as a family residence or group meeting place—for meaning. Named Locations add an organizational name and can be arranged hierarchically. [Intro to Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations)
 
-- Check-in uses group types, groups, group locations, schedule builder rows, device location scope, and workflow filters to decide what a family can see.
-- Group scheduling uses group types, group locations, schedules, capacities, assignments, and attendance occurrence rows to decide who is expected to serve.
-- Events use event items, event item occurrences, calendars, audiences, campuses, and schedules to decide what appears on internal, external, mobile, or iCalendar surfaces.
-- Reservations use plugin reservation records, reservation locations, reservation resources, approval state, and optionally calendar event linkages.
+Do not treat every location-editing surface as interchangeable. A family address, group meeting location and Named Location share common address fields, but context-specific options differ. Named Locations can expose fields such as parent, Location Type, image, printer, beacon identifier, thresholds and geo-fence that are not necessarily available when editing a family or group address. [Maintain Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations)
 
-Think in triples: **group + location + schedule**. The source code names this directly. Rock has a `CheckInGroupLocationSchedule` object described as representing a group, location, and schedule combination for check-in ([CheckInGroupLocationSchedule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/CheckInGroupLocationSchedule.cs)). The schedule builder view models also carry group path, area path, location path, and active schedule identifiers for each group location ([GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs)).
+### Named Location Hierarchy
 
-For agents, the graph is more important than any single page. A room can exist and still not appear because:
+For check-in, the documented starting pattern is a loose hierarchy of campus, building and room. Create or rename the top-level campus, add its buildings and then add the rooms that check-in will use. Named Locations are maintained through the Named Locations administration area. [Configure Locations](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations)
 
-- The room is inactive.
-- The parent location hierarchy does not match the campus/device context.
-- The group is inactive or archived.
-- The group location exists but lacks the schedule row.
-- The schedule exists but is inactive, excluded, out of effective range, or not currently active.
-- The person fails age, grade, ability, requirement, or membership rules.
-- The room is closed in Check-in Manager.
-- The threshold filter removed or excluded the room.
-- The location selection strategy auto-selected a room instead of presenting choices.
-- A version-specific bug or behavior applies.
+The hierarchy should represent operational meaning, not merely a mailing address. Group Scheduling can also use locations that represent sections, areas or positions. The official example suggests position-style locations such as “Audio” or “Piano,” with an appropriate Location Type, when scheduling technical or music teams. Location Types are Defined Values associated with the Location category. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-That is why a useful agent answer should usually list both the data path and the filters.
+Only a location with the Campus Location Type can be selected when configuring a Campus. A Named Location’s parent controls its placement in the location tree. Rock v18.3 fixed an issue that allowed a location to be saved as its own parent or under one of its children, which could prevent nested location trees from loading. [Maintain Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations) and [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-## 4. Source Authority And How To Use This Guide
+### Address And Geographic Integrity
 
-Treat sources by authority and purpose:
+Address standardization can verify and geocode a location. Enabling **Location Locked** prevents standardization services from automatically changing an address, but it does not prevent a person from editing that address manually. A point can also be selected directly, and a geo-fence can define a geographic boundary used by location-aware features. [Maintain Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations)
 
-1. **Official documentation and RockU** are the preferred authority for user-facing configuration paths and conceptual workflows. Use the check-in manuals for named locations, schedule builder, clone schedule, location selection strategy, thresholds, and check-in administration ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266), [Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42)).
-2. **Source code and generated view models** are the preferred authority for entity relationships, block payload shape, workflow action behavior, and implementation landmarks. Use source links when the question depends on how the system filters, selects, or packages locations and schedules.
-3. **Release notes** are the preferred authority for version caveats. They are especially important for check-in schedule/category exclusions, calendar exports, Group Scheduler UI behavior, schedule display text, and location tree bugs ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-4. **Developer and Lava docs** are the preferred authority for mobile blocks, Lava commands, iCalendar-style output, and safe rendering APIs ([Calendar Events Lava command](https://community.rockrms.com/lava/commands/calendar-events)).
-5. **Community recipes** are useful examples, but they are contributed content. The recipe pages themselves warn that recipes are not reviewed or endorsed by the Rock core team. Use them as implementation patterns, not canonical behavior. Always verify permissions, plugin versions, Lava commands, table names, and performance before implementation.
+The Location Editor at `Tools > Data Integrity > Location Editor` can filter for records that have not been geocoded. The documented remediation is to open the affected record, correct its address fields, allow Rock to resolve the coordinates and save it. [Location Editor](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor)
 
-When this guide says “verify in a live instance,” inspect the real record rather than inferring from documentation. In Rock work, similar labels can hide different IDs, inherited group type settings, inactive rows, archived groups, stale plugin tables, or custom Lava.
+### Location Metadata That Changes Behavior
 
-## 5. Core Configuration And Data Model
+Several Named Location fields have operational effects:
 
-### Locations
+- **Printer** associates a configured device with the location.
+- **Beacon Identifier** associates Bluetooth beacon devices with a location for mobile check-in and must be between 1 and 65,535.
+- **Threshold** acts as a soft check-in capacity: additional check-ins require a manager override after the threshold is reached.
+- **Absolute Threshold** is a firm limit that cannot be overridden.
+- **Location Locked** controls automatic address-standardization changes, not manual editing.
 
-Locations are edited through Named Locations in check-in contexts and are hierarchical. Official check-in documentation recommends building the hierarchy to match the structure of buildings and rooms ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)). A practical hierarchy is often:
+These behaviors are documented in [Maintain Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations).
 
-- Campus
-- Building
-- Area or floor
-- Room
-- Position or sub-room
+## Check-In Location Scheduling
 
-Rock source and dev SQL examples show `Location` records with fields such as `Name`, `ParentLocationId`, `LocationTypeValueId`, `IsActive`, and `Guid`, with Location Type Defined Values for campus, building, and room ([Populate_LocationsAndGroupSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_LocationsAndGroupSchedules.sql)). Do not assume every instance uses the same hierarchy or location type list. Group type settings can constrain which location types are selectable for a group ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296)).
+### Building The Group-Location-Schedule Matrix
 
-Common location fields and concepts to inspect:
+A check-in room is not made available merely by creating the Named Location. Locations are associated with check-in groups and then enabled for particular schedules. Rock’s Schedule Builder displays group/location combinations as rows and schedule times as columns. An administrator selects the allowed intersections and saves the grid. Filters can narrow the grid by campus or building, check-in area or schedule. [Use the Schedule Builder](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder)
 
-- `Id` and `Guid`
-- `Name`
-- `ParentLocationId`
-- `LocationTypeValueId`
-- `IsActive`
-- Campus relationship, usually through `Campus.LocationId`
-- Soft room threshold or capacity fields used by check-in
-- Attributes such as approval group, room category, setup notes, room flags, or plugin-specific configuration
-- Child locations
-- Device-location links
-- Group-location links
-- Reservation-location links if Room Management is installed
+The normal documented route is through the check-in configuration’s Schedule action. Device Manager can also expose **Schedule Locations**, allowing an operator to enable or disable schedules for the rooms configured for that kiosk. [Use Schedule Locations](https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations)
 
-Rock v18.3 fixed an Obsidian Location Detail issue where a location could be saved as its own parent or with a child as parent, breaking nested location loading. If a location tree fails to load or loops, inspect parent-child integrity and confirm the Rock version includes this fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+At immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3`, the schedule-builder view model contains the group path, location path, group-location identifier and the schedule identifiers active for that pairing. This confirms the implementation shape but does not establish what a particular Rock version or instance has enabled. [GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs)
 
-### Schedules
+### Scheduled, Open And Within Capacity
 
-Schedules are reusable time definitions. They can represent weekly service times, one-time dates, ministry schedules, volunteer rotation templates, academic calendars, and event occurrence times. Rock documentation places schedules under Admin Tools > General Settings > Schedules for group scheduling setup ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296)). Check-in schedule builder uses schedules to enable group/location pairs for check-in.
+Three checks are separate:
 
-Fields and concepts to inspect:
+1. The room is associated with the correct group.
+2. The group/location pairing is enabled for the selected schedule.
+3. The location is currently open and below the applicable capacity limit.
 
-- `Id` and `Guid`
-- `Name`
-- `Description`
-- `iCalendarContent`
-- `EffectiveStartDate`
-- `EffectiveEndDate`
-- `CategoryId`
-- `WeeklyDayOfWeek`
-- `WeeklyTimeOfDay`
-- `StartTime` and `EndTime` in newer views or reporting examples
-- `IsActive`
-- `CheckInStartOffsetMinutes`
-- Schedule category exclusions
-- Friendly schedule text
-- Next start date/time and active state in Lava/mobile contexts
+An operator can close an otherwise scheduled room in Check-in Manager or Device Manager. A closed room is removed as a check-in option. It can later be reopened manually, or the Auto Open Locations job can be configured to reopen rooms at intervals. [Configure Locations for a Kiosk](https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk)
 
-Rock schedules often store recurrence information in iCalendar-style content. The Lava `calendarevents` command exists partly because recurring events can be difficult to query directly and performantly with raw SQL or basic entity commands ([Calendar Events](https://community.rockrms.com/lava/commands/calendar-events)).
+The soft threshold permits an attendant override; the absolute threshold does not. Do not diagnose a full or closed room by changing its schedule assignment until the runtime state and threshold counts have been checked. [Configure Locations for a Kiosk](https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk)
 
-### Groups, Group Locations, And Schedules
+### Cloning A Check-In Schedule
 
-The core join pattern is:
+Rock v19 documentation describes cloning the enabled locations from a source schedule into a destination schedule. This is intended for special events that reuse a complex room configuration. The operation is initiated from the Schedule view of the check-in configuration by choosing **Clone Schedule** and supplying source and destination schedules. [Clone a Schedule](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule)
 
-- `Group`
-- `GroupLocation`
-- `Location`
-- `GroupLocationSchedule`
-- `Schedule`
+Cloning reduces setup repetition, but it does not replace verification. Review the destination matrix after cloning, especially when campuses, buildings or rooms should differ from the source. The documentation also warns custom deletion logic not to identify `GroupLocationSchedule` rows by `ScheduleId` alone because one schedule can be used by multiple check-in configurations; the group must be constrained to the current configuration. [Clone a Schedule](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule)
 
-A source SQL view shows the basic join from `Schedule` to `GroupLocationSchedule`, then `GroupLocation`, then `Group` and `Location` ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql)). That is the first join chain agents should inspect when a group appears to be missing a time or room.
+## Group And Volunteer Scheduling
 
-Group type settings determine what kinds of locations can be assigned and how attendance/check-in rules behave. The Groups documentation lists concepts such as location types, location selection modes, group attendance requiring location, group attendance requiring schedule, check-in rules, and group scheduling options ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296)).
+### Prerequisites
 
-For sign-up and scheduling capacity, inspect `GroupLocationScheduleConfig` if present. A community Sign-Ups reference uses `GroupLocation`, `GroupLocationScheduleConfig`, `Schedule`, and `GroupMemberAssignment` to reason about available slots and participant counts ([Reference for Sign-Ups](https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots)). Because this is a community recipe, verify the schema in the live instance before relying on exact fields.
+Group Scheduling requires accurate Named Locations and Schedules before people are assigned. The location answers “where,” the schedule answers “when,” and Group Scheduler places volunteers into those combinations. The official guidance recommends one schedule for each time; campuses sharing the same start time can reuse that schedule. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-### Attendance And Assignments
+Scheduling must also be enabled on the applicable Group Type. Group Type settings can select confirmation and reminder communications, define offsets, launch a cancellation workflow, require a decline reason, choose **Ask** or **Auto Accept** confirmation logic and configure coordinator notifications. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-Group scheduling and check-in ultimately touch attendance. The `LoadSchedules` workflow action looks for attendance records where a person was scheduled or requested to attend for today, with `Occurrence.GroupId`, `Occurrence.LocationId`, and `Occurrence.ScheduleId` populated, when a group requires scheduling for check-in ([LoadSchedules.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs)). That is a useful implementation clue: when troubleshooting “scheduled person cannot check in,” inspect today’s attendance occurrences and assignment records, not just schedule setup.
+Changing confirmation logic after assignments exist requires caution. The official documentation warns that switching from **Ask** to **Auto Accept** before a person receives a confirmation can produce a message with a Decline action but no Accept action for an unconfirmed person. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-Common tables and objects to inspect:
+### Weekly, Custom And Named Group Schedules
 
-- `AttendanceOccurrence`
-- `Attendance`
-- `GroupMember`
-- `GroupMemberAssignment`
-- `GroupLocation`
-- `GroupLocationSchedule`
-- `Schedule`
-- `Location`
+A Group Type can permit three group schedule modes:
 
-## 6. Primary Entities And Relationships
+- **Weekly** records a weekday and start time. Of the three documented modes, this is the one that can be used as a Group Finder schedule filter.
+- **Custom** lets a group define its own repeating schedule but is not available as a Group Finder schedule filter.
+- **Named** selects from schedules configured under the general Schedules settings and is also not available as a Group Finder schedule filter.
 
-### Location Entity
+Choose the mode based on the consuming workflow, not merely on recurrence flexibility. If website visitors need to filter groups by meeting day, the supplied v19 documentation specifically favors Weekly. [Group Schedule Types](https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types)
 
-`Location` is both physical and logical. It can represent a room, campus, building, address, position, point, or geofence depending on group type settings and location type. The group documentation says group type location selection can include named locations, addresses, points, geofences, and group member addresses ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296)).
+Group Type schedule exclusions can apply a break to all groups of that type. The documentation notes that exclusions keep the schedule accurate and suppress attendance reminders while those groups are not meeting. [Intro to Group Schedules](https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules)
 
-Important relationships:
+### Volunteer Preferences, Unavailability And Open Slots
 
-- `Location.ParentLocationId` creates hierarchy.
-- `Campus.LocationId` maps a campus to a location.
-- `GroupLocation.LocationId` maps a group to a location.
-- `DeviceLocation.LocationId` scopes check-in devices.
-- Reservation plugin location tables map reservations to locations.
-- Event item occurrences may store location text or campus/location context depending on the event surface.
+The Schedule Toolbox lets a volunteer:
 
-### Schedule Entity
+- Review accepted, declined and pending assignments.
+- Accept, decline or cancel a confirmation.
+- Declare an unavailable date range for one group or all groups and, where appropriate, selected family members.
+- Choose reminder timing.
+- Select a recurring schedule template.
+- Set preferred schedules and locations for Auto-Schedule.
+- Sign up for additional serving opportunities.
 
-`Schedule` is reusable and can be attached in several contexts:
+Only Named Schedules marked **Show Publicly** are listed as assignment preferences. A person may omit a location preference. The preferences are inputs to Auto-Schedule, not proof that an assignment has been created. [Set Schedule Availability](https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox)
 
-- Check-in service times.
-- Group meeting details.
-- Group scheduler opportunities.
-- Event item occurrences.
-- Lava scheduled content and countdowns.
-- Mobile blocks and utility commands.
-- System jobs through cron expressions, though job scheduling is not the same as Rock `Schedule`.
+Additional-time availability is calculated using desired and maximum capacity. Reaching the desired number marks a slot filled, but sign-up can continue until the maximum is reached. **Immediate Needs** is disabled by default and, when enabled, is bounded by settings such as cutoff time and the immediate-needs window. [Set Schedule Availability](https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox)
 
-Community examples use schedules for content countdowns and mobile redirects by checking next occurrence and active state ([Content Countdown Shortcode](https://community.rockrms.com/recipes/247), [Mobile App Countdown to Page Refresh or Redirect](https://community.rockrms.com/recipes/402)). Use those as examples of the concept, but verify Lava commands enabled and performance.
+The Current Schedule view can download an `.ics` file or copy a calendar link, but those actions are not available until the person has at least one confirmed assignment. A downloaded file may need to be downloaded again after assignments change. [View your Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox)
 
-### GroupLocation
+### Confirmation And Reminder Delivery
 
-A `GroupLocation` is the place assignment for a group. It is central for:
+Confirmation and reminder System Communications can use email or SMS. SMS requires configured SMS messaging, an SMS-enabled phone number and an SMS-capable System Communication. Rock chooses the medium using the group member’s communication preference, falling back to the person’s profile preference when the group member has no preference. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-- Group details.
-- Group attendance.
-- Check-in.
-- Group scheduling.
-- Sign-ups.
-- RSVP occurrences.
+Outreach Toolbox uses a separate but related scheduling pattern: a signed-in person selects assignment days and reminder preferences, while configurable jobs supply reminder time-of-day values. The approved claim’s version scope is unprocessed, so confirm applicability before implementation and test both the job schedule and push delivery in the target mobile environment. [Outreach Toolbox is Here in v19 at 01:04](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s)
 
-The RockU Groups track explicitly includes Group Location, Group Scheduling - Meeting Details, Group Scheduler and Status Board, Person Preferences and Auto Schedule, and Group Scheduling Analytics as related training topics ([Groups RockU](https://community.rockrms.com/rocku/groups)).
+## Calendars And iCalendar
 
-### GroupLocationSchedule
+### Calendar Events Are Publication Records
 
-`GroupLocationSchedule` is the schedule enablement row for a group-location pair. It answers: “Is this group allowed to use this location at this scheduled time?” In check-in, the schedule builder UI packages this as group path, area path, location path, and schedule IDs ([ScheduledLocationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs)).
+After a calendar exists, events are managed from its Calendar Details page. The documented event fields include active and approved state, summary, description, audiences, photo, additional calendars, details URL, custom attribute values and occurrence-level attributes. Approval is available only to a person with Approval permission on the calendar. [Add an Event](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-an-event)
 
-Do not delete or repair these rows casually. The NextGen check-in docs explicitly warn that deleting by schedule alone can affect multiple check-in configurations; match group and location as well ([Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42/350)).
+External display is block-driven. The Calendar Lava block can select a calendar, initial day/week/month view, details page, campus and audience filters, date-range controls, campus context and a Lava template. Specialty blocks can show a particular event item’s occurrences or occurrences for an audience. [Explore Different Event Blocks](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks)
 
-### GroupLocationScheduleConfig
+### iCalendar Feeds
 
-This configuration layer appears in Sign-Ups and capacity-oriented scheduling. Community examples show fields such as minimum, desired, and maximum capacity, configuration name, location ID, schedule ID, and group location ID ([Reference for Sign-Ups](https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots)). Because Sign-Ups and related models evolve, verify the exact model in the installed Rock version.
+Rock can expose an event calendar through `GetEventCalendarFeed.ashx`. The feed URL can include a calendar identifier and optional template, campus, audience, start-date and end-date parameters. The Export Calendar Feed action can copy the generated URL. Calendar security remains enforced, including for non-public calendars accessed through the feed. [Configure the iCalendar Feed](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed)
 
-### EventCalendar, EventItem, EventItemOccurrence
+Do not confuse two calendar delivery modes:
 
-Event calendar surfaces use a different chain than check-in and group scheduling:
+- The Schedule Toolbox can provide a file or link for a volunteer’s confirmed assignments.
+- Event Calendar feeds publish occurrences from a Rock event calendar.
 
-- Event calendars group events for display.
-- Event items carry event identity, approval status, calendars, attributes, and audiences.
-- Event item occurrences represent scheduled instances, usually pointing to a schedule.
-- Mobile and Lava blocks render occurrences using campus, audience, calendar, and date filters.
+When diagnosing an external calendar, first identify which producer generated the file or URL. The applicable permissions, filters and source records differ. [View your Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox) and [Configure the iCalendar Feed](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed)
 
-The mobile Calendar Event List block accepts optional campus filtering and has settings for Calendar, Detail Page, Event Template, Day Header Template, Enable Campus Filtering, and Show Past Events ([Calendar Event List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list)). The Lava `calendarevents` command returns summary `EventScheduledInstances` with fields such as event occurrence, name, date/time, campus, location, calendar names, and audience names ([Calendar Events](https://community.rockrms.com/lava/commands/calendar-events)).
+Rock v17.2 fixed unclear Group Schedule ICS summaries by changing them to a “Group - Location - Schedule” structure. An installation on an earlier release should not be expected to have that fix. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-### Reservation Entities
+### Recurring Schedule Dates In v19
 
-Room Management reservations are not covered as Rock core entities in the provided source material. The community recipes depend on the Room Management plugin from the Rock Shop and reference plugin tables and objects such as reservations, reservation locations, reservation resources, approval states, and reservation linkages ([Room Management Calendar View](https://community.rockrms.com/recipes/112), [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20)).
+The approved v19 claim states that Rock materializes occurrences from recurring iCalendar schedules into `ScheduleDate` rows. For v19 date-based SQL and Lava, query those generated occurrence dates rather than repeatedly parsing and expanding the recurrence rule. [Official Rock Cast at 06:26](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s)
 
-For any reservation task, first verify:
+This claim does not establish the generation horizon, refresh timing or behavior on earlier versions. Those details require current documentation, source inspection for the installed build or bounded live verification.
 
-- Is the Room Management plugin installed?
-- Which vendor namespace and table prefix is used?
-- Which plugin version is installed?
-- Does the plugin include native event linkage?
-- Is `ReservationLinkage` present?
-- Are records in draft, pending, approved, denied, or another state?
-- Are approval groups configured on locations, resources, reservation types, or attributes?
+## Reservations And Calendar Coordination
 
-Older recipes reference CentralAZ plugin table names; newer recipes note moving away from `centralaz` tables toward BEMA Services table names and using `ReservationLinkage` instead of storing an event occurrence ID on the reservation ([Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444)).
+The supplied evidence does not establish Room Management as universal Rock core behavior. Its reservation examples are community recipes that depend on a separately installed Room Management plugin and should be treated as implementation patterns, not official platform guarantees.
 
-## 7. Common Scheduling And Locations Workflows
+A current community pattern for Rock 15 uses the plugin’s reservation linkage to identify whether a reservation has a linked calendar occurrence and whether schedule information matches. It proposes a details-panel warning and a workflow that can push selected reservation changes to the linked calendar occurrence. The recipe explicitly requires the Room Management plugin and carries the Rock Community disclaimer that recipes are not reviewed or endorsed by the core team. [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20)
 
-### Add A New Check-In Room
+Earlier community recipes used custom attributes, direct SQL and older plugin-specific assumptions. A later draft recommends using the plugin’s `ReservationLinkage` table instead of the older event-occurrence attribute pattern, but that draft is unpublished. Do not combine these generations of a recipe without verifying plugin version and schema. [Room Reservation to Calendar tools](https://community.rockrms.com/recipes/111/room-reservation-to-calendar-tools) and [draft Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444)
 
-1. Create or find the correct parent location under Named Locations.
-2. Add the room as an active child location with the correct location type.
-3. Set threshold values if the check-in process uses thresholds.
-4. Add the location to the correct check-in group or group type configuration.
-5. Open the check-in configuration schedule builder.
-6. Enable the group/location pair for the desired schedules.
-7. Confirm device location scope includes the campus/building/location path needed for the kiosk.
-8. Run check-in in test mode or off-hours and inspect the selected family/person path.
+Another older recipe adds a calendar-style reservation view and explicitly requires Room Management plugin version 1.4.1. Its third-party JavaScript dependencies, legacy rendering assumptions and plugin version must be reviewed before reuse. [Room Management Calendar View](https://community.rockrms.com/recipes/112)
 
-Official docs describe locations as tied to check-in groups and enabled through schedules ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)). Source code confirms check-in loads locations from active kiosk group/location relationships and filters them from there ([LoadLocations.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs)).
+The operational lesson is bounded: reservation and event records can drift when maintained separately. An agent may compare an explicit linkage and surface a discrepancy, but must not assume which side should overwrite the other. That decision belongs to the organization’s documented ownership policy.
 
-### Clone A Check-In Schedule
+## Version And Authority Caveats
 
-NextGen check-in documentation describes a Clone Schedule action that copies enabled locations from a source schedule to a destination schedule in the schedule builder ([Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42/350)). Use this when adding a new service time similar to an existing one.
+Most official documentation supplied for this guide is scoped to Rock v19.0. Verify the installed version and block generation before following paths or expecting the same controls.
 
-After cloning, verify:
+Version-specific evidence includes:
 
-- Source schedule and destination schedule IDs are correct.
-- Only intended group/location rows were copied.
-- Overflow locations were scheduled if needed.
-- Archived or inactive groups are not appearing in scheduled times.
-- The new schedule has valid effective dates and active status.
-- Check-in start offsets match operational expectations.
+- Rock v17.2 fixed Group Schedule ICS summaries.
+- Rock v18.3 prevented a location from being its own parent or a descendant’s parent.
+- Rock v19 materializes recurring iCalendar occurrences into `ScheduleDate` rows.
+- The v19 Check-In Manager roster uses real-time updates, allowing attendance state changes to appear without a manual refresh. When updates lag, the approved claim directs agents to verify browser connectivity, block version and local check-in configuration. [Official Rock Cast at 04:28](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s)
+- Current release notes also describe later v19 patches affecting check-in and location behavior; patch-level applicability must be checked against the installed build. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- The hydrated release-notes page labels v20 as alpha. Alpha behavior should not be treated as deployed production behavior merely because it appears in current documentation or source.
 
-Rock v17.0 added the ability to copy enabled check-in locations from one schedule to another, and v18.3 fixed scheduled times listing archived or inactive groups that still had `GroupLocationSchedule` rows ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+The factual spine is explicitly bound to the approved answer-bearing claim set. `claim:4c4098a035a5ca256bfe` and its reviewed companion `claim:32f0173b23a7d2c356c0` support the `ScheduleDate` materialization guidance. `claim:9ad17cb08b8955d0d3ec` and companion `claim:dc7cb132c34cdde8cb4e` support the real-time Check-In Manager roster guidance. `claim:07a75e5ff71510d708de` and `claim:66eb84b2b9cc466ce78b` establish the staff-training caveat for redesigned Connections; `claim:2a9844acce5ba6150dec` and `claim:3e398ac03167b9c52704` establish the v19 proof-of-work CAPTCHA caveat. The official source links and exact wording remain in [Scheduling And Locations Approved Claims](approved-claims.md).
 
-### Configure Group Scheduling
+GitHub excerpts in this guide are pinned to commit `471fd303d111b2e46218228dbc1e93dba8856fa3` on the public `develop` branch. They clarify implementation structure but do not prove that a production installation contains that code.
 
-A minimal group scheduling setup usually requires:
+Community recipes are examples. Their Rock versions range from older releases through Rock 15, some depend on paid plugins, and one supplied recipe is still a draft. Review security, performance, schema, page routes and plugin compatibility before adoption.
 
-1. A group type with scheduling enabled.
-2. Location schedules enabled for that group type.
-3. Location types allowed for that group type.
-4. One or more groups using that group type.
-5. Group locations attached to each group.
-6. Schedules attached to those group locations.
-7. Capacities set where appropriate.
-8. Group members in scheduleable roles.
-9. Person preferences and unavailable dates configured if auto scheduling is used.
-10. Schedule coordinator or cancellation workflow configured if notifications are desired.
+## Troubleshooting Decision Tree
 
-A community Pastor of the Day example captures the core pattern: create a schedule, configure a group type with location schedules and scheduling enabled, create a group, add a group location, attach the schedule, and set capacities ([Pastor of the Day Scheduling](https://community.rockrms.com/recipes/414)). The official Groups documentation and RockU Group Scheduling lessons should be the authority for exact UI behavior ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296), [Group Scheduler and Status Board](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board)).
+### A Room Does Not Appear During Check-In
 
-### Create Event Calendar Occurrences
+1. Confirm the room exists as the intended Named Location and is active in the correct hierarchy.
+2. Confirm the check-in group is associated with that location.
+3. Open the check-in Schedule Builder and confirm the group/location row is enabled for the selected schedule.
+4. Confirm the kiosk is configured for the applicable rooms and scope.
+5. Check whether the room is currently closed in Check-in Manager or Device Manager.
+6. Check the soft and absolute thresholds and current count.
+7. If a campus filter is active, confirm it has not excluded every location.
+8. If the room was created recently, check the installed patch level and cache behavior before rebuilding the hierarchy.
 
-For calendar event work:
+The configuration sequence and runtime controls are documented in [Configure Locations for a Kiosk](https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk) and [Use the Schedule Builder](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder). The immutable Rapid Attendance model also distinguishes the total group-location count from the campus-filtered result. [rapidAttendanceEntryLocationsBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts)
 
-1. Confirm the calendar and event item.
-2. Confirm approval status if the surface filters pending/unapproved events.
-3. Confirm event item occurrence schedule.
-4. Confirm campus and audience filters.
-5. Confirm Lava/mobile block configuration.
-6. Confirm whether specific-date schedules or recurrence patterns export correctly in the installed version.
+### A Schedule Does Not Appear In A Check-In Scheduling Screen
 
-The event registration RockU track includes Calendar Overview, Calendars and Events, Linkages, and iCalendar Feed lessons, indicating that calendars, event item occurrences, and linkages are distinct concepts ([Calendar Overview](https://community.rockrms.com/rocku/event-registration/calendar-overview)). For Lava rendering, prefer `calendarevents` rather than hand-querying recurrence patterns unless you have a tested reason ([Calendar Events](https://community.rockrms.com/lava/commands/calendar-events)).
+1. Confirm that the schedule is active.
+2. Confirm it represents the intended check-in time and category.
+3. Confirm the check-in configuration and screen are the expected generation for the installed version.
+4. Confirm the schedule has the required check-in timing configuration.
+5. Confirm filters on the Schedule Builder or kiosk screen are not hiding it.
 
-### Manage Room Reservations
+At the supplied `develop` commit, the legacy Scheduled Locations block filters for active schedules with a check-in start offset in the service-times category. Treat this as a source-code observation to guide inspection, not as proof of behavior in another build. [CheckinScheduledLocations.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs)
 
-If the Room Management plugin is installed:
+### A Volunteer Cannot See, Accept Or Decline An Assignment
 
-1. Confirm the reservation record and approval state.
-2. Confirm reservation locations and resources.
-3. Confirm administrative and event contacts.
-4. Confirm approval groups and outstanding approval items.
-5. Confirm schedule and location consistency.
-6. Confirm whether a reservation is linked to a calendar event through native linkage.
-7. Use plugin-provided reports and views where possible.
-8. Avoid raw SQL updates unless reviewed and tested.
+1. Confirm scheduling is enabled on the Group Type.
+2. Confirm the person belongs to the applicable schedulable group.
+3. Confirm an assignment actually exists; preferences alone do not create one.
+4. Check whether the assignment is accepted, declined, pending or marked unavailable.
+5. Review the Group Type’s confirmation logic and whether it changed after assignments were created.
+6. Review block settings that can hide actions or change their labels.
+7. If a decline reason is expected, confirm the Group Type requires one.
 
-Community patterns include adding a calendar view to reservations, daily facility reports, iCal feeds, dashboard approval lists, and reservation-calendar sync tooling ([Room Management Calendar View](https://community.rockrms.com/recipes/112), [Room Management - Daily Email Reports for Facilities Team](https://community.rockrms.com/recipes/198), [Add 'My Reservation Approvals' To Dashboard](https://community.rockrms.com/recipes/178)). Treat them as examples, not guaranteed-safe recipes.
+See [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) and [View your Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox).
 
-## 8. Locations Deep Dive
+### A Volunteer Is Missing A Reminder
 
-### Hierarchy
+1. Confirm the assignment and its schedule time.
+2. Confirm the Group Type reminder communication and offset.
+3. Check the group member’s reminder and communication preferences.
+4. If no group member communication preference exists, inspect the person’s profile preference.
+5. For SMS, confirm the provider configuration, SMS-enabled phone and SMS-capable System Communication.
+6. For Outreach Toolbox, separately inspect the reminder job time and push delivery in the target mobile environment.
 
-Location hierarchy should match operational navigation. For check-in, common hierarchy is campus > building > room. For serving teams, it can be building > position. The Groups documentation explicitly notes that group scheduling may use locations for non-room positions such as lobby areas, greeter stations, audio, or piano, and that additional Location Types are Defined Values ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296)).
+The group-scheduling delivery rules are documented in [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule). Outreach Toolbox behavior is an approved claim with unprocessed version scope from [Outreach Toolbox is Here in v19 at 01:04](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s).
 
-A good hierarchy supports:
+### A Calendar File Or Feed Is Empty, Stale Or Missing Events
 
-- Device scoping.
-- Campus-specific filtering.
-- Human-readable paths in schedule builder and manager screens.
-- Reporting by campus, building, area, or room.
-- Reservation approval by room or parent area.
-- SEO/location pages for public campus information.
+1. Identify whether the source is a volunteer Schedule Toolbox export or an Event Calendar feed.
+2. For Schedule Toolbox, confirm the person has at least one confirmed assignment.
+3. For an Event Calendar feed, confirm calendar access and examine calendar, campus, audience and date parameters.
+4. Confirm the URL still contains the required `GetEventCalendarFeed.ashx` handler.
+5. Compare the Rock calendar occurrence with the exported result.
+6. If a downloaded `.ics` file was used, regenerate it after schedule changes.
+7. Check the Rock version when Group Schedule ICS summaries are unclear; the summary-format fix shipped in v17.2.
 
-### Location Types
+See [View your Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox), [Configure the iCalendar Feed](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed) and [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
 
-Use the official [Rock Your Groups location guidance](https://community.rockrms.com/documentation/bookcontent/7/296) and the version-matched Model Map to distinguish location records from Location Type Defined Values. Verify the target instance's Defined Values, allowed group-type locations, campus links, attributes, and check-in filters before adding or reclassifying a type.
+### A Date-Based Query Misses Recurring Schedule Occurrences
 
-Location Types are Defined Values. Typical types include Campus, Building, Room, but local instances often add Position, Area, Venue, Classroom, Office, or Ministry Zone. Before creating locations, inspect:
+1. Confirm the installed Rock version.
+2. On v19, inspect the generated `ScheduleDate` rows for the schedule.
+3. Use those rows for date-based SQL or Lava rather than re-expanding the iCalendar rule.
+4. If expected rows are absent, stop and verify generation behavior for the exact installed build.
+5. On pre-v19 systems, do not assume the v19 materialization model exists.
 
-- Defined Type: Location Type.
-- Group type allowed location types.
-- Existing naming conventions.
-- Whether campus records already point at location records.
-- Plugin attributes attached to `Location`.
+This procedure follows approved claim `claim:4c4098a035a5ca256bfe`, supported by the [official Rock Cast at 06:26](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s).
 
-Do not add a new type merely because a label sounds better. If check-in or group type filters expect Room, a custom type may not appear where staff expect.
+### A Reservation And Calendar Event Do Not Match
 
-### Active State And Open/Closed State
+1. Confirm the Room Management plugin is installed and identify its version.
+2. Identify the reservation and its explicit calendar linkage.
+3. Compare schedule, location and contact fields without modifying either record.
+4. Determine which record is authoritative under local policy.
+5. Review the recipe generation and schema assumptions before running a workflow or SQL.
+6. Stop before synchronizing if ownership, linkage or compatibility is ambiguous.
 
-`Location.IsActive` is a core record state. Check-in also has operational open/closed room status. Source view models show `LocationStatusItemBag` with an `IsOpen` flag for admin screens ([LocationStatusItemBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs)). Release notes say v17.0 updated room open/close logic to write changes to history ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+The supplied workflow is a community pattern, not core behavior. [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20)
 
-When a room does not appear, distinguish:
+### The Named Location Tree Will Not Load
 
-- Location record inactive.
-- Room closed for check-in.
-- Location not assigned to the group.
-- Group/location not enabled for the schedule.
-- Device cannot see that location.
-- Threshold or selection strategy filtered the location.
-- User is blocked by group eligibility.
+1. Check the installed Rock version and patch level.
+2. Inspect the affected location’s parent relationship.
+3. Check for a location set as its own parent or placed beneath one of its descendants.
+4. Do not attempt broad hierarchy rewrites until the exact invalid relationship is identified.
+5. If the installation predates the v18.3 fix, review the release path and correct the data through an approved, bounded process.
 
-### Thresholds And Capacity
+Rock v18.3 fixed this circular-parent condition. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-Rock check-in has threshold logic for rooms. Official and source-backed concepts distinguish soft threshold behavior from strict enforcement. The source `FilterLocationsByThreshold` action removes or excludes locations when the current count reaches the location’s soft threshold, unless the person is already in that location’s attendance set ([FilterLocationsByThreshold.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs)). A community recipe recommends configuring room threshold values and optionally changing workflow behavior to avoid silently hiding full rooms early in the check-in flow ([More User-Friendly Room Thresholds](https://community.rockrms.com/recipes/213)).
+### Check-In Manager Attendance Changes Do Not Update In Real Time
 
-For operational checks:
+1. Confirm the installation is on an applicable v19 build.
+2. Verify browser connectivity.
+3. Confirm the expected Check-In Manager block version is loaded.
+4. Review local check-in configuration.
+5. Compare the roster state with the authoritative attendance state before asking operators to refresh or re-enter attendance.
 
-- Inspect the room’s threshold fields.
-- Inspect the current attendance count.
-- Inspect whether the workflow action removes or marks excluded locations.
-- Inspect final Save Attendance strict threshold behavior.
-- Inspect Check-In Manager room counts.
-- Test both an unscheduled/new attendee and an attendee already checked into the room.
+This follows approved claim `claim:9ad17cb08b8955d0d3ec`, supported by the [official Rock Cast at 04:28](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s).
 
-### Location Selection Strategy
+## Agent Task Recipes
 
-Rock has three location selection strategies in source: Ask, Balance, and Fill In Order ([LocationSelectionStrategy.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/CheckIn/LocationSelectionStrategy.cs)). Documentation describes similar behavior: ask the person, load balance across rooms, or fill rooms in configured order ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+### Recipe: Build A Check-In Location Hierarchy
 
-The workflow action for location selection strategy applies to family check-in and assumes locations have already been filtered by schedule. It skips filtering when a manager is logged in, because a manager should see an unbalanced list and choose intentionally ([FilterLocationsByLocationSelectionStrategy.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs)).
+**Outcome:** Named Locations represent the intended campus, building and room structure.
 
-If staff ask why the kiosk did not offer a room choice, inspect the location selection strategy before assuming the room is missing.
+1. Inventory the operational hierarchy and the rooms that will participate in check-in.
+2. Open Named Locations.
+3. Confirm or create the top-level campus location.
+4. Add buildings beneath the campus.
+5. Add rooms beneath the appropriate buildings.
+6. Assign the correct Location Type to each record.
+7. Review parent relationships and names from the full tree.
+8. Configure only the metadata required for each location, such as thresholds, printer, beacon, point or geo-fence.
+9. Save and verify that the hierarchy reloads correctly.
 
-### Device Location Scope
+**Inspect:**
 
-Check-in devices can be associated with locations. Source SQL examples show `DeviceLocation` linking devices and locations ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql)). Official docs also mention printers can be set for devices or locations in check-in contexts ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+- Parent Location.
+- Location Type.
+- Active state.
+- Soft and absolute thresholds.
+- Address, point and geo-fence where relevant.
 
-When troubleshooting kiosk visibility:
+**Do not assume:**
 
-- Confirm the device record.
-- Confirm device type and campus/location context.
-- Confirm `DeviceLocation` rows.
-- Confirm the selected check-in configuration.
-- Confirm the kiosk client is using the expected device.
+- A family address is a Named Location.
+- A room needs a street address.
+- Creating the room makes it available to check-in.
+- A soft threshold and absolute threshold behave the same way.
 
-### Location SEO And Public Pages
+**Stop when:**
 
-Locations also matter outside operations. A community SEO recipe recommends consistent name/address/phone information for each campus, separate campus landing pages, and structured data where appropriate ([Succeeding with Google Local Pack in a Rock Website](https://community.rockrms.com/recipes/83)). Treat this as marketing guidance rather than Rock core behavior, but it is operationally relevant when campus pages, calendars, and event locations disagree.
+- A parent relationship would create a cycle.
+- The correct campus or Location Type is unclear.
 
-## 9. Schedules Deep Dive
-
-### Schedule Categories
-
-Schedules can be organized into categories. Source code for the legacy check-in scheduled locations block limits schedules to active schedules with `CheckInStartOffsetMinutes` and the service times category (`SCHEDULE_SERVICE_TIMES`) when adding schedule columns ([CheckinScheduledLocations.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs)). That means a schedule may exist but not appear in a particular admin surface if category or offset expectations are not met.
-
-For any missing schedule:
-
-- Confirm `IsActive`.
-- Confirm category.
-- Confirm effective date range.
-- Confirm check-in start offset if applicable.
-- Confirm it is linked to the group/location pair.
-- Confirm schedule category exclusions.
-- Confirm the block or workflow actually reads that schedule category.
-
-### Effective Dates And Recurrence
-
-Schedules can represent recurring or specific-date occurrences. Release notes include several schedule behavior fixes:
-
-- v17.1 fixed `EffectiveEndDateTime` logic when a schedule duration passes midnight, aligning it better with iCal `DTEND` behavior ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- v18.3 improved friendly text for single-date schedules ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- v16.4 improved calendar export support for specific-date schedules in Microsoft, Google, and Apple calendar apps ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-If a schedule crosses midnight, exports oddly, or displays confusing text, verify the Rock version before debugging custom code.
-
-### Check-In Start Offsets
-
-Check-in schedules can include start offsets. The check-in scheduled locations block filters to schedules with `CheckInStartOffsetMinutes` for one legacy schedule setup flow ([CheckinScheduledLocations.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs)). In live checks, inspect whether the expected schedule has an offset configured and whether the current time is inside the check-in window.
-
-A community troubleshooting recipe emphasizes checking the schedule grid, server time, Rock time, and whether the schedule is active ([Troubleshooting Check-in Schedule Problems](https://community.rockrms.com/recipes/280)). Use that as a practical branch, but confirm current UI paths in the installed version.
-
-### Schedule Exclusions
-
-Schedules and schedule categories can have exclusions. Release notes highlight multiple exclusion-related fixes:
-
-- v16.6 fixed group schedule notifications and reminders not honoring schedule exclusions.
-- v17.1 fixed legacy check-in not checking schedule categories for exclusions.
-- v18.3 and later sources include several check-in schedule display fixes.
-
-Use exclusions when groups do not meet during holidays or breaks, but always verify whether the exclusion is on the schedule itself, the category, or the group type. If notifications or check-in availability ignore an exclusion, check the Rock version and release notes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Schedule Templates And Preferences
-
-Group member schedule templates support volunteer preferences and auto scheduling. A community recipe notes that core templates may not include fifth Sundays and recommends naming templates by weekday for clarity, because a template schedule identifies the day of week it applies to ([Group Member Schedule Templates](https://community.rockrms.com/recipes/356)). Treat the specific pattern as community guidance, but the operational point is strong: template names should make the weekday and recurrence obvious to staff and volunteers.
-
-For auto scheduling:
-
-- Inspect group member schedule preferences.
-- Inspect unavailable dates.
-- Inspect group role requirements.
-- Inspect group/location/schedule capacities.
-- Inspect fifth-week or “last week” edge cases.
-- Confirm the installed version includes any relevant auto schedule bug fixes. Triumph summarized a v16.9 highlight for an issue where Auto Schedule did not honor “Every Other Week” preferences in v16.7 ([GitHub Spotlight 2/6/2025](https://www.triumph.tech/resources/github-spotlight-262025)); verify against official release notes and installed version before acting.
-
-### Schedule Builder Field Type
-
-Rock v19.1 added a Schedule Builder Field Type and Attribute that lets administrators create and select custom schedules using the standard Schedule Builder interface ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). Because v19.1 was listed as beta in the hydrated release notes, verify availability and stability in the live instance before designing production workflows around it.
-
-## 10. Reservations Deep Dive
-
-Reservations in this source pack mainly refer to the Room Management plugin, not Rock core. Many organizations use the plugin for room requests, approvals, setup notes, resources, reports, and calendar integration. Agents must treat reservation behavior as plugin-specific until verified.
-
-### Reservation Lifecycle
-
-A typical reservation lifecycle is:
-
-1. Requester creates a reservation.
-2. Reservation may be saved as draft.
-3. Reservation is submitted for approval.
-4. Location approvals and resource approvals are collected.
-5. Facilities or ministry staff review setup details.
-6. Reservation is approved, denied, changed, or canceled.
-7. Optional calendar event linkage is created or updated.
-8. Optional iCal or daily reports notify staff.
-
-A community recipe highlights a draft problem where users thought reservations were submitted but the submit button was missed. Their mitigation was a dashboard/list of drafts and a detail warning for draft reservations ([Room Management Drafts](https://community.rockrms.com/recipes/418)). Use this as an operational pattern: if reservation volume is high, surface drafts and pending approval states directly.
-
-### Approvals
-
-Approval routing can depend on reservation type, location approval groups, resource approval groups, super-admin groups, and plugin-specific state. The “My Reservation Approvals” recipe uses a Dynamic Data block to list reservations needing approval by the current person, including location and resource approvals ([Add 'My Reservation Approvals' To Dashboard](https://community.rockrms.com/recipes/178)). Because the SQL references older plugin tables and attributes, do not copy it directly into a modern instance without mapping the current plugin schema.
-
-Operational checks:
-
-- Which approval state means draft, pending, approved, denied?
-- Are location approval groups stored as location attributes?
-- Are resource approval groups stored on resource records?
-- Does a super-admin group bypass location/resource approver checks?
-- Are approval states per reservation, per location, and per resource?
-- Is the current person a member of the approval group?
-- Are group member statuses active?
-
-### Reservation Calendar Views
-
-Community examples add calendar views to Room Management using FullCalendar and reservation summaries ([Room Management Calendar View](https://community.rockrms.com/recipes/112)). This is useful for staff, but verify:
-
-- FullCalendar version and CDN policy.
-- Lava command permissions.
-- Reservation summary object shape.
-- Approval-state color coding.
-- Time zone display.
-- Date range performance.
-- Mobile rendering.
-- Whether native plugin views now cover the need.
-
-### Reservation To Event Calendar Linkage
-
-Older recipes created calendar events and stored links manually. Newer recipes emphasize native Room Management event linkage and the `ReservationLinkage` table. One update specifically says to use `ReservationLinkage` rather than event item occurrence ID from the reservation when syncing or querying ([Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444)). A later tool recipe adds a details panel to show missing or mismatched linkages and offers workflow buttons to sync schedule, location, or contact information ([Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20)).
-
-Agent rule: if reservation and calendar are out of sync, first inspect linkage records. Do not assume the reservation stores the authoritative event occurrence ID.
-
-### Reservation iCal Feeds
-
-Community examples create room-specific or campus-specific iCal feeds via workflows, generated files, or Lava webhooks ([Room Management iCal Subscriptions](https://community.rockrms.com/recipes/231), [Room Management iCal Feed by Campus](https://community.rockrms.com/recipes/409)). These patterns are operationally useful but high-risk if implemented carelessly:
-
-- iCal output must be valid.
-- Time zone handling must be tested in Outlook, Google Calendar, and Apple Calendar.
-- Query performance must be bounded.
-- Public feed URLs must not leak private reservation details.
-- Feed ownership and sharing behavior must be clear.
-- Plugin schema and v14+ workflow differences must be verified.
-
-A more general community recipe creates `.ics` files through a Lava Webhook with `text/calendar` response type and parameters for dates, times, location, and description ([Lava Webhook to Create an iCal File](https://community.rockrms.com/recipes/540)). Use it as a pattern, not a guarantee.
-
-## 11. Related Rock Areas: Check In, Groups, Events, Cms
-
-### Check-In
-
-Check-in is the most schedule-location-sensitive part of Rock. Official docs say locations are tied to check-in groups and enabled through schedules ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)). NextGen docs add overflow locations, clone schedules, schedule builder behavior, and a warning about deleting schedule rows by schedule alone ([Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42/350)).
-
-Important check-in branches:
-
-- Legacy vs NextGen check-in.
-- Check-in type/configuration selected by kiosk.
-- Areas and groups.
-- Group eligibility.
-- Schedule selection.
-- Location selection.
-- Device/printer/location context.
-- Check-In Manager open/close and roster filters.
-- Labels and attendance analytics.
-- Mobile check-in setup.
-
-Release notes include check-in schedule-related fixes: v17.0 location-copying, v17.1 schedule category exclusions, v17.5 schedule select wrapping, v18.3 inactive/archived group schedules excluded from scheduled times, and location tree fixes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Groups
-
-Groups use schedules and locations for meeting details, attendance, scheduling, RSVP, and volunteer operations. RockU Groups lists dedicated lessons for Group Location, Group Scheduling Overview, Meeting Details, Scheduler and Status Board, Person Preferences and Auto Schedule, Scheduling Analytics, RSVP, and scheduling communications ([Groups](https://community.rockrms.com/rocku/groups)).
-
-Group type settings are key. Inspect:
-
-- Scheduling enabled.
-- Enable location schedules.
-- Location types.
-- Attendance requires location.
-- Attendance requires schedule.
-- Group attendance rules.
-- Check-in rule.
-- Role schedule eligibility.
-- Requirements.
-- Exclusion dates.
-- Schedule cancellation workflow.
-- Schedule coordinator.
-
-Release notes add and fix group scheduling features such as Group Schedule Coordinator notifications in v16.7, duplicate calendar feed fixes in v16.0, Group Scheduler orientation improvements in v19.1, and capacity deletion fixes in v17.2 ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Events
-
-Events use schedules differently than check-in. An event occurrence may point to a schedule, and calendar output often needs recurrence expansion. Use Event Calendar blocks, mobile blocks, and Lava commands rather than raw recurrence SQL when possible. The mobile Calendar View and Event Item Occurrence List blocks accept campus context, audience, calendar, date range, and max occurrence settings ([Calendar View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-view), [Event Item Occurrence List By Audience Lava](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava)).
-
-For one event with multiple campuses, the provided Q&A has an unanswered question about one calendar instance with multiple locations ([One Calendar Instance - Multiple Locations](https://community.rockrms.com/ask/using/2820)). Do not infer a canonical solution from that page. In a live instance, inspect whether separate event item occurrences, campus filters, event calendars, audiences, or custom Lava are the right implementation.
-
-### CMS And Lava
-
-CMS and Lava use schedules for conditional content, countdowns, calendar displays, staff calendars, and webhook outputs. Prefer built-in Lava commands and block merge fields where possible:
-
-- `calendarevents` for event scheduled instances ([Calendar Events](https://community.rockrms.com/lava/commands/calendar-events)).
-- Scheduled content shortcodes or commands for live/not-live content, if enabled and appropriate.
-- Mobile blocks for app-native calendar views.
-- Lava webhooks for iCal only with careful security review.
-
-Community examples show staff internal calendars with approval and calendar badges, schedule countdown bars, Google Calendar holiday requests, and workflow-to-calendar ideas ([Staff Calendar enhancement](https://community.rockrms.com/recipes/484), [Countdown to next Online Service](https://community.rockrms.com/recipes/165), [US Holidays Web Request](https://community.rockrms.com/recipes/499), [Workflow Form to Event to Visual Calendar](https://community.rockrms.com/recipes/504)).
-
-## 12. Administration And Operational Guardrails
-
-### Naming Conventions
-
-Use names that encode operational meaning:
-
-- Schedules: `Sunday 9:00 AM`, `Sunday 11:00 AM`, `Wednesday Youth 6:30 PM`, `1st and 3rd Sunday`, not ambiguous labels like `Early`.
-- Locations: include parent hierarchy rather than repeating campus in every room if the tree already communicates it.
-- Group locations: keep display order intentional.
-- Schedule templates: include weekday and recurrence pattern.
-- Reservation views: name by purpose, such as `Calendar`, `Pending Facility Approval`, `Upcoming Setup`.
-
-Community guidance on fifth-week schedule templates specifically warns that a template schedule identifies the weekday and should be named clearly ([Group Member Schedule Templates](https://community.rockrms.com/recipes/356)).
-
-### Security
-
-Scheduling and locations often expose sensitive operational data:
-
-- Kids room counts.
-- Volunteer assignments.
-- Internal staff schedules.
-- Facility usage.
-- Contact information.
-- Reservation notes and setup diagrams.
-- Calendar feeds.
-
-Before adding Lava or Dynamic Data blocks, confirm:
-
-- Page security.
-- Block security.
-- Lava command permissions.
-- Entity command access.
-- SQL command access.
-- External route access.
-- Whether output is cached.
-- Whether the block is on internal or external site.
-- Whether URLs include predictable IDs or GUIDs.
-
-A group viewer meeting details recipe explicitly reminds implementers to set security because links go to schedule and location settings pages ([Group Viewer Meeting Details Accordion](https://community.rockrms.com/recipes/500)).
-
-### Avoid Raw SQL Writes Unless Necessary
-
-Many community recipes use SQL. For agents, read-only SQL is valuable for diagnosis, but write SQL is high risk. Prefer:
-
-- Rock UI.
-- Core services.
-- Workflow actions.
-- Plugin APIs or documented workflows.
-- Lava entity commands only when safe and reviewed.
-- SQL writes only with a tested rollback plan, exact predicates, and version/schema confirmation.
-
-This is especially important for `GroupLocationSchedule`, schedule records, event occurrence schedules, and Room Management plugin linkage rows.
-
-### Cache And Time
-
-Schedule issues often look like logic errors but are really time or cache issues. The check-in schedule troubleshooting recipe recommends checking schedule configuration, server/Rock time, schedule active state, and keeping cache clearing as a low-cost tool ([Troubleshooting Check-in Schedule Problems](https://community.rockrms.com/recipes/280)).
-
-For time-sensitive issues, inspect:
-
-- Rock organization time zone.
-- Server time zone and clock.
-- SQL server time if separate.
-- Schedule effective start/end.
-- Check-in start offset.
-- Current schedule active state.
-- Browser/device time only if client-side countdowns are involved.
-- Calendar export time zone behavior.
-
-### Version Guardrails
-
-Before changing behavior, identify:
-
-- Rock version.
-- Legacy vs NextGen check-in.
-- Obsidian vs WebForms block.
-- Plugin version.
-- Mobile app version if mobile blocks are involved.
-- Whether the release note fix is in the installed build.
-
-Do not use v19.1 beta-only features in production guidance without calling out the version requirement.
-
-## 13. Developer, API, Lava, And Source-Code Landmarks
-
-### Check-In Source Landmarks
-
-Key implementation landmarks:
-
-- `CheckInGroupLocationSchedule.cs`: a POCO for group/location/schedule combination in check-in ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/CheckInGroupLocationSchedule.cs)).
-- `LocationAndScheduleBag.cs`: defines location/schedule pairs used to indicate valid locations for a group because a location might only be valid during one schedule ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs)).
-- `LoadLocations.cs`: adds active kiosk locations to groups during check-in state loading ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs)).
-- `LoadSchedules.cs`: loads schedules and checks schedule-required attendance records ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs)).
-- `FilterLocationsBySchedule.cs`: removes or marks schedules not selected by the person ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs)).
-- `FilterActiveLocations.cs`: removes or excludes inactive/unavailable locations ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs)).
-- `FilterLocationsByThreshold.cs`: removes or excludes rooms at soft threshold ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs)).
-- `FilterLocationsByLocationSelectionStrategy.cs`: auto-selects locations according to strategy after schedule filtering ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs)).
-- `LocationSelectionStrategy.cs`: enum values Ask, Balance, Fill In Order ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/CheckIn/LocationSelectionStrategy.cs)).
-
-### Schedule Builder View Models
-
-The check-in schedule builder and kiosk admin screens use bags with group path, area path, location name/path, group location encrypted ID, and schedule IDs ([GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs), [ScheduledLocationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs)). These are useful for understanding UI behavior: the UI is editing schedules attached to group locations, not editing schedules in isolation.
-
-### Group Scheduler View Models
-
-Group Scheduler view models expose selected and available locations and unique ordered location/schedule names ([GroupSchedulerLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs), [GroupSchedulerGroupLocationScheduleNamesBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs)). Use these when diagnosing Obsidian Group Scheduler behavior or API payload expectations.
-
-### Lava Commands
-
-Use `calendarevents` when rendering upcoming calendar events. It accepts calendar ID and optional max occurrences, date range, audience IDs, campus IDs, and start date; it returns `EventScheduledInstances` summaries ([Calendar Events](https://community.rockrms.com/lava/commands/calendar-events)). This is generally safer than trying to expand iCalendar recurrence manually in SQL for display.
-
-### Mobile Blocks And Commands
-
-Mobile event-related blocks include:
-
-- Calendar Event List, with calendar, detail page, templates, campus filtering, and past-event settings ([Calendar Event List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list)).
-- Calendar View, with campus context query string and calendar presentation merge fields ([Calendar View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-view)).
-- Event Item Occurrence List By Audience Lava, with audience, calendar, campuses, date range, max occurrences, event detail page, Lava template, and enabled Lava commands ([Event Item Occurrence List By Audience Lava](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava)).
-- Schedule Unavailability, for mobile group scheduling unavailable dates; mobile v4.0 and core v13.3 are noted in the docs ([Schedule Unavailability](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-unavailability)).
-- AddEventToCalendar utility command for adding one-time event details to the user’s default calendar; verify mobile version support and required parameters in the live docs ([Utility Commands](https://community.rockrms.com/developer/mobile-docs/essentials/commands/utility-commands)).
-
-## 14. Reporting, Analytics, And Model Map
-
-### Basic Relationship Queries
-
-For diagnosis, the simplest model-map query is:
-
-- Schedule -> GroupLocationSchedule -> GroupLocation -> Group and Location.
-
-The source dev SQL shows exactly that join ([View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql)). Use it read-only to answer:
-
-- Which groups use this schedule?
-- Which locations are enabled for this schedule?
-- Which schedules are attached to this group/location?
-- Is the expected link row missing?
-
-For check-in devices, inspect `DeviceLocation` joins to confirm which locations a device can see.
-
-### Schedule Status Board
-
-The Group Schedule Status Board is a staff-facing operational view. Community recipes add print and export buttons to the board ([Group Schedule Status Board Print Button](https://community.rockrms.com/recipes/201), [Export Schedule Status Board to Excel](https://community.rockrms.com/recipes/174)). These are useful patterns when staff need offline schedules, but first evaluate whether built-in export/reporting is now available in the installed version.
-
-### Scheduling Analytics
-
-RockU includes Group Scheduling Analytics as a dedicated topic ([Group Scheduling - Analytics](https://community.rockrms.com/rocku/groups/group-scheduling-analytics)). For agents, analytics questions usually require distinguishing:
-
-- Scheduled to attend.
-- Requested to attend.
-- Confirmed.
-- Declined.
-- Attended.
-- No-show.
-- Unavailable.
-- Unfilled capacity.
-- Assignment by group, role, location, schedule, and date.
-
-Do not collapse these into one “scheduled” count without verifying the fields used.
-
-### Data Views
-
-Release notes say v17.5 added a filter by Group Location Schedules to target more specific people based on their schedule for a group or sign-up project in a data view ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). That is important for agents writing communication or reporting recipes. Prefer native Data View filters where available over custom SQL embedded in Dynamic Data blocks.
-
-### Facilities Reporting
-
-Room Management community examples include daily PDF/email reports for facilities teams and approval dashboard blocks ([Room Management - Daily Email Reports for Facilities Team](https://community.rockrms.com/recipes/198), [Add 'My Reservation Approvals' To Dashboard](https://community.rockrms.com/recipes/178)). Use these patterns to design operational reports, but verify plugin schema and avoid exposing sensitive setup diagrams or contact details to broad audiences.
-
-## 15. Version And Release Caveats
-
-Important version-specific notes from the source pack:
-
-- **v19.1 beta, May 20, 2026**: Added Schedule Builder Field Type and Attribute for custom schedules; improved Group Scheduler orientation by keeping occurrence date and schedules fixed while scrolling and showing group name above each location ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v18.3 alpha, May 20, 2026**: Fixed Obsidian Location Detail parent/child self-reference issue; improved friendly schedule text for single-date schedules; fixed scheduled times list excluding schedules from archived/inactive groups with lingering `GroupLocationSchedule` rows ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v17.5**: Added Group Location Schedules data view filter; improved Next-Gen check-in schedule select wrapping; fixed EventScheduledInstance Lava command behavior in Calendar Item List and Calendar Item Occurrence List blocks after security changes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v17.2**: Fixed removal of a schedule from one group location deleting capacity settings for the same schedule in other group locations; improved group schedule ICS summaries to use group-location-schedule clarity ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v17.1**: Fixed legacy check-in schedule category exclusions and schedule effective end datetime for schedules crossing midnight ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v17.0**: Added copying enabled check-in locations from one schedule to another; updated room open/close logic to write to history ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v16.7**: Added Group Schedule Coordinator notifications when a person accepts, declines, or self-schedules for a group schedule occurrence ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v16.6**: Fixed group schedule notifications and reminders not honoring schedule exclusions ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v16.4**: Improved calendar export support for specific-date schedules in major calendar apps ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v16.0**: Fixed duplicate group schedule calendar feed entries; NextGen check-in docs also note clone schedules and grade/age matching behavior updates ([Rock Core Release Notes](https://www.rockrms.com/releasenotes), [Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42)).
-- **v15.2**: Updated SignUpFinder schedule filter display for schedules with multiple dates ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- **v14.0**: Check-In Manager Roster can be filtered by schedule and checkout security changed in check-in documentation ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
-
-Always verify the exact installed Rock version and whether the instance is using legacy or Obsidian/NextGen blocks. Release note timing in the source pack includes alpha/beta labels; production instances may not have those fixes yet.
-
-## 16. Implementation Playbooks
-
-### Playbook: New Service Time For Check-In
-
-1. Create or confirm the new service `Schedule`.
-2. Put it in the expected service times category.
-3. Configure check-in start offset and active/effective dates.
-4. Use Clone Schedule from an existing similar schedule if available.
-5. Review all copied group/location rows.
-6. Add or remove rooms intentionally by campus and age/grade area.
-7. Confirm overflow locations if using NextGen overflow.
-8. Confirm location selection strategy.
-9. Test as a family with expected ages/grades.
-10. Test device context at each campus.
-11. Verify Check-In Manager schedule filter.
-12. Verify labels and room counts.
-
-Citations: clone schedule and schedule builder guidance are in NextGen check-in docs ([Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42/350)); source code shows how schedules and locations are loaded and filtered ([LoadLocations.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs), [LoadSchedules.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs)).
-
-### Playbook: New Serving Team Scheduling Setup
-
-1. Confirm or create group type.
-2. Enable scheduling.
-3. Enable location schedules.
-4. Add allowed location type, often Meeting Location or Position.
-5. Create or select locations/positions.
-6. Create or select schedules.
-7. Create group.
-8. Add group location and attach schedules.
-9. Set capacities.
-10. Add members in roles.
-11. Confirm role eligibility for check-in or scheduling if needed.
-12. Configure preferences/unavailability pages if volunteers self-manage availability.
-13. Run a small scheduling test.
-
-Citations: group scheduling setup patterns appear in official group docs and community implementation examples ([Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296), [Pastor of the Day Scheduling](https://community.rockrms.com/recipes/414)).
-
-### Playbook: Room Management Reservation Calendar Sync
-
-1. Verify Room Management plugin is installed and identify version/vendor namespace.
-2. Confirm whether native event linkage exists.
-3. Inspect reservation, schedule, locations, contact, and approval state.
-4. Inspect `ReservationLinkage` or current equivalent.
-5. Decide the system of record for schedule, location, and contact.
-6. Use workflow or UI actions to sync only selected fields.
-7. Add a detail panel showing missing or mismatched linkage.
-8. Add data integrity reports for orphaned or stale links.
-9. Test create, update schedule, update room, update contact, cancel, and delete cases.
-10. Restrict permissions to facilities/event admins.
-
-Citations: newer recipes recommend native linkage and `ReservationLinkage` ([Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444), [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20)).
-
-### Playbook: Internal Staff Calendar
-
-1. Identify data sources: event items, room reservations, PTO, holidays, staff birthdays, LMS, custom workflows.
-2. Prefer native calendar/event blocks where they meet requirements.
-3. For custom internal views, use Lava commands or persisted datasets to precompute expensive sources.
-4. Show approval status and calendars only to staff who need it.
-5. Add campus filters if relevant.
-6. Make time zone and recurrence behavior explicit.
-7. Test mobile and desktop.
-8. Document which data sources are authoritative.
-
-Citations: staff calendar and Google holiday examples show common integration patterns ([Staff Calendar enhancement](https://community.rockrms.com/recipes/484), [US Holidays Web Request](https://community.rockrms.com/recipes/499)).
-
-## 17. Troubleshooting Decision Tree
-
-### A Schedule Is Missing From Check-In
-
-1. Is the schedule active?
-2. Is the current time inside the effective date/time and check-in offset window?
-3. Is the schedule in the expected category?
-4. Does the check-in configuration’s schedule builder show the schedule?
-5. Is the group active and not archived?
-6. Does the group location exist?
-7. Does the `GroupLocationSchedule` row exist for the exact group/location/schedule?
-8. Is the schedule excluded directly or by category?
-9. Is the device scoped to the needed location?
-10. Is the check-in type/configuration correct?
-11. Is Rock/server time correct?
-12. Does the installed version include known fixes for category exclusions or archived group schedule display?
-
-Use the community troubleshooting recipe for practical time/configuration checks, then verify against current Rock version ([Troubleshooting Check-in Schedule Problems](https://community.rockrms.com/recipes/280), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### A Room Is Missing From Check-In
-
-1. Is `Location.IsActive` true?
-2. Is the room closed in Check-In Manager?
-3. Is the room under the expected campus/building parent?
-4. Is the location assigned to the group?
-5. Is the group/location enabled for the schedule?
-6. Is the device allowed to see that location?
-7. Is the room full according to soft threshold?
-8. Did location selection strategy auto-select a different room?
-9. Does the person meet age, grade, ability, requirement, and group membership rules?
-10. Is the room an overflow location that has not been scheduled?
-11. Is a workflow filter removing or excluding it?
-
-Source actions to inspect: active location filter, threshold filter, schedule filter, and location selection strategy filter ([FilterActiveLocations.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs), [FilterLocationsByThreshold.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs), [FilterLocationsBySchedule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs), [FilterLocationsByLocationSelectionStrategy.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs)).
-
-### Volunteer Was Scheduled But Cannot Check In
-
-1. Confirm today’s attendance occurrence exists for the group/location/schedule.
-2. Confirm attendance or assignment has the person as scheduled/requested.
-3. Confirm the group’s Attendance Record Required For Check-in setting.
-4. Confirm the schedule attached to the group location matches the attendance occurrence schedule.
-5. Confirm the person’s group membership and role are active.
-6. Confirm group role can check in if the rule requires membership.
-7. Confirm check-in configuration includes that group type.
-8. Confirm the kiosk schedule and location match the assignment.
-
-The `LoadSchedules` action checks scheduled/requested attendance for today with group, location, and schedule IDs populated when a group requires schedule attendance ([LoadSchedules.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs)).
-
-### Group Scheduler Capacity Looks Wrong
-
-1. Inspect `GroupLocationScheduleConfig` rows for the group location and schedule.
-2. Inspect minimum, desired, maximum capacity fields.
-3. Inspect group member assignments for matching group member, location, and schedule.
-4. Inspect duplicate or stale assignments.
-5. Confirm the installed version includes the v17.2 fix for deleting a schedule from one group location removing capacity settings in other group locations.
-6. If using Sign-Ups, verify Sign-Up model relationships in the live instance.
-
-Community Sign-Ups SQL shows the capacity and participant-count pattern, but verify before reuse ([Reference for Sign-Ups](https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots)); release notes document the capacity deletion fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Calendar Event Does Not Appear
-
-1. Confirm event item exists.
-2. Confirm event item approval status.
-3. Confirm event item occurrence exists.
-4. Confirm occurrence schedule is active and in range.
-5. Confirm calendar membership.
-6. Confirm audience filter.
-7. Confirm campus filter or campus context.
-8. Confirm date range and max occurrences.
-9. Confirm Lava command security if using Lava.
-10. Confirm version-specific EventScheduledInstance or calendar export fixes.
-
-Use `calendarevents` or mobile block configuration before raw recurrence SQL ([Calendar Events](https://community.rockrms.com/lava/commands/calendar-events), [Calendar Event List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list)).
-
-### Reservation And Calendar Are Out Of Sync
-
-1. Verify plugin and schema.
-2. Confirm reservation approval state.
-3. Confirm reservation schedule and locations.
-4. Confirm linked event item occurrence.
-5. Inspect `ReservationLinkage` or current linkage object.
-6. Compare schedule, location, contact, and note fields.
-7. Identify the authoritative side.
-8. Run or design a targeted sync workflow.
-9. Add data integrity report for missing or stale linkages.
-10. Do not use old recipes that store occurrence ID directly unless the live plugin still uses that model.
-
-Newer recipes specifically direct implementers toward native linkage and `ReservationLinkage` ([Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444), [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20)).
-
-## 18. Agent Task Recipes
+Sources: [Configure Locations](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations) and [Maintain Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations).
 
 ### Recipe: Prove Why A Check-In Room Is Not Available
 
-Collect:
+**Outcome:** The intended group/location pairs are enabled for the intended check-in times.
 
-- Check-in configuration name and ID.
-- Group ID and path.
-- Location ID and path.
-- Schedule ID and name.
-- Device ID and device locations.
-- Person ID and eligibility rule.
-- Current Rock time.
-- Relevant workflow filter states.
+1. Confirm the Named Locations, check-in groups and schedules already exist.
+2. Open the applicable check-in configuration.
+3. Open its Schedule Builder.
+4. Filter to the target campus, building, area or schedule when helpful.
+5. For each group/location row, select the schedule columns during which it should accept check-in.
+6. Save the grid.
+7. Reopen the grid and verify the selections.
+8. Test the applicable kiosk scope and runtime open/closed state.
 
-Then answer:
+**Inspect:**
 
-- Does the group/location/schedule link exist?
-- Is the location active and open?
-- Is the schedule active right now?
-- Did a workflow filter exclude it?
-- Is the person eligible?
-- Is the device scoped correctly?
-- Is there a version caveat?
+- Exact check-in configuration.
+- Group path and location path.
+- Schedule name and time.
+- Kiosk location scope.
+- Current room status and thresholds.
 
-### Recipe: Audit Group Location Schedules
+**Do not assume:**
 
-Use a read-only join equivalent to the source dev view:
+- A location enabled for one schedule is enabled for another.
+- One check-in configuration’s relationships apply to another configuration.
+- A scheduled room is currently open.
 
-- `Schedule`
-- `GroupLocationSchedule`
-- `GroupLocation`
-- `Group`
-- `Location`
+**Stop when:**
 
-Report:
+- The same schedule name maps to ambiguous times.
+- The location or group path is not the intended one.
 
-- Group name and ID.
-- Location name and ID.
-- Schedule name and ID.
-- Active/archive status.
-- Parent location path.
-- Capacity config if applicable.
-- Any rows attached to inactive or archived groups.
+Source: [Use the Schedule Builder](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder).
 
-The source query shape is documented in `View_GroupLocationSchedules.sql` ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql)).
+### Recipe: Clone A Check-In Schedule For A Special Event
 
-### Recipe: Verify A New Service Time
+**Outcome:** A destination schedule starts with the source schedule’s enabled locations.
 
-Check:
+1. Create or identify the destination schedule.
+2. Open the applicable check-in configuration’s Schedule view.
+3. Choose **Clone Schedule**.
+4. Select the existing source schedule.
+5. Select the destination schedule.
+6. Complete the clone.
+7. Review every enabled location in the destination.
+8. Remove or add only the differences required for the special event.
+9. Test the destination schedule through the intended kiosk configuration.
 
-- Schedule record and category.
-- Effective dates.
-- Check-in start offset.
-- Group/location schedule rows copied or created.
-- Overflow location rows.
-- Device location scope.
-- Check-In Manager schedule filter.
-- Test family result.
-- Attendance occurrence creation after check-in.
+**Do not assume:**
 
-### Recipe: Build A Facilities Daily Report
+- The special event uses every regular-service room.
+- The clone copies unrelated event, reservation or calendar records.
+- A destination schedule is safe merely because the operation completed.
 
-Use official/plugin reporting first. If custom:
+**Stop when:**
 
-- Query approved and pending reservations for today and tomorrow.
-- Include room, time, setup notes, setup diagram indicator, approval state, requester/contact, and resources.
-- Highlight unapproved rows.
-- Keep report internal.
-- Avoid unbounded queries.
-- Confirm plugin schema and file permissions.
+- The source and destination schedule identities are uncertain.
+- Custom cleanup logic targets records only by `ScheduleId`.
 
-Community precedent exists for daily facility reports, but requires plugin and possibly PDF Toolkit ([Room Management - Daily Email Reports for Facilities Team](https://community.rockrms.com/recipes/198)).
+Source: [Clone a Schedule](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule).
 
-### Recipe: Build A Calendar Feed
+### Recipe: Configure A Group Type For Volunteer Scheduling
 
-Prefer native iCalendar feed if available. If custom:
+**Outcome:** Groups of the selected type can schedule volunteers with defined confirmation and reminder behavior.
 
-- Choose source: event calendar, room reservations, group schedule, or custom workflow data.
-- Limit date range.
-- Validate iCal output.
-- Set correct content type.
-- Avoid exposing private notes or contact data.
-- Test Outlook, Google Calendar, and Apple Calendar.
-- Decide whether updates overwrite user edits.
-- Use stable UID values.
-- Document ownership and sharing.
+1. Confirm the required Named Locations and one-schedule-per-time definitions.
+2. Open the target Group Type’s scheduling settings.
+3. Enable scheduling.
+4. Select the confirmation communication.
+5. Select the reminder communication.
+6. Set confirmation and reminder offsets.
+7. Choose **Ask** or **Auto Accept** deliberately.
+8. Configure decline reasons, cancellation workflow and coordinator notifications as required.
+9. Confirm SMS prerequisites if either communication may use SMS.
+10. Test with a non-production assignment before broad use.
 
-Community examples include reservation iCal by campus, room-specific subscriptions, and generic Lava webhook `.ics` generation ([Room Management iCal Feed by Campus](https://community.rockrms.com/recipes/409), [Room Management iCal Subscriptions](https://community.rockrms.com/recipes/231), [Lava Webhook to Create an iCal File](https://community.rockrms.com/recipes/540)).
+**Inspect:**
 
-### Recipe: Diagnose Schedule API Issues
+- Existing pending assignments before changing confirmation logic.
+- Group member and profile communication preferences.
+- System Communication channel configuration.
+- Schedule and location accuracy.
 
-If a browser call to schedules fails but Postman works, inspect:
+**Do not assume:**
 
-- HTTP method.
-- Authentication and authorization.
-- CORS/browser constraints.
-- Whether the payload attempts to set computed/read-only properties.
-- Rock version.
-- API endpoint shape.
-- Browser console and server exception logs.
+- Enabling scheduling creates assignments.
+- Auto Accept safely changes the state or actions of already-pending communications.
+- Selecting an SMS communication guarantees delivery.
 
-The provided Q&A mentions a v12.8 browser exception involving `FriendlyScheduleText` lacking a setter, but it has no answer in the source pack, so do not treat it as a solved known issue ([REST API for Schedules](https://community.rockrms.com/ask/developing/2710)).
+**Stop when:**
 
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
+- Existing pending assignments could receive incompatible confirmation actions.
+- The organization has not chosen its confirmation policy.
 
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+Source: [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule).
 
-- Approved claims routed to this concept: `9`
-- Full generated claim table: `approved-claims.md`
+### Recipe: Prepare Volunteer Availability For Auto-Schedule
 
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| community-reviewed | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
-| community-reviewed | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
-| community-reviewed | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
-| community-reviewed | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+**Outcome:** A volunteer has usable availability, reminder and assignment preferences.
 
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+1. Open the Schedule Toolbox for the correct person.
+2. Record unavailable date ranges, scope and optional notes.
+3. Select the applicable schedule template.
+4. Set reminder preference.
+5. Select preferred schedules and locations.
+6. Confirm required Named Schedules are marked **Show Publicly** if they should appear.
+7. Review the Group Member Detail record where administrative confirmation is needed.
+8. Run Auto-Schedule only after preferences for the relevant roster have been reviewed.
+9. Review generated assignments before sending confirmations.
 
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
+**Do not assume:**
 
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+- A preference guarantees assignment.
+- No location preference means the person cannot be scheduled.
+- A schedule template applies correctly to every weekday.
 
-- Approved media records routed to this concept: `10`
-- Full generated media table: `approved-media.md`
+**Stop when:**
 
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) | approved_for_public_distillation | 4 | media-insight:1996763c554953f9 |
-| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://www.youtube.com/watch?v=edanHiYSDIM) | approved_for_public_distillation | 4 | media-insight:e966cbaf8af14d10 |
-| [Campuses Transcript Insight](https://community.rockrms.com/rocku/core-concepts/campuses) | approved_for_public_distillation | 2 | media-insight:3412bc01ca2880c8 |
-| [Group Location Transcript Insight](https://community.rockrms.com/rocku/groups/group-location) | approved_for_public_distillation | 1 | media-insight:bcba31d4beb5a53b |
-| [Group Scheduler and Status Board Transcript Insight](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board) | approved_for_public_distillation | 3 | media-insight:f0ede8a57e3ed4ac |
-| [Locations Transcript Insight](https://community.rockrms.com/rocku/check-in/locations) | approved_for_public_distillation | 1 | media-insight:61af1407e6153473 |
-| [Person Preferences and Auto Schedule Transcript Insight](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule) | approved_for_public_distillation | 2 | media-insight:97d2378d55d23ad1 |
-| [Product Grooming & the Giving Landscape \| Ep 205 Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape) | approved_for_public_distillation | 3 | media-insight:457020f0b7d8dd97 |
-| More |  | 2 additional reviewed media records are tracked in `approved-media.md`. |  |
+- The template’s weekday or recurrence meaning is ambiguous.
+- A required schedule is missing from the public preference list.
 
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
+Source: [Set Schedule Availability](https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox).
 
-## 19. Source Map And Dependency Notes
+### Recipe: Publish And Test An Event Calendar Feed
 
-Primary official and training sources:
+**Outcome:** The intended Rock calendar is available through a bounded iCalendar feed.
 
-- Check-in locations, schedules, and NextGen schedule builder behavior: [Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266), [Checking-out Check-in - NextGen](https://community.rockrms.com/documentation/bookcontent/42), [Check-In RockU](https://community.rockrms.com/rocku/check-in).
-- Group location, scheduling, status board, preferences, analytics, RSVP, and group type settings: [Rock Your Groups](https://community.rockrms.com/documentation/bookcontent/7/296), [Groups RockU](https://community.rockrms.com/rocku/groups).
-- Event calendars and registration calendar concepts: [Calendar Overview](https://community.rockrms.com/rocku/event-registration/calendar-overview).
-- Release caveats and version behavior: [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+1. Confirm the event, occurrences, active state, calendars and approval state.
+2. Open the intended Event Calendar.
+3. use **Export Calendar Feed** to obtain the URL.
+4. Review its calendar, campus, audience and date parameters.
+5. Confirm the requesting user can access any non-public calendar included.
+6. Subscribe from a test calendar client.
+7. Compare representative occurrences, dates and descriptions with Rock.
+8. Retest after changing one test occurrence.
+9. Document the feed’s audience and ownership.
 
-Primary developer/source landmarks:
+**Do not assume:**
 
-- Check-in group/location/schedule model: [CheckInGroupLocationSchedule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/CheckInGroupLocationSchedule.cs).
-- Check-in location/schedule pair: [LocationAndScheduleBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs).
-- Check-in schedule builder payloads: [GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs), [ScheduledLocationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs).
-- Check-in workflow filters: [LoadLocations.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs), [LoadSchedules.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs), [FilterLocationsBySchedule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs), [FilterLocationsByThreshold.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs), [FilterLocationsByLocationSelectionStrategy.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs).
-- Group/location/schedule SQL model examples: [View_GroupLocationSchedules.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql), [View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql).
-- Lava calendar command: [Calendar Events](https://community.rockrms.com/lava/commands/calendar-events).
-- Mobile calendar and schedule-related blocks: [Calendar Event List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list), [Calendar View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-view), [Event Item Occurrence List By Audience Lava](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava), [Schedule Unavailability](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-unavailability).
+- A calendar feed bypasses Rock security.
+- A volunteer Schedule Toolbox link is the same as an Event Calendar feed.
+- A reservation automatically appears on the event calendar.
 
-Community examples used as implementation patterns:
+**Stop when:**
 
-- Reservation-calendar sync and linkage: [Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444), [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20), [Room Reservation to Calendar tools](https://community.rockrms.com/recipes/111/room-reservation-to-calendar-tools).
-- Reservation calendar/reporting/iCal: [Room Management Calendar View](https://community.rockrms.com/recipes/112), [Room Management iCal Subscriptions](https://community.rockrms.com/recipes/231), [Room Management iCal Feed by Campus](https://community.rockrms.com/recipes/409), [Room Management - Daily Email Reports for Facilities Team](https://community.rockrms.com/recipes/198).
-- Group schedule utilities: [Group Viewer Meeting Details Accordion](https://community.rockrms.com/recipes/500), [Group Member Schedule Templates](https://community.rockrms.com/recipes/356), [Schedule Cancellation Workflow](https://community.rockrms.com/recipes/481), [View Serving Schedule on External Page](https://community.rockrms.com/recipes/459), [Pastor of the Day Scheduling](https://community.rockrms.com/recipes/414).
-- Check-in and threshold troubleshooting: [Troubleshooting Check-in Schedule Problems](https://community.rockrms.com/recipes/280), [More User-Friendly Room Thresholds](https://community.rockrms.com/recipes/213).
-- Calendar/Lava integrations: [Content Countdown Shortcode](https://community.rockrms.com/recipes/247), [Countdown to next Online Service](https://community.rockrms.com/recipes/165), [Lava Webhook to Create an iCal File](https://community.rockrms.com/recipes/540), [Staff Calendar enhancement](https://community.rockrms.com/recipes/484), [US Holidays Web Request](https://community.rockrms.com/recipes/499).
+- The feed exposes a broader calendar, campus or audience than intended.
+- The authoritative event occurrence cannot be identified.
 
-Dependency notes:
+Sources: [Add an Event](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-an-event) and [Configure the iCalendar Feed](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed).
 
-- The check-in topic depends heavily on groups because areas, groups, group types, group locations, requirements, and group membership determine availability.
-- The groups topic depends on locations and schedules for attendance, serving assignments, RSVP, and auto scheduling.
-- The events topic depends on schedules for occurrences and on campuses/audiences/calendars for display filtering.
-- The CMS topic depends on schedules for conditional content, countdowns, and calendar rendering.
-- Reservations depend on an installed Room Management plugin in the provided source pack; verify plugin presence, version, schema, and linkage model before implementing or troubleshooting.
+### Recipe: Evaluate Reservation-To-Calendar Synchronization
+
+**Outcome:** The organization has a safe compatibility and ownership decision before implementing synchronization.
+
+1. Confirm whether the Room Management plugin is installed.
+2. Record its exact version and linkage schema.
+3. Identify the community recipe that matches that generation.
+4. Determine whether reservations or calendar occurrences are authoritative for schedule, location and contact fields.
+5. Inspect existing reservation linkages and mismatches read-only.
+6. Review all proposed Lava, workflow actions, SQL, routes and permissions.
+7. Test in a non-production environment with reversible sample records.
+8. Verify create, update, missing-link and mismatch cases.
+9. Approve a production workflow only after security, performance and rollback review.
+
+**Do not assume:**
+
+- Rock core synchronizes reservations and calendars.
+- An older custom attribute and a newer linkage table are interchangeable.
+- A recipe’s embedded IDs, paths or table names apply locally.
+- A mismatch tells the agent which record should win.
+
+**Stop when:**
+
+- Plugin or schema compatibility is unknown.
+- The authoritative system has not been chosen.
+- The proposal requires unreviewed write SQL.
+
+Sources: [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20) and [draft Room Reservation to Calendar 2.0](https://community.rockrms.com/recipes/444).
+
+### Recipe: Audit A V19 Date-Based Schedule Query
+
+**Outcome:** A date-based report uses Rock’s v19 materialized schedule occurrences.
+
+1. Confirm the installed version is v19.
+2. Identify the recurring Schedule records in scope.
+3. Inspect their corresponding `ScheduleDate` rows.
+4. Compare representative generated dates with the intended recurrence.
+5. Update the report design to filter and join through generated dates.
+6. Test inclusions, exclusions and date boundaries.
+7. Stop rather than adding a parallel recurrence parser when generated dates are unexpectedly absent.
+
+**Do not assume:**
+
+- Pre-v19 systems have the same materialization.
+- The supplied evidence defines the generation horizon or refresh mechanism.
+- One organization’s observed row count is universal.
+
+Source: approved claim `claim:4c4098a035a5ca256bfe`, [official Rock Cast at 06:26](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s).
+
+## Known Gaps And Live Verification
+
+The following questions remain installation-dependent and were not answered by live evidence:
+
+- The installed Rock version, patch level and block generation.
+- The actual Named Location hierarchy and whether parent relationships are valid.
+- Which check-in configurations, groups, locations, schedules and kiosks are linked.
+- Current room open/closed state, attendance counts and threshold behavior.
+- Local cache behavior after creating a Named Location.
+- The exact generation horizon and refresh behavior for v19 `ScheduleDate` rows.
+- Group Type scheduling settings, pending assignments and communication preferences.
+- Email, SMS and push-provider configuration and actual delivery.
+- Calendar security, feed subscriptions and external-client behavior.
+- Whether Room Management or any other reservation plugin is installed.
+- The plugin version, linkage schema and applicability of community recipes.
+- The organization’s source-of-truth policy when a reservation and event occurrence disagree.
+
+A live review should be bounded and read-only until the exact entity, version and configuration are known. Report observed state separately from inferred behavior. Do not publish raw database results, organization-specific identifiers or private scheduling data.
+
+## Source Map
+
+### Approved Answer-Bearing Claims
+
+- `claim:4c4098a035a5ca256bfe` — v19 recurring iCalendar occurrences are materialized into `ScheduleDate` rows. [Official video evidence](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s)
+- `claim:9ad17cb08b8955d0d3ec` — v19 Check-In Manager uses real-time roster updates; lagging updates require browser, block and configuration checks. [Official video evidence](https://www.youtube.com/watch?v=edanHiYSDIM&t=268s)
+- `claim:9c8ce297c9c4a4cda982` — Outreach Toolbox assignment days, reminder preferences and reminder-job timing; version scope remains unprocessed. [Official video evidence](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s)
+
+### Official Documentation
+
+- [Intro to Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations) — descriptors, positional locations and Named Locations.
+- [Maintain Locations](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations) — context-specific fields, Location Types, locking, printers, beacons and thresholds.
+- [Location Editor](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor) — locating and correcting ungeocoded records.
+- [Configure Locations](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations) — campus/building/room setup.
+- [Configure Locations for a Kiosk](https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk) — group/location/schedule relationships, runtime state and thresholds.
+- [Use the Schedule Builder](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder) — schedule matrix workflow.
+- [Use Schedule Locations](https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations) — Device Manager scheduling controls.
+- [Clone a Schedule](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule) — copying enabled locations between schedules.
+- [Intro to Group Schedules](https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules) — schedule modes and exclusions.
+- [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) — prerequisites, Group Type settings and communications.
+- [Set Schedule Availability](https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox) — unavailability, preferences, additional times and Immediate Needs.
+- [View your Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox) — assignment state and calendar export.
+- [Add an Event](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-an-event) — event administration and approval.
+- [Configure the iCalendar Feed](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed) — feed security, URL and parameters.
+- [Explore Different Event Blocks](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks) — calendar presentation controls.
+
+### Release Notes And Source Code
+
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes) — versioned location, check-in and ICS fixes.
+- [CheckInGroupLocationSchedule.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/CheckIn/CheckInGroupLocationSchedule.cs) — implementation model for a check-in group/location/schedule combination.
+- [GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs) — schedule-builder relationship data at the supplied immutable commit.
+- [CheckinScheduledLocations.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs) — legacy scheduled-location filtering at that commit.
+- [rapidAttendanceEntryLocationsBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts) — campus-filtered location behavior at that commit.
+
+### Community Examples
+
+- [Room Reservation to Calendar Tool 2.0](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20) — plugin-dependent reservation linkage and discrepancy pattern.
+- [Room Reservation to Calendar 2.0 draft](https://community.rockrms.com/recipes/444) — unpublished linkage-table update to an older pattern.
+- [Room Reservation to Calendar tools](https://community.rockrms.com/recipes/111/room-reservation-to-calendar-tools) — older attribute and SQL-based pattern.
+- [Room Management Calendar View](https://community.rockrms.com/recipes/112) — legacy plugin calendar-view example.
+- [Group Viewer Meeting Details](https://community.rockrms.com/recipes/500) — community example of exposing linked locations and schedules to authorized staff; not core behavior.
+- [Group Member Schedule Templates](https://community.rockrms.com/recipes/356) — community approaches to fifth-week and Auto-Schedule templates; not official scheduling semantics.

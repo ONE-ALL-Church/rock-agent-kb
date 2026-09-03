@@ -44,15 +44,15 @@ Find whether the failure is configuration, device routing, printer hardware, lab
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs
-- https://community.rockrms.com/documentation/bookcontent/10/266
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/LabelAttendanceDetail.cs
-- https://community.rockrms.com/ask/using/2804
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs
-- https://community.rockrms.com/rocku/check-in
-- https://community.rockrms.com/recipes/125
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/ILabelDataHasAttendance.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
+- https://community.rockrms.com/documentation/church-management/check-in/labels/label-types
+- https://community.rockrms.com/documentation/church-management/check-in/printing/reprint-a-label
+- https://community.rockrms.com/documentation/church-management/check-in/labels/use-the-label-designer
+- https://community.rockrms.com/documentation/church-management/check-in/labels/intro-to-labels
+- https://community.rockrms.com/documentation/church-management/check-in/labels/link-labels-to-check-in
 - https://community.rockrms.com/rocku/check-in/next-gen-labels
-- https://community.rockrms.com/rocku/check-in/labels-legacy
+- https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Manager/PersonRight/PersonRightPrintNextGenLabelsRequestBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/Manager/PersonRight/personRightPrintNextGenLabelsRequestBag.d.ts
+- https://community.rockrms.com/rocku/check-in/using-mobile-check-in
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/PrintLabelRequest.cs

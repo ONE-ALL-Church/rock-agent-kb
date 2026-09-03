@@ -13,63 +13,37 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `5-core-configuration-and-data-model-data-model-orientation`: Data Model Orientation
-- `6-primary-entities-and-relationships-registration-template`: Registration Template
-- `8-registration-instances-deep-dive-capacity-and-spots`: Capacity And Spots
-- `10-related-rock-areas-events-finance-workflows-communications-groups-finance`: Finance
-- `10-related-rock-areas-events-finance-workflows-communications-groups-workflows`: Workflows
-- `11-administration-and-operational-guardrails-naming`: Naming
-- `11-administration-and-operational-guardrails-notes-and-auditability`: Notes And Auditability
-- `12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat`: API Linkage Caveat
-- `13-reporting-analytics-and-model-map-reporting-entity-choice`: Reporting Entity Choice
-- `13-reporting-analytics-and-model-map-model-map-verification`: Model Map Verification
-- `13-reporting-analytics-and-model-map-analytics-checks`: Analytics Checks
-- `17-agent-task-recipes-recipe-build-a-registrant-packet-export`: Recipe: Build A Registrant Packet Export
-- `17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail`: Recipe: Add Staff Notes To Registration Detail
-- `17-agent-task-recipes-recipe-investigate-api-registration-url-issues`: Recipe: Investigate API Registration URL Issues
+- `family-preregistration-and-follow-up`: Family Preregistration And Follow-Up
+- `agent-task-recipes-recipe-audit-an-event-registration-dashboard`: Recipe: Audit an event-registration dashboard
+- `source-map-approved-community-guidance-and-examples`: Approved community guidance and examples
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-event-registration-mental-model`: 3. Event Registration Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-configuration-surfaces`: Configuration Surfaces
-- `5-core-configuration-and-data-model-data-model-orientation`: Data Model Orientation
-- `6-primary-entities-and-relationships-registration`: Registration
-- `6-primary-entities-and-relationships-registrationregistrant`: RegistrationRegistrant
-- `6-primary-entities-and-relationships-event-item-occurrence-and-linkage`: Event Item Occurrence And Linkage
-- `6-primary-entities-and-relationships-attributes-and-form-fields`: Attributes And Form Fields
-- `7-common-event-registration-workflows-paid-registration`: Paid Registration
-- `7-common-event-registration-workflows-wait-list-registration`: Wait List Registration
-- `7-common-event-registration-workflows-group-placement`: Group Placement
-- `8-registration-instances-deep-dive-instance-identity`: Instance Identity
-- `8-registration-instances-deep-dive-active-and-date-windows`: Active And Date Windows
-- `8-registration-instances-deep-dive-url-slug-and-public-linkage`: URL Slug And Public Linkage
-- `8-registration-instances-deep-dive-attributes`: Attributes
-- `9-payments-deep-dive-partial-payments`: Partial Payments
-- `9-payments-deep-dive-payment-plans`: Payment Plans
-- `9-payments-deep-dive-payment-gateways-and-saved-accounts`: Payment Gateways And Saved Accounts
-- `11-administration-and-operational-guardrails-naming`: Naming
-- `11-administration-and-operational-guardrails-change-management`: Change Management
-- `11-administration-and-operational-guardrails-operational-health-checks`: Operational Health Checks
-- `12-developer-api-lava-and-source-code-landmarks-public-mobile-event-occurrence-rendering`: Public/Mobile Event Occurrence Rendering
-- `12-developer-api-lava-and-source-code-landmarks-api-linkage-caveat`: API Linkage Caveat
-- `13-reporting-analytics-and-model-map-model-map-verification`: Model Map Verification
-- `14-version-and-release-caveats-rock-18-3`: Rock 18.3
-- `14-version-and-release-caveats-v16-10-v17-0-spotlight`: v16.10 / v17.0 Spotlight
-- `15-implementation-playbooks-playbook-a-create-a-standard-paid-event-registration`: Playbook A: Create A Standard Paid Event Registration
-- `15-implementation-playbooks-playbook-b-add-eligibility-rules-in-v19-1`: Playbook B: Add Eligibility Rules In v19.1+
-- `15-implementation-playbooks-playbook-c-prevent-duplicate-registrants-in-v19-1`: Playbook C: Prevent Duplicate Registrants In v19.1+
-- `15-implementation-playbooks-playbook-d-configure-payment-reminders`: Playbook D: Configure Payment Reminders
-- `15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button`: Playbook E: Diagnose A Missing Public Registration Button
-- `16-troubleshooting-decision-tree-public-page-says-registration-is-closed`: Public page says registration is closed
-- `17-agent-task-recipes-recipe-verify-a-public-registration-url`: Recipe: Verify A Public Registration URL
-- `17-agent-task-recipes-recipe-audit-payment-risk`: Recipe: Audit Payment Risk
-- `17-agent-task-recipes-recipe-audit-discount-codes`: Recipe: Audit Discount Codes
-- `17-agent-task-recipes-recipe-audit-wait-list`: Recipe: Audit Wait List
-- `17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail`: Recipe: Add Staff Notes To Registration Detail
+- `agent-summary`: Agent Summary
+- `registration-instances-put-occurrence-specific-settings-on-the-instance`: Put occurrence-specific settings on the instance
+- `forms-identity-eligibility-and-communications-test-combined-eligibility`: Test combined eligibility
+- `forms-identity-eligibility-and-communications-verify-communications-as-part-of-the-lifecycle`: Verify communications as part of the lifecycle
+- `payments-configure-the-finance-path-deliberately`: Configure the finance path deliberately
+- `payments-match-externally-entered-transactions`: Match externally entered transactions
+- `event-calendar-link-the-occurrence-registration-and-group`: Link the occurrence, registration, and group
+- `family-preregistration-and-follow-up`: Family Preregistration And Follow-Up
+- `reporting-and-reconciliation`: Reporting And Reconciliation
+- `permissions-and-operational-control`: Permissions And Operational Control
+- `troubleshooting-decision-tree-the-public-event-has-no-register-button`: The public event has no Register button
+- `troubleshooting-decision-tree-a-representative-person-is-unexpectedly-ineligible`: A representative person is unexpectedly ineligible
+- `troubleshooting-decision-tree-a-duplicate-registration-warning-exposes-sensitive-participation`: A duplicate-registration warning exposes sensitive participation
+- `troubleshooting-decision-tree-a-person-moved-from-the-wait-list-is-missing-payment-or-form-data`: A person moved from the wait list is missing payment or form data
+- `troubleshooting-decision-tree-a-registration-balance-no-longer-matches-its-payment-plan`: A registration balance no longer matches its payment plan
+- `troubleshooting-decision-tree-a-batch-transaction-is-not-attached-to-the-registration`: A batch transaction is not attached to the registration
+- `troubleshooting-decision-tree-registrants-are-not-entering-the-expected-group`: Registrants are not entering the expected group
+- `troubleshooting-decision-tree-dashboard-totals-disagree`: Dashboard totals disagree
+- `troubleshooting-decision-tree-a-signature-document-is-missing-or-belongs-to-the-wrong-registration`: A signature document is missing or belongs to the wrong registration
+- `agent-task-recipes-recipe-create-a-reusable-registration-and-one-event-instance`: Recipe: Create a reusable registration and one event instance
+- `agent-task-recipes-recipe-validate-a-paid-registration-before-launch`: Recipe: Validate a paid registration before launch
+- `agent-task-recipes-recipe-promote-a-wait-listed-person-to-full-registration`: Recipe: Promote a wait-listed person to full registration
+- `agent-task-recipes-recipe-audit-an-event-registration-dashboard`: Recipe: Audit an event-registration dashboard
+- `agent-task-recipes-recipe-launch-family-preregistration-with-follow-up`: Recipe: Launch family preregistration with follow-up
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

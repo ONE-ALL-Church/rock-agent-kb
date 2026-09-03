@@ -7,202 +7,248 @@
         "Block",
         "Attribute"
       ],
-      "guide_section_id": "21-troubleshooting-decision-tree-the-button-does-nothing",
-      "id": "the-button-does-nothing",
+      "guide_section_id": "troubleshooting-decision-tree-an-htmx-action-does-nothing-or-updates-the-wrong-region",
+      "id": "an-htmx-action-does-nothing-or-updates-the-wrong-region",
       "inspect": [
         "Page",
         "Block",
         "Attribute"
       ],
       "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block",
         "https://community.rockrms.com/developer/helix/strategies/tips"
       ],
       "start_with": [
-        "Is HTMX loaded?",
-        "Is the block a Lava Application Content block?",
-        "Is the element inside markup rendered after page load?",
-        "Is the `hx-*` attribute valid?",
-        "Is another parent `hx-*` attribute inherited unexpectedly?",
-        "Is JavaScript blocked by a page error?"
+        "Confirm the page uses a Lava Application Content block or otherwise loads HTMX.",
+        "Inspect the browser console for HTMX errors.",
+        "Confirm the element’s `hx-get`, `hx-post`, `hx-put`, or `hx-delete` value.",
+        "Confirm `hx-target` matches an existing element at request time.",
+        "Walk up the DOM and inspect inherited HTMX attributes.",
+        "Inspect the network response and returned fragment.",
+        "Stop when the request reaches the intended endpoint and consistently replaces the intended element. Content Block"
       ],
-      "title": "The button does nothing",
-      "when": "The button does nothing"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
-      "id": "the-request-is-sent-but-endpoint-is-not-found",
-      "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Application slug.",
-        "Endpoint slug.",
-        "Caret notation.",
-        "HTTP method.",
-        "Endpoint active state.",
-        "Application active state.",
-        "Whether route changed during migration.",
-        "Whether the full endpoint route differs in this Rock version."
-      ],
-      "title": "The request is sent but endpoint is not found",
-      "when": "The request is sent but endpoint is not found"
+      "title": "An HTMX action does nothing or updates the wrong region",
+      "when": "An HTMX action does nothing or updates the wrong region"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
-        "Page",
         "Block"
       ],
-      "guide_section_id": "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
-      "id": "the-endpoint-returns-login-markup-or-unauthorized",
+      "guide_section_id": "troubleshooting-decision-tree-the-endpoint-returns-not-found-or-the-wrong-handler-runs",
+      "id": "the-endpoint-returns-not-found-or-the-wrong-handler-runs",
       "inspect": [
-        "Person",
-        "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "CurrentPerson context.",
-        "Page/block security versus endpoint security.",
-        "Endpoint Security Mode.",
-        "Endpoint Execute permission.",
-        "Application View/Edit/Administrate permission if inherited.",
-        "Anonymous access expectations.",
-        "Whether the request is cross-site or missing auth cookies."
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
       ],
-      "title": "The endpoint returns login markup or unauthorized",
-      "when": "The endpoint returns login markup or unauthorized"
+      "start_with": [
+        "Record the application slug, endpoint slug, and request method.",
+        "Confirm both records are active in the target installation.",
+        "Confirm the endpoint is attached to the expected application.",
+        "Compare the request method with the endpoint method.",
+        "Check for another endpoint using the same slug with a different method.",
+        "From a Content block, test the caret route; outside it, inspect the documented complete route.",
+        "Stop when the route and method identify one intended endpoint. Lava Applications"
+      ],
+      "title": "The endpoint returns not found or the wrong handler runs",
+      "when": "The endpoint returns not found or the wrong handler runs"
     },
     {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
-      "id": "the-endpoint-works-in-ui-but-fails-when-called-directly",
-      "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Required parameters.",
-        "Body parsing.",
-        "CSRF or auth expectations.",
-        "Server-side validation.",
-        "Explicit entity authorization.",
-        "Error handling for missing values."
+      "do_not_assume": [
+        "Identify the exact user or role being tested; do not use administrator override as evidence."
       ],
-      "title": "The endpoint works in UI but fails when called directly",
-      "when": "The endpoint works in UI but fails when called directly"
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-user-is-denied-while-an-administrator-succeeds",
+      "id": "a-user-is-denied-while-an-administrator-succeeds",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/applications",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Identify the exact user or role being tested; do not use administrator override as evidence.",
+        "Inspect the endpoint security mode.",
+        "If it uses Endpoint Execute, inspect authorization on that endpoint.",
+        "If it uses an application mode, inspect the corresponding application execution authorization.",
+        "Inspect the application’s management security separately from execution security.",
+        "Record Rock’s exact patch version and whether the Lava Application Developer role is active, because Rock 19.5 fixed a related non-administrator failure.",
+        "Stop when the intended role succeeds and an unauthorized role is still denied. Application security Endpoint security modes"
+      ],
+      "title": "A user is denied while an administrator succeeds",
+      "when": "A user is denied while an administrator succeeds"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Attribute"
       ],
-      "guide_section_id": "21-troubleshooting-decision-tree-validation-does-not-run",
-      "id": "validation-does-not-run",
+      "guide_section_id": "troubleshooting-decision-tree-form-validation-is-skipped-or-nested-form-behavior-is-inconsistent",
+      "id": "form-validation-is-skipped-or-nested-form-behavior-is-inconsistent",
       "inspect": [
         "Attribute"
       ],
       "source_urls": [
+        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
         "https://community.rockrms.com/developer/helix/forms-controls/form-validation"
       ],
       "start_with": [
-        "Controls are inside `<lava-form>`.",
-        "Method is POST, PUT, or DELETE.",
-        "Required validation attributes are present.",
-        "Validation summary is inside `<lava-form>`.",
-        "Shortcode output includes expected IDs and messages.",
-        "GET requests are not expected to validate (Form Validation)."
+        "Confirm the inputs are inside `<lava-form>`.",
+        "Confirm the request uses POST, PUT, or DELETE; Helix validation is not processed on GET.",
+        "Check native HTML validation attributes.",
+        "For custom controls, confirm the validation message element follows `rfv-{control id}`.",
+        "Confirm any validation summary is inside the Lava Form.",
+        "Invoke the endpoint directly with invalid input and confirm server-side rejection.",
+        "Stop only when both the browser and direct endpoint request enforce the required rules. Understanding Forms"
       ],
-      "title": "Validation does not run",
-      "when": "Validation does not run"
+      "title": "Form validation is skipped or nested-form behavior is inconsistent",
+      "when": "Form validation is skipped or nested-form behavior is inconsistent"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Label"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-body-or-rawbody-is-empty-or-unavailable",
+      "id": "body-or-rawbody-is-empty-or-unavailable",
+      "inspect": [
+        "Label"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm the request is not GET.",
+        "Record the installed Rock minor version.",
+        "Treat developer documentation’s Rock 19+ label and the 19.1 release note as a reason to verify exact availability.",
+        "Confirm the client actually sent a body and inspect its content type.",
+        "Use `Body` when object conversion is expected and `RawBody` when the original string is required.",
+        "Stop when the endpoint receives the expected representation without depending on an unsupported version. Lava Endpoints"
+      ],
+      "title": "Body or RawBody is empty or unavailable",
+      "when": "Body or RawBody is empty or unavailable"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "21-troubleshooting-decision-tree-spinner-does-not-show",
-      "id": "spinner-does-not-show",
+      "guide_section_id": "troubleshooting-decision-tree-a-loading-spinner-is-missing",
+      "id": "a-loading-spinner-is-missing",
       "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "`htmx-indicator` class exists.",
-        "Image path matches core v18+ or plugin-era path.",
-        "Request is long enough to see it.",
-        "CSS does not hide it permanently.",
-        "The indicator is inside or associated with the triggering element."
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
       ],
-      "title": "Spinner does not show",
-      "when": "Spinner does not show"
+      "start_with": [
+        "Confirm the indicator has the `htmx-indicator` class.",
+        "For a form-wide indicator, confirm `hx-indicator` targets the Lava Form.",
+        "Determine whether the installation uses core Rock 18+ assets or the Helix plugin.",
+        "Test the appropriate asset path directly.",
+        "Confirm the request lasts long enough for the indicator state to be visible.",
+        "Stop when the indicator appears for the intended request and disappears after completion."
+      ],
+      "title": "A loading spinner is missing",
+      "when": "A loading spinner is missing"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Attribute"
+        "Page",
+        "Block"
       ],
-      "guide_section_id": "21-troubleshooting-decision-tree-endpoint-is-slow",
-      "id": "endpoint-is-slow",
+      "guide_section_id": "troubleshooting-decision-tree-endpoint-injected-styles-or-scripts-do-not-load",
+      "id": "endpoint-injected-styles-or-scripts-do-not-load",
       "inspect": [
-        "Attribute"
+        "Page",
+        "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/helix/lava-applications/observability"
+        "https://community.rockrms.com/developer/helix/strategies/limitations"
       ],
       "start_with": [
-        "Entity command loops.",
-        "Missing `limit`.",
-        "Missing pagination.",
-        "Attribute prefetch patterns.",
-        "Security checks on large entity result sets.",
-        "Repeated endpoint calls from HTMX triggers.",
-        "Cache eligibility.",
-        "SQL command performance."
+        "Inspect the endpoint for `{% javascript %}` or `{% stylesheet %}`.",
+        "Remove the assumption that those commands can register assets from a Helix fragment.",
+        "Move the dependency to a verified page, theme, or block-level loading boundary.",
+        "Retest both the initial render and later fragment replacements.",
+        "Stop when the dependency is loaded once through a supported host and the fragment works without endpoint-side resource registration."
       ],
-      "title": "Endpoint is slow",
-      "when": "Endpoint is slow"
+      "title": "Endpoint-injected styles or scripts do not load",
+      "when": "Endpoint-injected styles or scripts do not load"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person"
       ],
-      "guide_section_id": "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
-      "id": "endpoint-modifies-wrong-data",
+      "guide_section_id": "troubleshooting-decision-tree-an-endpoint-is-slow-or-makes-excessive-database-calls",
+      "id": "an-endpoint-is-slow-or-makes-excessive-database-calls",
       "inspect": [
         "Person"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Identifier source.",
-        "GUID/IdKey mapping.",
-        "CurrentPerson authorization.",
-        "Entity type IDs in configuration.",
-        "Live instance entity IDs versus copied recipe IDs.",
-        "HTTP method.",
-        "Server-side validation.",
-        "Enabled modify/delete commands."
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/observability",
+        "https://community.rockrms.com/documentation/supporting-rock/data/observability/configure-observability"
       ],
-      "title": "Endpoint modifies wrong data",
-      "when": "Endpoint modifies wrong data"
+      "start_with": [
+        "Locate its observability activity using the endpoint and application names.",
+        "Confirm the recorded HTTP method.",
+        "Compare total execution time and database activity across representative requests.",
+        "Inspect repeated or unexpectedly expensive database calls.",
+        "Use targeted query diagnostics only for a bounded investigation and review whether parameters contain personal data.",
+        "Retest after each change.",
+        "Stop when representative traces meet the application’s defined performance target without unsafe diagnostic collection. Endpoint observability"
+      ],
+      "title": "An endpoint is slow or makes excessive database calls",
+      "when": "An endpoint is slow or makes excessive database calls"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-sorting-or-filtering-resets-after-refresh",
+      "id": "sorting-or-filtering-resets-after-refresh",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+      ],
+      "start_with": [
+        "Confirm whether state exists only in browser-side variables.",
+        "As a reviewed community pattern, have the server-rendered result fragment emit current sort and direction values.",
+        "Include those values in filter and refresh requests.",
+        "Have sortable headers send the next sort and direction explicitly.",
+        "Define ordering for null or blank values.",
+        "Retest filtering, sorting, manual refresh, and auto-refresh together.",
+        "Stop when all requests use one documented server-side state contract."
+      ],
+      "title": "Sorting or filtering resets after refresh",
+      "when": "Sorting or filtering resets after refresh"
     }
   ],
   "concept_id": "helix",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:14+00:00",
   "guide_sections": [
-    "21-troubleshooting-decision-tree",
-    "21-troubleshooting-decision-tree-the-button-does-nothing",
-    "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
-    "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
-    "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
-    "21-troubleshooting-decision-tree-validation-does-not-run",
-    "21-troubleshooting-decision-tree-spinner-does-not-show",
-    "21-troubleshooting-decision-tree-endpoint-is-slow",
-    "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
-    "22-agent-task-recipes",
-    "22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button",
-    "22-agent-task-recipes-recipe-determine-whether-a-helix-app-is-public-safe",
-    "22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app",
-    "22-agent-task-recipes-recipe-review-a-community-recipe-before-use",
-    "22-agent-task-recipes-recipe-add-observability-to-a-complex-endpoint"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-an-htmx-action-does-nothing-or-updates-the-wrong-region",
+    "troubleshooting-decision-tree-the-endpoint-returns-not-found-or-the-wrong-handler-runs",
+    "troubleshooting-decision-tree-a-user-is-denied-while-an-administrator-succeeds",
+    "troubleshooting-decision-tree-form-validation-is-skipped-or-nested-form-behavior-is-inconsistent",
+    "troubleshooting-decision-tree-body-or-rawbody-is-empty-or-unavailable",
+    "troubleshooting-decision-tree-a-loading-spinner-is-missing",
+    "troubleshooting-decision-tree-endpoint-injected-styles-or-scripts-do-not-load",
+    "troubleshooting-decision-tree-an-endpoint-is-slow-or-makes-excessive-database-calls",
+    "troubleshooting-decision-tree-sorting-or-filtering-resets-after-refresh",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-inspect-an-existing-helix-application-before-changing-it",
+    "agent-task-recipes-recipe-build-a-read-only-htmx-result-fragment",
+    "agent-task-recipes-recipe-build-a-validated-mutation-form",
+    "agent-task-recipes-recipe-render-endpoint-content-on-first-paint",
+    "agent-task-recipes-recipe-validate-a-rendered-helix-dashboard",
+    "agent-task-recipes-recipe-decide-whether-to-replace-a-lava-application"
   ]
 }

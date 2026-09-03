@@ -6,1571 +6,762 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "57adb97ba7387f60137bea4f4a182f63a2eda9670cf28466f17e3349da5f5497"
 ---
 
 # Platform Configuration
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Platform configuration is a cross-cutting concern. Attributes extend entities with organization-specific data; Defined Types provide controlled sets of reusable values; categories organize configuration and presentation; entity types identify the kind of record being configured; campuses connect organizational sites to locations, schedules, status, type, and optional attributes. The supplied evidence supports these areas unevenly: attributes and campuses have current v19 documentation, while global attributes and general system settings have only routing-level evidence and therefore remain documented gaps. [Attributes documentation](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes) [Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-- Concept data-model landmarks: [Platform Configuration index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+For agent work:
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+1. Identify the owning entity and operational outcome before changing configuration.
+2. Separate the attribute definition from each entity’s stored attribute value.
+3. Confirm that a Defined Value belongs to the Defined Type expected by every selector, workflow, and report.
+4. Treat categories as scoped organizational and presentation structures, not interchangeable global folders.
+5. Trace campus behavior through the campus, named location, schedule, block, and downstream workflow that consumes it.
+6. Preserve security boundaries on attributes, pages, blocks, APIs, AI agents, skills, and tools.
+7. Verify version-sensitive behavior against the installed build and current release notes.
+8. Test the actual consuming surface. A saved configuration record does not prove that a form, report, mobile block, workflow, or embedded dashboard behaves correctly.
 
-## 1. Executive Summary For Agents
+## Scope And Boundaries
 
-Platform configuration is the layer of Rock RMS where administrators and developers shape the system without changing the core database schema. It includes attributes, attribute values, defined types, defined values, categories, entity types, campuses, global attributes, system settings, and the repeating configuration patterns used across people, groups, workflows, CMS, reporting, security, operations, and integrations.
+This guide covers the evidence-supported configuration surfaces for:
 
-For agent work, the most important rule is this: do not treat configuration records as labels only. Many of them are active data-model participants. A defined value may be referenced by attendance, benevolence, groups, addresses, workflows, or custom attributes. An entity type may be referenced by attributes, audit records, security, AI agent anchors, provider components, and many other model records. Rock source snippets show deletion checks in generated services for `DefinedValue`, `DefinedType`, and `EntityType`, which means these records often cannot be safely removed just because they look unused in an admin screen ([DefinedValueService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs), [DefinedTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs), [EntityTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs)).
+- Attributes and attribute values.
+- Defined Types and Defined Values.
+- Categories and entity types.
+- Campuses and campus attributes.
+- Cross-domain configuration patterns involving reporting, AI agents, Lava tools, workflows, communications, registration, check-in, and upgrades.
 
-The operational center of this guide is the attribute system. Rock’s developer documentation describes attributes as a major extensibility mechanism that can be added at runtime or implemented in code ([Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)). Attributes define extra fields for entities; attribute values store the entity-specific value. The core relationship is:
+This guide does not replace the owning guides for people, groups, workflows, CMS, security, Data Views, reports, check-in, communications, or event registration. It identifies their platform-level configuration dependencies and then routes detailed operational work back to those domains.
 
-- `Attribute` defines what can be stored.
-- `FieldType` defines how the value is edited, validated, formatted, and sometimes interpreted.
-- `AttributeValue` stores the actual value for an entity instance.
-- `EntityType` determines what kind of object the attribute applies to.
-- `EntityTypeQualifierColumn` and `EntityTypeQualifierValue` narrow the attribute to a subset of that entity type when the entity type supports scoped configuration.
-- `Category` organizes attributes, defined values, and other configurable objects.
-- `DefinedType` and `DefinedValue` provide reusable controlled vocabularies.
-- `Campus` is an organizational context used by people, groups, reports, connections, mobile context, and content targeting.
-- Global attributes and system settings provide instance-wide configuration accessible to Lava and code.
+The evidence pack does not directly document the behavior, scope, storage, or administration of global attributes or general system settings. Their existence is visible in the official Attributes documentation index, but unsupported details must not be inferred from the index title. Those areas are therefore listed under **Known Gaps And Live Verification**. [Attributes documentation index](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes)
 
-Agents doing real Rock work should start from the live object and the configured entity type. If a user asks why a field is missing, why a picker shows the wrong values, why Lava returns an unexpected string, why a report is filtering by the wrong campus, or why a workflow attribute cannot be saved, inspect the `Attribute`, `FieldType`, `AttributeValue`, `EntityType`, qualifier columns, categories, security, and version-specific release notes before changing configuration. Rock v17 and later increased attribute security behavior, and Rock v17.5 added an optional Lava parameter to bypass attribute-level security checks where appropriate ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). Use that as a diagnostic clue, not as a default workaround.
+## Mental Model
 
-## 2. Scope And Terminology
+Use this configuration chain:
 
-This guide covers platform configuration concepts that are reused across Rock RMS. It is not limited to one admin page. The scope includes:
+1. **Entity type:** Identifies the kind of Rock record being extended or acted upon. Supplied source-code evidence shows entity types represented with names and friendly names, and shows entity-type-aware security grants that match an entity’s type before granting an action. This is implementation evidence from a specific commit, not proof of any installation’s current configuration. [Entity Types view model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs) [Entity type security rule](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)
 
-- Entity types and the concept of entities.
-- Core entity properties versus attributes.
-- Entity attributes, global attributes, and attribute values.
-- Field types and field attributes.
-- Defined types and defined values.
-- Categories and entity-specific category behavior.
-- Campuses and campus context.
-- System settings and global settings.
-- Configuration patterns across People, Groups, Workflows, CMS, Security, Data Views, Reports, and Operations.
-- Developer, API, Lava, Obsidian, mobile, and source-code landmarks.
-- Operational checks and troubleshooting paths.
+2. **Attribute definition:** Describes custom data attached to an entity. The supplied developer documentation shows that attributes can be added at runtime and that entity-handling blocks can load, display, edit, and save their values. [Developer documentation: Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)
 
-RockU’s Core Concepts section frames these ideas as foundational to how Rock organizes data, with separate training entries for entities, properties and attributes, custom attributes, defined types, campuses, categories for defined values, jobs, CSS icons, automations, and note types ([RockU Core Concepts](https://community.rockrms.com/rocku/core-concepts)). The training pages in the supplied source records are thin in extract form, so this guide uses them mainly as topic authority and relies more heavily on official developer docs, Lava docs, release notes, model-map records, and source-code snippets where those provide deeper operational detail.
+3. **Attribute value:** Stores the value for a particular attribute and entity. An immutable source excerpt demonstrates joins from `AttributeValue` to `Attribute`, `FieldType`, `EntityType`, and—when the entity is a Defined Value—to `DefinedValue` and `DefinedType`. This establishes the implementation relationships shown by that code, but not the contents of a live database. [Defined Value attribute-value query](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)
 
-Key terms:
+4. **Defined Type and Defined Value:** A Defined Type owns an ordered set of Defined Values. Supplied source code retrieves values by Defined Type and orders them by the value’s order and then its text. [DefinedValueService implementation](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/DefinedValue/DefinedValueService.cs)
 
-**Entity**  
-A Rock model object that represents a row or configured object in the system. Examples include `Person`, `Group`, `DefinedValue`, `Campus`, `Workflow`, `ConnectionRequest`, `ContentChannelItem`, and many others. RockU includes “What is an Entity” as a core concept topic ([What is an Entity](https://community.rockrms.com/rocku/core-concepts/what-is-an-entity)).
+5. **Category:** Organizes attributes for administration or presentation. On the Person Profile, attributes are displayed by category, an attribute can belong to more than one category, and the Attribute Values block can be placed on different profile tabs. Category compatibility still depends on the owning entity type. [Extended Attributes Tab](https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab) [Display Person Attributes](https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes)
 
-**Entity Type**  
-A configuration record that identifies a model or component type. Rock source shows `EntityTypeService.Get(string entityName)` looking up entity types by name and `EntityTypeService.Get(Type type, bool createIfNotFound, PersonAlias personAlias)` creating one from a .NET type when requested ([EntityTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/EntityType/EntityTypeService.cs)). Entity types are used by attributes, security, audit, notes, components, REST endpoints, and UI blocks.
+6. **Consumer:** A form, block, workflow, report, mobile screen, integration, or agent uses the configuration. Validate this final consumer because field support, block settings, security, caching, version, and downstream joins can alter visible behavior.
 
-**Property**  
-A built-in field on a model. For example, a person’s first name or a defined value’s value is part of the model itself. Properties are usually stored as table columns and are enforced by the model.
+When a request starts with a proposed screen, workflow, or automation, first restate the underlying problem and generate several distinct approaches. Treat the proposed implementation as requirements evidence rather than automatically accepting it as the solution. [Approved claim `claim:9ad17cb08b8955d0d3ec`](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s)
 
-**Attribute**  
-A configurable field definition attached to an entity type or to global configuration. Attributes let administrators and developers extend objects without adding custom database columns. Rock’s Lava docs call attributes a key extensibility feature ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+## Attributes And Attribute Values
 
-**Attribute Value**  
-The stored value for a particular attribute on a particular entity instance. The Rock Model Map identifies “Attribute Value” as a Core model ([Model Map](https://community.rockrms.com/ModelMap)). Source snippets show `AttributeValue` joined to `Attribute`, `FieldType`, and target entities such as `DefinedValue` in SQL utility views ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
+### Choose the owning entity first
 
-**Field Type**  
-The type of editor and value semantics used by an attribute or defined type. Developer docs distinguish field types from field attributes: a field type provides UI and value handling, while a field attribute configures a field type ([Extending Rock Even Further](https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further)).
+An attribute must be attached to the entity whose records actually own the data. For example, the documented campus procedure creates an Entity Attribute with an Entity Type of `Campus`; its value then appears on Campus Details. That procedure specifically says campus attributes do not require qualifier-field or qualifier-value entries. Do not generalize that qualifier rule to other entity types. [Add Attributes to Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/add-attributes-to-campuses)
 
-**Defined Type**  
-A named collection of defined values. Defined types provide controlled vocabularies. Source code shows `DefinedValueService.GetByDefinedTypeId()` returning values for a defined type ordered by order and then value ([DefinedValueService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedValue/DefinedValueService.cs)).
+Before creating an attribute, record:
 
-**Defined Value**  
-A selectable value within a defined type. Defined values can themselves have attributes. Source utility SQL demonstrates attributes attached to `Rock.Model.DefinedValue` and scoped by defined type ([View_DefinedTypeAttributes.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)).
+- The business meaning of the value.
+- The owning entity type.
+- The field type required by the consuming surfaces.
+- Whether qualifiers narrow the attribute’s scope.
+- The category or categories used to present it.
+- Who may view, edit, or administer it.
+- Which forms, blocks, workflows, reports, integrations, or agents will consume it.
+- Whether existing records need values or whether a default is sufficient.
 
-**Category**  
-A configuration organizer. Categories can apply to attributes, defined values, content, financial objects, notes, groups, and other entity types depending on configuration. Category selection must match the configured entity type; release notes document bugs where attribute category pickers showed unrelated categories in some versions ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+Do not create the same concept on several entity types merely to make it convenient for one report. If ownership is unclear, stop and resolve it before introducing competing sources of truth.
 
-**Campus**  
-An organizational location or campus context. Campuses are a RockU core concept ([Campuses](https://community.rockrms.com/rocku/core-concepts/campuses)) and are used in people records, groups, connections, reports, mobile context, filtering, and routing.
+### Separate the definition from stored values
 
-**Global Attribute**  
-An instance-wide attribute value available to Lava and code. Lava docs include a Global Attributes section and note system settings support beginning with Rock v10.3 ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+The attribute definition and an entity’s value are distinct. The supplied implementation query joins the value to its attribute definition and field type, and then uses the value’s `EntityId` to associate it with a Defined Value in that particular query. An agent diagnosing attribute data should therefore inspect both configuration and stored values instead of assuming that a visible label describes how the data is stored. [Defined Value attribute-value query](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)
 
-**System Setting**  
-A system-level configuration value. Some system settings are exposed through Lava and admin UI. Because naming and storage can vary by version, inspect the live admin page, `Attribute`, `AttributeValue`, and Rock settings tables before assuming exact storage.
+For developer-owned blocks, the official developer guide shows an explicit lifecycle:
 
-## 3. Platform Configuration Mental Model
+1. Load the entity’s attributes.
+2. Add display controls with the appropriate view authorization.
+3. Add edit controls, optionally with edit authorization.
+4. Read edited values.
+5. Save the entity and its attribute values together in a transaction.
 
-Rock platform configuration is best understood as a layered model.
+That sequence is implementation guidance for custom development. It should not be treated as evidence that an installed custom block follows it correctly. [Developer documentation: Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)
 
-At the bottom are core models and table columns. These are the durable, compiled entities in Rock source code: `Person`, `Group`, `DefinedType`, `DefinedValue`, `EntityType`, `Campus`, `Attribute`, `AttributeValue`, `Category`, and many more. These model properties are generally visible in source, REST endpoints, model map, or database schema. Agents should prefer these as the most authoritative layer when checking relationships.
+### Present attributes intentionally
 
-Above the model layer are entity type records. An entity type record tells Rock, “this configurable thing refers to this model or component class.” Source code shows entity type lookup by full type name and creation from a .NET `Type` when enabled ([EntityTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/EntityType/EntityTypeService.cs)). Entity type records also have UI-facing metadata in Obsidian view models, including `id`, `name`, `friendlyName`, `isCommon`, `isSecured`, `indexDocumentUrl`, and a `linkUrlLavaTemplate` for generating detail links ([EntityTypesBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs), [entityTypesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts)).
+On the Person Profile’s Extended Attributes area, only attributes with values are displayed, and attributes are grouped under category headers. Users with Administrate access to the attribute block can reorder them, while editing values is initiated from the category header. [Extended Attributes Tab](https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab)
 
-Above entity types are attributes. An attribute is not merely a UI field. It is a field definition with a key, name, description, field type, optional default, order, security, categories, public flag, entity type, and optional qualifiers. The exact live columns should be verified in the `Attribute` table or Model Map for the installed Rock version. In practice, agents commonly inspect:
+A Person Attribute can belong to more than one category. An Attribute Values block can be placed in a zone on different Person Profile tabs and configured for a specific category. Consequently, “the attribute exists” does not prove that it is visible on a particular page: inspect the attribute’s categories, the page’s blocks, each block’s category setting, and the current person’s authorization. [Display Person Attributes](https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes)
 
-- `Attribute.Id`
-- `Attribute.Guid`
-- `Attribute.Key`
-- `Attribute.Name`
-- `Attribute.Description`
-- `Attribute.EntityTypeId`
-- `Attribute.EntityTypeQualifierColumn`
-- `Attribute.EntityTypeQualifierValue`
-- `Attribute.FieldTypeId`
-- `Attribute.DefaultValue`
-- `Attribute.Order`
-- category associations
-- security records
-- whether the attribute is active/public/required, if those fields exist in the installed version
+### Account for channel-specific support
 
-Attribute values are stored separately. This separation matters because a field can exist without values, values can exist without being visible in a particular block, and old values can remain after an attribute’s field type or qualifier changes. The Model Map identifies `Attribute Value` as a Core model ([Model Map](https://community.rockrms.com/ModelMap)). The supplied source SQL joins `AttributeValue` to `Attribute`, `FieldType`, `DefinedValue`, and `DefinedType`, showing the practical reporting shape: value row, attribute definition, field type metadata, and target entity ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
+The mobile Attribute Values block displays and edits attributes selected by category and entity type, but editing is limited to field types supported by the mobile shell. Its category list can include categories that are incompatible with the selected entity type; the administrator is responsible for choosing a compatible pair. It can also use an attribute’s abbreviated name when configured to do so. [Mobile Attribute Values block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)
 
-Above attributes are consuming surfaces: admin screens, Lava, workflow forms, Obsidian blocks, mobile blocks, reports, APIs, and custom code. Each surface may apply its own filtering. For example, the mobile Attribute Values block displays and edits attribute values by category and entity type, but only supports field types that are supported in the mobile shell; the docs explicitly warn that category lists may show broad categories and that the implementer must ensure entity type and attribute compatibility ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)). This is a recurring operational pattern: the attribute exists globally in the configuration layer, but each block decides which attributes it can use.
+Do not assume that a web-editable attribute is mobile-editable. Verify the current supported-field-type list and test the actual mobile shell.
 
-The most reliable mental model for agents is:
+### Attribute release issues
 
-1. Identify the target entity instance.
-2. Identify its entity type.
-3. Identify the attribute definition by key, GUID, or name.
-4. Confirm the attribute’s entity type and qualifier match the target.
-5. Confirm the field type and field configuration.
-6. Confirm category, public flag, and block include/exclude settings.
-7. Confirm security.
-8. Confirm the value row and raw stored value.
-9. Confirm the consuming surface’s version-specific behavior.
+The supplied release records identify category and attribute defects that matter during diagnosis:
 
-## 4. Source Authority And How To Use This Guide
+- Rock v19.1 fixed multiple attribute-editing blocks whose Category dropdown showed Global Attribute categories instead of categories for the attribute’s actual entity type. [Rock Core release notes](https://www.rockrms.com/releasenotes)
+- Rock v17.2 fixed a Content Channel Type Detail issue that showed incorrect or unrelated categories while editing Content Channel Item attributes. [Rock Core release notes](https://www.rockrms.com/releasenotes)
+- The supplied v19.3 release-note excerpt reports fixes involving indexed Person Attribute Values, Defined Value attributes on Event Items, and inherited Group Member attributes created during group copying. These are version-specific defects, not general attribute behavior. [Rock Core release notes](https://www.rockrms.com/releasenotes)
 
-Use source authority in this order when making operational decisions:
+When a category or value behaves unexpectedly, establish the exact Rock version before redesigning the configuration around what may be a fixed defect.
 
-1. **Live Rock instance evidence**  
-   For a real task, inspect the specific record, block, attribute, entity type, value, category, security rule, route, or workflow instance in the live Rock database or admin UI. This guide cannot know local customizations.
+## Defined Types And Values
 
-2. **Rock source code**  
-   Source-code snippets from `SparkDevNetwork/Rock` are high authority for compiled behavior, generated service relationships, REST endpoints, deletion checks, and model/view-model properties. The repository is the registered source repository in the pack ([SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock)).
+### Use the type as the controlled vocabulary boundary
 
-3. **Official developer docs and Lava docs**  
-   Developer docs provide implementation guidance for attributes, field types, Obsidian grids, mobile controls, API patterns, and agent tools ([Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes), [Extending Rock Even Further](https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further), [Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+A Defined Type owns its Defined Values. The supplied implementation retrieves values by `DefinedTypeId` and returns them in configured order, with the value text used as a secondary ordering key. [DefinedValueService implementation](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/DefinedValue/DefinedValueService.cs)
 
-4. **Official release notes**  
-   Release notes are critical for version caveats. Several platform-configuration behaviors changed or were fixed in v17.2, v18.2, v18.3, and v19.1 ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+Treat that ownership as part of the data contract:
 
-5. **RockU and official documentation books**  
-   RockU gives conceptual authority; documentation books provide operational UI patterns, especially where configuration crosses into modules like Engagement or Connections ([RockU Core Concepts](https://community.rockrms.com/rocku/core-concepts), [Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
+- A selector should return values from the intended Defined Type.
+- A stored reference should resolve to a value from that same type.
+- Reports and workflows should join or interpret the stored value consistently.
+- Ordering should be verified where the consuming surface depends on it.
+- Renaming, disabling, replacing, or deleting a value should be evaluated against every consumer.
 
-6. **Model Map**  
-   Model Map confirms model existence and category, but the supplied excerpt is compact. Use it as a navigation anchor and verify detailed fields in source or live schema ([Model Map](https://community.rockrms.com/ModelMap)).
+Supplied source code contains deletion checks that can refuse removal of Defined Types or Defined Values when referenced by other records. The excerpt does not enumerate every possible dependency, so a successful or refused deletion must be evaluated in the installed version rather than predicted from this guide. [DefinedTypeService deletion check](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs) [DefinedValueService deletion checks](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs)
 
-7. **Community recipes and partner posts**  
-   Recipes can demonstrate practical patterns, but the recipe page itself warns that community recipes are not reviewed or endorsed by the Rock core team. Use them as examples and validate performance, security, and version fit before applying ([Slicker Campus Filters](https://community.rockrms.com/recipes/393), [Event Specific Custom Check-In Success Messages](https://community.rockrms.com/recipes/385)).
+### Defined Value attributes
 
-When this guide says “inspect,” it means verify in the live instance before changing configuration. Rock instances differ by version, plugins, migrations, custom entity types, custom field types, security, and local conventions.
+The supplied immutable SQL excerpts show attributes scoped to the `Rock.Model.DefinedValue` entity type, including a pattern that qualifies those attributes by `DefinedTypeId`. They also show how stored values can be associated with each Defined Value and its owning Defined Type. This is implementation evidence from the referenced commit, not a universal configuration prescription. [Defined Type attributes query](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql) [Defined Value attribute-value query](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)
 
-## 5. Core Configuration And Data Model
+A reviewed community pattern uses a Defined Value attribute as a seasonal visibility switch:
 
-### Entity Types
+1. Keep stable options in one Defined Type.
+2. Add a boolean or similarly scoped attribute to its values.
+3. Filter the workflow selector by that attribute.
+4. Update the switches as part of the seasonal runbook.
+5. Verify the rendered dropdown after each update.
 
-Entity types are the backbone of platform configuration. They connect a row in configuration to a model or component type. Source code shows entity type lookup by name and by .NET type, and optional creation when a type is not already registered ([EntityTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/EntityType/EntityTypeService.cs)).
+This is a community pattern requiring local verification, not documented universal Rock behavior. The local field type, qualifier, data source, caching, and form implementation must be inspected before adoption. [Model Map](https://community.rockrms.com/ModelMap) [Rock U workflows](https://community.rockrms.com/rocku/workflows)
 
-In administrative and API contexts, entity type records commonly expose:
+### Detect source mismatches
 
-- `Id`
-- `Guid`
-- `Name`, usually a fully qualified class name for models, such as `Rock.Model.DefinedValue`
-- `FriendlyName`
-- flags such as whether the type is an entity or common type
-- security-related metadata
-- optional index/documentation URL
-- optional Lava link template for generating detail links
+Another reviewed community pattern warns that a workflow selector may accept a value from one Defined Type even though an attribute or downstream report expects another. Submission success alone would not prove semantic consistency.
 
-The Obsidian entity type list view model includes fields such as `friendlyName`, `id`, `indexDocumentUrl`, `isCommon`, `isSecured`, `linkUrlLavaTemplate`, and `name` ([entityTypesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts)). The options bag includes an edit authorization flag, reinforcing that entity type editing is security-sensitive ([EntityTypesOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs)).
+Inspect:
 
-Operational implications:
+- The attribute’s field type and configuration.
+- Any qualifier identifying the expected Defined Type.
+- The selector’s SQL, Lava, or other data source.
+- The raw storage format used by the Attribute Value.
+- Workflow actions that copy or transform the value.
+- Report joins to `DefinedValue` and `DefinedType`.
+- Existing records created before the current configuration.
 
-- Do not delete or rename entity types casually.
-- If an attribute is missing, confirm its `EntityTypeId` points to the right entity type.
-- If an entity type looks duplicated or stale, inspect by `Name`, `Guid`, and references before modifying.
-- If an API, Lava command, block, or plugin uses entity type by GUID, changing labels may not affect behavior; changing records may.
-- If a custom component is not available as an entity type, verify whether its assembly is loaded and whether entity type registration has run.
+Do not “fix” the report by joining to whichever Defined Type happens to produce a label. Resolve which source is authoritative, assess existing data, and then align capture and reporting. This contribution explicitly requires live verification. [Model Map](https://community.rockrms.com/ModelMap) [Rock U workflows](https://community.rockrms.com/rocku/workflows)
 
-### Attributes
+### API and automation boundary
 
-An attribute definition describes a field that can be attached to an entity type, sometimes narrowed by qualifiers. Rock’s developer docs show that custom blocks can load an entity’s attributes, add display/edit controls through `AttributeValuesContainer`, and save values through attribute APIs ([Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)).
+At the supplied immutable commit, Rock’s generated v2 model controllers expose authenticated endpoints for Defined Types, Defined Values, and Entity Types. Their item lookup accepts an ID, GUID, or IdKey, while read and write operations have separate security actions. This describes the referenced implementation only; endpoint availability and authorization must be confirmed in the installed build. [Defined Types controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs) [Defined Values controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs)
 
-Attributes usually matter in three places:
+For agent-facing context, pass IdKeys rather than raw integer identifiers. Keep parameters explicit and sanitized so an agent does not have to infer the intended entity or vocabulary. [Approved claim `claim:57e32b4d554a759231a1`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s)
 
-- **Definition**: field key, name, entity type, field type, categories, default, security, qualifier, configuration.
-- **Value**: actual stored value for one entity instance.
-- **Consumption**: UI block, Lava template, workflow, report, API, mobile app, or custom code that renders or uses the value.
+## Categories And Entity Types
 
-An attribute’s `Key` is operationally important. Lava filters access attributes by key, not just display name. Community examples also rely on exact keys when reading group or group type attributes in templates ([Event Specific Custom Check-In Success Messages](https://community.rockrms.com/recipes/385)). If the key changes, Lava and code references can break even if the display name still looks correct.
+### Categories are scoped configuration
 
-### Attribute Values
+Categories organize attributes and other supported records, but a category name alone does not establish compatibility. Person attributes can be assigned to multiple categories for display, while the mobile Attribute Values block exposes a category list that may include entries incompatible with its selected entity type. [Display Person Attributes](https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes) [Mobile Attribute Values block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)
 
-Attribute values store the actual data. The supplied SQL source shows the common relationship:
+When choosing or troubleshooting a category, verify:
 
-- `AttributeValue.AttributeId` joins to `Attribute.Id`
-- `Attribute.FieldTypeId` joins to `FieldType.Id`
-- `Attribute.EntityTypeId` joins to `EntityType.Id`
-- `AttributeValue.EntityId` points to the target entity row
-- `AttributeValue.Value` stores the raw value
-- `AttributeValue.Guid` provides stable identity
+1. The category’s intended entity or feature scope.
+2. The attribute’s entity type and qualifiers.
+3. The block or screen’s selected category.
+4. The block’s selected or contextual entity type.
+5. View, edit, and Administrate permissions.
+6. The installed version’s known category defects.
 
-That source file specifically lists defined value attributes by joining `AttributeValue` to `DefinedValue` and `DefinedType` where the attribute entity type is `Rock.Model.DefinedValue` ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
+A category appearing in a dropdown is not proof that it is valid for the current entity. Rock v19.1 specifically fixed dropdowns that showed Global Attribute categories instead of categories for the attribute’s actual entity type. [Rock Core release notes](https://www.rockrms.com/releasenotes)
 
-Operational implications:
+### Entity types are infrastructure, not free-form labels
 
-- A missing value row does not always mean the attribute is misconfigured; the entity may be using the default value.
-- A value row can exist even if the consuming block does not show the attribute because of category, public flag, qualifier, security, or field-type support.
-- Raw stored values may be GUIDs, IDs, booleans, delimited lists, XML/JSON-like strings, Lava content, or plain text depending on field type.
-- For field types that point to entities, prefer raw value plus resolved object inspection.
-- When bulk editing or SQL auditing, always interpret value format by field type.
+The supplied source implementation represents an entity type with a technical name, friendly name, identifier, security status, and optional detail-link template. Another excerpt shows security grants that match an object’s entity type before granting an action. These details explain why entity-type selection affects attributes, security, navigation, and API behavior. They do not prove which types, permissions, or plugins exist in a particular installation. [Entity Types view model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs) [Entity type security rule](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)
 
-### Field Types
+Do not create, delete, or substitute an entity type merely because its friendly name resembles the requested record. The supplied implementation includes extensive reference checks before deleting an Entity Type, including references from attributes, authorization records, providers, and AI-related records. The excerpt is incomplete, so dependency analysis remains mandatory. [EntityTypeService deletion checks](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs)
 
-Field types determine editing controls and stored-value conventions. Developer docs explain that a field type provides the UI to edit a value and can be used in custom blocks and custom attributes; a field attribute configures a field type ([Extending Rock Even Further](https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further)).
+## Campuses And Global Settings
 
-The workflow Lava docs include a field-type storage overview and emphasize understanding internal storage. For example, the docs explain that a workflow attribute of type Person may store a person alias GUID when accessed as raw value, and that field types vary in whether they can be used to query object properties and attributes ([Workflows and Lava](https://community.rockrms.com/lava/workflows)).
+### Campus configuration
 
-Operational implications:
+Rock uses campuses for organizational sites. In a single-campus configuration, campus selection is generally hidden; when a block requires a campus, the single configured campus is automatically used, while an optional campus value can remain blank. [Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-- Do not assume displayed value equals stored value.
-- For Lava links or API payloads, use raw values when the target page or API expects an identifier.
-- For UI display, use formatted values or object properties as appropriate.
-- In mobile, verify field type support before expecting an attribute editor to render. The mobile Attribute Values block and Attribute Value Editor both warn that only supported field types are editable in the mobile shell ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values), [Mobile Attribute Value Editor](https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor)).
+Campuses are maintained under `Admin Tools > Settings > Campuses`. The v19 documentation requires a named location with a Location Type of `Campus` before it can be assigned to a campus. An online campus still requires a location of that type. [Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-### Defined Types And Defined Values
+The documented Campus Details surface includes name, active state, description, status, type, opened and closed dates, code, leader, location, phone, URL, schedules, topics, and legacy service times. Important operational distinctions include:
 
-Defined types provide lists of values. Defined values belong to a defined type. Source code shows retrieval by defined type ID or GUID, ordered by `Order` and then value ([DefinedValueService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedValue/DefinedValueService.cs)).
+- A campus can be created as inactive while configuration and communications are prepared.
+- Campus Status and Campus Type use predefined Defined Types. Rock ships documented default values, and the supplied documentation says those shipped values should not be deleted, although their names can be changed and additional values can be added.
+- Campus schedules can be associated directly with a campus and may be consumed by blocks such as Service Metrics Entry.
+- Campus topics associate an email address with a topic whose type is a Defined Value.
+- Service Times is marked legacy in the supplied v19 documentation, which directs administrators toward Campus Schedules for longer-term support.
+- When upgrading from an older version without Status and Type configuration, the documentation describes automatic assignments. Verify the actual post-upgrade records rather than assuming the migration produced the intended organizational classification.
 
-Defined values can have attributes. The SQL utility file for defined type attributes shows attributes for `Rock.Model.DefinedValue` scoped by `EntityTypeQualifierColumn = 'DefinedTypeId'` and `EntityTypeQualifierValue = t.Id`, which means a defined value attribute can be configured to apply only to values within a particular defined type ([View_DefinedTypeAttributes.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)).
+[Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-Operational implications:
+### Campus attributes
 
-- A defined value can be both a selectable option and a mini-configured object with its own attributes.
-- When a defined value appears in Lava as an object, its properties and attributes may be accessible if the field type supports object resolution.
-- Do not delete defined values without checking references. Generated source shows many model references can block deletion ([DefinedValueService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs)).
-- If a defined value picker is hard to use for long lists, check version. v19.1 release notes include a fix for single-select defined value attributes configured as enhanced long lists in Obsidian blocks ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+To add campus-specific data:
 
-### Categories
+1. Open `Admin Tools > Settings > Entity Attributes`.
+2. Add an attribute.
+3. Select `Campus` as the Entity Type.
+4. Configure the attribute without a qualifier field or qualifier value.
+5. Save it.
+6. Configure attribute security if needed.
+7. Set and verify a value on Campus Details.
 
-Categories organize configuration records and often control which attributes appear in blocks. The Engagement documentation shows a concrete pattern: connection request attributes can be assigned to categories, and signup blocks can include or exclude specific categories; uncategorized attributes may appear under a default “Attributes” tab when other categories exist ([Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
+[Add Attributes to Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/add-attributes-to-campuses)
 
-Categories are entity-type-sensitive. Release notes record bugs where category dropdowns showed unrelated categories:
+### Room capacity and schedule availability
 
-- v17.2 fixed unrelated categories appearing when editing Content Channel Item attributes from the Content Channel Type Detail block ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- v19.1 fixed multiple attribute editing blocks where category dropdowns included Global Attribute categories instead of categories for the actual attribute entity type ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+A reviewed community contribution distinguishes room capacity from schedule availability in check-in configuration. It reports that a room’s soft capacity threshold belongs to the Location, while schedule availability is expressed through the group-location relationship and its linked schedules. The recommended preflight compares the group, group location, physical location, threshold, and schedule link before a production change.
 
-Operational implications:
+Treat this as a community implementation pattern requiring local schema and configuration verification. Do not assume a capacity change is limited to one service time when the same room is reused. [Model Map](https://community.rockrms.com/ModelMap) [Rock U Check-In Manager](https://community.rockrms.com/rocku/check-in/check-in-manager-1)
 
-- If categories look wrong in an attribute editor, check Rock version before assuming local configuration corruption.
-- If an attribute is not shown in a block, inspect included and excluded categories.
-- If category filtering is used for public forms, confirm that sensitive attributes are not included by category accident.
-- If mobile blocks display attributes by category, verify category and entity type compatibility manually ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)).
+### Global attributes and system settings
 
-### Campuses
+The supplied official Attributes index links to a Global Attributes topic, establishing that the topic exists in the v19 documentation hierarchy. The evidence pack does not supply the topic’s answer-bearing content, nor does it supply direct documentation for general system settings. This guide therefore does not assert their storage rules, precedence, caching, security behavior, administration routes, or supported values. [Attributes documentation index](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes)
 
-Campuses serve as organizational context. They are not just location labels. Campus can affect person home context, group membership, connection request routing, report filters, mobile context, and content targeting.
+Any task involving a global attribute or system setting must inspect the current official article and installed configuration before proposing a change.
 
-The mobile Campus Context Picker lets a mobile app present campus choices allowed for a person and sends the selected campus with every request. If no context is set, the docs say the current person’s home campus is used ([Campus Context Picker](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker)).
+## Analytics And Reporting Configuration
 
-Operational implications:
+The following are reviewed community operating patterns, not universal requirements.
 
-- Campus filters should distinguish “all campuses,” “current person’s campus,” “selected context campus,” and “home campus.”
-- Multi-campus reports should explicitly define what happens when no campus parameter is supplied.
-- Mobile and web context may differ if campus context picker state is active.
-- Community recipes can illustrate campus filtering patterns but require local validation. The Slicker Campus Filters recipe demonstrates adding an “All Campuses” option and defaulting to current person campus in dynamic report patterns, but it is community-contributed and must be reviewed for security and performance ([Slicker Campus Filters](https://community.rockrms.com/recipes/393)).
+Rock metrics can provide scheduled historical capture: expensive values can be calculated off-hours, stored repeatedly, and visualized later without recomputing the full operational query on every dashboard load. The approved claim includes a bounded read-only verification of the `Metric`, `MetricValue`, and `Schedule` surfaces in one connected instance; that verification does not establish another installation’s job configuration or data quality. [Approved claim `claim:00ccd91253b6bea7c870`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp)
 
-### Global Attributes And System Settings
+Expensive journey analytics can similarly be calculated into a persisted dataset on a schedule. The approved claim includes bounded verification that the inspected installation had a `PersistedDataset` surface with refresh, schedule, result, cache, Lava-command, and build-script fields. Confirm the installed schema and actual schedule before depending on the pattern. [Approved claim `claim:01d746f9a6bc23a6d503`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW)
 
-Global attributes and system settings provide instance-wide values. Lava docs include sections for Global Attributes and System Settings and note system settings support beginning with Rock v10.3 ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+Analytics-enabled tables can act as a snapshot layer for daily engagement counts or trends consumed by external reporting tools. This can reduce repeated reconstruction of operational history, but the design still needs clear metric definitions, a refresh policy, security, and a reconciliation path back to Rock. The supporting approved claim was live-verified only at the feature-surface level in one instance. [Approved claim `claim:a5f0a54f29d226cec5fc`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdREmjz)
 
-Global configuration has high blast radius. A value may be used by:
+When embedding Power BI or a similar report in Rock, enforce both sides of access:
 
-- Lava templates.
-- CMS content.
-- Workflow actions.
-- Scheduled jobs.
-- Communication templates.
-- Mobile app configuration.
-- Blocks.
-- External integrations.
-- Custom plugins.
+- Put the Rock page and blocks behind appropriate Rock security roles.
+- Confirm the external provider’s licensing and access requirements.
+- Test with authorized and unauthorized representative accounts.
+- Do not infer external BI licensing from Rock’s page authorization.
 
-Operational implications:
+The approved claims include bounded verification of Rock `Page`, `Block`, and `Auth` surfaces, but explicitly do not verify external licensing. [Approved claim `claim:60d40983fd53c0173dd9`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) [Approved claim `claim:ffba67d8847c47e68ea6`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz)
 
-- Before changing a global attribute, search for its key in Lava, content channels, workflow actions, block settings, and code.
-- Confirm whether the value is cached and whether a cache flush or app restart is required.
-- Verify whether the setting is environment-specific. Production, staging, and development may need different URLs, API keys, campus IDs, or feature flags.
-- For address behavior, release/partner notes mention a v16.10-era system setting around default address state selection, but the supplied Triumph source is a secondary partner summary and should be verified against official release notes and the live System Settings page before relying on exact wording ([Triumph GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-12202024)).
+## AI Agents, Lava Tools, And Extensions
 
-## 6. Primary Entities And Relationships
+Rock’s agent model separates agents, skills, and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate choices. Expose only tools authorized for the current person and agent. [Approved claim `claim:b4fb38224ff8452078f3`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s)
 
-This section gives agents a practical relationship map. Use it as a starting point, then verify in the installed version.
+Prompt context can include Rock’s core prompt, an organization prompt, agent instructions, skill instructions, and current-person context. Keep each layer concise, add instructions when testing demonstrates a need, and pass IdKeys instead of raw integer identifiers. [Approved claim `claim:57e32b4d554a759231a1`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s)
 
-### Attribute Relationship Map
+For custom tools:
 
-`Attribute` relates to:
+- Use clear verb-and-entity names.
+- Shape results intentionally—for example, Lookup, List, Get, Summary, Insights, AvailableAttributes, or AddOrUpdate.
+- Bound results so unnecessary records do not consume the model’s context.
+- Make parameters explicit and sanitized.
+- For Lava tools, return structured `AgentToolResult` values and use the dedicated filters for instructions, compact history, metadata, and Rock reference routes.
+- Inspect built-in tool logs for calls, inputs, and results during debugging.
 
-- `EntityType` through `EntityTypeId`.
-- `FieldType` through `FieldTypeId`.
-- `Category` through attribute-category assignment records.
-- target entity scope through `EntityTypeQualifierColumn` and `EntityTypeQualifierValue`.
-- `AttributeValue` through `AttributeValue.AttributeId`.
-- security records through Rock authorization relationships.
-- field configuration records or serialized configuration, depending on field type and version.
+[Approved claim `claim:60c2bcd25e1cce4efef4`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s) [Approved claim `claim:4b7b8d0b0379ceb7587f`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s)
 
-`AttributeValue` relates to:
+Do not expose arbitrary runtime SQL generation and execution to an agent. The approved guidance distinguishes that unsafe capability from reviewed static SQL inside a narrowly secured Lava tool. [Approved claim `claim:c3921cb1d8b61e06c713`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s)
 
-- `Attribute` through `AttributeId`.
-- a target entity through `EntityId`.
-- formatted display through the attribute’s field type.
-- raw value through `Value`.
-- stable identity through `Guid`.
+Rock-side skills and tools provide platform capabilities, while an external harness may hold organization-specific business rules. Govern and version both layers; do not assume MCP tools contain local process policy. [Approved claim `claim:538f1a4e0ad7c90f7c5a`](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s)
 
-The official SQL utility for defined values demonstrates this shape in a reporting context ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
+When work must survive a conversation, have the agent produce a durable file or handoff artifact rather than leaving the result only in transient chat. [Approved claim `claim:679a38216f2b07097624`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=713s)
 
-### Defined Type Relationship Map
+For community plugins and themes, configuration work includes packaging, review, distribution through the Rock Shop path, and uninstall behavior—not only local code changes. [Packaging Plugins and Themes](https://community.rockrms.com/developer/packaging-plugins-themes)
 
-`DefinedType` relates to:
+## Cross-Domain Version 19 Configuration
 
-- many `DefinedValue` records.
-- a possible `FieldTypeId`, based on source code that can retrieve defined types by field type ID ([DefinedTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedType/DefinedTypeService.cs)).
-- attributes on the defined type itself through queryable attribute support in generated source ([DefinedTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs)).
-- other model records that reference the defined type. Generated deletion checks show, for example, `GroupType.GroupStatusDefinedTypeId` can block deletion ([DefinedTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs)).
+The following behaviors are specifically scoped to Rock v19 in the approved evidence and must be checked against the installed build.
 
-`DefinedValue` relates to:
+### Experience modes
 
-- one `DefinedType` through `DefinedTypeId`.
-- attributes scoped to `Rock.Model.DefinedValue`, often qualified by `DefinedTypeId`.
-- many consuming models through specific foreign keys. Generated deletion checks list many examples such as attendance and benevolence references ([DefinedValueService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs)).
-- Lava object resolution when used by field types that support object output ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+Rock v19 begins the organization-wide Essentials and Trailblazer experience-mode rollout. The selected mode changes visible pages, settings, and help content. Supported settings screens can preview both levels, but not every block is necessarily mode-aware. Do not diagnose a missing option until the organization mode, screen preview, block version, and permissions have been checked. [Approved claim `claim:1eb3f0a262c65737970a`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=96s)
 
-### Entity Type Relationship Map
+### CAPTCHA
 
-`EntityType` relates to:
+Rock v19 introduces built-in proof-of-work CAPTCHA with organization-level and block-level controls. Confirm whether each exposed form is configured for visible, invisible, or disabled behavior, then test every public entry path. [Approved claim `claim:5073aebf878a8fbe7c63`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=155s)
 
-- attributes through `Attribute.EntityTypeId`.
-- audit records through `Audit.EntityTypeId`.
-- authorization/security records.
-- notes and note types.
-- components, providers, workflows, commands, and plugin records.
-- REST v2 model endpoints.
-- UI blocks and view models.
-- security grants.
+### Check-in
 
-Source code shows an `EntityTypeSecurityGrantRule` that grants access when an object’s entity type matches the configured entity type ID, including both `IEntity` and cached entity cases ([EntityTypeSecurityGrantRule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)). This means entity types participate directly in security decisions.
+The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without a manual refresh. If updates lag, inspect browser connectivity, block version, and local check-in configuration. [Approved claim `claim:7df4b8c20f9419a30a5a`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s)
 
-### Category Relationship Map
+### Event registration
 
-`Category` can relate to many entity types. The exact category model fields and join tables should be verified in the live schema, but operationally categories often:
+When several v19 registrant-eligibility rules are enabled, a registrant must satisfy all selected criteria. Test combined age, gender, grade, and Data View rules with representative people before opening registration. [Approved claim `claim:1d4e4b914d16049aee7c`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s)
 
-- organize attributes on admin screens.
-- determine tab grouping.
-- drive include/exclude block settings.
-- categorize defined values.
-- categorize content, financial objects, notes, groups, or workflows.
-- affect user-visible forms.
+The v19 Prevent Duplicate Registrants option blocks a matched person from being registered twice. Its warning can reveal that a person is already registered to someone who knows sufficient matching details, so evaluate the disclosure risk before enabling it for a sensitive event. [Approved claim `claim:33a7cc3b7e0626ec5cc1`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s)
 
-The Engagement docs provide a concrete example: connection request attribute categories are created under Attribute Categories with entity type “Connection Request,” assigned to attributes, and then used by signup block settings ([Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
+### Communications and workflows
 
-### Campus Relationship Map
+The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages. Block settings can customize the labels and descriptions, so local wording should help senders classify messages consistently. [Approved claim `claim:809519cf51bf3b32119f`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s)
 
-`Campus` can relate to:
+A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person’s history, and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained history. [Approved claim `claim:c8435f854b9e7075ab76`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=684s)
 
-- people and families through home campus or family context.
-- groups through campus assignment.
-- connection opportunities and requests.
-- schedules and locations in some module contexts.
-- reports and page parameters.
-- mobile request context.
-- content targeting and Lava templates.
-- global settings and default organization context.
+The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use those fields to investigate patterns and coach senders rather than assigning every unsubscribe to one cause. [Approved claim `claim:147ee6dbc7db220dc7ba`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s)
 
-Do not assume one campus field controls all campus behavior. Inspect the consuming entity and block.
+Rock v19 adds workflow actions for Rock Chat channel and direct messages. Before operational use, verify Rock Chat configuration, recipient resolution, workflow security, and actual delivery. [Approved claim `claim:f8380a3e786ab33df98f`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s)
 
-## 7. Common Platform Configuration Workflows
+### Person merge and record provenance
 
-### Add A Person Attribute
+The v19 merge interface surfaces last-modified time and actor information. Treat recency as one review signal, not proof that a record is correct. [Approved claim `claim:f39e0cab003d876835c1`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=845s)
 
-Use this workflow when a ministry wants a new person-level field.
+A requester without merge permission can ask to be notified when the reviewed merge completes, preserving separation between requesting and authorizing a merge. [Approved claim `claim:b81391274ac89ca6c69f`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=902s)
 
-1. Define the purpose. Decide whether the field is operational, pastoral, reporting, public, sensitive, temporary, or integration-owned.
-2. Confirm the target entity type is `Person`, not `PersonAlias`, `Group`, `GroupMember`, or `Family` unless that is the real data owner.
-3. Navigate to the Entity Attributes admin surface in the live Rock instance.
-4. Create the attribute with a stable key. Avoid spaces and future-breaking names. Prefer keys that describe meaning, not one campaign.
-5. Choose the correct field type. Use controlled field types for controlled values rather than free text.
-6. Assign a category if the attribute should appear with related fields.
-7. Set security. If the value is sensitive, configure attribute-level authorization and verify behavior under a non-admin test account.
-8. Set public visibility only if it is intended for public forms or external display.
-9. Save and test on a person profile or block that displays person attributes.
-10. Test Lava access using debug mode and the `Attribute` filter ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
-11. If using the attribute in Data Views or Reports, verify query behavior and whether the field type supports the needed filtering.
+If a merge changes the surviving last name, v19 can add the former value to Previous Last Names. Verify local field visibility and data-handling policy before relying on that continuity. [Approved claim `claim:23c173130e89f0eba735`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=963s)
 
-RockU has training entries for Person Attributes, Family Attributes, and Bookmarked Attributes in the Individuals in Rock section ([Person Attributes](https://community.rockrms.com/rocku/individuals-in-rock/person-attributes), [Family Attributes](https://community.rockrms.com/rocku/individuals-in-rock/family-attributes), [Bookmarked Attributes](https://community.rockrms.com/rocku/individuals-in-rock/bookmarked-attributes)). The hydrated excerpts are mostly navigation metadata, so use live UI and official docs for exact steps.
+External person-entry blocks can assign record sources, and v19 can show that source in duplicate details. Configure and test the source on each entry block used for duplicate investigation. [Approved claim `claim:5d80cd1847429a0181d0`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=790s)
 
-### Add A Connection Request Attribute
+### Schedules, diagnostics, and Lava
 
-Connection request attributes are a good example of entity attributes crossing into public forms. The Engagement documentation says to set up these attributes under Entity Attributes with entity type “Connection Request,” and it describes using categories and public flags to control signup block display ([Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
+Rock v19 materializes recurring iCal occurrences into `ScheduleDate` rows. Date-based SQL and Lava work should use those generated dates instead of inventing another recurrence-expansion process. Confirm the installed schema and date generation before migrating a query. [Approved claim `claim:4c4098a035a5ca256bfe`](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s)
 
-Operational workflow:
+The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup. Use it to identify slow page components, then corroborate intermittent or infrastructure-wide problems with broader telemetry. [Approved claim `claim:091606bd3b8b0472392a`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s)
 
-1. Confirm whether the attribute belongs to the request, the person, the connection type, or the opportunity.
-2. Create the attribute for entity type `Connection Request`.
-3. If the signup block should show only selected attributes, create an Attribute Category for entity type `Connection Request`.
-4. Assign the new attribute to that category.
-5. Configure the signup block to include or exclude the right categories.
-6. If using public forms, set the public flag appropriately and confirm the signup block’s public/non-public behavior.
-7. Submit a test request as an unauthenticated or low-privilege user.
-8. Inspect the created `ConnectionRequest` and `AttributeValue`.
-9. Confirm staff-facing detail blocks show the value.
-10. Confirm workflows triggered from the request can read the raw or formatted value as needed.
+Rock v19 adds a `contains` parameter to the Lava `where` filter for partial field matching. Confirm current case behavior, type behavior, and query performance before applying it to broad data sets. [Approved claim `claim:524be15ef7a48290a72a`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s)
 
-### Add Attributes To Defined Values
+## Change Management And Operational Governance
 
-Defined value attributes are useful when a controlled vocabulary item needs metadata. Examples include a school defined value with grade-range attributes, a ministry area value with display color, or a campus-related value with integration IDs.
+Self-hosted operators own their Rock patch cadence. Supported dot releases can include security fixes and should not be treated as optional without review. Confirm supported branches and read current release notes immediately before an upgrade. [Approved claim `claim:e78d41d7fefc84b6e9e7`](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s)
 
-The source SQL for defined type attributes shows a canonical pattern: attributes for entity type `Rock.Model.DefinedValue` scoped by `EntityTypeQualifierColumn = 'DefinedTypeId'` and qualifier value equal to a defined type’s ID ([View_DefinedTypeAttributes.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)).
+Major-version and patch-release validation are different scopes. Large releases can accumulate broad functional change, while later patches may correct post-release defects. The historical community claim supporting this distinction requires current live verification before use in an upgrade decision. [Approved claim `claim:900a195ee6880a693f27`](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks)
 
-Workflow:
+Prepare users as part of configuration deployment:
 
-1. Identify the defined type.
-2. Create an attribute for entity type `Defined Value`.
-3. Qualify it to the specific defined type if the UI supports qualifier configuration.
-4. Choose field type and category.
-5. Edit each defined value and enter its attribute values.
-6. In Lava, resolve the defined value object and then read its attributes. The attribute docs show the pattern of returning an object from an attribute and then accessing its properties or attributes ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
-7. In reports, join `DefinedValue`, `DefinedType`, `Attribute`, and `AttributeValue` as needed, using the official SQL utility as a relationship example ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
+- Before exposing staff to a changed Rock interface, prepare and distribute a short targeted video. [Approved claim `claim:c9c1fa08cb0434d501e6`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1714s)
+- For the redesigned v19 Connections experience, show active connectors the interface and provide brief training before deployment. [Approved claim `claim:07a75e5ff71510d708de`](https://www.youtube.com/watch?v=edanHiYSDIM&t=91s)
+- Rock’s LMS can assign curricula by staff role and track completion, subject to installed-version configuration and permissions. [Approved claim `claim:91be2ad338eb6b1cdaed`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s)
+- Train and activate staff before expecting them to train volunteers. [Approved claim `claim:c8c3a60f71790dd3616d`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s)
+- Correct Rock training reduces the risk of teams adopting disconnected tools that fragment workflows and the system of record. [Approved claim `claim:4b083dda9f0d9ccc4aff`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2042s)
 
-### Configure A Campus-Aware Report
+## Version And Authority Caveats
 
-Campus-aware reports are common and easy to get subtly wrong. A community recipe demonstrates one pattern: a Page Parameter Filter using a single-select campus field, an “All Campuses” option, and Dynamic Data Lava/SQL logic to default to the current person’s campus ([Slicker Campus Filters](https://community.rockrms.com/recipes/393)). Because this is a community recipe, treat it as a pattern, not an official guarantee.
+- The core attributes and campus administration excerpts are official documentation labeled v19.0.
+- The v19 feature claims come from approved official Rock media. They remain release-sensitive and should be checked against current written documentation and the installed build.
+- The category fixes are version-specific release-note evidence. A defect fixed in one version should not be generalized to every version.
+- Source-code observations refer only to immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. They explain implementation relationships but do not prove live schema, configuration, plugin state, or permissions.
+- Analytics recommendations are community-reviewed operating patterns. Some carry a bounded, public-safe read-only verification of feature surfaces in one connected instance; none proves another installation’s schedules, values, security, or output.
+- Defined Value seasonal gating, source-mismatch diagnosis, and room-capacity preflights are reviewed community contributions requiring live verification.
+- External BI access depends on both Rock authorization and the external provider’s licensing. The evidence verifies only the existence of relevant Rock-side security surfaces in the reviewed instance.
+- The hydrated release page included newer release headings, including an alpha release, but headings and source summaries are not sufficient evidence for feature guidance. This guide does not promote them into current behavior.
+- No new live-instance verification was performed for this synthesis.
 
-Workflow:
+## Troubleshooting Decision Tree
 
-1. Decide the campus source: selected page parameter, current person home campus, mobile campus context, group campus, opportunity campus, or all campuses.
-2. Decide whether “All Campuses” is allowed.
-3. If using Dynamic Data SQL, parameterize safely and avoid injecting raw Lava strings into SQL.
-4. If using a page parameter, define what happens when it is absent.
-5. If using current person campus, test with a person who has no campus.
-6. If using mobile campus context, verify the Campus Context Picker behavior and fallback to home campus ([Campus Context Picker](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker)).
-7. Test with users who can see one campus, multiple campuses, and no campus.
-8. Confirm security does not expose cross-campus data unintentionally.
+### An attribute exists but is not visible
 
-### Add Mobile Site Attributes
+1. Confirm the attribute’s owning entity type.
+2. Confirm the current record is that entity type.
+3. Check whether the current display only shows attributes that have values.
+4. Inspect the attribute’s category assignments.
+5. Inspect the Attribute Values block’s selected category and entity context.
+6. Check view, edit, and Administrate authorization.
+7. If this is mobile, verify that the field type is supported by the mobile shell.
+8. Check the installed version for relevant attribute or category fixes.
+9. Stop when visibility, editability, and persistence have been verified with an authorized representative user.
 
-Rock mobile docs say custom entity attributes for mobile sites are available as of Rock v16.8 and can be configured under System Settings > Entity Attributes for mobile site use ([Custom Site Attributes](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes)).
+[Extended Attributes Tab](https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab) [Mobile Attribute Values block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)
 
-Workflow:
+### A category dropdown shows unrelated categories
 
-1. Confirm Rock version is v16.8 or later.
-2. Identify the mobile site or application entity.
-3. Create custom attributes for the relevant site entity type.
-4. Assign values on the Mobile Application Detail block or equivalent live UI.
-5. Access the attributes in mobile Lava/XAML content using the site object and attribute keys.
-6. Test in the mobile shell.
-7. Confirm field types are supported by the mobile surface if the value is editable, not just read.
+1. Record the Rock version and exact editing block.
+2. Confirm the attribute’s entity type and qualifiers.
+3. Confirm the intended category’s scope.
+4. Check whether the installation includes the v19.1 fix for Global Attribute categories appearing in unrelated attribute editors.
+5. For Content Channel Item attributes, check the v17.2 category fix.
+6. Do not reclassify attributes merely to work around a known version defect.
 
-### Use Attributes In Custom Blocks
+[Rock Core release notes](https://www.rockrms.com/releasenotes)
 
-Developer docs show the WebForms `AttributeValuesContainer` pattern for adding display and edit controls to custom blocks, including loading attributes on view/edit and saving attribute values ([Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)). For Obsidian, the `AttributeColumns` component provides a placeholder for dynamic attribute-value columns in grids ([AttributeColumns](https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns)).
+### A workflow stores a value but the report shows the wrong label
 
-Workflow:
+1. Identify the attribute and expected Defined Type.
+2. Inspect the selector’s actual data source.
+3. Resolve the stored value to its Defined Value and owning Defined Type.
+4. Compare workflow transformations and report joins.
+5. Sample records from before and after configuration changes.
+6. Decide which Defined Type is authoritative.
+7. Stop before bulk correction until the affected records and downstream consumers are bounded.
 
-1. Confirm the block’s entity type.
-2. Load attributes for the entity before display.
-3. Render display controls or edit controls according to authorization.
-4. Validate required fields and field-type-specific constraints.
-5. Save attribute values using Rock’s attribute APIs.
-6. For list grids, request attribute field definitions and place `AttributeColumns` where dynamic columns should appear.
-7. Test with attributes of multiple field types.
-8. Test security with users who can view the entity but not all attributes.
+This follows a reviewed community pattern requiring live verification. [Model Map](https://community.rockrms.com/ModelMap)
 
-## 8. Attributes And Attribute Values Deep Dive
+### Seasonal options are missing or still selectable
 
-### Attribute Definition Fields
+1. Confirm the form uses the intended Defined Type.
+2. Inspect the visibility attribute on every relevant Defined Value.
+3. Inspect the selector’s filter.
+4. Check caching or persisted output used by the form.
+5. Render the form as a representative user.
+6. Confirm retired options are absent and new options are selectable.
 
-Use [Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes), [AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools), and the version-matched [Model Map](https://community.rockrms.com/ModelMap) to distinguish definition metadata from stored values.
+This follows a reviewed community pattern requiring live verification. [Rock U workflows](https://community.rockrms.com/rocku/workflows)
 
-The exact columns vary by Rock version, but agents should normally inspect:
+### A campus selector is absent or chooses a campus automatically
 
-- `Id`: local numeric identifier.
-- `Guid`: stable identifier.
-- `Name`: display label.
-- `Key`: programmatic key used in Lava and code.
-- `Description`: admin/help text.
-- `EntityTypeId`: target entity type.
-- `EntityTypeQualifierColumn`: optional qualifier column.
-- `EntityTypeQualifierValue`: optional qualifier value.
-- `FieldTypeId`: field type used for editing and formatting.
-- `DefaultValue`: default raw value.
-- `Order`: display order.
-- `IsRequired`, `IsGridColumn`, `IsMultiValue`, `IsPublic`, or similar flags where present.
-- field configuration values.
-- categories.
-- security.
+1. Count the active, configured campuses.
+2. If there is one campus, account for documented single-campus behavior.
+3. Determine whether the consuming block requires a campus or treats it as optional.
+4. Inspect the block, page context, and record being edited.
+5. Verify that unexpected behavior is not caused by permission or experience-mode differences.
 
-Do not invent exact field names for a live system. Inspect the model, schema, or admin UI.
+[Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-### Qualifiers
+### A campus cannot use the intended location
 
-Qualifiers narrow an attribute to a subset of an entity type. Defined value attributes are a clear example: attributes can apply to `Rock.Model.DefinedValue`, but only to values belonging to a specific defined type. The source SQL checks `EntityTypeQualifierColumn = 'DefinedTypeId'` and `EntityTypeQualifierValue = t.Id` ([View_DefinedTypeAttributes.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)).
+1. Verify the named location exists.
+2. Verify its Location Type is `Campus`.
+3. Confirm the correct location is selected on Campus Details.
+4. For an online campus, do not omit the location; verify the chosen location is the intended association.
+5. Stop when the campus saves and the consuming surface resolves the expected location.
 
-Other common qualifier patterns may include group type, workflow type, block type, content channel type, registration template, or connection type. Verify the expected qualifier column for the target entity.
+[Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-Troubleshooting qualifier issues:
+### Check-in room capacity or availability is wrong
 
-- Attribute exists but does not appear: qualifier column/value may not match.
-- Attribute appears on too many objects: qualifier may be blank or too broad.
-- Attribute values exist but block ignores them: block may load only attributes matching a specific qualifier.
-- New attribute value cannot be found in SQL: `EntityId` may point to a different entity than expected.
+1. Identify the exact check-in group, group location, location, and schedule.
+2. Inspect the room threshold separately from schedule linkage.
+3. Determine whether the location is reused at other times.
+4. Verify the expected schedule is linked through the group-location configuration.
+5. Review downstream check-in behavior before changing a shared location threshold.
+6. Stop before mutation if the local schema or installed block differs from the reviewed community pattern.
 
-### Raw Values Versus Formatted Values
+[Model Map](https://community.rockrms.com/ModelMap) [Rock U Check-In Manager](https://community.rockrms.com/rocku/check-in/check-in-manager-1)
 
-The Lava workflow docs emphasize raw values. A Person workflow attribute’s raw value may be a person alias GUID, not a person ID or display name ([Workflows and Lava](https://community.rockrms.com/lava/workflows)). The attribute filter docs show accessing attributes directly, accessing object properties through qualifiers, and returning an object for further property/attribute access ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+### A dashboard is slow
 
-Practical rules:
+1. Identify whether the page recalculates historical operational data on every request.
+2. Determine whether a Rock metric, persisted dataset, or analytics snapshot can answer the same bounded question.
+3. Establish refresh frequency and acceptable staleness.
+4. Schedule expensive computation outside peak use where appropriate.
+5. Validate the stored result against the operational source.
+6. Use v19 Page Load Time traces for page-component diagnosis when applicable.
+7. Corroborate intermittent or infrastructure-wide findings with broader telemetry.
 
-- Use formatted value for display.
-- Use raw value for identifiers, links, API calls, comparisons, and SQL joins.
-- Use object output when you need properties or nested attributes.
-- For multi-select fields, inspect delimiter and stored format.
-- For defined values, inspect whether stored value is ID, GUID, or another field-type-specific token.
-- For person fields, inspect whether value is person alias GUID, person GUID, or ID.
+[Approved claim `claim:01d746f9a6bc23a6d503`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW) [Approved claim `claim:091606bd3b8b0472392a`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s)
 
-### Attribute Security
+### An embedded BI report is inaccessible or overexposed
 
-Rock v17 increased security enforcement on attributes, requiring them to honor security rules of their associated entity. The Lava docs note a third optional parameter added in Rock v17.5 to bypass attribute-level security checks ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+1. Check Rock page and block authorization.
+2. Test an authorized Rock account.
+3. Test an unauthorized Rock account.
+4. Check the external BI identity and license.
+5. Confirm that embedding does not bypass the intended external access boundary.
+6. Stop when both Rock authorization and provider access are independently demonstrated.
 
-Operational approach:
+[Approved claim `claim:60d40983fd53c0173dd9`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz)
 
-1. Reproduce as the affected user, not as an admin.
-2. Confirm the user can view the base entity.
-3. Confirm the user can view the attribute definition.
-4. Confirm the user can view attribute value.
-5. Confirm whether the consuming Lava/block/API applies attribute security.
-6. Check version-specific behavior.
-7. Use bypass only when the template or code is in a trusted context and the data is appropriate to expose.
+### The v19 Check-In Manager roster does not update live
 
-Never treat a Lava security bypass as a generic fix. It may expose sensitive data.
+1. Confirm the installed version and block version.
+2. Confirm the attendance change was committed.
+3. Check browser connectivity.
+4. Inspect local check-in configuration.
+5. Compare behavior in another supported browser or session.
+6. Do not diagnose the problem as general database latency without broader evidence.
 
-### Attribute Categories
+[Approved claim `claim:7df4b8c20f9419a30a5a`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s)
 
-Attribute categories can control display grouping and inclusion. The Engagement docs show connection request attributes grouped into category tabs, with uncategorized attributes falling under a generic tab when categorized attributes exist ([Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
+### A v19 registration rejects an apparently eligible person
 
-Category pitfalls:
+1. List every enabled eligibility rule.
+2. Remember that all selected criteria must be satisfied.
+3. Evaluate age, gender, grade, and Data View results separately.
+4. Test representative people at each boundary.
+5. Re-test the combined rule set.
+6. Stop before opening registration if expected boundary cases still fail.
 
-- Wrong entity type category selected.
-- Category shown due to a version bug.
-- Attribute category exists but block configured to exclude it.
-- Attribute uncategorized and therefore displayed under a default group.
-- Mobile block category selection not compatible with selected entity type.
+[Approved claim `claim:1d4e4b914d16049aee7c`](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s)
 
-Version caveat: v19.1 fixed attribute editing blocks showing Global Attribute categories in the wrong category dropdown ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+### An agent chooses the wrong tool or returns too much data
 
-### Attribute Values In Lava
+1. Check whether the tool name clearly expresses a verb and entity.
+2. Check parameter names, descriptions, and sanitization.
+3. Replace broad results with a bounded result shape.
+4. Review the agent, skill, and tool authorization layers.
+5. Inspect built-in tool logs for the actual call, input, and result.
+6. Remove open-ended SQL execution capability.
+7. Re-test with the current-person security context.
 
-Use Lava debug mode where available to inspect available merge fields and attributes. The attribute docs describe using debug to see available attributes ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+[Approved claim `claim:60c2bcd25e1cce4efef4`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s) [Approved claim `claim:c3921cb1d8b61e06c713`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s)
 
-Common patterns:
+## Agent Task Recipes
 
-```liquid
-{{ CurrentPerson | Attribute:'BaptismDate' }}
-```
+### Recipe: Add and verify a campus attribute
 
-Use this for a formatted string value.
+**Outcome:** A secured campus attribute is visible and stores the intended value on Campus Details.
 
-```liquid
-{{ Workflow | Attribute:'Person','RawValue' }}
-```
+1. Define the value’s purpose and confirm Campus is the correct owner.
+2. Open `Admin Tools > Settings > Entity Attributes`.
+3. Add an attribute with Entity Type `Campus`.
+4. Leave the qualifier field and value empty, as directed by the campus documentation.
+5. Configure the field type and presentation details supported by the requirement.
+6. Save the attribute.
+7. Configure attribute security.
+8. Open Campus Details and set a test value.
+9. Verify visibility and editability as representative authorized and unauthorized users.
+10. Record downstream consumers that rely on the value.
 
-Use this when the internal identifier is needed, such as building a link or passing a value to another page. The workflow docs explain why raw value matters for person-type workflow attributes ([Workflows and Lava](https://community.rockrms.com/lava/workflows)).
+**Do not assume:**
 
-```liquid
-{% assign school = CurrentPerson | Attribute:'School','Object' %}
-{{ school.Value }}
-{{ school | Attribute:'Grades' }}
-```
+- Saving the definition creates values for existing campuses.
+- Administrative access implies every user can view or edit the value.
+- Web support proves mobile support.
 
-Use object output when the attribute points to an object that has its own properties or attributes. The attribute docs provide this “attribute of an attribute” pattern for defined values ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
+[Add Attributes to Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/add-attributes-to-campuses)
 
-### Attribute Values In Mobile
+### Recipe: Place person attributes on a profile tab
 
-The mobile Attribute Values block displays and edits attributes based on category and entity type. Its settings include:
+**Outcome:** A selected category of Person Attributes appears in the intended profile location.
 
-- Category.
-- Use Abbreviated Names.
-- Entity Type.
-- Styling.
+1. Confirm that the attributes belong to the Person entity.
+2. Assign the intended category or categories.
+3. Use the Admin Toolbar and Zone Editor to add an Attribute Values block to the intended profile tab.
+4. Configure the block for the specific category.
+5. Review block authorization.
+6. Test a person with populated values.
+7. Test the edit path with a permitted user.
+8. Test the view path with a user who should not edit.
+9. Remember that the Extended Attributes area may omit attributes without values.
 
-The docs warn that the category list may include broad categories and that the selected entity type and attribute must be compatible. They also warn that only field types supported by the mobile shell can be edited ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)).
+**Stop when:**
 
-The mobile Attribute Value Editor is a developer-level control that decides which UI to show for a given attribute value; normal use is looping through an entity’s attributes and building one editor per attribute. The docs again warn that only a subset of field types is supported ([Mobile Attribute Value Editor](https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor)).
+- The correct attributes appear in the intended location.
+- Editing persists the values.
+- Unauthorized access is denied.
 
-## 9. Defined Types And Values Deep Dive
+[Display Person Attributes](https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes)
 
-Defined types are the structured lists that keep Rock configuration consistent. They are more than dropdown options. A defined type can control group statuses, attendance values, communication preferences, location types, categories, icons, workflow options, and custom ministry vocabularies.
+### Recipe: Audit a Defined Value source mismatch
 
-### Defined Type Fields To Inspect
+**Outcome:** Capture, storage, and reporting use the same intentional Defined Type.
 
-In a live instance, inspect:
+1. Identify the affected workflow attribute or form field.
+2. Record the expected Defined Type.
+3. Inspect the selector’s SQL, Lava, or other data source.
+4. Resolve sample stored values to their Defined Values and parent Defined Types.
+5. Inspect workflow actions that copy or transform the value.
+6. Inspect downstream joins and filters.
+7. Classify existing mismatches by source and date.
+8. Choose the authoritative Defined Type with the process owner.
+9. Prepare separate capture and historical-data corrections.
+10. Re-test submission and reporting before rollout.
 
-- `Id`
-- `Guid`
-- `Name`
-- `Description`
-- `Category`
-- `Order`
-- `FieldTypeId`, if present
-- system/protected flags, if present
-- values
-- attributes
-- security
-- references from other model records
+**Stop when:**
 
-Source code confirms `DefinedTypeService.GetByFieldTypeId()` exists and orders by `Order`, so field type association can be part of defined type behavior ([DefinedTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedType/DefinedTypeService.cs)).
+- The authoritative source is ambiguous.
+- Existing data impact is unbounded.
+- A correction would require production writes not separately approved.
 
-### Defined Value Fields To Inspect
+This is a reviewed community recipe requiring live verification. [Model Map](https://community.rockrms.com/ModelMap)
 
-In a live instance, inspect:
+### Recipe: Operate seasonal Defined Value options
 
-- `Id`
-- `Guid`
-- `DefinedTypeId`
-- `Value`
-- `Description`
-- `Order`
-- active/enabled/system flags, if present
-- attributes
-- category assignments, if supported
-- references in model tables
+**Outcome:** A stable vocabulary exposes only the intended seasonal options.
 
-Source code confirms defined values are retrieved by defined type and ordered by `Order`, then by value ([DefinedValueService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedValue/DefinedValueService.cs)).
+1. Confirm the options are stable enough to remain in one Defined Type.
+2. Define or verify a scoped visibility attribute on its Defined Values.
+3. Update the attribute for the coming season.
+4. Inspect the form’s selector filter.
+5. Refresh any relevant cached or persisted output.
+6. Render the form as a representative user.
+7. Verify retired options are absent.
+8. Verify newly enabled options submit and report correctly.
+9. Add this verification to the recurring seasonal runbook.
 
-### Deletion And Reference Safety
+**Do not assume:**
 
-Generated service code checks whether a defined value is assigned to many other model records before deletion. The supplied snippet includes attendance and benevolence examples, and the full generated file likely contains many more references ([DefinedValueService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs)).
+- A changed Defined Value attribute immediately changes a cached form.
+- Hidden options cannot remain in historical records.
+- A successfully submitted value came from the intended Defined Type.
 
-Before deleting or merging defined values:
+This is a reviewed community recipe requiring live verification. [Rock U workflows](https://community.rockrms.com/rocku/workflows)
 
-1. Search direct foreign keys in the schema.
-2. Search attributes that store defined value IDs or GUIDs.
-3. Search Lava templates and workflows by defined value GUID and value text.
-4. Check whether the value is system-defined.
-5. Confirm whether historical records should retain the old value.
-6. Prefer disabling or renaming only after confirming downstream behavior.
-7. If replacing, migrate references explicitly and preserve auditability.
+### Recipe: Stage a campus
 
-### Defined Value Attributes
+**Outcome:** A campus is configured without prematurely exposing it as active.
 
-Defined value attributes let each option carry metadata. For example:
+1. Create the required named location with Location Type `Campus`.
+2. Create the campus as inactive.
+3. Assign its name, code, status, type, dates, leader, location, contact details, and URL as applicable.
+4. Associate the intended campus schedules.
+5. Configure topics and campus attributes only where required.
+6. Avoid building new dependencies on legacy Service Times.
+7. Test downstream blocks and reports with the campus inactive.
+8. Prepare staff and public communication.
+9. Activate only after the dependent surfaces have been verified.
 
-- Display color.
-- Icon class.
-- Sort group.
-- External system code.
-- Ministry owner.
-- Campus mapping.
-- Eligibility rules.
-- Lava template content.
+[Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
 
-The official attribute Lava docs demonstrate that a defined value returned as an object can expose its own properties and attributes ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). The source SQL utility shows how to list defined value attribute values by joining `DefinedType`, `DefinedValue`, `Attribute`, `FieldType`, and `AttributeValue` ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
+### Recipe: Move an expensive dashboard calculation to scheduled storage
 
-### Categorizing Defined Values
+**Outcome:** The dashboard reads a verified stored result instead of rebuilding all history on every request.
 
-RockU includes a “Categorize Defined Values” core concept topic ([Categorize Defined Values](https://community.rockrms.com/rocku/core-concepts/categorize-defined-values)). The supplied excerpt is not detailed enough to assert exact UI behavior across versions. In a live instance, inspect whether the defined type supports categories, whether values are assigned to categories, and whether the consuming picker or block honors those categories.
+1. Define the decision the dashboard supports.
+2. Measure or reproduce the expensive calculation.
+3. Choose a Rock metric, persisted dataset, or analytics snapshot based on the required output.
+4. Set an acceptable refresh interval.
+5. Schedule the calculation away from peak use where appropriate.
+6. Store enough context to reconcile the result to its operational source.
+7. Compare several stored results with direct calculations.
+8. Update the dashboard to read the stored layer.
+9. Monitor refresh failures and data age.
+10. Retain a documented fallback for stale or missing results.
 
-Use categorization when:
+**Do not assume:**
 
-- A long list needs grouping.
-- A workflow or report should include only part of a defined type.
-- Values need administrative organization.
-- UI pickers should narrow by category.
+- Stored means correct.
+- A schedule exists merely because the schema supports one.
+- One organization’s verified schema proves the same feature is configured elsewhere.
 
-Avoid categorization when:
+[Approved claim `claim:00ccd91253b6bea7c870`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp) [Approved claim `claim:01d746f9a6bc23a6d503`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW)
 
-- The consuming field type ignores categories.
-- Categories would create hidden filtering rules that future admins will miss.
-- The list is short and category maintenance creates more complexity than value.
+### Recipe: Secure an embedded BI report
 
-## 10. Categories And Entity Types Deep Dive
+**Outcome:** Only appropriately authorized and licensed users can open the embedded report.
 
-### Entity Type As A Configuration Boundary
+1. Identify the Rock page and block that host the report.
+2. Define the Rock roles that should have access.
+3. Apply and inspect page and block authorization.
+4. Identify the external BI license and identity requirements.
+5. Test an authorized, licensed user.
+6. Test an authorized but unlicensed user.
+7. Test an unauthorized Rock user.
+8. Confirm that report links or embed behavior do not create a bypass.
+9. Document both Rock-side and provider-side ownership.
 
-Entity type is the first boundary for categories and attributes. A category for `Connection Request` attributes is not the same as a category for global attributes, content channel item attributes, defined values, or group attributes. Release notes show that incorrect category lists in attribute editors have been real bugs, not just user confusion ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+**Stop when:**
 
-When creating or troubleshooting categories:
+- External licensing is unknown.
+- Anonymous or unauthorized access cannot be ruled out.
+- Testing covered only an administrator account.
 
-1. Identify the target entity type.
-2. Confirm the category is assigned to that entity type.
-3. Confirm the attribute or item is assigned to that category.
-4. Confirm the block consumes categories for that entity type.
-5. Confirm version-specific bugs do not affect the picker.
+[Approved claim `claim:60d40983fd53c0173dd9`](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz)
 
-### Entity Type Security
+### Recipe: Preflight a v19 configuration change
 
-Entity types can participate in security. The source `EntityTypeSecurityGrantRule` grants permission when the object’s entity type ID matches the configured entity type ID for the requested action ([EntityTypeSecurityGrantRule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)).
+**Outcome:** A version-sensitive feature is enabled with its dependencies and risks tested.
 
-Implications:
+1. Confirm the installed Rock version and relevant block version.
+2. Read the current documentation and release notes for that build.
+3. Identify organization-level, block-level, security, provider, and workflow dependencies.
+4. Build representative success, denial, and boundary cases.
+5. Test the feature in the actual consuming surface.
+6. Review privacy and disclosure effects, especially duplicate-registration warnings and retained communication history.
+7. Prepare brief staff training for changed interfaces.
+8. Obtain the appropriate operational approval.
+9. Deploy in a bounded window.
+10. Verify visible behavior and retained records after deployment.
 
-- Security grants can be broad if applied by entity type.
-- A user may be allowed to view all entities of a type in a certain context.
-- Cached entities and normal entities can both be evaluated.
-- If a security rule is behaving broadly, inspect whether it is entity-type-based rather than entity-instance-based.
+[Approved v19 feature walkthrough](https://www.youtube.com/watch?v=c-wycR9HEuQ)
 
-### Entity Type List And Editing
+### Recipe: Design a bounded Rock agent tool
 
-Obsidian view models expose entity type metadata and an edit authorization option ([entityTypesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts), [entityTypesOptionsBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts)). For agents, this means the UI may show entity type records but editing should be treated as administrative.
+**Outcome:** An authorized tool performs one clear task and returns a controlled result.
 
-Before editing entity type records:
+1. Define the underlying task and current-person authorization boundary.
+2. Decide whether the capability belongs in a Rock tool, Rock skill, or external organization skill.
+3. Name the tool with a clear verb and entity.
+4. Define explicit, sanitized parameters.
+5. Use IdKeys rather than raw integer identifiers in agent context.
+6. Choose a bounded result shape.
+7. For Lava, return a structured `AgentToolResult`.
+8. Use reviewed static logic where database access is necessary; do not expose arbitrary SQL execution.
+9. Enable only the tool required for the agent and audience.
+10. Exercise success, empty, invalid, unauthorized, and oversized-result cases.
+11. Inspect tool logs for calls, inputs, and outputs.
+12. Version the tool and associated business-rule instructions.
 
-- Confirm why editing is needed.
-- Check whether the record is system-created.
-- Check references from attributes, audit, security, notes, components, and APIs.
-- Check whether name/friendly name changes affect block settings or user-facing selectors.
-- Avoid changing GUIDs.
+[Approved claim `claim:4b7b8d0b0379ceb7587f`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s) [Approved claim `claim:b4fb38224ff8452078f3`](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s)
 
-### Category Version Caveats
+### Recipe: Plan a Rock upgrade as configuration change
 
-Two release-note items are especially relevant:
+**Outcome:** The upgrade covers technical validation, security maintenance, and staff adoption.
 
-- Rock v17.2 fixed Content Channel Type Detail behavior where content channel item attribute category lists included incorrect or unrelated categories ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Rock v19.1 fixed multiple attribute editing blocks where category dropdowns included Global Attribute categories instead of categories for the actual entity type ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+1. Confirm the supported branches and current release notes.
+2. Separate major-version test scope from patch-release test scope.
+3. Inventory affected pages, blocks, workflows, integrations, attributes, categories, registrations, communications, and check-in surfaces.
+4. Test with non-administrator roles as well as administrators.
+5. Re-test previously affected version-specific defects.
+6. Prepare short targeted training for visible workflow changes.
+7. Assign role-based training where the configured LMS supports it.
+8. Train staff before volunteer rollout.
+9. Apply the upgrade through the organization’s controlled release process.
+10. Verify the installed build and representative workflows after deployment.
 
-Troubleshooting branch:
+[Approved claim `claim:e78d41d7fefc84b6e9e7`](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s) [Approved claim `claim:c9c1fa08cb0434d501e6`](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1714s)
 
-- If the wrong categories appear only in a specific block, check release notes and block type.
-- If wrong categories appear everywhere, inspect category entity type assignments.
-- If categories are correct but attributes do not display, inspect block include/exclude settings.
-- If categories are correct but mobile shows unexpected attributes, inspect mobile field type support and entity type/category compatibility.
+## Known Gaps And Live Verification
 
-## 11. Campuses And Global Settings Deep Dive
+- **Global attributes:** The evidence pack supplies only an official documentation index link, not the answer-bearing Global Attributes article. Verify scope, precedence, security, caching, value access, and administration in current documentation and the installed version.
+- **System settings:** No direct source excerpt documents the system-settings surface. Do not infer setting names, defaults, storage, or impact.
+- **Defined Type administration UI:** The pack supports model relationships and selected implementation behavior, but not a complete current administrative walkthrough.
+- **Category administration:** The evidence supports attribute grouping, multi-category Person Attributes, entity compatibility, and selected bug fixes, but not every category-capable entity or security rule.
+- **Mobile field support:** The mobile block is limited to supported field types, but the supplied pack does not enumerate the current list.
+- **Community recipes:** Seasonal Defined Value gating, Defined Type mismatch diagnosis, and room-capacity preflights require validation against the installed schema and configuration.
+- **Analytics:** Confirm jobs, schedules, refresh status, security, data age, and reconciliation in the target installation. Feature-surface verification from another instance is not sufficient.
+- **External BI:** Rock-side page authorization does not verify external licensing, tenant configuration, identity mapping, or embed policy.
+- **Version 19 features:** Confirm the installed build, block generation, permissions, and local configuration before relying on any v19 behavior.
+- **Experience modes:** The evidence does not enumerate every mode-aware page or block.
+- **Schedule dates:** Verify that recurring dates are being materialized correctly before replacing existing recurrence logic.
+- **AI agents:** Confirm feature availability, provider configuration, current-person authorization, logging, tool exposure, and the location of organization-specific policies.
+- **Plugins and themes:** The supplied evidence establishes packaging and Rock Shop distribution guidance but does not document a particular package’s install or uninstall implementation.
+- **Live verification boundary:** No new live-instance inspection occurred for this guide. Only the public-safe conclusions embedded in approved claims were used.
 
-### Campus As Context
+## Source Map
 
-Campuses are a core concept in RockU ([Campuses](https://community.rockrms.com/rocku/core-concepts/campuses)). In operations, campus is context, ownership, routing, filtering, and sometimes security-adjacent data.
+### Official documentation and training
 
-Common campus-bearing records include:
+- [Attributes](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes) — official v19 documentation index.
+- [Extended Attributes Tab](https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab) — Person Profile attribute grouping, visibility, editing, and administration.
+- [Display Person Attributes](https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes) — Attribute Values block placement and category configuration.
+- [Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses) — official campus documentation index.
+- [Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses) — v19 campus administration and single-campus behavior.
+- [Add Attributes to Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/add-attributes-to-campuses) — campus attribute procedure and security.
+- [Mobile Attribute Values block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values) — category, entity-type, naming, and field-support boundaries.
+- [Developer documentation: Attributes](https://community.rockrms.com/developer/303---blast-off/attributes) — attribute loading, display, editing, authorization, and saving in custom blocks.
+- [Packaging Plugins and Themes](https://community.rockrms.com/developer/packaging-plugins-themes) — packaging, Rock Shop review, and uninstall considerations.
+- [Rock Core release notes](https://www.rockrms.com/releasenotes) — version-specific fixes and release context.
 
-- Person or family home campus.
-- Groups.
-- Group members through group context.
-- Connection opportunities and requests.
-- Registrations.
-- Attendance and check-in configuration paths.
-- Reports and page parameters.
-- Content and mobile app context.
+### Official recordings supporting approved claims
 
-Always determine the domain-specific campus field. Do not assume the person’s home campus is the same as the group campus, event campus, connection request campus, or selected campus context.
+- [New Features & Enhancements Coming to v19](https://www.youtube.com/watch?v=c-wycR9HEuQ) — experience modes, CAPTCHA, check-in, registration, communications, person merge, diagnostics, workflows, and Lava.
+- [3 Underrated Features Churches Are Overlooking](https://www.youtube.com/watch?v=edanHiYSDIM) — Connections rollout, CAPTCHA, Check-In Manager, and materialized schedule dates.
+- [AI Summit: The Community’s First Look at Rock’s AI Agents](https://www.youtube.com/watch?v=UvW68dZBcJ8) — agent, skill, tool, security, prompt, Lava, result-shaping, and SQL boundaries.
+- [RockIQ Rapid Fire Q&A from the AI Summit](https://www.youtube.com/watch?v=dpYJiOAiJYM) — Rock-side capability versus organization-specific external skills.
+- [AI Voice Models & the Hidden Costs of Untrained Staff](https://www.youtube.com/watch?v=bu5nPeAVCAo) — durable artifacts, training videos, LMS assignments, staff activation, and shadow-tool risk.
+- [The Vatican on AI and Grandmasters on Ministry](https://www.youtube.com/watch?v=pvgZLvcfmFQ) — patch governance and problem-first solution design.
 
-### Campus Context In Mobile
+### Reviewed community evidence
 
-The mobile Campus Context Picker displays campus choices allowed for a person and sends the selected campus with every request. If no context value is set, the current person’s home campus is used ([Campus Context Picker](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker)).
+- [Rock metrics and dashboard history](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp)
+- [Persisted journey analytics](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW)
+- [Embedded BI security](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz)
+- [Analytics snapshot layers](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdREmjz)
+- [Rock-native and external BI decision patterns](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz)
+- [Historical major-release context](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks)
+- [Model Map](https://community.rockrms.com/ModelMap) and [Rock U workflows](https://community.rockrms.com/rocku/workflows) — supporting routes for community Defined Value and check-in configuration patterns; live verification remains required.
 
-Mobile check-in is a high-risk example of campus configuration crossing device, location, and public-flow behavior. A reviewed RockU Mobile Check-in Configuration transcript insight says to treat each mobile check-in device record like a virtual kiosk, configure the campus geofence, associate the relevant campus locations, and use separate devices when campuses need distinct boundaries ([Mobile Check-in Configuration, 00:44](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration)).
+### Immutable implementation evidence
 
-Agent checks:
+All source observations below refer to commit `471fd303d111b2e46218228dbc1e93dba8856fa3`.
 
-- Is the user authenticated?
-- Which campuses are allowed for the person?
-- Is a campus context already selected?
-- Is the block reading selected context or home campus?
-- What happens for users with no home campus?
-- Does the page behave differently after changing campus context?
-
-### Campus Filters In Reports
-
-The Slicker Campus Filters recipe demonstrates a practical report pattern with Page Parameter Filter and Dynamic Data blocks, including an “All Campuses” option and current-person default ([Slicker Campus Filters](https://community.rockrms.com/recipes/393)). Because recipes are community-contributed and not core-reviewed, use the pattern cautiously.
-
-Good campus filter design:
-
-- Always define null behavior.
-- Always define “all” behavior.
-- Use IDs consistently.
-- Avoid text matching campus names.
-- Respect user authorization.
-- Do not concatenate unsanitized page parameters into SQL.
-- Test with inactive campuses if the report should exclude them.
-- Test physical versus online campuses if campus type matters.
-
-### Global Attributes
-
-Global attributes are useful for:
-
-- organization identity.
-- URLs.
-- communication defaults.
-- API endpoints.
-- feature flags.
-- theme values.
-- campus-independent settings.
-- integration configuration.
-- default content.
-
-Lava docs include global attributes as part of the attribute filter documentation ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). In a live instance, inspect the exact key and storage.
-
-Operational guardrails:
-
-- Use stable keys.
-- Document ownership and intended consumers.
-- Do not store secrets in globally visible attributes unless Rock’s security model and consumers are appropriate.
-- Search references before renaming.
-- Check cache behavior after changing.
-- Keep environment-specific values out of portable migration scripts unless intentionally parameterized.
-
-### System Settings
-
-System settings are instance-level configuration. Lava docs note system settings support from Rock v10.3 onward ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). The exact setting list is version-dependent.
-
-Agent workflow for system setting questions:
-
-1. Identify the setting by UI label, key, or behavior.
-2. Confirm Rock version.
-3. Inspect System Settings UI.
-4. Inspect source/release notes if behavior changed by version.
-5. Search Lava/workflows/blocks if setting is referenced.
-6. Change in staging first when possible.
-7. Validate all consuming areas after change.
-
-## 12. Related Rock Areas: People, Groups, Workflows, Cms, Security, Data Views, Reports, Operations
-
-### People
-
-People are heavily extended by attributes. RockU includes Person Attributes, Family Attributes, and Bookmarked Attributes topics ([Person Attributes](https://community.rockrms.com/rocku/individuals-in-rock/person-attributes), [Family Attributes](https://community.rockrms.com/rocku/individuals-in-rock/family-attributes), [Bookmarked Attributes](https://community.rockrms.com/rocku/individuals-in-rock/bookmarked-attributes)).
-
-Agent considerations:
-
-- Decide whether data belongs to `Person`, family group, `GroupMember`, known relationship, note, tag, or assessment.
-- Avoid storing operational state in person attributes when a workflow, connection request, or group member attribute is more appropriate.
-- Treat sensitive person attributes as security-sensitive.
-- For profile display, confirm bookmarked/profile attribute settings and security.
-- For reporting, confirm attribute values are loaded and queryable.
-
-### Groups
-
-Groups and group types often use attributes for configuration. The check-in success message recipe uses group type and group attributes to choose Lava templates for check-in output ([Event Specific Custom Check-In Success Messages](https://community.rockrms.com/recipes/385)). That pattern demonstrates how attributes can make group behavior configurable per group or group type.
-
-Agent considerations:
-
-- Group type attributes configure a category of groups.
-- Group attributes configure one group.
-- Group member attributes configure a person’s role or state within a group.
-- Check-in, event, and connection workflows may read attributes at different levels.
-- Attribute keys used in Lava must match exactly.
-- Community Lava that runs stored templates should be reviewed for trust boundary and security.
-
-### Workflows
-
-Workflow attributes are central to workflow state and forms. The workflow Lava docs emphasize raw values and field-type storage formats ([Workflows and Lava](https://community.rockrms.com/lava/workflows)).
-
-Agent considerations:
-
-- Workflow attributes may store identifiers differently than display values.
-- Forms may show only selected attributes.
-- Workflow action logic may depend on attribute keys.
-- Person attributes and workflow attributes are different scopes.
-- Attribute of type Attribute had a save bug fixed in v18.2, affecting scenarios such as Page Parameter Filter block filters ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### CMS
-
-CMS configuration uses attributes in content channel types, content channel items, sites, blocks, and Lava. A release note for v17.2 specifically mentions category selection issues when editing Content Channel Item attributes from Content Channel Type Detail ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent considerations:
-
-- Content channel item attributes may be scoped by content channel type.
-- Category picker bugs can affect setup in certain versions.
-- Lava templates may read attributes by key.
-- Interaction tracking and content item entity type behavior can be version-sensitive; release notes mention content channel item interaction entity type fixes nearby in the supplied excerpt ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Mobile site attributes became configurable as custom entity attributes in v16.8 ([Custom Site Attributes](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes)).
-
-### Security
-
-Security intersects with platform configuration in several ways:
-
-- Entity type security grants.
-- Attribute-level security.
-- Public flags for attributes.
-- Block authorization.
-- API endpoint authorization.
-- Category-driven exposure.
-- Lava security bypass behavior in trusted contexts.
-
-Source code shows entity type security grants by entity type ID ([EntityTypeSecurityGrantRule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)). Lava docs note stronger attribute security in v17 and a bypass parameter in v17.5 ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). REST v2 generated controllers require authentication and use secured actions such as `EXECUTE_READ`, `EXECUTE_UNRESTRICTED_READ`, `EXECUTE_WRITE`, and `EXECUTE_UNRESTRICTED_WRITE` ([DefinedTypesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs), [DefinedValuesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs), [EntityTypesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs)).
-
-### Data Views
-
-Data Views often filter on properties, attributes, defined values, and campuses. Attribute filters can be slower or more complex than property filters. For high-volume queries:
-
-- Prefer native properties when the data is core and frequently queried.
-- Use attributes when extensibility is the correct tradeoff.
-- Verify whether the attribute is queryable.
-- Check field type storage before filtering.
-- Inspect generated SQL or performance plans for large reports.
-- Avoid broad attribute joins without selective predicates.
-
-### Reports
-
-Reports combine properties, attributes, defined values, categories, and campuses. Good report design:
-
-- Resolve defined values by ID or GUID, not display text, when possible.
-- Display friendly values but filter on stable identifiers.
-- Include campus behavior explicitly.
-- Document whether inactive values/campuses are included.
-- Use categories only if the report logic expects them.
-- Avoid assuming attribute defaults produce value rows.
-
-### Operations
-
-Operational platform configuration includes jobs, automations, system settings, global attributes, integrations, and release upgrades. RockU includes Jobs and Automations as core concept topics ([Jobs](https://community.rockrms.com/rocku/core-concepts/jobs), [Automations](https://community.rockrms.com/rocku/core-concepts/automations)).
-
-Agent considerations:
-
-- Jobs may read global attributes and system settings.
-- Automations may depend on entity attributes.
-- Upgrades may change block behavior around attributes or categories.
-- Caches may delay visible changes.
-- Generated services can block deletion even when UI references are not obvious.
-- Release notes should be checked before diagnosing category or attribute editor issues.
-
-## 13. Administration And Operational Guardrails
-
-### Naming
-
-Use stable names and keys:
-
-- Attribute display names can be friendly.
-- Attribute keys should be stable and code-safe.
-- Defined type names should be clear and unique.
-- Defined value labels should be user-facing but not overloaded.
-- Categories should include the domain if ambiguity is likely.
-- Global attribute keys should avoid generic names such as `Url`, `Token`, or `Enabled`.
-
-Avoid renaming keys used by Lava, workflows, API integrations, reports, or plugins unless you have a migration plan.
-
-### Change Management
-
-Before changing platform configuration:
-
-1. Identify current consumers.
-2. Record current values.
-3. Confirm target Rock version.
-4. Test in staging when possible.
-5. Use a low-risk pilot object.
-6. Verify with a non-admin account.
-7. Check logs or exceptions.
-8. Document the change.
-
-For high-blast-radius changes such as global attributes, system settings, defined values used by many modules, or entity type edits, treat the change as production-impacting.
-
-### Public Exposure
-
-Attributes may appear publicly through forms, CMS, mobile, Lava, APIs, reports, or profile pages.
-
-Before marking an attribute public or placing it in a public category:
-
-- Confirm the data is safe to expose.
-- Test unauthenticated access.
-- Test authenticated non-staff access.
-- Inspect block settings for public/non-public filtering.
-- Confirm Lava templates do not bypass security accidentally.
-- Verify mobile behavior separately.
-
-The Engagement docs describe using public flags and included/excluded categories for connection signup attributes ([Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
-
-### Deletion
-
-Deleting configuration records is risky.
-
-For attributes:
-
-- Check whether values exist.
-- Check Lava and code references by key and GUID.
-- Check workflow action references.
-- Check block settings.
-- Check reports and data views.
-- Consider disabling/hiding instead of deleting.
-
-For defined values:
-
-- Check generated service references.
-- Check attributes storing the value.
-- Check historical records.
-- Check reporting dependencies.
-- Consider inactive status rather than deletion if the value has history.
-
-For entity types:
-
-- Avoid deletion unless you know exactly why it exists.
-- Generated source shows many possible references, including attributes and audit records ([EntityTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs)).
-
-### Version Awareness
-
-Always record:
-
-- Rock version.
-- Block type and whether it is WebForms or Obsidian.
-- Mobile shell version when relevant.
-- Plugin versions.
-- Whether issue happens in admin, public site, mobile, API, or Lava.
-
-Several known fixes affect platform configuration:
-
-- v16.8 custom mobile site attributes ([Custom Site Attributes](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes)).
-- v17 attribute security enforcement and v17.5 Lava bypass parameter ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
-- v17.2 content channel item attribute category dropdown fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- v18.2 Attribute Editor fix for attributes designed to store other attributes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- v19.1 attribute editing category dropdown fix and defined value picker long-list fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-## 14. Developer, API, Lava, And Source-Code Landmarks
-
-### Developer Attributes
-
-The Developer 303 Attributes page shows how custom blocks can render and save attribute values using `AttributeValuesContainer`, loading attributes on view/edit and saving values on save ([Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)).
-
-Landmark concepts:
-
-- `LoadAttributes()`
-- display controls
-- edit controls
-- authorization-aware rendering
-- saving attribute values
-- runtime versus code-defined attributes
-
-### Field Types And Field Attributes
-
-The Extending Rock page distinguishes field types from field attributes and describes custom field type creation, configuration, edit controls, formatting, entity methods, persistence, registration, well-known GUIDs, and migrations ([Extending Rock Even Further](https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further)).
-
-Agent rule: if a built-in field type almost fits but not quite, first inspect field configuration options. Only recommend custom field types when the value semantics, UI, formatting, or persistence truly require custom code.
-
-### Lava Attribute Filters
-
-The Lava attribute filter docs cover:
-
-- finding attributes through debug mode.
-- reading attributes by key.
-- returning object properties.
-- attribute security in v17.5+.
-- nested attribute access.
-- looping over attributes.
-- global attributes.
-- system settings.
-- other return values.
-- key/value pair attributes.
-
-Use this page as the primary Lava authority for attribute access ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
-
-### Workflow Lava
-
-The Workflows and Lava page is especially important for raw values and field type internal storage. It explains that raw values may be the identifiers needed for links or page parameters and gives a field type storage overview ([Workflows and Lava](https://community.rockrms.com/lava/workflows)).
-
-### Obsidian Attribute Columns
-
-The Obsidian `AttributeColumns` grid component is a placeholder column where dynamic attribute columns are placed. It accepts attribute field definitions and provides filtering/skeleton behavior ([AttributeColumns](https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns)).
-
-Use this when diagnosing why attribute columns do or do not appear in an Obsidian grid.
-
-### Mobile Controls
-
-Mobile landmarks:
-
-- Attribute Values block: category/entity-type based attribute display/edit, abbreviated names, styling, limited field type support ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values)).
-- Attribute Value Editor: developer-level control for rendering the right UI per attribute, limited field type support ([Mobile Attribute Value Editor](https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor)).
-- Custom Site Attributes: v16.8+ mobile site custom attributes ([Custom Site Attributes](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes)).
-- Campus Context Picker: sends selected campus context with every request, falls back to current person home campus if none set ([Campus Context Picker](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker)).
-
-### REST v2
-
-Generated REST v2 controllers exist for defined types, defined values, and entity types:
-
-- `api/v2/models/definedtypes` ([DefinedTypesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs)).
-- `api/v2/models/definedvalues` ([DefinedValuesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs)).
-- `api/v2/models/entitytypes` ([EntityTypesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs)).
-
-The snippets show authentication and secured actions. Agents should not assume API access is available just because a model endpoint exists. Confirm authorization, REST settings, security actions, and whether unrestricted read/write permissions are required.
-
-### Agent Tooling For Attributes
-
-Rock developer docs include AvailableAttributes tools for AI agents. The page distinguishes retrieving attribute definitions from retrieving actual values and notes that an add operation may need available attributes even when no existing entity exists ([AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools)).
-
-Agent implication: when constructing add/update payloads, first retrieve available attribute definitions, including keys and expected data types. Do not infer valid attributes from existing values only.
-
-## 15. Reporting, Analytics, And Model Map
-
-### Model Map
-
-The supplied Model Map record identifies Attribute Value as a Core model ([Model Map](https://community.rockrms.com/ModelMap)). Use Model Map to confirm model existence and category, then use source code or live schema for field-level detail.
-
-### SQL Relationship Patterns
-
-The supplied SQL archive files are useful landmarks:
-
-- `View_DefinedValuesAttributeValues.sql` lists each defined value’s attribute values by joining `AttributeValue`, `Attribute`, `EntityType`, `FieldType`, `DefinedValue`, and `DefinedType` ([View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)).
-- `View_DefinedTypeAttributes.sql` lists defined type attributes by looking for attributes on `Rock.Model.DefinedValue` qualified by `DefinedTypeId` ([View_DefinedTypeAttributes.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)).
-- Code generation SQL for defined values and entity types demonstrates that GUID constants are important in source and migrations ([CodeGen_SystemGuid_DefinedValue.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql), [CodeGen_SystemGuid_EntityType.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_SystemGuid_EntityType.sql)).
-
-### Reporting Rules
-
-The source-backed relationship examples in [View Defined Values Attribute Values](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql) and [View Defined Type Attributes](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql) show why entity type, qualifier, field type, and attribute identity must remain explicit in reports.
-
-When reporting on attributes:
-
-- Join attribute values by `AttributeId`, not by display name.
-- Filter attributes by `Key` or `Guid`, not just `Name`.
-- Include entity type and qualifiers to avoid same-key collisions.
-- Treat missing value rows separately from blank values.
-- Resolve raw values according to field type.
-- Include default values only if the report intentionally treats defaults as stored values.
-- Use left joins when entities may not have values.
-- Avoid wide joins over all attributes unless necessary.
-
-When reporting on defined values:
-
-- Use `DefinedTypeId` or defined type GUID to scope values.
-- Avoid relying only on value text; labels can change.
-- Include inactive/system flags if relevant.
-- Include order for display.
-- Join attributes only when metadata is needed.
-
-When reporting on campuses:
-
-- Define campus source explicitly.
-- Include inactive campuses only if historical reporting requires it.
-- Avoid conflating campus type, campus status, and campus assignment.
-- Test all-campus behavior.
-
-## 16. Version And Release Caveats
-
-### Rock v10.3+
-
-Lava docs note System Settings support beginning with Rock v10.3 ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). If a template depends on system setting access, verify the installed version and exact key.
-
-### Rock v15.0+
-
-Lava docs mention other return values beginning with Rock v15.0 ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). If a Lava template uses newer return-value options, verify version before backporting.
-
-### Rock v16.8+
-
-Mobile custom site attributes are documented as available as of v16.8 ([Custom Site Attributes](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes)). If a mobile app cannot read site attributes on an older Rock version, version may be the cause.
-
-### Rock v17 And v17.5+
-
-Rock v17 increased attribute security enforcement, and v17.5 added a third optional Lava parameter to bypass attribute-level security checks ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)). If Lava that used to show an attribute now returns blank or fails under non-admin users, inspect attribute security and version changes.
-
-### Rock v17.2
-
-Release notes document a fix for incorrect or unrelated categories appearing when editing Content Channel Item attributes from the Content Channel Type Detail block ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). If a CMS attribute category picker looks wrong on an older v17 branch, check this caveat.
-
-### Rock v18.2
-
-Release notes document a fix where the Attribute Editor did not correctly save configuration changes for an Attribute designed to store other Attributes, affecting scenarios such as Page Parameter Filter block filters ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). If a filter attribute’s configuration will not persist, check version.
-
-### Rock v18.3
-
-Release notes include fixes around registrant attributes and group placement filter accessibility in large attribute lists, plus the v18.2 attribute editor issue appears in the hydrated release excerpt context ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). If event/group placement screens behave badly with many attributes, check release notes.
-
-### Rock v19.1
-
-Release notes document:
-
-- Category dropdowns in multiple attribute editing blocks no longer include Global Attribute categories for the wrong entity type.
-- Single-select Defined Value attributes configured as “Enhanced for Long Lists” display the searchable enhanced experience in Obsidian blocks such as Workflow Entry and Event Registration ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-If users report wrong attribute categories or hard-to-use defined value pickers in Obsidian blocks, verify whether the instance is before or after v19.1.
-
-## 17. Implementation Playbooks
-
-### Playbook: Audit An Attribute Before Editing
-
-1. Identify attribute by key, GUID, and name.
-2. Inspect entity type.
-3. Inspect qualifier column/value.
-4. Inspect field type.
-5. Inspect categories.
-6. Inspect security.
-7. Count attribute values.
-8. Inspect non-empty values.
-9. Search Lava/templates/workflows/block settings for key and GUID.
-10. Check data views/reports.
-11. Check API/integration references.
-12. Make change in staging if possible.
-13. Test display, edit, Lava, report, and security behavior.
-
-### Playbook: Create A Safe Defined Type
-
-1. Define purpose and owner.
-2. Decide whether values are user-facing, system-facing, or integration-facing.
-3. Choose a clear name and description.
-4. Add values with stable order.
-5. Add descriptions where admins need context.
-6. Add attributes only if each value needs metadata.
-7. Decide whether categories are useful.
-8. Test picker behavior in the consuming field type.
-9. Document whether values may be renamed, disabled, or deleted.
-10. Use GUIDs for code/migration references.
-
-### Playbook: Replace A Defined Value
-
-1. Identify old and new value IDs/GUIDs.
-2. Check generated deletion blockers by trying safe UI validation or inspecting references.
-3. Search model foreign keys.
-4. Search attribute values that store the old value.
-5. Search Lava and workflows.
-6. Decide whether historical records should keep old value.
-7. If replacing, migrate references explicitly.
-8. Disable old value if deletion is unsafe.
-9. Test reports and filters.
-10. Document the change.
-
-### Playbook: Diagnose Missing Attribute In A Block
-
-1. Confirm the block supports attributes.
-2. Confirm entity type.
-3. Confirm qualifier.
-4. Confirm category include/exclude settings.
-5. Confirm public flag if public form.
-6. Confirm field type support.
-7. Confirm attribute security.
-8. Confirm user authorization.
-9. Confirm value exists or default applies.
-10. Check release notes for category or editor bugs.
-11. Test with admin and affected user.
-
-### Playbook: Diagnose Lava Attribute Output
-
-1. Enable Lava debug where available.
-2. Confirm object contains attributes.
-3. Confirm attribute key.
-4. Confirm current user security.
-5. Check formatted versus raw value.
-6. If field type points to object, test object output.
-7. If object output fails, verify field type supports property access.
-8. Inspect raw stored value in `AttributeValue`.
-9. Check version-specific attribute security behavior.
-
-### Playbook: Build A Campus-Aware Workflow Or Report
-
-1. Define campus source.
-2. Define default campus behavior.
-3. Define all-campus behavior.
-4. Define no-campus behavior.
-5. Use stable campus IDs/GUIDs.
-6. Include inactive campuses only by intent.
-7. Test with users from multiple campuses.
-8. Test security.
-9. For mobile, test selected campus context and home campus fallback ([Campus Context Picker](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker)).
-10. Document the behavior in the block/report/workflow description.
-
-## 18. Troubleshooting Decision Tree
-
-### Attribute Does Not Appear
-
-Compare the target surface with [Person Attributes](https://community.rockrms.com/rocku/individuals-in-rock/person-attributes) and [Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes), then retrieve the actual available definitions rather than inferring them from existing `AttributeValue` rows.
-
-Check:
-
-1. Is the attribute active and saved?
-2. Is the entity type correct?
-3. Is the qualifier correct?
-4. Is the attribute assigned to a category excluded by the block?
-5. Is it uncategorized when the block only shows selected categories?
-6. Is the public flag required?
-7. Does the current user have permission?
-8. Does the block support the field type?
-9. Is this mobile, where field type support is limited?
-10. Is the Rock version affected by category dropdown bugs?
-11. Is the attribute on the related object, not the object being displayed?
-
-### Attribute Appears With Wrong Category
-
-Check:
-
-1. Category entity type.
-2. Attribute category assignments.
-3. Whether the editor block has a known version bug.
-4. Rock v17.2 for Content Channel Item category picker behavior.
-5. Rock v19.1 for Global Attribute categories appearing in unrelated attribute editing blocks ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-6. Browser/cache/admin UI refresh.
-
-### Lava Attribute Returns Blank
-
-Check:
-
-1. Attribute key spelling.
-2. Object availability.
-3. Attribute loaded on object.
-4. Attribute value exists.
-5. Default value behavior.
-6. Attribute security.
-7. v17+ attribute security enforcement.
-8. Whether raw value is needed.
-9. Whether object output is needed.
-10. Whether field type supports property access.
-
-### Defined Value Picker Is Hard To Use
-
-Check:
-
-1. Field type configuration.
-2. Whether enhanced long-list behavior is enabled.
-3. Whether the block is Obsidian.
-4. Rock v19.1 release notes for defined value picker enhanced long-list fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-5. Whether categories can narrow the list.
-6. Whether the defined type has too many values for the chosen UI.
-
-### Defined Value Cannot Be Deleted
-
-Check:
-
-1. Generated service deletion blockers.
-2. Direct model references.
-3. Attribute values storing the value.
-4. Historical records.
-5. Workflows and Lava.
-6. Whether value is system-defined.
-7. Whether disabling is safer than deletion.
-
-Source code shows generated deletion checks for many defined value references ([DefinedValueService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs)).
-
-### Entity Type Cannot Be Deleted Or Edited Safely
-
-Check:
-
-1. Attributes referencing it.
-2. Audit records.
-3. Authorization/security records.
-4. AI agent or provider references.
-5. Component registrations.
-6. REST/model usage.
-7. Notes and categories.
-8. Whether it is system-generated.
-
-Generated source shows `EntityTypeService.CanDelete()` checks many model references, including attributes and audit ([EntityTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs)).
-
-### Campus Filter Shows Wrong Data
-
-Check:
-
-1. Which campus field is being filtered.
-2. Whether “all campuses” is represented by null, zero, blank, or omitted parameter.
-3. Whether current person campus is used as default.
-4. Whether selected mobile campus context overrides home campus.
-5. Campus type/status filters.
-6. User security.
-7. SQL/Lava parameter safety.
-8. Inactive or online campuses.
-
-### Mobile Attribute Editing Fails
-
-Check:
-
-1. Attribute entity type.
-2. Category compatibility.
-3. Mobile field type support.
-4. Mobile shell version.
-5. Attribute Values block settings.
-6. Attribute Value Editor usage.
-7. User security.
-8. Whether the attribute is display-only in that surface.
-
-Mobile docs repeatedly warn that only supported field types can be edited ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values), [Mobile Attribute Value Editor](https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor)).
-
-## 19. Agent Task Recipes
-
-### Recipe: Find Available Attributes For An Add Or Update Operation
-
-Use when constructing an agent tool, API payload, or data-entry action.
-
-1. Identify the entity type.
-2. If updating, load the existing entity.
-3. If adding, initialize the entity context enough to determine available attributes.
-4. Retrieve attribute definitions, not values.
-5. Capture key, name, field type, required status, default, qualifiers, and allowed values.
-6. Ask for or construct values in the correct raw format.
-7. Submit values by key or expected API shape.
-8. Re-read the entity and verify stored values.
-
-The AvailableAttributes developer docs explicitly distinguish available attribute definitions from actual values and note the add-operation case where no existing entity exists ([AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools)).
-
-### Recipe: Explain A Platform Configuration Object To A User
-
-Return:
-
-- What it is.
-- Where it is configured.
-- Which entity type it applies to.
-- Which records consume it.
-- Whether it stores values or only definitions.
-- Whether changing it affects historical data.
-- What to inspect before editing.
-- Version caveats.
-
-### Recipe: Safely Answer “Can We Delete This?”
-
-For attributes:
-
-- Count values.
-- Search references.
-- Check security/public use.
-- Check workflows and Lava.
-- Prefer disable/hide if uncertain.
-
-For defined values:
-
-- Check model references and generated deletion blockers.
-- Check stored attribute values.
-- Check historical reporting.
-- Prefer inactive/renamed state if history matters.
-
-For entity types:
-
-- Treat deletion as exceptional.
-- Inspect all references.
-- Avoid deletion of system or source-created entity types.
-
-### Recipe: Build A Source-Backed Explanation
-
-When answering a configuration question:
-
-1. Cite official docs for concept.
-2. Cite source code for model/API/deletion behavior.
-3. Cite release notes for version caveat.
-4. Cite community recipe only as an example.
-5. State what must be inspected live.
-
-Example: For a missing content channel item attribute category, cite the release note and then instruct inspection of the live content channel type, attribute entity type, qualifier, and category assignment ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Recipe: Triage Attribute Security
-
-1. Reproduce as affected user.
-2. Reproduce as admin.
-3. Check base entity view permission.
-4. Check attribute authorization.
-5. Check block authorization.
-6. Check Lava security behavior.
-7. Check Rock version.
-8. Decide whether to adjust security, template context, or data placement.
-
-Use the v17/v17.5 Lava docs as the version anchor ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
-
-### Recipe: Convert A Free-Text Attribute To A Defined Value
-
-1. Inventory existing text values.
-2. Normalize spelling/case.
-3. Create defined type and values.
-4. Create replacement attribute with defined value field type.
-5. Map old values to defined values.
-6. Migrate values in staging.
-7. Update Lava/reports/forms.
-8. Hide old attribute after validation.
-9. Keep old data until retention/review is complete.
-10. Delete only after references are gone and stakeholders approve.
-
-### Recipe: Diagnose Attribute Field Type Mismatch
-
-1. Inspect field type on the attribute.
-2. Inspect raw stored values.
-3. Compare stored format with workflow Lava field type docs.
-4. Confirm consuming block supports that field type.
-5. For mobile, verify supported field type list.
-6. If data was stored with the wrong field type, plan migration before switching type.
-7. Test old values after field type change.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `45`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | operational_guidance | Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | Rock plugin and theme packaging guidance frames the Rock Shop as the distribution path for community extensions, so plugin work should include packaging, review, and uninstall behavior rather than only local code changes. | [source](https://community.rockrms.com/developer/packaging-plugins-themes) |
-| official | operational_guidance | Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
-| official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| More |  | 33 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `27`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) | approved_for_public_distillation | 4 | media-insight:1996763c554953f9 |
-| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://www.youtube.com/watch?v=edanHiYSDIM) | approved_for_public_distillation | 4 | media-insight:e966cbaf8af14d10 |
-| [A Powerful Open-Source Platform for Your Digital Ministry \| Rock RMS Transcript Insight](https://www.youtube.com/watch?v=dyhO4XiyDDc) | approved_for_public_distillation | 1 | media-insight:2d7a38c6eb5eff96 |
-| [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
-| [AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight](https://www.youtube.com/watch?v=bu5nPeAVCAo) | approved_for_public_distillation | 6 | media-insight:1cb65e44984bb55c |
-| [Episode 111: Special Edition with Tim Dear Transcript Insight](https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear) | approved_for_public_distillation | 3 | media-insight:05f4fce834300a65 |
-| [Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks) | approved_for_public_distillation | 4 | media-insight:6b5ce810e2795435 |
-| [Episode 37: Special Edition Garrett Johnson Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) | approved_for_public_distillation | 3 | media-insight:97a12ee26ba9575f |
-| More |  | 19 additional reviewed media records are tracked in `approved-media.md`. |  |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 20. Source Map And Dependency Notes
-
-Primary official and source-code records used:
-
-- RockU Core Concepts establishes entities, attributes, defined types, campuses, categories, jobs, automations, note types, and related configuration as foundational topics ([RockU Core Concepts](https://community.rockrms.com/rocku/core-concepts)).
-- Developer 303 Attributes documents runtime and code-backed attributes and block-level display/edit patterns ([Developer 303 Attributes](https://community.rockrms.com/developer/303---blast-off/attributes)).
-- Lava Attribute Filters documents attribute access, debug discovery, object return, global attributes, system settings, and v17/v17.5 security behavior ([Attribute Lava Filters](https://community.rockrms.com/lava/filters/attribute-filters)).
-- Workflows and Lava documents raw attribute values and field-type internal storage considerations ([Workflows and Lava](https://community.rockrms.com/lava/workflows)).
-- Extending Rock Even Further documents the distinction between field types and field attributes and custom field type implementation concepts ([Extending Rock Even Further](https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further)).
-- Mobile Attribute Values, Attribute Value Editor, Custom Site Attributes, and Campus Context Picker document mobile-specific attribute and campus behavior ([Mobile Attribute Values Block](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values), [Mobile Attribute Value Editor](https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor), [Custom Site Attributes](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes), [Campus Context Picker](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker)).
-- Obsidian AttributeColumns documents dynamic attribute columns in grids ([AttributeColumns](https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns)).
-- AvailableAttributes Tools documents agent-tool handling of attribute definitions versus values ([AvailableAttributes Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools)).
-- Release notes provide version caveats for category dropdown fixes, attribute editor fixes, defined value picker behavior, and related platform changes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Engagement documentation provides an operational example of connection request attributes, categories, public flag usage, and signup block configuration ([Engagement Documentation](https://community.rockrms.com/documentation/bookcontent/39)).
-- Model Map identifies Attribute Value as a Core model ([Model Map](https://community.rockrms.com/ModelMap)).
-- Source files provide model/API/security/deletion relationship evidence:
-  - [View_DefinedValuesAttributeValues.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)
-  - [View_DefinedTypeAttributes.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)
-  - [DefinedTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedType/DefinedTypeService.cs)
-  - [DefinedValueService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedValue/DefinedValueService.cs)
-  - [EntityTypeService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/EntityType/EntityTypeService.cs)
-  - [DefinedTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs)
-  - [DefinedValueService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs)
-  - [EntityTypeService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs)
-  - [EntityTypeSecurityGrantRule.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)
-  - [DefinedTypesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs)
-  - [DefinedValuesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs)
-  - [EntityTypesController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs)
-  - [EntityTypesBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs)
-  - [entityTypesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts)
-
-Community and secondary records used as examples only:
-
-- Slicker Campus Filters demonstrates a report pattern for campus page parameters and “All Campuses,” but it is community-contributed and should be validated before production use ([Slicker Campus Filters](https://community.rockrms.com/recipes/393)).
-- Event Specific Custom Check-In Success Messages demonstrates group and group type attributes used to customize check-in Lava output, but it is community-contributed and should be reviewed for security and performance ([Event Specific Custom Check-In Success Messages](https://community.rockrms.com/recipes/385)).
-- Triumph’s GitHub Spotlight is secondary release commentary and should be confirmed against official release notes and the live instance before relying on exact system-setting behavior ([Triumph GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-12202024)).
-
-Dependency topics for deeper guides:
-
-- People: person, family, bookmarked, profile, and sensitive attributes.
-- Groups: group type, group, group member attributes, check-in, and placement.
-- Workflows: workflow attributes, field types, form entry, raw values.
-- CMS: content channel attributes, site attributes, Lava, interactions.
-- Security: authorization, public flags, entity type grants, attribute security.
-- Data Views: attribute filters, queryable attribute values, performance.
-- Reports: campus filters, defined values, dynamic data, SQL safety.
-- Operations: release notes, migrations, jobs, cache, global settings, and deletion safety.
+- [Defined Value attribute-value query](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql)
+- [Defined Type attributes query](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql)
+- [DefinedTypeService](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/DefinedType/DefinedTypeService.cs)
+- [DefinedValueService](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/DefinedValue/DefinedValueService.cs)
+- [EntityTypeService](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/EntityType/EntityTypeService.cs)
+- [Entity type security rule](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs)
+- [Defined Types v2 controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs)
+- [Defined Values v2 controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs)
+- [Entity Types v2 controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs)

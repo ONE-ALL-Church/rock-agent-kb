@@ -43,12 +43,13 @@ Add a room without breaking eligibility, labels, printer routing, capacity, or r
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs
-- https://community.rockrms.com/documentation/bookcontent/10/266
-- https://community.rockrms.com/ask/using/2804
-- https://community.rockrms.com/rocku/check-in/locations
-- https://community.rockrms.com/rocku/check-in/schedules
-- https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
-- https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql
-- https://community.rockrms.com/rocku/check-in
-- https://community.rockrms.com/recipes/424
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk
+- https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/use-grade-and-age-matching-behavior
+- https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/configure-by-birthdate
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/use-url-parameters-for-check-in
+- https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/individual-vs-family-check-in
+- https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/check-in-relationships
+- https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-settings-for-a-check-in-type
+- https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs

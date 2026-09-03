@@ -1,29 +1,27 @@
 {
   "authority_coverage": [
-    "community-example",
     "official",
-    "official-developer",
     "official-model-map",
     "official-release",
     "official-training",
-    "official-triumph",
+    "org-contribution",
     "source-code",
     "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 18962 words; expected at least 1200.",
+      "message": "Guide has 6934 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 18962 words; expected no more than 9000.",
-      "passed": false
+      "message": "Guide has 6934 words; expected no more than 9000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 140 sections; expected at least 9.",
+      "message": "Guide has 47 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -33,7 +31,7 @@
     },
     {
       "id": "task_cards",
-      "message": "Guide has 9 task cards; expected at least 3.",
+      "message": "Guide has 8 task cards; expected at least 3.",
       "passed": true
     },
     {
@@ -43,7 +41,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 18 entity rows; expected at least 3.",
+      "message": "Guide has 13 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -67,32 +65,47 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
+      "passed": true
+    },
+    {
+      "id": "contribution_traceability",
+      "message": "Reviewed public contribution records must include source URLs or source record IDs.",
+      "passed": true
+    },
+    {
+      "id": "contribution_not_official",
+      "message": "Guides using org/community contributions must label them as examples, patterns, or non-official guidance.",
+      "passed": true
+    },
+    {
+      "id": "contribution_live_verification",
+      "message": "Contribution-influenced guides that need live verification must tell agents what to verify.",
       "passed": true
     }
   ],
   "concept_id": "people-families",
-  "contribution_record_count": 0,
-  "entity_count": 18,
-  "generated_at": "2026-08-12T12:50:00+00:00",
-  "guide_line_count": 1832,
-  "guide_word_count": 18962,
+  "contribution_record_count": 4,
+  "entity_count": 13,
+  "generated_at": "2026-09-03T16:51:20+00:00",
+  "guide_line_count": 654,
+  "guide_word_count": 6934,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 0,
-    "answer_claim_reference_count": 0,
-    "entity_count": 18,
-    "section_count": 140,
-    "source_count": 95,
-    "substantive_uncited_section_ratio": 0.0109,
-    "task_card_count": 9,
-    "word_count": 18962
+    "answer_claim_count_in_pack": 32,
+    "answer_claim_reference_count": 32,
+    "entity_count": 13,
+    "section_count": 47,
+    "source_count": 43,
+    "substantive_uncited_section_ratio": 0.025,
+    "task_card_count": 8,
+    "word_count": 6934
   },
   "private_draft_contribution_record_count": 0,
-  "score": 91,
-  "section_count": 140,
-  "source_count": 95,
-  "status": "fail",
-  "task_card_count": 9
+  "score": 100,
+  "section_count": 47,
+  "source_count": 43,
+  "status": "pass",
+  "task_card_count": 8
 }

@@ -5,25 +5,26 @@
     "official",
     "official-api",
     "official-developer",
-    "official-model-map",
     "official-release",
+    "official-training",
+    "org-contribution",
     "source-code",
     "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 14474 words; expected at least 1200.",
+      "message": "Guide has 6877 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 14474 words; expected no more than 9000.",
-      "passed": false
+      "message": "Guide has 6877 words; expected no more than 9000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 118 sections; expected at least 9.",
+      "message": "Guide has 47 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -33,7 +34,7 @@
     },
     {
       "id": "task_cards",
-      "message": "Guide has 5 task cards; expected at least 3.",
+      "message": "Guide has 7 task cards; expected at least 3.",
       "passed": true
     },
     {
@@ -67,32 +68,52 @@
       "passed": true
     },
     {
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
+      "passed": true
+    },
+    {
       "id": "community_marked",
       "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
+    },
+    {
+      "id": "contribution_traceability",
+      "message": "Reviewed public contribution records must include source URLs or source record IDs.",
+      "passed": true
+    },
+    {
+      "id": "contribution_not_official",
+      "message": "Guides using org/community contributions must label them as examples, patterns, or non-official guidance.",
+      "passed": true
+    },
+    {
+      "id": "contribution_live_verification",
+      "message": "Contribution-influenced guides that need live verification must tell agents what to verify.",
       "passed": true
     }
   ],
   "concept_id": "api-integrations",
-  "contribution_record_count": 0,
+  "contribution_record_count": 22,
   "entity_count": 10,
-  "generated_at": "2026-08-12T12:50:00+00:00",
-  "guide_line_count": 1571,
-  "guide_word_count": 14474,
+  "generated_at": "2026-09-03T16:51:13+00:00",
+  "guide_line_count": 611,
+  "guide_word_count": 6877,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 0,
-    "answer_claim_reference_count": 0,
+    "answer_claim_count_in_pack": 16,
+    "answer_claim_reference_count": 15,
     "entity_count": 10,
-    "section_count": 118,
-    "source_count": 79,
-    "substantive_uncited_section_ratio": 0.0128,
-    "task_card_count": 5,
-    "word_count": 14474
+    "section_count": 47,
+    "source_count": 29,
+    "substantive_uncited_section_ratio": 0.1,
+    "task_card_count": 7,
+    "word_count": 6877
   },
   "private_draft_contribution_record_count": 0,
-  "score": 91,
-  "section_count": 118,
-  "source_count": 79,
-  "status": "fail",
-  "task_card_count": 5
+  "score": 100,
+  "section_count": 47,
+  "source_count": 29,
+  "status": "pass",
+  "task_card_count": 7
 }

@@ -3,26 +3,23 @@
     "community-example",
     "official",
     "official-developer",
-    "official-model-map",
     "official-release",
-    "official-training",
-    "official-triumph",
     "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13534 words; expected at least 1200.",
+      "message": "Guide has 8567 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 13534 words; expected no more than 9000.",
-      "passed": false
+      "message": "Guide has 8567 words; expected no more than 9000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 90 sections; expected at least 9.",
+      "message": "Guide has 56 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -32,7 +29,7 @@
     },
     {
       "id": "task_cards",
-      "message": "Guide has 5 task cards; expected at least 3.",
+      "message": "Guide has 9 task cards; expected at least 3.",
       "passed": true
     },
     {
@@ -42,7 +39,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 12 entity rows; expected at least 3.",
+      "message": "Guide has 11 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -66,6 +63,11 @@
       "passed": true
     },
     {
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
+      "passed": true
+    },
+    {
       "id": "community_marked",
       "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
       "passed": true
@@ -73,25 +75,25 @@
   ],
   "concept_id": "content-personalization",
   "contribution_record_count": 0,
-  "entity_count": 12,
-  "generated_at": "2026-08-12T12:50:00+00:00",
-  "guide_line_count": 1025,
-  "guide_word_count": 13534,
+  "entity_count": 11,
+  "generated_at": "2026-09-03T16:57:22+00:00",
+  "guide_line_count": 677,
+  "guide_word_count": 8567,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 0,
-    "answer_claim_reference_count": 0,
-    "entity_count": 12,
-    "section_count": 90,
-    "source_count": 77,
-    "substantive_uncited_section_ratio": 0.0167,
-    "task_card_count": 5,
-    "word_count": 13534
+    "answer_claim_count_in_pack": 101,
+    "answer_claim_reference_count": 99,
+    "entity_count": 11,
+    "section_count": 56,
+    "source_count": 33,
+    "substantive_uncited_section_ratio": 0.0217,
+    "task_card_count": 9,
+    "word_count": 8567
   },
   "private_draft_contribution_record_count": 0,
-  "score": 91,
-  "section_count": 90,
-  "source_count": 77,
-  "status": "fail",
-  "task_card_count": 5
+  "score": 100,
+  "section_count": 56,
+  "source_count": 33,
+  "status": "pass",
+  "task_card_count": 9
 }

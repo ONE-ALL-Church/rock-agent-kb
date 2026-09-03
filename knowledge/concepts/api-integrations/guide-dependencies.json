@@ -848,659 +848,218 @@
   },
   "approved_media_hash": "ec35b8de14526a2c289432c0f16466114551322d087df88c30bf64aab1c26c0f",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:51:13+00:00",
   "concept_id": "api-integrations",
-  "guide_hash": "39aefabf2e9956e81e2cbe5a9866c7fb32f40637ea68170a896232e8bec230e3",
-  "guide_line_count": 1571,
+  "guide_hash": "874e694ea8d9da340145bb3c76de3e7fdf842ec83687d23c797d54bedff2aacb",
+  "guide_line_count": 611,
   "guide_path": "knowledge/concepts/api-integrations/guide.md",
-  "guide_word_count": 14474,
+  "guide_word_count": 6877,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official-api",
-      "content_hash": "993d77d2ef93e760606bdc2a4d739b8900fdba409d733d97b3760c57b00b37ba",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "content_hash": "b4a4c5dd04ef0495ca6db330e6df46ebb122ac6f5f2217c605a08bf1e10e5925",
+      "excerpt_hash": "735fe7fae5b2c8af14ffc46d0ca63d44efc2df6c57eaa3bc4486d0d1cac00f67",
       "source_id": "rock_api_docs",
       "source_key": "14e4b0253d1428ca",
       "source_record_id": "rock_api_docs:14e4b0253d1428ca",
       "url": "https://community.rockrms.com/api-docs"
     },
     {
+      "authority": "official",
+      "content_hash": "433fd6939ce957e529aa437bcf5c49ba93db4546421abd9bc804596d6537ab20",
+      "excerpt_hash": "955c824b3e6ee0de336c2fc4061c7a7da34746f9d94af50c8d49b907e97c2276",
+      "source_id": "rock_documentation",
+      "source_key": "7b121761351cc32a",
+      "source_record_id": "rock_documentation:article:2852",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/api/intro-to-the-rock-api"
+    },
+    {
+      "authority": "official",
+      "content_hash": "fc2910233531eeeb904b1169fac1b81b697a951cdc49d311c8169fbd8a9ae7f5",
+      "excerpt_hash": "1fc84045612080d4292a3517cdbe78578c2e84b9337cd43959f55ebb688e5cfb",
+      "source_id": "rock_documentation",
+      "source_key": "8b782456f9db1d76",
+      "source_record_id": "rock_documentation:article:2853",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/api/secure-the-api"
+    },
+    {
       "authority": "official-developer",
-      "content_hash": "5a39f0f55d72dfb4b1074c232fe501c82135bef6c919e0cf76b6d1da1cf38a6c",
-      "excerpt_hash": "b933253a4127e0ecdcdd37966091ad79defe5bf606f8a0bb3dfdc388eb6d2107",
+      "content_hash": "118a854af746f5a824afa2157884214041f45e2e56170fab7330234d6164b800",
+      "excerpt_hash": "d8919834c70d546e303c8d906541ff6048b36c89fed2c17ed974e30a8db188c2",
       "source_id": "rock_developer",
       "source_key": "547b1337a6e19cf7",
-      "source_record_id": "rock_developer:547b1337a6e19cf7",
+      "source_record_id": "rock_developer:article:301",
       "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
     },
     {
       "authority": "official-developer",
-      "content_hash": "00c7ea0ff8c8b5385d54bb19c3557591e8a89a55af04ad5c1a26c2ece15d50fc",
-      "excerpt_hash": "47f1d826263f3473311f6cdbd7690e02f7a3e2340262e93b0f3ee46fd1179848",
+      "content_hash": "4436b0988d0c8a6b2c241da380e2033740a9ccf529ab26fc75c7224392d77fcf",
+      "excerpt_hash": "d05a0e8f9af62198c394020dc78983dad1efdd3e5904f8283b3d36e10dcc5dad",
       "source_id": "rock_developer",
       "source_key": "acd6d42ca9f08d83",
-      "source_record_id": "rock_developer:acd6d42ca9f08d83",
+      "source_record_id": "rock_developer:article:231",
       "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns"
     },
     {
-      "authority": "unknown",
-      "content_hash": "9e020930a9acddbb76bc3910d2f16b8b1523d3d3e71c6d3f645fdaeab564b887",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "rock_demo_api_docs_v2",
-      "source_key": "22092085266102c5",
-      "source_record_id": "rock_demo_api_docs_v2:22092085266102c5",
-      "url": "https://rock.rocksolidchurchdemo.com/api/v2/docs/index"
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "982754777f5fed21",
+      "source_record_id": "org_contribution:oneall:checkin-group-location-rest-navigation-payload-caution",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "90cd99fb1f8c7c1bd25245c7b3d9c3b5938d54a3bc5c1bc2af46c6ad96bb8774",
-      "excerpt_hash": "7eb796ce7f62b79f6a9b4618084fbc24af0cd62e1dc3b8b5654f7cb7049d540e",
-      "source_id": "rock_developer",
+      "authority": "official",
+      "content_hash": "4d6d8f226c0743f4184285717ae3fd0fee9052437c7b1397cec90b735e09e168",
+      "excerpt_hash": "e3d37bb352d9b3d77cf02d20d68586db04529cf8600144de288dc201579ae0a4",
+      "source_id": "rock_documentation",
+      "source_key": "bfe056719d5f1eaa",
+      "source_record_id": "rock_documentation:article:3108",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/api/rest-keys"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/lava/lava-api"
     },
     {
       "authority": "official-developer",
-      "content_hash": "540d77572af92657f22b15d23503556530c7ac0802e4da826fb9d4e3021c2890",
-      "excerpt_hash": "a0beccfc57de3124645dc318e80b8b29181ac6413f78c56c7e497b5642362944",
-      "source_id": "rock_developer",
+      "content_hash": "e6a62070646a9685163d61f78e46a29aae7bad38c615973912b82976d976de3b",
+      "excerpt_hash": "66b64660c9eb03b9e47e99e81ddefaa8be7dc90bd7b5c1dd63e3bdd222955d0f",
+      "source_id": "rock_lava_docs",
       "source_key": "1a7cdd8d2a7f15eb",
-      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
+      "source_record_id": "rock_lava_docs:1a7cdd8d2a7f15eb",
       "url": "https://community.rockrms.com/lava/remote-lava"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "b7ba4b22d2c434ead8469cd17efcb552abb146b88bdf40f766cc6704b2122d25",
-      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
-      "source_id": "rock_developer",
-      "source_key": "366c62c0274cf5af",
-      "source_record_id": "rock_developer:366c62c0274cf5af",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications"
+      "authority": "community-example",
+      "content_hash": "e1e548137fdc8e86d0e8598f353070c3b21a5346f31e0e8f4071f36cd9b52af7",
+      "excerpt_hash": "675c7c1fed5c3c79c5e47be78ff543784a595f7e2ebe5967e243e5e4cad4f4f5",
+      "source_id": "rock_recipes",
+      "source_key": "06156bb3a5401956",
+      "source_record_id": "rock_recipes:06156bb3a5401956",
+      "url": "https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file"
     },
     {
       "authority": "official-developer",
-      "content_hash": "8f3782c916e4cd2d88afbb33ab4ac8ba0bda6b6943421c2bda84b413252129e2",
-      "excerpt_hash": "247430dd6919feacef68a5f1cc62715fef5732e0630662e4b621e357447c8d82",
-      "source_id": "rock_developer",
-      "source_key": "8f9847f0880303e0",
-      "source_record_id": "rock_developer:8f9847f0880303e0",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
-      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "content_hash": "195b5f58f6aa35a5b4799d94cc22f2f7d9d3a7de23c70482b0fecc43bf81f89e",
+      "excerpt_hash": "30ab3a5cad88f7806ceac4076a90400a711610a03c26a96894ec48d39bd8ef5b",
       "source_id": "rock_developer",
       "source_key": "6a9eebe7a077d89a",
-      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:article:345",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
     },
     {
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "d7bffe0fc08eaa24",
+      "source_record_id": "org_contribution:oneall:public-ai-search-memory-separate-from-route-registry",
+      "url": "https://community.rockrms.com/developer/helix/overview/security"
+    },
+    {
       "authority": "official-developer",
-      "content_hash": "da5d63925f50c5042df3903d3906fd2d9ad14ef7c5016da3fe1f9956eb257403",
-      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
+      "content_hash": "e3db2ba289e8d534df5d9aa8924843b825080676df7e4b4f406259b74bc68306",
+      "excerpt_hash": "dc1cfdb23e2927e4c013caebae05c80c732d3e18b86a272075d6a158d5103572",
+      "source_id": "rock_lava_docs",
+      "source_key": "52c683d5cc0018da",
+      "source_record_id": "rock_lava_docs:52c683d5cc0018da",
+      "url": "https://community.rockrms.com/lava/commands/render-lava-endpoint"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "fa2fb232bbb2f7785f8cb4fe1ad5916183d5bc5ff2ebc7c1487b99afd44892e1",
+      "excerpt_hash": "ba17ad62555c507020dd76a961ea97377d841dc9ce5a5ffd886249c797c3dc5d",
+      "source_id": "rock_developer",
+      "source_key": "a9c1cee2ea409fb9",
+      "source_record_id": "rock_developer:article:371",
+      "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "81738e688c0582b9218b48dde28a30db4f988d0da9175e5a689a8510332781ca",
+      "excerpt_hash": "50199d477d7e5e10777d24ed61ddf1575ac026939cda245d7001981e99211341",
       "source_id": "rock_developer",
       "source_key": "379b8b3e079b94e5",
-      "source_record_id": "rock_developer:379b8b3e079b94e5",
+      "source_record_id": "rock_developer:article:348",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
     },
     {
-      "authority": "community-example",
-      "content_hash": "26504a7b52c9372992226218e21e4ad1e85116a9923ea7d9cd9b64601d83206a",
-      "excerpt_hash": "0d134204c4f06b612557c4fe7f7c858c8f3c06f62711f2d4b6710b9aac2ea4af",
-      "source_id": "rock_recipes",
-      "source_key": "4f209a87e662fefd",
-      "source_record_id": "rock_recipes:4f209a87e662fefd",
-      "url": "https://community.rockrms.com/recipes/453"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "a6b9a5fd3d6aa2192ec16fd89ed9631464c96e731eb6ef1645d31413bcf06e30",
-      "excerpt_hash": "f867febfcef408e18042fd79795047eac73aa3dc369ed49176662aa738deb86e",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "46476aa8453a8245",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "371bc6e69c549c90e0ad91a69ca80073beba5ceabe15f688ad80b0281aaaaa2b",
-      "excerpt_hash": "ebe05b6535c5bd7f0aa1f17a976883e95e4fe6c58189d898ba9616ba4f57b91b",
-      "source_id": "rock_developer",
-      "source_key": "fe094e82abfc4adf",
-      "source_record_id": "rock_developer:fe094e82abfc4adf",
-      "url": "https://community.rockrms.com/lava/commands/web-request-commands"
-    },
-    {
       "authority": "unknown",
-      "content_hash": "3902ba8860672aa4ce706227fdfc6dcc8e13bc14d95ba7d31eab3cb7d9ef0997",
-      "excerpt_hash": "70c877b1d3bdecd992767a2e280ee6d55317a3e9a47e4b6a9d5c43bfa8729e70",
-      "source_id": "rock_demo_api_docs_v1",
-      "source_key": "371700349ffde4af",
-      "source_record_id": "rock_demo_api_docs_v1:371700349ffde4af",
-      "url": "https://rock.rocksolidchurchdemo.com/api/docs/index"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "88884d5d52093af73a98791edc12b3b7f5375950eb30c069c157600b6cd01669",
-      "excerpt_hash": "5ee2f9a9892f1dda2075a1ff9abc3c8459045cab92a69451b364f8971bcb3e70",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "983ad6bce37e8e15",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "faef786c0a7e4122",
+      "source_record_id": "",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors"
     },
     {
       "authority": "community-reference",
-      "content_hash": "1071c109ab3ed8fd8667c2bdc835360dd13264061e657efce120712ad423d741",
-      "excerpt_hash": "6bf5cafd7229d2c9b9bf6986498fa69f5fe8377b643388860f617f7cbdf76659",
-      "source_id": "rock_community_site",
-      "source_key": "027cede393b38974",
-      "source_record_id": "rock_community_site:027cede393b38974",
-      "url": "https://community.rockrms.com/ask/developing/2842"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d4e65effbc380add08ffec06e8e78cc97c1562f02973cd06ef06aaa8c15eee62",
-      "excerpt_hash": "721c4c57b8d6f5f3218c9c2ac8ea27660153d959119f77455e834e2167a2356f",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f146552f6ffaa13a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts"
-    },
-    {
-      "authority": "official-model-map",
-      "content_hash": "35839e5824da69c96c630e3cc31ccd21bb7cd69d8e5ed8512e2899b7d87ac9e6",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:59cce742b33668f1",
-      "url": "https://community.rockrms.com/ModelMap"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d7262bff307341b60bf25920da6ecf97201a8476420433a049261038c13d8c7e",
-      "excerpt_hash": "c6b93681c2a1327800fe437192b683f6fbaa0334dc0c11aa269db273976df292",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b480ac589da5149f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Example/ModelMap.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "0031f51aab9a88fc2bd7f5c76010177dab8752dedf3db3b989dff6765335f0d8",
-      "excerpt_hash": "353fbea4200ddf83573dac5ba4c9a5672fae484bd7cb85c4775ac8a323640725",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e395e8db6cce68d7",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Data/IncludeForModelMapAttribute.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "dfa75869152c9220c2ff2282ccb938370fd49e6ae92972a7178a7fc3dcde90ad",
-      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
-      "source_id": "rock_developer",
-      "source_key": "9c6602ae13ab291c",
-      "source_record_id": "rock_developer:9c6602ae13ab291c",
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2c993d5d55bc1ad32758afc360bd53c6a7794ffb55d726a2ed3631036f182508",
-      "excerpt_hash": "a9f9c1d96e023a2e5f5fff12e21ca3842a826b184d9a88f2f1f475fdd3d7de0b",
-      "source_id": "rock_developer",
-      "source_key": "9cff0c87fd8eab29",
-      "source_record_id": "rock_developer:9cff0c87fd8eab29",
-      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "e8a247fc5c0278a22155d8e4966f3d9bd0cca85944567d2b4311fdae4ab3dd77",
-      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
-      "source_id": "rock_developer",
-      "source_key": "66cd0caee02b1e4b",
-      "source_record_id": "rock_developer:66cd0caee02b1e4b",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "daca5d9df3f4f3294bcca964b7fa45c9a305f159d452e4986ca9dc166dc262af",
-      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
-      "source_id": "rock_developer",
-      "source_key": "4f0249164a4754aa",
-      "source_record_id": "rock_developer:4f0249164a4754aa",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "89277beaa9f87f9b775238a92513415fc3d0d31dc3e9bc84fab02851c05f5bbc",
-      "excerpt_hash": "7f81c1a0fcbf3e81c5bbf59f48f7128de08cb21e707a1ba756277ad6271e646e",
-      "source_id": "rock_developer",
-      "source_key": "4da60cf32b65caa5",
-      "source_record_id": "rock_developer:4da60cf32b65caa5",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "afc1c56245533b9407aa216909882a123f43d25f84c3c0e751a325f7440d5874",
-      "excerpt_hash": "ab2033068920acb93b3e831243d369f977f20ce8af0c6c20f0bc67f0f9e76e07",
-      "source_id": "rock_developer",
-      "source_key": "9d82300fec33a358",
-      "source_record_id": "rock_developer:9d82300fec33a358",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "85141766fba1ddcad4373a7a25b285acf495bb1df99536bfd5280a1422c47726",
-      "excerpt_hash": "9375d9415fcd5ab3b43101d4323afbc7664ba4b6e8ece1fc5163b78eb019b010",
-      "source_id": "rock_developer",
-      "source_key": "2a056e99824af72b",
-      "source_record_id": "rock_developer:2a056e99824af72b",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "9d48706e117a374d09c31d2559537860d16c6cea3a6fc93dbe296ae6f91bd87a",
-      "excerpt_hash": "2b552ccbc5456376f4813a48d6f5b5a6450881c140e23883e175479b05f599ae",
-      "source_id": "rock_developer",
-      "source_key": "074a2b271eca8da5",
-      "source_record_id": "rock_developer:074a2b271eca8da5",
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools"
-    },
-    {
-      "authority": "community-reference",
-      "content_hash": "89cdcc6f8a3c47c6ff74904efb239955daf26a3420ebff9d8a66597cf65b632d",
-      "excerpt_hash": "f163330b3532d0ae2ce1c5bd9eda86cbf15791ec557f7a3870b3acefcf7976e3",
-      "source_id": "rock_community_site",
-      "source_key": "470797c964770153",
-      "source_record_id": "rock_community_site:470797c964770153",
-      "url": "https://community.rockrms.com/ask/developing/2641"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8f372d704d06fba3403e1134531a96075d08649bdbaa3d2a08c3bdaf8379252e",
-      "excerpt_hash": "102a163f3fe95ac332df9f72b8a3f90da37127388b448d198cdd3f9ad24731da",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "427e5301d593e4bc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "70a5a5611da63d0cd3ba2ca6ec4eef7850893e5a56ee7da92ead09d4e03949fc",
-      "excerpt_hash": "604a4a56c8783d8d2f61c712083f41c55c51e6fe1235ac75dd6dadea5ced63b6",
-      "source_id": "rock_developer",
-      "source_key": "eb2b5509786a6895",
-      "source_record_id": "rock_developer:eb2b5509786a6895",
-      "url": "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "be201c05fa39459c2d6e4b2528841d65947f906c6dbd9869a7a48426166304ed",
-      "excerpt_hash": "ab45714ffdb1c91f43cb74fd55754215292e1ef135c5d3b6d30f67c71d1cc558",
-      "source_id": "rock_developer",
-      "source_key": "f807acb8c3c3d207",
-      "source_record_id": "rock_developer:f807acb8c3c3d207",
-      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "90cdfc8caff8c59bb66c7ec82168b44329a4e3036cc1e6f1ec4b65fa3f85eb37",
-      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
-      "source_id": "rock_developer",
-      "source_key": "82a780f161ffcf0a",
-      "source_record_id": "rock_developer:82a780f161ffcf0a",
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/code-security"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "bfe719d3749b7682ac79fcd94ea3d7092937b38c2b99f4299dfa837bbd18caaa",
-      "excerpt_hash": "ebbbec530bff83346e8c601ead090819f8cd2f0b818e280cd0825373d31e870c",
-      "source_id": "rock_recipes",
-      "source_key": "07e7de2629271fcc",
-      "source_record_id": "rock_recipes:07e7de2629271fcc",
-      "url": "https://community.rockrms.com/recipes/540"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "d328de67ae33a86a769e4d9a8b86ffc8b0a0504041d40f290adfddd9150d2f1a",
-      "excerpt_hash": "1f603c59fe5c504916fd0b8a90eccc7802c20f92f314d852191b58076bf4bf96",
-      "source_id": "rock_recipes",
-      "source_key": "8cdec880af451ef9",
-      "source_record_id": "rock_recipes:8cdec880af451ef9",
-      "url": "https://community.rockrms.com/recipes/232"
+      "content_hash": "4b17ea70ad9aed8e810d760680b860ab066ad53ba8ac6ba6b95f88e1dc6c4422",
+      "excerpt_hash": "581adcc47291faf6aff6a6a679e09da3ee0646d33f4f9af8b7aa484b28226dde",
+      "source_id": "rock_community_hubs",
+      "source_key": "2cf11aac4d7e5e09",
+      "source_record_id": "media-insight:efa1de0c74bcd9f0",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
     },
     {
       "authority": "official-release",
-      "content_hash": "9b9d867ec1272b4a4fc34194ded9a98bdc96d8f15a70cc76fc2bb2321088cd9f",
-      "excerpt_hash": "249b00b6f70ad399749c7839333c2809bed4fc319d5141c356fa088d85ae44a5",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "d47dce2220630d1107930a359a97d545201ff5280569cffc57d0d997a372e071",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:d805d26264361539",
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
-      "authority": "source-code",
-      "content_hash": "aa78b8622aa19eeb659955b9c7782c35c18376eb7112e271641522298f1b3779",
-      "excerpt_hash": "b1dbcbcc7cb3eb275a83e667f554d647f26263818f5b2ba6eda1c7d5154a94ad",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f76e5d37a4b67cbe",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs"
-    },
-    {
       "authority": "official-developer",
-      "content_hash": "bb68920d6fe3ff6e9cbe817fdd942d6546573a1759546ed48f86c1e13f1a7502",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "source_id": "rock_developer",
-      "source_key": "b298af2cf3202cfb",
-      "source_record_id": "rock_developer:b298af2cf3202cfb",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "98fb42b069c7590ec08456fe5028b2ded2c83786d2b7801e970d3f128699da30",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "source_id": "rock_developer",
-      "source_key": "d81b99f44bb58799",
-      "source_record_id": "rock_developer:d81b99f44bb58799",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2a4a48ec3272f11d3ee8104cf7023583a3bd8a0d5f91687f1770400f747f949a",
-      "excerpt_hash": "11ba470c796669eebe2b90acc0e4dccaeb59911e849e58de71d32866327037dd",
+      "content_hash": "1f9763d3d79f5286343f2c8608cfc66863ca84d0edf1f7b817c102ed2cad0fd2",
+      "excerpt_hash": "fcc02a52bcbc18a0efa85f45f9ee03bd12f936e87c23c088ddac9a710dcc9544",
       "source_id": "rock_developer",
       "source_key": "2e094e868018787d",
-      "source_record_id": "rock_developer:2e094e868018787d",
+      "source_record_id": "rock_developer:article:306",
       "url": "https://community.rockrms.com/developer/303---blast-off/extending-communication-transports"
     },
     {
-      "authority": "source-code",
-      "content_hash": "8e8f36e91b2187320871f4127812404e659fcb48ae1e51ec4a0bdbf127a2793a",
-      "excerpt_hash": "7a41697094823341968c124a09a4f29780e7f7b976fe53a9b8ccee0ba3c6b392",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1910ec97cc1c1067",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/OidcClientTests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "259d9637b2c7367cd1031ae43f80b2b82a6afd3de305f4dead316d31522c0a10",
-      "excerpt_hash": "f5425797a001ff584c0eb9335916a5475b169e031f91280b9eaa49861b94b9f5",
-      "source_id": "rock_developer",
-      "source_key": "3c3c83e2437f3933",
-      "source_record_id": "rock_developer:3c3c83e2437f3933",
-      "url": "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "fa8be2c53cfa8c8ee1e95d0e30e5162448ad67d5a795111fc42dd807a536fd40",
-      "excerpt_hash": "b9190ba13ed3f0eeeb61c584f799cf31073193af181574592cff2774511ebe58",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ed1e9ea215aa359f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "02b92f152cf9f1683247c90fa05ef11d20bf82d33e5a0b1cb7de5b6a68d96791",
-      "excerpt_hash": "84adbe4b7abac5ab606fb9c79bdc2982934bc7af41750e098a0f1159af947eca",
-      "source_id": "rock_developer",
-      "source_key": "0a1df6eb6e308fc2",
-      "source_record_id": "rock_developer:0a1df6eb6e308fc2",
-      "url": "https://community.rockrms.com/developer/303---blast-off/attributes"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2e27f23b4a31bf0c6cb40840a36bfb5e692b2b3c6b7140f23d7bf5c369b18190",
-      "excerpt_hash": "aa1d611a7986d293fb9e69853b55d93ac905652357729f965fa12121399ea04c",
-      "source_id": "rock_developer",
-      "source_key": "643c380d40ffe79d",
-      "source_record_id": "rock_developer:643c380d40ffe79d",
-      "url": "https://community.rockrms.com/lava/commands/interaction-write"
-    },
-    {
-      "authority": "community-reference",
-      "content_hash": "19a5c2426b33968cdd555705fa518449b7dfd3bd01436ba75f5419f8ab5ef1c6",
-      "excerpt_hash": "cd2ca1d6768b4aba786e6cfe5ada5b6a361504e1c4cf91dc4a23604c994fe71b",
-      "source_id": "rock_community_site",
-      "source_key": "7c71a22de1006d62",
-      "source_record_id": "rock_community_site:7c71a22de1006d62",
-      "url": "https://community.rockrms.com/ask/developing/2708"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "983e0046eba1dd80c4e1c158c59fcbc5de9d5a76826197c4135ffe237eff45af",
-      "excerpt_hash": "e916cc51333d6d8b1f9ae343d9239b945dc2f056cd0e73e842a7ab39318f2172",
-      "source_id": "rock_developer",
-      "source_key": "802567c280193bd0",
-      "source_record_id": "rock_developer:802567c280193bd0",
-      "url": "https://community.rockrms.com/developer/helix/overview"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "f07dac2f93cc8f74866d5aded6d27235717022c1250695d0d9f6b38600804095",
-      "excerpt_hash": "cc5e8a4cfba2a9c7470b79936c5c7512f510c0fddb19bd69541d972e133ca60f",
-      "source_id": "rock_developer",
-      "source_key": "554e0dda0bc287c2",
-      "source_record_id": "rock_developer:554e0dda0bc287c2",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "db63124f61053ecc9005ae2c73cd6363cb305785fd9af8604de77bf77e17a6fd",
-      "excerpt_hash": "6a87075f32ad3f3861f9784817b44079bbbb6f3d303bb8aa8d20b7767677151a",
-      "source_id": "rock_developer",
-      "source_key": "242a3ac9b87c1e0c",
-      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "0baeb5cf3c4508bf7e83f879a369c653a769c361f484960fffa190484fcebcad",
-      "excerpt_hash": "c4891d05c793d1eff9fd0052b1c496bbe72360bfba5ae5d99355c39b03321243",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c6379a1fcb4a7101",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Utility/ApiModelMapper.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs"
-    },
-    {
-      "authority": "community-reference",
-      "content_hash": "bd36208e8e5636ab5ea0e94538e506e4b7f60220dbbd772e8799e98cc287082b",
-      "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
-      "source_id": "rock_community_site",
-      "source_key": "a2819513ef35f906",
-      "source_record_id": "rock_community_site:a2819513ef35f906",
-      "url": "https://community.rockrms.com/ask/developing/2710"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "5a096bb3db831eb04ef158b2ce91f995d98b76438e2845f4f895b3c321b28891",
-      "excerpt_hash": "defda34fb48de0e01ad95c4f5cb70a50dfa6c59b40640261ea0c1bac7df9e48b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0dccb7f3384b930a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Security/ApiKeyPurpose.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "db9a403014678df2ef8f7f484593e0538fa6f2eeb2fb0078ccdfa0d847ae5b3a",
-      "excerpt_hash": "bb46d337ed247b7871c1e147b2e11d1834b3829fc5238c77cc3551578e7f2174",
-      "source_id": "rock_developer",
-      "source_key": "dfd0cdc56d97fa7f",
-      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
-      "url": "https://community.rockrms.com/developer/helix/overview/security"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3241668b7a0eca443a7c6c95fc75346540d8ce29afe50b9ed8ab75f9f6f8b0d2",
-      "excerpt_hash": "2914be9e52a6478b9091e23ab54820db977820a268c65d1750058cd4ae491990",
-      "source_id": "rock_developer",
-      "source_key": "789454b4b23d582c",
-      "source_record_id": "rock_developer:789454b4b23d582c",
-      "url": "https://community.rockrms.com/developer/helix/lava-commands"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "c82be181cfd83dd5bf5393a47ba516dd69d877b8f0c945e05f53c66e46ec3bff",
-      "excerpt_hash": "2e481b90e5e58e7a9abfe3f47b04eb518a930c9170e8202820f01bd49026c888",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e1caa5870d162bcc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
-      "excerpt_hash": "bd30ea44d82b179f2f5f436652edfdcdbf141a8a9d3178bb1b6405d84659f143",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "543ea1d48ed32f6d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "a38d4511364f5054cc55534a12a2859259192ad662b948388ab742c2e593dc64",
-      "excerpt_hash": "5f464739cfcc7ff065b4ed3ed4ca652500f74cae19b3a21e33504f42c06fe270",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "72e58feaf1e9531d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "24406e3df3ec5b98d3bd4b46a6222fe8faf89298d914f9b69e6e445ca9fa81f2",
-      "excerpt_hash": "782ccf35e49174802886697c64cdbf523603e17c716c0287497d69f3522467f4",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5799a73de84c4338",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "217e87ba442c3d3c9efda65ffe31a0d48ef453ca26aca96dc4b86131902e2a7e",
-      "excerpt_hash": "030f218b151125d466d716526170386d9c8767a31cd44ff5d139e2a3e0395586",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9c04de615556ea9a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "c0d0ac854c5464a0904758ee73d056d1d79b8e11087979a778fc9ae1fff6b444",
-      "excerpt_hash": "cbba24441aaabe746bb2ac1162b1bf9860bcc91cbe1579dedda1b3d390120012",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "8f3a78dde9c3ddb6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d3aa8a6f35159dd016b1de8e634a211471a4497589d3f661b41e9410511a6674",
-      "excerpt_hash": "1c7eed227819338457349d3d569aae305c6223e126c0254f8aefd292b58926d4",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b62f52dbefd1a36d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "838728096dadf5160625fd9d941c4a3d246761047c2663b4cb0cb3a915696e15",
-      "excerpt_hash": "158e42079b4aaa53d73014a73d3a7bd7e63a168262e37793848d5d6fbe087799",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9f93dec345f23bd8",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/SecurityRoleTests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/SecurityRoleTests.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8d096a59833b2015dfc07815cb930e04b7e7d148e27ed2697dcba37e929415d8",
-      "excerpt_hash": "122438a8b7f4460919860acdf37c05e6975fe935d0f2deeca41a6712d815236a",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c440f7dfeb33e10e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "ec90d3aa31441ab005b722de2b7b04edf7a2b61889a2766dc8a75a5062dcbe98",
-      "excerpt_hash": "aef32ef3a316b34caa3a5269f8249232a6776699a0942f21cf42ed11da5cb4cc",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ed2eb5a93323c1b0",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "8db2647f38b43389c9dfc5146cc557009ec1bf4c028eb04048b4c84e6d35d0f4",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "source_id": "rock_developer",
-      "source_key": "f99ba5bb3222f37e",
-      "source_record_id": "rock_developer:f99ba5bb3222f37e",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-audio"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "810fe4702355573efe443282959b49faf14a05d9d312c06a05f0305e7150c5aa",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "source_id": "rock_developer",
-      "source_key": "275f4eda54018f53",
-      "source_record_id": "rock_developer:275f4eda54018f53",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-reader"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "df256387243940d40dc0bd99621657d02433b693a8751a18dd59f73e9fdb286d",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "source_id": "rock_developer",
-      "source_key": "6920f6e860c4b936",
-      "source_record_id": "rock_developer:6920f6e860c4b936",
-      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements"
-    },
-    {
-      "authority": "official",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "rock_documentation",
-      "source_key": "c6c618a8406c7343",
+      "source_id": "citation",
+      "source_key": "ebdec32ad954044d",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "df4200bab82058f2c3110a4280a83aa9acb4a89d0debb8ec82857ec361f5507f",
-      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
-      "source_id": "rock_developer",
-      "source_key": "28c9add99f6b608f",
-      "source_record_id": "rock_developer:28c9add99f6b608f",
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/service-layers"
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s"
     },
     {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "fe0b6d3b462f6c75",
+      "source_key": "94a5ba8fb41bd0df",
       "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "db1718e71f8d8e894ab74533eda1c13d2f37c3225a87518e9973ddb7ef0f05c5",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
+      "source_key": "fe0b6d3b462f6c75",
+      "source_record_id": "media-insight:d03a93f4e7ef8c02",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
+      "authority": "official-training",
+      "content_hash": "ddb073eec84db06831319571d5d8affcd4156b237dd752fd4dfaf93c096de673",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "source_id": "rock_youtube",
       "source_key": "874c48c7aa36826b",
-      "source_record_id": "",
+      "source_record_id": "media-insight:0eaf921555a4c075",
       "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
     },
     {
@@ -1508,1707 +1067,709 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
+      "source_key": "90c2163f9489f4ca",
       "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "2ef33162dc02363b",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
+      "authority": "source-code",
+      "content_hash": "c82be181cfd83dd5bf5393a47ba516dd69d877b8f0c945e05f53c66e46ec3bff",
+      "excerpt_hash": "2e481b90e5e58e7a9abfe3f47b04eb518a930c9170e8202820f01bd49026c888",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "dea5c5413e6aa96a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "f0a736080e3ea89c",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
+      "authority": "source-code",
+      "content_hash": "4064818fe68e9e7f0e103735932a6ea59319fd9958ae328887b5b570b097c689",
+      "excerpt_hash": "7bae6601566c062d4e8d47fe50705103cac7b67dc266931edea3cbe06cda4430",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "255e3e3d30f86fa2",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/model-map-builder/ModelMapBuilder.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/model-map-builder/ModelMapBuilder.cs"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "cea805e5b904fc2d",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
+      "authority": "source-code",
+      "content_hash": "0baeb5cf3c4508bf7e83f879a369c653a769c361f484960fffa190484fcebcad",
+      "excerpt_hash": "c4891d05c793d1eff9fd0052b1c496bbe72360bfba5ae5d99355c39b03321243",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1a2950197a38c9ca",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Utility/ApiModelMapper.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/Utility/ApiModelMapper.cs"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "9c54a75bab4e39e3",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
+      "authority": "official-developer",
+      "content_hash": "30afa7f756da2054a990fb2012c18e14e300796a2c5f1d66ea256597cafcec84",
+      "excerpt_hash": "a5ceb6b04e3ce0a589d39285a166829215fa0745567592b8c9d3f0d98c55195a",
+      "source_id": "rock_developer",
+      "source_key": "f807acb8c3c3d207",
+      "source_record_id": "rock_developer:article:302",
+      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "61505a876029525c",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "2cf11aac4d7e5e09",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
+      "authority": "source-code",
+      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
+      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
       "confidence": "normal",
-      "end_line": 63,
-      "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
-      "source_keys": [
-        "14e4b0253d1428ca",
-        "547b1337a6e19cf7",
-        "acd6d42ca9f08d83",
-        "22092085266102c5",
-        "53ad1133e1cb2d0a",
-        "1a7cdd8d2a7f15eb",
-        "366c62c0274cf5af",
-        "8f9847f0880303e0",
-        "6a9eebe7a077d89a",
-        "379b8b3e079b94e5",
-        "4f209a87e662fefd",
-        "46476aa8453a8245",
-        "fe094e82abfc4adf"
-      ],
-      "start_line": 29
-    },
-    {
-      "confidence": "normal",
-      "end_line": 71,
-      "heading": "2. Scope And Terminology",
+      "end_line": 31,
+      "heading": "Agent Summary",
       "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology",
+      "section_id": "agent-summary",
       "source_keys": [
-        "547b1337a6e19cf7",
-        "acd6d42ca9f08d83",
-        "366c62c0274cf5af"
+        "14e4b0253d1428ca",
+        "7b121761351cc32a",
+        "8b782456f9db1d76"
       ],
-      "start_line": 64
+      "start_line": 18
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 49,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": true,
+      "section_id": "scope-and-boundaries",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "7b121761351cc32a",
+        "8b782456f9db1d76"
+      ],
+      "start_line": 32
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 66,
+      "heading": "Mental Model",
+      "needs_live_verification": true,
+      "section_id": "mental-model",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "7b121761351cc32a",
+        "8b782456f9db1d76"
+      ],
+      "start_line": 50
     },
     {
       "confidence": "normal",
-      "end_line": 85,
-      "heading": "API",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology-api",
+      "end_line": 70,
+      "heading": "REST API",
+      "needs_live_verification": false,
+      "section_id": "rest-api",
       "source_keys": [
         "14e4b0253d1428ca",
+        "7b121761351cc32a"
+      ],
+      "start_line": 67
+    },
+    {
+      "confidence": "normal",
+      "end_line": 82,
+      "heading": "API v1",
+      "needs_live_verification": true,
+      "section_id": "rest-api-api-v1",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 71
+    },
+    {
+      "confidence": "normal",
+      "end_line": 104,
+      "heading": "API v2",
+      "needs_live_verification": true,
+      "section_id": "rest-api-api-v2",
+      "source_keys": [
+        "7b121761351cc32a",
+        "acd6d42ca9f08d83",
+        "8b782456f9db1d76",
         "acd6d42ca9f08d83"
       ],
-      "start_line": 72
+      "start_line": 83
     },
     {
       "confidence": "normal",
-      "end_line": 91,
-      "heading": "REST API v1",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology-rest-api-v1",
-      "source_keys": [
-        "371700349ffde4af",
-        "547b1337a6e19cf7"
-      ],
-      "start_line": 86
-    },
-    {
-      "confidence": "normal",
-      "end_line": 97,
-      "heading": "REST API v2",
+      "end_line": 110,
+      "heading": "OData And Response Shaping",
       "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology-rest-api-v2",
-      "source_keys": [
-        "acd6d42ca9f08d83",
-        "983ad6bce37e8e15",
-        "46476aa8453a8245"
-      ],
-      "start_line": 92
-    },
-    {
-      "confidence": "normal",
-      "end_line": 101,
-      "heading": "OData",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology-odata",
+      "section_id": "rest-api-odata-and-response-shaping",
       "source_keys": [
         "547b1337a6e19cf7"
       ],
-      "start_line": 98
+      "start_line": 105
     },
     {
-      "confidence": "community-supported",
-      "end_line": 107,
-      "heading": "Swagger / API Docs",
+      "confidence": "normal",
+      "end_line": 118,
+      "heading": "Partial And Relationship Writes",
       "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology-swagger-api-docs",
+      "section_id": "rest-api-partial-and-relationship-writes",
       "source_keys": [
+        "7b121761351cc32a",
         "14e4b0253d1428ca",
-        "027cede393b38974"
+        "982754777f5fed21",
+        "982754777f5fed21"
       ],
-      "start_line": 102
+      "start_line": 111
     },
     {
       "confidence": "normal",
-      "end_line": 113,
-      "heading": "REST Key / Authorization Token",
+      "end_line": 143,
+      "heading": "API Authentication And Authorization",
+      "needs_live_verification": false,
+      "section_id": "api-authentication-and-authorization",
+      "source_keys": [
+        "547b1337a6e19cf7",
+        "bfe056719d5f1eaa",
+        "547b1337a6e19cf7",
+        "bfe056719d5f1eaa"
+      ],
+      "start_line": 119
+    },
+    {
+      "confidence": "normal",
+      "end_line": 149,
+      "heading": "Browser And Cross-Domain Calls",
+      "needs_live_verification": false,
+      "section_id": "api-authentication-and-authorization-browser-and-cross-domain-calls",
+      "source_keys": [
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 144
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 167,
+      "heading": "Lava APIs And Webhooks",
       "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology-rest-key-authorization-token",
-      "source_keys": [
-        "547b1337a6e19cf7"
-      ],
-      "start_line": 108
-    },
-    {
-      "confidence": "normal",
-      "end_line": 119,
-      "heading": "CORS",
-      "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology-cors",
-      "source_keys": [
-        "547b1337a6e19cf7"
-      ],
-      "start_line": 114
-    },
-    {
-      "confidence": "normal",
-      "end_line": 123,
-      "heading": "Lava Webhook",
-      "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology-lava-webhook",
+      "section_id": "lava-apis-and-webhooks",
       "source_keys": [
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 120
+      "start_line": 150
     },
     {
       "confidence": "normal",
-      "end_line": 127,
-      "heading": "Lava Application / Lava Endpoint",
+      "end_line": 173,
+      "heading": "Remote Lava",
       "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology-lava-application-lava-endpoint",
+      "section_id": "lava-apis-and-webhooks-remote-lava",
       "source_keys": [
-        "366c62c0274cf5af",
-        "8f9847f0880303e0",
-        "6a9eebe7a077d89a",
-        "f146552f6ffaa13a"
+        "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 124
+      "start_line": 168
     },
     {
       "confidence": "community-supported",
-      "end_line": 133,
-      "heading": "Webhook To Workflow",
+      "end_line": 177,
+      "heading": "Community Webhook Example",
+      "needs_live_verification": false,
+      "section_id": "lava-apis-and-webhooks-community-webhook-example",
+      "source_keys": [
+        "06156bb3a5401956"
+      ],
+      "start_line": 174
+    },
+    {
+      "confidence": "normal",
+      "end_line": 199,
+      "heading": "Helix Lava Endpoints",
       "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology-webhook-to-workflow",
+      "section_id": "helix-lava-endpoints",
       "source_keys": [
-        "4f209a87e662fefd"
-      ],
-      "start_line": 128
-    },
-    {
-      "confidence": "normal",
-      "end_line": 137,
-      "heading": "Model Map",
-      "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology-model-map",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "b480ac589da5149f",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 134
-    },
-    {
-      "confidence": "structural",
-      "end_line": 147,
-      "heading": "3. API And Integrations Mental Model",
-      "needs_live_verification": false,
-      "section_id": "3-api-and-integrations-mental-model",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "b480ac589da5149f",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 138
-    },
-    {
-      "confidence": "normal",
-      "end_line": 161,
-      "heading": "Caller Types",
-      "needs_live_verification": false,
-      "section_id": "3-api-and-integrations-mental-model-caller-types",
-      "source_keys": [
-        "1a7cdd8d2a7f15eb",
-        "547b1337a6e19cf7",
-        "9c6602ae13ab291c",
-        "fe094e82abfc4adf",
-        "9cff0c87fd8eab29",
-        "66cd0caee02b1e4b",
-        "4f0249164a4754aa",
-        "4da60cf32b65caa5",
-        "9d82300fec33a358",
-        "2a056e99824af72b",
-        "074a2b271eca8da5"
-      ],
-      "start_line": 148
-    },
-    {
-      "confidence": "normal",
-      "end_line": 181,
-      "heading": "Endpoint Surface Types",
-      "needs_live_verification": false,
-      "section_id": "3-api-and-integrations-mental-model-endpoint-surface-types",
-      "source_keys": [
-        "983ad6bce37e8e15",
-        "53ad1133e1cb2d0a",
         "6a9eebe7a077d89a",
-        "4f209a87e662fefd",
-        "46476aa8453a8245"
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "6a9eebe7a077d89a"
       ],
-      "start_line": 162
+      "start_line": 178
     },
     {
       "confidence": "normal",
-      "end_line": 200,
-      "heading": "Identity And Permission Chain",
+      "end_line": 205,
+      "heading": "Rendering And Caching",
       "needs_live_verification": true,
-      "section_id": "3-api-and-integrations-mental-model-identity-and-permission-chain",
+      "section_id": "helix-lava-endpoints-rendering-and-caching",
       "source_keys": [
-        "470797c964770153",
-        "acd6d42ca9f08d83",
-        "8f9847f0880303e0",
-        "6a9eebe7a077d89a",
-        "427e5301d593e4bc",
-        "eb2b5509786a6895",
-        "f807acb8c3c3d207",
-        "82a780f161ffcf0a",
-        "4da60cf32b65caa5"
+        "52c683d5cc0018da",
+        "a9c1cee2ea409fb9"
       ],
-      "start_line": 182
+      "start_line": 200
     },
     {
-      "confidence": "community-supported",
+      "confidence": "normal",
+      "end_line": 209,
+      "heading": "Observability",
+      "needs_live_verification": false,
+      "section_id": "helix-lava-endpoints-observability",
+      "source_keys": [
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 206
+    },
+    {
+      "confidence": "normal",
+      "end_line": 213,
+      "heading": "Public UI Integration Boundary",
+      "needs_live_verification": true,
+      "section_id": "helix-lava-endpoints-public-ui-integration-boundary",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "faef786c0a7e4122"
+      ],
+      "start_line": 210
+    },
+    {
+      "confidence": "normal",
       "end_line": 229,
-      "heading": "4. Source Authority And How To Use This Guide",
+      "heading": "Provider Webhooks And Operational Reporting",
       "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "section_id": "provider-webhooks-and-operational-reporting",
       "source_keys": [
-        "07e7de2629271fcc",
-        "4f209a87e662fefd",
-        "8cdec880af451ef9"
+        "2cf11aac4d7e5e09",
+        "2cf11aac4d7e5e09",
+        "776256c424368312",
+        "2e094e868018787d"
       ],
-      "start_line": 201
+      "start_line": 214
     },
     {
-      "confidence": "structural",
-      "end_line": 231,
-      "heading": "5. Core Configuration And Data Model",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
+      "confidence": "citation-only",
+      "end_line": 237,
+      "heading": "AI, MCP, And Custom Integration Tools",
+      "needs_live_verification": true,
+      "section_id": "ai-mcp-and-custom-integration-tools",
       "source_keys": [
-        "547b1337a6e19cf7",
-        "bce31f25cb8a199e",
-        "983ad6bce37e8e15",
-        "46476aa8453a8245",
-        "027cede393b38974",
-        "53ad1133e1cb2d0a",
-        "07e7de2629271fcc",
-        "4f209a87e662fefd",
-        "8f9847f0880303e0",
-        "6a9eebe7a077d89a",
-        "f146552f6ffaa13a",
-        "427e5301d593e4bc",
-        "776256c424368312",
-        "f76e5d37a4b67cbe",
-        "b298af2cf3202cfb",
-        "d81b99f44bb58799",
-        "9cff0c87fd8eab29",
-        "66cd0caee02b1e4b",
-        "4f0249164a4754aa",
-        "2e094e868018787d"
+        "ebdec32ad954044d",
+        "94a5ba8fb41bd0df",
+        "fe0b6d3b462f6c75"
       ],
       "start_line": 230
     },
     {
-      "confidence": "normal",
-      "end_line": 246,
-      "heading": "REST Keys",
+      "confidence": "citation-only",
+      "end_line": 243,
+      "heading": "Managed Data Access",
       "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-rest-keys",
+      "section_id": "ai-mcp-and-custom-integration-tools-managed-data-access",
       "source_keys": [
-        "547b1337a6e19cf7"
+        "874c48c7aa36826b",
+        "fe0b6d3b462f6c75"
       ],
-      "start_line": 232
+      "start_line": 238
     },
     {
-      "confidence": "normal",
+      "confidence": "community-supported",
       "end_line": 262,
-      "heading": "REST Controllers And REST Actions",
+      "heading": "Tool Contracts",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-rest-controllers-and-rest-actions",
+      "section_id": "ai-mcp-and-custom-integration-tools-tool-contracts",
       "source_keys": [
-        "bce31f25cb8a199e",
-        "983ad6bce37e8e15",
-        "46476aa8453a8245"
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "90c2163f9489f4ca",
+        "d7bffe0fc08eaa24"
       ],
-      "start_line": 247
+      "start_line": 244
     },
     {
       "confidence": "normal",
-      "end_line": 280,
-      "heading": "REST CORS Domains",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-rest-cors-domains",
+      "end_line": 270,
+      "heading": "Model Map And Source-Code Landmarks",
+      "needs_live_verification": false,
+      "section_id": "model-map-and-source-code-landmarks",
       "source_keys": [
-        "547b1337a6e19cf7",
-        "027cede393b38974"
+        "dea5c5413e6aa96a",
+        "255e3e3d30f86fa2",
+        "1a2950197a38c9ca"
       ],
       "start_line": 263
     },
     {
-      "confidence": "normal",
-      "end_line": 310,
-      "heading": "Lava Webhook Defined Type",
+      "confidence": "high",
+      "end_line": 281,
+      "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-lava-webhook-defined-type",
+      "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "53ad1133e1cb2d0a",
-        "07e7de2629271fcc"
-      ],
-      "start_line": 281
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 333,
-      "heading": "Workflow Webhook Defined Type",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-workflow-webhook-defined-type",
-      "source_keys": [
-        "4f209a87e662fefd"
-      ],
-      "start_line": 311
-    },
-    {
-      "confidence": "normal",
-      "end_line": 351,
-      "heading": "Lava Applications",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-lava-applications",
-      "source_keys": [
-        "8f9847f0880303e0",
-        "8f9847f0880303e0"
-      ],
-      "start_line": 334
-    },
-    {
-      "confidence": "normal",
-      "end_line": 395,
-      "heading": "Lava Endpoints",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-lava-endpoints",
-      "source_keys": [
-        "6a9eebe7a077d89a",
-        "f146552f6ffaa13a",
-        "427e5301d593e4bc"
-      ],
-      "start_line": 352
-    },
-    {
-      "confidence": "normal",
-      "end_line": 407,
-      "heading": "External Integration Attributes And Block Settings",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-external-integration-attributes-and-block-settings",
-      "source_keys": [
-        "776256c424368312",
-        "f76e5d37a4b67cbe",
-        "b298af2cf3202cfb",
-        "d81b99f44bb58799",
-        "9cff0c87fd8eab29",
-        "66cd0caee02b1e4b",
-        "4f0249164a4754aa",
-        "2e094e868018787d"
-      ],
-      "start_line": 396
-    },
-    {
-      "confidence": "structural",
-      "end_line": 409,
-      "heading": "6. Primary Entities And Relationships",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
-        "f146552f6ffaa13a",
-        "8cdec880af451ef9",
-        "1910ec97cc1c1067",
-        "f807acb8c3c3d207",
-        "3c3c83e2437f3933",
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f",
-        "0a1df6eb6e308fc2",
-        "776256c424368312",
-        "643c380d40ffe79d",
-        "9cff0c87fd8eab29"
-      ],
-      "start_line": 408
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 422,
-      "heading": "RestController And RestAction",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-restcontroller-and-restaction",
-      "source_keys": [
-        "bce31f25cb8a199e"
-      ],
-      "start_line": 410
-    },
-    {
-      "confidence": "normal",
-      "end_line": 434,
-      "heading": "LavaApplication And LavaEndpoint",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-lavaapplication-and-lavaendpoint",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
-        "f146552f6ffaa13a"
-      ],
-      "start_line": 423
-    },
-    {
-      "confidence": "normal",
-      "end_line": 446,
-      "heading": "Person, UserLogin, REST Key, And Person Token",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-person-userlogin-rest-key-and-person-token",
-      "source_keys": [
-        "8cdec880af451ef9",
-        "1910ec97cc1c1067",
-        "bce31f25cb8a199e",
-        "f807acb8c3c3d207"
-      ],
-      "start_line": 435
-    },
-    {
-      "confidence": "normal",
-      "end_line": 459,
-      "heading": "WorkflowType, Workflow, Workflow Attributes",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-workflowtype-workflow-workflow-attributes",
-      "source_keys": [
-        "3c3c83e2437f3933",
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f",
-        "ed1e9ea215aa359f"
-      ],
-      "start_line": 447
-    },
-    {
-      "confidence": "normal",
-      "end_line": 471,
-      "heading": "Attribute And AttributeValue",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
-      "source_keys": [
-        "0a1df6eb6e308fc2"
-      ],
-      "start_line": 460
-    },
-    {
-      "confidence": "normal",
-      "end_line": 477,
-      "heading": "BinaryFile, Document Type, And File Security",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-binaryfile-document-type-and-file-security",
-      "source_keys": [
-        "3c3c83e2437f3933",
-        "776256c424368312"
-      ],
-      "start_line": 472
-    },
-    {
-      "confidence": "normal",
-      "end_line": 487,
-      "heading": "Interaction, Analytics, And Observability Entities",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-interaction-analytics-and-observability-entities",
-      "source_keys": [
-        "643c380d40ffe79d",
-        "9cff0c87fd8eab29",
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 478
-    },
-    {
-      "confidence": "structural",
-      "end_line": 489,
-      "heading": "7. Common API And Integrations Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-api-and-integrations-workflows",
-      "source_keys": [
-        "470797c964770153",
-        "4f209a87e662fefd",
-        "fe094e82abfc4adf",
-        "7c71a22de1006d62",
-        "53ad1133e1cb2d0a",
-        "802567c280193bd0",
-        "554e0dda0bc287c2",
-        "242a3ac9b87c1e0c",
-        "379b8b3e079b94e5",
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f",
-        "776256c424368312"
-      ],
-      "start_line": 488
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 503,
-      "heading": "External Site Reads Public Calendar Data",
-      "needs_live_verification": true,
-      "section_id": "7-common-api-and-integrations-workflows-external-site-reads-public-calendar-data",
-      "source_keys": [
-        "470797c964770153"
-      ],
-      "start_line": 490
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 525,
-      "heading": "External System Sends A Webhook To Rock",
-      "needs_live_verification": false,
-      "section_id": "7-common-api-and-integrations-workflows-external-system-sends-a-webhook-to-rock",
-      "source_keys": [
-        "4f209a87e662fefd"
-      ],
-      "start_line": 504
-    },
-    {
-      "confidence": "normal",
-      "end_line": 554,
-      "heading": "Rock Calls An External API From Lava",
-      "needs_live_verification": true,
-      "section_id": "7-common-api-and-integrations-workflows-rock-calls-an-external-api-from-lava",
-      "source_keys": [
-        "fe094e82abfc4adf",
-        "7c71a22de1006d62"
-      ],
-      "start_line": 526
-    },
-    {
-      "confidence": "normal",
-      "end_line": 574,
-      "heading": "Create A Custom API With Lava Webhook",
-      "needs_live_verification": false,
-      "section_id": "7-common-api-and-integrations-workflows-create-a-custom-api-with-lava-webhook",
-      "source_keys": [
-        "53ad1133e1cb2d0a"
-      ],
-      "start_line": 555
-    },
-    {
-      "confidence": "normal",
-      "end_line": 591,
-      "heading": "Build A Helix HTMX Application",
-      "needs_live_verification": false,
-      "section_id": "7-common-api-and-integrations-workflows-build-a-helix-htmx-application",
-      "source_keys": [
-        "802567c280193bd0",
-        "554e0dda0bc287c2",
-        "242a3ac9b87c1e0c",
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 575
-    },
-    {
-      "confidence": "normal",
-      "end_line": 616,
-      "heading": "Launch A Workflow Through REST v2",
-      "needs_live_verification": true,
-      "section_id": "7-common-api-and-integrations-workflows-launch-a-workflow-through-rest-v2",
-      "source_keys": [
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f",
-        "776256c424368312"
-      ],
-      "start_line": 592
-    },
-    {
-      "confidence": "structural",
-      "end_line": 618,
-      "heading": "8. REST API Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "8-rest-api-deep-dive",
-      "source_keys": [
-        "14e4b0253d1428ca",
-        "371700349ffde4af",
-        "22092085266102c5",
-        "c6379a1fcb4a7101",
         "acd6d42ca9f08d83",
-        "983ad6bce37e8e15",
-        "547b1337a6e19cf7",
-        "a2819513ef35f906"
-      ],
-      "start_line": 617
-    },
-    {
-      "confidence": "normal",
-      "end_line": 632,
-      "heading": "Route Discovery",
-      "needs_live_verification": true,
-      "section_id": "8-rest-api-deep-dive-route-discovery",
-      "source_keys": [
+        "7b121761351cc32a",
         "14e4b0253d1428ca",
-        "371700349ffde4af",
-        "22092085266102c5",
-        "c6379a1fcb4a7101"
+        "776256c424368312",
+        "52c683d5cc0018da",
+        "6a9eebe7a077d89a",
+        "776256c424368312",
+        "776256c424368312"
       ],
-      "start_line": 619
-    },
-    {
-      "confidence": "normal",
-      "end_line": 647,
-      "heading": "CRUDS Pattern",
-      "needs_live_verification": true,
-      "section_id": "8-rest-api-deep-dive-cruds-pattern",
-      "source_keys": [
-        "acd6d42ca9f08d83"
-      ],
-      "start_line": 633
-    },
-    {
-      "confidence": "normal",
-      "end_line": 658,
-      "heading": "Identifier Handling",
-      "needs_live_verification": true,
-      "section_id": "8-rest-api-deep-dive-identifier-handling",
-      "source_keys": [
-        "983ad6bce37e8e15"
-      ],
-      "start_line": 648
-    },
-    {
-      "confidence": "normal",
-      "end_line": 674,
-      "heading": "OData Querying",
-      "needs_live_verification": true,
-      "section_id": "8-rest-api-deep-dive-odata-querying",
-      "source_keys": [
-        "547b1337a6e19cf7",
-        "a2819513ef35f906"
-      ],
-      "start_line": 659
-    },
-    {
-      "confidence": "normal",
-      "end_line": 686,
-      "heading": "API v2 Security Actions",
-      "needs_live_verification": false,
-      "section_id": "8-rest-api-deep-dive-api-v2-security-actions",
-      "source_keys": [
-        "acd6d42ca9f08d83"
-      ],
-      "start_line": 675
-    },
-    {
-      "confidence": "normal",
-      "end_line": 701,
-      "heading": "API v2 Generated Controller Example",
-      "needs_live_verification": false,
-      "section_id": "8-rest-api-deep-dive-api-v2-generated-controller-example",
-      "source_keys": [
-        "983ad6bce37e8e15"
-      ],
-      "start_line": 687
+      "start_line": 271
     },
     {
       "confidence": "structural",
-      "end_line": 703,
-      "heading": "9. API Authentication Deep Dive",
+      "end_line": 283,
+      "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
-      "section_id": "9-api-authentication-deep-dive",
+      "section_id": "troubleshooting-decision-tree",
+      "source_keys": [
+        "bfe056719d5f1eaa",
+        "8b782456f9db1d76",
+        "547b1337a6e19cf7",
+        "1a7cdd8d2a7f15eb",
+        "7b121761351cc32a",
+        "982754777f5fed21",
+        "53ad1133e1cb2d0a",
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "379b8b3e079b94e5",
+        "2cf11aac4d7e5e09",
+        "776256c424368312",
+        "fe0b6d3b462f6c75",
+        "ebdec32ad954044d"
+      ],
+      "start_line": 282
+    },
+    {
+      "confidence": "normal",
+      "end_line": 294,
+      "heading": "The API request is rejected with an authorization error",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-api-request-is-rejected-with-an-authorization-error",
+      "source_keys": [
+        "bfe056719d5f1eaa",
+        "8b782456f9db1d76"
+      ],
+      "start_line": 284
+    },
+    {
+      "confidence": "normal",
+      "end_line": 303,
+      "heading": "A request works in a server client but fails in a browser",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-request-works-in-a-server-client-but-fails-in-a-browser",
       "source_keys": [
         "547b1337a6e19cf7",
-        "0dccb7f3384b930a",
-        "1a7cdd8d2a7f15eb",
-        "8cdec880af451ef9",
-        "1910ec97cc1c1067",
-        "4f0249164a4754aa",
-        "9cff0c87fd8eab29"
-      ],
-      "start_line": 702
-    },
-    {
-      "confidence": "normal",
-      "end_line": 721,
-      "heading": "Cookie Authentication",
-      "needs_live_verification": false,
-      "section_id": "9-api-authentication-deep-dive-cookie-authentication",
-      "source_keys": [
-        "547b1337a6e19cf7"
-      ],
-      "start_line": 704
-    },
-    {
-      "confidence": "normal",
-      "end_line": 737,
-      "heading": "REST Authorization Token",
-      "needs_live_verification": false,
-      "section_id": "9-api-authentication-deep-dive-rest-authorization-token",
-      "source_keys": [
-        "547b1337a6e19cf7"
-      ],
-      "start_line": 722
-    },
-    {
-      "confidence": "normal",
-      "end_line": 741,
-      "heading": "API Key Purpose",
-      "needs_live_verification": true,
-      "section_id": "9-api-authentication-deep-dive-api-key-purpose",
-      "source_keys": [
-        "0dccb7f3384b930a"
-      ],
-      "start_line": 738
-    },
-    {
-      "confidence": "normal",
-      "end_line": 753,
-      "heading": "Browser JavaScript And Token Exposure",
-      "needs_live_verification": false,
-      "section_id": "9-api-authentication-deep-dive-browser-javascript-and-token-exposure",
-      "source_keys": [
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 742
+      "start_line": 295
     },
     {
       "confidence": "normal",
-      "end_line": 768,
-      "heading": "External Identity Providers",
+      "end_line": 312,
+      "heading": "A v2 update cleared or changed fields the integration did not own",
       "needs_live_verification": true,
-      "section_id": "9-api-authentication-deep-dive-external-identity-providers",
+      "section_id": "troubleshooting-decision-tree-a-v2-update-cleared-or-changed-fields-the-integration-did-not-own",
       "source_keys": [
-        "8cdec880af451ef9",
-        "1910ec97cc1c1067"
+        "7b121761351cc32a"
       ],
-      "start_line": 754
-    },
-    {
-      "confidence": "normal",
-      "end_line": 781,
-      "heading": "Remote Authentication For TV Apps",
-      "needs_live_verification": false,
-      "section_id": "9-api-authentication-deep-dive-remote-authentication-for-tv-apps",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "9cff0c87fd8eab29"
-      ],
-      "start_line": 769
-    },
-    {
-      "confidence": "structural",
-      "end_line": 783,
-      "heading": "10. Webhooks Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-webhooks-deep-dive",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "9cff0c87fd8eab29",
-        "53ad1133e1cb2d0a",
-        "07e7de2629271fcc",
-        "4f209a87e662fefd",
-        "776256c424368312",
-        "f76e5d37a4b67cbe",
-        "2e094e868018787d"
-      ],
-      "start_line": 782
-    },
-    {
-      "confidence": "structural",
-      "end_line": 795,
-      "heading": "Webhook Design Principles",
-      "needs_live_verification": false,
-      "section_id": "10-webhooks-deep-dive-webhook-design-principles",
-      "source_keys": [
-        "4f0249164a4754aa",
-        "9cff0c87fd8eab29"
-      ],
-      "start_line": 784
-    },
-    {
-      "confidence": "normal",
-      "end_line": 813,
-      "heading": "Lava Webhook Matching",
-      "needs_live_verification": true,
-      "section_id": "10-webhooks-deep-dive-lava-webhook-matching",
-      "source_keys": [
-        "53ad1133e1cb2d0a"
-      ],
-      "start_line": 796
+      "start_line": 304
     },
     {
       "confidence": "community-supported",
-      "end_line": 834,
-      "heading": "Response Content Types",
-      "needs_live_verification": false,
-      "section_id": "10-webhooks-deep-dive-response-content-types",
+      "end_line": 322,
+      "heading": "A relationship write created unexpected related records",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records",
       "source_keys": [
-        "07e7de2629271fcc"
+        "982754777f5fed21"
       ],
-      "start_line": 814
+      "start_line": 313
     },
     {
       "confidence": "community-supported",
-      "end_line": 848,
-      "heading": "Workflow Webhook Response",
+      "end_line": 331,
+      "heading": "A create request succeeds but no new identifier is returned",
       "needs_live_verification": true,
-      "section_id": "10-webhooks-deep-dive-workflow-webhook-response",
+      "section_id": "troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned",
       "source_keys": [
-        "4f209a87e662fefd"
+        "982754777f5fed21"
       ],
-      "start_line": 835
-    },
-    {
-      "confidence": "normal",
-      "end_line": 863,
-      "heading": "Mailgun Webhooks",
-      "needs_live_verification": false,
-      "section_id": "10-webhooks-deep-dive-mailgun-webhooks",
-      "source_keys": [
-        "776256c424368312",
-        "f76e5d37a4b67cbe"
-      ],
-      "start_line": 849
-    },
-    {
-      "confidence": "normal",
-      "end_line": 876,
-      "heading": "SMS Pipeline Webhooks",
-      "needs_live_verification": false,
-      "section_id": "10-webhooks-deep-dive-sms-pipeline-webhooks",
-      "source_keys": [
-        "2e094e868018787d"
-      ],
-      "start_line": 864
-    },
-    {
-      "confidence": "structural",
-      "end_line": 878,
-      "heading": "11. Related Rock Areas: Security, Workflows, Lava, Model Map",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-security-workflows-lava-model-map",
-      "source_keys": [
-        "eb2b5509786a6895",
-        "f807acb8c3c3d207",
-        "82a780f161ffcf0a",
-        "dfd0cdc56d97fa7f",
-        "3c3c83e2437f3933",
-        "46476aa8453a8245",
-        "4f209a87e662fefd",
-        "53ad1133e1cb2d0a",
-        "1a7cdd8d2a7f15eb",
-        "fe094e82abfc4adf",
-        "789454b4b23d582c",
-        "b480ac589da5149f",
-        "e1caa5870d162bcc",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 877
-    },
-    {
-      "confidence": "normal",
-      "end_line": 892,
-      "heading": "Security",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-security",
-      "source_keys": [
-        "eb2b5509786a6895",
-        "f807acb8c3c3d207",
-        "82a780f161ffcf0a",
-        "dfd0cdc56d97fa7f"
-      ],
-      "start_line": 879
-    },
-    {
-      "confidence": "normal",
-      "end_line": 915,
-      "heading": "Workflows",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-workflows",
-      "source_keys": [
-        "3c3c83e2437f3933",
-        "46476aa8453a8245",
-        "4f209a87e662fefd"
-      ],
-      "start_line": 893
-    },
-    {
-      "confidence": "normal",
-      "end_line": 938,
-      "heading": "Lava",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-lava",
-      "source_keys": [
-        "53ad1133e1cb2d0a",
-        "1a7cdd8d2a7f15eb",
-        "fe094e82abfc4adf",
-        "789454b4b23d582c",
-        "dfd0cdc56d97fa7f"
-      ],
-      "start_line": 916
-    },
-    {
-      "confidence": "normal",
-      "end_line": 951,
-      "heading": "Model Map",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-security-workflows-lava-model-map-model-map",
-      "source_keys": [
-        "b480ac589da5149f",
-        "e1caa5870d162bcc",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 939
-    },
-    {
-      "confidence": "structural",
-      "end_line": 953,
-      "heading": "12. Administration And Operational Guardrails",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails",
-      "source_keys": [
-        "b480ac589da5149f",
-        "e1caa5870d162bcc",
-        "e395e8db6cce68d7",
-        "554e0dda0bc287c2",
-        "dfd0cdc56d97fa7f",
-        "f146552f6ffaa13a",
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 952
-    },
-    {
-      "confidence": "structural",
-      "end_line": 965,
-      "heading": "Least Privilege",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-least-privilege",
-      "source_keys": [
-        "b480ac589da5149f",
-        "e1caa5870d162bcc",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 954
-    },
-    {
-      "confidence": "structural",
-      "end_line": 990,
-      "heading": "Secret Handling",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-secret-handling",
-      "source_keys": [
-        "b480ac589da5149f",
-        "e1caa5870d162bcc",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 966
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1009,
-      "heading": "Input Validation",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-input-validation",
-      "source_keys": [
-        "554e0dda0bc287c2"
-      ],
-      "start_line": 991
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1021,
-      "heading": "Method Semantics",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-method-semantics",
-      "source_keys": [
-        "dfd0cdc56d97fa7f"
-      ],
-      "start_line": 1010
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1031,
-      "heading": "Caching",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-caching",
-      "source_keys": [
-        "dfd0cdc56d97fa7f"
-      ],
-      "start_line": 1022
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1045,
-      "heading": "Rate Limiting And Load",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-rate-limiting-and-load",
-      "source_keys": [
-        "f146552f6ffaa13a"
-      ],
-      "start_line": 1032
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1060,
-      "heading": "Observability",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-observability",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 1046
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1062,
-      "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "c6379a1fcb4a7101",
-        "983ad6bce37e8e15",
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f",
-        "427e5301d593e4bc",
-        "543ea1d48ed32f6d",
-        "f146552f6ffaa13a",
-        "72e58feaf1e9531d",
-        "b480ac589da5149f",
-        "5799a73de84c4338",
-        "9c04de615556ea9a",
-        "e1caa5870d162bcc",
-        "8f3a78dde9c3ddb6",
-        "e395e8db6cce68d7",
-        "b62f52dbefd1a36d",
-        "9f93dec345f23bd8",
-        "1910ec97cc1c1067",
-        "c440f7dfeb33e10e",
-        "f76e5d37a4b67cbe"
-      ],
-      "start_line": 1061
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1073,
-      "heading": "REST And API Source",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-rest-and-api-source",
-      "source_keys": [
-        "c6379a1fcb4a7101",
-        "983ad6bce37e8e15",
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f"
-      ],
-      "start_line": 1063
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1084,
-      "heading": "Lava Application Source",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-application-source",
-      "source_keys": [
-        "427e5301d593e4bc",
-        "543ea1d48ed32f6d",
-        "f146552f6ffaa13a",
-        "72e58feaf1e9531d"
-      ],
-      "start_line": 1074
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1097,
-      "heading": "Model Map Source",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-model-map-source",
-      "source_keys": [
-        "b480ac589da5149f",
-        "5799a73de84c4338",
-        "9c04de615556ea9a",
-        "e1caa5870d162bcc",
-        "8f3a78dde9c3ddb6",
-        "e395e8db6cce68d7"
-      ],
-      "start_line": 1085
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1108,
-      "heading": "Security And Workflow Source",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-security-and-workflow-source",
-      "source_keys": [
-        "b62f52dbefd1a36d",
-        "9f93dec345f23bd8",
-        "1910ec97cc1c1067",
-        "c440f7dfeb33e10e"
-      ],
-      "start_line": 1098
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1116,
-      "heading": "Integration-Specific Source",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-integration-specific-source",
-      "source_keys": [
-        "f76e5d37a4b67cbe"
-      ],
-      "start_line": 1109
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1118,
-      "heading": "14. Reporting, Analytics, And Model Map",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map",
-      "source_keys": [
-        "379b8b3e079b94e5",
-        "9cff0c87fd8eab29",
-        "643c380d40ffe79d",
-        "e1caa5870d162bcc",
-        "8f3a78dde9c3ddb6",
-        "ed2eb5a93323c1b0"
-      ],
-      "start_line": 1117
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1129,
-      "heading": "API Usage Reporting",
-      "needs_live_verification": true,
-      "section_id": "14-reporting-analytics-and-model-map-api-usage-reporting",
-      "source_keys": [
-        "379b8b3e079b94e5",
-        "9cff0c87fd8eab29",
-        "643c380d40ffe79d"
-      ],
-      "start_line": 1119
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1153,
-      "heading": "Model Map Use Cases",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-model-map-use-cases",
-      "source_keys": [
-        "e1caa5870d162bcc",
-        "8f3a78dde9c3ddb6",
-        "ed2eb5a93323c1b0"
-      ],
-      "start_line": 1130
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1155,
-      "heading": "15. Version And Release Caveats",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats",
-      "source_keys": [
-        "acd6d42ca9f08d83",
-        "776256c424368312",
-        "f76e5d37a4b67cbe",
-        "802567c280193bd0",
-        "366c62c0274cf5af",
-        "6a9eebe7a077d89a",
-        "f99ba5bb3222f37e",
-        "275f4eda54018f53",
-        "b298af2cf3202cfb",
-        "6920f6e860c4b936"
-      ],
-      "start_line": 1154
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1161,
-      "heading": "API v2 Starts In v17 Pattern",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-api-v2-starts-in-v17-pattern",
-      "source_keys": [
-        "acd6d42ca9f08d83"
-      ],
-      "start_line": 1156
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1167,
-      "heading": "Workflow Action Launch API Fix In v18.2",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-workflow-action-launch-api-fix-in-v18-2",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1162
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1173,
-      "heading": "DataView Endpoint Permission Fix In v17.5",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-dataview-endpoint-permission-fix-in-v17-5",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1168
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1179,
-      "heading": "Mailgun API Key And Webhook Signing Key",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-mailgun-api-key-and-webhook-signing-key",
-      "source_keys": [
-        "776256c424368312",
-        "f76e5d37a4b67cbe"
-      ],
-      "start_line": 1174
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1185,
-      "heading": "Helix And Lava Applications",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-helix-and-lava-applications",
-      "source_keys": [
-        "802567c280193bd0",
-        "366c62c0274cf5af",
-        "6a9eebe7a077d89a"
-      ],
-      "start_line": 1180
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1191,
-      "heading": "Mobile And Shell Caveats",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-mobile-and-shell-caveats",
-      "source_keys": [
-        "f99ba5bb3222f37e",
-        "275f4eda54018f53",
-        "b298af2cf3202cfb",
-        "6920f6e860c4b936"
-      ],
-      "start_line": 1186
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1193,
-      "heading": "16. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks",
-      "source_keys": [
-        "22092085266102c5",
-        "acd6d42ca9f08d83",
-        "6a9eebe7a077d89a",
-        "379b8b3e079b94e5",
-        "c6c618a8406c7343",
-        "28c9add99f6b608f",
-        "9d82300fec33a358",
-        "4da60cf32b65caa5",
-        "074a2b271eca8da5"
-      ],
-      "start_line": 1192
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1211,
-      "heading": "Playbook A: Server-To-Server REST Read Integration",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-a-server-to-server-rest-read-integration",
-      "source_keys": [
-        "22092085266102c5",
-        "acd6d42ca9f08d83"
-      ],
-      "start_line": 1194
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1227,
-      "heading": "Playbook B: Browser Public Data Feed",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks-playbook-b-browser-public-data-feed",
-      "source_keys": [
-        "6a9eebe7a077d89a",
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 1212
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1244,
-      "heading": "Playbook C: Webhook To Workflow Intake",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-c-webhook-to-workflow-intake",
-      "source_keys": [
-        "c6c618a8406c7343"
-      ],
-      "start_line": 1228
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1259,
-      "heading": "Playbook D: Lava Application Endpoint",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks-playbook-d-lava-application-endpoint",
-      "source_keys": [
-        "c6c618a8406c7343"
-      ],
-      "start_line": 1245
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1275,
-      "heading": "Playbook E: Custom REST v2 Endpoint",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-e-custom-rest-v2-endpoint",
-      "source_keys": [
-        "28c9add99f6b608f"
-      ],
-      "start_line": 1260
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1290,
-      "heading": "Playbook F: Agent Tool For Rock Data",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-f-agent-tool-for-rock-data",
-      "source_keys": [
-        "9d82300fec33a358",
-        "4da60cf32b65caa5",
-        "074a2b271eca8da5"
-      ],
-      "start_line": 1276
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1292,
-      "heading": "17. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree",
-      "source_keys": [
-        "46476aa8453a8245",
-        "776256c424368312",
-        "547b1337a6e19cf7",
-        "027cede393b38974",
-        "fe094e82abfc4adf",
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1291
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1305,
-      "heading": "API Call Returns 401/Unauthorized",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
-      "source_keys": [
-        "46476aa8453a8245",
-        "776256c424368312"
-      ],
-      "start_line": 1293
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1321,
-      "heading": "Browser Shows CORS / Failed To Fetch",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
-      "source_keys": [
-        "547b1337a6e19cf7",
-        "027cede393b38974"
-      ],
-      "start_line": 1306
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1335,
-      "heading": "Works In Postman But Not Browser",
-      "needs_live_verification": true,
-      "section_id": "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
-      "source_keys": [
-        "547b1337a6e19cf7",
-        "027cede393b38974"
-      ],
-      "start_line": 1322
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1348,
-      "heading": "Lava Webhook Returns Wrong Template Or 404",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
-      "source_keys": [
-        "547b1337a6e19cf7",
-        "027cede393b38974"
-      ],
-      "start_line": 1336
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1366,
-      "heading": "Lava Web Request Fails Silently Or Returns Empty Result",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
-      "source_keys": [
-        "fe094e82abfc4adf",
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1349
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1382,
-      "heading": "Workflow Webhook Does Not Start Workflow",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
-      "source_keys": [
-        "fe094e82abfc4adf",
-        "7c71a22de1006d62"
-      ],
-      "start_line": 1367
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1399,
-      "heading": "REST v2 Workflow Launch Fails",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
-      "source_keys": [
-        "46476aa8453a8245"
-      ],
-      "start_line": 1383
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1415,
-      "heading": "Mailgun Webhook Tracking Fails",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1400
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1417,
-      "heading": "18. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes",
-      "source_keys": [
-        "776256c424368312",
-        "4da60cf32b65caa5",
-        "2a056e99824af72b",
-        "074a2b271eca8da5"
-      ],
-      "start_line": 1416
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1427,
-      "heading": "Recipe: Find The Right API Route",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-find-the-right-api-route",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1418
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1437,
-      "heading": "Recipe: Audit A REST Key",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes-recipe-audit-a-rest-key",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1428
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1448,
-      "heading": "Recipe: Diagnose External Website API Failure",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-diagnose-external-website-api-failure",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1438
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1461,
-      "heading": "Recipe: Review A Lava Webhook Before Launch",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-review-a-lava-webhook-before-launch",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1449
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1477,
-      "heading": "Recipe: Build A Safe Agent Tool",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-build-a-safe-agent-tool",
-      "source_keys": [
-        "4da60cf32b65caa5",
-        "2a056e99824af72b",
-        "074a2b271eca8da5"
-      ],
-      "start_line": 1462
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1503,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
-        "547b1337a6e19cf7",
-        "6a9eebe7a077d89a",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "874c48c7aa36826b",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "dcc9c3b1df657d9f",
-        "dcc9c3b1df657d9f",
-        "dcc9c3b1df657d9f",
-        "53ad1133e1cb2d0a"
-      ],
-      "start_line": 1478
+      "start_line": 323
     },
     {
       "confidence": "citation-only",
-      "end_line": 1524,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
+      "end_line": 341,
+      "heading": "A Lava webhook is reachable more broadly than expected",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-lava-webhook-is-reachable-more-broadly-than-expected",
       "source_keys": [
-        "fe0b6d3b462f6c75",
-        "2ef33162dc02363b",
-        "f0a736080e3ea89c",
-        "cea805e5b904fc2d",
-        "874c48c7aa36826b",
-        "9c54a75bab4e39e3",
-        "61505a876029525c",
-        "2cf11aac4d7e5e09"
+        "53ad1133e1cb2d0a"
       ],
-      "start_line": 1504
+      "start_line": 332
     },
     {
       "confidence": "normal",
-      "end_line": 1571,
-      "heading": "19. Source Map And Dependency Notes",
+      "end_line": 352,
+      "heading": "A Helix endpoint behaves differently from its front end",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-helix-endpoint-behaves-differently-from-its-front-end",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 342
+    },
+    {
+      "confidence": "normal",
+      "end_line": 361,
+      "heading": "Provider events arrive but staff cannot interpret delivery health",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-provider-events-arrive-but-staff-cannot-interpret-delivery-health",
+      "source_keys": [
+        "2cf11aac4d7e5e09",
+        "776256c424368312"
+      ],
+      "start_line": 353
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 372,
+      "heading": "An AI tool can access more data or actions than expected",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-an-ai-tool-can-access-more-data-or-actions-than-expected",
+      "source_keys": [
+        "fe0b6d3b462f6c75",
+        "ebdec32ad954044d"
+      ],
+      "start_line": 362
+    },
+    {
+      "confidence": "structural",
+      "end_line": 374,
+      "heading": "Agent Task Recipes",
       "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes",
+      "section_id": "agent-task-recipes",
       "source_keys": [
         "14e4b0253d1428ca",
+        "8b782456f9db1d76",
+        "bfe056719d5f1eaa",
+        "547b1337a6e19cf7",
+        "7b121761351cc32a",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "379b8b3e079b94e5",
+        "2cf11aac4d7e5e09",
+        "fe0b6d3b462f6c75",
+        "ebdec32ad954044d"
+      ],
+      "start_line": 373
+    },
+    {
+      "confidence": "normal",
+      "end_line": 406,
+      "heading": "Recipe: Preflight A REST Integration",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-preflight-a-rest-integration",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "8b782456f9db1d76"
+      ],
+      "start_line": 375
+    },
+    {
+      "confidence": "normal",
+      "end_line": 429,
+      "heading": "Recipe: Configure And Review A REST Key",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-configure-and-review-a-rest-key",
+      "source_keys": [
+        "bfe056719d5f1eaa",
+        "547b1337a6e19cf7"
+      ],
+      "start_line": 407
+    },
+    {
+      "confidence": "normal",
+      "end_line": 451,
+      "heading": "Recipe: Perform A Bounded API v2 Partial Update",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-perform-a-bounded-api-v2-partial-update",
+      "source_keys": [
+        "7b121761351cc32a"
+      ],
+      "start_line": 430
+    },
+    {
+      "confidence": "normal",
+      "end_line": 469,
+      "heading": "Recipe: Review A Lava Webhook Before Production",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-review-a-lava-webhook-before-production",
+      "source_keys": [
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb"
+      ],
+      "start_line": 452
+    },
+    {
+      "confidence": "normal",
+      "end_line": 494,
+      "heading": "Recipe: Review A Helix Application Flow",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-review-a-helix-application-flow",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "379b8b3e079b94e5"
+      ],
+      "start_line": 470
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 516,
+      "heading": "Recipe: Build A Provider Event Health Report",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-provider-event-health-report",
+      "source_keys": [
+        "2cf11aac4d7e5e09"
+      ],
+      "start_line": 495
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 536,
+      "heading": "Recipe: Approve An AI Or MCP Tool Boundary",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-approve-an-ai-or-mcp-tool-boundary",
+      "source_keys": [
+        "fe0b6d3b462f6c75",
+        "ebdec32ad954044d"
+      ],
+      "start_line": 517
+    },
+    {
+      "confidence": "structural",
+      "end_line": 564,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": true,
+      "section_id": "known-gaps-and-live-verification",
+      "source_keys": [
+        "fe0b6d3b462f6c75",
+        "ebdec32ad954044d"
+      ],
+      "start_line": 537
+    },
+    {
+      "confidence": "structural",
+      "end_line": 566,
+      "heading": "Source Map",
+      "needs_live_verification": false,
+      "section_id": "source-map",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "7b121761351cc32a",
+        "8b782456f9db1d76",
+        "bfe056719d5f1eaa",
         "547b1337a6e19cf7",
         "acd6d42ca9f08d83",
         "53ad1133e1cb2d0a",
         "1a7cdd8d2a7f15eb",
-        "fe094e82abfc4adf",
-        "366c62c0274cf5af",
-        "8f9847f0880303e0",
         "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
         "379b8b3e079b94e5",
-        "dfd0cdc56d97fa7f",
-        "eb2b5509786a6895",
+        "52c683d5cc0018da",
+        "a9c1cee2ea409fb9",
+        "2e094e868018787d",
         "f807acb8c3c3d207",
-        "82a780f161ffcf0a",
-        "3c3c83e2437f3933",
-        "0a1df6eb6e308fc2",
-        "bce31f25cb8a199e",
         "776256c424368312",
-        "c6379a1fcb4a7101",
-        "983ad6bce37e8e15",
-        "46476aa8453a8245",
-        "ed1e9ea215aa359f",
-        "427e5301d593e4bc",
-        "f146552f6ffaa13a",
-        "b480ac589da5149f",
-        "e395e8db6cce68d7",
-        "f76e5d37a4b67cbe",
-        "b62f52dbefd1a36d",
-        "07e7de2629271fcc",
-        "4f209a87e662fefd",
-        "8cdec880af451ef9",
-        "470797c964770153",
-        "a2819513ef35f906",
-        "7c71a22de1006d62",
-        "027cede393b38974"
+        "06156bb3a5401956",
+        "d275b5b94a9da833"
       ],
-      "start_line": 1525
+      "start_line": 565
+    },
+    {
+      "confidence": "high",
+      "end_line": 585,
+      "heading": "Official Documentation And Release Evidence",
+      "needs_live_verification": true,
+      "section_id": "source-map-official-documentation-and-release-evidence",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "7b121761351cc32a",
+        "8b782456f9db1d76",
+        "bfe056719d5f1eaa",
+        "547b1337a6e19cf7",
+        "acd6d42ca9f08d83",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "379b8b3e079b94e5",
+        "52c683d5cc0018da",
+        "a9c1cee2ea409fb9",
+        "2e094e868018787d",
+        "f807acb8c3c3d207",
+        "776256c424368312"
+      ],
+      "start_line": 567
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 603,
+      "heading": "Approved Claim Sources",
+      "needs_live_verification": true,
+      "section_id": "source-map-approved-claim-sources",
+      "source_keys": [
+        "14e4b0253d1428ca",
+        "7b121761351cc32a",
+        "8b782456f9db1d76",
+        "bfe056719d5f1eaa",
+        "547b1337a6e19cf7",
+        "acd6d42ca9f08d83",
+        "53ad1133e1cb2d0a",
+        "1a7cdd8d2a7f15eb",
+        "6a9eebe7a077d89a",
+        "d7bffe0fc08eaa24",
+        "379b8b3e079b94e5",
+        "52c683d5cc0018da",
+        "a9c1cee2ea409fb9",
+        "2e094e868018787d",
+        "f807acb8c3c3d207",
+        "776256c424368312"
+      ],
+      "start_line": 586
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 608,
+      "heading": "Community Patterns And Examples",
+      "needs_live_verification": false,
+      "section_id": "source-map-community-patterns-and-examples",
+      "source_keys": [
+        "06156bb3a5401956"
+      ],
+      "start_line": 604
+    },
+    {
+      "confidence": "normal",
+      "end_line": 611,
+      "heading": "Immutable Source Evidence",
+      "needs_live_verification": false,
+      "section_id": "source-map-immutable-source-evidence",
+      "source_keys": [
+        "d275b5b94a9da833"
+      ],
+      "start_line": 609
     }
   ],
-  "source_pack_hydrated_at": "2026-06-02T19:01:30+00:00",
+  "source_pack_hydrated_at": "2026-09-03T14:15:14+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official-api",
       "authority_score": 88,
       "change_type": null,
-      "content_hash": "993d77d2ef93e760606bdc2a4d739b8900fdba409d733d97b3760c57b00b37ba",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
+      "content_hash": "b4a4c5dd04ef0495ca6db330e6df46ebb122ac6f5f2217c605a08bf1e10e5925",
+      "excerpt_hash": "735fe7fae5b2c8af14ffc46d0ca63d44efc2df6c57eaa3bc4486d0d1cac00f67",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3228,18 +1789,66 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "433fd6939ce957e529aa437bcf5c49ba93db4546421abd9bc804596d6537ab20",
+      "excerpt_hash": "955c824b3e6ee0de336c2fc4061c7a7da34746f9d94af50c8d49b907e97c2276",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "7b121761351cc32a",
+      "source_record_id": "rock_documentation:article:2852",
+      "title": "Intro to the Rock API",
+      "topics": [
+        "admin",
+        "api",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/api/intro-to-the-rock-api",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "fc2910233531eeeb904b1169fac1b81b697a951cdc49d311c8169fbd8a9ae7f5",
+      "excerpt_hash": "1fc84045612080d4292a3517cdbe78578c2e84b9337cd43959f55ebb688e5cfb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "8b782456f9db1d76",
+      "source_record_id": "rock_documentation:article:2853",
+      "title": "Secure the API",
+      "topics": [
+        "admin",
+        "api",
+        "operations",
+        "security",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/api/secure-the-api",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "5a39f0f55d72dfb4b1074c232fe501c82135bef6c919e0cf76b6d1da1cf38a6c",
-      "excerpt_hash": "b933253a4127e0ecdcdd37966091ad79defe5bf606f8a0bb3dfdc388eb6d2107",
+      "content_hash": "118a854af746f5a824afa2157884214041f45e2e56170fab7330234d6164b800",
+      "excerpt_hash": "d8919834c70d546e303c8d906541ff6048b36c89fed2c17ed974e30a8db188c2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "547b1337a6e19cf7",
-      "source_record_id": "rock_developer:547b1337a6e19cf7",
+      "source_record_id": "rock_developer:article:301",
       "title": "The Rock Rest API",
       "topics": [
         "api",
@@ -3255,15 +1864,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "00c7ea0ff8c8b5385d54bb19c3557591e8a89a55af04ad5c1a26c2ece15d50fc",
-      "excerpt_hash": "47f1d826263f3473311f6cdbd7690e02f7a3e2340262e93b0f3ee46fd1179848",
+      "content_hash": "4436b0988d0c8a6b2c241da380e2033740a9ccf529ab26fc75c7224392d77fcf",
+      "excerpt_hash": "d05a0e8f9af62198c394020dc78983dad1efdd3e5904f8283b3d36e10dcc5dad",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "acd6d42ca9f08d83",
-      "source_record_id": "rock_developer:acd6d42ca9f08d83",
+      "source_record_id": "rock_developer:article:231",
       "title": "API Patterns",
       "topics": [
         "api",
@@ -3276,136 +1885,129 @@
       "version": null
     },
     {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:checkin-group-location-rest-navigation-payload-caution",
+      "contribution_type": "troubleshooting_pattern",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "982754777f5fed21",
+      "source_record_id": "org_contribution:oneall:checkin-group-location-rest-navigation-payload-caution",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/GroupLocationService.CodeGenerated.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Group/GroupLocation/GroupLocation.cs"
+      ],
+      "title": "Avoid partial navigation payloads when creating GroupLocations through REST",
+      "topics": [
+        "check-in",
+        "api-integrations",
+        "groups"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "4d6d8f226c0743f4184285717ae3fd0fee9052437c7b1397cec90b735e09e168",
+      "excerpt_hash": "e3d37bb352d9b3d77cf02d20d68586db04529cf8600144de288dc201579ae0a4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "bfe056719d5f1eaa",
+      "source_record_id": "rock_documentation:article:3108",
+      "title": "REST Keys",
+      "topics": [
+        "admin",
+        "api",
+        "finance",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/api/rest-keys",
+      "version": null
+    },
+    {
       "authority": "unknown",
       "authority_score": 0,
-      "change_type": null,
-      "content_hash": "9e020930a9acddbb76bc3910d2f16b8b1523d3d3e71c6d3f645fdaeab564b887",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_demo_api_docs_v2",
-      "source_key": "22092085266102c5",
-      "source_record_id": "rock_demo_api_docs_v2:22092085266102c5",
-      "title": "Rock Rest API v2",
-      "topics": [
-        "api",
-        "development",
-        "integrations"
-      ],
-      "url": "https://rock.rocksolidchurchdemo.com/api/v2/docs/index",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "90cd99fb1f8c7c1bd25245c7b3d9c3b5938d54a3bc5c1bc2af46c6ad96bb8774",
-      "excerpt_hash": "7eb796ce7f62b79f6a9b4618084fbc24af0cd62e1dc3b8b5654f7cb7049d540e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
-      "title": "Creating APIs Using Lava",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/lava-api",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/lava/lava-api",
+      "url": "https://community.rockrms.com/lava/lava-api"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "540d77572af92657f22b15d23503556530c7ac0802e4da826fb9d4e3021c2890",
-      "excerpt_hash": "a0beccfc57de3124645dc318e80b8b29181ac6413f78c56c7e497b5642362944",
+      "content_hash": "e6a62070646a9685163d61f78e46a29aae7bad38c615973912b82976d976de3b",
+      "excerpt_hash": "66b64660c9eb03b9e47e99e81ddefaa8be7dc90bd7b5c1dd63e3bdd222955d0f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_developer",
+      "source_id": "rock_lava_docs",
       "source_key": "1a7cdd8d2a7f15eb",
-      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
+      "source_record_id": "rock_lava_docs:1a7cdd8d2a7f15eb",
       "title": "Using Lava Remotely",
       "topics": [
         "api",
+        "cms",
         "development",
         "lava",
-        "obsidian",
-        "security"
+        "security",
+        "workflow"
       ],
       "url": "https://community.rockrms.com/lava/remote-lava",
       "version": null
     },
     {
-      "authority": "official-developer",
-      "authority_score": 90,
+      "authority": "community-example",
+      "authority_score": 55,
       "change_type": null,
-      "content_hash": "b7ba4b22d2c434ead8469cd17efcb552abb146b88bdf40f766cc6704b2122d25",
-      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
+      "content_hash": "e1e548137fdc8e86d0e8598f353070c3b21a5346f31e0e8f4071f36cd9b52af7",
+      "excerpt_hash": "675c7c1fed5c3c79c5e47be78ff543784a595f7e2ebe5967e243e5e4cad4f4f5",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "366c62c0274cf5af",
-      "source_record_id": "rock_developer:366c62c0274cf5af",
-      "title": "Lava Applications",
+      "source_id": "rock_recipes",
+      "source_key": "06156bb3a5401956",
+      "source_record_id": "rock_recipes:06156bb3a5401956",
+      "title": "Lava Webhook to Create an iCal (.ics) File",
       "topics": [
         "api",
-        "development",
+        "integrations",
         "lava",
-        "obsidian",
-        "security"
+        "recipes",
+        "sql",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications",
+      "url": "https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "8f3782c916e4cd2d88afbb33ab4ac8ba0bda6b6943421c2bda84b413252129e2",
-      "excerpt_hash": "247430dd6919feacef68a5f1cc62715fef5732e0630662e4b621e357447c8d82",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "8f9847f0880303e0",
-      "source_record_id": "rock_developer:8f9847f0880303e0",
-      "title": "Applications",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
-      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "content_hash": "195b5f58f6aa35a5b4799d94cc22f2f7d9d3a7de23c70482b0fecc43bf81f89e",
+      "excerpt_hash": "30ab3a5cad88f7806ceac4076a90400a711610a03c26a96894ec48d39bd8ef5b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "6a9eebe7a077d89a",
-      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:article:345",
       "title": "Endpoints",
       "topics": [
         "api",
@@ -3418,18 +2020,91 @@
       "version": null
     },
     {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:public-ai-search-memory-separate-from-route-registry",
+      "contribution_type": "guide_section",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "d7bffe0fc08eaa24",
+      "source_record_id": "org_contribution:oneall:public-ai-search-memory-separate-from-route-registry",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/overview/security",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://community.rockrms.com/developer/ai-agents",
+        "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
+      ],
+      "title": "Separate public AI search memory from route and handoff registries",
+      "topics": [
+        "helix",
+        "api-integrations",
+        "security-permissions"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview/security"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "da5d63925f50c5042df3903d3906fd2d9ad14ef7c5016da3fe1f9956eb257403",
-      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
+      "content_hash": "e3db2ba289e8d534df5d9aa8924843b825080676df7e4b4f406259b74bc68306",
+      "excerpt_hash": "dc1cfdb23e2927e4c013caebae05c80c732d3e18b86a272075d6a158d5103572",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "52c683d5cc0018da",
+      "source_record_id": "rock_lava_docs:52c683d5cc0018da",
+      "title": "Render Lava Endpoint",
+      "topics": [
+        "cms",
+        "development",
+        "lava",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/render-lava-endpoint",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "fa2fb232bbb2f7785f8cb4fe1ad5916183d5bc5ff2ebc7c1487b99afd44892e1",
+      "excerpt_hash": "ba17ad62555c507020dd76a961ea97377d841dc9ce5a5ffd886249c797c3dc5d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a9c1cee2ea409fb9",
+      "source_record_id": "rock_developer:article:371",
+      "title": "Caching API Calls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "81738e688c0582b9218b48dde28a30db4f988d0da9175e5a689a8510332781ca",
+      "excerpt_hash": "50199d477d7e5e10777d24ed61ddf1575ac026939cda245d7001981e99211341",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "379b8b3e079b94e5",
-      "source_record_id": "rock_developer:379b8b3e079b94e5",
+      "source_record_id": "rock_developer:article:348",
       "title": "Observability",
       "topics": [
         "api",
@@ -3442,591 +2117,44 @@
       "version": null
     },
     {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "26504a7b52c9372992226218e21e4ad1e85116a9923ea7d9cd9b64601d83206a",
-      "excerpt_hash": "0d134204c4f06b612557c4fe7f7c858c8f3c06f62711f2d4b6710b9aac2ea4af",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "4f209a87e662fefd",
-      "source_record_id": "rock_recipes:4f209a87e662fefd",
-      "title": "Webhook to Workflow - an Example from Monday.com",
-      "topics": [
-        "api",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/453",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a6b9a5fd3d6aa2192ec16fd89ed9631464c96e731eb6ef1645d31413bcf06e30",
-      "excerpt_hash": "f867febfcef408e18042fd79795047eac73aa3dc369ed49176662aa738deb86e",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "rest",
-        "workflows"
-      ],
-      "path": "Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "46476aa8453a8245",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-      "title": "Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "371bc6e69c549c90e0ad91a69ca80073beba5ceabe15f688ad80b0281aaaaa2b",
-      "excerpt_hash": "ebe05b6535c5bd7f0aa1f17a976883e95e4fe6c58189d898ba9616ba4f57b91b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "fe094e82abfc4adf",
-      "source_record_id": "rock_developer:fe094e82abfc4adf",
-      "title": "Web Request",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/web-request-commands",
-      "version": null
-    },
-    {
       "authority": "unknown",
       "authority_score": 0,
-      "change_type": null,
-      "content_hash": "3902ba8860672aa4ce706227fdfc6dcc8e13bc14d95ba7d31eab3cb7d9ef0997",
-      "excerpt_hash": "70c877b1d3bdecd992767a2e280ee6d55317a3e9a47e4b6a9d5c43bfa8729e70",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_demo_api_docs_v1",
-      "source_key": "371700349ffde4af",
-      "source_record_id": "rock_demo_api_docs_v1:371700349ffde4af",
-      "title": "Rock REST API Documentation",
-      "topics": [
-        "api",
-        "development",
-        "integrations"
-      ],
-      "url": "https://rock.rocksolidchurchdemo.com/api/docs/index",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "88884d5d52093af73a98791edc12b3b7f5375950eb30c069c157600b6cd01669",
-      "excerpt_hash": "5ee2f9a9892f1dda2075a1ff9abc3c8459045cab92a69451b364f8971bcb3e70",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "rest",
-        "endpoint",
-        "lava"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "983ad6bce37e8e15",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "faef786c0a7e4122",
+      "source_record_id": "",
+      "title": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors"
     },
     {
       "authority": "community-reference",
       "authority_score": 45,
       "change_type": null,
-      "content_hash": "1071c109ab3ed8fd8667c2bdc835360dd13264061e657efce120712ad423d741",
-      "excerpt_hash": "6bf5cafd7229d2c9b9bf6986498fa69f5fe8377b643388860f617f7cbdf76659",
+      "content_hash": "4b17ea70ad9aed8e810d760680b860ab066ad53ba8ac6ba6b95f88e1dc6c4422",
+      "excerpt_hash": "581adcc47291faf6aff6a6a679e09da3ee0646d33f4f9af8b7aa484b28226dde",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_community_site",
-      "source_key": "027cede393b38974",
-      "source_record_id": "rock_community_site:027cede393b38974",
-      "title": "Problem with API Calls",
+      "source_id": "rock_community_hubs",
+      "source_key": "2cf11aac4d7e5e09",
+      "source_record_id": "media-insight:efa1de0c74bcd9f0",
+      "title": "Media Watch Transcript Insight",
       "topics": [
-        "api",
-        "community",
-        "development",
-        "documentation",
-        "security",
-        "usage"
+        "Mailgun webhook",
+        "communication analytics",
+        "email status",
+        "webhooks"
       ],
-      "url": "https://community.rockrms.com/ask/developing/2842",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d4e65effbc380add08ffec06e8e78cc97c1562f02973cd06ef06aaa8c15eee62",
-      "excerpt_hash": "721c4c57b8d6f5f3218c9c2ac8ea27660153d959119f77455e834e2167a2356f",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "endpoint",
-        "lava"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f146552f6ffaa13a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts"
-    },
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "change_type": null,
-      "content_hash": "35839e5824da69c96c630e3cc31ccd21bb7cd69d8e5ed8512e2899b7d87ac9e6",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:59cce742b33668f1",
-      "title": "Lava Endpoint",
-      "topics": [
-        "api",
-        "cms",
-        "data",
-        "lava",
-        "model-map"
-      ],
-      "url": "https://community.rockrms.com/ModelMap",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d7262bff307341b60bf25920da6ecf97201a8476420433a049261038c13d8c7e",
-      "excerpt_hash": "c6b93681c2a1327800fe437192b683f6fbaa0334dc0c11aa269db273976df292",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock.Blocks/Example/ModelMap.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b480ac589da5149f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Example/ModelMap.cs",
-      "title": "Rock.Blocks/Example/ModelMap.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "0031f51aab9a88fc2bd7f5c76010177dab8752dedf3db3b989dff6765335f0d8",
-      "excerpt_hash": "353fbea4200ddf83573dac5ba4c9a5672fae484bd7cb85c4775ac8a323640725",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock/Data/IncludeForModelMapAttribute.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e395e8db6cce68d7",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Data/IncludeForModelMapAttribute.cs",
-      "title": "Rock/Data/IncludeForModelMapAttribute.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "dfa75869152c9220c2ff2282ccb938370fd49e6ae92972a7178a7fc3dcde90ad",
-      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9c6602ae13ab291c",
-      "source_record_id": "rock_developer:9c6602ae13ab291c",
-      "title": "Rock Architecture",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2c993d5d55bc1ad32758afc360bd53c6a7794ffb55d726a2ed3631036f182508",
-      "excerpt_hash": "a9f9c1d96e023a2e5f5fff12e21ca3842a826b184d9a88f2f1f475fdd3d7de0b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9cff0c87fd8eab29",
-      "source_record_id": "rock_developer:9cff0c87fd8eab29",
-      "title": "Applications",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e8a247fc5c0278a22155d8e4966f3d9bd0cca85944567d2b4311fdae4ab3dd77",
-      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "66cd0caee02b1e4b",
-      "source_record_id": "rock_developer:66cd0caee02b1e4b",
-      "title": "Creating An App",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "daca5d9df3f4f3294bcca964b7fa45c9a305f159d452e4986ca9dc166dc262af",
-      "excerpt_hash": "92ce40cec30fd680d1b51126623a8fb57c111c901c235ae62ed51b032d8bab1b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "4f0249164a4754aa",
-      "source_record_id": "rock_developer:4f0249164a4754aa",
-      "title": "Creating a Sign-in Page",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "89277beaa9f87f9b775238a92513415fc3d0d31dc3e9bc84fab02851c05f5bbc",
-      "excerpt_hash": "7f81c1a0fcbf3e81c5bbf59f48f7128de08cb21e707a1ba756277ad6271e646e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "4da60cf32b65caa5",
-      "source_record_id": "rock_developer:4da60cf32b65caa5",
-      "title": "Writing Custom Tools",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "afc1c56245533b9407aa216909882a123f43d25f84c3c0e751a325f7440d5874",
-      "excerpt_hash": "ab2033068920acb93b3e831243d369f977f20ce8af0c6c20f0bc67f0f9e76e07",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9d82300fec33a358",
-      "source_record_id": "rock_developer:9d82300fec33a358",
-      "title": "Native Tools",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "85141766fba1ddcad4373a7a25b285acf495bb1df99536bfd5280a1422c47726",
-      "excerpt_hash": "9375d9415fcd5ab3b43101d4323afbc7664ba4b6e8ece1fc5163b78eb019b010",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "2a056e99824af72b",
-      "source_record_id": "rock_developer:2a056e99824af72b",
-      "title": "Get Tools",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "9d48706e117a374d09c31d2559537860d16c6cea3a6fc93dbe296ae6f91bd87a",
-      "excerpt_hash": "2b552ccbc5456376f4813a48d6f5b5a6450881c140e23883e175479b05f599ae",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "074a2b271eca8da5",
-      "source_record_id": "rock_developer:074a2b271eca8da5",
-      "title": "List Tools",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools",
-      "version": null
-    },
-    {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "89cdcc6f8a3c47c6ff74904efb239955daf26a3420ebff9d8a66597cf65b632d",
-      "excerpt_hash": "f163330b3532d0ae2ce1c5bd9eda86cbf15791ec557f7a3870b3acefcf7976e3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_site",
-      "source_key": "470797c964770153",
-      "source_record_id": "rock_community_site:470797c964770153",
-      "title": "API from external site",
-      "topics": [
-        "api",
-        "community",
-        "development",
-        "documentation",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/ask/developing/2641",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8f372d704d06fba3403e1134531a96075d08649bdbaa3d2a08c3bdaf8379252e",
-      "excerpt_hash": "102a163f3fe95ac332df9f72b8a3f90da37127388b448d198cdd3f9ad24731da",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "endpoint",
-        "security",
-        "lava"
-      ],
-      "path": "Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "427e5301d593e4bc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
-      "title": "Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "70a5a5611da63d0cd3ba2ca6ec4eef7850893e5a56ee7da92ead09d4e03949fc",
-      "excerpt_hash": "604a4a56c8783d8d2f61c712083f41c55c51e6fe1235ac75dd6dadea5ced63b6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "eb2b5509786a6895",
-      "source_record_id": "rock_developer:eb2b5509786a6895",
-      "title": "Securing Access to Your Blocks",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "be201c05fa39459c2d6e4b2528841d65947f906c6dbd9869a7a48426166304ed",
-      "excerpt_hash": "ab45714ffdb1c91f43cb74fd55754215292e1ef135c5d3b6d30f67c71d1cc558",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f807acb8c3c3d207",
-      "source_record_id": "rock_developer:f807acb8c3c3d207",
-      "title": "Rock Security",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "90cdfc8caff8c59bb66c7ec82168b44329a4e3036cc1e6f1ec4b65fa3f85eb37",
-      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "82a780f161ffcf0a",
-      "source_record_id": "rock_developer:82a780f161ffcf0a",
-      "title": "Code Security",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/code-security",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "bfe719d3749b7682ac79fcd94ea3d7092937b38c2b99f4299dfa837bbd18caaa",
-      "excerpt_hash": "ebbbec530bff83346e8c601ead090819f8cd2f0b818e280cd0825373d31e870c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "07e7de2629271fcc",
-      "source_record_id": "rock_recipes:07e7de2629271fcc",
-      "title": "Lava Webhook to Create an iCal (.ics) File",
-      "topics": [
-        "api",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/540",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "d328de67ae33a86a769e4d9a8b86ffc8b0a0504041d40f290adfddd9150d2f1a",
-      "excerpt_hash": "1f603c59fe5c504916fd0b8a90eccc7802c20f92f314d852191b58076bf4bf96",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "8cdec880af451ef9",
-      "source_record_id": "rock_recipes:8cdec880af451ef9",
-      "title": "Auth0 Integration to associate users",
-      "topics": [
-        "api",
-        "integrations",
-        "lava",
-        "recipes",
-        "security",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/232",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
       "version": null
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "new_feature",
-      "content_hash": "9b9d867ec1272b4a4fc34194ded9a98bdc96d8f15a70cc76fc2bb2321088cd9f",
-      "excerpt_hash": "249b00b6f70ad399749c7839333c2809bed4fc319d5141c356fa088d85ae44a5",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "d47dce2220630d1107930a359a97d545201ff5280569cffc57d0d997a372e071",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "December 8, 2025",
@@ -4044,90 +2172,18 @@
       "version": "18.1"
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "aa78b8622aa19eeb659955b9c7782c35c18376eb7112e271641522298f1b3779",
-      "excerpt_hash": "b1dbcbcc7cb3eb275a83e667f554d647f26263818f5b2ba6eda1c7d5154a94ad",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "api",
-        "webhook",
-        "api key",
-        "apikey"
-      ],
-      "path": "Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f76e5d37a4b67cbe",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
-      "title": "Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs"
-    },
-    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "bb68920d6fe3ff6e9cbe817fdd942d6546573a1759546ed48f86c1e13f1a7502",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b298af2cf3202cfb",
-      "source_record_id": "rock_developer:b298af2cf3202cfb",
-      "title": "Financial Batch Detail",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "mobile",
-        "obsidian",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "98fb42b069c7590ec08456fe5028b2ded2c83786d2b7801e970d3f128699da30",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "d81b99f44bb58799",
-      "source_record_id": "rock_developer:d81b99f44bb58799",
-      "title": "Check Scanning",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2a4a48ec3272f11d3ee8104cf7023583a3bd8a0d5f91687f1770400f747f949a",
-      "excerpt_hash": "11ba470c796669eebe2b90acc0e4dccaeb59911e849e58de71d32866327037dd",
+      "content_hash": "1f9763d3d79f5286343f2c8608cfc66863ca84d0edf1f7b817c102ed2cad0fd2",
+      "excerpt_hash": "fcc02a52bcbc18a0efa85f45f9ee03bd12f936e87c23c088ddac9a710dcc9544",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "2e094e868018787d",
-      "source_record_id": "rock_developer:2e094e868018787d",
+      "source_record_id": "rock_developer:article:306",
       "title": "Extending Communication Transports",
       "topics": [
         "api",
@@ -4139,212 +2195,126 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "ebdec32ad954044d",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "94a5ba8fb41bd0df",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "db1718e71f8d8e894ab74533eda1c13d2f37c3225a87518e9973ddb7ef0f05c5",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_youtube",
+      "source_key": "fe0b6d3b462f6c75",
+      "source_record_id": "media-insight:d03a93f4e7ef8c02",
+      "title": "AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight",
+      "topics": [
+        "ai",
+        "agents",
+        "mcp",
+        "voice",
+        "security",
+        "lava",
+        "tools",
+        "prompts",
+        "connected-services",
+        "roadmap",
+        "implementation"
+      ],
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "ddb073eec84db06831319571d5d8affcd4156b237dd752fd4dfaf93c096de673",
+      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_youtube",
+      "source_key": "874c48c7aa36826b",
+      "source_record_id": "media-insight:0eaf921555a4c075",
+      "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216 Transcript Insight",
+      "topics": [
+        "managed-data-access",
+        "authorization",
+        "business-rules"
+      ],
+      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "90c2163f9489f4ca",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=909s"
+    },
+    {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "8e8f36e91b2187320871f4127812404e659fcb48ae1e51ec4a0bdbf127a2793a",
-      "excerpt_hash": "7a41697094823341968c124a09a4f29780e7f7b976fe53a9b8ccee0ba3c6b392",
+      "content_hash": "c82be181cfd83dd5bf5393a47ba516dd69d877b8f0c945e05f53c66e46ec3bff",
+      "excerpt_hash": "2e481b90e5e58e7a9abfe3f47b04eb518a930c9170e8202820f01bd49026c888",
       "kind": "github_file",
       "language": "C#",
       "matched_terms": [
-        "integration",
-        "security"
+        "model-map",
+        "model map",
+        "modelmap"
       ],
-      "path": "Rock.Tests.Integration/Security/OidcClientTests.cs",
+      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "1910ec97cc1c1067",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/OidcClientTests.cs",
-      "title": "Rock.Tests.Integration/Security/OidcClientTests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "259d9637b2c7367cd1031ae43f80b2b82a6afd3de305f4dead316d31522c0a10",
-      "excerpt_hash": "f5425797a001ff584c0eb9335916a5475b169e031f91280b9eaa49861b94b9f5",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "3c3c83e2437f3933",
-      "source_record_id": "rock_developer:3c3c83e2437f3933",
-      "title": "Advanced Entity Guide",
-      "topics": [
-        "api",
-        "check-in",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-      "version": null
+      "source_key": "dea5c5413e6aa96a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "fa8be2c53cfa8c8ee1e95d0e30e5162448ad67d5a795111fc42dd807a536fd40",
-      "excerpt_hash": "b9190ba13ed3f0eeeb61c584f799cf31073193af181574592cff2774511ebe58",
+      "content_hash": "4064818fe68e9e7f0e103735932a6ea59319fd9958ae328887b5b570b097c689",
+      "excerpt_hash": "7bae6601566c062d4e8d47fe50705103cac7b67dc266931edea3cbe06cda4430",
       "kind": "github_file",
-      "language": "TypeScript",
+      "language": "C#",
       "matched_terms": [
-        "rest",
-        "workflows"
+        "model-map",
+        "model map",
+        "modelmap"
       ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
+      "path": "Dev Tools/model-map-builder/ModelMapBuilder.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "ed1e9ea215aa359f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "02b92f152cf9f1683247c90fa05ef11d20bf82d33e5a0b1cb7de5b6a68d96791",
-      "excerpt_hash": "84adbe4b7abac5ab606fb9c79bdc2982934bc7af41750e098a0f1159af947eca",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "0a1df6eb6e308fc2",
-      "source_record_id": "rock_developer:0a1df6eb6e308fc2",
-      "title": "Attributes",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/303---blast-off/attributes",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2e27f23b4a31bf0c6cb40840a36bfb5e692b2b3c6b7140f23d7bf5c369b18190",
-      "excerpt_hash": "aa1d611a7986d293fb9e69853b55d93ac905652357729f965fa12121399ea04c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "643c380d40ffe79d",
-      "source_record_id": "rock_developer:643c380d40ffe79d",
-      "title": "Interaction Write",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/interaction-write",
-      "version": null
-    },
-    {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "19a5c2426b33968cdd555705fa518449b7dfd3bd01436ba75f5419f8ab5ef1c6",
-      "excerpt_hash": "cd2ca1d6768b4aba786e6cfe5ada5b6a361504e1c4cf91dc4a23604c994fe71b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_site",
-      "source_key": "7c71a22de1006d62",
-      "source_record_id": "rock_community_site:7c71a22de1006d62",
-      "title": "webrequest not running??",
-      "topics": [
-        "api",
-        "community",
-        "development",
-        "documentation",
-        "lava",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/ask/developing/2708",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "983e0046eba1dd80c4e1c158c59fcbc5de9d5a76826197c4135ffe237eff45af",
-      "excerpt_hash": "e916cc51333d6d8b1f9ae343d9239b945dc2f056cd0e73e842a7ab39318f2172",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "802567c280193bd0",
-      "source_record_id": "rock_developer:802567c280193bd0",
-      "title": "Overview",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/overview",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "f07dac2f93cc8f74866d5aded6d27235717022c1250695d0d9f6b38600804095",
-      "excerpt_hash": "cc5e8a4cfba2a9c7470b79936c5c7512f510c0fddb19bd69541d972e133ca60f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "554e0dda0bc287c2",
-      "source_record_id": "rock_developer:554e0dda0bc287c2",
-      "title": "Form Validation",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "db63124f61053ecc9005ae2c73cd6363cb305785fd9af8604de77bf77e17a6fd",
-      "excerpt_hash": "6a87075f32ad3f3861f9784817b44079bbbb6f3d303bb8aa8d20b7767677151a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "242a3ac9b87c1e0c",
-      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
-      "title": "Loading Indicator",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-      "version": null
+      "source_key": "255e3e3d30f86fa2",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/model-map-builder/ModelMapBuilder.cs",
+      "title": "Dev Tools/model-map-builder/ModelMapBuilder.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/model-map-builder/ModelMapBuilder.cs"
     },
     {
       "authority": "source-code",
@@ -4363,501 +2333,65 @@
       "path": "Rock.Rest/Utility/ApiModelMapper.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "c6379a1fcb4a7101",
+      "source_key": "1a2950197a38c9ca",
       "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/Utility/ApiModelMapper.cs",
       "title": "Rock.Rest/Utility/ApiModelMapper.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs"
-    },
-    {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "bd36208e8e5636ab5ea0e94538e506e4b7f60220dbbd772e8799e98cc287082b",
-      "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_site",
-      "source_key": "a2819513ef35f906",
-      "source_record_id": "rock_community_site:a2819513ef35f906",
-      "title": "REST API for Schedules",
-      "topics": [
-        "api",
-        "community",
-        "development",
-        "documentation",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/ask/developing/2710",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "5a096bb3db831eb04ef158b2ce91f995d98b76438e2845f4f895b3c321b28891",
-      "excerpt_hash": "defda34fb48de0e01ad95c4f5cb70a50dfa6c59b40640261ea0c1bac7df9e48b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "api",
-        "security",
-        "api key",
-        "apikey"
-      ],
-      "path": "Rock.Enums/Security/ApiKeyPurpose.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0dccb7f3384b930a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Security/ApiKeyPurpose.cs",
-      "title": "Rock.Enums/Security/ApiKeyPurpose.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/Utility/ApiModelMapper.cs"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "db9a403014678df2ef8f7f484593e0538fa6f2eeb2fb0078ccdfa0d847ae5b3a",
-      "excerpt_hash": "bb46d337ed247b7871c1e147b2e11d1834b3829fc5238c77cc3551578e7f2174",
+      "content_hash": "30afa7f756da2054a990fb2012c18e14e300796a2c5f1d66ea256597cafcec84",
+      "excerpt_hash": "a5ceb6b04e3ce0a589d39285a166829215fa0745567592b8c9d3f0d98c55195a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "dfd0cdc56d97fa7f",
-      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
-      "title": "Security",
+      "source_key": "f807acb8c3c3d207",
+      "source_record_id": "rock_developer:article:302",
+      "title": "Rock Security",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian",
-        "security",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/overview/security",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3241668b7a0eca443a7c6c95fc75346540d8ce29afe50b9ed8ab75f9f6f8b0d2",
-      "excerpt_hash": "2914be9e52a6478b9091e23ab54820db977820a268c65d1750058cd4ae491990",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "789454b4b23d582c",
-      "source_record_id": "rock_developer:789454b4b23d582c",
-      "title": "Lava Commands",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-commands",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "c82be181cfd83dd5bf5393a47ba516dd69d877b8f0c945e05f53c66e46ec3bff",
-      "excerpt_hash": "2e481b90e5e58e7a9abfe3f47b04eb518a930c9170e8202820f01bd49026c888",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e1caa5870d162bcc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
-      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapModelBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
-      "excerpt_hash": "bd30ea44d82b179f2f5f436652edfdcdbf141a8a9d3178bb1b6405d84659f143",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "endpoint",
-        "security",
-        "lava"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "543ea1d48ed32f6d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a38d4511364f5054cc55534a12a2859259192ad662b948388ab742c2e593dc64",
-      "excerpt_hash": "5f464739cfcc7ff065b4ed3ed4ca652500f74cae19b3a21e33504f42c06fe270",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "endpoint",
-        "lava"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "72e58feaf1e9531d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointDetailOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "24406e3df3ec5b98d3bd4b46a6222fe8faf89298d914f9b69e6e445ca9fa81f2",
-      "excerpt_hash": "782ccf35e49174802886697c64cdbf523603e17c716c0287497d69f3522467f4",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "api",
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5799a73de84c4338",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
-      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapInitializationBox.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "217e87ba442c3d3c9efda65ffe31a0d48ef453ca26aca96dc4b86131902e2a7e",
-      "excerpt_hash": "030f218b151125d466d716526170386d9c8767a31cd44ff5d139e2a3e0395586",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9c04de615556ea9a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
-      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapCategoryBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "c0d0ac854c5464a0904758ee73d056d1d79b8e11087979a778fc9ae1fff6b444",
-      "excerpt_hash": "cbba24441aaabe746bb2ac1162b1bf9860bcc91cbe1579dedda1b3d390120012",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "8f3a78dde9c3ddb6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
-      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapPropertyBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d3aa8a6f35159dd016b1de8e634a211471a4497589d3f661b41e9410511a6674",
-      "excerpt_hash": "1c7eed227819338457349d3d569aae305c6223e126c0254f8aefd292b58926d4",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "security",
-        "workflows"
-      ],
-      "path": "Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b62f52dbefd1a36d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
-      "title": "Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "838728096dadf5160625fd9d941c4a3d246761047c2663b4cb0cb3a915696e15",
-      "excerpt_hash": "158e42079b4aaa53d73014a73d3a7bd7e63a168262e37793848d5d6fbe087799",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "integration",
         "security"
       ],
-      "path": "Rock.Tests.Integration/Security/SecurityRoleTests.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9f93dec345f23bd8",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Security/SecurityRoleTests.cs",
-      "title": "Rock.Tests.Integration/Security/SecurityRoleTests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/SecurityRoleTests.cs"
+      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security",
+      "version": null
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "8d096a59833b2015dfc07815cb930e04b7e7d148e27ed2697dcba37e929415d8",
-      "excerpt_hash": "122438a8b7f4460919860acdf37c05e6975fe935d0f2deeca41a6712d815236a",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "rest",
-        "integration",
-        "auth"
-      ],
-      "path": "Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "change_type": null,
+      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
+      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "c440f7dfeb33e10e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
-      "title": "Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Rest/ControllersTests/AuthControllerTests.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "ec90d3aa31441ab005b722de2b7b04edf7a2b61889a2766dc8a75a5062dcbe98",
-      "excerpt_hash": "aef32ef3a316b34caa3a5269f8249232a6776699a0942f21cf42ed11da5cb4cc",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "model-map",
-        "model map",
-        "modelmap"
-      ],
-      "path": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ed2eb5a93323c1b0",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
-      "title": "Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Example/ModelMap/ModelMapXmlCommentBag.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "8db2647f38b43389c9dfc5146cc557009ec1bf4c028eb04048b4c84e6d35d0f4",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f99ba5bb3222f37e",
-      "source_record_id": "rock_developer:f99ba5bb3222f37e",
-      "title": "Bible Audio",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
       "topics": [
-        "api",
         "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-audio",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "810fe4702355573efe443282959b49faf14a05d9d312c06a05f0305e7150c5aa",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "275f4eda54018f53",
-      "source_record_id": "rock_developer:275f4eda54018f53",
-      "title": "Bible Reader",
-      "topics": [
+        "source",
         "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
+        "model-map"
       ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/bible-reader",
+      "url": "https://github.com/SparkDevNetwork/Rock",
       "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "df256387243940d40dc0bd99621657d02433b693a8751a18dd59f73e9fdb286d",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6920f6e860c4b936",
-      "source_record_id": "rock_developer:6920f6e860c4b936",
-      "title": "Shell Update Requirements",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "kind": "citation_only",
-      "source_id": "rock_documentation",
-      "source_key": "c6c618a8406c7343",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow",
-      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "df4200bab82058f2c3110a4280a83aa9acb4a89d0debb8ec82857ec361f5507f",
-      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "28c9add99f6b608f",
-      "source_record_id": "rock_developer:28c9add99f6b608f",
-      "title": "Service Layers",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/service-layers",
-      "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "fe0b6d3b462f6c75",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "874c48c7aa36826b",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=mYTaGxYMyyQ",
-      "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "2ef33162dc02363b",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "f0a736080e3ea89c",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/connect/rock-cast-episode-197",
-      "url": "https://community.rockrms.com/connect/rock-cast-episode-197"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "cea805e5b904fc2d",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "9c54a75bab4e39e3",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
-      "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "61505a876029525c",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "2cf11aac4d7e5e09",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "41fb72e73790f98002daa7d22627b532534879662d1a6a6aa7fc14e602e082a2"
+  }
 }

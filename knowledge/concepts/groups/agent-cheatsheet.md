@@ -10,35 +10,32 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Identify Why A Group Is Not Visible](tasks/recipe-identify-why-a-group-is-not-visible.md) | `Person`, `Group`, `GroupType`, `Page`, `Block` | `Person`, `Group`, `GroupType`, `Page`, `Block` |
-| [Recipe: Audit A Group Type Before Launch](tasks/recipe-audit-a-group-type-before-launch.md) | `Attendance`, `Step`, `Group`, `GroupType`, `Location`, `Schedule`, `Workflow`, `Attribute` | `Attendance`, `Step`, `Group`, `GroupType`, `Location`, `Schedule`, `Workflow`, `Attribute` |
-| [Recipe: Debug Group Attendance Reminder Failures](tasks/recipe-debug-group-attendance-reminder-failures.md) | `Attendance`, `Group`, `GroupType`, `Schedule` | `Attendance`, `Group`, `GroupType`, `Schedule` |
-| [Recipe: Build A Group Finder QA Checklist](tasks/recipe-build-a-group-finder-qa-checklist.md) | `Group`, `Location`, `Campus`, `Page`, `Block`, `Attribute`, `GroupType`, `Schedule` | `Group`, `Location`, `Campus`, `Page`, `Block`, `Attribute`, `GroupType`, `Schedule` |
-| [Recipe: Move Members Between Groups Safely](tasks/recipe-move-members-between-groups-safely.md) | `Group`, `Workflow`, `Attribute` | `Group`, `Workflow`, `Attribute` |
-| [Recipe: Create A Custom Scheduled Volunteer Communication Page](tasks/recipe-create-a-custom-scheduled-volunteer-communication-page.md) | `Group`, `GroupType`, `Location`, `Schedule`, `Page` | `Group`, `GroupType`, `Location`, `Schedule`, `Page` |
+| [Recipe: Design a Group Type and hierarchy](tasks/recipe-design-a-group-type-and-hierarchy.md) | `Attendance`, `Group`, `GroupType`, `Location`, `Schedule`, `Attribute` | `Attendance`, `Group`, `GroupType`, `Location`, `Schedule`, `Attribute` |
+| [Recipe: Publish a group through Group Finder](tasks/recipe-publish-a-group-through-group-finder.md) | `Group`, `GroupType`, `Location`, `Schedule`, `Page`, `Block`, `Campus`, `Attribute` | `Group`, `GroupType`, `Location`, `Schedule`, `Page`, `Block`, `Campus`, `Attribute` |
+| [Recipe: Configure focused attendance entry](tasks/recipe-configure-focused-attendance-entry.md) | `Attendance`, `Group`, `Location`, `Schedule`, `Family`, `Workflow`, `Page`, `Block` | `Attendance`, `Group`, `Location`, `Schedule`, `Family`, `Workflow`, `Page`, `Block` |
+| [Recipe: Configure attendance follow-up](tasks/recipe-configure-attendance-follow-up.md) | `Attendance`, `Group`, `GroupType`, `Schedule`, `Attribute` | `Attendance`, `Group`, `GroupType`, `Schedule`, `Attribute` |
+| [Recipe: Enforce a Group Type requirement](tasks/recipe-enforce-a-group-type-requirement.md) | `DataView`, `Group`, `GroupType`, `Workflow`, `Block` | `DataView`, `Group`, `GroupType`, `Workflow`, `Block` |
+| [Recipe: Synchronize a group from a Data View](tasks/recipe-synchronize-a-group-from-a-data-view.md) | `DataView`, `Group`, `GroupType`, `Workflow`, `Attribute` | `DataView`, `Group`, `GroupType`, `Workflow`, `Attribute` |
+| [Recipe: Secure leader operations](tasks/recipe-secure-leader-operations.md) | `Attendance`, `Group`, `GroupType`, `Page`, `Block` | `Attendance`, `Group`, `GroupType`, `Page`, `Block` |
+| [Recipe: Enable history and archive a group](tasks/recipe-enable-history-and-archive-a-group.md) | `Group`, `GroupType`, `Workflow` | `Group`, `GroupType`, `Workflow` |
+| [Recipe: Move group members safely](tasks/recipe-move-group-members-safely.md) | `Person`, `Group`, `Label`, `Workflow`, `Attribute`, `DataView`, `GroupType` | `Person`, `Group`, `Label`, `Workflow`, `Attribute`, `DataView`, `GroupType` |
 
 ## Entities
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
 | `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
-| `AttendanceOccurrence` | `Attendance`, `Group`, `Schedule`, `Location`, `Campus` | Use this for reporting context. Check group, location, schedule, and SundayDate before blaming the UI. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Check-in Configuration` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
-| `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `GroupMemberRequirement` | `GroupMember`, `Person`, `Group` | Keep LMS completion separate from serving eligibility unless a requirement explicitly connects them. |
 | `GroupType` | `Group` | Confirm the type takes attendance and supports the intended check-in pattern. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -47,66 +44,38 @@ generated: true
 
 | Version | Channel | Summary |
 | --- | --- | --- |
-| `18.3` | core | Fixed an issue where the Attendance Analytics block incorrectly included groups whose Group Type was listed as an "Allowed Child Group Type" of a selected Group Type, even though it was not explicitly selected in the block settings. The blo |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `3-groups-mental-model` | high | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model-group-type-configuration` | normal | live verification |
-| `5-core-configuration-and-data-model-core-entity-relationships` | citation-only | live verification |
-| `5-core-configuration-and-data-model-locations-and-schedules` | normal | live verification |
-| `5-core-configuration-and-data-model-attributes` | high | live verification |
-| `6-primary-entities-and-relationships-group-type` | citation-only | live verification |
-| `6-primary-entities-and-relationships-group-type-association` | normal | live verification |
-| `6-primary-entities-and-relationships-group` | normal | live verification |
-| `6-primary-entities-and-relationships-group-member` | normal | live verification |
-| `6-primary-entities-and-relationships-group-type-role` | normal | live verification |
-| `6-primary-entities-and-relationships-group-member-assignment` | citation-only | live verification |
-| `6-primary-entities-and-relationships-group-member-requirement` | normal | live verification |
-| `7-common-groups-workflows-create-a-new-group` | community-supported | live verification |
-| `7-common-groups-workflows-add-or-move-group-members` | community-supported | live verification |
-| `7-common-groups-workflows-copy-or-clone-groups` | community-supported | community-supported |
-| `7-common-groups-workflows-use-groups-as-communication-audiences` | community-supported | live verification |
-| `8-group-types-deep-dive-inherited-group-types` | normal | live verification |
-| `8-group-types-deep-dive-roles` | community-supported | live verification |
-| `8-group-types-deep-dive-group-attributes` | community-supported | community-supported |
-| `8-group-types-deep-dive-schedule-exclusions` | high | live verification |
-| `8-group-types-deep-dive-group-capacity` | normal | live verification |
-| `9-group-finder-deep-dive-finder-data-inputs` | normal | live verification |
-| `9-group-finder-deep-dive-finder-and-schedules` | normal | live verification |
-| `9-group-finder-deep-dive-finder-and-locations` | normal | live verification |
-| `9-group-finder-deep-dive-finder-share-links` | community-supported | live verification |
-| `9-group-finder-deep-dive-finder-registration-handoff` | normal | live verification |
-| `10-group-attendance-deep-dive-attendance-configuration` | community-supported | live verification |
-| `10-group-attendance-deep-dive-mobile-attendance-entry` | normal | live verification |
-| `10-group-attendance-deep-dive-attendance-ux-and-confirmation` | community-supported | live verification |
-| `10-group-attendance-deep-dive-attendance-reporting` | normal | live verification |
-| `11-related-rock-areas-people-attendance-security-locations-schedules-attendance` | structural | live verification |
-| `12-administration-and-operational-guardrails-use-read-only-investigation-first` | structural | live verification |
-| `12-administration-and-operational-guardrails-recipe-guardrails` | community-supported | live verification |
-| `12-administration-and-operational-guardrails-group-type-change-guardrail` | citation-only | live verification |
-| `13-developer-api-lava-and-source-code-landmarks-lava-landmarks` | community-supported | live verification |
-| `14-reporting-analytics-and-model-map-model-map-coverage` | citation-only | live verification |
-| `14-reporting-analytics-and-model-map-attendance-analytics-caveat` | normal | live verification |
-| `15-version-and-release-caveats-navigation-wording` | structural | live verification |
-| `15-version-and-release-caveats-rock-18-1` | normal | live verification |
-| `15-version-and-release-caveats-rock-19-1-beta-context` | normal | live verification |
-| `15-version-and-release-caveats-mobile-core-version-markers` | normal | live verification |
-| `16-implementation-playbooks-playbook-build-a-small-group-structure` | normal | live verification |
-| `16-implementation-playbooks-playbook-build-a-serving-team-scheduling-structure` | citation-only | live verification |
-| `16-implementation-playbooks-playbook-set-up-group-finder` | structural | live verification |
-| `16-implementation-playbooks-playbook-add-group-requirements` | community-supported | live verification |
-| `16-implementation-playbooks-playbook-extend-group-leader-toolbox` | community-supported | live verification |
-| `18-agent-task-recipes-recipe-identify-why-a-group-is-not-visible` | structural | live verification |
-| `18-agent-task-recipes-recipe-audit-a-group-type-before-launch` | structural | live verification |
-| `18-agent-task-recipes-recipe-debug-group-attendance-reminder-failures` | structural | live verification |
-| `18-agent-task-recipes-recipe-build-a-group-finder-qa-checklist` | structural | live verification |
-| `18-agent-task-recipes-recipe-move-members-between-groups-safely` | structural | live verification |
-| `18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page` | community-supported | live verification |
-| `approved-claim-coverage` | normal | live verification |
-| `19-source-map-and-dependency-notes-community-examples` | community-supported | community-supported |
+| `agent-summary` | normal | live verification |
+| `mental-model` | high | live verification |
+| `creating-editing-inactivating-and-archiving-groups` | normal | live verification |
+| `members-roles-statuses-and-attributes` | normal | live verification |
+| `group-security-and-leader-operations` | normal | live verification |
+| `locations-and-schedules` | high | live verification |
+| `group-finder` | normal | live verification |
+| `group-attendance-entry` | community-supported | live verification |
+| `group-sync-and-communication-lists` | normal | live verification |
+| `groups-in-workflows-training-and-reporting` | normal | live verification |
+| `version-and-authority-caveats` | normal | live verification |
+| `troubleshooting-decision-tree-add-child-to-selected-is-disabled` | normal | live verification |
+| `troubleshooting-decision-tree-a-group-is-missing-from-group-finder` | normal | live verification |
+| `troubleshooting-decision-tree-the-day-or-time-filter-does-not-return-a-group` | normal | live verification |
+| `troubleshooting-decision-tree-a-leader-cannot-add-a-member-from-group-toolbox` | normal | live verification |
+| `troubleshooting-decision-tree-attendance-reminders-are-not-sent` | normal | live verification |
+| `troubleshooting-decision-tree-the-absence-notification-job-fails-or-evaluates-the-wrong-people` | normal | live verification |
+| `troubleshooting-decision-tree-a-synced-group-or-communication-list-has-unexpected-members` | normal | live verification |
+| `troubleshooting-decision-tree-member-attributes-disappeared-after-a-move` | normal | live verification |
+| `troubleshooting-decision-tree-a-location-or-schedule-link-is-wrong-after-api-work` | normal | live verification |
+| `troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data` | community-supported | live verification |
+| `agent-task-recipes-recipe-design-a-group-type-and-hierarchy` | normal | live verification |
+| `agent-task-recipes-recipe-publish-a-group-through-group-finder` | normal | live verification |
+| `agent-task-recipes-recipe-configure-focused-attendance-entry` | citation-only | live verification |
+| `agent-task-recipes-recipe-configure-attendance-follow-up` | normal | live verification |
+| `agent-task-recipes-recipe-enforce-a-group-type-requirement` | normal | live verification |
+| `agent-task-recipes-recipe-secure-leader-operations` | normal | live verification |
+| `agent-task-recipes-recipe-enable-history-and-archive-a-group` | normal | live verification |
+| `agent-task-recipes-recipe-move-group-members-safely` | normal | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
