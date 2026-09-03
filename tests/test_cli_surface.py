@@ -173,8 +173,11 @@ def test_exact_source_native_candidates_require_explicit_concept():
     )
 
     assert result.exit_code != 0
-    assert "exact --source-record-id selection requires" in result.output
-    assert "explicit --concept routing facet" in result.output
+    normalized_output = " ".join(result.output.replace("│", "").split())
+    assert (
+        "exact --source-record-id selection requires at least one explicit "
+        "--concept routing facet"
+    ) in normalized_output
 
 
 def test_balanced_source_native_candidates_keep_pilot_concepts(monkeypatch):
