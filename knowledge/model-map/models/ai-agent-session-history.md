@@ -1,7 +1,7 @@
 # AI Agent Session History Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `AI`
 - Model title: `AIAgentSessionHistory`
 - Table name: `not provided`

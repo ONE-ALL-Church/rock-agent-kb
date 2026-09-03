@@ -1,7 +1,7 @@
 # Group Type Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Group`
 - Model title: `GroupType`
 - Table name: `not provided`
@@ -22,7 +22,7 @@
 | Related model links | 31 |
 | Method signatures | 42 |
 | Obsolete methods | 5 |
-| Pre-alpha changes touching this model | 1 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -236,4 +236,6 @@
 
 | Change | Property | Fields |
 | --- | --- | --- |
+| property_added | IsMeetingStyleEnabled |  |
 | property_changed | GroupMemberRecordSourceValueId | enum_values |
+| property_changed | GroupTypePurposeValueId | enum_values |

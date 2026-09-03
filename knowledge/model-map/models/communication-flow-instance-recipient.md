@@ -1,7 +1,7 @@
 # Communication Flow Instance Recipient Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Communication`
 - Model title: `CommunicationFlowInstanceRecipient`
 - Table name: `not provided`

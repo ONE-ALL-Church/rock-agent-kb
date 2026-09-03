@@ -1,7 +1,7 @@
 # Meta Last Name Lookup Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Meta`
 - Model title: `MetaLastNameLookup`
 - Table name: `not provided`

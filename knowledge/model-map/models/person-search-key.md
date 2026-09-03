@@ -1,7 +1,7 @@
 # Person Search Key Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `CRM`
 - Model title: `PersonSearchKey`
 - Table name: `not provided`
