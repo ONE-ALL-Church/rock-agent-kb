@@ -15,8 +15,8 @@ This generated resource is built from authenticated Obsidian block-action respon
 
 | Track | Rock Version | Source | Models | Properties |
 | --- | --- | --- | ---: | ---: |
-| Stable | `19.2.0` | [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map) | 326 | 16111 |
-| Pre-alpha / upcoming | `20.0.6` | [Model Map](https://rockrmslatest.com/admin/power-tools/model-map) | 326 | 16254 |
+| Stable | `19.3.4` | [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map) | 326 | 16111 |
+| Pre-alpha / upcoming | `20.0.7` | [Model Map](https://rockrmslatest.com/admin/power-tools/model-map) | 326 | 16257 |
 
 ## Stable Coverage
 
@@ -35,12 +35,12 @@ This generated resource is built from authenticated Obsidian block-action respon
 
 ## Pre-Alpha Difference Callouts
 
-- Total changes: 46
+- Total changes: 51
 - Models added: 1
 - Models removed: 1
-- Properties added: 13
+- Properties added: 16
 - Properties removed: 17
-- Properties changed: 14
+- Properties changed: 16
 
 ## Largest Stable Models
 

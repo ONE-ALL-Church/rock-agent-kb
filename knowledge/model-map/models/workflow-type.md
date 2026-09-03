@@ -1,7 +1,7 @@
 # Workflow Type Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Workflow`
 - Model title: `WorkflowType`
 - Table name: `not provided`
@@ -22,7 +22,7 @@
 | Related model links | 5 |
 | Method signatures | 36 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 0 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
@@ -126,4 +126,6 @@
 
 ## Stable To Pre-Alpha Changes
 
-No stable-to-pre-alpha changes were detected for this model.
+| Change | Property | Fields |
+| --- | --- | --- |
+| property_changed | ParentAuthority | description |

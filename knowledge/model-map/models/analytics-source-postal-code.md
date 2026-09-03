@@ -1,14 +1,14 @@
 # Analytics Source Postal Code Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Reporting`
 - Model title: `AnalyticsSourcePostalCode`
 - Table name: `not provided`
 - Obsolete: `no`
 - Method signatures: `9`
 - Obsolete methods: `0`
-- EntityType GUID: `747f9c11-fd4f-4d3c-8048-e2bfba5acd3c`
+- EntityType GUID: `3eabb2d7-17dd-42c5-9476-4c3a7086231f`
 - Source: [Model Map](https://rocksolidchurchdemo.com/admin/power-tools/model-map)
 
 ## Summary

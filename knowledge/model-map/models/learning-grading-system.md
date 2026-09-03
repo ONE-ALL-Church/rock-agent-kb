@@ -1,7 +1,7 @@
 # Learning Grading System Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `LMS`
 - Model title: `LearningGradingSystem`
 - Table name: `not provided`

@@ -21,7 +21,7 @@
   },
   "concept_slice_count": 18,
   "contains_row_data": false,
-  "generated_at": "2026-07-31T00:10:34.876+00:00",
+  "generated_at": "2026-09-03T13:54:52.534+00:00",
   "generation_method": [
     "Stable and pre-alpha model/property data come from authenticated Obsidian block-action calls against generic Rock demo Model Map pages.",
     "The collector uses RefreshObsidianBlockInitialization for the category/model list and GetModelDetails for each model detail payload.",
@@ -46,15 +46,15 @@
     "model_count": 326,
     "obsolete_model_count": 1,
     "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
-    "property_count": 16254,
-    "rock_version": "20.0.6",
+    "property_count": 16257,
+    "rock_version": "20.0.7",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
     "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
     "table_name_model_count": 2
   },
   "latest_method_count": 9800,
   "latest_model_count": 326,
-  "latest_property_count": 16254,
+  "latest_property_count": 16257,
   "model_detail_count": 326,
   "paths": {
     "agent_digests": "agent/model-map-digests.jsonl",
@@ -90,15 +90,15 @@
     "model_count": 326,
     "obsolete_model_count": 1,
     "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
-    "property_count": 16254,
-    "rock_version": "20.0.6",
+    "property_count": 16257,
+    "rock_version": "20.0.7",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
     "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
     "table_name_model_count": 2
   },
   "pre_alpha_method_count": 9800,
   "pre_alpha_model_count": 326,
-  "pre_alpha_property_count": 16254,
+  "pre_alpha_property_count": 16257,
   "schema": "rock-kb-model-map-summary-v2",
   "source": "obsidian_block_action_model_maps",
   "stable": {
@@ -117,7 +117,7 @@
     "obsolete_model_count": 1,
     "path": "data/review/model-map-scrape/demo-model-map-full-scrape.json",
     "property_count": 16111,
-    "rock_version": "19.2.0",
+    "rock_version": "19.3.4",
     "rock_version_source_url": "https://rocksolidchurchdemo.com/api/Utility/GetRockSemanticVersionNumber",
     "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
     "table_name_model_count": 1
@@ -136,11 +136,11 @@
   "stable_property_count": 16111,
   "stable_table_name_model_count": 1,
   "version_diff": {
-    "change_count": 46,
+    "change_count": 51,
     "model_added_count": 1,
     "model_removed_count": 1,
-    "property_added_count": 13,
-    "property_changed_count": 14,
+    "property_added_count": 16,
+    "property_changed_count": 16,
     "property_removed_count": 17
   }
 }

@@ -155,9 +155,9 @@
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "codex-public-source-revalidation-2026-08-10",
-  "issue_updated_at": "2026-08-10T16:37:43Z",
-  "reviewed_at": "2026-08-10T20:43:27Z",
+  "reviewer": "codex-public-source-revalidation-2026-09-03",
+  "issue_updated_at": "2026-08-26T15:19:15Z",
+  "reviewed_at": "2026-09-03T14:01:25Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

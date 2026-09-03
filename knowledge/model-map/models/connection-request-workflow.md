@@ -1,7 +1,7 @@
 # Connection Request Workflow Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Engagement`
 - Model title: `ConnectionRequestWorkflow`
 - Table name: `not provided`

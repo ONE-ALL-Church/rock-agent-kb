@@ -1,7 +1,7 @@
 # Learning Class Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `LMS`
 - Model title: `LearningClass`
 - Table name: `not provided`
@@ -22,7 +22,7 @@
 | Related model links | 36 |
 | Method signatures | 56 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 5 |
+| Pre-alpha changes touching this model | 6 |
 
 ## Properties
 
@@ -240,6 +240,7 @@
 
 | Change | Property | Fields |
 | --- | --- | --- |
+| property_added | MeetingStyle |  |
 | property_added | Photo |  |
 | property_added | PhotoId |  |
 | property_added | PhotoUrl |  |

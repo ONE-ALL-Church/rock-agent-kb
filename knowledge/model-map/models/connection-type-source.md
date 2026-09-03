@@ -1,7 +1,7 @@
 # Connection Type Source Model Detail
 
 - Track: `stable`
-- Rock version: `19.2.0`
+- Rock version: `19.3.4`
 - Category: `Engagement`
 - Model title: `ConnectionTypeSource`
 - Table name: `not provided`

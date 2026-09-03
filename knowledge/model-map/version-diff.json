@@ -1,6 +1,6 @@
 {
   "schema": "rock-kb-model-map-version-diff-v1",
-  "generated_at": "2026-07-31T00:10:34.876+00:00",
+  "generated_at": "2026-09-03T13:54:52.534+00:00",
   "stable": {
     "path": "data/review/model-map-scrape/demo-model-map-full-scrape.json",
     "source_url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
@@ -10,7 +10,7 @@
     "block_type_guid": "da2aad13-209b-4885-8739-b7be99f6510d",
     "initialization_endpoint": "https://rocksolidchurchdemo.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/RefreshObsidianBlockInitialization",
     "detail_endpoint": "https://rocksolidchurchdemo.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/GetModelDetails",
-    "rock_version": "19.2.0",
+    "rock_version": "19.3.4",
     "rock_version_source_url": "https://rocksolidchurchdemo.com/api/Utility/GetRockSemanticVersionNumber",
     "listed_model_count": 326,
     "category_count": 18,
@@ -31,28 +31,28 @@
     "block_type_guid": "da2aad13-209b-4885-8739-b7be99f6510d",
     "initialization_endpoint": "https://rockrmslatest.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/RefreshObsidianBlockInitialization",
     "detail_endpoint": "https://rockrmslatest.com/api/v2/BlockActions/67dbc902-bcd5-449e-8a1f-888a3cf9875e/2583de89-f028-4ace-9e1f-2873340726ac/GetModelDetails",
-    "rock_version": "20.0.6",
+    "rock_version": "20.0.7",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
     "listed_model_count": 326,
     "category_count": 18,
     "failure_count": 0,
     "model_count": 326,
-    "property_count": 16254,
+    "property_count": 16257,
     "method_count": 9800,
     "table_name_model_count": 2,
     "missing_table_name_count": 324,
     "obsolete_model_count": 1
   },
-  "change_count": 46,
+  "change_count": 51,
   "model_added_count": 1,
   "model_removed_count": 1,
-  "property_added_count": 13,
+  "property_added_count": 16,
   "property_removed_count": 17,
-  "property_changed_count": 14,
+  "property_changed_count": 16,
   "changed_field_counts": {
     "is_qualifier": 2,
-    "description": 3,
-    "enum_values": 9
+    "description": 4,
+    "enum_values": 10
   },
   "changes": [
     {
@@ -61,12 +61,12 @@
       "model_name": "Merge Template Combined Person",
       "model_title": "MergeTemplateCombinedPerson",
       "model_category": "Other",
-      "entity_type_guid": "2663b2bd-5411-44ab-a5d8-622db24e6c14",
+      "entity_type_guid": "3b5007fa-8151-406e-844e-cb889e5d6fa1",
       "entity_type_id": "",
       "property_count": 150,
-      "rock_version": "20.0.6",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6"
+      "rock_version": "20.0.7",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7"
     },
     {
       "schema": "rock-kb-model-map-version-change-v1",
@@ -77,9 +77,9 @@
       "entity_type_guid": "0ad40889-547b-4966-b3e1-2f9b2829c09c",
       "entity_type_id": "",
       "property_count": 3,
-      "rock_version": "19.2.0",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6"
+      "rock_version": "19.3.4",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7"
     },
     {
       "schema": "rock-kb-model-map-version-change-v1",
@@ -89,8 +89,8 @@
       "latest_model_title": "AnalyticsSourceDate",
       "model_category": "Reporting",
       "property_name": "CalendarMonthNameAbbrevated",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthecalendarinmonthnameabbreviatedformatmmm",
@@ -115,8 +115,8 @@
       "latest_model_title": "AnalyticsSourceDate",
       "model_category": "Reporting",
       "property_name": "FiscalMonthAbbrevated",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthefiscalmonthabbreviated",
@@ -141,8 +141,8 @@
       "latest_model_title": "Communication",
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValue",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromdefinedvalue",
@@ -167,8 +167,8 @@
       "latest_model_title": "Communication",
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromnumber",
@@ -193,8 +193,8 @@
       "latest_model_title": "CommunicationResponse",
       "model_category": "Communication",
       "property_name": "RelatedSmsFromDefinedValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetstherelatedsmsfromdefinedvalueidentifier",
@@ -219,8 +219,8 @@
       "latest_model_title": "CommunicationTemplate",
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValue",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromdefinedvalue",
@@ -245,8 +245,8 @@
       "latest_model_title": "CommunicationTemplate",
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsfromnumber",
@@ -271,8 +271,8 @@
       "latest_model_title": "Document",
       "model_category": "Core",
       "property_name": "DocumentTypeId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "is_qualifier"
       ],
@@ -319,8 +319,8 @@
       "latest_model_title": "DocumentType",
       "model_category": "Core",
       "property_name": "EntityTypeId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "description"
       ],
@@ -373,8 +373,8 @@
       "latest_model_title": "DocumentType",
       "model_category": "Core",
       "property_name": "EntityTypeQualifierColumn",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "description"
       ],
@@ -427,8 +427,8 @@
       "latest_model_title": "DocumentType",
       "model_category": "Core",
       "property_name": "EntityTypeQualifierValue",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "description"
       ],
@@ -467,8 +467,8 @@
       "latest_model_title": "FinancialPaymentDetail",
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychanges",
@@ -493,8 +493,8 @@
       "latest_model_title": "FinancialScheduledTransaction",
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -519,8 +519,8 @@
       "latest_model_title": "FinancialScheduledTransactionDetail",
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -545,8 +545,8 @@
       "latest_model_title": "FinancialTransaction",
       "model_category": "Finance",
       "property_name": "BatchHistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthebatchhistorychangelist",
@@ -571,8 +571,8 @@
       "latest_model_title": "FinancialTransaction",
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -597,8 +597,8 @@
       "latest_model_title": "FinancialTransactionDetail",
       "model_category": "Finance",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -622,9 +622,48 @@
       "stable_model_title": "Group",
       "latest_model_title": "Group",
       "model_category": "Group",
+      "property_name": "MeetingStyle",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetshowthisgroupmeetsinpersononlineorhybridnullwhenunspecifiedthisisahardcodedlistofvaluesdefinedinthecodeasanenumeration",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": true,
+        "is_defined_value": false,
+        "enum_values": [
+          {
+            "value": "1",
+            "label": "InPerson"
+          },
+          {
+            "value": "2",
+            "label": "Online"
+          },
+          {
+            "value": "3",
+            "label": "Hybrid"
+          }
+        ],
+        "related_entity_links": []
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
+      "model_name": "Group",
+      "stable_model_title": "Group",
+      "latest_model_title": "Group",
+      "model_category": "Group",
       "property_name": "Photo",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -653,8 +692,8 @@
       "latest_model_title": "Group",
       "model_category": "Group",
       "property_name": "PhotoId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -683,8 +722,8 @@
       "latest_model_title": "Group",
       "model_category": "Group",
       "property_name": "PhotoUrl",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -709,8 +748,8 @@
       "latest_model_title": "Group",
       "model_category": "Group",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -735,8 +774,8 @@
       "latest_model_title": "Group",
       "model_category": "Group",
       "property_name": "GroupMemberRecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -822,6 +861,214 @@
       },
       "latest": {
         "description": "getsorsetsthedefaultidoftherecordsourcetypedefinedvaluerepresentingthesourceofgroupmembersaddedtothisgroupifsettonullorifgrouptypeallowgroupspecificrecordsourceisnottruethenthevalueofgrouptypegroupmemberrecordsourcevalueidwillbeusedthisshouldonlybeusedwheneditingthegroupcallthegetgroupmemberrecordsourcevalueidmethodinsteadtogetthevalueasthatmethodwillalsocheckthegrouptypegroupmemberrecordsourcevalueidpropertythesearefoundintherecordsourcedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "name": "apple-tv-app",
+            "description": "describesarecordthatwascreatedfrominteractionwithanappletvapp"
+          },
+          {
+            "name": "benevolence-request",
+            "description": "describesarecordthatwascreatedfromabenevolencerequest"
+          },
+          {
+            "name": "check-in",
+            "description": "describesarecordthatwascreatedfromcheckin"
+          },
+          {
+            "name": "event-registration",
+            "description": "describesarecordthatwascreatedfromaneventregistration"
+          },
+          {
+            "name": "external-website",
+            "description": "describesarecordthatwascreatedfrominteractionwithanexternalwebsite"
+          },
+          {
+            "name": "family-registration",
+            "description": "describesarecordthatwascreatedfromafamilyregistration"
+          },
+          {
+            "name": "giving",
+            "description": "describesarecordthatwascreatedfromagivingsubmission"
+          },
+          {
+            "name": "group-registration",
+            "description": "describesarecordthatwascreatedfromagroupregistration"
+          },
+          {
+            "name": "mobile-app",
+            "description": "describesarecordthatwascreatedfrominteractionwithamobileapp"
+          },
+          {
+            "name": "pledge",
+            "description": "describesarecordthatwascreatedfromapledgesubmission"
+          },
+          {
+            "name": "prayer",
+            "description": "describesarecordthatwascreatedfromaprayerrequestsubmission"
+          },
+          {
+            "name": "roku-tv-app",
+            "description": "describesarecordthatwascreatedfrominteractionwitharokutvapp"
+          },
+          {
+            "name": "serving-connection",
+            "description": "describesarecordthatwascreatedfromaservingconnection"
+          },
+          {
+            "name": "sign-up",
+            "description": "describesarecordthatwascreatedfromasignupregistration"
+          },
+          {
+            "name": "workflow",
+            "description": "describesarecordthatwascreatedfromaworkflow"
+          }
+        ],
+        "related_entity_links": [
+          {
+            "text": "definedvalue"
+          },
+          {
+            "text": "group"
+          },
+          {
+            "text": "groupmember"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
+      "model_name": "Group Type",
+      "stable_model_title": "GroupType",
+      "latest_model_title": "GroupType",
+      "model_category": "Group",
+      "property_name": "IsMeetingStyleEnabled",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetsaflagindicatingifthemeetingstylefieldisavailableongroupsofthisgrouptype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": [
+          {
+            "text": "groups"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_changed",
+      "model_name": "Group Type",
+      "stable_model_title": "GroupType",
+      "latest_model_title": "GroupType",
+      "model_category": "Group",
+      "property_name": "GroupMemberRecordSourceValueId",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
+      "changed_fields": [
+        "enum_values"
+      ],
+      "stable": {
+        "description": "getsorsetsthedefaultidoftherecordsourcetypedefinedvaluerepresentingthesourceofgroupmembersaddedtogroupsofthistypethiscanbeoverriddenbygroupgroupmemberrecordsourcevalueidthesearefoundintherecordsourcedefinedtype",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": true,
+        "enum_values": [
+          {
+            "name": "apple-tv-app",
+            "description": "describesarecordthatwascreatedfrominteractionwithanappletvapp"
+          },
+          {
+            "name": "check-in",
+            "description": "describesarecordthatwascreatedfromcheckin"
+          },
+          {
+            "name": "event-registration",
+            "description": "describesarecordthatwascreatedfromaneventregistration"
+          },
+          {
+            "name": "external-website",
+            "description": "describesarecordthatwascreatedfrominteractionwithanexternalwebsite"
+          },
+          {
+            "name": "family-registration",
+            "description": "describesarecordthatwascreatedfromafamilyregistration"
+          },
+          {
+            "name": "giving",
+            "description": "describesarecordthatwascreatedfromagivingsubmission"
+          },
+          {
+            "name": "group-registration",
+            "description": "describesarecordthatwascreatedfromagroupregistration"
+          },
+          {
+            "name": "mobile-app",
+            "description": "describesarecordthatwascreatedfrominteractionwithamobileapp"
+          },
+          {
+            "name": "pledge",
+            "description": "describesarecordthatwascreatedfromapledgesubmission"
+          },
+          {
+            "name": "prayer",
+            "description": "describesarecordthatwascreatedfromaprayerrequestsubmission"
+          },
+          {
+            "name": "roku-tv-app",
+            "description": "describesarecordthatwascreatedfrominteractionwitharokutvapp"
+          },
+          {
+            "name": "serving-connection",
+            "description": "describesarecordthatwascreatedfromaservingconnection"
+          },
+          {
+            "name": "sign-up",
+            "description": "describesarecordthatwascreatedfromasignupregistration"
+          },
+          {
+            "name": "workflow",
+            "description": "describesarecordthatwascreatedfromaworkflow"
+          }
+        ],
+        "related_entity_links": [
+          {
+            "text": "definedvalue"
+          },
+          {
+            "text": "group"
+          },
+          {
+            "text": "groupmember"
+          }
+        ]
+      },
+      "latest": {
+        "description": "getsorsetsthedefaultidoftherecordsourcetypedefinedvaluerepresentingthesourceofgroupmembersaddedtogroupsofthistypethiscanbeoverriddenbygroupgroupmemberrecordsourcevalueidthesearefoundintherecordsourcedefinedtype",
         "is_database": true,
         "is_lava": true,
         "is_not_mapped": false,
@@ -912,173 +1159,73 @@
       "stable_model_title": "GroupType",
       "latest_model_title": "GroupType",
       "model_category": "Group",
-      "property_name": "GroupMemberRecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "property_name": "GroupTypePurposeValueId",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
       "stable": {
-        "description": "getsorsetsthedefaultidoftherecordsourcetypedefinedvaluerepresentingthesourceofgroupmembersaddedtogroupsofthistypethiscanbeoverriddenbygroupgroupmemberrecordsourcevalueidthesearefoundintherecordsourcedefinedtype",
+        "description": "getsorsetsidofthedefinedvaluethatrepresentsthepurposeofthegrouptypethesearefoundinthegrouptypepurposedefinedtype",
         "is_database": true,
         "is_lava": true,
         "is_not_mapped": false,
         "is_required": false,
-        "is_qualifier": false,
+        "is_qualifier": true,
         "is_obsolete": false,
         "is_enum": false,
         "is_defined_value": true,
         "enum_values": [
           {
-            "name": "apple-tv-app",
-            "description": "describesarecordthatwascreatedfrominteractionwithanappletvapp"
+            "name": "check-in-filter",
+            "description": "agrouptypewherethepurposeisforcheckinfilter"
           },
           {
-            "name": "check-in",
-            "description": "describesarecordthatwascreatedfromcheckin"
+            "name": "check-in-template",
+            "description": "agrouptypewherethepurposeisforcheckingroups"
           },
           {
-            "name": "event-registration",
-            "description": "describesarecordthatwascreatedfromaneventregistration"
-          },
-          {
-            "name": "external-website",
-            "description": "describesarecordthatwascreatedfrominteractionwithanexternalwebsite"
-          },
-          {
-            "name": "family-registration",
-            "description": "describesarecordthatwascreatedfromafamilyregistration"
-          },
-          {
-            "name": "giving",
-            "description": "describesarecordthatwascreatedfromagivingsubmission"
-          },
-          {
-            "name": "group-registration",
-            "description": "describesarecordthatwascreatedfromagroupregistration"
-          },
-          {
-            "name": "mobile-app",
-            "description": "describesarecordthatwascreatedfrominteractionwithamobileapp"
-          },
-          {
-            "name": "pledge",
-            "description": "describesarecordthatwascreatedfromapledgesubmission"
-          },
-          {
-            "name": "prayer",
-            "description": "describesarecordthatwascreatedfromaprayerrequestsubmission"
-          },
-          {
-            "name": "roku-tv-app",
-            "description": "describesarecordthatwascreatedfrominteractionwitharokutvapp"
-          },
-          {
-            "name": "serving-connection",
-            "description": "describesarecordthatwascreatedfromaservingconnection"
-          },
-          {
-            "name": "sign-up",
-            "description": "describesarecordthatwascreatedfromasignupregistration"
-          },
-          {
-            "name": "workflow",
-            "description": "describesarecordthatwascreatedfromaworkflow"
+            "name": "serving-area",
+            "description": "usedtodenotegrouptypesthatcountasserving"
           }
         ],
         "related_entity_links": [
           {
             "text": "definedvalue"
-          },
-          {
-            "text": "group"
-          },
-          {
-            "text": "groupmember"
           }
         ]
       },
       "latest": {
-        "description": "getsorsetsthedefaultidoftherecordsourcetypedefinedvaluerepresentingthesourceofgroupmembersaddedtogroupsofthistypethiscanbeoverriddenbygroupgroupmemberrecordsourcevalueidthesearefoundintherecordsourcedefinedtype",
+        "description": "getsorsetsidofthedefinedvaluethatrepresentsthepurposeofthegrouptypethesearefoundinthegrouptypepurposedefinedtype",
         "is_database": true,
         "is_lava": true,
         "is_not_mapped": false,
         "is_required": false,
-        "is_qualifier": false,
+        "is_qualifier": true,
         "is_obsolete": false,
         "is_enum": false,
         "is_defined_value": true,
         "enum_values": [
           {
-            "name": "apple-tv-app",
-            "description": "describesarecordthatwascreatedfrominteractionwithanappletvapp"
+            "name": "attendance-kids-celebrations",
+            "description": "usedtodenotegroupsthatcounttowardschildrensattendanceforcelebrations"
           },
           {
-            "name": "benevolence-request",
-            "description": "describesarecordthatwascreatedfromabenevolencerequest"
+            "name": "check-in-filter",
+            "description": "agrouptypewherethepurposeisforcheckinfilter"
           },
           {
-            "name": "check-in",
-            "description": "describesarecordthatwascreatedfromcheckin"
+            "name": "check-in-template",
+            "description": "agrouptypewherethepurposeisforcheckingroups"
           },
           {
-            "name": "event-registration",
-            "description": "describesarecordthatwascreatedfromaneventregistration"
-          },
-          {
-            "name": "external-website",
-            "description": "describesarecordthatwascreatedfrominteractionwithanexternalwebsite"
-          },
-          {
-            "name": "family-registration",
-            "description": "describesarecordthatwascreatedfromafamilyregistration"
-          },
-          {
-            "name": "giving",
-            "description": "describesarecordthatwascreatedfromagivingsubmission"
-          },
-          {
-            "name": "group-registration",
-            "description": "describesarecordthatwascreatedfromagroupregistration"
-          },
-          {
-            "name": "mobile-app",
-            "description": "describesarecordthatwascreatedfrominteractionwithamobileapp"
-          },
-          {
-            "name": "pledge",
-            "description": "describesarecordthatwascreatedfromapledgesubmission"
-          },
-          {
-            "name": "prayer",
-            "description": "describesarecordthatwascreatedfromaprayerrequestsubmission"
-          },
-          {
-            "name": "roku-tv-app",
-            "description": "describesarecordthatwascreatedfrominteractionwitharokutvapp"
-          },
-          {
-            "name": "serving-connection",
-            "description": "describesarecordthatwascreatedfromaservingconnection"
-          },
-          {
-            "name": "sign-up",
-            "description": "describesarecordthatwascreatedfromasignupregistration"
-          },
-          {
-            "name": "workflow",
-            "description": "describesarecordthatwascreatedfromaworkflow"
+            "name": "serving-area",
+            "description": "usedtodenotegrouptypesthatcountasserving"
           }
         ],
         "related_entity_links": [
           {
             "text": "definedvalue"
-          },
-          {
-            "text": "group"
-          },
-          {
-            "text": "groupmember"
           }
         ]
       }
@@ -1091,8 +1238,8 @@
       "latest_model_title": "InteractionChannel",
       "model_category": "Core",
       "property_name": "EnableComponentDailyCounts",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1117,8 +1264,8 @@
       "latest_model_title": "LavaEndpoint",
       "model_category": "CMS",
       "property_name": "LavaApplicationId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "is_qualifier"
       ],
@@ -1164,9 +1311,48 @@
       "stable_model_title": "LearningClass",
       "latest_model_title": "LearningClass",
       "model_category": "LMS",
+      "property_name": "MeetingStyle",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
+      "changed_fields": [],
+      "stable": null,
+      "latest": {
+        "description": "getsorsetshowthisgroupmeetsinpersononlineorhybridnullwhenunspecifiedthisisahardcodedlistofvaluesdefinedinthecodeasanenumeration",
+        "is_database": true,
+        "is_lava": true,
+        "is_not_mapped": false,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": true,
+        "is_defined_value": false,
+        "enum_values": [
+          {
+            "value": "1",
+            "label": "InPerson"
+          },
+          {
+            "value": "2",
+            "label": "Online"
+          },
+          {
+            "value": "3",
+            "label": "Hybrid"
+          }
+        ],
+        "related_entity_links": []
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_added",
+      "model_name": "Learning Class",
+      "stable_model_title": "LearningClass",
+      "latest_model_title": "LearningClass",
+      "model_category": "LMS",
       "property_name": "Photo",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1195,8 +1381,8 @@
       "latest_model_title": "LearningClass",
       "model_category": "LMS",
       "property_name": "PhotoId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1225,8 +1411,8 @@
       "latest_model_title": "LearningClass",
       "model_category": "LMS",
       "property_name": "PhotoUrl",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1251,8 +1437,8 @@
       "latest_model_title": "LearningClass",
       "model_category": "LMS",
       "property_name": "HistoryChangeList",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthehistorychangelist",
@@ -1277,8 +1463,8 @@
       "latest_model_title": "LearningClass",
       "model_category": "LMS",
       "property_name": "GroupMemberRecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -1455,8 +1641,8 @@
       "latest_model_title": "LearningClassActivity",
       "model_category": "LMS",
       "property_name": "RetakeThreshold",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1481,8 +1667,8 @@
       "latest_model_title": "PersistedDataset",
       "model_category": "CMS",
       "property_name": "Status",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1520,8 +1706,8 @@
       "latest_model_title": "Person",
       "model_category": "CRM",
       "property_name": "PreferredServiceTimeSchedule",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1550,8 +1736,8 @@
       "latest_model_title": "Person",
       "model_category": "CRM",
       "property_name": "PreferredServiceTimeScheduleId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1580,8 +1766,8 @@
       "latest_model_title": "Person",
       "model_category": "CRM",
       "property_name": "RecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -1746,8 +1932,8 @@
       "latest_model_title": "RegistrationInstance",
       "model_category": "Event",
       "property_name": "RegistrantRecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -1924,8 +2110,8 @@
       "latest_model_title": "RegistrationTemplate",
       "model_category": "Event",
       "property_name": "FullPaymentOrPaymentPlanRequiredMessage",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1954,8 +2140,8 @@
       "latest_model_title": "RegistrationTemplate",
       "model_category": "Event",
       "property_name": "IsFullPaymentOrPaymentPlanRequired",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": null,
       "latest": {
@@ -1980,8 +2166,8 @@
       "latest_model_title": "RegistrationTemplate",
       "model_category": "Event",
       "property_name": "RegistrantRecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -2158,8 +2344,8 @@
       "latest_model_title": "SystemCommunication",
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValue",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromdefinedvalue",
@@ -2184,8 +2370,8 @@
       "latest_model_title": "SystemCommunication",
       "model_category": "Communication",
       "property_name": "SMSFromDefinedValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [],
       "stable": {
         "description": "getsorsetsthesmsfromnumber",
@@ -2210,8 +2396,8 @@
       "latest_model_title": "WorkflowActionForm",
       "model_category": "Workflow",
       "property_name": "PersonEntryRecordSourceValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -2368,8 +2554,8 @@
       "latest_model_title": "WorkflowActionForm",
       "model_category": "Workflow",
       "property_name": "PersonEntrySectionTypeValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -2434,8 +2620,8 @@
       "latest_model_title": "WorkflowActionFormSection",
       "model_category": "Workflow",
       "property_name": "SectionTypeValueId",
-      "stable_version": "19.2.0",
-      "latest_version": "20.0.6",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
       "changed_fields": [
         "enum_values"
       ],
@@ -2490,6 +2676,46 @@
             "text": "definedvalue"
           }
         ]
+      }
+    },
+    {
+      "schema": "rock-kb-model-map-version-change-v1",
+      "change_type": "property_changed",
+      "model_name": "Workflow Type",
+      "stable_model_title": "WorkflowType",
+      "latest_model_title": "WorkflowType",
+      "model_category": "Workflow",
+      "property_name": "ParentAuthority",
+      "stable_version": "19.3.4",
+      "latest_version": "20.0.7",
+      "changed_fields": [
+        "description"
+      ],
+      "stable": {
+        "description": "getstheparentsecurityauthorityforthedataviewwhichisitscategory",
+        "is_database": false,
+        "is_lava": false,
+        "is_not_mapped": true,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": []
+      },
+      "latest": {
+        "description": "getstheparentsecurityauthorityfortheworkflowtypewhichisitscategory",
+        "is_database": false,
+        "is_lava": false,
+        "is_not_mapped": true,
+        "is_required": false,
+        "is_qualifier": false,
+        "is_obsolete": false,
+        "is_enum": false,
+        "is_defined_value": false,
+        "enum_values": [],
+        "related_entity_links": []
       }
     }
   ],
