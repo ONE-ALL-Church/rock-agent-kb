@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pytest
+from rich.text import Text
 from typer.testing import CliRunner
 
 from rock_kb.cli import app, audit_cmds, tools_cmds
@@ -161,7 +162,8 @@ def test_live_verification_audit_rejects_manifest_bound_report_destination():
     assert "ephemeral readiness evidence" in result.output
 
 
-def test_exact_source_native_candidates_require_explicit_concept():
+@pytest.mark.parametrize("force_color", [False, True])
+def test_exact_source_native_candidates_require_explicit_concept(force_color):
     result = CliRunner().invoke(
         app,
         [
@@ -170,10 +172,12 @@ def test_exact_source_native_candidates_require_explicit_concept():
             "--source-record-id",
             "rock_developer:article:139",
         ],
+        env={"FORCE_COLOR": "1"} if force_color else {"NO_COLOR": "1"},
     )
 
     assert result.exit_code != 0
-    normalized_output = " ".join(result.output.replace("│", "").split())
+    plain_output = Text.from_ansi(result.output).plain
+    normalized_output = " ".join(plain_output.replace("│", "").split())
     assert (
         "exact --source-record-id selection requires at least one explicit "
         "--concept routing facet"
