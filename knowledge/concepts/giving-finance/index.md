@@ -2,12 +2,12 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:37:53+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:12+00:00
+source_last_checked_at: 2026-09-09T21:15:38+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/70
 legacy_summary_retirement_coverage: 0/70
@@ -107,29 +107,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Financial Batch](../../model-map/models/financial-batch.md) | Finance | 19.2.0 | 51 | 22 | 34 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Gateway](../../model-map/models/financial-gateway.md) | Finance | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Payment Detail](../../model-map/models/financial-payment-detail.md) | Finance | 19.2.0 | 56 | 22 | 39 | 17 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Pledge](../../model-map/models/financial-pledge.md) | Finance | 19.2.0 | 51 | 18 | 36 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Scheduled Transaction](../../model-map/models/financial-scheduled-transaction.md) | Finance | 19.2.0 | 71 | 32 | 53 | 21 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Scheduled Transaction Detail](../../model-map/models/financial-scheduled-transaction-detail.md) | Finance | 19.2.0 | 47 | 16 | 31 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Statement Template](../../model-map/models/financial-statement-template.md) | Finance | 19.2.0 | 46 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction](../../model-map/models/financial-transaction.md) | Finance | 19.2.0 | 85 | 38 | 66 | 30 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Alert](../../model-map/models/financial-transaction-alert.md) | Finance | 19.2.0 | 54 | 24 | 39 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Alert Type](../../model-map/models/financial-transaction-alert-type.md) | Finance | 19.2.0 | 69 | 33 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Detail](../../model-map/models/financial-transaction-detail.md) | Finance | 19.2.0 | 49 | 18 | 33 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Financial Transaction Image](../../model-map/models/financial-transaction-image.md) | Finance | 19.2.0 | 42 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Batch](../../model-map/models/financial-batch.md) | Finance | 19.3.4 | 51 | 22 | 34 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Gateway](../../model-map/models/financial-gateway.md) | Finance | 19.3.4 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Payment Detail](../../model-map/models/financial-payment-detail.md) | Finance | 19.3.4 | 56 | 22 | 39 | 17 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Pledge](../../model-map/models/financial-pledge.md) | Finance | 19.3.4 | 51 | 18 | 36 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Scheduled Transaction](../../model-map/models/financial-scheduled-transaction.md) | Finance | 19.3.4 | 71 | 32 | 53 | 21 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Scheduled Transaction Detail](../../model-map/models/financial-scheduled-transaction-detail.md) | Finance | 19.3.4 | 47 | 16 | 31 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Statement Template](../../model-map/models/financial-statement-template.md) | Finance | 19.3.4 | 46 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction](../../model-map/models/financial-transaction.md) | Finance | 19.3.4 | 85 | 38 | 66 | 30 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Alert](../../model-map/models/financial-transaction-alert.md) | Finance | 19.3.4 | 54 | 24 | 39 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Alert Type](../../model-map/models/financial-transaction-alert-type.md) | Finance | 19.3.4 | 69 | 33 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Detail](../../model-map/models/financial-transaction-detail.md) | Finance | 19.3.4 | 49 | 18 | 33 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Financial Transaction Image](../../model-map/models/financial-transaction-image.md) | Finance | 19.3.4 | 42 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Financial Batch.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Financial Batch.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Financial Batch.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -180,11 +180,11 @@ Keywords: `statement, receipt, contribution`
 | --- | --- | --- | --- |
 | Finance | rock_documentation | SECTIONS [Overview](?Version=v19.0#overview) [Financial Components](?Version=v19.0#financial-components) [Online Giving](?Version=v19.0#online-giving) [Text Giving](?Version=v19.0#text-giving) [On-Site Collection](?Version=v19.0#on-site-collection) [Businesses](?Version=v19.0#businesses) [Check Scanning](?Version=v19.0#check-scanning) [Track Giving](?Version=v19.0#track-giving) [Fundraising... | [source](https://community.rockrms.com/documentation/church-management/finance) |
 | Set Up the Statement Generator Software | rock_documentation | Installing the statement generator software is easy. It does require a Windows machine running Windows 7 or better to run. It will not work with other operating systems. To install, follow the steps below: 1. Download the setup application under `Admin Tools > Settings > External Applications > Rock Statement Generator`. 2. Run the setup. The statement generator setup is a breeze with just three quick screens. #... | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements/set-up-the-statement-generator-software) |
-| Use Contribution Statement Templates | rock_documentation | Rock ships with a default template that’s used by the Statement Generator to create statements. This template is also used by the web versions of the statements, like those accessed from the Person Profile page. The settings on the template drive what goes into the statement and how it looks. You can create a template of your own under `Finance > Financial Settings > Contribution Templates` to customize the... | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements/use-contribution-statement-templates) |
 | Fundraising Financial Transactions | rock_documentation | Financial Transactions that are created from the fundraising features will all default to the *Contribution* type. The account for the transaction will be applied based on the opportunity group setting. It is possible to change the transaction type to a different value than *Contribution*. To do so, you'd need to create a new page with a *Transaction Entry* block on it. This block has a block attribute to set the... | [source](https://community.rockrms.com/documentation/church-management/finance/fundraising-groups/fundraising-financial-transactions) |
+| Use Contribution Statement Templates | rock_documentation | Rock ships with a default template that’s used by the Statement Generator to create statements. This template is also used by the web versions of the statements, like those accessed from the Person Profile page. The settings on the template drive what goes into the statement and how it looks. You can create a template of your own under `Finance > Financial Settings > Contribution Templates` to customize the... | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements/use-contribution-statement-templates) |
 | Use Financial Transaction Matching | rock_documentation | We've already discussed that Financial Transactions for fundraising are Contributions that are tied to the Group Members of the Fundraising Opportunity Group. The Rock tools mentioned in this section do all of the connecting of the group member to the transactions. You might be asking, "What about checks or gifts that need to be entered manually?" And that...is a GREAT question! After entering contributions (either... | [source](https://community.rockrms.com/documentation/church-management/finance/fundraising-groups/use-financial-transaction-matching) |
-| Contribution Statements | rock_documentation | [Intro to Contribution Statements](/documentation/church-management/finance/contribution-statements/intro-to-contribution-statements?Version=v19.0) [Set Up the Statement Generator Software](/documentation/church-management/finance/contribution-statements/set-up-the-statement-generator-software?Version=v19.0) [Online Contribution... | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements) |
 | Manage Business Contributions | rock_documentation | Just as you can view the giving information for a specific person, you can also view the giving information for a business. To do this, simply go to `Finance > Businesses` and select the business name from the Business List. Rock will display all of the information and contribution history for that business, including yearly contribution statements. Financial transactions can also be entered from the Business Detail... | [source](https://community.rockrms.com/documentation/church-management/finance/businesses/manage-business-contributions) |
+| Contribution Statements | rock_documentation | [Intro to Contribution Statements](/documentation/church-management/finance/contribution-statements/intro-to-contribution-statements?Version=v19.0) [Set Up the Statement Generator Software](/documentation/church-management/finance/contribution-statements/set-up-the-statement-generator-software?Version=v19.0) [Online Contribution... | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements) |
 | Online Contribution Statements | rock_documentation | Your website visitors can get access to their contributions online from the *Giving History* page. Statement links will be available for years in which they gave. The *Transaction Report* block settings allow you to pick which accounts to consider (by default all tax-deductible accounts are used). The output is all customizable using Lava, so feel free to change it. The resulting contribution statement is shown... | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements/online-contribution-statements) |
 | See Person Profile Contribution Statements | rock_documentation | You can view the same contribution statement shown in the [prior article](/documentation/church-management/finance/contribution-statements/online-contribution-statements) on the *Person Profile* page. You'll find a listing of contribution statements on the 'Contributions' tab. | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements/see-person-profile-contribution-statements) |
 | Intro to Contribution Statements | rock_documentation | When it's time to generate contribution statements, we've created some tools to make the process simpler. Since you may need to be able to both email and mail printed statements, the best file format will be a PDF, and we have just the tool for the job. Let's walk through the process of generating PDF statements with our statement generator software. | [source](https://community.rockrms.com/documentation/church-management/finance/contribution-statements/intro-to-contribution-statements) |
@@ -202,13 +202,13 @@ Keywords: `batch, deposit, reconciliation`
 | Rock Core Release Notes | rock_core_release_notes | Added Financial Batch Detail block to support check scanning, creation of batch, batch detail viewing, and batch modifications. Also added Financial Batch List to view available batches. | [source](https://www.rockrms.com/releasenotes) |
 | Rock Mobile Release Notes | rock_mobile_release_notes | Added the new Financial Batch Detail and Financial Batch List blocks, giving finance teams a way to scan checks, create batches, and view, review, or modify batch details from the app. | [source](https://www.rockrms.com/mobilereleasenotes) |
 | Financial Batch | rock_model_map | Financial Batch is a Rock model in the Finance category. | [source](https://community.rockrms.com/ModelMap) |
-| Analytics Dim Financial Batch | rock_model_map | Analytics Dim Financial Batch is a Rock model in the Reporting category. | [source](https://community.rockrms.com/ModelMap) |
+| Rock Shop Preview | rock_shop_plugins | This plugin is only available on the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Batch to Financial Edge by Kingdom First Solutions Inc. (KFS) $499 Note: plugin details are provided here only as a reference for what is available in the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Required Rock Version 16.0... | [source](https://www.rockrms.com/rockshop/plugin/96) |
 
 
 ## Source Lifecycle
 
 - Official article records routed here: `70`
-- Upstream check range: `2026-08-12T06:18:09+00:00` through `2026-08-12T06:18:12+00:00`
+- Upstream check range: `2026-09-09T21:15:31+00:00` through `2026-09-09T21:15:38+00:00`
 - Source-native typed articles: `0` of `70`
 - Legacy source summaries retired: `0`; still active: `70`
 - Migration status: `not_started`

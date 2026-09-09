@@ -51,6 +51,6 @@ An eligible audience enters a controlled, assignable follow-up queue.
 - https://community.rockrms.com/documentation/engagement/connections/connection-requests/connections-views
 - https://community.rockrms.com/documentation/engagement/connections/connection-campaigns/set-up-connection-campaigns
 - https://community.rockrms.com/documentation/engagement/connections/connection-campaigns/intro-to-campaign-connectors
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/4debc0117b10dafa1d56a43636cb5c1c50ba2964/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
 - https://www.youtube.com/watch?v=7rxTGLLhlrU
 - https://community.rockrms.com/ModelMap

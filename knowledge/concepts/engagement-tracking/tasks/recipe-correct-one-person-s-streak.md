@@ -44,8 +44,13 @@ A bounded correction is made without unnecessarily rebuilding the entire Streak 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
-- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions
+- https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date
 - https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment
 - https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments
-- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment

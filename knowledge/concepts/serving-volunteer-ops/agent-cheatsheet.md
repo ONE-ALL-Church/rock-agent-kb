@@ -40,23 +40,23 @@ generated: true
 
 | Version | Channel | Summary |
 | --- | --- | --- |
-| `19.3` | core | Fixed an issue with the RSVP Response block where the heading would show the generic "RSVP for Event" text instead of the Attendance Occurrence Name when accessed through the Accept or Decline link in an RSVP email. Fixes: #6872 |
 | `18.3` | core | Fixed the Send Attendance Reminder job so Group leaders still receive reminders when a Group only has scheduling/RSVP-related Attendance records. The job now treats those tracking records as not being “attendance” and only suppresses remind |
+| `17.2` | core | Fixed an issue where the Group Scheduling Confirmation workflow could incorrectly record a response if the confirmation email was opened by an automated link-checker, or if a decline reason was required but not provided. This ensures that o |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | needs-citation | needs-citation |
 | `mental-model-group-scheduling-and-group-rsvp-are-related-but-different` | normal | live verification |
-| `mental-model-serving-status-is-not-volunteer-eligibility` | community-supported | live verification |
+| `mental-model-serving-status-is-not-volunteer-eligibility` | citation-only | live verification |
 | `serving-teams-and-roles-establish-the-operating-group-structure` | normal | live verification |
 | `serving-teams-and-roles-distinguish-operational-roles` | normal | live verification |
 | `schedules-and-confirmations-configure-the-scheduling-foundation` | normal | live verification |
 | `schedules-and-confirmations-choose-confirmation-logic-deliberately` | normal | live verification |
-| `volunteer-requirements-and-training-use-the-evidence-supported-lms-model` | community-supported | community-supported |
-| `volunteer-requirements-and-training-connect-completion-to-operations-intentionally` | community-supported | live verification |
+| `volunteer-requirements-and-training-connect-completion-to-operations-intentionally` | citation-only | live verification |
 | `volunteer-requirements-and-training-train-staff-before-volunteer-rollout` | citation-only | live verification |
 | `volunteer-requirements-and-training-treat-background-check-providers-as-versioned-dependencies` | normal | live verification |
 | `attendance-and-follow-up-use-rapid-attendance-entry-for-high-volume-entry` | normal | live verification |
@@ -75,16 +75,16 @@ generated: true
 | `troubleshooting-decision-tree-an-attendance-reminder-was-not-sent` | high | live verification |
 | `troubleshooting-decision-tree-a-confirmed-volunteer-appears-absent` | normal | live verification |
 | `troubleshooting-decision-tree-rapid-attendance-entry-lacks-an-expected-location-schedule-or-action` | normal | live verification |
-| `troubleshooting-decision-tree-training-completion-did-not-change-serving-eligibility` | community-supported | live verification |
+| `troubleshooting-decision-tree-training-completion-did-not-change-serving-eligibility` | citation-only | live verification |
 | `troubleshooting-decision-tree-outreach-toolbox-reminders-are-not-arriving` | citation-only | live verification |
 | `agent-task-recipes-recipe-configure-a-serving-team-for-scheduling` | normal | live verification |
 | `agent-task-recipes-recipe-send-and-triage-volunteer-confirmations` | normal | live verification |
 | `agent-task-recipes-recipe-configure-an-rsvp-based-serving-invitation` | normal | live verification |
 | `agent-task-recipes-recipe-close-out-serving-attendance` | normal | live verification |
-| `agent-task-recipes-recipe-build-an-lms-based-volunteer-training-path` | community-supported | live verification |
+| `agent-task-recipes-recipe-build-an-lms-based-volunteer-training-path` | citation-only | live verification |
 | `agent-task-recipes-recipe-configure-an-attendance-digest` | normal | live verification |
-| `agent-task-recipes-recipe-secure-an-embedded-volunteer-dashboard` | community-supported | live verification |
+| `agent-task-recipes-recipe-secure-an-embedded-volunteer-dashboard` | citation-only | live verification |
 | `agent-task-recipes-recipe-pilot-outreach-toolbox-for-relationship-care-follow-up` | citation-only | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
-| `source-map-approved-answer-bearing-claims` | community-supported | community-supported |
 | `source-map-community-examples` | community-supported | community-supported |
+| `approved-claim-coverage` | citation-only | live verification |

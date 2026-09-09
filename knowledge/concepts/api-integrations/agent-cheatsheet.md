@@ -39,31 +39,36 @@ generated: true
 | --- | --- | --- |
 | `18.1` | core | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 |
 | `16.1` | core | Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694 |
+| `15.5` | core | Improved the Mailgun integration to use the API Key for tracking opens, etc. if the HTTP Webhook Signing Key is not defined, as well as logging a single exception to alert Rock admins of this missing key value. Fixes: #5780 |
+| `15.4` | core | Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694 |
+| `18.2` | core | Fixed an error that prevented the Workflows Action Launch API endpoint from functioning. Fixes: #6604 |
+| `17.5` | core | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to t |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | needs-citation | live verification |
 | `mental-model` | needs-citation | live verification |
 | `rest-api-api-v1` | normal | live verification |
 | `rest-api-api-v2` | normal | live verification |
-| `rest-api-partial-and-relationship-writes` | normal | live verification |
-| `lava-apis-and-webhooks` | citation-only | live verification |
+| `rest-api-partial-and-relationship-writes` | high | live verification |
+| `lava-apis-and-webhooks` | normal | live verification |
 | `lava-apis-and-webhooks-community-webhook-example` | community-supported | community-supported |
 | `helix-lava-endpoints` | normal | live verification |
 | `helix-lava-endpoints-rendering-and-caching` | normal | live verification |
 | `helix-lava-endpoints-public-ui-integration-boundary` | normal | live verification |
 | `provider-webhooks-and-operational-reporting` | normal | live verification |
 | `ai-mcp-and-custom-integration-tools` | citation-only | live verification |
-| `ai-mcp-and-custom-integration-tools-tool-contracts` | community-supported | live verification |
+| `ai-mcp-and-custom-integration-tools-tool-contracts` | normal | live verification |
 | `version-and-authority-caveats` | high | live verification |
 | `troubleshooting-decision-tree-the-api-request-is-rejected-with-an-authorization-error` | normal | live verification |
 | `troubleshooting-decision-tree-a-request-works-in-a-server-client-but-fails-in-a-browser` | normal | live verification |
 | `troubleshooting-decision-tree-a-v2-update-cleared-or-changed-fields-the-integration-did-not-own` | normal | live verification |
-| `troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records` | community-supported | live verification |
-| `troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned` | community-supported | live verification |
-| `troubleshooting-decision-tree-a-lava-webhook-is-reachable-more-broadly-than-expected` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records` | normal | live verification |
+| `troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned` | normal | live verification |
+| `troubleshooting-decision-tree-a-lava-webhook-is-reachable-more-broadly-than-expected` | normal | live verification |
 | `troubleshooting-decision-tree-a-helix-endpoint-behaves-differently-from-its-front-end` | normal | live verification |
 | `troubleshooting-decision-tree-provider-events-arrive-but-staff-cannot-interpret-delivery-health` | normal | live verification |
 | `troubleshooting-decision-tree-an-ai-tool-can-access-more-data-or-actions-than-expected` | citation-only | live verification |
@@ -72,9 +77,10 @@ generated: true
 | `agent-task-recipes-recipe-perform-a-bounded-api-v2-partial-update` | normal | live verification |
 | `agent-task-recipes-recipe-review-a-lava-webhook-before-production` | normal | live verification |
 | `agent-task-recipes-recipe-review-a-helix-application-flow` | normal | live verification |
-| `agent-task-recipes-recipe-build-a-provider-event-health-report` | community-supported | live verification |
+| `agent-task-recipes-recipe-build-a-provider-event-health-report` | citation-only | live verification |
 | `agent-task-recipes-recipe-approve-an-ai-or-mcp-tool-boundary` | citation-only | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
 | `source-map-official-documentation-and-release-evidence` | high | live verification |
 | `source-map-approved-claim-sources` | needs-citation | live verification |
 | `source-map-community-patterns-and-examples` | community-supported | community-supported |
+| `approved-claim-coverage` | normal | live verification |

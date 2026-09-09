@@ -43,9 +43,10 @@ The dashboard reads a verified stored result instead of rebuilding all history o
 
 ## Source Links
 
-- https://www.youtube.com/watch?v=c-wycR9HEuQ
 - https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/rocku/check-in/check-in-manager-1
-- https://www.youtube.com/watch?v=edanHiYSDIM
 - https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp
 - https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s
+- https://www.youtube.com/watch?v=edanHiYSDIM&t=386s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s

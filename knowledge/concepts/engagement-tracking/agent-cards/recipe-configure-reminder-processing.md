@@ -40,14 +40,14 @@ A context-valid reminder produces the intended communication or workflow at its 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders
 - https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types
 - https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
 - https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs
 - https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types
 - https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs
 - https://community.rockrms.com/ask/using/2824

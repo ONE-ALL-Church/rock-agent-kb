@@ -53,4 +53,4 @@ Slow processing completes asynchronously and only verified output reaches public
 ## Source Links
 
 - https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms

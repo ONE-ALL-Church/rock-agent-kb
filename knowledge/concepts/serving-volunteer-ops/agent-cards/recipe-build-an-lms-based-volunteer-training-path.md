@@ -51,11 +51,11 @@ A volunteer completes defined learning activities and reaches an explicitly revi
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp
 - https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance
-- https://community.rockrms.com/documentation/engagement/groups/group-attendance
 - https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance
 - https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email
-- https://community.rockrms.com/documentation/engagement/groups/group-rsvp
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp
 - https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox
 - https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications
 - https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications
+- https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox

@@ -29,12 +29,12 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-31: Agent Summary (normal)
-- `mental-model` lines 40-62: Mental Model (normal)
-- `core-syntax-and-engine` lines 63-80: Core Syntax And Engine (normal)
-- `core-syntax-and-engine-fluid-and-dotliquid` lines 81-99: Fluid and DotLiquid (normal)
-- `filters` lines 100-112: Filters (normal)
-- `filters-dates-and-time-zones` lines 119-124: Dates and time zones (normal)
+- `agent-summary` lines 34-47: Agent Summary (normal)
+- `mental-model` lines 56-78: Mental Model (normal)
+- `core-syntax-and-engine` lines 79-96: Core Syntax And Engine (normal)
+- `core-syntax-and-engine-fluid-and-dotliquid` lines 97-115: Fluid and DotLiquid (normal)
+- `filters` lines 116-128: Filters (normal)
+- `filters-text-and-output-encoding` lines 129-134: Text and output encoding (normal)
 
 ## Core Entities
 
@@ -52,6 +52,7 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 
 ## Version Caveats
 
+- `19.1`: Added a new Shortcode Scope Behavior property to the Lava Shortcode Entity. This setting allows Rock administrators to choose whether variables defined inside a shortcode should be isolated from or shared with the surrou
 
 ## Files For Agents
 

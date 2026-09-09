@@ -44,11 +44,12 @@ Confirm mobile check-in uses the intended configuration template, kiosk, areas, 
 ## Source Links
 
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration
-- https://community.rockrms.com/documentation/church-management/check-in/additional-check-in-options/use-proximity-attendance
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-overview
 - https://community.rockrms.com/rocku/check-in/using-mobile-check-in
+- https://community.rockrms.com/documentation/church-management/check-in/additional-check-in-options/use-proximity-attendance
 - https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian.Blocks/src/CheckIn/MobileCheckInLauncher/types.partial.ts
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/CustomSettingsBag.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/advanced-topics/proximity-attendance
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs

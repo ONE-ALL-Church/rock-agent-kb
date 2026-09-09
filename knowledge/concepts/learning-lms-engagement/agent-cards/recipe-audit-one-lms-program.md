@@ -48,14 +48,14 @@ Trace a program from source content through courses, classes, activities, comple
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example
-- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example
-- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program
-- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub
+- https://community.rockrms.com/documentation/bookcontent/43/354
 - https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security
 - https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems
-- https://community.rockrms.com/documentation/engagement/learning-management-system
 - https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub
 - https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
+- https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/rocku/lms/lms-academic-calendar

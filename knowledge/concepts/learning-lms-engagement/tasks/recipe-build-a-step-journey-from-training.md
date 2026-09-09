@@ -58,6 +58,6 @@ Connect training completion to an engagement journey only through explicit workf
 - https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub
 - https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs

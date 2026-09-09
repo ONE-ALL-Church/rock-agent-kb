@@ -1360,20 +1360,29 @@
   },
   "approved_media_hash": "9982b5968087f84fa562a9aafc6f5448a52eefe5134ed117e2ffdde4f1331dc7",
   "approved_media_path": "knowledge/concepts/communications/approved-media.md",
-  "built_at": "2026-09-03T16:51:09+00:00",
+  "built_at": "2026-09-09T23:39:55+00:00",
   "concept_id": "communications",
-  "guide_hash": "8a0d609064b092e35aaffd280d880a59032e0bec952d447a455b9bdfa43fdf86",
-  "guide_line_count": 571,
+  "guide_hash": "26d14774e2c1ea9d8b05bd7b5097e27b52417a0d4c444b900620a25040f40350",
+  "guide_line_count": 632,
   "guide_path": "knowledge/concepts/communications/guide.md",
-  "guide_word_count": 7672,
+  "guide_word_count": 8430,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
-      "content_hash": "f8e48f5bb250c2ab8328f2c15db6bf8d39687eff24597e12a955bfd2cd691668",
-      "excerpt_hash": "28dd42d43e302bf911fd528c2c23ebe1186811a71692920017a5f50c7d1abcef",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "ce7f2d74176d5aaa",
-      "source_record_id": "rock_documentation:article:1842",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/communications"
     },
     {
@@ -1395,49 +1404,13 @@
       "url": "https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema"
     },
     {
-      "authority": "official",
-      "content_hash": "462232a99feaeb88bb8d10c141ebb85076c486b41b93e05b412862c0d265f826",
-      "excerpt_hash": "c21ed7c5d3007178d92966b37d8453f2cf98a9b30afac74c1a98c9f4a4e31687",
-      "source_id": "rock_documentation",
-      "source_key": "a1e69804a411861b",
-      "source_record_id": "rock_documentation:article:1929",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
-    },
-    {
-      "authority": "official",
-      "content_hash": "9d4e2602298fdd1174fd629c5e08ebfec1355b1d17c32b418e5b3fb30189458d",
-      "excerpt_hash": "8bef207014b6fa84090e6a94aa3aecc3fc837002281e2908104a61775e188700",
-      "source_id": "rock_documentation",
-      "source_key": "a78c27c6812618ad",
-      "source_record_id": "rock_documentation:article:1970",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums"
-    },
-    {
-      "authority": "official",
-      "content_hash": "8aede42a8738125147ccff6c31a091f70f8457ba2fceca81aae510fd2d40a6d7",
-      "excerpt_hash": "d1f50932951d355136f8a4d491defae8f7cfa6fdc26ca63370b9f5c6ac419ede",
-      "source_id": "rock_documentation",
-      "source_key": "fd82b4fee1cd4391",
-      "source_record_id": "rock_documentation:article:1969",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-transports"
-    },
-    {
       "authority": "source-code",
-      "content_hash": "86627c2746a6c0c891c8effe1d383609b4caf72b16f343feaf2cc195ff5e7c73",
-      "excerpt_hash": "8c86b0d5d3e6189ca8f5e875848246a8a1418b80c4d639a3a0f15745ed9614c9",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "018203771be12eb7",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts"
-    },
-    {
-      "authority": "official",
-      "content_hash": "972444fff185441739fec798476686a5c0cc092af35bab76c54bfe006cf55fdc",
-      "excerpt_hash": "d4669f2c3140c3fcca6afa25688ee69b2162b82ffabe90c770c7c99c4f2c3d34",
-      "source_id": "rock_documentation",
-      "source_key": "0b0a4f5a0b0565b9",
-      "source_record_id": "rock_documentation:article:3620",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics"
     },
     {
       "authority": "unknown",
@@ -1449,112 +1422,13 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
     },
     {
-      "authority": "official",
-      "content_hash": "69e8bddd2747ec8abcc8f763f22b5b207d632dce22eee0e034746f1ff9395390",
-      "excerpt_hash": "344625cff75ae73423ef292e4549ae7154dcc05d8e0fd1e59edca1878758e26a",
-      "source_id": "rock_documentation",
-      "source_key": "ac20bdc1ee877c62",
-      "source_record_id": "rock_documentation:article:1932",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/configure-email"
-    },
-    {
-      "authority": "official",
-      "content_hash": "1ddde5e8f0193f302f918fa1e92e7eda4fe683463b9959f999867e6ff7019ea6",
-      "excerpt_hash": "8f7ea7d7e4bd9ac3086a9228a51d66404d5b6bda0787330139bd228b3d186a33",
-      "source_id": "rock_documentation",
-      "source_key": "a5edec98726e00dc",
-      "source_record_id": "rock_documentation:article:1961",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-preferences/configure-communication-list-subscriptions"
-    },
-    {
-      "authority": "official",
-      "content_hash": "77b02c073e5b3f75c7accd86c002acddc8578bd2e8286905dfe53b554ed6fb39",
-      "excerpt_hash": "99ba3f385edc3cad14e343fc3d761cdd901a649b3ba6fd2bc54022d3c7be80cf",
-      "source_id": "rock_documentation",
-      "source_key": "db7003777a06ac0e",
-      "source_record_id": "rock_documentation:article:1930",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates"
-    },
-    {
-      "authority": "official",
-      "content_hash": "38360df9ae309c93288a37258c1d6995643804f451c0a32fffbb87ba7423653e",
-      "excerpt_hash": "74bc6fe76ddcaa520d1f22d9090a2a3beb20240a048ec7668dd762f18f02bad6",
-      "source_id": "rock_documentation",
-      "source_key": "839a91fa94455ad8",
-      "source_record_id": "rock_documentation:article:1954",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-wizard"
-    },
-    {
-      "authority": "official",
-      "content_hash": "c9f33a63582ad8c5380bc3c7efb1984bb0c5a892554cfd98e3a72b2ebb6822bb",
-      "excerpt_hash": "e12e7fc6332e417719d386547087ac47355f405ac8779e97aed717899ef779ec",
-      "source_id": "rock_documentation",
-      "source_key": "48ec2eab56eda040",
-      "source_record_id": "rock_documentation:article:1931",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/system-communications"
-    },
-    {
-      "authority": "official",
-      "content_hash": "13318e5d6bd563f38f21bde722666a81cf384b2b5c2c2b6bd7c02a44d4c2fbcf",
-      "excerpt_hash": "941667547691c69420731d65fa7a94c9c9ee0b86f8b72b43843b88f2ec7afdbb",
-      "source_id": "rock_documentation",
-      "source_key": "413c033455ba486f",
-      "source_record_id": "rock_documentation:article:3531",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/intro-to-email"
-    },
-    {
-      "authority": "official",
-      "content_hash": "ff17552f57f45cca8163e2ce38d40b18e9cc2e1ffabd1ff5034899cfac14332f",
-      "excerpt_hash": "bf22a298c8c783966abab257fac0c5d9f300330eac5f73ff1781b3006b72fae5",
-      "source_id": "rock_documentation",
-      "source_key": "65b7016024901324",
-      "source_record_id": "rock_documentation:article:1933",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/email-integrations"
-    },
-    {
-      "authority": "community-reference",
-      "content_hash": "a202483cd01a31e7cf6ed965b725981a7b547f32232802b0a1e2dc0bda54c7c0",
-      "excerpt_hash": "7e22c3e2e72c6ce0fd7b45da003d617decdf85467be9bf1686a34c2a59a4cb48",
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "65a454a45e1b631f",
-      "source_record_id": "media-insight:e57ad3db15510f24",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-    },
-    {
-      "authority": "official",
-      "content_hash": "0e30ea8da27fd68acd09f0370932021d3f0b1b7099fddb9ba6efe835bf66986d",
-      "excerpt_hash": "4fb96cb843b2c00ee414d7f96746013134713e217111e2e3f1a98d3fe6728b43",
-      "source_id": "rock_documentation",
-      "source_key": "3a718115577b535b",
-      "source_record_id": "rock_documentation:article:1935",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms"
-    },
-    {
-      "authority": "official",
-      "content_hash": "ef9bcbaf3155886f4f2891216a6be48ec7275f45dc8dd0042fb3f62c5f07d24b",
-      "excerpt_hash": "aa50da810ac11d7962da13386496317a99013c1c0623e5500fed914d8b5f4f5a",
-      "source_id": "rock_documentation",
-      "source_key": "97917ef80b95c203",
-      "source_record_id": "rock_documentation:article:3632",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/intro-to-sms"
-    },
-    {
-      "authority": "official",
-      "content_hash": "5d5cad255696575a0ad9200e43c1f7c3dac8047fb48ebd3dc9cacc6be10b22ce",
-      "excerpt_hash": "d41d7e5a7f3e41dc68f749147c08a3f3bb640ab2b865eefaff7237206e48b17c",
-      "source_id": "rock_documentation",
-      "source_key": "91738afccea1f25b",
-      "source_record_id": "rock_documentation:article:1975",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/sms-conversations"
-    },
-    {
-      "authority": "official",
-      "content_hash": "b96d12a2ebd61869d1c975b1e757787d0e7a166394e51b43dd862247cffebbee",
-      "excerpt_hash": "e17490e88f8a58400758da024ed091a2ec743df826eb3344bfe2bb8ad80467ba",
-      "source_id": "rock_documentation",
-      "source_key": "29ccb8f2887a475f",
-      "source_record_id": "rock_documentation:article:1976",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline"
     },
     {
       "authority": "unknown",
@@ -1567,30 +1441,12 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "b5d88e4f1f012725a1c7a740a4e37a228aee5430a723af164fdd2ca12c00acd2",
-      "excerpt_hash": "fce1f7c2e9e0614747211abe54c85da0423fd71c0bafcec856f8b8dbd5ba7874",
+      "content_hash": "13801f0fab1bc2ce15da11cac092a609189e0ba76346e6d4c894b40ebed45c35",
+      "excerpt_hash": "f75e397bc7c1108600f75caa3c7f4a553c541c13b8a7f91f882a9e549ab2e51a",
       "source_id": "rock_recipes",
       "source_key": "356a951e99f60415",
       "source_record_id": "rock_recipes:356a951e99f60415",
       "url": "https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol"
-    },
-    {
-      "authority": "official",
-      "content_hash": "0d842807c71cdd57f46db95fcc6b9e3785abdca7dc90626adcaac9c34bc08b11",
-      "excerpt_hash": "9a335cbbf5bcc210dbaf6af07e9ba25d6dd43e01fcf61ccbe3ec26ff854cd927",
-      "source_id": "rock_documentation",
-      "source_key": "707d19a7845c84e1",
-      "source_record_id": "rock_documentation:article:3534",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/intro-to-sending"
-    },
-    {
-      "authority": "official",
-      "content_hash": "cb595a1a2eeb9901a9a229edcba86d988804d8b4b30363ed6cfc7de04c9f7ce1",
-      "excerpt_hash": "4deafcd819c33293e6a1d8b974b3f85ea21b64c6ff3eaafa48b2b3b54d669d8c",
-      "source_id": "rock_documentation",
-      "source_key": "25e0ee03525aba03",
-      "source_record_id": "rock_documentation:article:1955",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor"
     },
     {
       "authority": "unknown",
@@ -1600,51 +1456,6 @@
       "source_key": "851edc722fdd36be",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s"
-    },
-    {
-      "authority": "official",
-      "content_hash": "924104bad4ec973ef35e008936df28334d0717ca2c5967fcf2a04aa88844d72d",
-      "excerpt_hash": "102c35e372c672b791be1db5aac60cde64d67a0a53619c32d451351efbd37995",
-      "source_id": "rock_documentation",
-      "source_key": "0ba5780d3757edaf",
-      "source_record_id": "rock_documentation:article:1934",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/advanced-email"
-    },
-    {
-      "authority": "official",
-      "content_hash": "f1d412b9e701a9b152c6f699d1615a8a61733ac8256f857f913ed115fcaeedb1",
-      "excerpt_hash": "e1ccb25daed0a46515d301adaeb81a81689aa78ff73ecb15eb31df0f66feb1ed",
-      "source_id": "rock_documentation",
-      "source_key": "648df0ec2f09496b",
-      "source_record_id": "rock_documentation:article:1960",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences"
-    },
-    {
-      "authority": "official",
-      "content_hash": "23b62458f798637e0d1ec1b6465aac0b5f96bf31c674bb82dfc017b0215463e5",
-      "excerpt_hash": "36650bb746b5c7d1c343be217d45972a6841d88e17866a77c2b9fc77fdc45f10",
-      "source_id": "rock_documentation",
-      "source_key": "4730bb2b1cf38376",
-      "source_record_id": "rock_documentation:article:2659",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report"
-    },
-    {
-      "authority": "official",
-      "content_hash": "e5deb1340c3435ff50d102e9be73a7625a77577ee70fda7dd4d08479b5b92733",
-      "excerpt_hash": "7357fb9b10c4f1d4cec57d8369b02c92d423e060c57481e0357fda4079a8117a",
-      "source_id": "rock_documentation",
-      "source_key": "f91d43ad1e370f9d",
-      "source_record_id": "rock_documentation:article:1959",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-preferences/intro-to-communication-preferences"
-    },
-    {
-      "authority": "official",
-      "content_hash": "bff02a01ab255ab1752f4142fcfc73d2f29274e0702d9c4ca689fcbd09bee531",
-      "excerpt_hash": "34f9438cf93fec3cc301c679d80c718e6cb8b91d650204b75119bf282bf95ce7",
-      "source_id": "rock_documentation",
-      "source_key": "d6ef764cdb05a062",
-      "source_record_id": "rock_documentation:article:3533",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows"
     },
     {
       "authority": "unknown",
@@ -1683,24 +1494,6 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
     },
     {
-      "authority": "official",
-      "content_hash": "4d332dd47b613c8dd4612d9ab0c02f09a61143a7f98da1a12f0059312ee36832",
-      "excerpt_hash": "98a3de55a88e5e1a5370f2cf8acf942a27af3780769d204278adf0d6457cb372",
-      "source_id": "rock_documentation",
-      "source_key": "8163203e7690a72c",
-      "source_record_id": "rock_documentation:article:1968",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics"
-    },
-    {
-      "authority": "official",
-      "content_hash": "4ecaaa3314b783556f7bfcc3d5043526f51c28062a97b9e80cd35b58a3036b88",
-      "excerpt_hash": "c6d0278a9a270b8ef63e4b91a9c45424742838dd0dd547bd531d7b98518a624a",
-      "source_id": "rock_documentation",
-      "source_key": "e4581a4d84c9bb6a",
-      "source_record_id": "rock_documentation:article:1967",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report"
-    },
-    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -1710,27 +1503,27 @@
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s"
     },
     {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "02f59e87ae964075",
-      "source_record_id": "org_contribution:oneall:communication-history-active-search",
+      "source_id": "citation",
+      "source_key": "21ebe109b158f0f4",
+      "source_record_id": "",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search"
     },
     {
       "authority": "source-code",
-      "content_hash": "167ccaee3c63d45b13475ae4dce2b28d15a047c55734e2a274c568c5ed15b932",
-      "excerpt_hash": "fa97d638b124284589635b6f27a23129481978ae90f0fbfa6ac296b4f0d78b64",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "4010ea2f610ace8e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 17.0/Version 17.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs"
     },
     {
       "authority": "official-release",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "f96e4eed3d6c70a88304960546297ddc22a9a586ac85c79797e5d316eaf1fff9",
+      "content_hash": "438e916bf6a3958b6267c15e8fe5199a7259179c7bc80d7d263a70b70d6c679d",
+      "excerpt_hash": "113b08a90e9866d3d6a978aaabd82846e2ec63c4c0c60ccb6e564b134a731ae1",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:0208fa08a1f79b3f",
@@ -1738,55 +1531,120 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "dbe35a8f1f8a2a54700b7380c12b1037ae2bcf9c9a97330d39df6ad3a91a14a8",
-      "excerpt_hash": "5616a497290fdfea91dd76602dc4859357eef26d03962e3facbe7e37e0bb1bf4",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "b9af08d183cbe015",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs"
     },
     {
       "authority": "official-training",
-      "content_hash": "05ee2d4ce3f32d2ab23b6d40f7be5bd8ffb50f40d692afad71b51a9127ae1eab",
-      "excerpt_hash": "5752969687dc3ea25971884697dcec10eb4500a27334ca27b8619469f1f4da60",
+      "content_hash": "f8c4df71844df15a774a603a2e70449f5978d65e8b7acc3a854c514904532e25",
+      "excerpt_hash": "1477471a58f93ae2ab30fc9ebfaf8866ac52a7c7462eef64aafab1409c62f491",
       "source_id": "rock_rocku",
       "source_key": "e3486222166dce6c",
-      "source_record_id": "media-insight:d1aacd14e5660e87",
+      "source_record_id": "rock_rocku:e3486222166dce6c",
       "url": "https://community.rockrms.com/rocku/communication/communication-analytics-legacy"
     },
     {
-      "authority": "org-contribution",
+      "authority": "source-code",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "00f9b7db3765b925",
-      "source_record_id": "org_contribution:oneall:controlled-retest-completed-workflow-action",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "0d201d0993749de1",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/Workflow/Workflow.Logic.cs"
     },
     {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "fe63cd4826aecb55",
-      "source_record_id": "org_contribution:oneall:workflow-backed-sms-verification",
+      "source_id": "citation",
+      "source_key": "c966f5bab8f6fef1",
+      "source_record_id": "",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification"
     },
     {
       "authority": "source-code",
-      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
-      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "cc15d3b2571f5a59",
+      "source_record_id": "",
+      "url": "https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "830014e594705a0e6797e65f83af0a8d29924fcaebe6a5d5704ee4de18e91356",
+      "excerpt_hash": "f44d0879ca42dde029eb7c1bf04293409aaaac6a1aee9631c2dcf3e3d2f8a35d",
+      "source_id": "rock_rocku",
+      "source_key": "45949ea6dc3ecec5",
+      "source_record_id": "rock_rocku:45949ea6dc3ecec5",
+      "url": "https://community.rockrms.com/rocku/communication/communication-analytics"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "6eca77918cb791507a7b9b07d9c3666e57a2171bc8499bdffa202a66dcaea69b",
+      "excerpt_hash": "c58cc15e0f4f8b32504c189e8eee062f94c9903b1174d412d842301bc48a797f",
+      "source_id": "rock_rocku",
+      "source_key": "fd5dbe483569ab7d",
+      "source_record_id": "rock_rocku:fd5dbe483569ab7d",
+      "url": "https://community.rockrms.com/rocku/communication/communication-flows"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "b441c6db53f10dc79d4d21a4b8392797a90f5d4a907b4c450c5f97ba90225320",
+      "excerpt_hash": "cb65e77c56583afbf7afaf8ee313c70dd1e588e1927e6b8c7c76354ff0837eb6",
+      "source_id": "rock_rocku",
+      "source_key": "e761bf8b30ae286a",
+      "source_record_id": "rock_rocku:e761bf8b30ae286a",
+      "url": "https://community.rockrms.com/rocku/communication/communication-lists--segments"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "c1be3c4485df97339413d86757a264c16a83b3de9a16f86caaf3bf09fae87242",
+      "excerpt_hash": "2a415e3c96437a939d3bdb8dcc9d9c31c146a03b1f3c2fb81c0572fc30d08ea9",
+      "source_id": "rock_rocku",
+      "source_key": "5bf423cb0dd4a42f",
+      "source_record_id": "rock_rocku:5bf423cb0dd4a42f",
+      "url": "https://community.rockrms.com/rocku/communication/communication-overview"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "82bfe8a83e0758d00863c5179024731e8afb29cc7a0875569031ca491a0a97e0",
+      "excerpt_hash": "8a73b02982049fdf9e6414ffe5c09338dabdaaafaa711e0c566a30de41a6deec",
+      "source_id": "rock_rocku",
+      "source_key": "5cd3edaa4b2d8260",
+      "source_record_id": "rock_rocku:5cd3edaa4b2d8260",
+      "url": "https://community.rockrms.com/rocku/communication/communication-preferences"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "3f4ae9875c19b1472391fb402c73f71d163329bb673662593f5da46cd5be3243",
+      "excerpt_hash": "735528694c3d803be6466abf39142b80877f327e41b0c0670765564178c2bab2",
+      "source_id": "rock_rocku",
+      "source_key": "b51eff0edfc6f759",
+      "source_record_id": "rock_rocku:b51eff0edfc6f759",
+      "url": "https://community.rockrms.com/rocku/communication/communication-saturation-report"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 34,
+      "end_line": 50,
       "heading": "Agent Summary",
       "needs_live_verification": true,
       "section_id": "agent-summary",
@@ -1795,205 +1653,205 @@
         "5a4ab5d0faf80c15",
         "3b673be37d4ab1ec"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "normal",
-      "end_line": 54,
+      "end_line": 70,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "ce7f2d74176d5aaa"
       ],
-      "start_line": 35
+      "start_line": 51
     },
     {
       "confidence": "high",
-      "end_line": 66,
+      "end_line": 82,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
       "source_keys": [
-        "a1e69804a411861b",
-        "a78c27c6812618ad",
-        "fd82b4fee1cd4391",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
         "018203771be12eb7",
-        "0b0a4f5a0b0565b9",
+        "ce7f2d74176d5aaa",
         "2cf11aac4d7e5e09",
         "2cf11aac4d7e5e09"
       ],
-      "start_line": 55
+      "start_line": 71
     },
     {
       "confidence": "normal",
-      "end_line": 83,
+      "end_line": 99,
       "heading": "Communication Foundations",
       "needs_live_verification": true,
       "section_id": "communication-foundations",
       "source_keys": [
-        "fd82b4fee1cd4391",
-        "a78c27c6812618ad",
-        "ac20bdc1ee877c62"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 67
+      "start_line": 83
     },
     {
       "confidence": "normal",
-      "end_line": 93,
+      "end_line": 109,
       "heading": "Audiences, Communication Lists And Segments",
       "needs_live_verification": true,
       "section_id": "audiences-communication-lists-and-segments",
       "source_keys": [
-        "a1e69804a411861b",
-        "a1e69804a411861b",
-        "a5edec98726e00dc",
-        "a1e69804a411861b",
-        "a1e69804a411861b"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 84
+      "start_line": 100
     },
     {
       "confidence": "normal",
-      "end_line": 103,
+      "end_line": 119,
       "heading": "Templates And System Communications",
       "needs_live_verification": true,
       "section_id": "templates-and-system-communications",
       "source_keys": [
-        "db7003777a06ac0e",
-        "839a91fa94455ad8",
-        "db7003777a06ac0e",
-        "48ec2eab56eda040"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 94
+      "start_line": 110
     },
     {
       "confidence": "normal",
-      "end_line": 124,
+      "end_line": 140,
       "heading": "Email",
       "needs_live_verification": true,
       "section_id": "email",
       "source_keys": [
-        "413c033455ba486f",
-        "ac20bdc1ee877c62",
-        "65b7016024901324",
-        "a78c27c6812618ad",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
         "65a454a45e1b631f"
       ],
-      "start_line": 104
-    },
-    {
-      "confidence": "normal",
-      "end_line": 132,
-      "heading": "SMS",
-      "needs_live_verification": true,
-      "section_id": "sms",
-      "source_keys": [
-        "3a718115577b535b",
-        "97917ef80b95c203",
-        "3a718115577b535b",
-        "0b0a4f5a0b0565b9"
-      ],
-      "start_line": 125
-    },
-    {
-      "confidence": "normal",
-      "end_line": 138,
-      "heading": "SMS Conversations",
-      "needs_live_verification": true,
-      "section_id": "sms-sms-conversations",
-      "source_keys": [
-        "91738afccea1f25b",
-        "91738afccea1f25b"
-      ],
-      "start_line": 133
+      "start_line": 120
     },
     {
       "confidence": "normal",
       "end_line": 148,
-      "heading": "SMS Pipeline",
+      "heading": "SMS",
       "needs_live_verification": true,
-      "section_id": "sms-sms-pipeline",
+      "section_id": "sms",
       "source_keys": [
-        "29ccb8f2887a475f",
-        "29ccb8f2887a475f",
-        "238bec09183ae488",
-        "3a718115577b535b",
-        "29ccb8f2887a475f",
-        "356a951e99f60415"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 139
+      "start_line": 141
     },
     {
       "confidence": "normal",
-      "end_line": 175,
-      "heading": "Sending, Classification And Approval",
+      "end_line": 154,
+      "heading": "SMS Conversations",
       "needs_live_verification": true,
-      "section_id": "sending-classification-and-approval",
+      "section_id": "sms-sms-conversations",
       "source_keys": [
-        "707d19a7845c84e1",
-        "839a91fa94455ad8",
-        "25e0ee03525aba03",
-        "851edc722fdd36be",
-        "25e0ee03525aba03",
-        "25e0ee03525aba03",
-        "0ba5780d3757edaf"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
       "start_line": 149
     },
     {
       "confidence": "normal",
-      "end_line": 187,
+      "end_line": 164,
+      "heading": "SMS Pipeline",
+      "needs_live_verification": true,
+      "section_id": "sms-sms-pipeline",
+      "source_keys": [
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "238bec09183ae488",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "356a951e99f60415"
+      ],
+      "start_line": 155
+    },
+    {
+      "confidence": "normal",
+      "end_line": 191,
+      "heading": "Sending, Classification And Approval",
+      "needs_live_verification": true,
+      "section_id": "sending-classification-and-approval",
+      "source_keys": [
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "851edc722fdd36be",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
+      ],
+      "start_line": 165
+    },
+    {
+      "confidence": "normal",
+      "end_line": 203,
       "heading": "Preferences, Consent And Sender Reputation",
       "needs_live_verification": true,
       "section_id": "preferences-consent-and-sender-reputation",
       "source_keys": [
-        "648df0ec2f09496b",
-        "648df0ec2f09496b",
-        "4730bb2b1cf38376",
-        "a5edec98726e00dc",
-        "f91d43ad1e370f9d",
-        "0ba5780d3757edaf"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 176
+      "start_line": 192
     },
     {
       "confidence": "normal",
-      "end_line": 202,
+      "end_line": 218,
       "heading": "Communication Flows And Automation Boundaries",
       "needs_live_verification": true,
       "section_id": "communication-flows-and-automation-boundaries",
       "source_keys": [
-        "d6ef764cdb05a062",
-        "d6ef764cdb05a062",
-        "d6ef764cdb05a062",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
         "3c1653073afe6b82",
         "9c799b7c551bfed4",
         "51ccdb97f1d4942b",
         "892f43823742ae10"
       ],
-      "start_line": 188
+      "start_line": 204
     },
     {
       "confidence": "normal",
-      "end_line": 216,
+      "end_line": 232,
       "heading": "History, Analytics And Deliverability Reporting",
       "needs_live_verification": false,
       "section_id": "history-analytics-and-deliverability-reporting",
       "source_keys": [
-        "0b0a4f5a0b0565b9",
-        "0b0a4f5a0b0565b9",
-        "8163203e7690a72c",
-        "e4581a4d84c9bb6a",
-        "4730bb2b1cf38376",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
         "6dab0627c35106f3",
-        "02f59e87ae964075"
+        "21ebe109b158f0f4"
       ],
-      "start_line": 203
+      "start_line": 219
     },
     {
       "confidence": "normal",
-      "end_line": 233,
+      "end_line": 249,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
       "section_id": "version-and-authority-caveats",
@@ -2006,339 +1864,350 @@
         "b9af08d183cbe015",
         "e3486222166dce6c"
       ],
-      "start_line": 217
+      "start_line": 233
     },
     {
       "confidence": "structural",
-      "end_line": 235,
+      "end_line": 251,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
       "source_keys": [
-        "a1e69804a411861b",
-        "25e0ee03525aba03",
-        "0b0a4f5a0b0565b9",
-        "8163203e7690a72c",
-        "65b7016024901324",
-        "ac20bdc1ee877c62",
-        "a78c27c6812618ad",
-        "db7003777a06ac0e",
+        "ce7f2d74176d5aaa",
         "776256c424368312",
-        "0ba5780d3757edaf",
-        "3a718115577b535b",
-        "29ccb8f2887a475f",
-        "356a951e99f60415",
-        "4730bb2b1cf38376",
-        "e4581a4d84c9bb6a"
+        "356a951e99f60415"
       ],
-      "start_line": 234
+      "start_line": 250
     },
     {
       "confidence": "normal",
-      "end_line": 247,
+      "end_line": 263,
       "heading": "Intended recipients are missing or shown as ineligible",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-intended-recipients-are-missing-or-shown-as-ineligible",
       "source_keys": [
-        "a1e69804a411861b",
-        "25e0ee03525aba03"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 236
+      "start_line": 252
     },
     {
       "confidence": "normal",
-      "end_line": 258,
+      "end_line": 274,
       "heading": "Email appears sent but delivery or analytics are missing",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-email-appears-sent-but-delivery-or-analytics-are-missing",
       "source_keys": [
-        "0b0a4f5a0b0565b9",
-        "8163203e7690a72c"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 248
+      "start_line": 264
     },
     {
       "confidence": "normal",
-      "end_line": 267,
+      "end_line": 283,
       "heading": "Email shows an unexpected sender or “on behalf of” label",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-email-shows-an-unexpected-sender-or-on-behalf-of-label",
       "source_keys": [
-        "65b7016024901324",
-        "ac20bdc1ee877c62"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 259
+      "start_line": 275
     },
     {
       "confidence": "normal",
-      "end_line": 276,
+      "end_line": 292,
       "heading": "Two unsubscribe options appear in an email",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-two-unsubscribe-options-appear-in-an-email",
       "source_keys": [
-        "a78c27c6812618ad"
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 268
+      "start_line": 284
     },
     {
       "confidence": "high",
-      "end_line": 285,
+      "end_line": 301,
       "heading": "A template is missing or cannot be saved",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-template-is-missing-or-cannot-be-saved",
       "source_keys": [
-        "db7003777a06ac0e",
+        "ce7f2d74176d5aaa",
         "776256c424368312"
       ],
-      "start_line": 277
+      "start_line": 293
     },
     {
       "confidence": "high",
-      "end_line": 295,
+      "end_line": 311,
       "heading": "A communication remains pending approval",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-communication-remains-pending-approval",
       "source_keys": [
-        "0ba5780d3757edaf",
+        "ce7f2d74176d5aaa",
         "776256c424368312"
       ],
-      "start_line": 286
+      "start_line": 302
     },
     {
       "confidence": "normal",
-      "end_line": 306,
+      "end_line": 322,
       "heading": "Incoming SMS does not reach the expected conversation or workflow",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-incoming-sms-does-not-reach-the-expected-conversation-or-workflow",
       "source_keys": [
-        "3a718115577b535b",
-        "29ccb8f2887a475f"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 296
+      "start_line": 312
     },
     {
       "confidence": "normal",
-      "end_line": 315,
+      "end_line": 331,
       "heading": "An automated SMS reply is absent from history",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-automated-sms-reply-is-absent-from-history",
       "source_keys": [
-        "29ccb8f2887a475f"
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 307
+      "start_line": 323
     },
     {
       "confidence": "normal",
-      "end_line": 325,
+      "end_line": 341,
       "heading": "SMS segments, cost or delivery differ from expectations",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-sms-segments-cost-or-delivery-differ-from-expectations",
       "source_keys": [
-        "3a718115577b535b",
+        "ce7f2d74176d5aaa",
         "356a951e99f60415"
       ],
-      "start_line": 316
+      "start_line": 332
     },
     {
       "confidence": "normal",
-      "end_line": 336,
+      "end_line": 352,
       "heading": "An unsubscribe appears unexpected",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-unsubscribe-appears-unexpected",
       "source_keys": [
-        "4730bb2b1cf38376",
-        "e4581a4d84c9bb6a"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 326
+      "start_line": 342
     },
     {
       "confidence": "structural",
-      "end_line": 338,
+      "end_line": 354,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
       "source_keys": [
-        "25e0ee03525aba03",
-        "0b0a4f5a0b0565b9",
-        "a1e69804a411861b",
-        "648df0ec2f09496b",
-        "ac20bdc1ee877c62",
-        "8163203e7690a72c",
-        "29ccb8f2887a475f",
-        "3a718115577b535b",
-        "d6ef764cdb05a062",
-        "4730bb2b1cf38376",
-        "e4581a4d84c9bb6a",
-        "00f9b7db3765b925",
+        "ce7f2d74176d5aaa",
+        "0d201d0993749de1",
         "51ccdb97f1d4942b"
       ],
-      "start_line": 337
+      "start_line": 353
     },
     {
       "confidence": "normal",
-      "end_line": 376,
+      "end_line": 392,
       "heading": "Recipe: Preflight a broad email communication",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-preflight-a-broad-email-communication",
       "source_keys": [
-        "25e0ee03525aba03",
-        "0b0a4f5a0b0565b9"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 339
+      "start_line": 355
     },
     {
       "confidence": "normal",
-      "end_line": 398,
+      "end_line": 414,
       "heading": "Recipe: Diagnose one missing recipient",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-diagnose-one-missing-recipient",
       "source_keys": [
-        "a1e69804a411861b",
-        "648df0ec2f09496b"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 377
+      "start_line": 393
     },
     {
       "confidence": "normal",
-      "end_line": 416,
+      "end_line": 432,
       "heading": "Recipe: Validate an email transport and its event loop",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-an-email-transport-and-its-event-loop",
       "source_keys": [
-        "ac20bdc1ee877c62",
-        "8163203e7690a72c"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 399
+      "start_line": 415
     },
     {
       "confidence": "normal",
-      "end_line": 435,
+      "end_line": 451,
       "heading": "Recipe: Validate inbound SMS routing",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-inbound-sms-routing",
       "source_keys": [
-        "29ccb8f2887a475f",
-        "3a718115577b535b"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 417
+      "start_line": 433
     },
     {
       "confidence": "normal",
-      "end_line": 456,
+      "end_line": 472,
       "heading": "Recipe: Create a communication flow without over-messaging",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-create-a-communication-flow-without-over-messaging",
       "source_keys": [
-        "d6ef764cdb05a062"
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 436
+      "start_line": 452
     },
     {
       "confidence": "normal",
-      "end_line": 474,
+      "end_line": 490,
       "heading": "Recipe: Investigate rising unsubscribes or saturation",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-investigate-rising-unsubscribes-or-saturation",
       "source_keys": [
-        "4730bb2b1cf38376",
-        "e4581a4d84c9bb6a"
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa"
       ],
-      "start_line": 457
+      "start_line": 473
     },
     {
-      "confidence": "community-supported",
-      "end_line": 498,
+      "confidence": "normal",
+      "end_line": 514,
       "heading": "Recipe: Retest a workflow-backed communication safely",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-retest-a-workflow-backed-communication-safely",
       "source_keys": [
-        "00f9b7db3765b925"
+        "0d201d0993749de1"
       ],
-      "start_line": 475
+      "start_line": 491
     },
     {
       "confidence": "citation-only",
-      "end_line": 513,
+      "end_line": 529,
       "heading": "Recipe: Bound an agent that can draft communications",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-bound-an-agent-that-can-draft-communications",
       "source_keys": [
         "51ccdb97f1d4942b"
       ],
-      "start_line": 499
+      "start_line": 515
     },
     {
-      "confidence": "community-supported",
-      "end_line": 540,
+      "confidence": "citation-only",
+      "end_line": 556,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "fe63cd4826aecb55"
+        "c966f5bab8f6fef1"
       ],
-      "start_line": 514
+      "start_line": 530
     },
     {
       "confidence": "high",
-      "end_line": 571,
+      "end_line": 589,
       "heading": "Source Map",
       "needs_live_verification": true,
       "section_id": "source-map",
       "source_keys": [
         "ce7f2d74176d5aaa",
-        "a1e69804a411861b",
-        "db7003777a06ac0e",
-        "48ec2eab56eda040",
-        "fd82b4fee1cd4391",
-        "a78c27c6812618ad",
-        "ac20bdc1ee877c62",
-        "65b7016024901324",
-        "0ba5780d3757edaf",
-        "3a718115577b535b",
-        "91738afccea1f25b",
-        "29ccb8f2887a475f",
-        "839a91fa94455ad8",
-        "25e0ee03525aba03",
-        "d6ef764cdb05a062",
-        "648df0ec2f09496b",
-        "a5edec98726e00dc",
-        "0b0a4f5a0b0565b9",
-        "8163203e7690a72c",
-        "e4581a4d84c9bb6a",
-        "4730bb2b1cf38376",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
+        "ce7f2d74176d5aaa",
         "776256c424368312",
         "238bec09183ae488",
-        "d275b5b94a9da833",
+        "cc15d3b2571f5a59",
         "3b673be37d4ab1ec",
         "356a951e99f60415",
-        "fe63cd4826aecb55"
+        "c966f5bab8f6fef1"
       ],
-      "start_line": 541
+      "start_line": 557
+    },
+    {
+      "confidence": "normal",
+      "end_line": 612,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "ce7f2d74176d5aaa",
+        "238bec09183ae488",
+        "3c1653073afe6b82",
+        "238bec09183ae488",
+        "51ccdb97f1d4942b",
+        "238bec09183ae488",
+        "238bec09183ae488",
+        "892f43823742ae10",
+        "3b673be37d4ab1ec"
+      ],
+      "start_line": 590
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 632,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "45949ea6dc3ecec5",
+        "fd5dbe483569ab7d",
+        "e761bf8b30ae286a",
+        "5bf423cb0dd4a42f",
+        "5cd3edaa4b2d8260",
+        "b51eff0edfc6f759"
+      ],
+      "start_line": 613
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T14:39:58+00:00",
+  "source_pack_hydrated_at": "2026-06-02T19:23:39+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "f8e48f5bb250c2ab8328f2c15db6bf8d39687eff24597e12a955bfd2cd691668",
-      "excerpt_hash": "28dd42d43e302bf911fd528c2c23ebe1186811a71692920017a5f50c7d1abcef",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "ce7f2d74176d5aaa",
-      "source_record_id": "rock_documentation:article:1842",
-      "title": "Communications",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/communications",
+      "url": "https://community.rockrms.com/documentation/engagement/communications"
     },
     {
       "authority": "unknown",
@@ -2361,113 +2230,14 @@
       "url": "https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "462232a99feaeb88bb8d10c141ebb85076c486b41b93e05b412862c0d265f826",
-      "excerpt_hash": "c21ed7c5d3007178d92966b37d8453f2cf98a9b30afac74c1a98c9f4a4e31687",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "a1e69804a411861b",
-      "source_record_id": "rock_documentation:article:1929",
-      "title": "Communication Lists",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "9d4e2602298fdd1174fd629c5e08ebfec1355b1d17c32b418e5b3fb30189458d",
-      "excerpt_hash": "8bef207014b6fa84090e6a94aa3aecc3fc837002281e2908104a61775e188700",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "a78c27c6812618ad",
-      "source_record_id": "rock_documentation:article:1970",
-      "title": "Communication Mediums",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "8aede42a8738125147ccff6c31a091f70f8457ba2fceca81aae510fd2d40a6d7",
-      "excerpt_hash": "d1f50932951d355136f8a4d491defae8f7cfa6fdc26ca63370b9f5c6ac419ede",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "fd82b4fee1cd4391",
-      "source_record_id": "rock_documentation:article:1969",
-      "title": "Communication Transports",
-      "topics": [
-        "admin",
-        "api",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-transports",
-      "version": null
-    },
-    {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "86627c2746a6c0c891c8effe1d383609b4caf72b16f343feaf2cc195ff5e7c73",
-      "excerpt_hash": "8c86b0d5d3e6189ca8f5e875848246a8a1418b80c4d639a3a0f15745ed9614c9",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "communication",
-        "recipient"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "018203771be12eb7",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "972444fff185441739fec798476686a5c0cc092af35bab76c54bfe006cf55fdc",
-      "excerpt_hash": "d4669f2c3140c3fcca6afa25688ee69b2162b82ffabe90c770c7c99c4f2c3d34",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "0b0a4f5a0b0565b9",
-      "source_record_id": "rock_documentation:article:3620",
-      "title": "Communication History & Analytics",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics",
-      "version": null
     },
     {
       "authority": "unknown",
@@ -2480,274 +2250,14 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "69e8bddd2747ec8abcc8f763f22b5b207d632dce22eee0e034746f1ff9395390",
-      "excerpt_hash": "344625cff75ae73423ef292e4549ae7154dcc05d8e0fd1e59edca1878758e26a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "ac20bdc1ee877c62",
-      "source_record_id": "rock_documentation:article:1932",
-      "title": "Configure Email",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/configure-email",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "1ddde5e8f0193f302f918fa1e92e7eda4fe683463b9959f999867e6ff7019ea6",
-      "excerpt_hash": "8f7ea7d7e4bd9ac3086a9228a51d66404d5b6bda0787330139bd228b3d186a33",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "a5edec98726e00dc",
-      "source_record_id": "rock_documentation:article:1961",
-      "title": "Configure Communication List Subscriptions",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-preferences/configure-communication-list-subscriptions",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "77b02c073e5b3f75c7accd86c002acddc8578bd2e8286905dfe53b554ed6fb39",
-      "excerpt_hash": "99ba3f385edc3cad14e343fc3d761cdd901a649b3ba6fd2bc54022d3c7be80cf",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "db7003777a06ac0e",
-      "source_record_id": "rock_documentation:article:1930",
-      "title": "Communication Templates",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "38360df9ae309c93288a37258c1d6995643804f451c0a32fffbb87ba7423653e",
-      "excerpt_hash": "74bc6fe76ddcaa520d1f22d9090a2a3beb20240a048ec7668dd762f18f02bad6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "839a91fa94455ad8",
-      "source_record_id": "rock_documentation:article:1954",
-      "title": "Communication Wizard",
-      "topics": [
-        "admin",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-wizard",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c9f33a63582ad8c5380bc3c7efb1984bb0c5a892554cfd98e3a72b2ebb6822bb",
-      "excerpt_hash": "e12e7fc6332e417719d386547087ac47355f405ac8779e97aed717899ef779ec",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "48ec2eab56eda040",
-      "source_record_id": "rock_documentation:article:1931",
-      "title": "System Communications",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/system-communications",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "13318e5d6bd563f38f21bde722666a81cf384b2b5c2c2b6bd7c02a44d4c2fbcf",
-      "excerpt_hash": "941667547691c69420731d65fa7a94c9c9ee0b86f8b72b43843b88f2ec7afdbb",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "413c033455ba486f",
-      "source_record_id": "rock_documentation:article:3531",
-      "title": "Intro to Email",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/intro-to-email",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ff17552f57f45cca8163e2ce38d40b18e9cc2e1ffabd1ff5034899cfac14332f",
-      "excerpt_hash": "bf22a298c8c783966abab257fac0c5d9f300330eac5f73ff1781b3006b72fae5",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "65b7016024901324",
-      "source_record_id": "rock_documentation:article:1933",
-      "title": "Email Integrations",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/email-integrations",
-      "version": null
-    },
-    {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "a202483cd01a31e7cf6ed965b725981a7b547f32232802b0a1e2dc0bda54c7c0",
-      "excerpt_hash": "7e22c3e2e72c6ce0fd7b45da003d617decdf85467be9bf1686a34c2a59a4cb48",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "65a454a45e1b631f",
-      "source_record_id": "media-insight:e57ad3db15510f24",
-      "title": "Media Watch Transcript Insight",
-      "topics": [
-        "email logo branding",
-        "BIMI",
-        "DMARC",
-        "deliverability",
-        "sender trust"
-      ],
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "0e30ea8da27fd68acd09f0370932021d3f0b1b7099fddb9ba6efe835bf66986d",
-      "excerpt_hash": "4fb96cb843b2c00ee414d7f96746013134713e217111e2e3f1a98d3fe6728b43",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "3a718115577b535b",
-      "source_record_id": "rock_documentation:article:1935",
-      "title": "Configure SMS",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ef9bcbaf3155886f4f2891216a6be48ec7275f45dc8dd0042fb3f62c5f07d24b",
-      "excerpt_hash": "aa50da810ac11d7962da13386496317a99013c1c0623e5500fed914d8b5f4f5a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "97917ef80b95c203",
-      "source_record_id": "rock_documentation:article:3632",
-      "title": "Intro to SMS",
-      "topics": [
-        "admin",
-        "api",
-        "operations",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/intro-to-sms",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "5d5cad255696575a0ad9200e43c1f7c3dac8047fb48ebd3dc9cacc6be10b22ce",
-      "excerpt_hash": "d41d7e5a7f3e41dc68f749147c08a3f3bb640ab2b865eefaff7237206e48b17c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "91738afccea1f25b",
-      "source_record_id": "rock_documentation:article:1975",
-      "title": "SMS Conversations",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/sms-conversations",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "b96d12a2ebd61869d1c975b1e757787d0e7a166394e51b43dd862247cffebbee",
-      "excerpt_hash": "e17490e88f8a58400758da024ed091a2ec743df826eb3344bfe2bb8ad80467ba",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "29ccb8f2887a475f",
-      "source_record_id": "rock_documentation:article:1976",
-      "title": "SMS Pipeline",
-      "topics": [
-        "admin",
-        "operations",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
     },
     {
       "authority": "unknown",
@@ -2763,8 +2273,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "b5d88e4f1f012725a1c7a740a4e37a228aee5430a723af164fdd2ca12c00acd2",
-      "excerpt_hash": "fce1f7c2e9e0614747211abe54c85da0423fd71c0bafcec856f8b8dbd5ba7874",
+      "content_hash": "13801f0fab1bc2ce15da11cac092a609189e0ba76346e6d4c894b40ebed45c35",
+      "excerpt_hash": "f75e397bc7c1108600f75caa3c7f4a553c541c13b8a7f91f882a9e549ab2e51a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2784,50 +2294,6 @@
       "version": null
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "0d842807c71cdd57f46db95fcc6b9e3785abdca7dc90626adcaac9c34bc08b11",
-      "excerpt_hash": "9a335cbbf5bcc210dbaf6af07e9ba25d6dd43e01fcf61ccbe3ec26ff854cd927",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "707d19a7845c84e1",
-      "source_record_id": "rock_documentation:article:3534",
-      "title": "Intro to Sending",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/intro-to-sending",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "cb595a1a2eeb9901a9a229edcba86d988804d8b4b30363ed6cfc7de04c9f7ce1",
-      "excerpt_hash": "4deafcd819c33293e6a1d8b974b3f85ea21b64c6ff3eaafa48b2b3b54d669d8c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "25e0ee03525aba03",
-      "source_record_id": "rock_documentation:article:1955",
-      "title": "Simple Editor",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor",
-      "version": null
-    },
-    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -2836,117 +2302,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s",
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "924104bad4ec973ef35e008936df28334d0717ca2c5967fcf2a04aa88844d72d",
-      "excerpt_hash": "102c35e372c672b791be1db5aac60cde64d67a0a53619c32d451351efbd37995",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "0ba5780d3757edaf",
-      "source_record_id": "rock_documentation:article:1934",
-      "title": "Advanced Email",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/email/advanced-email",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "f1d412b9e701a9b152c6f699d1615a8a61733ac8256f857f913ed115fcaeedb1",
-      "excerpt_hash": "e1ccb25daed0a46515d301adaeb81a81689aa78ff73ecb15eb31df0f66feb1ed",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "648df0ec2f09496b",
-      "source_record_id": "rock_documentation:article:1960",
-      "title": "Set Subscription Preferences",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "23b62458f798637e0d1ec1b6465aac0b5f96bf31c674bb82dfc017b0215463e5",
-      "excerpt_hash": "36650bb746b5c7d1c343be217d45972a6841d88e17866a77c2b9fc77fdc45f10",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "4730bb2b1cf38376",
-      "source_record_id": "rock_documentation:article:2659",
-      "title": "Unsubscribe Report",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "e5deb1340c3435ff50d102e9be73a7625a77577ee70fda7dd4d08479b5b92733",
-      "excerpt_hash": "7357fb9b10c4f1d4cec57d8369b02c92d423e060c57481e0357fda4079a8117a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "f91d43ad1e370f9d",
-      "source_record_id": "rock_documentation:article:1959",
-      "title": "Intro to Communication Preferences",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-preferences/intro-to-communication-preferences",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "bff02a01ab255ab1752f4142fcfc73d2f29274e0702d9c4ca689fcbd09bee531",
-      "excerpt_hash": "34f9438cf93fec3cc301c679d80c718e6cb8b91d650204b75119bf282bf95ce7",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "d6ef764cdb05a062",
-      "source_record_id": "rock_documentation:article:3533",
-      "title": "Communication Flows",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows",
-      "version": null
     },
     {
       "authority": "unknown",
@@ -2989,50 +2344,6 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "4d332dd47b613c8dd4612d9ab0c02f09a61143a7f98da1a12f0059312ee36832",
-      "excerpt_hash": "98a3de55a88e5e1a5370f2cf8acf942a27af3780769d204278adf0d6457cb372",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "8163203e7690a72c",
-      "source_record_id": "rock_documentation:article:1968",
-      "title": "Email Analytics",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "4ecaaa3314b783556f7bfcc3d5043526f51c28062a97b9e80cd35b58a3036b88",
-      "excerpt_hash": "c6d0278a9a270b8ef63e4b91a9c45424742838dd0dd547bd531d7b98518a624a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "e4581a4d84c9bb6a",
-      "source_record_id": "rock_documentation:article:1967",
-      "title": "Communication Saturation Report",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report",
-      "version": null
-    },
-    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -3043,61 +2354,34 @@
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:communication-history-active-search",
-      "contribution_type": "recipe",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "02f59e87ae964075",
-      "source_record_id": "org_contribution:oneall:communication-history-active-search",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search",
-        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
-      ],
-      "title": "Communication History Active Search",
-      "topics": [
-        "communications",
-        "helix",
-        "lava",
-        "security-permissions"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "21ebe109b158f0f4",
+      "source_record_id": "",
+      "title": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "167ccaee3c63d45b13475ae4dce2b28d15a047c55734e2a274c568c5ed15b932",
-      "excerpt_hash": "fa97d638b124284589635b6f27a23129481978ae90f0fbfa6ac296b4f0d78b64",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "communication",
-        "template",
-        "recipient"
-      ],
-      "path": "Rock.Migrations/Migrations/Version 17.0/Version 17.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "4010ea2f610ace8e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 17.0/Version 17.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-      "title": "Rock.Migrations/Migrations/Version 17.0/Version 17.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs"
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "f96e4eed3d6c70a88304960546297ddc22a9a586ac85c79797e5d316eaf1fff9",
+      "content_hash": "438e916bf6a3958b6267c15e8fe5199a7259179c7bc80d7d263a70b70d6c679d",
+      "excerpt_hash": "113b08a90e9866d3d6a978aaabd82846e2ec63c4c0c60ccb6e564b134a731ae1",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": "June 30, 2026",
+      "release_date": "May 20, 2026",
       "severity": "medium",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
@@ -3114,41 +2398,28 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "dbe35a8f1f8a2a54700b7380c12b1037ae2bcf9c9a97330d39df6ad3a91a14a8",
-      "excerpt_hash": "5616a497290fdfea91dd76602dc4859357eef26d03962e3facbe7e37e0bb1bf4",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "communication",
-        "sms",
-        "recipient"
-      ],
-      "path": "Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "b9af08d183cbe015",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
-      "title": "Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs"
     },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "05ee2d4ce3f32d2ab23b6d40f7be5bd8ffb50f40d692afad71b51a9127ae1eab",
-      "excerpt_hash": "5752969687dc3ea25971884697dcec10eb4500a27334ca27b8619469f1f4da60",
+      "content_hash": "f8c4df71844df15a774a603a2e70449f5978d65e8b7acc3a854c514904532e25",
+      "excerpt_hash": "1477471a58f93ae2ab30fc9ebfaf8866ac52a7c7462eef64aafab1409c62f491",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
       "source_key": "e3486222166dce6c",
-      "source_record_id": "media-insight:d1aacd14e5660e87",
-      "title": "Communication Analytics [Legacy] Transcript Insight",
+      "source_record_id": "rock_rocku:e3486222166dce6c",
+      "title": "Communication Analytics [Legacy]",
       "topics": [
-        "media",
-        "podcast",
-        "timestamped-insights",
         "training",
         "usage",
         "workflow"
@@ -3157,81 +2428,165 @@
       "version": null
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:controlled-retest-completed-workflow-action",
-      "contribution_type": "task_card",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "00f9b7db3765b925",
-      "source_record_id": "org_contribution:oneall:controlled-retest-completed-workflow-action",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/Workflow/Workflow.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/WorkflowActivity/WorkflowActivity.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/WorkflowAction/WorkflowAction.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/RockWeb/Blocks/WorkFlow/WorkflowDetail.ascx.cs"
-      ],
-      "title": "Safely retest one completed workflow action",
-      "topics": [
-        "workflows",
-        "communications"
-      ],
+      "authority": "source-code",
+      "authority_score": 84,
+      "kind": "citation_only",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "0d201d0993749de1",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/Workflow/Workflow.Logic.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/Workflow/Workflow.Logic.cs"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:workflow-backed-sms-verification",
-      "contribution_type": "recipe",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "fe63cd4826aecb55",
-      "source_record_id": "org_contribution:oneall:workflow-backed-sms-verification",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification",
-        "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
-        "https://pages.nist.gov/800-63-4/sp800-63b/authenticators/"
-      ],
-      "title": "Workflow-Backed SMS Verification for Anonymous Rock Forms",
-      "topics": [
-        "security-permissions",
-        "workflows",
-        "event-registration",
-        "people-families",
-        "communications",
-        "lava"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "c966f5bab8f6fef1",
+      "source_record_id": "",
+      "title": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
+      "kind": "citation_only",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "cc15d3b2571f5a59",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3",
+      "url": "https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
       "change_type": null,
-      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
-      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "content_hash": "830014e594705a0e6797e65f83af0a8d29924fcaebe6a5d5704ee4de18e91356",
+      "excerpt_hash": "f44d0879ca42dde029eb7c1bf04293409aaaac6a1aee9631c2dcf3e3d2f8a35d",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
+      "source_id": "rock_rocku",
+      "source_key": "45949ea6dc3ecec5",
+      "source_record_id": "rock_rocku:45949ea6dc3ecec5",
+      "title": "Communication Analytics",
       "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+        "training",
+        "usage",
+        "workflow"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
+      "url": "https://community.rockrms.com/rocku/communication/communication-analytics",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "6eca77918cb791507a7b9b07d9c3666e57a2171bc8499bdffa202a66dcaea69b",
+      "excerpt_hash": "c58cc15e0f4f8b32504c189e8eee062f94c9903b1174d412d842301bc48a797f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "fd5dbe483569ab7d",
+      "source_record_id": "rock_rocku:fd5dbe483569ab7d",
+      "title": "Communication Flows",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/communication/communication-flows",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "b441c6db53f10dc79d4d21a4b8392797a90f5d4a907b4c450c5f97ba90225320",
+      "excerpt_hash": "cb65e77c56583afbf7afaf8ee313c70dd1e588e1927e6b8c7c76354ff0837eb6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e761bf8b30ae286a",
+      "source_record_id": "rock_rocku:e761bf8b30ae286a",
+      "title": "Communication Lists & Segments",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/communication/communication-lists--segments",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "c1be3c4485df97339413d86757a264c16a83b3de9a16f86caaf3bf09fae87242",
+      "excerpt_hash": "2a415e3c96437a939d3bdb8dcc9d9c31c146a03b1f3c2fb81c0572fc30d08ea9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "5bf423cb0dd4a42f",
+      "source_record_id": "rock_rocku:5bf423cb0dd4a42f",
+      "title": "Communication Overview",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/communication/communication-overview",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "82bfe8a83e0758d00863c5179024731e8afb29cc7a0875569031ca491a0a97e0",
+      "excerpt_hash": "8a73b02982049fdf9e6414ffe5c09338dabdaaafaa711e0c566a30de41a6deec",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "5cd3edaa4b2d8260",
+      "source_record_id": "rock_rocku:5cd3edaa4b2d8260",
+      "title": "Communication Preferences",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/communication/communication-preferences",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "3f4ae9875c19b1472391fb402c73f71d163329bb673662593f5da46cd5be3243",
+      "excerpt_hash": "735528694c3d803be6466abf39142b80877f327e41b0c0670765564178c2bab2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "b51eff0edfc6f759",
+      "source_record_id": "rock_rocku:b51eff0edfc6f759",
+      "title": "Communication Saturation Report",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/communication/communication-saturation-report",
       "version": null
     }
   ],

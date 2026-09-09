@@ -41,15 +41,15 @@ Route a request to the narrowest applicable Rock development surface.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Jobs/PostUpdateDataMigrationsReplaceWebFormsBlocksWithObsidianBlocks.cs
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
-- https://community.rockrms.com/developer/obsidian
-- https://community.rockrms.com/lava/obsidian
-- https://community.rockrms.com/developer/developer-codex/coding-standards/code-generator/model-changes
-- https://community.rockrms.com/developer/developer-codex/coding-standards/obsidian-chop-swap-sneak
+- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
 - https://community.rockrms.com/developer
-- https://community.rockrms.com/developer/developer-codex/coding-standards/obsidian-chop-swap-sneak/process-to-chop-or-swap
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointList/lavaEndpointListOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/lava/obsidian
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/developer-codex/coding-standards/code-generator/model-changes
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
+- https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security

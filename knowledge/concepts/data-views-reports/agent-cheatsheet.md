@@ -42,6 +42,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `data-views` | normal | live verification |
@@ -67,3 +68,4 @@ generated: true
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
 | `source-map-community-reviewed-patterns` | community-supported | community-supported |
 | `source-map-immutable-implementation-evidence` | normal | live verification |
+| `approved-claim-coverage` | normal | live verification |

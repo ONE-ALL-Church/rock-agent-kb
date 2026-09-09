@@ -2,15 +2,15 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:37:56+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T11:27:22+00:00
+source_last_checked_at: 2026-09-09T21:24:47+00:00
 source_native_migration_status: not_started
-source_native_article_coverage: 0/27
-legacy_summary_retirement_coverage: 0/27
+source_native_article_coverage: 0/31
+legacy_summary_retirement_coverage: 0/31
 depends_on_topics:
   - people
   - groups
@@ -40,7 +40,7 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 ## How To Think About This Area
 
 - `Platform Configuration` spans people, groups, workflows, cms, security, data-views. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_podcast_rss, rock_youtube, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_core_release_notes.
+- The strongest source families in this build are: rock_podcast_rss, rock_youtube, rock_community_hubs, rock_documentation, rock_mobile_docs, rock_developer.
 - Related tags found in source records: usage, operations, admin, workflow, training, lava, api, development.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training.
 
@@ -190,13 +190,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_community_hubs`: 9
 - `rock_core_release_notes`: 2
 - `rock_developer`: 1
-- `rock_documentation`: 24
+- `rock_documentation`: 28
 - `rock_lava_docs`: 1
 - `rock_mobile_docs`: 2
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 10
 - `rock_recipes`: 1
-- `rock_rocku`: 20
+- `rock_rocku`: 16
 - `rock_youtube`: 7
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
@@ -214,44 +214,44 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Attributes | rock_lava_docs | Attribute Filters If you've worked with Rock for any length of time, you know Attributes are a key feature of its extensibility. Lava allows you to work with them in several powerful ways. Finding Attributes Most places that support Lava allow you to enable a Debug mode that lists all of the merge fields available. Fields that have "Attributes" show you those that are available; like so: Using Attributes In Lava Now... | [source](https://community.rockrms.com/lava/filters/attribute-filters) |
 | Campus Context Setter | rock_documentation | Rock's context aware features mean that campuses can share many of the same pages while still providing campus-specific content. Using the *Campus Context Setter* block allows you to set the campus context in these scenarios. Take, for example, the below screenshot. We have a *Campus Context Setter* block on the left, and an HTML block on the right. We've selected the "Main Campus" on the left, and we're being shown... | [source](https://community.rockrms.com/documentation/digital-publishing/websites/block-context/campus-context-setter) |
 | Campuses | rock_documentation | [Intro to Campuses](/documentation/core-concepts/rock-fundamentals/campuses/intro-to-campuses?Version=v19.0) [Manage Campuses](/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses?Version=v19.0) [Handle Campus Teams](/documentation/core-concepts/rock-fundamentals/campuses/handle-campus-teams?Version=v19.0) [Add Attributes to... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses) |
+| Configure Family Attributes | rock_documentation | We've just looked at how to add person attributes to records, so now let's consider how you can add the same functionality to families. As you consider your data needs, you'll want to evaluate whether the data attribute best describes an individual (person attribute) or the entire family (family attribute). Say, for instance, your organization is involved in the foster care movement. You might want to note which... | [source](https://community.rockrms.com/documentation/church-management/people/families/configure-family-attributes) |
 | Configure Person Tokens | rock_documentation | Person tokens come preconfigured in Rock and can be found in the Global Attributes screen (`Admin Tools > Settings > Global Attributes`).There are three Person Token attributes: Person Token Expire Minutes, Person Token Usage Limit, and Person Token Use Legacy Fallback. Click on an attribute to open its configuration settings. The Person Token Expire Minutes attribute is the length of time the person token is valid,... | [source](https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens) |
 | Custom Site Attributes | rock_mobile_docs | C v16.8 ### Overview Ever wanted to add a custom attribute to your mobile application that you can access and utilize in your XAML? Look no further! As of Rock v16.8, you can now configure custom entity attributes for your mobile site to utilize in any fashion you desire. ### Example Configuration Navigate to `System Settings > Entity Attributes` In the below example, we are configuring custom Start Gradient Color... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes) |
-| Defined Values | rock_documentation | Each *[Defined Type](/documentation/core-concepts/rock-fundamentals/defined-types/intro-to-defined-types)* has an option that allows you to categorize its *Defined Values*. For instance, if you're using a person attribute of type *Categorized Defined Value* then this lets you find and select a *Defined Value* based on its category, without having to go through the full list of all available *Defined Values*. The... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/defined-types/defined-values) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Attribute Value](../../model-map/models/attribute-value.md) | Core | 19.2.0 | 55 | 23 | 41 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Value Historical](../../model-map/models/attribute-value-historical.md) | Core | 19.2.0 | 47 | 19 | 32 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Category](../../model-map/models/adaptive-message-category.md) | Reporting | 19.2.0 | 26 | 8 | 15 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.2.0 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.2.0 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute](../../model-map/models/attribute.md) | Core | 19.2.0 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 19.2.0 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Qualifier](../../model-map/models/attribute-qualifier.md) | Core | 19.2.0 | 22 | 9 | 15 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus](../../model-map/models/campus.md) | Core | 19.2.0 | 65 | 29 | 48 | 19 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Value](../../model-map/models/attribute-value.md) | Core | 19.3.4 | 55 | 23 | 41 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Value Historical](../../model-map/models/attribute-value-historical.md) | Core | 19.3.4 | 47 | 19 | 32 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Category](../../model-map/models/adaptive-message-category.md) | Reporting | 19.3.4 | 26 | 8 | 15 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.3.4 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.3.4 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute](../../model-map/models/attribute.md) | Core | 19.3.4 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 19.3.4 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.3.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Qualifier](../../model-map/models/attribute-qualifier.md) | Core | 19.3.4 | 22 | 9 | 15 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus](../../model-map/models/campus.md) | Core | 19.3.4 | 65 | 29 | 48 | 19 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.3.4 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.Categories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.EntityType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.Categories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.EntityType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 19.1 | Core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 | [source](https://www.rockrms.com/releasenotes) |
-| 17.2 | CMS | Fixed an issue where the list of attribute categories shown when editing a Content Channel Item attribute from the Content Channel Type Detail block included incorrect or unrelated categories. This made it difficult to assign attributes to the appropriate category during configuration. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | AI | Added a Core Administration AI agent skill that gives agents read access to Rock's core configuration, including Defined Types and values, entity types, categories, field types, attributes and system communications. | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -285,15 +285,15 @@ Keywords: `defined type, defined value, defined types, defined values`
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Workflow Attribute Values | rock_documentation | When working with workflows and attributes, it's helpful (actually it's pretty much essential) to know how those attributes store their values. Below is a list of a few commonly used attribute field types, with a description of how the value is stored internally. \| Field Type \| Stored Value \| \| --- \| --- \| \| Boolean \| 'True' or 'False' \| \| Campus \| A campus's GUID \| \| Defined Value \| A comma-delimited list of... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/workflow-attribute-values) |
-| Campuses Training | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
-| Custom Attributes Training | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/custom-attributes) |
-| Properties and Attributes Training | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
-| Campuses Training | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/campuses) |
-| Custom Attributes Training | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/custom-attributes) |
-| Properties and Attributes Training | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/properties-and-attributes) |
 | Defined Values | rock_documentation | Each *[Defined Type](/documentation/core-concepts/rock-fundamentals/defined-types/intro-to-defined-types)* has an option that allows you to categorize its *Defined Values*. For instance, if you're using a person attribute of type *Categorized Defined Value* then this lets you find and select a *Defined Value* based on its category, without having to go through the full list of all available *Defined Values*. The... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/defined-types/defined-values) |
+| Campuses | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
+| Custom Attributes | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/custom-attributes) |
+| Properties and Attributes | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
+| Campuses | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/campuses) |
+| Custom Attributes | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/custom-attributes) |
+| Properties and Attributes | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/rock-fundamentals/properties-and-attributes) |
 | Rock Fundamentals | rock_documentation | SECTIONS [Entities](?Version=v19.0#entities) [Attributes](?Version=v19.0#attributes) [Defined Types](?Version=v19.0#defined-types) [Blocks](?Version=v19.0#blocks) [AI](?Version=v19.0#ai) [Jobs](?Version=v19.0#jobs) [Locations](?Version=v19.0#locations) [Campuses](?Version=v19.0#campuses) [Note Types](?Version=v19.0#note-types) [Navigate Rock](?Version=v19.0#navigate-rock) [Other... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals) |
-| Categorize Defined Values Training | rock_rocku | Categorize Defined Values Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/categorize-defined-values) |
+| Categorize Defined Values | rock_rocku | Categorize Defined Values Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/categorize-defined-values) |
 
 ### Categories And Entity Types
 
@@ -344,10 +344,10 @@ Keywords: `campus, campuses, global attribute, system setting, configuration`
 
 ## Source Lifecycle
 
-- Official article records in the bounded guide selection: `27`
-- Upstream check range: `2026-08-12T06:13:09+00:00` through `2026-08-12T11:27:22+00:00`
-- Source-native typed articles: `0` of `27`
-- Legacy source summaries retired: `0`; still active: `27`
+- Official article records in the bounded guide selection: `31`
+- Upstream check range: `2026-09-09T21:15:32+00:00` through `2026-09-09T21:24:47+00:00`
+- Source-native typed articles: `0` of `31`
+- Legacy source summaries retired: `0`; still active: `31`
 - Migration status: `not_started`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

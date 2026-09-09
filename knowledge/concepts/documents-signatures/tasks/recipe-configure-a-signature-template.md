@@ -53,8 +53,10 @@ A reviewed signature template can generate and store signed documents using the 
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/workflows
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Attribute/SignatureDocumentTemplateFieldAttribute.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Attribute/SignatureDocumentTemplateFieldAttribute.cs
+- https://community.rockrms.com/rocku/workflows/workflow-entry
 - https://community.rockrms.com/rocku/workflows/components-of-a-workflow
+- https://community.rockrms.com/rocku/workflows/persisted-workflows
+- https://community.rockrms.com/rocku/workflows/workflow-performance-tips
 - https://community.rockrms.com/rocku/workflows/custom-grid-actions
-- https://community.rockrms.com/rocku/workflows/electronic-signatures-1
-- https://community.rockrms.com/recipes/482
+- https://community.rockrms.com/rocku/workflows/deconstructing-a-sample-workflow

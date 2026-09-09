@@ -2,12 +2,12 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:37:54+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:53+00:00
+source_last_checked_at: 2026-09-09T21:16:29+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 6/70
 legacy_summary_retirement_coverage: 6/70
@@ -39,7 +39,7 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 ## How To Think About This Area
 
 - `System Administration And Operations` spans security, workflows, data-views, reports, cache, jobs. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_community_hubs, rock_community_blog, rock_core_release_notes, rock_model_map, rock_recipes.
+- The strongest source families in this build are: rock_documentation, rock_community_hubs, rock_community_blog, rock_core_release_notes, rock_recipes, rock_rocku.
 - Related tags found in source records: operations, usage, admin, sql, api, security, lava, finance.
 - Source detail types include: community_blog_article, documentation_article, question, recipe, training, triumph_resources.
 
@@ -96,36 +96,36 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Service Job History](../../model-map/models/service-job-history.md) | Core | 19.2.0 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Defined Type](../../model-map/models/defined-type.md) | Core | 19.2.0 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Defined Value](../../model-map/models/defined-value.md) | Core | 19.2.0 | 46 | 17 | 31 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Exception Log](../../model-map/models/exception-log.md) | Core | 19.2.0 | 52 | 23 | 37 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Service Job](../../model-map/models/service-job.md) | Core | 19.2.0 | 56 | 26 | 41 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [History Login](../../model-map/models/history-login.md) | Security | 19.2.0 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.2.0 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.2.0 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.2.0 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.2.0 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.2.0 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Service Job History](../../model-map/models/service-job-history.md) | Core | 19.3.4 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Defined Type](../../model-map/models/defined-type.md) | Core | 19.3.4 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Defined Value](../../model-map/models/defined-value.md) | Core | 19.3.4 | 46 | 17 | 31 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Exception Log](../../model-map/models/exception-log.md) | Core | 19.3.4 | 52 | 23 | 37 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Service Job](../../model-map/models/service-job.md) | Core | 19.3.4 | 56 | 26 | 41 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [History Login](../../model-map/models/history-login.md) | Security | 19.3.4 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.3.4 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.3.4 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.3.4 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.3.4 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.3.4 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.3.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 19.1 | Core | Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the folder may not get recreated. Previously, the Clear Cache button would throw a DirectoryNotFoundException in this case. Now it checks for... | [source](https://www.rockrms.com/releasenotes) |
-| 19.3 | CMS | Fixed Person Attribute Values configured for indexing not being included in Universal Search results after a bulk re-index, and restored the missing "Indexing Enabled" option in the Attributes block so Attributes can be flagged for indexing. Fixes: #6857 | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Core | Fixed an issue where Jobs finishing in under a second could produce duplicate Service Job History records, a false "Incomplete" status, and exaggerated run times in the job's history. Fixes: #6935 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -143,14 +143,14 @@ Keywords: `service job, job history, scheduled job, jobs`
 | --- | --- | --- | --- |
 | Use Audit Information | rock_documentation | Most changes to the Rock database are tracked in a special audit table. The information in these tables is presented in the screens of this section. This is a helpful tool for you to see what changes are being made and by whom. You can also use these logs to write custom SQL reports or create custom jobs that take action after certain changes. Auditing can be enabled under `Admin Tools > Settings > Global Attributes... | [source](https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-audit-information) |
 | Intro to Observability | rock_documentation | Rock's Observability feature unveils system performance insights. It tackles the challenge of spotting and resolving performance hiccups in Rock. With Observability you can track page loading speed, individual block load times, database transaction duration, and job efficiency. What's unique about Observability is that it's in tune with Rock's architecture—pages, blocks, and jobs—offering precise, relevant,... | [source](https://community.rockrms.com/documentation/supporting-rock/data/observability/intro-to-observability) |
-| Service Job History | rock_model_map | Service Job History is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
-| Campuses Training | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
-| Categorize Defined Values Training | rock_rocku | Categorize Defined Values Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/categorize-defined-values) |
-| Custom Attributes Training | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/custom-attributes) |
-| Defined Types Training | rock_rocku | Defined Types Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/defined-types) |
-| Jobs Training | rock_rocku | Jobs Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/jobs) |
-| Note Types Training | rock_rocku | Note Types Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/note-types) |
-| Properties and Attributes Training | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
+| Rock Core Release Notes | rock_core_release_notes | Fixed an issue where Jobs finishing in under a second could produce duplicate Service Job History records, a false "Incomplete" status, and exaggerated run times in the job's history. Fixes: #6935 | [source](https://www.rockrms.com/releasenotes) |
+| Campuses | rock_rocku | Campuses Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
+| Categorize Defined Values | rock_rocku | Categorize Defined Values Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/categorize-defined-values) |
+| Custom Attributes | rock_rocku | Custom Attributes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/custom-attributes) |
+| Defined Types | rock_rocku | Defined Types Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/defined-types) |
+| Jobs | rock_rocku | Jobs Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/jobs) |
+| Note Types | rock_rocku | Note Types Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/note-types) |
+| Properties and Attributes | rock_rocku | Properties and Attributes Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer What is an Entity 1:05 Properties and Attributes 3:08 Custom Attributes 4:56 Defined Types 4:18 Campuses 5:33 Jobs 2:31 Categorize Defined Values 6:22 IP Address Geocoding 5:03 Note Types 9:28 Experience Mode 3:05 | [source](https://community.rockrms.com/rocku/core-concepts/properties-and-attributes) |
 
 ### Diagnostics And Exceptions
 
@@ -161,10 +161,8 @@ Keywords: `exception log, exceptionlog, diagnostics, error, health`
 | View the Exception List | rock_documentation | Despite all of our work to eliminate bugs, some will sneak by us. Exceptions, also known as errors, can occur as a result of software bugs or when blocks and pages are misconfigured. While you can set these errors to be emailed to you (see `Admin Tools > Settings > Global Attributes > Email Exceptions List`), you can also view the history of these errors here. Exceptions are sorted chronologically. Instead of... | [source](https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list) |
 | Use Rock Logs | rock_documentation | Rock provides a simple, easy to use logging tool. Most of the time you won't need this but having logs can be helpful when troubleshooting or researching. The Rock Log is similar to the [Exception List](/documentation/supporting-rock/data/advanced-data/view-the-exception-list), except you can track more than just errors. Logs are turned off by default, and typically should only be turned on if there is a specific... | [source](https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/use-rock-logs) |
 | Rock Core Release Notes | rock_core_release_notes | Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the folder may not get recreated. Previously, the Clear Cache button would throw a DirectoryNotFoundException in this case. Now it checks for... | [source](https://www.rockrms.com/releasenotes) |
-| Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yeşu Chum , Houston's First Baptist Church 6 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522) |
-| Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yeşu Chum , Houston's First Baptist Church 6 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol) |
-| Exception Log | rock_model_map | Exception Log is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
-| Track Workflow Statistics and Health | rock_recipes | 6 Track Workflow Statistics and Health Shared by Matthew Ewing , Lakepointe Church 4 years ago 12.0 General Intermediate Have you wanted to see at a glance how many times a workflow has run? Do you ever wonder how many people using workflows you’ve created are experiencing errors? Do you ever think about all the workflows that are never completed and remain alive in the system and reprocess every few hours? If... | [source](https://community.rockrms.com/recipes/257) |
+| Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yeşu Chum , Houston's First Baptist Church 8 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522) |
+| Security Management - Data Integrity and QoL | rock_recipes | 4 Security Management - Data Integrity and QoL Shared by Yeşu Chum , Houston's First Baptist Church 8 months ago Administration / Finance, Security Beginner Finally, Security That Doesn't Make You Want to Cry Ever tried to figure out who has access to what in Rock? It's like playing detective with a blindfold on. This dashboard hopefully saves you a few headaches. What Does This Thing Do? This dashboard gives you a... | [source](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol) |
 
 ### Cache And Indexing
 
@@ -223,16 +221,16 @@ Keywords: `search, universal search, indexing, index, search components`
 | Integrating Smart Search | rock_documentation | If you've been using Rock for more than a day, you've used the Smart Search block at the top of the page. Universal Search can be configured to participate in Smart Search, and once it is, you'll find that it's your go-to search type. Once you have Universal Search up and indexing, you'll need to enable the Smart Search integration. You'll do this under `Admin Tools > System Settings > Search Services`. If it isn't... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search) |
 | Customizing Results for Entities | rock_documentation | How results are returned from the search is important. Luckily, there are numerous ways to customize the results from the search. We cover all the options below. # Default Entity Results Each entity has a default result template that you can change. This is a great place to modify what you'd like to be returned across multiple search interfaces. You can edit these templates on a per-entity basis under Admin Tools >... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities) |
 | Search | rock_documentation | SECTIONS [Searching for People](?Version=v19.0#searching-for-people) ### Searching for People Articles [Search by Name](/documentation/core-concepts/search/searching-for-people/search-by-name?Version=v19.0) [Search by Phone](/documentation/core-concepts/search/searching-for-people/search-by-phone?Version=v19.0) [Search by Other... | [source](https://community.rockrms.com/documentation/core-concepts/search) |
+| Installing Elasticsearch | rock_documentation | To install Elasticsearch you will need to follow the steps below. Detailed instructions for installing and running ElasticSearch can also be found on the [elastic.co](https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html) website. Note **Windows Service**If you want to install and run Elasticsearch as a service on Windows, follow the instructions found... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch) |
+| Intro to Universal Search | rock_documentation | The basic search capability in Rock is quite powerful, but sometimes you may need more. That's where Universal Search comes in. Universal Search allows you to search multiple types of data at once in a full-text manner. In a sense, it's like Google for Rock. With this great power comes some additional technical knowledge, but don't worry we'll unpack it all here in this guide. # Overview The first thing that you'll... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/intro-to-universal-search) |
 | Search by Name | rock_documentation | To find someone in the database, start by using the *Smart Search*tool found at the top of every page. This tool can be used to search several different types of data, but it defaults to searching for individuals by name. When searching by name, it's important to know some tricks to improve the quality of your search and to save time. Keep in mind that you don't need to type a person's full name to search. You can... | [source](https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name) |
 | Search by Other Means | rock_documentation | Searching by *[People](/documentation/core-concepts/search/searching-for-people)* and by *[Name](/documentation/core-concepts/search/searching-for-people/search-by-name)* aren't the only ways to find people in Rock, below are some other ways to search. # Searching by Email Yep, you guessed it: Rock can search by email using the Smart Search tool, too. Partial searches are supported. We're sure you've got it by now,... | [source](https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-other-means) |
-| Searching for People | rock_documentation | [Search by Name](/documentation/core-concepts/search/searching-for-people/search-by-name?Version=v19.0) [Search by Phone](/documentation/core-concepts/search/searching-for-people/search-by-phone?Version=v19.0) [Search by Other Means](/documentation/core-concepts/search/searching-for-people/search-by-other-means?Version=v19.0) | [source](https://community.rockrms.com/documentation/core-concepts/search/searching-for-people) |
-| Installing Elasticsearch | rock_documentation | To install Elasticsearch you will need to follow the steps below. Detailed instructions for installing and running ElasticSearch can also be found on the [elastic.co](https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html) website. Note **Windows Service**If you want to install and run Elasticsearch as a service on Windows, follow the instructions found... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch) |
 
 
 ## Source Lifecycle
 
 - Official article records routed here: `70`
-- Upstream check range: `2026-08-12T06:18:20+00:00` through `2026-08-12T06:18:53+00:00`
+- Upstream check range: `2026-09-09T21:15:48+00:00` through `2026-09-09T21:16:29+00:00`
 - Source-native typed articles: `6` of `70`
 - Legacy source summaries retired: `6`; still active: `64`
 - Migration status: `partial`

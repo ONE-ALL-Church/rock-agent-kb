@@ -41,15 +41,15 @@ A sourced explanation of why one person is allowed or denied one action.
 
 ## Source Links
 
+- https://community.rockrms.com/documentation/core-concepts/security
 - https://community.rockrms.com/rocku/cms/advanced-html-block
 - https://community.rockrms.com/rocku/cms/personalization
 - https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy
 - https://community.rockrms.com/rocku/individuals-in-rock/person-note-1
-- https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions
+- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/developer/mobile-docs/essentials/lava
 - https://community.rockrms.com/rocku/content-channels/content-channel-view
 - https://community.rockrms.com/rocku/core-concepts/note-types
 - https://community.rockrms.com/rocku/individuals-in-rock/person-profile
-- https://community.rockrms.com/documentation/core-concepts/security/advanced-security/inspect-security
-- https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Communication/CommunicationDetail/CommunicationDetailPermissionsBag.cs
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-auth0

@@ -66,5 +66,5 @@ The organization has a safe compatibility and ownership decision before implemen
 - https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor
 - https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
-- https://www.youtube.com/watch?v=edanHiYSDIM
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types
 - https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20

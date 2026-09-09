@@ -29,12 +29,12 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-33: Agent Summary (normal)
-- `scope-and-boundaries` lines 34-51: Scope And Boundaries (high)
-- `mental-model` lines 52-67: Mental Model (high)
-- `prayer-request-intake-and-lifecycle` lines 68-94: Prayer Request Intake And Lifecycle (high)
-- `categories-visibility-and-page-security` lines 95-110: Categories, Visibility, And Page Security (high)
-- `teams-approval-and-human-moderation` lines 111-127: Teams, Approval, And Human Moderation (normal)
+- `agent-summary` lines 34-49: Agent Summary (normal)
+- `scope-and-boundaries` lines 50-67: Scope And Boundaries (high)
+- `mental-model` lines 68-83: Mental Model (high)
+- `prayer-request-intake-and-lifecycle` lines 84-110: Prayer Request Intake And Lifecycle (high)
+- `categories-visibility-and-page-security` lines 111-126: Categories, Visibility, And Page Security (high)
+- `teams-approval-and-human-moderation` lines 127-143: Teams, Approval, And Human Moderation (normal)
 
 ## Core Entities
 
@@ -53,10 +53,12 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 ## Version Caveats
 
 - `17.0`: Fixed an issue where Prayer Request Attributes not marked as "Public" were incorrectly displaying in the Obsidian version of the Prayer Request Entry block. These Attributes are now properly hidden on the Prayer Request
-- `19.3`: Fixed the Prayer Comment List block: custom grid columns can now access the prayer request and requester via the Row Lava merge field, the From-column and date-range filters work, and several performance and dead-code is
 - `19.1`: Improved the Prayer Request List block to display prayer request text at a wider width for better readability. Fixes: #6824
 - `17.5`: Fixed an issue where approving a Prayer Request in the Obsidian Prayer Request Detail block did not update the ApprovedOnDateTime and ApprovedByPersonAliasId fields. Fixes: #6403
 - `17.2`: Fixed an issue where the Prayer Request Detail block in Obsidian did not recognize the PersonId URL parameter, which prevented person data from being pre-filled when creating a new prayer request. Fixes: #6357
+- `17.0`: Added support for editing custom attributes within the Mobile Prayer Request block. This enhancement allows individuals to update custom attributes when submitting or managing prayer requests from a mobile device. Be awa
+- `18.3`: Added a Campus Type filter to the campus picker on the Prayer Request Detail block. This allows individuals to narrow the list of selectable campuses when adding a new prayer request.
+- `17.0`: Added a new feature to Prayer which will optionally run several pre-configured AI completions on saved prayer requests. If you plan on using this feature, read the Tech Bulletin item on this topic.
 
 ## Files For Agents
 

@@ -41,11 +41,14 @@ generated: true
 | --- | --- | --- |
 | `18.3` | core | Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant without a valid Signatur |
 | `19.1` | core | Added a Prevent Duplicate Registrants setting to the Registration Template that prevents the same person record from registering for the same Registration Instance more than once. When enabled, the Registration Entry Block checks for existi |
+| `19.1` | core | Added Registrant eligibility rules to the Registration Template Detail Block and updated the Registration Entry Block to prevent incorrect family member registrations. Added new "Registrant Eligibility" settings to the Registration Template |
+| `19.1` | core | Fixed an issue in the Registration Instance Registration List block where the Discount Code column on the Registrations tab was hidden when the registration template had no per-registrant cost, even if a discount code was applied to fees on |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `registration-instances-put-occurrence-specific-settings-on-the-instance` | normal | live verification |
 | `forms-identity-eligibility-and-communications-test-combined-eligibility` | citation-only | live verification |
@@ -53,7 +56,7 @@ generated: true
 | `payments-configure-the-finance-path-deliberately` | normal | live verification |
 | `payments-match-externally-entered-transactions` | normal | live verification |
 | `event-calendar-link-the-occurrence-registration-and-group` | normal | live verification |
-| `family-preregistration-and-follow-up` | community-supported | live verification |
+| `family-preregistration-and-follow-up` | citation-only | live verification |
 | `reporting-and-reconciliation` | normal | live verification |
 | `permissions-and-operational-control` | normal | live verification |
 | `troubleshooting-decision-tree-the-public-event-has-no-register-button` | normal | live verification |
@@ -62,13 +65,14 @@ generated: true
 | `troubleshooting-decision-tree-a-person-moved-from-the-wait-list-is-missing-payment-or-form-data` | high | live verification |
 | `troubleshooting-decision-tree-a-registration-balance-no-longer-matches-its-payment-plan` | normal | live verification |
 | `troubleshooting-decision-tree-a-batch-transaction-is-not-attached-to-the-registration` | normal | live verification |
-| `troubleshooting-decision-tree-registrants-are-not-entering-the-expected-group` | normal | live verification |
+| `troubleshooting-decision-tree-registrants-are-not-entering-the-expected-group` | high | live verification |
 | `troubleshooting-decision-tree-dashboard-totals-disagree` | normal | live verification |
 | `troubleshooting-decision-tree-a-signature-document-is-missing-or-belongs-to-the-wrong-registration` | normal | live verification |
 | `agent-task-recipes-recipe-create-a-reusable-registration-and-one-event-instance` | normal | live verification |
 | `agent-task-recipes-recipe-validate-a-paid-registration-before-launch` | normal | live verification |
 | `agent-task-recipes-recipe-promote-a-wait-listed-person-to-full-registration` | normal | live verification |
-| `agent-task-recipes-recipe-audit-an-event-registration-dashboard` | community-supported | live verification |
+| `agent-task-recipes-recipe-audit-an-event-registration-dashboard` | citation-only | live verification |
 | `agent-task-recipes-recipe-launch-family-preregistration-with-follow-up` | citation-only | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
 | `source-map-approved-community-guidance-and-examples` | community-supported | community-supported |
+| `approved-claim-coverage` | normal | live verification |

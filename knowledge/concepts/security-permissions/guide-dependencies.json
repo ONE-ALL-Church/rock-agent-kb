@@ -3463,254 +3463,101 @@
   },
   "approved_media_hash": "0144bea11d8dc1bc1a445902cf99712b8fb4e7525c706ec5dc1c70247e4bf164",
   "approved_media_path": "knowledge/concepts/security-permissions/approved-media.md",
-  "built_at": "2026-09-03T17:23:11+00:00",
+  "built_at": "2026-09-09T23:39:57+00:00",
   "concept_id": "security-permissions",
-  "guide_hash": "f5a0c03fdc835efda76fd72dc480e7333ef9811b1d41cc02237967cd42af0118",
-  "guide_line_count": 582,
+  "guide_hash": "9d704869c14fc18fac5a12471c10691bb1434b1b0564e82193bb2643e645e7f3",
+  "guide_line_count": 643,
   "guide_path": "knowledge/concepts/security-permissions/guide.md",
-  "guide_word_count": 7490,
+  "guide_word_count": 8243,
   "rebuild_triggers": [
     {
-      "authority": "official-developer",
+      "authority": "official-model-map",
       "content_hash": null,
       "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ee690f427fee0ec8069b3f8b4444135366695be367324292a390849660edcc91",
+      "excerpt_hash": "4b57d5d235f5c874909a941b619304035869d6e6c54560c8aad6907d0c4d6d37",
       "source_id": "rock_developer",
       "source_key": "f807acb8c3c3d207",
-      "source_record_id": "",
+      "source_record_id": "rock_developer:f807acb8c3c3d207",
       "url": "https://community.rockrms.com/developer/303---blast-off/rock-security"
     },
     {
       "authority": "source-code",
-      "content_hash": "0611d3298c9367498d2ae621690545a3daa2e0af81cf4d553a644442287b74a9",
-      "excerpt_hash": "6d122b796e0e9e93783e9a2827e1ef554705abde2dfa4e24746d974a36e5f870",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "e5eb06e080108afc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Security/Authorization.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs"
     },
     {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "b6017060d31a8577",
-      "source_record_id": "org_contribution:oneall:rest-api-permission-scope-preflight",
+      "authority": "official-developer",
+      "content_hash": "bd1c7c4a9a96df78963e8e7d7cf64712f386e723341061c4812fe98dcf468169",
+      "excerpt_hash": "e68157a60a08a4deadcac696c50992a241fbae1f3e16df4e5ad8b63e7fc83aa7",
+      "source_id": "rock_developer",
+      "source_key": "547b1337a6e19cf7",
+      "source_record_id": "rock_developer:547b1337a6e19cf7",
       "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
     },
     {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "d7bffe0fc08eaa24",
-      "source_record_id": "org_contribution:oneall:public-ai-search-memory-separate-from-route-registry",
+      "authority": "official-developer",
+      "content_hash": "b1cb72c3faf75ef6df3528c95832dca3e965c580e816ab1d2d096692c4db1532",
+      "excerpt_hash": "b83fd048c6578f1faf429166ba072988126f4c3f8c758ed9d915be1c2840cf96",
+      "source_id": "rock_developer",
+      "source_key": "dfd0cdc56d97fa7f",
+      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
       "url": "https://community.rockrms.com/developer/helix/overview/security"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
+      "authority": "official-developer",
+      "content_hash": "70a7be5a70654dd395bb453935623d34a308a42168ef9ddc8933bc5c658a3460",
+      "excerpt_hash": "9a49ff2fe3d4afa2990370d4a8491db70c8f0baeeb1e55172c3a6e1d0313da88",
+      "source_id": "rock_developer",
       "source_key": "30be60a23d3d0317",
-      "source_record_id": "",
+      "source_record_id": "rock_developer:30be60a23d3d0317",
       "url": "https://community.rockrms.com/lava/commands"
     },
     {
       "authority": "official",
-      "content_hash": "f436f40a65dfff3f54008b91974ce2945cea0a6d121cf3ba0c4415a590b90285",
-      "excerpt_hash": "c5193c8d009459f1ffb71c11d44eefe89f6dd6c0e236fb08b8e9ae7afea14fb6",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "5c0a3e6afe8bbffc",
-      "source_record_id": "rock_documentation:article:849",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/security"
     },
     {
       "authority": "official",
-      "content_hash": "fb268e9a7b6ab010c3ec38ca3ade330ab0443c1183a5f591041698594d52cc0f",
-      "excerpt_hash": "6c0f88f944fc902434b27352adc1408b0f41e79c1c155688fce5fc4e840cc6e2",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "e615a0f9b84d787c",
-      "source_record_id": "rock_documentation:article:2058",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/intro-to-captcha"
     },
     {
-      "authority": "official",
-      "content_hash": "169e7e6f6b6adb3aade027f165508de1d046274167a423d7c668b12bd9b1c8b6",
-      "excerpt_hash": "50cab8557a3afd5525c2f85975f77c828c98798cc3990e7dcb7d0de6d6409454",
-      "source_id": "rock_documentation",
-      "source_key": "7e73a1d5ee288554",
-      "source_record_id": "rock_documentation:article:2051",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/overview/intro-to-security"
-    },
-    {
-      "authority": "official",
-      "content_hash": "bcbece61b730222c80bee364bd21af275a8567e2e8b40b34277dee0f95e31757",
-      "excerpt_hash": "e6caca70b7d7da11c28d8614ae11c1305f65238099299cc62735b199593db36e",
-      "source_id": "rock_documentation",
-      "source_key": "3570656d84751e63",
-      "source_record_id": "rock_documentation:article:889",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions"
-    },
-    {
-      "authority": "official",
-      "content_hash": "f7e71180fa05a406ff6cf027931d05769e5dd4fa6de75c7e8f8bfb06eef93ece",
-      "excerpt_hash": "2f48015c61c3678038eecd3915f7d5f5d627fc2436a4cb64c8aba8e4a0172682",
-      "source_id": "rock_documentation",
-      "source_key": "367604be3c878185",
-      "source_record_id": "rock_documentation:article:2052",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/security-roles/intro-to-security-roles"
-    },
-    {
-      "authority": "official",
-      "content_hash": "e34e971f2e07db341be721a1036f8573fc2f76fdbccc3c6fdeb9d88169093bef",
-      "excerpt_hash": "274ccc84b95f5a0de4e4dc73318464f883d1950e8809beca85a39ecefbaf42cf",
-      "source_id": "rock_documentation",
-      "source_key": "2019c665165c20ba",
-      "source_record_id": "rock_documentation:article:888",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/security-roles/administering-security-roles"
-    },
-    {
-      "authority": "official",
-      "content_hash": "c4332fa1ec9030bf4bffa17366c55ce7324bdd763cda181b684e3f3b270a7b9d",
-      "excerpt_hash": "0cd7b12cef3cf80226dd43b0246ca91431f48dca9d9f6969c47daa0c56e71773",
-      "source_id": "rock_documentation",
-      "source_key": "b147edd833c9da4c",
-      "source_record_id": "rock_documentation:article:910",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/configure-security-settings"
-    },
-    {
-      "authority": "official",
-      "content_hash": "208ca479ba3565c11b51afe9fa257b2b18d81e8050338bcb3ba48151eee75a1e",
-      "excerpt_hash": "6c013b5bca6b1424523736f5b1f25f17ebad2188ea9e979cd26b5b7881c125ea",
-      "source_id": "rock_documentation",
-      "source_key": "a92c11ad9e653c03",
-      "source_record_id": "rock_documentation:article:1785",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/cloning-security-role-groups"
-    },
-    {
-      "authority": "official",
-      "content_hash": "d67057902b819b07287754d2fc8680bdd648334b5f8b7e6cc6fcd19dd7c37c4b",
-      "excerpt_hash": "f15ec0a08a1b4434170ccbd48176044826908223043873701372a7e400ece702",
-      "source_id": "rock_documentation",
-      "source_key": "6d999742577032fc",
-      "source_record_id": "rock_documentation:article:909",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/inspect-security"
-    },
-    {
-      "authority": "official",
-      "content_hash": "9f1ccee1b1b50a267eecba534e94a98e575efc5db2c53a4739d8e2abd77194e4",
-      "excerpt_hash": "b41dac5e2f2d3a18d8c886e019335fdb111212651d03142019a40e44cc7d3778",
-      "source_id": "rock_documentation",
-      "source_key": "7ee5f2c5d04d18ff",
-      "source_record_id": "rock_documentation:article:911",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit"
-    },
-    {
-      "authority": "official",
-      "content_hash": "7e5cd96792ef2cdfc3f529383ab0420098e017e25b0a12f08ffe20c5dc9ca9c3",
-      "excerpt_hash": "ef6c9363066df05dd0d6cd9c911c688230a5a9a33a14be994a6a8b26a95e3f05",
-      "source_id": "rock_documentation",
-      "source_key": "699f19b12c002b07",
-      "source_record_id": "rock_documentation:article:3638",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/user-accounts/intro-to-user-accounts"
-    },
-    {
-      "authority": "official",
-      "content_hash": "feeffe991988148d72674233d18b627af0d6a48dc0fca13514cbecc24466b110",
-      "excerpt_hash": "65a8ef25eac5eb8255a6bb4a0f3ee059b5966be6a4e1976ff81a70b356826602",
-      "source_id": "rock_documentation",
-      "source_key": "9809775893f2dccd",
-      "source_record_id": "rock_documentation:article:2053",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/intro-to-login-and-authentication"
-    },
-    {
-      "authority": "official",
-      "content_hash": "90f2154d85641f4396c7567a259b24c369a81b84637a1cdd1eae39126a7dcb7d",
-      "excerpt_hash": "09ad7333b24d76cee41b4fa95914c398567d726f0d65e9b4b1b7f0b55b83d8b6",
-      "source_id": "rock_documentation",
-      "source_key": "ed40cd30bf1ad95d",
-      "source_record_id": "rock_documentation:article:899",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-passwordless-login"
-    },
-    {
-      "authority": "official",
-      "content_hash": "933c8e38f235360c1ac9f30819cf6727cc9b6c22b089db1d40114eea3fed0aba",
-      "excerpt_hash": "917b7892877521a85836df8747248bb83d72f2091959c12a8842cd5357e0cad6",
-      "source_id": "rock_documentation",
-      "source_key": "bf828eb393e7ebd0",
-      "source_record_id": "rock_documentation:article:904",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/two-factor-authentication"
-    },
-    {
-      "authority": "official",
-      "content_hash": "af76411757bb66a7040bd3aac4d94dc7b9b7230b29c3148baedf5f7519fc4674",
-      "excerpt_hash": "9bc9638888d16e0a53d827f4eff14183e399bb73ab1148cdebd2e86108c06666",
-      "source_id": "rock_documentation",
-      "source_key": "e3ab8e84fa2afa3f",
-      "source_record_id": "rock_documentation:article:908",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/user-accounts/register-for-an-account-on-an-unrecognized-br"
-    },
-    {
-      "authority": "official",
-      "content_hash": "4c70c00ac2ba1e1f15cd9a91b3a2bde9d092f2b6d6aa3d177a684c7e09305cbc",
-      "excerpt_hash": "30ece49e39e6be8585329e7d6c58de74d45bf491207e57ce502022e05fc1a3e0",
-      "source_id": "rock_documentation",
-      "source_key": "d4192d6cd103bf2c",
-      "source_record_id": "rock_documentation:article:2055",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/intro-to-external-authentication"
-    },
-    {
-      "authority": "official",
-      "content_hash": "ed5122430d4f6de57f88a45faec327eeee3cf7b564542875dd23ce467f914c45",
-      "excerpt_hash": "65eda42afbf56601e8d064378b0062cdac3ccada9b622fc63e9a05516f76210b",
-      "source_id": "rock_documentation",
-      "source_key": "52dcc8695ceb862e",
-      "source_record_id": "rock_documentation:article:895",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-google-authentication"
-    },
-    {
-      "authority": "official",
-      "content_hash": "c43b48899403cc4718d5793188cd8af3834e98001224d8c634a2c0d11e329c11",
-      "excerpt_hash": "db38a013cb14a4f412b8717f5568883aa5b30b4a90d086a107e871cf00d6b88e",
-      "source_id": "rock_documentation",
-      "source_key": "499decf378679131",
-      "source_record_id": "rock_documentation:article:897",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-auth0-authentication"
-    },
-    {
-      "authority": "official",
-      "content_hash": "49e22a8fd736f684afa58c167c26277a37b0dd0b03a90d98434e1bcac46ea5d5",
-      "excerpt_hash": "71b4c069202827f8f695934981fc46ac1054b2c85ea9a61f51a92fce0e543e12",
-      "source_id": "rock_documentation",
-      "source_key": "fd4b14f719e6d352",
-      "source_record_id": "rock_documentation:article:2057",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/rock-authentication/intro-to-openid-connect"
-    },
-    {
       "authority": "official-release",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "1f1f6d03a498fb0af2245eb924f844e9c33b5c527096a0bc1bac64f5e05cc523",
+      "content_hash": "e1a0cbe01b6c2d1b182dd64df41826c62d54bf43d4536c6d6e413b86e0e933d6",
+      "excerpt_hash": "29863be45a5ed82f00403ae17604d65b39b0fdea1335ccaa39f4a18ba3b53dc3",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:307040a780056da3",
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
-      "authority": "official",
-      "content_hash": "eac2988bee2bce82a149d046913de9fa459f2a17a68090f8dcd57b67c1e9a5d4",
-      "excerpt_hash": "3bd15bf20afc88985f34f92639f49e62c8f8c861bac5ae0f86b33a7c7969b14c",
-      "source_id": "rock_documentation",
-      "source_key": "2313f62b66cda28f",
-      "source_record_id": "rock_documentation:article:903",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-login-history"
-    },
-    {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "eeb148de06fdce97",
-      "source_record_id": "org_contribution:oneall:api-v2-patch-over-put-partial-write-safety",
+      "source_id": "citation",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/api-docs"
     },
     {
@@ -3768,21 +3615,21 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
     },
     {
-      "authority": "org-contribution",
+      "authority": "official-developer",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "dbfb13c00b082dd8",
-      "source_record_id": "org_contribution:oneall:lava-applicationview-parent-executeview-preflight",
+      "source_id": "rock_developer",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
     },
     {
-      "authority": "org-contribution",
+      "authority": "official-developer",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "3ef61357f013946b",
-      "source_record_id": "org_contribution:oneall:public-concierge-avoid-full-page-iframe-embedding",
+      "source_id": "rock_developer",
+      "source_key": "fd3fd2bfe8a855c0",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
@@ -3813,33 +3660,6 @@
       "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
     },
     {
-      "authority": "official",
-      "content_hash": "9bccb74330a09fd8f8ef5fe6bce8df948f28ef7157222a3efc66ca802b41f6cb",
-      "excerpt_hash": "44fb033b6976a33dcbc3dd3a70d0a9f7c7f1583baa91ac47c8cddfbbe76d7ed9",
-      "source_id": "rock_documentation",
-      "source_key": "27d9a4ec2912d5df",
-      "source_record_id": "rock_documentation:article:887",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/background-checks/administer-background-checks"
-    },
-    {
-      "authority": "official",
-      "content_hash": "fe4ef1c403224e8ba61cea10053810f3e201e9eb2f848da56f9acee0b37c7538",
-      "excerpt_hash": "1044ec25006aba1adff5c08fcf11fb87d7dc038d1b76d5835a7ab9da29990866",
-      "source_id": "rock_documentation",
-      "source_key": "774540aed34395d6",
-      "source_record_id": "rock_documentation:article:885",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-checkr"
-    },
-    {
-      "authority": "official",
-      "content_hash": "8895f5263ef10b38979660e354e6cc4a5677f175e63c79ee4b203b7ef17dec17",
-      "excerpt_hash": "e68dae0ad26f5a57f6161e047dd78d1e9bc1335fba09cb00c7da2dbd46ba5577",
-      "source_id": "rock_documentation",
-      "source_key": "c5f31ac5dba57708",
-      "source_record_id": "rock_documentation:article:886",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-protect-my-ministry"
-    },
-    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -3867,13 +3687,13 @@
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
     },
     {
-      "authority": "org-contribution",
+      "authority": "official",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "fa4cdce04d4dcdcb",
-      "source_record_id": "org_contribution:oneall:forgot-username-email-results-users-filter",
-      "url": "https://community.rockrms.com/documentation"
+      "source_id": "rock_documentation",
+      "source_key": "8c641622ba22f231",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions"
     },
     {
       "authority": "official-training",
@@ -3886,30 +3706,12 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "e67324c014b420a302bab71be26270e0d2da8ab6ee0369ba4a50095bdaf465ca",
-      "excerpt_hash": "9dc65b6b741ae69dbd5c6e43dba178060e30aa91e7ce22898b5f5765731cfeb7",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "ea01842cf63d58e3",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Mobile/LocationPermissionStatus.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Mobile/LocationPermissionStatus.cs"
-    },
-    {
-      "authority": "official",
-      "content_hash": "72a9883819094c15efd805f65a6e0c06ae58bdb49e3422404c7846f81e758b80",
-      "excerpt_hash": "60a874bd846ab6ea34f46e81c80fb6749e19d5a30fbf7d953c2899b878d4abed",
-      "source_id": "rock_documentation",
-      "source_key": "bb4092a256635673",
-      "source_record_id": "rock_documentation:article:891",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha"
-    },
-    {
-      "authority": "official",
-      "content_hash": "8dd6c6680bd7b75ce3470666151b50a6ac33852534bc820faaf3b5fd67aedb0d",
-      "excerpt_hash": "29bc1a7af45e7da686bf705ba9e8078f8e6e883687847f942df9b84c775a21d5",
-      "source_id": "rock_documentation",
-      "source_key": "151ade9945cde385",
-      "source_record_id": "rock_documentation:article:890",
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha"
     },
     {
       "authority": "unknown",
@@ -4038,63 +3840,119 @@
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s"
     },
     {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "02f59e87ae964075",
-      "source_record_id": "org_contribution:oneall:communication-history-active-search",
+      "source_id": "citation",
+      "source_key": "21ebe109b158f0f4",
+      "source_record_id": "",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search"
     },
     {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "df0b5e90e2997b15",
-      "source_record_id": "org_contribution:oneall:event-registration-analytics-dashboard",
+      "source_id": "citation",
+      "source_key": "d40de2b877f45956",
+      "source_record_id": "",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard"
     },
     {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "df7c8ffe1ca46e3d",
-      "source_record_id": "org_contribution:oneall:registration-to-connection-request",
+      "source_id": "citation",
+      "source_key": "1adc454acbc6fcad",
+      "source_record_id": "",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request"
     },
     {
-      "authority": "org-contribution",
+      "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "fe63cd4826aecb55",
-      "source_record_id": "org_contribution:oneall:workflow-backed-sms-verification",
+      "source_id": "citation",
+      "source_key": "c966f5bab8f6fef1",
+      "source_record_id": "",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "f262666390b12ef3",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/assessments-emotional-intelligence"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "bef4da01164a18bd",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "c48789f22dbf970d",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "a1d2277fcf136679",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "12d9719408f9414f",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/check-in/settings"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 34,
+      "end_line": 50,
       "heading": "1. Executive Summary For Agents",
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
         "f807acb8c3c3d207",
         "e5eb06e080108afc",
-        "b6017060d31a8577",
-        "d7bffe0fc08eaa24",
+        "547b1337a6e19cf7",
+        "dfd0cdc56d97fa7f",
         "30be60a23d3d0317",
         "e5eb06e080108afc"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "normal",
-      "end_line": 58,
+      "end_line": 74,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
@@ -4103,11 +3961,11 @@
         "f807acb8c3c3d207",
         "e615a0f9b84d787c"
       ],
-      "start_line": 35
+      "start_line": 51
     },
     {
       "confidence": "structural",
-      "end_line": 64,
+      "end_line": 80,
       "heading": "3. Security And Permissions Mental Model",
       "needs_live_verification": false,
       "section_id": "3-security-and-permissions-mental-model",
@@ -4116,142 +3974,142 @@
         "f807acb8c3c3d207",
         "e615a0f9b84d787c"
       ],
-      "start_line": 59
+      "start_line": 75
     },
     {
       "confidence": "normal",
-      "end_line": 68,
+      "end_line": 84,
       "heading": "The Object Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-object-layer",
       "source_keys": [
-        "7e73a1d5ee288554",
+        "5c0a3e6afe8bbffc",
         "f807acb8c3c3d207"
       ],
-      "start_line": 65
+      "start_line": 81
     },
     {
       "confidence": "high",
-      "end_line": 84,
+      "end_line": 100,
       "heading": "The Action Layer",
       "needs_live_verification": true,
       "section_id": "3-security-and-permissions-mental-model-the-action-layer",
       "source_keys": [
-        "7e73a1d5ee288554",
+        "5c0a3e6afe8bbffc",
         "e5eb06e080108afc",
-        "3570656d84751e63"
-      ],
-      "start_line": 69
-    },
-    {
-      "confidence": "normal",
-      "end_line": 92,
-      "heading": "Authorization And Security Roles",
-      "needs_live_verification": true,
-      "section_id": "authorization-and-security-roles",
-      "source_keys": [
-        "367604be3c878185",
-        "2019c665165c20ba",
-        "2019c665165c20ba",
-        "b147edd833c9da4c",
-        "a92c11ad9e653c03"
+        "5c0a3e6afe8bbffc"
       ],
       "start_line": 85
     },
     {
       "confidence": "normal",
-      "end_line": 106,
+      "end_line": 108,
+      "heading": "Authorization And Security Roles",
+      "needs_live_verification": true,
+      "section_id": "authorization-and-security-roles",
+      "source_keys": [
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
+      ],
+      "start_line": 101
+    },
+    {
+      "confidence": "normal",
+      "end_line": 122,
       "heading": "Permission evaluation",
       "needs_live_verification": true,
       "section_id": "authorization-and-security-roles-permission-evaluation",
       "source_keys": [
-        "6d999742577032fc",
-        "3570656d84751e63"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 93
-    },
-    {
-      "confidence": "normal",
-      "end_line": 110,
-      "heading": "Auditing changes",
-      "needs_live_verification": false,
-      "section_id": "authorization-and-security-roles-auditing-changes",
-      "source_keys": [
-        "7ee5f2c5d04d18ff"
-      ],
-      "start_line": 107
-    },
-    {
-      "confidence": "normal",
-      "end_line": 118,
-      "heading": "Login, Accounts, And Protection Profiles",
-      "needs_live_verification": false,
-      "section_id": "login-accounts-and-protection-profiles",
-      "source_keys": [
-        "699f19b12c002b07",
-        "9809775893f2dccd",
-        "b147edd833c9da4c",
-        "b147edd833c9da4c"
-      ],
-      "start_line": 111
+      "start_line": 109
     },
     {
       "confidence": "normal",
       "end_line": 126,
-      "heading": "Passwordless login and 2FA",
+      "heading": "Auditing changes",
       "needs_live_verification": false,
-      "section_id": "login-accounts-and-protection-profiles-passwordless-login-and-2fa",
+      "section_id": "authorization-and-security-roles-auditing-changes",
       "source_keys": [
-        "ed40cd30bf1ad95d",
-        "bf828eb393e7ebd0",
-        "e3ab8e84fa2afa3f"
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 119
+      "start_line": 123
     },
     {
-      "confidence": "high",
-      "end_line": 132,
-      "heading": "External authentication and OIDC",
-      "needs_live_verification": true,
-      "section_id": "login-accounts-and-protection-profiles-external-authentication-and-oidc",
+      "confidence": "normal",
+      "end_line": 134,
+      "heading": "Login, Accounts, And Protection Profiles",
+      "needs_live_verification": false,
+      "section_id": "login-accounts-and-protection-profiles",
       "source_keys": [
-        "d4192d6cd103bf2c",
-        "52dcc8695ceb862e",
-        "499decf378679131",
-        "fd4b14f719e6d352",
-        "776256c424368312"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
       "start_line": 127
     },
     {
       "confidence": "normal",
-      "end_line": 136,
+      "end_line": 142,
+      "heading": "Passwordless login and 2FA",
+      "needs_live_verification": false,
+      "section_id": "login-accounts-and-protection-profiles-passwordless-login-and-2fa",
+      "source_keys": [
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
+      ],
+      "start_line": 135
+    },
+    {
+      "confidence": "high",
+      "end_line": 148,
+      "heading": "External authentication and OIDC",
+      "needs_live_verification": true,
+      "section_id": "login-accounts-and-protection-profiles-external-authentication-and-oidc",
+      "source_keys": [
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "776256c424368312"
+      ],
+      "start_line": 143
+    },
+    {
+      "confidence": "normal",
+      "end_line": 152,
       "heading": "Login investigation",
       "needs_live_verification": false,
       "section_id": "login-accounts-and-protection-profiles-login-investigation",
       "source_keys": [
-        "2313f62b66cda28f"
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 133
+      "start_line": 149
     },
     {
       "confidence": "normal",
-      "end_line": 161,
+      "end_line": 177,
       "heading": "API Authentication And Identity-Bound Links",
       "needs_live_verification": true,
       "section_id": "api-authentication-and-identity-bound-links",
       "source_keys": [
-        "b6017060d31a8577",
+        "547b1337a6e19cf7",
         "776256c424368312",
         "f807acb8c3c3d207",
         "f807acb8c3c3d207",
-        "eeb148de06fdce97"
+        "14e4b0253d1428ca"
       ],
-      "start_line": 137
+      "start_line": 153
     },
     {
       "confidence": "structural",
-      "end_line": 163,
+      "end_line": 179,
       "heading": "CMS, Content, Personalization, And Lava",
       "needs_live_verification": false,
       "section_id": "cms-content-personalization-and-lava",
@@ -4264,11 +4122,11 @@
         "53ad1133e1cb2d0a",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 162
+      "start_line": 178
     },
     {
       "confidence": "citation-only",
-      "end_line": 171,
+      "end_line": 187,
       "heading": "Pages and blocks",
       "needs_live_verification": true,
       "section_id": "cms-content-personalization-and-lava-pages-and-blocks",
@@ -4277,11 +4135,11 @@
         "b51b24ed7912d814",
         "11cdf9c3e9ac92ed"
       ],
-      "start_line": 164
+      "start_line": 180
     },
     {
       "confidence": "normal",
-      "end_line": 181,
+      "end_line": 197,
       "heading": "Advanced HTML and Lava commands",
       "needs_live_verification": true,
       "section_id": "cms-content-personalization-and-lava-advanced-html-and-lava-commands",
@@ -4291,25 +4149,25 @@
         "53ad1133e1cb2d0a",
         "ae672f3d3d6f8730"
       ],
-      "start_line": 172
+      "start_line": 188
     },
     {
       "confidence": "normal",
-      "end_line": 205,
+      "end_line": 221,
       "heading": "Helix Applications And Endpoint Security",
       "needs_live_verification": true,
       "section_id": "helix-applications-and-endpoint-security",
       "source_keys": [
-        "d7bffe0fc08eaa24",
-        "dbfb13c00b082dd8",
-        "3ef61357f013946b",
+        "dfd0cdc56d97fa7f",
+        "6a9eebe7a077d89a",
+        "fd3fd2bfe8a855c0",
         "776256c424368312"
       ],
-      "start_line": 182
+      "start_line": 198
     },
     {
       "confidence": "structural",
-      "end_line": 207,
+      "end_line": 223,
       "heading": "Sensitive People And Ministry Data",
       "needs_live_verification": false,
       "section_id": "sensitive-people-and-ministry-data",
@@ -4317,19 +4175,17 @@
         "303d884642f1666d",
         "a7e02a5142f7bd4b",
         "094493cd4f8f0313",
-        "27d9a4ec2912d5df",
-        "774540aed34395d6",
-        "c5f31ac5dba57708",
+        "5c0a3e6afe8bbffc",
         "776256c424368312",
         "3b673be37d4ab1ec",
         "346df253ccafa818",
         "fb5f22127915c464"
       ],
-      "start_line": 206
+      "start_line": 222
     },
     {
       "confidence": "citation-only",
-      "end_line": 213,
+      "end_line": 229,
       "heading": "Person Profile and notes",
       "needs_live_verification": false,
       "section_id": "sensitive-people-and-ministry-data-person-profile-and-notes",
@@ -4338,25 +4194,25 @@
         "a7e02a5142f7bd4b",
         "094493cd4f8f0313"
       ],
-      "start_line": 208
+      "start_line": 224
     },
     {
       "confidence": "high",
-      "end_line": 221,
+      "end_line": 237,
       "heading": "Background checks",
       "needs_live_verification": false,
       "section_id": "sensitive-people-and-ministry-data-background-checks",
       "source_keys": [
-        "27d9a4ec2912d5df",
-        "774540aed34395d6",
-        "c5f31ac5dba57708",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
         "776256c424368312"
       ],
-      "start_line": 214
+      "start_line": 230
     },
     {
       "confidence": "citation-only",
-      "end_line": 227,
+      "end_line": 243,
       "heading": "Communications and reports",
       "needs_live_verification": false,
       "section_id": "sensitive-people-and-ministry-data-communications-and-reports",
@@ -4365,43 +4221,42 @@
         "346df253ccafa818",
         "fb5f22127915c464"
       ],
-      "start_line": 222
+      "start_line": 238
     },
     {
       "confidence": "structural",
-      "end_line": 229,
+      "end_line": 245,
       "heading": "Feature-Specific Authorization Workflows",
       "needs_live_verification": false,
       "section_id": "feature-specific-authorization-workflows",
       "source_keys": [
-        "fa4cdce04d4dcdcb",
+        "8c641622ba22f231",
         "776256c424368312",
         "6c0184b4e7ec7558",
         "ea01842cf63d58e3",
-        "bb4092a256635673",
-        "151ade9945cde385",
+        "5c0a3e6afe8bbffc",
         "4c8975014d68e5f9",
         "c971eeb6629f19ea",
         "3c1653073afe6b82",
         "621293a53c063388"
       ],
-      "start_line": 228
+      "start_line": 244
     },
     {
-      "confidence": "normal",
-      "end_line": 235,
+      "confidence": "high",
+      "end_line": 251,
       "heading": "Sign-Ups and groups",
       "needs_live_verification": true,
       "section_id": "feature-specific-authorization-workflows-sign-ups-and-groups",
       "source_keys": [
-        "fa4cdce04d4dcdcb",
+        "8c641622ba22f231",
         "776256c424368312"
       ],
-      "start_line": 230
+      "start_line": 246
     },
     {
       "confidence": "normal",
-      "end_line": 241,
+      "end_line": 257,
       "heading": "Mobile check-in",
       "needs_live_verification": true,
       "section_id": "feature-specific-authorization-workflows-mobile-check-in",
@@ -4410,23 +4265,23 @@
         "6c0184b4e7ec7558",
         "ea01842cf63d58e3"
       ],
-      "start_line": 236
+      "start_line": 252
     },
     {
       "confidence": "normal",
-      "end_line": 245,
+      "end_line": 261,
       "heading": "CAPTCHA and exposed forms",
       "needs_live_verification": true,
       "section_id": "feature-specific-authorization-workflows-captcha-and-exposed-forms",
       "source_keys": [
-        "bb4092a256635673",
-        "151ade9945cde385"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 242
+      "start_line": 258
     },
     {
       "confidence": "citation-only",
-      "end_line": 254,
+      "end_line": 270,
       "heading": "Version-scoped operational controls",
       "needs_live_verification": false,
       "section_id": "feature-specific-authorization-workflows-version-scoped-operational-controls",
@@ -4436,11 +4291,11 @@
         "3c1653073afe6b82",
         "621293a53c063388"
       ],
-      "start_line": 246
+      "start_line": 262
     },
     {
       "confidence": "citation-only",
-      "end_line": 264,
+      "end_line": 280,
       "heading": "AI Agents, Tools, And Data Access",
       "needs_live_verification": true,
       "section_id": "ai-agents-tools-and-data-access",
@@ -4455,11 +4310,11 @@
         "454638971ea095b7",
         "ccda259ba905d7b6"
       ],
-      "start_line": 255
+      "start_line": 271
     },
     {
       "confidence": "normal",
-      "end_line": 283,
+      "end_line": 299,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
       "section_id": "version-and-authority-caveats",
@@ -4468,47 +4323,42 @@
         "6fc62272f038e067",
         "776256c424368312"
       ],
-      "start_line": 265
+      "start_line": 281
     },
     {
       "confidence": "structural",
-      "end_line": 285,
+      "end_line": 301,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
       "source_keys": [
-        "3570656d84751e63",
-        "7ee5f2c5d04d18ff",
+        "5c0a3e6afe8bbffc",
         "2c6dd9ebf7d3f598",
         "b51b24ed7912d814",
-        "bf828eb393e7ebd0",
-        "2313f62b66cda28f",
-        "b6017060d31a8577",
+        "547b1337a6e19cf7",
         "776256c424368312",
-        "d7bffe0fc08eaa24",
+        "dfd0cdc56d97fa7f",
         "a7e02a5142f7bd4b",
         "094493cd4f8f0313",
-        "bb4092a256635673",
-        "151ade9945cde385",
-        "fa4cdce04d4dcdcb"
+        "8c641622ba22f231"
       ],
-      "start_line": 284
+      "start_line": 300
     },
     {
       "confidence": "normal",
-      "end_line": 295,
+      "end_line": 311,
       "heading": "A person cannot access an item they should be able to use",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-person-cannot-access-an-item-they-should-be-able-to-use",
       "source_keys": [
-        "3570656d84751e63",
-        "7ee5f2c5d04d18ff"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 286
+      "start_line": 302
     },
     {
       "confidence": "citation-only",
-      "end_line": 305,
+      "end_line": 321,
       "heading": "A page or content item is missing or publicly exposed",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-page-or-content-item-is-missing-or-publicly-exposed",
@@ -4516,47 +4366,47 @@
         "2c6dd9ebf7d3f598",
         "b51b24ed7912d814"
       ],
-      "start_line": 296
+      "start_line": 312
     },
     {
       "confidence": "normal",
-      "end_line": 315,
+      "end_line": 331,
       "heading": "Login fails after enabling 2FA or an external provider",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-login-fails-after-enabling-2fa-or-an-external-provider",
       "source_keys": [
-        "bf828eb393e7ebd0",
-        "2313f62b66cda28f"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 306
+      "start_line": 322
     },
     {
       "confidence": "normal",
-      "end_line": 325,
+      "end_line": 341,
       "heading": "A REST request returns unauthorized or permission denied",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-rest-request-returns-unauthorized-or-permission-denied",
       "source_keys": [
-        "b6017060d31a8577",
+        "547b1337a6e19cf7",
         "776256c424368312"
       ],
-      "start_line": 316
+      "start_line": 332
     },
     {
       "confidence": "normal",
-      "end_line": 335,
+      "end_line": 351,
       "heading": "A Helix endpoint works for administrators but not the intended role",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-the-intended-role",
       "source_keys": [
-        "d7bffe0fc08eaa24",
+        "dfd0cdc56d97fa7f",
         "776256c424368312"
       ],
-      "start_line": 326
+      "start_line": 342
     },
     {
       "confidence": "citation-only",
-      "end_line": 345,
+      "end_line": 361,
       "heading": "A note is missing, visible to the wrong staff, or behaves unexpectedly downstream",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-note-is-missing-visible-to-the-wrong-staff-or-behaves-unexpectedly-downstream",
@@ -4564,44 +4414,43 @@
         "a7e02a5142f7bd4b",
         "094493cd4f8f0313"
       ],
-      "start_line": 336
+      "start_line": 352
     },
     {
       "confidence": "normal",
-      "end_line": 355,
+      "end_line": 371,
       "heading": "A public form is receiving abuse or CAPTCHA is not appearing",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-public-form-is-receiving-abuse-or-captcha-is-not-appearing",
       "source_keys": [
-        "bb4092a256635673",
-        "151ade9945cde385"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 346
+      "start_line": 362
     },
     {
-      "confidence": "normal",
-      "end_line": 364,
+      "confidence": "high",
+      "end_line": 380,
       "heading": "A top-level Sign-Up project cannot be created or is visible to the wrong people",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people",
       "source_keys": [
-        "fa4cdce04d4dcdcb",
+        "8c641622ba22f231",
         "776256c424368312"
       ],
-      "start_line": 356
+      "start_line": 372
     },
     {
       "confidence": "structural",
-      "end_line": 366,
+      "end_line": 382,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
       "source_keys": [
-        "6d999742577032fc",
-        "3570656d84751e63",
+        "5c0a3e6afe8bbffc",
         "9ae5804fa3a0ac7d",
-        "b6017060d31a8577",
-        "d7bffe0fc08eaa24",
+        "547b1337a6e19cf7",
+        "dfd0cdc56d97fa7f",
         "53ad1133e1cb2d0a",
         "094493cd4f8f0313",
         "a7e02a5142f7bd4b",
@@ -4610,57 +4459,57 @@
         "776256c424368312",
         "6fc62272f038e067"
       ],
-      "start_line": 365
+      "start_line": 381
     },
     {
       "confidence": "normal",
-      "end_line": 388,
+      "end_line": 404,
       "heading": "Recipe: Explain an effective permission result",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-explain-an-effective-permission-result",
       "source_keys": [
-        "6d999742577032fc"
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 367
+      "start_line": 383
     },
     {
       "confidence": "normal",
-      "end_line": 407,
+      "end_line": 423,
       "heading": "Recipe: Publish a page or block with bounded access",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-publish-a-page-or-block-with-bounded-access",
       "source_keys": [
-        "3570656d84751e63",
+        "5c0a3e6afe8bbffc",
         "9ae5804fa3a0ac7d"
       ],
-      "start_line": 389
+      "start_line": 405
     },
     {
-      "confidence": "community-supported",
-      "end_line": 428,
+      "confidence": "normal",
+      "end_line": 444,
       "heading": "Recipe: Preflight a least-privilege REST integration",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration",
       "source_keys": [
-        "b6017060d31a8577"
+        "547b1337a6e19cf7"
       ],
-      "start_line": 408
+      "start_line": 424
     },
     {
-      "confidence": "community-supported",
-      "end_line": 450,
+      "confidence": "normal",
+      "end_line": 466,
       "heading": "Recipe: Secure a Lava API or Helix endpoint",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint",
       "source_keys": [
-        "d7bffe0fc08eaa24",
+        "dfd0cdc56d97fa7f",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 429
+      "start_line": 445
     },
     {
       "confidence": "citation-only",
-      "end_line": 462,
+      "end_line": 478,
       "heading": "Recipe: Audit Person Profile notes",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-audit-person-profile-notes",
@@ -4668,11 +4517,11 @@
         "094493cd4f8f0313",
         "a7e02a5142f7bd4b"
       ],
-      "start_line": 451
+      "start_line": 467
     },
     {
       "confidence": "citation-only",
-      "end_line": 478,
+      "end_line": 494,
       "heading": "Recipe: Validate an AI agent tool before production",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-an-ai-agent-tool-before-production",
@@ -4680,11 +4529,11 @@
         "454638971ea095b7",
         "ebdec32ad954044d"
       ],
-      "start_line": 463
+      "start_line": 479
     },
     {
       "confidence": "normal",
-      "end_line": 492,
+      "end_line": 508,
       "heading": "Recipe: Run a security-sensitive upgrade preflight",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-run-a-security-sensitive-upgrade-preflight",
@@ -4692,11 +4541,11 @@
         "776256c424368312",
         "6fc62272f038e067"
       ],
-      "start_line": 479
+      "start_line": 495
     },
     {
       "confidence": "structural",
-      "end_line": 521,
+      "end_line": 537,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
@@ -4704,37 +4553,22 @@
         "776256c424368312",
         "6fc62272f038e067"
       ],
-      "start_line": 493
+      "start_line": 509
     },
     {
       "confidence": "structural",
-      "end_line": 523,
+      "end_line": 539,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
       "source_keys": [
         "5c0a3e6afe8bbffc",
-        "7e73a1d5ee288554",
-        "367604be3c878185",
-        "2019c665165c20ba",
-        "3570656d84751e63",
-        "6d999742577032fc",
-        "b147edd833c9da4c",
-        "7ee5f2c5d04d18ff",
-        "a92c11ad9e653c03",
-        "9809775893f2dccd",
-        "ed40cd30bf1ad95d",
-        "bf828eb393e7ebd0",
-        "2313f62b66cda28f",
-        "e3ab8e84fa2afa3f",
-        "d4192d6cd103bf2c",
-        "fd4b14f719e6d352",
         "e615a0f9b84d787c",
-        "b6017060d31a8577",
+        "547b1337a6e19cf7",
         "f807acb8c3c3d207",
         "30be60a23d3d0317",
         "53ad1133e1cb2d0a",
-        "d7bffe0fc08eaa24",
+        "dfd0cdc56d97fa7f",
         "e5eb06e080108afc",
         "776256c424368312",
         "2c6dd9ebf7d3f598",
@@ -4745,74 +4579,71 @@
         "a7e02a5142f7bd4b",
         "094493cd4f8f0313",
         "6c0184b4e7ec7558",
-        "27d9a4ec2912d5df",
-        "774540aed34395d6",
-        "c5f31ac5dba57708",
-        "fa4cdce04d4dcdcb",
-        "02f59e87ae964075",
-        "df0b5e90e2997b15",
-        "df7c8ffe1ca46e3d",
-        "fe63cd4826aecb55"
+        "8c641622ba22f231",
+        "21ebe109b158f0f4",
+        "d40de2b877f45956",
+        "1adc454acbc6fcad",
+        "c966f5bab8f6fef1"
       ],
-      "start_line": 522
+      "start_line": 538
     },
     {
       "confidence": "normal",
-      "end_line": 535,
+      "end_line": 551,
       "heading": "Primary official security documentation",
       "needs_live_verification": true,
       "section_id": "source-map-primary-official-security-documentation",
       "source_keys": [
         "5c0a3e6afe8bbffc",
-        "7e73a1d5ee288554",
-        "367604be3c878185",
-        "2019c665165c20ba",
-        "3570656d84751e63",
-        "6d999742577032fc",
-        "b147edd833c9da4c",
-        "7ee5f2c5d04d18ff",
-        "a92c11ad9e653c03"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc"
       ],
-      "start_line": 524
+      "start_line": 540
     },
     {
       "confidence": "normal",
-      "end_line": 546,
+      "end_line": 562,
       "heading": "Authentication and accounts",
       "needs_live_verification": false,
       "section_id": "source-map-authentication-and-accounts",
       "source_keys": [
-        "9809775893f2dccd",
-        "ed40cd30bf1ad95d",
-        "bf828eb393e7ebd0",
-        "2313f62b66cda28f",
-        "e3ab8e84fa2afa3f",
-        "d4192d6cd103bf2c",
-        "fd4b14f719e6d352",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
         "e615a0f9b84d787c"
       ],
-      "start_line": 536
+      "start_line": 552
     },
     {
       "confidence": "normal",
-      "end_line": 556,
+      "end_line": 572,
       "heading": "APIs, Lava, Helix, and source evidence",
       "needs_live_verification": false,
       "section_id": "source-map-apis-lava-helix-and-source-evidence",
       "source_keys": [
-        "b6017060d31a8577",
+        "547b1337a6e19cf7",
         "f807acb8c3c3d207",
         "30be60a23d3d0317",
         "53ad1133e1cb2d0a",
-        "d7bffe0fc08eaa24",
+        "dfd0cdc56d97fa7f",
         "e5eb06e080108afc",
         "776256c424368312"
       ],
-      "start_line": 547
+      "start_line": 563
     },
     {
       "confidence": "citation-only",
-      "end_line": 567,
+      "end_line": 583,
       "heading": "Operational RockU sources",
       "needs_live_verification": false,
       "section_id": "source-map-operational-rocku-sources",
@@ -4826,579 +4657,217 @@
         "094493cd4f8f0313",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 557
+      "start_line": 573
     },
     {
       "confidence": "normal",
-      "end_line": 574,
+      "end_line": 590,
       "heading": "Sensitive workflows and feature documentation",
       "needs_live_verification": false,
       "section_id": "source-map-sensitive-workflows-and-feature-documentation",
       "source_keys": [
-        "27d9a4ec2912d5df",
-        "774540aed34395d6",
-        "c5f31ac5dba57708",
-        "fa4cdce04d4dcdcb"
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "8c641622ba22f231"
       ],
-      "start_line": 568
+      "start_line": 584
     },
     {
-      "confidence": "community-supported",
-      "end_line": 582,
+      "confidence": "citation-only",
+      "end_line": 600,
       "heading": "Reviewed community examples",
       "needs_live_verification": false,
       "section_id": "source-map-reviewed-community-examples",
       "source_keys": [
-        "02f59e87ae964075",
-        "df0b5e90e2997b15",
-        "df7c8ffe1ca46e3d",
-        "fe63cd4826aecb55"
+        "21ebe109b158f0f4",
+        "d40de2b877f45956",
+        "1adc454acbc6fcad",
+        "c966f5bab8f6fef1"
       ],
-      "start_line": 575
+      "start_line": 591
+    },
+    {
+      "confidence": "normal",
+      "end_line": 623,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "f807acb8c3c3d207",
+        "5c0a3e6afe8bbffc",
+        "5c0a3e6afe8bbffc",
+        "547b1337a6e19cf7",
+        "8c641622ba22f231",
+        "ae672f3d3d6f8730",
+        "f807acb8c3c3d207",
+        "5c0a3e6afe8bbffc",
+        "83b85b83715ceaaa"
+      ],
+      "start_line": 601
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 643,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "9ae5804fa3a0ac7d",
+        "f262666390b12ef3",
+        "bef4da01164a18bd",
+        "c48789f22dbf970d",
+        "a1d2277fcf136679",
+        "12d9719408f9414f"
+      ],
+      "start_line": 624
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:23:50+00:00",
+  "source_pack_hydrated_at": "2026-06-03T16:04:47+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official-developer",
       "authority_score": 90,
-      "kind": "citation_only",
+      "change_type": null,
+      "content_hash": "ee690f427fee0ec8069b3f8b4444135366695be367324292a390849660edcc91",
+      "excerpt_hash": "4b57d5d235f5c874909a941b619304035869d6e6c54560c8aad6907d0c4d6d37",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "rock_developer",
       "source_key": "f807acb8c3c3d207",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/developer/303---blast-off/rock-security",
-      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security"
+      "source_record_id": "rock_developer:f807acb8c3c3d207",
+      "title": "Rock Security",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/303---blast-off/rock-security",
+      "version": null
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "0611d3298c9367498d2ae621690545a3daa2e0af81cf4d553a644442287b74a9",
-      "excerpt_hash": "6d122b796e0e9e93783e9a2827e1ef554705abde2dfa4e24746d974a36e5f870",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "security",
-        "authorization",
-        "auth"
-      ],
-      "path": "Rock/Security/Authorization.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "e5eb06e080108afc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Security/Authorization.cs",
-      "title": "Rock/Security/Authorization.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:rest-api-permission-scope-preflight",
-      "contribution_type": "task_card",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "b6017060d31a8577",
-      "source_record_id": "org_contribution:oneall:rest-api-permission-scope-preflight",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns"
-      ],
-      "title": "Preflight REST API work by checking identity, endpoint, and permission scope",
-      "topics": [
-        "api-integrations",
-        "security-permissions"
-      ],
-      "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:public-ai-search-memory-separate-from-route-registry",
-      "contribution_type": "guide_section",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "d7bffe0fc08eaa24",
-      "source_record_id": "org_contribution:oneall:public-ai-search-memory-separate-from-route-registry",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/helix/overview/security",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-      ],
-      "title": "Separate public AI search memory from route and handoff registries",
-      "topics": [
-        "helix",
-        "api-integrations",
-        "security-permissions"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/overview/security"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/lava/commands",
-      "url": "https://community.rockrms.com/lava/commands"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
+      "authority": "official-developer",
+      "authority_score": 90,
       "change_type": null,
-      "content_hash": "f436f40a65dfff3f54008b91974ce2945cea0a6d121cf3ba0c4415a590b90285",
-      "excerpt_hash": "c5193c8d009459f1ffb71c11d44eefe89f6dd6c0e236fb08b8e9ae7afea14fb6",
+      "content_hash": "bd1c7c4a9a96df78963e8e7d7cf64712f386e723341061c4812fe98dcf468169",
+      "excerpt_hash": "e68157a60a08a4deadcac696c50992a241fbae1f3e16df4e5ad8b63e7fc83aa7",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "5c0a3e6afe8bbffc",
-      "source_record_id": "rock_documentation:article:849",
+      "source_id": "rock_developer",
+      "source_key": "547b1337a6e19cf7",
+      "source_record_id": "rock_developer:547b1337a6e19cf7",
+      "title": "The Rock Rest API",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b1cb72c3faf75ef6df3528c95832dca3e965c580e816ab1d2d096692c4db1532",
+      "excerpt_hash": "b83fd048c6578f1faf429166ba072988126f4c3f8c758ed9d915be1c2840cf96",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "dfd0cdc56d97fa7f",
+      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
       "title": "Security",
       "topics": [
-        "admin",
-        "operations",
+        "api",
+        "development",
+        "lava",
+        "obsidian",
         "security",
-        "usage"
+        "sql"
       ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security",
+      "url": "https://community.rockrms.com/developer/helix/overview/security",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "70a7be5a70654dd395bb453935623d34a308a42168ef9ddc8933bc5c658a3460",
+      "excerpt_hash": "9a49ff2fe3d4afa2990370d4a8491db70c8f0baeeb1e55172c3a6e1d0313da88",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "30be60a23d3d0317",
+      "source_record_id": "rock_developer:30be60a23d3d0317",
+      "title": "Getting Started",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/lava/commands",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "fb268e9a7b6ab010c3ec38ca3ade330ab0443c1183a5f591041698594d52cc0f",
-      "excerpt_hash": "6c0f88f944fc902434b27352adc1408b0f41e79c1c155688fce5fc4e840cc6e2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "5c0a3e6afe8bbffc",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/security",
+      "url": "https://community.rockrms.com/documentation/core-concepts/security"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "e615a0f9b84d787c",
-      "source_record_id": "rock_documentation:article:2058",
-      "title": "Intro to Captcha",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "security",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/intro-to-captcha",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "169e7e6f6b6adb3aade027f165508de1d046274167a423d7c668b12bd9b1c8b6",
-      "excerpt_hash": "50cab8557a3afd5525c2f85975f77c828c98798cc3990e7dcb7d0de6d6409454",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "7e73a1d5ee288554",
-      "source_record_id": "rock_documentation:article:2051",
-      "title": "Intro to Security",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/overview/intro-to-security",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "bcbece61b730222c80bee364bd21af275a8567e2e8b40b34277dee0f95e31757",
-      "excerpt_hash": "e6caca70b7d7da11c28d8614ae11c1305f65238099299cc62735b199593db36e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "3570656d84751e63",
-      "source_record_id": "rock_documentation:article:889",
-      "title": "Handle Permissions",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "f7e71180fa05a406ff6cf027931d05769e5dd4fa6de75c7e8f8bfb06eef93ece",
-      "excerpt_hash": "2f48015c61c3678038eecd3915f7d5f5d627fc2436a4cb64c8aba8e4a0172682",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "367604be3c878185",
-      "source_record_id": "rock_documentation:article:2052",
-      "title": "Intro to Security Roles",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/security-roles/intro-to-security-roles",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "e34e971f2e07db341be721a1036f8573fc2f76fdbccc3c6fdeb9d88169093bef",
-      "excerpt_hash": "274ccc84b95f5a0de4e4dc73318464f883d1950e8809beca85a39ecefbaf42cf",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "2019c665165c20ba",
-      "source_record_id": "rock_documentation:article:888",
-      "title": "Administering Security Roles",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/security-roles/administering-security-roles",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c4332fa1ec9030bf4bffa17366c55ce7324bdd763cda181b684e3f3b270a7b9d",
-      "excerpt_hash": "0cd7b12cef3cf80226dd43b0246ca91431f48dca9d9f6969c47daa0c56e71773",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "b147edd833c9da4c",
-      "source_record_id": "rock_documentation:article:910",
-      "title": "Configure Security Settings",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/configure-security-settings",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "208ca479ba3565c11b51afe9fa257b2b18d81e8050338bcb3ba48151eee75a1e",
-      "excerpt_hash": "6c013b5bca6b1424523736f5b1f25f17ebad2188ea9e979cd26b5b7881c125ea",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "a92c11ad9e653c03",
-      "source_record_id": "rock_documentation:article:1785",
-      "title": "Cloning Security Role Groups",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/cloning-security-role-groups",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "d67057902b819b07287754d2fc8680bdd648334b5f8b7e6cc6fcd19dd7c37c4b",
-      "excerpt_hash": "f15ec0a08a1b4434170ccbd48176044826908223043873701372a7e400ece702",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "6d999742577032fc",
-      "source_record_id": "rock_documentation:article:909",
-      "title": "Inspect Security",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/inspect-security",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "9f1ccee1b1b50a267eecba534e94a98e575efc5db2c53a4739d8e2abd77194e4",
-      "excerpt_hash": "b41dac5e2f2d3a18d8c886e019335fdb111212651d03142019a40e44cc7d3778",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "7ee5f2c5d04d18ff",
-      "source_record_id": "rock_documentation:article:911",
-      "title": "View the Security Change Audit",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "7e5cd96792ef2cdfc3f529383ab0420098e017e25b0a12f08ffe20c5dc9ca9c3",
-      "excerpt_hash": "ef6c9363066df05dd0d6cd9c911c688230a5a9a33a14be994a6a8b26a95e3f05",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "699f19b12c002b07",
-      "source_record_id": "rock_documentation:article:3638",
-      "title": "Intro to User Accounts",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/user-accounts/intro-to-user-accounts",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "feeffe991988148d72674233d18b627af0d6a48dc0fca13514cbecc24466b110",
-      "excerpt_hash": "65a8ef25eac5eb8255a6bb4a0f3ee059b5966be6a4e1976ff81a70b356826602",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "9809775893f2dccd",
-      "source_record_id": "rock_documentation:article:2053",
-      "title": "Intro to Login and Authentication",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/intro-to-login-and-authentication",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "90f2154d85641f4396c7567a259b24c369a81b84637a1cdd1eae39126a7dcb7d",
-      "excerpt_hash": "09ad7333b24d76cee41b4fa95914c398567d726f0d65e9b4b1b7f0b55b83d8b6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "ed40cd30bf1ad95d",
-      "source_record_id": "rock_documentation:article:899",
-      "title": "Use Passwordless Login",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-passwordless-login",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "933c8e38f235360c1ac9f30819cf6727cc9b6c22b089db1d40114eea3fed0aba",
-      "excerpt_hash": "917b7892877521a85836df8747248bb83d72f2091959c12a8842cd5357e0cad6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "bf828eb393e7ebd0",
-      "source_record_id": "rock_documentation:article:904",
-      "title": "Two-Factor Authentication",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/two-factor-authentication",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "af76411757bb66a7040bd3aac4d94dc7b9b7230b29c3148baedf5f7519fc4674",
-      "excerpt_hash": "9bc9638888d16e0a53d827f4eff14183e399bb73ab1148cdebd2e86108c06666",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "e3ab8e84fa2afa3f",
-      "source_record_id": "rock_documentation:article:908",
-      "title": "Register for an Account on an Unrecognized Browser",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/user-accounts/register-for-an-account-on-an-unrecognized-br",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "4c70c00ac2ba1e1f15cd9a91b3a2bde9d092f2b6d6aa3d177a684c7e09305cbc",
-      "excerpt_hash": "30ece49e39e6be8585329e7d6c58de74d45bf491207e57ce502022e05fc1a3e0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "d4192d6cd103bf2c",
-      "source_record_id": "rock_documentation:article:2055",
-      "title": "Intro to External Authentication",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/intro-to-external-authentication",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ed5122430d4f6de57f88a45faec327eeee3cf7b564542875dd23ce467f914c45",
-      "excerpt_hash": "65eda42afbf56601e8d064378b0062cdac3ccada9b622fc63e9a05516f76210b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "52dcc8695ceb862e",
-      "source_record_id": "rock_documentation:article:895",
-      "title": "Set Up Google Authentication",
-      "topics": [
-        "admin",
-        "api",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-google-authentication",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c43b48899403cc4718d5793188cd8af3834e98001224d8c634a2c0d11e329c11",
-      "excerpt_hash": "db38a013cb14a4f412b8717f5568883aa5b30b4a90d086a107e871cf00d6b88e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "499decf378679131",
-      "source_record_id": "rock_documentation:article:897",
-      "title": "Set Up Auth0 Authentication",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-auth0-authentication",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "49e22a8fd736f684afa58c167c26277a37b0dd0b03a90d98434e1bcac46ea5d5",
-      "excerpt_hash": "71b4c069202827f8f695934981fc46ac1054b2c85ea9a61f51a92fce0e543e12",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "fd4b14f719e6d352",
-      "source_record_id": "rock_documentation:article:2057",
-      "title": "Intro to OpenID Connect",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/rock-authentication/intro-to-openid-connect",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/security/captcha/intro-to-captcha",
+      "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/intro-to-captcha"
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "1f1f6d03a498fb0af2245eb924f844e9c33b5c527096a0bc1bac64f5e05cc523",
+      "content_hash": "e1a0cbe01b6c2d1b182dd64df41826c62d54bf43d4536c6d6e413b86e0e933d6",
+      "excerpt_hash": "29863be45a5ed82f00403ae17604d65b39b0fdea1335ccaa39f4a18ba3b53dc3",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "October 6, 2025",
@@ -5416,51 +4885,13 @@
       "version": "17.5"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "eac2988bee2bce82a149d046913de9fa459f2a17a68090f8dcd57b67c1e9a5d4",
-      "excerpt_hash": "3bd15bf20afc88985f34f92639f49e62c8f8c861bac5ae0f86b33a7c7969b14c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "2313f62b66cda28f",
-      "source_record_id": "rock_documentation:article:903",
-      "title": "Use Login History",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-login-history",
-      "version": null
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:api-v2-patch-over-put-partial-write-safety",
-      "contribution_type": "guide_section",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "eeb148de06fdce97",
-      "source_record_id": "org_contribution:oneall:api-v2-patch-over-put-partial-write-safety",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/api-docs",
-        "https://rocksolidchurchdemo.com/api/v2/docs/index",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "title": "Prefer API v2 PATCH for integration-owned partial updates",
-      "topics": [
-        "api-integrations",
-        "security-permissions"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "14e4b0253d1428ca",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/api-docs",
       "url": "https://community.rockrms.com/api-docs"
     },
     {
@@ -5524,56 +4955,23 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:lava-applicationview-parent-executeview-preflight",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "dbfb13c00b082dd8",
-      "source_record_id": "org_contribution:oneall:lava-applicationview-parent-executeview-preflight",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://community.rockrms.com/developer/helix/overview/security",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
-      ],
-      "title": "Check parent LavaApplication authorization for ApplicationView endpoints",
-      "topics": [
-        "lava",
-        "cms-websites",
-        "security-permissions"
-      ],
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:public-concierge-avoid-full-page-iframe-embedding",
-      "contribution_type": "guide_section",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "3ef61357f013946b",
-      "source_record_id": "org_contribution:oneall:public-concierge-avoid-full-page-iframe-embedding",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/helix/lava-applications/content-block",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors",
-        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe"
-      ],
-      "title": "Avoid embedding full Rock pages as public concierge app surfaces",
-      "topics": [
-        "helix",
-        "api-integrations",
-        "security-permissions"
-      ],
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "fd3fd2bfe8a855c0",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/helix/lava-applications/content-block",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
@@ -5607,78 +5005,6 @@
       "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "9bccb74330a09fd8f8ef5fe6bce8df948f28ef7157222a3efc66ca802b41f6cb",
-      "excerpt_hash": "44fb033b6976a33dcbc3dd3a70d0a9f7c7f1583baa91ac47c8cddfbbe76d7ed9",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "27d9a4ec2912d5df",
-      "source_record_id": "rock_documentation:article:887",
-      "title": "Administer Background Checks",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/background-checks/administer-background-checks",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "fe4ef1c403224e8ba61cea10053810f3e201e9eb2f848da56f9acee0b37c7538",
-      "excerpt_hash": "1044ec25006aba1adff5c08fcf11fb87d7dc038d1b76d5835a7ab9da29990866",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "774540aed34395d6",
-      "source_record_id": "rock_documentation:article:885",
-      "title": "Configure Checkr",
-      "topics": [
-        "admin",
-        "api",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-checkr",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "8895f5263ef10b38979660e354e6cc4a5677f175e63c79ee4b203b7ef17dec17",
-      "excerpt_hash": "e68dae0ad26f5a57f6161e047dd78d1e9bc1335fba09cb00c7da2dbd46ba5577",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "c5f31ac5dba57708",
-      "source_record_id": "rock_documentation:article:886",
-      "title": "Configure Protect My Ministry",
-      "topics": [
-        "admin",
-        "api",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-protect-my-ministry",
-      "version": null
-    },
-    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -5709,28 +5035,14 @@
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:forgot-username-email-results-users-filter",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "fa4cdce04d4dcdcb",
-      "source_record_id": "org_contribution:oneall:forgot-username-email-results-users-filter",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "title": "Filter password-reset communication output by the returned user accounts",
-      "topics": [
-        "cms-websites",
-        "security-permissions"
-      ],
-      "url": "https://community.rockrms.com/documentation"
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "8c641622ba22f231",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions"
     },
     {
       "authority": "official-training",
@@ -5745,71 +5057,12 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "e67324c014b420a302bab71be26270e0d2da8ab6ee0369ba4a50095bdaf465ca",
-      "excerpt_hash": "9dc65b6b741ae69dbd5c6e43dba178060e30aa91e7ce22898b5f5765731cfeb7",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "permission",
-        "permissions"
-      ],
-      "path": "Rock.Enums/Mobile/LocationPermissionStatus.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "ea01842cf63d58e3",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Mobile/LocationPermissionStatus.cs",
-      "title": "Rock.Enums/Mobile/LocationPermissionStatus.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Mobile/LocationPermissionStatus.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Mobile/LocationPermissionStatus.cs"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "72a9883819094c15efd805f65a6e0c06ae58bdb49e3422404c7846f81e758b80",
-      "excerpt_hash": "60a874bd846ab6ea34f46e81c80fb6749e19d5a30fbf7d953c2899b878d4abed",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "bb4092a256635673",
-      "source_record_id": "rock_documentation:article:891",
-      "title": "Configure Captcha",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "security",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "8dd6c6680bd7b75ce3470666151b50a6ac33852534bc820faaf3b5fd67aedb0d",
-      "excerpt_hash": "29bc1a7af45e7da686bf705ba9e8078f8e6e883687847f942df9b84c775a21d5",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "151ade9945cde385",
-      "source_record_id": "rock_documentation:article:890",
-      "title": "Use Captcha",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "security",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha",
-      "version": null
     },
     {
       "authority": "unknown",
@@ -5952,118 +5205,94 @@
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:communication-history-active-search",
-      "contribution_type": "recipe",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "02f59e87ae964075",
-      "source_record_id": "org_contribution:oneall:communication-history-active-search",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search",
-        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
-      ],
-      "title": "Communication History Active Search",
-      "topics": [
-        "communications",
-        "helix",
-        "lava",
-        "security-permissions"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "21ebe109b158f0f4",
+      "source_record_id": "",
+      "title": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:event-registration-analytics-dashboard",
-      "contribution_type": "recipe",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "df0b5e90e2997b15",
-      "source_record_id": "org_contribution:oneall:event-registration-analytics-dashboard",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard",
-        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://community.rockrms.com/lava/commands/sql-commands"
-      ],
-      "title": "Event Registration Analytics Dashboard",
-      "topics": [
-        "event-registration",
-        "lava",
-        "data-views-reports",
-        "security-permissions"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "d40de2b877f45956",
+      "source_record_id": "",
+      "title": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:registration-to-connection-request",
-      "contribution_type": "recipe",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "df7c8ffe1ca46e3d",
-      "source_record_id": "org_contribution:oneall:registration-to-connection-request",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Event/RegistrationTemplate/RegistrationTemplate.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/Connections/CreateConnectionRequest.cs",
-        "https://community.rockrms.com/modelmap"
-      ],
-      "title": "Registration-to-Connection Request Transfer Workflow",
-      "topics": [
-        "workflows",
-        "event-registration",
-        "connections",
-        "lava",
-        "security-permissions",
-        "people-families"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "1adc454acbc6fcad",
+      "source_record_id": "",
+      "title": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:workflow-backed-sms-verification",
-      "contribution_type": "recipe",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "fe63cd4826aecb55",
-      "source_record_id": "org_contribution:oneall:workflow-backed-sms-verification",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification",
-        "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
-        "https://pages.nist.gov/800-63-4/sp800-63b/authenticators/"
-      ],
-      "title": "Workflow-Backed SMS Verification for Anonymous Rock Forms",
-      "topics": [
-        "security-permissions",
-        "workflows",
-        "event-registration",
-        "people-families",
-        "communications",
-        "lava"
-      ],
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "c966f5bab8f6fef1",
+      "source_record_id": "",
+      "title": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification",
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "f262666390b12ef3",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/assessments-emotional-intelligence",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/assessments-emotional-intelligence"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "bef4da01164a18bd",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/check-in/attendance-self-entry",
+      "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "c48789f22dbf970d",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "a1d2277fcf136679",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/check-in/check-in-celebrations",
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "12d9719408f9414f",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/check-in/settings",
+      "url": "https://community.rockrms.com/rocku/check-in/settings"
     }
   ],
   "synthesis_profile": "comprehensive",

@@ -4,25 +4,27 @@
     "community-example",
     "community-reference",
     "official",
+    "official-model-map",
     "official-release",
     "official-training",
     "org-contribution",
-    "source-code"
+    "source-code",
+    "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 7136 words; expected at least 1200.",
+      "message": "Guide has 8003 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 7136 words; expected no more than 9000.",
+      "message": "Guide has 8003 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 42 sections; expected at least 9.",
+      "message": "Guide has 45 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -42,7 +44,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 12 entity rows; expected at least 3.",
+      "message": "Guide has 14 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -93,25 +95,25 @@
   ],
   "concept_id": "connections",
   "contribution_record_count": 7,
-  "entity_count": 12,
-  "generated_at": "2026-09-03T16:50:49+00:00",
-  "guide_line_count": 588,
-  "guide_word_count": 7136,
+  "entity_count": 14,
+  "generated_at": "2026-09-09T23:39:22+00:00",
+  "guide_line_count": 652,
+  "guide_word_count": 8003,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 19,
-    "answer_claim_reference_count": 15,
-    "entity_count": 12,
-    "section_count": 42,
-    "source_count": 29,
-    "substantive_uncited_section_ratio": 0.0833,
+    "answer_claim_reference_count": 19,
+    "entity_count": 14,
+    "section_count": 45,
+    "source_count": 31,
+    "substantive_uncited_section_ratio": 0.1026,
     "task_card_count": 6,
-    "word_count": 7136
+    "word_count": 8003
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 42,
-  "source_count": 29,
+  "section_count": 45,
+  "source_count": 31,
   "status": "pass",
   "task_card_count": 6
 }

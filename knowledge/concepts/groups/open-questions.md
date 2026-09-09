@@ -13,11 +13,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `group-attendance-entry`: Group Attendance Entry
-- `troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data`: A failed workflow may have partially changed group data
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `mental-model`: Mental Model
 - `creating-editing-inactivating-and-archiving-groups`: Creating, Editing, Inactivating, And Archiving Groups

@@ -52,7 +52,7 @@ Find whether the failure is configuration, device routing, printer hardware, lab
 - https://community.rockrms.com/rocku/check-in/next-gen-labels
 - https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile
 - https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Manager/PersonRight/PersonRightPrintNextGenLabelsRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/Manager/PersonRight/personRightPrintNextGenLabelsRequestBag.d.ts
-- https://community.rockrms.com/rocku/check-in/using-mobile-check-in
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/PrintLabelRequest.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/LabelAttendanceDetail.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/ILabelDataHasAttendance.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/AttendanceLabelData.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs

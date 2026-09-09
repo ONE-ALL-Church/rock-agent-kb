@@ -29,12 +29,12 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 
 ## High-Signal Sections
 
-- `jobs-and-scheduling-job-configuration-and-history` lines 71-78: Job configuration and history (high)
-- `jobs-and-scheduling-version-specific-job-history-failures` lines 79-89: Version-specific job-history failures (normal)
-- `jobs-and-scheduling-job-backed-operational-processes` lines 90-101: Job-backed operational processes (high)
-- `diagnostics-and-exceptions-exception-history` lines 104-117: Exception history (normal)
-- `diagnostics-and-exceptions-page-performance-diagnostics` lines 118-123: Page performance diagnostics (normal)
-- `diagnostics-and-exceptions-auditing` lines 124-129: Auditing (normal)
+- `jobs-and-scheduling-job-configuration-and-history` lines 87-94: Job configuration and history (high)
+- `jobs-and-scheduling-version-specific-job-history-failures` lines 95-105: Version-specific job-history failures (normal)
+- `jobs-and-scheduling-job-backed-operational-processes` lines 106-117: Job-backed operational processes (high)
+- `diagnostics-and-exceptions-exception-history` lines 120-133: Exception history (normal)
+- `diagnostics-and-exceptions-page-performance-diagnostics` lines 134-139: Page performance diagnostics (normal)
+- `diagnostics-and-exceptions-auditing` lines 140-145: Auditing (normal)
 
 ## Core Entities
 
@@ -54,7 +54,7 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 ## Version Caveats
 
 - `19.1`: Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the
-- `19.3`: Fixed Person Attribute Values configured for indexing not being included in Universal Search results after a bulk re-index, and restored the missing "Indexing Enabled" option in the Attributes block so Attributes can be
+- `19.1`: Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729
 
 ## Files For Agents
 

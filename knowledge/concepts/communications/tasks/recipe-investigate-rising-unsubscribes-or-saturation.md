@@ -40,5 +40,4 @@ A bounded operational finding identifies affected audiences, senders or message 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report
-- https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report
+- https://community.rockrms.com/documentation/engagement/communications

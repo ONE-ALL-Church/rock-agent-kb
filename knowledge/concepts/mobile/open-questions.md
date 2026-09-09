@@ -16,11 +16,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `content-xaml-and-lava-escaping-xaml-producing-lava`: Escaping XAML-producing Lava
-- `troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail`: One record causes a XAML page to fail
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `application-configuration-and-deployment`: Application Configuration And Deployment

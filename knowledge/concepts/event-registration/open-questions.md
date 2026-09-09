@@ -13,12 +13,11 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `family-preregistration-and-follow-up`: Family Preregistration And Follow-Up
-- `agent-task-recipes-recipe-audit-an-event-registration-dashboard`: Recipe: Audit an event-registration dashboard
 - `source-map-approved-community-guidance-and-examples`: Approved community guidance and examples
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `registration-instances-put-occurrence-specific-settings-on-the-instance`: Put occurrence-specific settings on the instance
 - `forms-identity-eligibility-and-communications-test-combined-eligibility`: Test combined eligibility
@@ -44,6 +43,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-audit-an-event-registration-dashboard`: Recipe: Audit an event-registration dashboard
 - `agent-task-recipes-recipe-launch-family-preregistration-with-follow-up`: Recipe: Launch family preregistration with follow-up
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

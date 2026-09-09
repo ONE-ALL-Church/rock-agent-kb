@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "adf640f08dc72002045c683af1ed25a9d5a025ede13f916619d
 
 # People And Families
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [People And Families index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Treat a people-record task as a data-model, security, and downstream-process task—not merely an edit to a screen.
@@ -652,3 +668,51 @@ No live review of the reader’s installation occurred for this guide. The pack�
 | Community workflow patterns | Reviewed examples requiring live verification | [Registration-to-Connection Request](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request), [Workflow-Backed SMS Verification](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification) |
 
 Source-summary claims were used only to locate their underlying answer-bearing material and were not independently promoted into factual guidance.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `32`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | release_caveat | When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 can assign record sources on external person-entry blocks and show that source in duplicate detail, helping data-integrity staff trace where repeated records originated. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | A v19 person-merge requester who lacks merge permission can ask to be notified when the reviewed merge completes, keeping request submission separate from merge authorization. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | The v19 merge-person interface surfaces last-modified time and actor information so reviewers can compare record recency without separately reconstructing history. Treat recency as one merge signal, not proof that one record is correct. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| rocku-confirmed | implementation_pattern | Agents should inspect connection types, opportunities, statuses, activities, workflows, and staff ownership together because a connection request is both a person record and a process state. | [source](https://community.rockrms.com/rocku/engagement/overview) |
+| rocku-confirmed | implementation_pattern | When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue. | [source](https://community.rockrms.com/rocku/engagement/connections-overview) |
+| rocku-confirmed | operational_guidance | Person Notes should be handled as structured staff context on a person record; note type, visibility, sensitivity, and lifecycle matter as much as the note text itself. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1) |
+| rocku-confirmed | operational_guidance | Use Note Types to govern where notes appear, how they are categorized, and which staff roles can create or view sensitive notes; do not treat all person notes as one undifferentiated field. | [source](https://community.rockrms.com/rocku/core-concepts/note-types) |
+| rocku-confirmed | operational_guidance | The Person Profile is a dense operational surface; agents should identify which tab, block, badge, note, attribute, or action is involved before troubleshooting or changing access. | [source](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) |
+| rocku-confirmed | operational_guidance | When diagnosing personalization, inspect the audience rule, person data used by the rule, fallback content, cache behavior, and the exact logged-in or anonymous state being tested. | [source](https://community.rockrms.com/rocku/cms/personalization) |
+| rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
+| rocku-confirmed | operational_guidance | People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
+| More |  | 20 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `24`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [BI Family Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report) | approved_for_public_distillation | 3 | media-insight:26c55120b777db34 |
+| [Connections Overview Transcript Insight](https://community.rockrms.com/rocku/engagement/overview) | approved_for_public_distillation | 2 | media-insight:ac3acf7f8ce265ff |
+| [Connections Overview Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-overview) | approved_for_public_distillation | 2 | media-insight:f689579d363f61a6 |
+| [Data Integrity Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) | approved_for_public_distillation | 2 | media-insight:71943d00f00d6d5c |
+| [Data Integrity Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) | approved_for_public_distillation | 2 | media-insight:8a7a44d45ee79557 |
+| [Episode 94: Special Edition with Jay Nestle Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle) | approved_for_public_distillation | 2 | media-insight:b5920a1a51b4ec4f |
+| [Extending the Add Family Block Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block) | approved_for_public_distillation | 1 | media-insight:d556845e27d9ad0c |
+| [Family Attributes Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/family-attributes) | approved_for_public_distillation | 2 | media-insight:0e1933333f48c31e |
+| More |  | 16 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

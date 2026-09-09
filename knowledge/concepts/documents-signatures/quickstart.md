@@ -29,12 +29,12 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-27: Agent Summary (normal)
-- `mental-model` lines 48-67: Mental Model (normal)
-- `entity-documents-document-types-and-storage` lines 70-86: Document types and storage (normal)
-- `entity-documents-page-context-and-documents-block` lines 87-94: Page context and Documents block (normal)
-- `entity-documents-adding-entity-documents-through-workflows` lines 95-107: Adding entity documents through workflows (high)
-- `document-templates-and-merge-documents-global-and-personal-templates` lines 110-115: Global and personal templates (normal)
+- `agent-summary` lines 34-43: Agent Summary (normal)
+- `mental-model` lines 64-83: Mental Model (normal)
+- `entity-documents-document-types-and-storage` lines 86-102: Document types and storage (normal)
+- `entity-documents-page-context-and-documents-block` lines 103-110: Page context and Documents block (normal)
+- `entity-documents-adding-entity-documents-through-workflows` lines 111-123: Adding entity documents through workflows (high)
+- `document-templates-and-merge-documents-global-and-personal-templates` lines 126-131: Global and personal templates (normal)
 
 ## Core Entities
 
@@ -54,6 +54,7 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 - `17.8`: Fixed an issue where files uploaded through the Entity Document Add workflow action weren't properly linked to their parent Document. Because of that missing link, Rock couldn't check the Document Type's security rules w
 - `18.3`: Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant with
 - `16.1`: Fixed Signature Document Templates filtering to not show inactive templates in Workflow Actions. Fixes: #5511
+- `15.2`: Fixed inactive signature document template from being selected in event registration. Fixes: #5510
 
 ## Files For Agents
 

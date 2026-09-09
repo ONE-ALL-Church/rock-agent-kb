@@ -67,5 +67,5 @@ A person can authenticate on a website and the TV client transitions to the conf
 - https://community.rockrms.com/developer/apple-tv-docs/styling/themes
 - https://community.rockrms.com/developer/roku-docs/getting-started/applications
 - https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
 - https://community.rockrms.com/developer/roku-docs/commands/navigation
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Mobile/Cms/LavaApplicationContent.cs

@@ -28,12 +28,12 @@ Roku developer documentation for Rock-powered SceneGraph applications, pages, co
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-33: Agent Summary (normal)
-- `scope-and-boundaries` lines 34-60: Scope And Boundaries (normal)
-- `mental-model` lines 61-75: Mental Model (normal)
-- `getting-started-and-application-configuration` lines 76-98: Getting Started And Application Configuration (normal)
-- `page-authoring-and-caching` lines 99-142: Page Authoring And Caching (normal)
-- `scenegraph-controls-and-focus` lines 143-181: SceneGraph Controls And Focus (normal)
+- `agent-summary` lines 34-49: Agent Summary (normal)
+- `scope-and-boundaries` lines 50-76: Scope And Boundaries (normal)
+- `mental-model` lines 77-91: Mental Model (normal)
+- `getting-started-and-application-configuration` lines 92-114: Getting Started And Application Configuration (normal)
+- `page-authoring-and-caching` lines 115-158: Page Authoring And Caching (normal)
+- `scenegraph-controls-and-focus` lines 159-197: SceneGraph Controls And Focus (normal)
 
 ## Core Entities
 

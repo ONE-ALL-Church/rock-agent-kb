@@ -36,9 +36,12 @@ The intended people receive valid assessment requests and their completion state
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment
+- https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment
 - https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks
 - https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history
 - https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments
-- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment
+- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests

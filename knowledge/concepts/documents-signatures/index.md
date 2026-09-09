@@ -2,12 +2,12 @@
 id: concept-documents-signatures
 title: Documents And Signatures
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:38:03+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:18+00:00
+source_last_checked_at: 2026-09-09T21:15:45+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/20
 legacy_summary_retirement_coverage: 0/20
@@ -80,11 +80,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 4
+- `rock_core_release_notes`: 5
 - `rock_documentation`: 20
 - `rock_model_map`: 12
-- `rock_recipes`: 2
-- `rock_rocku`: 32
+- `rock_recipes`: 3
+- `rock_rocku`: 30
 - `triumph_resources`: 1
 
 ## Highest Signal Sources
@@ -108,34 +108,35 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Signature Document Template](../../model-map/models/signature-document-template.md) | Core | 19.2.0 | 55 | 22 | 38 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Signature Document](../../model-map/models/signature-document.md) | Core | 19.2.0 | 65 | 31 | 49 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Benevolence Request Document](../../model-map/models/benevolence-request-document.md) | Finance | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Document](../../model-map/models/document.md) | Core | 19.2.0 | 45 | 15 | 28 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Document Type](../../model-map/models/document-type.md) | Core | 19.2.0 | 50 | 21 | 35 | 14 | 3 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Signature Document Template](../../model-map/models/signature-document-template.md) | Core | 19.3.4 | 55 | 22 | 38 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Signature Document](../../model-map/models/signature-document.md) | Core | 19.3.4 | 65 | 31 | 49 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Benevolence Request Document](../../model-map/models/benevolence-request-document.md) | Finance | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Document](../../model-map/models/document.md) | Core | 19.3.4 | 45 | 15 | 28 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Document Type](../../model-map/models/document-type.md) | Core | 19.3.4 | 50 | 21 | 35 | 14 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
+| 20.0 | Core | Fixed an issue where downloading or viewing a Signature Document returned an error when using impersonation. Direct downloads of signed documents now honor the Signature Document Template's security settings, and Rock corrects existing records automatically. Fixes: #6928 | [source](https://www.rockrms.com/releasenotes) |
 | 17.0 | CRM | Updated Electronic Signatures to allow for inserting the signature at specific places in the document template using a new optional "<!--[[ SignatureDetails ]]-->" keyword. | [source](https://www.rockrms.com/releasenotes) |
 | 17.8 | Workflow | Fixed an issue where files uploaded through the Entity Document Add workflow action weren't properly linked to their parent Document. Because of that missing link, Rock couldn't check the Document Type's security rules when someone tried to access the file — it fell back to the File Type's security instead. Files are now linked correctly, so access is... | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Event | Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant without a valid SignatureDocumentId, due to documents being matched by person instead of the registrant's record. Updated these blocks to use... | [source](https://www.rockrms.com/releasenotes) |
@@ -205,7 +206,7 @@ Keywords: `pdf, generated pdf, document pdf`
 ## Source Lifecycle
 
 - Official article records routed here: `20`
-- Upstream check range: `2026-08-12T06:18:17+00:00` through `2026-08-12T06:18:18+00:00`
+- Upstream check range: `2026-09-09T21:15:44+00:00` through `2026-09-09T21:15:45+00:00`
 - Source-native typed articles: `0` of `20`
 - Legacy source summaries retired: `0`; still active: `20`
 - Migration status: `not_started`

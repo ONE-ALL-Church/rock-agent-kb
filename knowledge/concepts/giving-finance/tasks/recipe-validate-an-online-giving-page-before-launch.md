@@ -47,15 +47,15 @@ Establish that the page’s configuration expresses the intended finance path.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/church-management/finance/advanced-finance/advanced-utility-payment-entry-block-settings
-- https://community.rockrms.com/documentation/church-management/finance/payment-gateways/configure-a-gateway
-- https://community.rockrms.com/documentation/church-management/finance/payment-gateways/transfer-gateways
-- https://community.rockrms.com/documentation/church-management/finance/online-giving/giving-pages
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Finance/GivingAutomationConfiguration/FinancialTransactionAlertTypeBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Finance/GivingAutomationConfiguration/financialTransactionAlertTypeBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs
+- https://community.rockrms.com/documentation/church-management/finance
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/FinancialScheduledTransactionPaymentPlanPair.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs
+- https://community.rockrms.com/rocku/finance/scheduled-transactions
+- https://community.rockrms.com/recipes/90

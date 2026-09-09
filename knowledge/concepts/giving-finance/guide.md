@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "e6563f7e6f51e7d1155719235f03d507f9a5ef36496c68d354c
 
 # Giving And Finance
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Giving And Finance index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Treat giving as an end-to-end financial journey, not as a single transaction screen. For audits and troubleshooting, trace the path from the public giving action through the payment gateway, Rock financial transaction, transaction details, account designations, batch, receipt or contribution statement, and the reporting definition consuming the data. This is the guide’s primary operational rule and is supported by approved claim `claim:43ded9f19d576e7c826d`, including a bounded read-only verification of Rock’s transaction, detail, account, and reporting surfaces. [Giving Journey](https://community.rockrms.com/rocku/finance/giving-journey-1)
@@ -497,3 +513,43 @@ The supplied live verification supports only the public-safe conclusions attache
 ### Community example
 
 - [Custom Financial Transaction Attributes](https://community.rockrms.com/recipes/254) — optional community reporting pattern, not official default behavior.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `8`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
+| rocku-confirmed | operational_guidance | When auditing giving-related guidance, verify the full path from public giving action to Rock financial transaction, account detail, receipts, and reporting definitions. | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
+| rocku-confirmed | operational_guidance | Giving Journey should be used as finance-process context: distinguish donor experience, transaction records, account designation, follow-up, and reporting before changing giving workflows. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
+| rocku-confirmed | source_summary | Giving Journey adds finance guidance: evaluate donor experience and back-office financial records together before changing giving processes or reports. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
+| community-reviewed | implementation_pattern | Use OVER with PARTITION BY as a row-preserving alternative to GROUP BY when a report needs grouped calculations without collapsing the result set. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| community-reviewed | implementation_pattern | Ranking window functions such as row number, rank, dense rank, and n-tile can add ordering, per-person sequence, or bucket analysis to Rock reports without procedural post-processing. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
+| community-reviewed | operational_guidance | Window functions are useful in Rock SQL reporting when each detail row needs aggregate context, such as total transaction amount, detail count, or percent-of-gift alongside the original transaction-detail row. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `6`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [BI Financial Transaction Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) | approved_for_public_distillation | 3 | media-insight:a815728575995f92 |
+| [Dashboard Design Part 1 Transcript Insight](https://www.triumph.tech/resources/dashboard-design-part-1) | approved_for_public_distillation | 3 | media-insight:22ee135c5240caf2 |
+| [Giving Analytics Transcript Insight](https://community.rockrms.com/rocku/finance/giving-analytics) | approved_for_public_distillation | 3 | media-insight:f93c85770d000a17 |
+| [Giving Journey Transcript Insight](https://community.rockrms.com/rocku/finance/giving-journey-1) | approved_for_public_distillation | 2 | media-insight:4e7bb5d30da6c77a |
+| [Online Giving Transcript Insight](https://community.rockrms.com/rocku/finance/online-giving) | approved_for_public_distillation | 3 | media-insight:81f503288cd61c08 |
+| [Text Giving Transcript Insight](https://community.rockrms.com/rocku/finance/text-giving) | approved_for_public_distillation | 1 | media-insight:a52f4989273e8706 |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

@@ -16,6 +16,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `mental-model-control-stack`: Control stack
 - `permissions-and-data-boundaries-apply-least-privilege-at-every-layer`: Apply least privilege at every layer
@@ -44,6 +45,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-diagnose-incorrect-tool-selection`: Recipe: Diagnose incorrect tool selection
 - `agent-task-recipes-recipe-roll-out-an-agent-assisted-process-to-staff`: Recipe: Roll out an agent-assisted process to staff
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

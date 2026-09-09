@@ -17,6 +17,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `steps-workflows-and-permissions`: Workflows and permissions
 - `steps-badges-metrics-and-charts`: Badges, metrics and charts
 - `streaks-types-and-maps`: Types and maps

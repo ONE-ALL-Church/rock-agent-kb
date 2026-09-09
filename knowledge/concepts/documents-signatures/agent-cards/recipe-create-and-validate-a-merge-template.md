@@ -57,9 +57,12 @@ A global or personal template generates the intended output from a known grid so
 
 - https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati
-- https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures
 - https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents
+- https://community.rockrms.com/documentation/core-concepts/documents/merge-documents
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow
+- https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration
+- https://community.rockrms.com/rocku/event-registration/group-placement
+- https://community.rockrms.com/rocku/workflows/workflow-person-entry
 - https://community.rockrms.com/recipes/482
 - https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents

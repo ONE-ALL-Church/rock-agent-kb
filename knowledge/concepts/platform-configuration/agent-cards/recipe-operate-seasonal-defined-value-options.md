@@ -54,10 +54,10 @@ A stable vocabulary exposes only the intended seasonal options.
 - https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql
-- https://www.youtube.com/watch?v=c-wycR9HEuQ
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/303---blast-off/attributes
 - https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/rocku/workflows
 - https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql
+- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns

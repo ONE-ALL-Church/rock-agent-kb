@@ -813,9 +813,21 @@ def refresh_long_form_approved_claims(
         if media_changed:
             media_path.write_text(media_text, encoding="utf-8")
         original = guide_path.read_text(encoding="utf-8")
-        rendered_section = render_long_form_approved_claims_section(claims)
-        refreshed = replace_or_insert_generated_claim_section(original, rendered_section)
-        refreshed = replace_or_insert_generated_media_section(refreshed, render_long_form_approved_media_section(media))
+        # Coverage tables are also published in full as adjacent artifacts.
+        # Keep their inline previews from pushing authored guides over budget.
+        claim_limit, media_limit = 12, 8
+        while True:
+            rendered_section = render_long_form_approved_claims_section(claims, limit=claim_limit)
+            refreshed = replace_or_insert_generated_claim_section(original, rendered_section)
+            refreshed = replace_or_insert_generated_media_section(
+                refreshed, render_long_form_approved_media_section(media, limit=media_limit)
+            )
+            if count_words(refreshed) <= 9000 or not (claim_limit or media_limit):
+                break
+            if claim_limit:
+                claim_limit -= 1
+            else:
+                media_limit -= 1
         guide_changed = refreshed != original
         if guide_changed:
             guide_path.write_text(refreshed, encoding="utf-8")

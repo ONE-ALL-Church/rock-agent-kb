@@ -54,7 +54,7 @@ A bounded connection type and opportunity are ready for controlled staff testing
 - https://community.rockrms.com/documentation/engagement/connections/connection-requests/connections-views
 - https://community.rockrms.com/documentation/engagement/connections/configure-connections/configure-connection-types
 - https://community.rockrms.com/documentation/engagement/connections/configure-connections/configure-connection-opportunities
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/4debc0117b10dafa1d56a43636cb5c1c50ba2964/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
 - https://www.youtube.com/watch?v=7rxTGLLhlrU
 - https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request
 - https://community.rockrms.com/recipes/57

@@ -43,6 +43,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `mental-model` | normal | live verification |
 | `transactions` | normal | live verification |
@@ -66,3 +67,4 @@ generated: true
 | `agent-task-recipes-recipe-transfer-scheduled-giving-to-a-new-gateway` | normal | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
 | `source-map-community-example` | community-supported | community-supported |
+| `approved-claim-coverage` | normal | live verification |

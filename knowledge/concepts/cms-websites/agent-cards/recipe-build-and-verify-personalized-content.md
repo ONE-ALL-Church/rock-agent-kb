@@ -57,14 +57,14 @@ Each target audience receives the intended content while authorization remains i
 ## Source Links
 
 - https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
+- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
 - https://community.rockrms.com/rocku/cms/personalization
 - https://community.rockrms.com/documentation/digital-publishing/websites/landing-pages/set-up-landing-pages
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
 - https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-layouts
 - https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-load-time
 - https://community.rockrms.com/documentation/digital-publishing/websites/landing-pages/sample-landing-pages
 - https://community.rockrms.com/documentation/digital-publishing/websites/block-context/html-block-context
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
-- https://community.rockrms.com/documentation
 - https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy
 - https://community.rockrms.com/documentation/digital-publishing/websites/block-context/context-on-the-person-profile

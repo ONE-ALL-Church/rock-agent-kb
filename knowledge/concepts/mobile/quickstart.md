@@ -30,12 +30,12 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-32: Agent Summary (normal)
-- `mental-model-shell-application-and-core-are-separate-compatibility-surfaces` lines 54-68: Shell, application and core are separate compatibility surfaces (normal)
-- `mental-model-deploying-is-not-publishing` lines 69-74: Deploying is not publishing (normal)
-- `mental-model-dynamic-content-crosses-a-trust-and-context-boundary` lines 79-89: Dynamic content crosses a trust and context boundary (normal)
-- `application-configuration-and-deployment` lines 90-113: Application Configuration And Deployment (normal)
-- `content-xaml-and-lava` lines 114-117: Content, XAML And Lava (normal)
+- `agent-summary` lines 34-48: Agent Summary (normal)
+- `mental-model-shell-application-and-core-are-separate-compatibility-surfaces` lines 70-84: Shell, application and core are separate compatibility surfaces (normal)
+- `mental-model-deploying-is-not-publishing` lines 85-90: Deploying is not publishing (normal)
+- `mental-model-dynamic-content-crosses-a-trust-and-context-boundary` lines 95-105: Dynamic content crosses a trust and context boundary (normal)
+- `application-configuration-and-deployment` lines 106-129: Application Configuration And Deployment (normal)
+- `content-xaml-and-lava` lines 130-133: Content, XAML And Lava (normal)
 
 ## Core Entities
 
@@ -54,8 +54,14 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 ## Version Caveats
 
-- `19.1`: Fixed external links silently failing on Android when the address belonged to a site that also has an installed app handler (for example, opening a YouTube link on a device with the YouTube app installed). The link now f
-- `19.1`: Fixed Android media playback so audio from other apps now lowers in volume when Rock Mobile starts playing audio.
+- `7.0`: Fixed an issue where the ShowPopUp command displayed the popup on a white screen instead of overlaying the triggering page when running in MAUI. Fixes: #38
+- `7.0`: Added the ExecuteCommand control, enabling command execution with configurable timing and repetition.
+- `4.0`: Added a custom ScrollView control that allows you to disable the native iOS bounce when scrolling.
+- `2.1`: Fixed bug that prevented Flyout Shell from working properly if ListItem was not the root XAML element.
+- `2.0`: Fixed bug in iOS that prevented a person from choosing the "Save..." option during a ShareFile command.
+- `6.0`: Updated all of the mobile blocks to follow the new design system.
+- `7.0`: Added the CopyToClipboard command, allowing text to be copied to the clipboard.
+- `7.0`: Fixed an issue that caused the AddEventToCalendar command to not function properly.
 
 ## Files For Agents
 

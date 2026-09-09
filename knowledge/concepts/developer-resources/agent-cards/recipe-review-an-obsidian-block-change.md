@@ -51,15 +51,15 @@ Identify and validate all layers affected by an Obsidian block change.
 
 ## Source Links
 
+- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
 - https://community.rockrms.com/developer/roku-docs/getting-started/pages
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/CmsSkill.ListBlocks.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Jobs/PostUpdateDataMigrationsReplaceWebFormsBlocksWithObsidianBlocks.cs
-- https://community.rockrms.com/developer/obsidian
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/lava/obsidian
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/developer/developer-codex/coding-standards/code-generator/model-changes
-- https://community.rockrms.com/developer/roku-docs/resources/controls/page
-- https://community.rockrms.com/developer/developer-codex/coding-standards/obsidian-chop-swap-sneak
-- https://community.rockrms.com/developer/developer-codex/coding-standards/obsidian-chop-swap-sneak/process-to-chop-or-swap
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
+- https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks

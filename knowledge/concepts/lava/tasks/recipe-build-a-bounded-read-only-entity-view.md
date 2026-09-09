@@ -42,5 +42,5 @@ A limited list using an Entity command.
 
 ## Source Links
 
-- https://community.rockrms.com/lava/commands/taglist-commands
 - https://community.rockrms.com/lava/commands/entity-commands
+- https://community.rockrms.com/lava/commands/taglist-commands

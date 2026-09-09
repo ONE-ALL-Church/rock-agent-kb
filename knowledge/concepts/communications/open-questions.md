@@ -13,11 +13,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `agent-task-recipes-recipe-retest-a-workflow-backed-communication-safely`: Recipe: Retest a workflow-backed communication safely
-- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `communication-foundations`: Communication Foundations
@@ -51,6 +50,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-bound-an-agent-that-can-draft-communications`: Recipe: Bound an agent that can draft communications
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
 - `source-map`: Source Map
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

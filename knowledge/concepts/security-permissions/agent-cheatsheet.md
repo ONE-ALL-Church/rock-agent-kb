@@ -22,6 +22,7 @@ generated: true
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
+| `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -47,6 +48,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `1-executive-summary-for-agents` | normal | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `3-security-and-permissions-mental-model-the-object-layer` | normal | live verification |
@@ -58,7 +60,7 @@ generated: true
 | `cms-content-personalization-and-lava-pages-and-blocks` | citation-only | live verification |
 | `cms-content-personalization-and-lava-advanced-html-and-lava-commands` | normal | live verification |
 | `helix-applications-and-endpoint-security` | normal | live verification |
-| `feature-specific-authorization-workflows-sign-ups-and-groups` | normal | live verification |
+| `feature-specific-authorization-workflows-sign-ups-and-groups` | high | live verification |
 | `feature-specific-authorization-workflows-mobile-check-in` | normal | live verification |
 | `feature-specific-authorization-workflows-captcha-and-exposed-forms` | normal | live verification |
 | `ai-agents-tools-and-data-access` | citation-only | live verification |
@@ -70,14 +72,14 @@ generated: true
 | `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-the-intended-role` | normal | live verification |
 | `troubleshooting-decision-tree-a-note-is-missing-visible-to-the-wrong-staff-or-behaves-unexpectedly-downstream` | citation-only | live verification |
 | `troubleshooting-decision-tree-a-public-form-is-receiving-abuse-or-captcha-is-not-appearing` | normal | live verification |
-| `troubleshooting-decision-tree-a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people` | normal | live verification |
+| `troubleshooting-decision-tree-a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people` | high | live verification |
 | `agent-task-recipes-recipe-explain-an-effective-permission-result` | normal | live verification |
 | `agent-task-recipes-recipe-publish-a-page-or-block-with-bounded-access` | normal | live verification |
-| `agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration` | community-supported | live verification |
-| `agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint` | community-supported | live verification |
+| `agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration` | normal | live verification |
+| `agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint` | normal | live verification |
 | `agent-task-recipes-recipe-audit-person-profile-notes` | citation-only | live verification |
 | `agent-task-recipes-recipe-validate-an-ai-agent-tool-before-production` | citation-only | live verification |
 | `agent-task-recipes-recipe-run-a-security-sensitive-upgrade-preflight` | normal | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
 | `source-map-primary-official-security-documentation` | normal | live verification |
-| `source-map-reviewed-community-examples` | community-supported | community-supported |
+| `approved-claim-coverage` | normal | live verification |

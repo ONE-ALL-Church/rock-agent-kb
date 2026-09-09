@@ -2,6 +2,7 @@
   "authority_coverage": [
     "community-example",
     "official",
+    "official-model-map",
     "official-release",
     "official-training",
     "official-triumph",
@@ -11,17 +12,17 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 6576 words; expected at least 1200.",
+      "message": "Guide has 7177 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 6576 words; expected no more than 9000.",
+      "message": "Guide has 7177 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 36 sections; expected at least 9.",
+      "message": "Guide has 39 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -65,11 +66,6 @@
       "passed": true
     },
     {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
-    },
-    {
       "id": "community_marked",
       "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
       "passed": true
@@ -78,24 +74,24 @@
   "concept_id": "giving-finance",
   "contribution_record_count": 0,
   "entity_count": 10,
-  "generated_at": "2026-09-03T16:50:52+00:00",
-  "guide_line_count": 499,
-  "guide_word_count": 6576,
+  "generated_at": "2026-09-09T23:39:26+00:00",
+  "guide_line_count": 555,
+  "guide_word_count": 7177,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 8,
-    "answer_claim_reference_count": 8,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 10,
-    "section_count": 36,
-    "source_count": 32,
-    "substantive_uncited_section_ratio": 0.0345,
+    "section_count": 39,
+    "source_count": 14,
+    "substantive_uncited_section_ratio": 0.0625,
     "task_card_count": 6,
-    "word_count": 6576
+    "word_count": 7177
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 36,
-  "source_count": 32,
+  "section_count": 39,
+  "source_count": 14,
   "status": "pass",
   "task_card_count": 6
 }

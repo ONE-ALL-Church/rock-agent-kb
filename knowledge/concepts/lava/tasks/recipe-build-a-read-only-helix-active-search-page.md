@@ -46,14 +46,14 @@ A server-rendered page enhanced with bounded HTMX filtering.
 ## Source Links
 
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava
+- https://community.rockrms.com/developer/helix
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
 - https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows
-- https://community.rockrms.com/developer/helix/overview
 - https://community.rockrms.com/developer/roku-docs/getting-started/pages
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Reporting/PageParameterFilter/updateFiltersRequestBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/GroupPlacement/PersonFiltersBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupPlacement/personFiltersBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Reporting/PageParameterFilter/updateFiltersResponseBag.d.ts
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava
+- https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/lava
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Reporting/PageParameterFilter/updateFiltersRequestBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupPlacement/PersonFiltersBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupPlacement/personFiltersBag.d.ts

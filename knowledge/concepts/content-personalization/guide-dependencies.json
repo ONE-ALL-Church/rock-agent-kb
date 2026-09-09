@@ -3152,17 +3152,26 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "091daab68bfb7615d3320351590e4b1504a046279d7a3e43d5984a4430af548e",
   "approved_media_path": "knowledge/concepts/content-personalization/approved-media.md",
-  "built_at": "2026-09-03T16:57:22+00:00",
+  "built_at": "2026-09-09T23:39:48+00:00",
   "concept_id": "content-personalization",
-  "guide_hash": "01e23abfa33ce7deac9fdd7a84d965ed2c6c9e3946808d6470c430f3be55fd5a",
-  "guide_line_count": 677,
+  "guide_hash": "3136693d07763211656e19a22889a915ca5efb3c98b0c1eedaf0b8057d94e307",
+  "guide_line_count": 715,
   "guide_path": "knowledge/concepts/content-personalization/guide.md",
-  "guide_word_count": 8567,
+  "guide_word_count": 8786,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
-      "content_hash": "d1708a612433099e481d7154fdc493ac0d72b448f98476a05b5f111642a6c588",
-      "excerpt_hash": "c7a8d03d40083c8613fac5c0db3b2c47b7ac054b6fe0aaa172089bdb5477ba99",
+      "content_hash": "7c6cc7d63a1e7b35d77ec0af5043ddfa9f80e2635855917a3ccc723c0a7e19ba",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "db90cd59a8e1c0d6",
       "source_record_id": "rock_documentation:article:2195",
@@ -3170,17 +3179,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "c113c53c6376e3b644d8c2cf2332218e2b0bdbdbd3918021d840efabaa2bca6f",
-      "excerpt_hash": "8ffc4205068ad976746f919015c48b2093f06cc0b753f061a37a8338a078f469",
+      "content_hash": "12e4d91d6dc67ff5961862cad2d819ebca418ce9d7f810ca9fed057bb5f85c35",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
-      "source_key": "64fbac29d223ecdd",
-      "source_record_id": "rock_documentation:article:1381",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization"
+      "source_key": "8031abb097145867",
+      "source_record_id": "rock_documentation:article:2249",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/overview/intro-to-personalization"
     },
     {
       "authority": "official",
-      "content_hash": "31ea51cb0261ed8a8c863b5d6abb7977179aea2bd70e96d946958a2de35e4e34",
-      "excerpt_hash": "342399396a3978ff4ed4ff911f2d1622f1df9752d3c5e66edad3dea5f9638bf3",
+      "content_hash": "07e7ffa42ebbcf73bd8aeed640d888e8d083914d4f63522f4753e02505c3a24e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "da56742094302615",
       "source_record_id": "rock_documentation:article:2222",
@@ -3188,17 +3197,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "aaa5239c6f5e4a798f8b317e9f2148406af7d040e99ff3272c3eac42210c1bc0",
-      "excerpt_hash": "bff3bf9cb5a8a52bb34f00923b6d707c5ebe167781f97493dfbbb48fcacbc302",
+      "content_hash": "530d320f341b3ed3d44854d32db291a057f9414e47a8c4efd505750454b24cf7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
-      "source_key": "3374a116f8eca98f",
-      "source_record_id": "rock_documentation:article:2185",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels"
+      "source_key": "d5b2d954c2f2750c",
+      "source_record_id": "rock_documentation:article:2196",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/channel-types"
     },
     {
       "authority": "official",
-      "content_hash": "1cd5b52983890ca651f496792db243ca00aed5bda42592093853b73db627ae57",
-      "excerpt_hash": "0a55149ff20a66d35b649c7792b120efa298ba903fb92d982e4a91df6d3253c5",
+      "content_hash": "fe28cdc4aa76d6d4fe34c2348130785401dbfdcbf92d89ae1ace517d9ec44f15",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "f18fbfb10a2e508f",
       "source_record_id": "rock_documentation:article:2202",
@@ -3206,8 +3215,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "1b5186a9a048ede445bb7efca5fdd27d2c8ec2c38c4cf0af5455714650377fe6",
-      "excerpt_hash": "7ac6beec5624e99ca016ce8cee91b3131b4a034caa6aa884fe2ec57cf4b4293c",
+      "content_hash": "cc5eb198dc65a3df2dfb3bee5f158242417f0127ded8aab5d58f0f4140152250",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "30ea9fe6ad7d2df1",
       "source_record_id": "rock_documentation:article:2214",
@@ -3215,8 +3224,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "9d1cb0658c92e1e946897aee2339e38113a28846da586aaa4495c5b50d17d21b",
-      "excerpt_hash": "7bc660db4483040f134f005eee22cb29ec5663f04c4bfe8c5442fd92dcea190a",
+      "content_hash": "e6d2f4a93253413279e8ceeaff373ce0a39af0f4afcf2a41eb1ec643404d6595",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "97b4a6ecbd1b914c",
       "source_record_id": "rock_documentation:article:2208",
@@ -3224,8 +3233,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "7773bba25b0c9739e32f75b23dd358d41b90aabaf9d94eca73ffef3b8ccc0b54",
-      "excerpt_hash": "cb2a475b94994f61fedcd07e2be12e6d4f49758755691af6b9f2e72781e53de1",
+      "content_hash": "913e72e69be9c10ce44b166b505e687b7139f08971434ec3d5b661bc744192f5",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "9524cdfbc0c41da8",
+      "source_record_id": "rock_documentation:article:2201",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-universal-channel-types"
+    },
+    {
+      "authority": "official",
+      "content_hash": "2f35cfb70755d1d4721457be4af35b37fca763d46dee172a8ee8609ac200dda7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "ec404ee26de27ada",
       "source_record_id": "rock_documentation:article:2198",
@@ -3233,8 +3251,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "f5a96d27b4d6088e9df2096f1750937541ab53fd85a2e5237def013b21ea35b6",
-      "excerpt_hash": "452637c8795f8566c47948fee83b07084ad25ba005341d1375d0b0c261efcad4",
+      "content_hash": "58d61fb2a100823142da0b9d5d5c2abbdc1157c44461d1eafdded5c45685c404",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "774acba429492198",
       "source_record_id": "rock_documentation:article:2199",
@@ -3242,8 +3260,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "5f5f68e627cee9ced93380e0efb20d20677fc1d89c0fba477311fec73d655660",
-      "excerpt_hash": "c8bd63bcca7528e2fd5a668fdb823c250db1b2caf8e1abe3f46aa530d45c82c5",
+      "content_hash": "3db36583ecec4f705543a3f42b0e37847b1d6c63359d192dd52a6996d0127058",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "8fe481bbc8acefb6",
       "source_record_id": "rock_documentation:article:2213",
@@ -3251,8 +3269,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "0e0939d0c36a1b4920406a20c67134571b949a7bb50abfc24f179c164a81ddb6",
-      "excerpt_hash": "aa2ee305bf6929f24283bf7f5396b61bb1eba3821c7e2958e3e21677bdc58449",
+      "content_hash": "0d6995948875ec5f3d23932ddbf0fe8106c867200fef89e3189d19403d49247c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "17b72677042fc3b4",
       "source_record_id": "rock_documentation:article:2200",
@@ -3260,8 +3278,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "8f373afae162a80c99bb06b87a4c23d6b6a322374665ccac9ce7cc90b70fb642",
-      "excerpt_hash": "e10e0e713b798d489b5b8d5b718fb9047dea6b9136a88abec5107891bf2dedee",
+      "content_hash": "6be651e50421eff99265bb6b830400d5b7b8d85632bed341a0d459cd56d904fc",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "b1c2a741dfc25255",
       "source_record_id": "rock_documentation:article:2212",
@@ -3269,17 +3287,17 @@
     },
     {
       "authority": "official-release",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "ef34da1ed5e93cb3a733040153728b5bc9272bc0fd8e3f6cde6b0be27d3d66ff",
+      "content_hash": "06dbd0397ed52b635063fa77caeb21a79e53e6f31ce0a41506fb61308ded060a",
+      "excerpt_hash": "9c6d6dd7fc610f856436eaaf9126aff5b6703b7073ec8bf449eab27b9f500937",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:010400e5efffe1f4",
+      "source_record_id": "rock_core_release_notes:fd103bc445b10f36",
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
       "authority": "official",
-      "content_hash": "4d34f5c4c97829d1cabba63a8014a72c7dfd3ade1e75b011a5fe33cb30055e35",
-      "excerpt_hash": "f7f043a8fdf4fce173cdd82f29bfe05fb3333ae808558ae7d6f5ec9ee8639da8",
+      "content_hash": "63232e5b3662eef7c665840a37b64da9fe85a597db0060164e21c3c011bfd1da",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "c11e3dfe06b5957c",
       "source_record_id": "rock_documentation:article:2203",
@@ -3287,8 +3305,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "13d72b6b3fac71b224c8e7dae795a2c7bbfb4b216bbb82dfef15568bd9edc8fd",
-      "excerpt_hash": "275908f36fc7c650667b752d77c4766af742b1517113a3c9d49fcf9fd956f433",
+      "content_hash": "8250de8a5105ea3e4ff9677810a6b03f451cbffe73041c1d56c0c2d97dfbcf50",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "6ba7f6b3418136a3",
+      "source_record_id": "rock_documentation:article:2204",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/publish-content-through-feeds"
+    },
+    {
+      "authority": "official",
+      "content_hash": "3ebf7f542a2375ed0cc78981d160883fadb1fb337887e8d0a49e7bf5677add58",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "cb6a4ca25100b00f",
       "source_record_id": "rock_documentation:article:2205",
@@ -3296,8 +3323,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "ea4c298638209fa7538e2d91e27c087c1f06e7061dd73a924d367f9a21a63d63",
-      "excerpt_hash": "89837b853c96eedea45e2f99fffd437ec9f43650f42c75266178600f37450007",
+      "content_hash": "f54f88835361bed754908c2d27913b77d9f3e877f7e721615dae3c274577be3d",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "7ded08b7d246f577",
       "source_record_id": "rock_documentation:article:2216",
@@ -3305,8 +3332,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "031d21715c4f20d42211499f37e55ac5bbb62f20b964ae389d240baca2061a3a",
-      "excerpt_hash": "748dc597b94bc85a524e543fa995adcdf337f252b8c49b034cb0f221e3e482c4",
+      "content_hash": "3ca7cac2a40f494765b29ecc5b69d9c56a11bb75a74c5d1b5b1898a02db6bf30",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "3982c057ca7b2325",
       "source_record_id": "rock_documentation:article:2217",
@@ -3314,8 +3341,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "bb56b97eacd2588711f58d86030d3027ad1c1585d953e8e3e9a82dbb794e6d25",
-      "excerpt_hash": "4f65fe2c44c4b3249c45fa96f0e9a680ac7a45462dfdf5e3b6bed4adc258e9b3",
+      "content_hash": "fb171ef75a22a31a32227b0bbdee63233eb2c0e560ac55cf3937d07dc0ec1c91",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "4ea15fe232e61930",
       "source_record_id": "rock_documentation:article:2218",
@@ -3323,8 +3350,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "b07149ce260870781cc184c624615386c78a3ac48ed02be30ae715a55e144333",
-      "excerpt_hash": "0c764cc9e45dddec6a3fa03767ba9880829e1d3dca98263dfe74a638c5a87cdf",
+      "content_hash": "583e84ecfa28374a56f0b978d8517f66ac3b2c5452f423eabf30a19cc940bf9e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "bb95caa4a271e46c",
       "source_record_id": "rock_documentation:article:2206",
@@ -3332,8 +3359,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "5f75d611a572b7b5dd39bd755acaf212fc7d4345e5f003b6cd243b3a61635d6c",
-      "excerpt_hash": "be9f9e1aa39660cea305274966c13515537fb3aba76738805a43391cbe90f78d",
+      "content_hash": "f3119142bece4ef62e184ef02781fee6a78a68d2ffef7b53b25becc1c60db06d",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "7118f0a931e95a8b",
       "source_record_id": "rock_documentation:article:2210",
@@ -3341,8 +3368,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "f4518a9ac6d0bc484e1937d9827f42c2d43a9344cd95a024c38917958488515d",
-      "excerpt_hash": "6160ad643be8d41a776f1803c2dc3fa1c77e388faac8fb58f5d34050b3134768",
+      "content_hash": "24836f402da683f21dc33a0f43f1022cc864058b77ec06667c5b2a555eacab5f",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "e368def854a4503e",
       "source_record_id": "rock_documentation:article:2207",
@@ -3350,8 +3377,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "40de154ca7385a0a5c4778a7409f3819cc83e7c4593cab42387ceb345036ad40",
-      "excerpt_hash": "fe8700e774bb73784aa749e30de86dcc6c7327cc9f60f32528a2aeb8ee439147",
+      "content_hash": "180185fd8ee23776c1ba2800688e10795fda612a5846045090563c1110a9ef51",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "c65c471e414ae081",
       "source_record_id": "rock_documentation:article:2209",
@@ -3359,8 +3386,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "0d51cdd4240ea8e978b96112d9de87b89343d67700dc93d836f01ae5d39b01f4",
-      "excerpt_hash": "f60efb08911467b14aac2e46b4e3517168d1b11983fa2748616f1375353661dd",
+      "content_hash": "e6acf7c2d8d13b403dff5919420622d6ab48e45abd653072fa360f250165a5d7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "45c3809d8ecb923a",
       "source_record_id": "rock_documentation:article:2220",
@@ -3368,17 +3395,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "f2b3c19fdebbe37b47a419917c37d6ab0be01a7364949e5c0bd7b4fb88eb8508",
-      "excerpt_hash": "d25c9cd0b58814daa404afeabc7a527757ca8b7b5fdc782d900190cca53740ae",
+      "content_hash": "faaee18fddf0a3256861a661b21889845464a855eda77f1c7e045d56960bec2c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
-      "source_key": "585b8513df4166af",
-      "source_record_id": "rock_documentation:article:2189",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library"
+      "source_key": "a44e37903e4d9f61",
+      "source_record_id": "rock_documentation:article:2221",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/library-viewer"
     },
     {
       "authority": "official",
-      "content_hash": "323ef7be52fb7b9be78975c9c6e8cc61ac3a451f204bb65455bbf42e9fdd99a1",
-      "excerpt_hash": "0464d869704934c767adbf638d2c784694eb905d87faddc8fca1c3067dde93c7",
+      "content_hash": "6789113df0f18690556c24684277384f59cbe849d5e2f95e3e4c96fe2e18f4e7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "33440d150b258d1e",
       "source_record_id": "rock_documentation:article:2190",
@@ -3386,8 +3413,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "6ac41ee3fb948d82f1aa3844405571a1c3a9e7eef5324bbdeef0fd4451326c19",
-      "excerpt_hash": "21bfc019ab4817bcc71e43cfdf4a88235af94c4375657c6dc13c04147789adb9",
+      "content_hash": "c65ee13126f81b9675ad5ada9fd083d6555ffc926e4d9cdf1db90bb17bc11ba6",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "2a434b8e72a3254c",
       "source_record_id": "rock_documentation:article:2226",
@@ -3395,26 +3422,116 @@
     },
     {
       "authority": "official",
-      "content_hash": "825df03b9c1ac3cd97c83adee04c881af576fb23aa62a4644a25e01b680ea531",
-      "excerpt_hash": "237f8571b176f1b74488a649acc866b9d293ac135bc08392b728ca3802a8411d",
+      "content_hash": "080062cd911d245e4c682f0ea45f6cfda72559286527eed8d235f0fb50f3ef5e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
-      "source_key": "ed70438a6c00a8f2",
-      "source_record_id": "rock_documentation:article:1382",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management"
+      "source_key": "94a99e1854ff1d35",
+      "source_record_id": "rock_documentation:article:2229",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-with-content-channel-items"
     },
     {
       "authority": "official",
-      "content_hash": "d2247093cf3e6ca5fb931a6cab3b007f6d8614088021f3df83a24bf8af2f4959",
-      "excerpt_hash": "c3e67f1e84f66b56b2d633c3561ba8576bed2f569997758f99e8b61fd6f224eb",
+      "content_hash": "56285bcd8e6e5f1723a20a8370188e48795fedcf3874b690d193439deca03e44",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
-      "source_key": "34c9290486f4732f",
-      "source_record_id": "rock_documentation:article:2246",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments"
+      "source_key": "044e67efa5d890c7",
+      "source_record_id": "rock_documentation:article:2230",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/podcasts"
     },
     {
       "authority": "official",
-      "content_hash": "6bad56eae9fbb7342e7494de2f9c5d0e7b89d765945dda4d052d1981a51a9d64",
-      "excerpt_hash": "29d3793df13649dcaf00ce4456a041a28b8d182406a3aab7320a7e966a3c0af6",
+      "content_hash": "f92e660b5b953112abb6ccb615faaf012923561014f727510d3b08296763396c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "728e34b2b2b3fb76",
+      "source_record_id": "rock_documentation:article:2239",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager"
+    },
+    {
+      "authority": "official",
+      "content_hash": "5f1c8973cbdf594e7ed5d853b3aca550f0c4fae2d6de1e69e1dd7c2eb2ea05d8",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "a61cb79ac4e4daac",
+      "source_record_id": "rock_documentation:article:2237",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ca54b2a855a9b8522c8213ee5de6787df88f41f7e33ae6f35e78a5ad4cee7fdf",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "7aa2880846c5b84b",
+      "source_record_id": "rock_documentation:article:2240",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content"
+    },
+    {
+      "authority": "official",
+      "content_hash": "a51215d4a2ba9660884f3baebbb10ed33e6d79a808e077e3f18d07526be9487e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "2200785ac859838c",
+      "source_record_id": "rock_documentation:article:2193",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure"
+    },
+    {
+      "authority": "official",
+      "content_hash": "8e8311d679e489c4942537d53a5741638809baf05afaf12f21e81706df6c237c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "df2a398148e63ba3",
+      "source_record_id": "rock_documentation:article:2244",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/understand-file-types"
+    },
+    {
+      "authority": "official",
+      "content_hash": "bf3796a7cd76df7caf31ed3a216936aa84edf9193dfaffaafc63eefe2865d179",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "fab87a6ac39ebf60",
+      "source_record_id": "rock_documentation:article:2191",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks"
+    },
+    {
+      "authority": "official",
+      "content_hash": "e918b5dfa4d88124ac343631bd038179da4ce7524dc36b26b41803c81f0305b3",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "2adeb6e18bc3bab2",
+      "source_record_id": "rock_documentation:article:2231",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/facebook"
+    },
+    {
+      "authority": "official",
+      "content_hash": "17989387a0702bae8b0b0d148a5748cc5365603a002749b370098284df8e561c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "57f0b7a6fe8c3c26",
+      "source_record_id": "rock_documentation:article:2235",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/calendar-events"
+    },
+    {
+      "authority": "official",
+      "content_hash": "458700b195bb58f520c0156f0b1db7bdbef24132252644351a14ec43bf5b680a",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "ece965f6cf21865c",
+      "source_record_id": "rock_documentation:article:2252",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/configure-site-for-personalization"
+    },
+    {
+      "authority": "official",
+      "content_hash": "2cd45fce872eb7d16b809c46e632ee4dffbae102e1ac8fb25bbf55f9e450245e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "8efcb65dfd2f7566",
+      "source_record_id": "rock_documentation:article:2250",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/intro-to-personalization-segments"
+    },
+    {
+      "authority": "official",
+      "content_hash": "a58dfd69e83212e69ca7a6dbb23aab831dd742f761f3c93dfd1cab4a0d5e2236",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "4d272877f8cd3f68",
       "source_record_id": "rock_documentation:article:2256",
@@ -3422,17 +3539,89 @@
     },
     {
       "authority": "official",
-      "content_hash": "1c526ab4587f0ba70a109d1cd14bf71ebf29a970ee8113968a7c6bfc75ca91b2",
-      "excerpt_hash": "854d11bc89387df36a2aa471f793c1d96123bc4e0078f01e96d4e991dbb7c8cf",
+      "content_hash": "fc443c1717a4adfd9fc66c5061a4baa9df5dc1fc8bb4fb433f937093b43ad3dd",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "ed822f5b96478a60",
+      "source_record_id": "rock_documentation:article:2257",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization"
+    },
+    {
+      "authority": "official",
+      "content_hash": "d3eaaea1b63c6ba46f19d64fc48f8cf3cec8104344f1eda2b79b48278ad2dda9",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "87add4bd06e546bb",
+      "source_record_id": "rock_documentation:article:2253",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-for-anonymous-visitors"
+    },
+    {
+      "authority": "official",
+      "content_hash": "60d984621cb0e10fc3eea18ba7c54083fc4b60eb2381860684764fd868685d44",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "d556b9f249aeed07",
+      "source_record_id": "rock_documentation:article:2251",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/use-request-filters"
+    },
+    {
+      "authority": "official",
+      "content_hash": "62ee2aac5d25ee9b61280ee68549b0505fd914469526aab770e3da2e25246c73",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "source_id": "rock_documentation",
       "source_key": "d66e6fa3ede63538",
       "source_record_id": "rock_documentation:article:2254",
       "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items"
     },
     {
+      "authority": "official",
+      "content_hash": "a9fa946e814900c014e94d33fc4c0e4c391c2e1e601b4901eab49587ed706f36",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "e7273766702f8255",
+      "source_record_id": "rock_documentation:article:2255",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava"
+    },
+    {
+      "authority": "official",
+      "content_hash": "e6485fe504283f46e30e08c3218c4d7bce1964bec2f43e5028093dd14bd116b0",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "d0a27ab62bf5d47a",
+      "source_record_id": "rock_documentation:article:2258",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b9884cf116ebae665c97ad47cd44ac87032f1595eb8700b4900ad7b7d491579f",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "a9c818a6a2d54da5",
+      "source_record_id": "rock_documentation:article:2259",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages"
+    },
+    {
+      "authority": "official",
+      "content_hash": "2a1af35f95be039003e3f899dcbcbd0b63c8e01b1ef11f6b17d5cb5ca69ce320",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "eb9381d848eda16e",
+      "source_record_id": "rock_documentation:article:2260",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/intro-to-localization"
+    },
+    {
+      "authority": "official",
+      "content_hash": "4108338e2185416ba07e8855e315a36e84ff8a7a5dc38c7e936ca92f9b82425f",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "source_id": "rock_documentation",
+      "source_key": "1bdc3bcbfa34536a",
+      "source_record_id": "rock_documentation:article:2248",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization"
+    },
+    {
       "authority": "community-example",
-      "content_hash": "d5b69a79e30f1a929f8c85ea6fe4fb256d3761df4d8099d2639978cdcf65f2a0",
-      "excerpt_hash": "de34bd74fb9bb6f0c7f429e565b8d8ed00f38df31b77ee75e61f4af426d2cf0a",
+      "content_hash": "74350a9d67f0f58b1dac166ba61be504c2a48835bc286c3bb2e103dc032d5ff7",
+      "excerpt_hash": "163215543f07ec7ec143bc4b67e3cbd9e917cb18c2cf0887e9d6f860c1e20590",
       "source_id": "rock_recipes",
       "source_key": "c545bf3f3cbdeff5",
       "source_record_id": "rock_recipes:c545bf3f3cbdeff5",
@@ -3440,17 +3629,17 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "effb24a3e037fdb8de148af7a66bd0629016a422bdc213cc6683e4400abfc42f",
-      "excerpt_hash": "5c7063dbd85b858c3799675d01ea09fcc106fcc6e513eb2e531b5217856c5897",
+      "content_hash": "8295e0fd8fcbee0c9f04dd0eeb4525e8c37dd5e950be03af76e38a54b0a3e41b",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "ae592db8034a01e9",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AdaptiveMessagesController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/AdaptiveMessagesController.CodeGenerated.cs"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
       "authority": "official-developer",
-      "content_hash": "7edf8d02adbff96876b724979548e0b9906db262c27dde77efe37b41bdded93e",
-      "excerpt_hash": "112b38ae1dd723a33ac3124a399f609fcb285e2848cdc1afd5951af1e83fdee9",
+      "content_hash": "b2d0ebfb2ec9ab34dadfac5a46fcb88331ed2772215f497f20859683a74e3ce6",
+      "excerpt_hash": "767597f6a003b9cb4435c6c8f71a7579901138a4a794316cba222c3492347904",
       "source_id": "rock_lava_docs",
       "source_key": "6ad836de36757aea",
       "source_record_id": "rock_lava_docs:6ad836de36757aea",
@@ -3460,52 +3649,64 @@
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 40,
+      "end_line": 56,
       "heading": "Agent Summary",
       "needs_live_verification": false,
       "section_id": "agent-summary",
       "source_keys": [
         "db90cd59a8e1c0d6",
-        "64fbac29d223ecdd"
+        "8031abb097145867"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "normal",
-      "end_line": 56,
+      "end_line": 72,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "da56742094302615",
-        "64fbac29d223ecdd"
+        "8031abb097145867"
       ],
-      "start_line": 41
+      "start_line": 57
     },
     {
       "confidence": "normal",
-      "end_line": 82,
+      "end_line": 98,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
       "source_keys": [
         "db90cd59a8e1c0d6",
-        "3374a116f8eca98f",
+        "d5b2d954c2f2750c",
         "f18fbfb10a2e508f",
         "30ea9fe6ad7d2df1",
         "97b4a6ecbd1b914c"
       ],
-      "start_line": 57
+      "start_line": 73
     },
     {
       "confidence": "structural",
-      "end_line": 84,
+      "end_line": 100,
       "heading": "Content Channels",
       "needs_live_verification": false,
       "section_id": "content-channels",
       "source_keys": [
-        "3374a116f8eca98f",
+        "d5b2d954c2f2750c",
+        "9524cdfbc0c41da8",
         "ec404ee26de27ada",
         "774acba429492198",
         "8fe481bbc8acefb6",
@@ -3514,26 +3715,27 @@
         "776256c424368312",
         "c11e3dfe06b5957c",
         "f18fbfb10a2e508f",
+        "6ba7f6b3418136a3",
         "cb6a4ca25100b00f"
       ],
-      "start_line": 83
+      "start_line": 99
     },
     {
       "confidence": "normal",
-      "end_line": 92,
+      "end_line": 108,
       "heading": "Choose the structure",
       "needs_live_verification": false,
       "section_id": "content-channels-choose-the-structure",
       "source_keys": [
-        "3374a116f8eca98f",
-        "3374a116f8eca98f",
+        "d5b2d954c2f2750c",
+        "9524cdfbc0c41da8",
         "ec404ee26de27ada"
       ],
-      "start_line": 85
+      "start_line": 101
     },
     {
       "confidence": "normal",
-      "end_line": 100,
+      "end_line": 116,
       "heading": "Configure publication behavior",
       "needs_live_verification": false,
       "section_id": "content-channels-configure-publication-behavior",
@@ -3544,11 +3746,11 @@
         "8fe481bbc8acefb6",
         "17b72677042fc3b4"
       ],
-      "start_line": 93
+      "start_line": 109
     },
     {
       "confidence": "high",
-      "end_line": 108,
+      "end_line": 124,
       "heading": "Manage editorial work",
       "needs_live_verification": true,
       "section_id": "content-channels-manage-editorial-work",
@@ -3556,22 +3758,22 @@
         "b1c2a741dfc25255",
         "776256c424368312"
       ],
-      "start_line": 101
+      "start_line": 117
     },
     {
       "confidence": "normal",
-      "end_line": 114,
+      "end_line": 130,
       "heading": "Relate items",
       "needs_live_verification": true,
       "section_id": "content-channels-relate-items",
       "source_keys": [
         "c11e3dfe06b5957c"
       ],
-      "start_line": 109
+      "start_line": 125
     },
     {
       "confidence": "normal",
-      "end_line": 128,
+      "end_line": 144,
       "heading": "Render channels and items",
       "needs_live_verification": false,
       "section_id": "content-channels-render-channels-and-items",
@@ -3580,44 +3782,44 @@
         "774acba429492198",
         "f18fbfb10a2e508f"
       ],
-      "start_line": 115
+      "start_line": 131
     },
     {
       "confidence": "normal",
-      "end_line": 134,
+      "end_line": 150,
       "heading": "Publish an RSS feed",
       "needs_live_verification": false,
       "section_id": "content-channels-publish-an-rss-feed",
       "source_keys": [
-        "3374a116f8eca98f"
+        "6ba7f6b3418136a3"
       ],
-      "start_line": 129
+      "start_line": 145
     },
     {
       "confidence": "normal",
-      "end_line": 140,
+      "end_line": 156,
       "heading": "Secure content",
       "needs_live_verification": false,
       "section_id": "content-channels-secure-content",
       "source_keys": [
         "17b72677042fc3b4"
       ],
-      "start_line": 135
+      "start_line": 151
     },
     {
       "confidence": "normal",
-      "end_line": 146,
+      "end_line": 162,
       "heading": "Automate item attributes",
       "needs_live_verification": true,
       "section_id": "content-channels-automate-item-attributes",
       "source_keys": [
         "cb6a4ca25100b00f"
       ],
-      "start_line": 141
+      "start_line": 157
     },
     {
       "confidence": "normal",
-      "end_line": 156,
+      "end_line": 172,
       "heading": "Content Components",
       "needs_live_verification": false,
       "section_id": "content-components",
@@ -3627,11 +3829,11 @@
         "3982c057ca7b2325",
         "4ea15fe232e61930"
       ],
-      "start_line": 147
+      "start_line": 163
     },
     {
       "confidence": "normal",
-      "end_line": 170,
+      "end_line": 186,
       "heading": "Content Collections",
       "needs_live_verification": false,
       "section_id": "content-collections",
@@ -3647,24 +3849,24 @@
         "97b4a6ecbd1b914c",
         "e368def854a4503e"
       ],
-      "start_line": 157
+      "start_line": 173
     },
     {
       "confidence": "normal",
-      "end_line": 180,
+      "end_line": 196,
       "heading": "Content Library",
       "needs_live_verification": false,
       "section_id": "content-library",
       "source_keys": [
         "45c3809d8ecb923a",
         "da56742094302615",
-        "585b8513df4166af"
+        "a44e37903e4d9f61"
       ],
-      "start_line": 171
+      "start_line": 187
     },
     {
       "confidence": "normal",
-      "end_line": 198,
+      "end_line": 214,
       "heading": "Digital Media In Content Operations",
       "needs_live_verification": false,
       "section_id": "digital-media-in-content-operations",
@@ -3672,153 +3874,158 @@
         "33440d150b258d1e",
         "33440d150b258d1e",
         "2a434b8e72a3254c",
+        "94a99e1854ff1d35",
         "33440d150b258d1e",
         "33440d150b258d1e",
+        "94a99e1854ff1d35",
         "33440d150b258d1e",
         "33440d150b258d1e",
-        "33440d150b258d1e",
-        "33440d150b258d1e",
-        "33440d150b258d1e"
+        "044e67efa5d890c7"
       ],
-      "start_line": 181
+      "start_line": 197
     },
     {
       "confidence": "normal",
-      "end_line": 208,
+      "end_line": 224,
       "heading": "Asset Manager And File Operations",
       "needs_live_verification": false,
       "section_id": "asset-manager-and-file-operations",
       "source_keys": [
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2"
+        "728e34b2b2b3fb76",
+        "a61cb79ac4e4daac",
+        "7aa2880846c5b84b",
+        "728e34b2b2b3fb76",
+        "2200785ac859838c",
+        "df2a398148e63ba3"
       ],
-      "start_line": 199
+      "start_line": 215
     },
     {
       "confidence": "normal",
-      "end_line": 218,
+      "end_line": 234,
       "heading": "Social Metadata",
       "needs_live_verification": true,
       "section_id": "social-metadata",
       "source_keys": [
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2"
+        "fab87a6ac39ebf60",
+        "2adeb6e18bc3bab2",
+        "fab87a6ac39ebf60",
+        "57f0b7a6fe8c3c26"
       ],
-      "start_line": 209
+      "start_line": 225
     },
     {
       "confidence": "structural",
-      "end_line": 220,
+      "end_line": 236,
       "heading": "Personalization And Segments",
       "needs_live_verification": false,
       "section_id": "personalization-and-segments",
       "source_keys": [
-        "34c9290486f4732f",
-        "64fbac29d223ecdd",
+        "ece965f6cf21865c",
+        "8031abb097145867",
+        "8efcb65dfd2f7566",
         "4d272877f8cd3f68",
-        "d66e6fa3ede63538"
+        "ed822f5b96478a60",
+        "87add4bd06e546bb",
+        "d556b9f249aeed07",
+        "d66e6fa3ede63538",
+        "e7273766702f8255"
       ],
-      "start_line": 219
-    },
-    {
-      "confidence": "normal",
-      "end_line": 232,
-      "heading": "Enable the site",
-      "needs_live_verification": false,
-      "section_id": "personalization-and-segments-enable-the-site",
-      "source_keys": [
-        "34c9290486f4732f",
-        "64fbac29d223ecdd"
-      ],
-      "start_line": 221
-    },
-    {
-      "confidence": "normal",
-      "end_line": 240,
-      "heading": "Build personalization segments",
-      "needs_live_verification": false,
-      "section_id": "personalization-and-segments-build-personalization-segments",
-      "source_keys": [
-        "34c9290486f4732f",
-        "4d272877f8cd3f68",
-        "34c9290486f4732f"
-      ],
-      "start_line": 233
+      "start_line": 235
     },
     {
       "confidence": "normal",
       "end_line": 248,
-      "heading": "Personalize anonymous visits",
+      "heading": "Enable the site",
       "needs_live_verification": false,
-      "section_id": "personalization-and-segments-personalize-anonymous-visits",
+      "section_id": "personalization-and-segments-enable-the-site",
       "source_keys": [
-        "34c9290486f4732f",
-        "34c9290486f4732f"
+        "ece965f6cf21865c",
+        "8031abb097145867"
       ],
-      "start_line": 241
+      "start_line": 237
     },
     {
       "confidence": "normal",
-      "end_line": 254,
-      "heading": "Use Request Filters",
+      "end_line": 256,
+      "heading": "Build personalization segments",
       "needs_live_verification": false,
-      "section_id": "personalization-and-segments-use-request-filters",
+      "section_id": "personalization-and-segments-build-personalization-segments",
       "source_keys": [
-        "34c9290486f4732f",
-        "34c9290486f4732f"
+        "8efcb65dfd2f7566",
+        "4d272877f8cd3f68",
+        "ed822f5b96478a60"
       ],
       "start_line": 249
     },
     {
       "confidence": "normal",
-      "end_line": 268,
+      "end_line": 264,
+      "heading": "Personalize anonymous visits",
+      "needs_live_verification": false,
+      "section_id": "personalization-and-segments-personalize-anonymous-visits",
+      "source_keys": [
+        "87add4bd06e546bb",
+        "87add4bd06e546bb"
+      ],
+      "start_line": 257
+    },
+    {
+      "confidence": "normal",
+      "end_line": 270,
+      "heading": "Use Request Filters",
+      "needs_live_verification": false,
+      "section_id": "personalization-and-segments-use-request-filters",
+      "source_keys": [
+        "d556b9f249aeed07",
+        "d556b9f249aeed07"
+      ],
+      "start_line": 265
+    },
+    {
+      "confidence": "normal",
+      "end_line": 284,
       "heading": "Apply personalization",
       "needs_live_verification": false,
       "section_id": "personalization-and-segments-apply-personalization",
       "source_keys": [
         "d66e6fa3ede63538",
         "d66e6fa3ede63538",
-        "34c9290486f4732f"
+        "e7273766702f8255"
       ],
-      "start_line": 255
+      "start_line": 271
     },
     {
       "confidence": "normal",
-      "end_line": 276,
+      "end_line": 292,
       "heading": "Adaptive Messages",
       "needs_live_verification": false,
       "section_id": "adaptive-messages",
       "source_keys": [
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd"
+        "d0a27ab62bf5d47a",
+        "a9c818a6a2d54da5",
+        "a9c818a6a2d54da5"
       ],
-      "start_line": 269
+      "start_line": 285
     },
     {
       "confidence": "normal",
-      "end_line": 288,
+      "end_line": 304,
       "heading": "Localization",
       "needs_live_verification": true,
       "section_id": "localization",
       "source_keys": [
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd"
+        "eb9381d848eda16e",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 277
+      "start_line": 293
     },
     {
       "confidence": "normal",
-      "end_line": 298,
+      "end_line": 314,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
       "section_id": "version-and-authority-caveats",
@@ -3826,13 +4033,13 @@
         "776256c424368312",
         "776256c424368312",
         "c545bf3f3cbdeff5",
-        "ae592db8034a01e9"
+        "d275b5b94a9da833"
       ],
-      "start_line": 289
+      "start_line": 305
     },
     {
       "confidence": "structural",
-      "end_line": 300,
+      "end_line": 316,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -3845,17 +4052,23 @@
         "776256c424368312",
         "7118f0a931e95a8b",
         "e368def854a4503e",
-        "34c9290486f4732f",
+        "ece965f6cf21865c",
+        "ed822f5b96478a60",
         "7ded08b7d246f577",
-        "64fbac29d223ecdd",
-        "ed70438a6c00a8f2",
-        "33440d150b258d1e"
+        "a9c818a6a2d54da5",
+        "728e34b2b2b3fb76",
+        "7aa2880846c5b84b",
+        "94a99e1854ff1d35",
+        "33440d150b258d1e",
+        "fab87a6ac39ebf60",
+        "2adeb6e18bc3bab2",
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 299
+      "start_line": 315
     },
     {
       "confidence": "normal",
-      "end_line": 311,
+      "end_line": 327,
       "heading": "A content item does not appear",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-content-item-does-not-appear",
@@ -3864,11 +4077,11 @@
         "f18fbfb10a2e508f",
         "d66e6fa3ede63538"
       ],
-      "start_line": 301
+      "start_line": 317
     },
     {
       "confidence": "high",
-      "end_line": 320,
+      "end_line": 336,
       "heading": "Staff cannot find or approve a channel item",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-staff-cannot-find-or-approve-a-channel-item",
@@ -3877,11 +4090,11 @@
         "17b72677042fc3b4",
         "776256c424368312"
       ],
-      "start_line": 312
+      "start_line": 328
     },
     {
       "confidence": "normal",
-      "end_line": 331,
+      "end_line": 347,
       "heading": "Content Collection results are stale or empty",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-content-collection-results-are-stale-or-empty",
@@ -3889,24 +4102,24 @@
         "7118f0a931e95a8b",
         "e368def854a4503e"
       ],
-      "start_line": 321
+      "start_line": 337
     },
     {
       "confidence": "normal",
-      "end_line": 344,
+      "end_line": 360,
       "heading": "Personalized content is wrong or stale",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-personalized-content-is-wrong-or-stale",
       "source_keys": [
-        "34c9290486f4732f",
-        "34c9290486f4732f",
+        "ece965f6cf21865c",
+        "ed822f5b96478a60",
         "7ded08b7d246f577"
       ],
-      "start_line": 332
+      "start_line": 348
     },
     {
       "confidence": "normal",
-      "end_line": 352,
+      "end_line": 368,
       "heading": "One visitor sees another visitor’s personalized values",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-one-visitor-sees-another-visitor-s-personalized-values",
@@ -3914,84 +4127,84 @@
         "f18fbfb10a2e508f",
         "7ded08b7d246f577"
       ],
-      "start_line": 345
+      "start_line": 361
     },
     {
       "confidence": "normal",
-      "end_line": 361,
+      "end_line": 377,
       "heading": "An Adaptive Message adaptation does not display",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-adaptive-message-adaptation-does-not-display",
       "source_keys": [
-        "64fbac29d223ecdd"
+        "a9c818a6a2d54da5"
       ],
-      "start_line": 353
+      "start_line": 369
     },
     {
       "confidence": "normal",
-      "end_line": 369,
+      "end_line": 385,
       "heading": "An externally uploaded asset is missing",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-externally-uploaded-asset-is-missing",
       "source_keys": [
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2"
+        "728e34b2b2b3fb76",
+        "7aa2880846c5b84b"
       ],
-      "start_line": 362
+      "start_line": 378
     },
     {
       "confidence": "high",
-      "end_line": 378,
+      "end_line": 394,
       "heading": "Media analytics or resume behavior is unexpected",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-media-analytics-or-resume-behavior-is-unexpected",
       "source_keys": [
-        "33440d150b258d1e",
+        "94a99e1854ff1d35",
         "776256c424368312"
       ],
-      "start_line": 370
+      "start_line": 386
     },
     {
       "confidence": "normal",
-      "end_line": 387,
+      "end_line": 403,
       "heading": "A required Media Watch form cannot be submitted",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-required-media-watch-form-cannot-be-submitted",
       "source_keys": [
         "33440d150b258d1e"
       ],
-      "start_line": 379
+      "start_line": 395
     },
     {
       "confidence": "normal",
-      "end_line": 396,
+      "end_line": 412,
       "heading": "A social share preview is wrong",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-social-share-preview-is-wrong",
       "source_keys": [
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2"
+        "fab87a6ac39ebf60",
+        "2adeb6e18bc3bab2",
+        "fab87a6ac39ebf60"
       ],
-      "start_line": 388
+      "start_line": 404
     },
     {
       "confidence": "normal",
-      "end_line": 405,
+      "end_line": 421,
       "heading": "Dates, phone numbers, currency, or addresses appear incorrectly localized",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-dates-phone-numbers-currency-or-addresses-appear-incorrectly-localized",
       "source_keys": [
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd"
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 397
+      "start_line": 413
     },
     {
       "confidence": "structural",
-      "end_line": 407,
+      "end_line": 423,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -3999,7 +4212,7 @@
         "8fe481bbc8acefb6",
         "b1c2a741dfc25255",
         "d66e6fa3ede63538",
-        "34c9290486f4732f",
+        "ed822f5b96478a60",
         "4d272877f8cd3f68",
         "97b4a6ecbd1b914c",
         "e368def854a4503e",
@@ -4007,16 +4220,16 @@
         "4ea15fe232e61930",
         "cb6a4ca25100b00f",
         "2a434b8e72a3254c",
-        "33440d150b258d1e",
+        "94a99e1854ff1d35",
         "da56742094302615",
-        "585b8513df4166af",
-        "64fbac29d223ecdd"
+        "a44e37903e4d9f61",
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 406
+      "start_line": 422
     },
     {
       "confidence": "normal",
-      "end_line": 440,
+      "end_line": 456,
       "heading": "Recipe: Publish a governed Content Channel Item",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-publish-a-governed-content-channel-item",
@@ -4024,35 +4237,35 @@
         "8fe481bbc8acefb6",
         "b1c2a741dfc25255"
       ],
-      "start_line": 408
+      "start_line": 424
     },
     {
       "confidence": "normal",
-      "end_line": 463,
+      "end_line": 479,
       "heading": "Recipe: Add personalization to Content Channel Items",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-add-personalization-to-content-channel-items",
       "source_keys": [
         "d66e6fa3ede63538",
-        "34c9290486f4732f"
+        "ed822f5b96478a60"
       ],
-      "start_line": 441
+      "start_line": 457
     },
     {
       "confidence": "normal",
-      "end_line": 479,
+      "end_line": 495,
       "heading": "Recipe: Refresh personalization membership",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-refresh-personalization-membership",
       "source_keys": [
         "4d272877f8cd3f68",
-        "34c9290486f4732f"
+        "ed822f5b96478a60"
       ],
-      "start_line": 464
+      "start_line": 480
     },
     {
       "confidence": "normal",
-      "end_line": 501,
+      "end_line": 517,
       "heading": "Recipe: Build and refresh a Content Collection",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-and-refresh-a-content-collection",
@@ -4060,11 +4273,11 @@
         "97b4a6ecbd1b914c",
         "e368def854a4503e"
       ],
-      "start_line": 480
+      "start_line": 496
     },
     {
       "confidence": "normal",
-      "end_line": 516,
+      "end_line": 532,
       "heading": "Recipe: Configure a Content Component template",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-content-component-template",
@@ -4072,79 +4285,81 @@
         "3982c057ca7b2325",
         "4ea15fe232e61930"
       ],
-      "start_line": 502
+      "start_line": 518
     },
     {
       "confidence": "normal",
-      "end_line": 536,
+      "end_line": 552,
       "heading": "Recipe: Automate a channel item attribute with Lava",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-automate-a-channel-item-attribute-with-lava",
       "source_keys": [
         "cb6a4ca25100b00f"
       ],
-      "start_line": 517
+      "start_line": 533
     },
     {
       "confidence": "normal",
-      "end_line": 550,
+      "end_line": 566,
       "heading": "Recipe: Publish a Media Element through a channel",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-publish-a-media-element-through-a-channel",
       "source_keys": [
         "2a434b8e72a3254c",
-        "33440d150b258d1e"
+        "94a99e1854ff1d35"
       ],
-      "start_line": 537
+      "start_line": 553
     },
     {
       "confidence": "normal",
-      "end_line": 563,
+      "end_line": 579,
       "heading": "Recipe: Share or refresh Content Library material",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes-recipe-share-or-refresh-content-library-material",
       "source_keys": [
         "da56742094302615",
-        "585b8513df4166af"
+        "a44e37903e4d9f61"
       ],
-      "start_line": 551
+      "start_line": 567
     },
     {
       "confidence": "normal",
-      "end_line": 574,
+      "end_line": 590,
       "heading": "Recipe: Configure localized currency display safely",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-localized-currency-display-safely",
       "source_keys": [
-        "64fbac29d223ecdd"
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 564
+      "start_line": 580
     },
     {
       "confidence": "needs-citation",
-      "end_line": 602,
+      "end_line": 618,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "64fbac29d223ecdd"
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 575
+      "start_line": 591
     },
     {
       "confidence": "structural",
-      "end_line": 604,
+      "end_line": 620,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
       "source_keys": [
         "db90cd59a8e1c0d6",
-        "3374a116f8eca98f",
+        "d5b2d954c2f2750c",
         "ec404ee26de27ada",
         "774acba429492198",
         "17b72677042fc3b4",
+        "9524cdfbc0c41da8",
         "f18fbfb10a2e508f",
         "c11e3dfe06b5957c",
+        "6ba7f6b3418136a3",
         "cb6a4ca25100b00f",
         "b1c2a741dfc25255",
         "8fe481bbc8acefb6",
@@ -4159,45 +4374,63 @@
         "7118f0a931e95a8b",
         "45c3809d8ecb923a",
         "da56742094302615",
-        "585b8513df4166af",
-        "ed70438a6c00a8f2",
+        "a44e37903e4d9f61",
+        "a61cb79ac4e4daac",
+        "728e34b2b2b3fb76",
+        "7aa2880846c5b84b",
+        "2200785ac859838c",
+        "df2a398148e63ba3",
         "33440d150b258d1e",
         "2a434b8e72a3254c",
-        "64fbac29d223ecdd",
-        "34c9290486f4732f",
+        "94a99e1854ff1d35",
+        "044e67efa5d890c7",
+        "fab87a6ac39ebf60",
+        "2adeb6e18bc3bab2",
+        "57f0b7a6fe8c3c26",
+        "8031abb097145867",
+        "8efcb65dfd2f7566",
+        "d556b9f249aeed07",
+        "ece965f6cf21865c",
+        "87add4bd06e546bb",
         "d66e6fa3ede63538",
+        "e7273766702f8255",
         "4d272877f8cd3f68",
+        "ed822f5b96478a60",
+        "d0a27ab62bf5d47a",
+        "a9c818a6a2d54da5",
+        "eb9381d848eda16e",
+        "1bdc3bcbfa34536a",
         "776256c424368312",
         "6ad836de36757aea",
         "c545bf3f3cbdeff5"
       ],
-      "start_line": 603
+      "start_line": 619
     },
     {
       "confidence": "normal",
-      "end_line": 619,
+      "end_line": 635,
       "heading": "Content channels and structured content",
       "needs_live_verification": false,
       "section_id": "source-map-content-channels-and-structured-content",
       "source_keys": [
         "db90cd59a8e1c0d6",
-        "3374a116f8eca98f",
+        "d5b2d954c2f2750c",
         "ec404ee26de27ada",
         "774acba429492198",
         "17b72677042fc3b4",
-        "3374a116f8eca98f",
+        "9524cdfbc0c41da8",
         "f18fbfb10a2e508f",
         "c11e3dfe06b5957c",
-        "3374a116f8eca98f",
+        "6ba7f6b3418136a3",
         "cb6a4ca25100b00f",
         "b1c2a741dfc25255",
         "8fe481bbc8acefb6"
       ],
-      "start_line": 605
+      "start_line": 621
     },
     {
       "confidence": "normal",
-      "end_line": 631,
+      "end_line": 647,
       "heading": "Content Components and collections",
       "needs_live_verification": false,
       "section_id": "source-map-content-components-and-collections",
@@ -4212,66 +4445,66 @@
         "c65c471e414ae081",
         "7118f0a931e95a8b"
       ],
-      "start_line": 620
+      "start_line": 636
     },
     {
       "confidence": "normal",
-      "end_line": 653,
+      "end_line": 669,
       "heading": "Library, assets, media, and social metadata",
       "needs_live_verification": false,
       "section_id": "source-map-library-assets-media-and-social-metadata",
       "source_keys": [
         "45c3809d8ecb923a",
         "da56742094302615",
-        "585b8513df4166af",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
+        "a44e37903e4d9f61",
+        "a61cb79ac4e4daac",
+        "728e34b2b2b3fb76",
+        "7aa2880846c5b84b",
+        "2200785ac859838c",
+        "df2a398148e63ba3",
         "33440d150b258d1e",
         "2a434b8e72a3254c",
         "33440d150b258d1e",
+        "94a99e1854ff1d35",
         "33440d150b258d1e",
         "33440d150b258d1e",
-        "33440d150b258d1e",
-        "33440d150b258d1e",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2",
-        "ed70438a6c00a8f2"
+        "044e67efa5d890c7",
+        "fab87a6ac39ebf60",
+        "2adeb6e18bc3bab2",
+        "fab87a6ac39ebf60",
+        "57f0b7a6fe8c3c26"
       ],
-      "start_line": 632
+      "start_line": 648
     },
     {
       "confidence": "normal",
-      "end_line": 672,
+      "end_line": 688,
       "heading": "Personalization, Adaptive Messages, and localization",
       "needs_live_verification": false,
       "section_id": "source-map-personalization-adaptive-messages-and-localization",
       "source_keys": [
-        "64fbac29d223ecdd",
-        "34c9290486f4732f",
-        "34c9290486f4732f",
-        "34c9290486f4732f",
-        "34c9290486f4732f",
+        "8031abb097145867",
+        "8efcb65dfd2f7566",
+        "d556b9f249aeed07",
+        "ece965f6cf21865c",
+        "87add4bd06e546bb",
         "d66e6fa3ede63538",
-        "34c9290486f4732f",
+        "e7273766702f8255",
         "4d272877f8cd3f68",
-        "34c9290486f4732f",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd",
-        "64fbac29d223ecdd"
+        "ed822f5b96478a60",
+        "d0a27ab62bf5d47a",
+        "a9c818a6a2d54da5",
+        "eb9381d848eda16e",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a",
+        "1bdc3bcbfa34536a"
       ],
-      "start_line": 654
+      "start_line": 670
     },
     {
       "confidence": "normal",
-      "end_line": 677,
+      "end_line": 695,
       "heading": "Version and secondary evidence",
       "needs_live_verification": false,
       "section_id": "source-map-version-and-secondary-evidence",
@@ -4280,17 +4513,53 @@
         "6ad836de36757aea",
         "c545bf3f3cbdeff5"
       ],
-      "start_line": 673
+      "start_line": 689
+    },
+    {
+      "confidence": "structural",
+      "end_line": 709,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "776256c424368312",
+        "6ad836de36757aea",
+        "c545bf3f3cbdeff5"
+      ],
+      "start_line": 696
+    },
+    {
+      "confidence": "structural",
+      "end_line": 715,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "776256c424368312",
+        "6ad836de36757aea",
+        "c545bf3f3cbdeff5"
+      ],
+      "start_line": 710
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T15:31:03+00:00",
+  "source_pack_hydrated_at": "2026-06-19T00:00:28+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "d1708a612433099e481d7154fdc493ac0d72b448f98476a05b5f111642a6c588",
-      "excerpt_hash": "c7a8d03d40083c8613fac5c0db3b2c47b7ac054b6fe0aaa172089bdb5477ba99",
+      "content_hash": "7c6cc7d63a1e7b35d77ec0af5043ddfa9f80e2635855917a3ccc723c0a7e19ba",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4311,31 +4580,30 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "c113c53c6376e3b644d8c2cf2332218e2b0bdbdbd3918021d840efabaa2bca6f",
-      "excerpt_hash": "8ffc4205068ad976746f919015c48b2093f06cc0b753f061a37a8338a078f469",
+      "content_hash": "12e4d91d6dc67ff5961862cad2d819ebca418ce9d7f810ca9fed057bb5f85c35",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "64fbac29d223ecdd",
-      "source_record_id": "rock_documentation:article:1381",
-      "title": "Personalization",
+      "source_key": "8031abb097145867",
+      "source_record_id": "rock_documentation:article:2249",
+      "title": "Intro to Personalization",
       "topics": [
         "admin",
-        "lava",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/overview/intro-to-personalization",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "31ea51cb0261ed8a8c863b5d6abb7977179aea2bd70e96d946958a2de35e4e34",
-      "excerpt_hash": "342399396a3978ff4ed4ff911f2d1622f1df9752d3c5e66edad3dea5f9638bf3",
+      "content_hash": "07e7ffa42ebbcf73bd8aeed640d888e8d083914d4f63522f4753e02505c3a24e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4357,30 +4625,30 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "aaa5239c6f5e4a798f8b317e9f2148406af7d040e99ff3272c3eac42210c1bc0",
-      "excerpt_hash": "bff3bf9cb5a8a52bb34f00923b6d707c5ebe167781f97493dfbbb48fcacbc302",
+      "content_hash": "530d320f341b3ed3d44854d32db291a057f9414e47a8c4efd505750454b24cf7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "3374a116f8eca98f",
-      "source_record_id": "rock_documentation:article:2185",
-      "title": "Content Channels",
+      "source_key": "d5b2d954c2f2750c",
+      "source_record_id": "rock_documentation:article:2196",
+      "title": "Channel Types",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/channel-types",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1cd5b52983890ca651f496792db243ca00aed5bda42592093853b73db627ae57",
-      "excerpt_hash": "0a55149ff20a66d35b649c7792b120efa298ba903fb92d982e4a91df6d3253c5",
+      "content_hash": "fe28cdc4aa76d6d4fe34c2348130785401dbfdcbf92d89ae1ace517d9ec44f15",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4403,8 +4671,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1b5186a9a048ede445bb7efca5fdd27d2c8ec2c38c4cf0af5455714650377fe6",
-      "excerpt_hash": "7ac6beec5624e99ca016ce8cee91b3131b4a034caa6aa884fe2ec57cf4b4293c",
+      "content_hash": "cc5eb198dc65a3df2dfb3bee5f158242417f0127ded8aab5d58f0f4140152250",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4426,8 +4694,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "9d1cb0658c92e1e946897aee2339e38113a28846da586aaa4495c5b50d17d21b",
-      "excerpt_hash": "7bc660db4483040f134f005eee22cb29ec5663f04c4bfe8c5442fd92dcea190a",
+      "content_hash": "e6d2f4a93253413279e8ceeaff373ce0a39af0f4afcf2a41eb1ec643404d6595",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4448,8 +4716,31 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "7773bba25b0c9739e32f75b23dd358d41b90aabaf9d94eca73ffef3b8ccc0b54",
-      "excerpt_hash": "cb2a475b94994f61fedcd07e2be12e6d4f49758755691af6b9f2e72781e53de1",
+      "content_hash": "913e72e69be9c10ce44b166b505e687b7139f08971434ec3d5b661bc744192f5",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9524cdfbc0c41da8",
+      "source_record_id": "rock_documentation:article:2201",
+      "title": "Use Universal Channel Types",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/use-universal-channel-types",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2f35cfb70755d1d4721457be4af35b37fca763d46dee172a8ee8609ac200dda7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4470,8 +4761,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f5a96d27b4d6088e9df2096f1750937541ab53fd85a2e5237def013b21ea35b6",
-      "excerpt_hash": "452637c8795f8566c47948fee83b07084ad25ba005341d1375d0b0c261efcad4",
+      "content_hash": "58d61fb2a100823142da0b9d5d5c2abbdc1157c44461d1eafdded5c45685c404",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4492,8 +4783,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "5f5f68e627cee9ced93380e0efb20d20677fc1d89c0fba477311fec73d655660",
-      "excerpt_hash": "c8bd63bcca7528e2fd5a668fdb823c250db1b2caf8e1abe3f46aa530d45c82c5",
+      "content_hash": "3db36583ecec4f705543a3f42b0e37847b1d6c63359d192dd52a6996d0127058",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4514,8 +4805,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "0e0939d0c36a1b4920406a20c67134571b949a7bb50abfc24f179c164a81ddb6",
-      "excerpt_hash": "aa2ee305bf6929f24283bf7f5396b61bb1eba3821c7e2958e3e21677bdc58449",
+      "content_hash": "0d6995948875ec5f3d23932ddbf0fe8106c867200fef89e3189d19403d49247c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4538,8 +4829,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "8f373afae162a80c99bb06b87a4c23d6b6a322374665ccac9ce7cc90b70fb642",
-      "excerpt_hash": "e10e0e713b798d489b5b8d5b718fb9047dea6b9136a88abec5107891bf2dedee",
+      "content_hash": "6be651e50421eff99265bb6b830400d5b7b8d85632bed341a0d459cd56d904fc",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4560,15 +4851,15 @@
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "ef34da1ed5e93cb3a733040153728b5bc9272bc0fd8e3f6cde6b0be27d3d66ff",
+      "content_hash": "06dbd0397ed52b635063fa77caeb21a79e53e6f31ce0a41506fb61308ded060a",
+      "excerpt_hash": "9c6d6dd7fc610f856436eaaf9126aff5b6703b7073ec8bf449eab27b9f500937",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": "July 9, 2026",
+      "release_date": "October 6, 2025",
       "severity": "normal",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:010400e5efffe1f4",
+      "source_record_id": "rock_core_release_notes:fd103bc445b10f36",
       "title": "Rock Core Release Notes",
       "topics": [
         "releases",
@@ -4576,14 +4867,14 @@
         "operations"
       ],
       "url": "https://www.rockrms.com/releasenotes",
-      "version": "19.3"
+      "version": "17.5"
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "4d34f5c4c97829d1cabba63a8014a72c7dfd3ade1e75b011a5fe33cb30055e35",
-      "excerpt_hash": "f7f043a8fdf4fce173cdd82f29bfe05fb3333ae808558ae7d6f5ec9ee8639da8",
+      "content_hash": "63232e5b3662eef7c665840a37b64da9fe85a597db0060164e21c3c011bfd1da",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4604,8 +4895,31 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "13d72b6b3fac71b224c8e7dae795a2c7bbfb4b216bbb82dfef15568bd9edc8fd",
-      "excerpt_hash": "275908f36fc7c650667b752d77c4766af742b1517113a3c9d49fcf9fd956f433",
+      "content_hash": "8250de8a5105ea3e4ff9677810a6b03f451cbffe73041c1d56c0c2d97dfbcf50",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6ba7f6b3418136a3",
+      "source_record_id": "rock_documentation:article:2204",
+      "title": "Publish Content Through Feeds",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/publish-content-through-feeds",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3ebf7f542a2375ed0cc78981d160883fadb1fb337887e8d0a49e7bf5677add58",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4627,8 +4941,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "ea4c298638209fa7538e2d91e27c087c1f06e7061dd73a924d367f9a21a63d63",
-      "excerpt_hash": "89837b853c96eedea45e2f99fffd437ec9f43650f42c75266178600f37450007",
+      "content_hash": "f54f88835361bed754908c2d27913b77d9f3e877f7e721615dae3c274577be3d",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4650,8 +4964,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "031d21715c4f20d42211499f37e55ac5bbb62f20b964ae389d240baca2061a3a",
-      "excerpt_hash": "748dc597b94bc85a524e543fa995adcdf337f252b8c49b034cb0f221e3e482c4",
+      "content_hash": "3ca7cac2a40f494765b29ecc5b69d9c56a11bb75a74c5d1b5b1898a02db6bf30",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4673,8 +4987,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "bb56b97eacd2588711f58d86030d3027ad1c1585d953e8e3e9a82dbb794e6d25",
-      "excerpt_hash": "4f65fe2c44c4b3249c45fa96f0e9a680ac7a45462dfdf5e3b6bed4adc258e9b3",
+      "content_hash": "fb171ef75a22a31a32227b0bbdee63233eb2c0e560ac55cf3937d07dc0ec1c91",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4696,8 +5010,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "b07149ce260870781cc184c624615386c78a3ac48ed02be30ae715a55e144333",
-      "excerpt_hash": "0c764cc9e45dddec6a3fa03767ba9880829e1d3dca98263dfe74a638c5a87cdf",
+      "content_hash": "583e84ecfa28374a56f0b978d8517f66ac3b2c5452f423eabf30a19cc940bf9e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4719,8 +5033,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "5f75d611a572b7b5dd39bd755acaf212fc7d4345e5f003b6cd243b3a61635d6c",
-      "excerpt_hash": "be9f9e1aa39660cea305274966c13515537fb3aba76738805a43391cbe90f78d",
+      "content_hash": "f3119142bece4ef62e184ef02781fee6a78a68d2ffef7b53b25becc1c60db06d",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4741,8 +5055,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f4518a9ac6d0bc484e1937d9827f42c2d43a9344cd95a024c38917958488515d",
-      "excerpt_hash": "6160ad643be8d41a776f1803c2dc3fa1c77e388faac8fb58f5d34050b3134768",
+      "content_hash": "24836f402da683f21dc33a0f43f1022cc864058b77ec06667c5b2a555eacab5f",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4763,8 +5077,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "40de154ca7385a0a5c4778a7409f3819cc83e7c4593cab42387ceb345036ad40",
-      "excerpt_hash": "fe8700e774bb73784aa749e30de86dcc6c7327cc9f60f32528a2aeb8ee439147",
+      "content_hash": "180185fd8ee23776c1ba2800688e10795fda612a5846045090563c1110a9ef51",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4775,7 +5089,6 @@
       "title": "Trending Content",
       "topics": [
         "admin",
-        "api",
         "operations",
         "usage"
       ],
@@ -4786,8 +5099,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "0d51cdd4240ea8e978b96112d9de87b89343d67700dc93d836f01ae5d39b01f4",
-      "excerpt_hash": "f60efb08911467b14aac2e46b4e3517168d1b11983fa2748616f1375353661dd",
+      "content_hash": "e6acf7c2d8d13b403dff5919420622d6ab48e45abd653072fa360f250165a5d7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4795,7 +5108,7 @@
       "source_id": "rock_documentation",
       "source_key": "45c3809d8ecb923a",
       "source_record_id": "rock_documentation:article:2220",
-      "title": "Intro to the Content Library",
+      "title": "Intro to The Content Library",
       "topics": [
         "admin",
         "operations",
@@ -4808,30 +5121,30 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f2b3c19fdebbe37b47a419917c37d6ab0be01a7364949e5c0bd7b4fb88eb8508",
-      "excerpt_hash": "d25c9cd0b58814daa404afeabc7a527757ca8b7b5fdc782d900190cca53740ae",
+      "content_hash": "faaee18fddf0a3256861a661b21889845464a855eda77f1c7e045d56960bec2c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "585b8513df4166af",
-      "source_record_id": "rock_documentation:article:2189",
-      "title": "Content Library",
+      "source_key": "a44e37903e4d9f61",
+      "source_record_id": "rock_documentation:article:2221",
+      "title": "Library Viewer",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/library-viewer",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "323ef7be52fb7b9be78975c9c6e8cc61ac3a451f204bb65455bbf42e9fdd99a1",
-      "excerpt_hash": "0464d869704934c767adbf638d2c784694eb905d87faddc8fca1c3067dde93c7",
+      "content_hash": "6789113df0f18690556c24684277384f59cbe849d5e2f95e3e4c96fe2e18f4e7",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4854,8 +5167,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6ac41ee3fb948d82f1aa3844405571a1c3a9e7eef5324bbdeef0fd4451326c19",
-      "excerpt_hash": "21bfc019ab4817bcc71e43cfdf4a88235af94c4375657c6dc13c04147789adb9",
+      "content_hash": "c65ee13126f81b9675ad5ada9fd083d6555ffc926e4d9cdf1db90bb17bc11ba6",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4866,8 +5179,6 @@
       "title": "Publishing Media",
       "topics": [
         "admin",
-        "finance",
-        "lava",
         "operations",
         "usage"
       ],
@@ -4878,53 +5189,278 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "825df03b9c1ac3cd97c83adee04c881af576fb23aa62a4644a25e01b680ea531",
-      "excerpt_hash": "237f8571b176f1b74488a649acc866b9d293ac135bc08392b728ca3802a8411d",
+      "content_hash": "080062cd911d245e4c682f0ea45f6cfda72559286527eed8d235f0fb50f3ef5e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "ed70438a6c00a8f2",
-      "source_record_id": "rock_documentation:article:1382",
-      "title": "Content Management",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "d2247093cf3e6ca5fb931a6cab3b007f6d8614088021f3df83a24bf8af2f4959",
-      "excerpt_hash": "c3e67f1e84f66b56b2d633c3561ba8576bed2f569997758f99e8b61fd6f224eb",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "34c9290486f4732f",
-      "source_record_id": "rock_documentation:article:2246",
-      "title": "Personalization Segments",
+      "source_key": "94a99e1854ff1d35",
+      "source_record_id": "rock_documentation:article:2229",
+      "title": "Use With Content Channel Items",
       "topics": [
         "admin",
         "lava",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-with-content-channel-items",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6bad56eae9fbb7342e7494de2f9c5d0e7b89d765945dda4d052d1981a51a9d64",
-      "excerpt_hash": "29d3793df13649dcaf00ce4456a041a28b8d182406a3aab7320a7e966a3c0af6",
+      "content_hash": "56285bcd8e6e5f1723a20a8370188e48795fedcf3874b690d193439deca03e44",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "044e67efa5d890c7",
+      "source_record_id": "rock_documentation:article:2230",
+      "title": "Podcasts",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/podcasts",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "f92e660b5b953112abb6ccb615faaf012923561014f727510d3b08296763396c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "728e34b2b2b3fb76",
+      "source_record_id": "rock_documentation:article:2239",
+      "title": "View Asset Manager",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/view-asset-manager",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "5f1c8973cbdf594e7ed5d853b3aca550f0c4fae2d6de1e69e1dd7c2eb2ea05d8",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "a61cb79ac4e4daac",
+      "source_record_id": "rock_documentation:article:2237",
+      "title": "Intro to The Asset Manager",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/intro-to-the-asset-manager",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ca54b2a855a9b8522c8213ee5de6787df88f41f7e33ae6f35e78a5ad4cee7fdf",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "7aa2880846c5b84b",
+      "source_record_id": "rock_documentation:article:2240",
+      "title": "Add Content",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/asset-manager-system/add-content",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a51215d4a2ba9660884f3baebbb10ed33e6d79a808e077e3f18d07526be9487e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2200785ac859838c",
+      "source_record_id": "rock_documentation:article:2193",
+      "title": "Rock Directory Structure",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "8e8311d679e489c4942537d53a5741638809baf05afaf12f21e81706df6c237c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "df2a398148e63ba3",
+      "source_record_id": "rock_documentation:article:2244",
+      "title": "Understand File Types",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/rock-directory-structure/understand-file-types",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "bf3796a7cd76df7caf31ed3a216936aa84edf9193dfaffaafc63eefe2865d179",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "fab87a6ac39ebf60",
+      "source_record_id": "rock_documentation:article:2191",
+      "title": "Social Networks",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "e918b5dfa4d88124ac343631bd038179da4ce7524dc36b26b41803c81f0305b3",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2adeb6e18bc3bab2",
+      "source_record_id": "rock_documentation:article:2231",
+      "title": "Facebook",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/facebook",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "17989387a0702bae8b0b0d148a5748cc5365603a002749b370098284df8e561c",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "57f0b7a6fe8c3c26",
+      "source_record_id": "rock_documentation:article:2235",
+      "title": "Calendar Events",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/social-networks/calendar-events",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "458700b195bb58f520c0156f0b1db7bdbef24132252644351a14ec43bf5b680a",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ece965f6cf21865c",
+      "source_record_id": "rock_documentation:article:2252",
+      "title": "Configure Site for Personalization",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/configure-site-for-personalization",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2cd45fce872eb7d16b809c46e632ee4dffbae102e1ac8fb25bbf55f9e450245e",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "8efcb65dfd2f7566",
+      "source_record_id": "rock_documentation:article:2250",
+      "title": "Intro to Personalization Segments",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/intro-to-personalization-segments",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a58dfd69e83212e69ca7a6dbb23aab831dd742f761f3c93dfd1cab4a0d5e2236",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4945,8 +5481,76 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1c526ab4587f0ba70a109d1cd14bf71ebf29a970ee8113968a7c6bfc75ca91b2",
-      "excerpt_hash": "854d11bc89387df36a2aa471f793c1d96123bc4e0078f01e96d4e991dbb7c8cf",
+      "content_hash": "fc443c1717a4adfd9fc66c5061a4baa9df5dc1fc8bb4fb433f937093b43ad3dd",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ed822f5b96478a60",
+      "source_record_id": "rock_documentation:article:2257",
+      "title": "Troubleshoot Personalization",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d3eaaea1b63c6ba46f19d64fc48f8cf3cec8104344f1eda2b79b48278ad2dda9",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "87add4bd06e546bb",
+      "source_record_id": "rock_documentation:article:2253",
+      "title": "Personalize for Anonymous Visitors",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-for-anonymous-visitors",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "60d984621cb0e10fc3eea18ba7c54083fc4b60eb2381860684764fd868685d44",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d556b9f249aeed07",
+      "source_record_id": "rock_documentation:article:2251",
+      "title": "Use Request Filters",
+      "topics": [
+        "admin",
+        "api",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/use-request-filters",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "62ee2aac5d25ee9b61280ee68549b0505fd914469526aab770e3da2e25246c73",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4964,11 +5568,126 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a9fa946e814900c014e94d33fc4c0e4c391c2e1e601b4901eab49587ed706f36",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "e7273766702f8255",
+      "source_record_id": "rock_documentation:article:2255",
+      "title": "Personalize Using Lava",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "e6485fe504283f46e30e08c3218c4d7bce1964bec2f43e5028093dd14bd116b0",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d0a27ab62bf5d47a",
+      "source_record_id": "rock_documentation:article:2258",
+      "title": "Intro to Adaptive Messages",
+      "topics": [
+        "admin",
+        "finance",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/intro-to-adaptive-messages",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b9884cf116ebae665c97ad47cd44ac87032f1595eb8700b4900ad7b7d491579f",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "a9c818a6a2d54da5",
+      "source_record_id": "rock_documentation:article:2259",
+      "title": "Set Up Adaptive Messages",
+      "topics": [
+        "admin",
+        "finance",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2a1af35f95be039003e3f899dcbcbd0b63c8e01b1ef11f6b17d5cb5ca69ce320",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "eb9381d848eda16e",
+      "source_record_id": "rock_documentation:article:2260",
+      "title": "Intro to Localization",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization/intro-to-localization",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "4108338e2185416ba07e8855e315a36e84ff8a7a5dc38c7e936ca92f9b82425f",
+      "excerpt_hash": "3ae0bb0fb5ccd410c5b6ce90bdf4f846110e3be858ce3bdf545fde20c983fada",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1bdc3bcbfa34536a",
+      "source_record_id": "rock_documentation:article:2248",
+      "title": "Localization",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/localization",
+      "version": null
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "d5b69a79e30f1a929f8c85ea6fe4fb256d3761df4d8099d2639978cdcf65f2a0",
-      "excerpt_hash": "de34bd74fb9bb6f0c7f429e565b8d8ed00f38df31b77ee75e61f4af426d2cf0a",
+      "content_hash": "74350a9d67f0f58b1dac166ba61be504c2a48835bc286c3bb2e103dc032d5ff7",
+      "excerpt_hash": "163215543f07ec7ec143bc4b67e3cbd9e917cb18c2cf0887e9d6f860c1e20590",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4990,30 +5709,32 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "effb24a3e037fdb8de148af7a66bd0629016a422bdc213cc6683e4400abfc42f",
-      "excerpt_hash": "5c7063dbd85b858c3799675d01ea09fcc106fcc6e513eb2e531b5217856c5897",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "adaptive message",
-        "adaptivemessage",
-        "adaptive messages",
-        "adaptivemessages"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/AdaptiveMessagesController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "change_type": null,
+      "content_hash": "8295e0fd8fcbee0c9f04dd0eeb4525e8c37dd5e950be03af76e38a54b0a3e41b",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "ae592db8034a01e9",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/AdaptiveMessagesController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/AdaptiveMessagesController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/AdaptiveMessagesController.CodeGenerated.cs"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "7edf8d02adbff96876b724979548e0b9906db262c27dde77efe37b41bdded93e",
-      "excerpt_hash": "112b38ae1dd723a33ac3124a399f609fcb285e2848cdc1afd5951af1e83fdee9",
+      "content_hash": "b2d0ebfb2ec9ab34dadfac5a46fcb88331ed2772215f497f20859683a74e3ce6",
+      "excerpt_hash": "767597f6a003b9cb4435c6c8f71a7579901138a4a794316cba222c3492347904",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,

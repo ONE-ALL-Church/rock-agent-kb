@@ -47,12 +47,11 @@ Index the intended site pages without unintentionally exposing or omitting secur
 - https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/intro-to-caching
 - https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor
 - https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
 - https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets
 - https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Core/ScheduledJobHistoryList.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/ScheduledJobHistoryList/scheduledJobHistoryListOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/ScheduledJobHistoryList/scheduledJobHistoryListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/ScheduledJobHistoryList.cs
 - https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s

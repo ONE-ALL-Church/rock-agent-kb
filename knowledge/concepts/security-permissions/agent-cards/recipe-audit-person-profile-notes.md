@@ -44,15 +44,15 @@ Sensitive notes are categorized, visible, and consumed only as intended.
 
 ## Source Links
 
+- https://community.rockrms.com/documentation/core-concepts/security
 - https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy
 - https://community.rockrms.com/rocku/cms/advanced-html-block
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions
 - https://community.rockrms.com/rocku/cms/personalization
 - https://community.rockrms.com/rocku/content-channels/content-channel-view
 - https://community.rockrms.com/rocku/individuals-in-rock/person-note-1
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration
-- https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions
-- https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha
-- https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://community.rockrms.com/documentation
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Mobile/LocationPermissionStatus.cs

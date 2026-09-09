@@ -2,12 +2,12 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:38:10+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:24+00:00
+source_last_checked_at: 2026-09-09T21:15:54+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/43
 legacy_summary_retirement_coverage: 4/43
@@ -186,29 +186,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Auth](../../model-map/models/auth.md) | Core | 19.2.0 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Audit Log](../../model-map/models/auth-audit-log.md) | Core | 19.2.0 | 34 | 18 | 27 | 9 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Claim](../../model-map/models/auth-claim.md) | Core | 19.2.0 | 43 | 15 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Client](../../model-map/models/auth-client.md) | Core | 19.2.0 | 46 | 19 | 30 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Auth Scope](../../model-map/models/auth-scope.md) | Core | 19.2.0 | 40 | 13 | 25 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Type Role](../../model-map/models/group-type-role.md) | Group | 19.2.0 | 54 | 26 | 39 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [History Login](../../model-map/models/history-login.md) | Security | 19.2.0 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth](../../model-map/models/auth.md) | Core | 19.3.4 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Audit Log](../../model-map/models/auth-audit-log.md) | Core | 19.3.4 | 34 | 18 | 27 | 9 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Claim](../../model-map/models/auth-claim.md) | Core | 19.3.4 | 43 | 15 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Client](../../model-map/models/auth-client.md) | Core | 19.3.4 | 46 | 19 | 30 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Auth Scope](../../model-map/models/auth-scope.md) | Core | 19.3.4 | 40 | 13 | 25 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Type Role](../../model-map/models/group-type-role.md) | Group | 19.3.4 | 54 | 26 | 39 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [History Login](../../model-map/models/history-login.md) | Security | 19.3.4 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | Store Order Line Item Access | Other |  |  |  |  |  | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -252,10 +252,11 @@ Keywords: `api key, bearer, rest, token`
 | Set Up Google Authentication | rock_documentation | With the popularity of Gmail, Google authentication is an attractive alternative for many guests. Below are the steps necessary for Rock to use your guests' Google passwords for authentication. 1. Visit [console.developers.google.com/start](https://console.developers.google.com/start) and create a new project for your organization. If you already have a Google Maps API key, then you'll want to use that project. 2.... | [source](https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-google-authentication) |
 | Configure Person Tokens | rock_documentation | Person tokens come preconfigured in Rock and can be found in the Global Attributes screen (`Admin Tools > Settings > Global Attributes`).There are three Person Token attributes: Person Token Expire Minutes, Person Token Usage Limit, and Person Token Use Legacy Fallback. Click on an attribute to open its configuration settings. The Person Token Expire Minutes attribute is the length of time the person token is valid,... | [source](https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens) |
 | Rock Core Release Notes | rock_core_release_notes | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
-| Step 1: Create OpenAI Account | rock_recipes | 1 AI Chat in Rock: GPT 3.5, GTP 4 Shared by Brian Davis , ONE&ALL Church 3 years ago 12.0 General Beginner This recipe will have you chatting in with using GPT 3.5 or GPT 4 inside of Rock in 10-15 minutes. Sign up with an OpenAI Account, import a workflow and copy/paste in an API key and you'll be ready to chat. The Rock Core Team is working on building functionality directly into Rock that will allow you to do what... | [source](https://community.rockrms.com/recipes/365) |
-| Autocomplete Address When Adding New Family | rock_recipes | 3 Autocomplete Address When Adding New Family Shared by Alex Yarmolatii , The Promise Center 9 months ago 17.0 Administration / Finance, CRM, General, Operations, Web, Workflow Intermediate To provide predictive address autocomplete (street suggestions as you type), you’ll need to: - Add a custom JavaScript solution to the page (Pages → Page → Advanced → Page HTML or add script to the theme) that calls a geocoding... | [source](https://community.rockrms.com/recipes/508) |
-| Settings Quick-Access Shortcut | rock_recipes | 8 Settings Quick-Access Shortcut Shared by David Axelson , The Village Church 4 months ago 15.6 General Beginner The Magic: As you may have noticed from previous RX presentations , I do my best to leverage the flexibility of Rock to make my day-to-day simpler. Today's life hack is a shortcut key combination to open a searchable list of Rock Settings. The setup is fairly simple. I added an HTML block to the footer of... | [source](https://community.rockrms.com/recipes/532/settings-quick-access-shortcut) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | rock_youtube | This official Rock Cast follow-up answers implementation and governance questions raised by the Rock AI Summit. It adds release-sensitive detail about the planned Rock IQ rollout, authenticated-user permissions, MCP security, per-tool controls, chat and token governance, skill placement, platform support, caching, custom-tool data access, agent scope and model selection. Treat roadmap and pre-release statements as directional until confirmed in current release notes, documentation and a live Rock instance. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| Step 1: Create OpenAI Account | rock_recipes | 1 AI Chat in Rock: GPT 3.5, GTP 4 Shared by Brian Davis , ONE&ALL Church 3 years ago 12.0 General Beginner This recipe will have you chatting in with using GPT 3.5 or GPT 4 inside of Rock in 10-15 minutes. Sign up with an OpenAI Account, import a workflow and copy/paste in an API key and you'll be ready to chat. The Rock Core Team is working on building functionality directly into Rock that will allow you to do what... | [source](https://community.rockrms.com/recipes/365) |
+| Autocomplete Address When Adding New Family | rock_recipes | 3 Autocomplete Address When Adding New Family Shared by Alex Yarmolatii , The Promise Center 11 months ago 17.0 Administration / Finance, CRM, General, Operations, Web, Workflow Intermediate To provide predictive address autocomplete (street suggestions as you type), you’ll need to: - Add a custom JavaScript solution to the page (Pages → Page → Advanced → Page HTML or add script to the theme) that calls a geocoding... | [source](https://community.rockrms.com/recipes/508) |
+| Settings Quick-Access Shortcut | rock_recipes | 8 Settings Quick-Access Shortcut Shared by David Axelson , The Village Church 6 months ago 15.6 General Beginner The Magic: As you may have noticed from previous RX presentations , I do my best to leverage the flexibility of Rock to make my day-to-day simpler. Today's life hack is a shortcut key combination to open a searchable list of Rock Settings. The setup is fairly simple. I added an HTML block to the footer of... | [source](https://community.rockrms.com/recipes/532/settings-quick-access-shortcut) |
+| Using Lava Remotely | rock_lava_docs | Using Lava Remotely Many people assume that Lava is limited to being used inside Rock. For the most part that is true, but we have created some neat tools to help you extend the power of Lava to other websites running alternative technologies. Lava REST Endpoint The Lava REST endpoint is a simple endpoint that takes Lava as input and returns the rendered template as output. This endpoint is easily used by any... | [source](https://community.rockrms.com/lava/remote-lava) |
 
 
 ## Lava Capability References
@@ -270,7 +271,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `43`
-- Upstream check range: `2026-08-12T06:18:22+00:00` through `2026-08-12T06:18:24+00:00`
+- Upstream check range: `2026-09-09T21:15:50+00:00` through `2026-09-09T21:15:54+00:00`
 - Source-native typed articles: `4` of `43`
 - Legacy source summaries retired: `4`; still active: `39`
 - Migration status: `partial`

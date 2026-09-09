@@ -39,4 +39,4 @@ Explain every batch total and variance at the correct grain.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/church-management/finance/financial-components/batches
+- https://community.rockrms.com/documentation/church-management/finance

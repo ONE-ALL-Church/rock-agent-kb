@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "0d767c57b8088b1c7f6877fbd459cdee0ac4308186401786847
 
 # Scheduling And Locations
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Scheduling And Locations index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Treat scheduling in Rock as a relationship among four distinct concerns:
@@ -633,3 +649,47 @@ A live review should be bounded and read-only until the exact entity, version an
 - [Room Management Calendar View](https://community.rockrms.com/recipes/112) — legacy plugin calendar-view example.
 - [Group Viewer Meeting Details](https://community.rockrms.com/recipes/500) — community example of exposing linked locations and schedules to authorized staff; not core behavior.
 - [Group Member Schedule Templates](https://community.rockrms.com/recipes/356) — community approaches to fifth-week and Auto-Schedule templates; not official scheduling semantics.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `9`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| community-reviewed | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| community-reviewed | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| community-reviewed | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| community-reviewed | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `10`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) | approved_for_public_distillation | 4 | media-insight:1996763c554953f9 |
+| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://www.youtube.com/watch?v=edanHiYSDIM) | approved_for_public_distillation | 4 | media-insight:e966cbaf8af14d10 |
+| [Campuses Transcript Insight](https://community.rockrms.com/rocku/core-concepts/campuses) | approved_for_public_distillation | 2 | media-insight:3412bc01ca2880c8 |
+| [Group Location Transcript Insight](https://community.rockrms.com/rocku/groups/group-location) | approved_for_public_distillation | 1 | media-insight:bcba31d4beb5a53b |
+| [Group Scheduler and Status Board Transcript Insight](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board) | approved_for_public_distillation | 3 | media-insight:f0ede8a57e3ed4ac |
+| [Locations Transcript Insight](https://community.rockrms.com/rocku/check-in/locations) | approved_for_public_distillation | 1 | media-insight:61af1407e6153473 |
+| [Person Preferences and Auto Schedule Transcript Insight](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule) | approved_for_public_distillation | 2 | media-insight:97d2378d55d23ad1 |
+| [Product Grooming & the Giving Landscape \| Ep 205 Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape) | approved_for_public_distillation | 3 | media-insight:457020f0b7d8dd97 |
+| More |  | 2 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

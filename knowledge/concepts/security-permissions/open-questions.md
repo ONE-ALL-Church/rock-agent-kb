@@ -13,12 +13,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration`: Recipe: Preflight a least-privilege REST integration
-- `agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint`: Recipe: Secure a Lava API or Helix endpoint
-- `source-map-reviewed-community-examples`: Reviewed community examples
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `1-executive-summary-for-agents`: 1. Executive Summary For Agents
 - `scope-and-boundaries`: Scope And Boundaries
 - `3-security-and-permissions-mental-model-the-object-layer`: The Object Layer
@@ -52,6 +50,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-run-a-security-sensitive-upgrade-preflight`: Recipe: Run a security-sensitive upgrade preflight
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
 - `source-map-primary-official-security-documentation`: Primary official security documentation
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

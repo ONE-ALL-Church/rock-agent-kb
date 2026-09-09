@@ -46,14 +46,14 @@ A successful Achievement produces the intended follow-up and journey record.
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals
 - https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs
-- https://community.rockrms.com/documentation/engagement/steps/steps-charts
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps
+- https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types
+- https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges
 - https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings

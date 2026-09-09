@@ -29,12 +29,12 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-40: Agent Summary (normal)
-- `scope-and-boundaries` lines 41-60: Scope And Boundaries (normal)
-- `mental-model-agent-skill-and-tool` lines 63-70: Agent, skill and tool (normal)
-- `mental-model-chat-mcp-internal-and-public-are-separate-choices` lines 86-91: Chat, MCP, Internal and Public are separate choices (normal)
-- `agent-tools-and-lookup-surfaces-shape-tools-around-intent` lines 94-110: Shape tools around intent (normal)
-- `agent-tools-and-lookup-surfaces-use-lookup-list-and-get-as-a-sequence` lines 111-116: Use lookup, list and get as a sequence (normal)
+- `agent-summary` lines 34-56: Agent Summary (normal)
+- `scope-and-boundaries` lines 57-76: Scope And Boundaries (normal)
+- `mental-model-agent-skill-and-tool` lines 79-86: Agent, skill and tool (normal)
+- `mental-model-chat-mcp-internal-and-public-are-separate-choices` lines 102-107: Chat, MCP, Internal and Public are separate choices (normal)
+- `agent-tools-and-lookup-surfaces-shape-tools-around-intent` lines 110-126: Shape tools around intent (normal)
+- `agent-tools-and-lookup-surfaces-use-lookup-list-and-get-as-a-sequence` lines 127-132: Use lookup, list and get as a sequence (normal)
 
 ## Core Entities
 

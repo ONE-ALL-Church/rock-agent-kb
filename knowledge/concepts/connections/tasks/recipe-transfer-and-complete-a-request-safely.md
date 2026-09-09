@@ -49,5 +49,5 @@ The request reaches the correct destination with ownership and placement preserv
 - https://community.rockrms.com/documentation/engagement/connections/connection-requests/connections-views
 - https://community.rockrms.com/documentation/engagement/connections/configure-connections/configure-connection-requests
 - https://community.rockrms.com/documentation/engagement/connections/configure-connections/configure-connection-opportunities
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/4debc0117b10dafa1d56a43636cb5c1c50ba2964/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
 - https://www.youtube.com/watch?v=7rxTGLLhlrU

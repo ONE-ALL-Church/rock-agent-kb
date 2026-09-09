@@ -1,23 +1,24 @@
 {
   "authority_coverage": [
     "official-developer",
+    "official-model-map",
     "official-triumph",
     "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 6448 words; expected at least 1200.",
+      "message": "Guide has 7024 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 6448 words; expected no more than 9000.",
+      "message": "Guide has 7024 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 43 sections; expected at least 9.",
+      "message": "Guide has 46 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -54,34 +55,29 @@
       "id": "source_code",
       "message": "Available source code should be cited.",
       "passed": true
-    },
-    {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
     }
   ],
   "concept_id": "tv-apps",
   "contribution_record_count": 0,
   "entity_count": 9,
-  "generated_at": "2026-09-03T16:51:17+00:00",
-  "guide_line_count": 601,
-  "guide_word_count": 6448,
+  "generated_at": "2026-09-09T23:40:10+00:00",
+  "guide_line_count": 648,
+  "guide_word_count": 7024,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 10,
-    "answer_claim_reference_count": 10,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 9,
-    "section_count": 43,
-    "source_count": 36,
-    "substantive_uncited_section_ratio": 0.0286,
+    "section_count": 46,
+    "source_count": 38,
+    "substantive_uncited_section_ratio": 0.0541,
     "task_card_count": 6,
-    "word_count": 6448
+    "word_count": 7024
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 43,
-  "source_count": 36,
+  "section_count": 46,
+  "source_count": 38,
   "status": "pass",
   "task_card_count": 6
 }

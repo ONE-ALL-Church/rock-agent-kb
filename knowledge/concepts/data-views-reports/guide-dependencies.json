@@ -2676,13 +2676,22 @@
   },
   "approved_media_hash": "f311663773e4324e0cdd2ad6f2fbc3e4c21eb7acee5fc2a06ee3df8b4610fb96",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-09-03T16:51:11+00:00",
+  "built_at": "2026-09-09T23:39:59+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "14d36a5057e87fce9f64deda3be38ce7afc20c59999a210a9eeb6db6ae1d7862",
-  "guide_line_count": 541,
+  "guide_hash": "ea34f8e3ceeeb4ded661d1e5886c161fa7b861c4c96001ffec6b08836eb3e7e4",
+  "guide_line_count": 605,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
-  "guide_word_count": 5890,
+  "guide_word_count": 6751,
   "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official-training",
       "content_hash": null,
@@ -2703,8 +2712,8 @@
     },
     {
       "authority": "community-reference",
-      "content_hash": "6e6c3b983f27d42d4e0d783a6c06c3c316ef453cbad55d3ac4dfc3c10f673937",
-      "excerpt_hash": "3fb9d0b351f44643ccd6458598c806a0f7916bc93762dbf417da020ecfd83e6d",
+      "content_hash": "f384084af5dfcc182eee629c755a109eb146037e719dd831c671003a03f9db6c",
+      "excerpt_hash": "43e90f332063d1afc0083309a14b406dd9847959a209d17880d401a0f277c221",
       "source_id": "rock_community_hubs",
       "source_key": "fb5f22127915c464",
       "source_record_id": "media-insight:21c296e1bd9698dc",
@@ -2892,8 +2901,8 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "2c7d51eab0cbd828e2ebe636ff553ac17d153e5e117e795e6738203e6039458d",
-      "excerpt_hash": "13fd142bfa53fbe8eba8e637c34788de5b028582588456ffabf3ee84bacc6409",
+      "content_hash": "5988cbec4861fc785a39e5a6adf4220e4c2572de6a8e4f24b127d2ba058062bc",
+      "excerpt_hash": "96822ba05a8a561f499171f848302ac19a27c528043fab806e1eabbd8f1e586e",
       "source_id": "rock_rocku",
       "source_key": "c48789f22dbf970d",
       "source_record_id": "media-insight:5fc8b3a315612c59",
@@ -3036,8 +3045,8 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "83166c53c778248aad867c6165a0f41d33ac9b2aee335150ab753e537b296ce0",
-      "excerpt_hash": "d2b1c10f9937f7b3ce31f0f5398c6812a27a9905f33bd34bc4762f268ef5bf2a",
+      "content_hash": "75720a738263f499953351d95c0fd0569ad01ce4af6c73f0fdd6426e47b90650",
+      "excerpt_hash": "e66f09a390d2aa3476716c1a95e4f4ada6493d7322fa796dadded994f37c5794",
       "source_id": "rock_rocku",
       "source_key": "65f5107166511361",
       "source_record_id": "media-insight:32dcf94a8df5f1dd",
@@ -3045,8 +3054,8 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "a917ae93f1a0bf51ae14597dc1590bf0a5666b06c1b091515eb6e2b602ec6626",
-      "excerpt_hash": "ee37b8a017877329cd53edb24b5053b79499accd3551b295296d8354b3d64137",
+      "content_hash": "a3fc094d22d32448b66486de7ff43e491a4e6b758c61d08f29232ab572945c07",
+      "excerpt_hash": "737865a28447b129d11fa6b23c385805fa429d47df3cadb5d5becf964685cb1d",
       "source_id": "rock_rocku",
       "source_key": "7392dbb131202d0a",
       "source_record_id": "media-insight:1783ed2aacc57cc3",
@@ -3054,7 +3063,7 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "76279fb79b585ed29666174e6d7eaf5e54c4f7382613fd9478399814d50c91ef",
+      "content_hash": "cfc2a47f51147c1c3e13258693fbf033e59ea1675968769cb49b05ef0d371642",
       "excerpt_hash": "e9e0e9574238cbb86cc18b9be697de7c44cafc99eac670794e42f9c4696eaa55",
       "source_id": "rock_recipes",
       "source_key": "4f8e5e0d0ad869d3",
@@ -3078,13 +3087,78 @@
       "source_key": "2875c2fd16260053",
       "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Reporting/DataFilter/DataViewTests.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests.Integration/Reporting/DataFilter/DataViewTests.cs"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "64e6134e814940e9",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/lava/assign-statement"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "dd5cc32727beb5e0fb085cf897688b9cacd323584ca14ddff4d68978e876d01a",
+      "excerpt_hash": "9adecb37ac8483cd7898b316e28f79eca8682a44cba298fe65eb866b5998d0ef",
+      "source_id": "rock_rocku",
+      "source_key": "ee9796ce7f9afea9",
+      "source_record_id": "media-insight:e066ef3153b2cc3d",
+      "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "fe4796ab26efc6b30a4a0ce14e3c549575e549c9a3e9d49633bd905544e2e75c",
+      "excerpt_hash": "c36a9ae25ab0eeb230e9019656bce759b15b6da876fe0008f492ab95d67082cc",
+      "source_id": "rock_rocku",
+      "source_key": "d50e9300409bad92",
+      "source_record_id": "media-insight:b32a4e808360fabc",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "e9419aade3286f9c20f2153de64056229b1f4027b2611b7dc67f654758d6c854",
+      "excerpt_hash": "018143cf8aaed5ec9317903342171132b0b626c369d460e9ad246e3e5cfc4ad1",
+      "source_id": "rock_rocku",
+      "source_key": "add61f36fc8d2512",
+      "source_record_id": "media-insight:26c55120b777db34",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "e3275419582fac2e92efb6673e2330f534d68852ebb7c79bcdf3f02ecba0e024",
+      "excerpt_hash": "329b7cc7429e91bb484d07f1e5430bc967d34856b6e68dd5cf3740eba38b494b",
+      "source_id": "rock_rocku",
+      "source_key": "d26a070ba9bc8cae",
+      "source_record_id": "media-insight:a815728575995f92",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "621d3d5822e3f932c408af71e144ffa576d946ada479ffb2d7f2306eac356942",
+      "excerpt_hash": "04f59c8ad6878a896cc91d8552447ecb6d2b14d30d380127acbe43148aba2c96",
+      "source_id": "rock_rocku",
+      "source_key": "ef1e6fc776f40c8b",
+      "source_record_id": "media-insight:10e310226ed0945a",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-models"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 32,
+      "end_line": 48,
       "heading": "Agent Summary",
       "needs_live_verification": true,
       "section_id": "agent-summary",
@@ -3093,22 +3167,22 @@
         "be335a48f32132fe",
         "fb5f22127915c464"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "normal",
-      "end_line": 51,
+      "end_line": 67,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "921d9707ab0e62f5"
       ],
-      "start_line": 33
+      "start_line": 49
     },
     {
       "confidence": "normal",
-      "end_line": 72,
+      "end_line": 88,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
@@ -3116,11 +3190,11 @@
         "be335a48f32132fe",
         "69d5fb8b9728dc85"
       ],
-      "start_line": 52
+      "start_line": 68
     },
     {
       "confidence": "normal",
-      "end_line": 93,
+      "end_line": 109,
       "heading": "Data Views",
       "needs_live_verification": true,
       "section_id": "data-views",
@@ -3131,11 +3205,11 @@
         "d4fc266bd7a83bc9",
         "d4fc266bd7a83bc9"
       ],
-      "start_line": 73
+      "start_line": 89
     },
     {
       "confidence": "normal",
-      "end_line": 105,
+      "end_line": 121,
       "heading": "Reports",
       "needs_live_verification": false,
       "section_id": "reports",
@@ -3146,11 +3220,11 @@
         "be335a48f32132fe",
         "be335a48f32132fe"
       ],
-      "start_line": 94
+      "start_line": 110
     },
     {
       "confidence": "normal",
-      "end_line": 121,
+      "end_line": 137,
       "heading": "Report Security",
       "needs_live_verification": true,
       "section_id": "report-security",
@@ -3158,11 +3232,11 @@
         "0b60377350b44915",
         "0b60377350b44915"
       ],
-      "start_line": 106
+      "start_line": 122
     },
     {
       "confidence": "normal",
-      "end_line": 139,
+      "end_line": 155,
       "heading": "Dynamic Reports And Custom Reporting Blocks",
       "needs_live_verification": true,
       "section_id": "dynamic-reports-and-custom-reporting-blocks",
@@ -3173,11 +3247,11 @@
         "3d7f0942c946fafb",
         "efb687d5c0448b53"
       ],
-      "start_line": 122
+      "start_line": 138
     },
     {
       "confidence": "normal",
-      "end_line": 159,
+      "end_line": 175,
       "heading": "Persistence, Metrics, And Snapshot Layers",
       "needs_live_verification": false,
       "section_id": "persistence-metrics-and-snapshot-layers",
@@ -3191,11 +3265,11 @@
         "95396b5eafd3b56c",
         "caae8576f5e3686c"
       ],
-      "start_line": 140
+      "start_line": 156
     },
     {
       "confidence": "normal",
-      "end_line": 182,
+      "end_line": 198,
       "heading": "Business Intelligence",
       "needs_live_verification": true,
       "section_id": "business-intelligence",
@@ -3208,11 +3282,11 @@
         "c48789f22dbf970d",
         "5403b889dbcb45e2"
       ],
-      "start_line": 160
+      "start_line": 176
     },
     {
       "confidence": "citation-only",
-      "end_line": 205,
+      "end_line": 221,
       "heading": "SQL Reporting Patterns",
       "needs_live_verification": true,
       "section_id": "sql-reporting-patterns",
@@ -3223,11 +3297,11 @@
         "3b02b9c6ab091f7a",
         "d386711478e79e81"
       ],
-      "start_line": 183
+      "start_line": 199
     },
     {
       "confidence": "citation-only",
-      "end_line": 223,
+      "end_line": 239,
       "heading": "Data Integrity And Reporting Quality",
       "needs_live_verification": true,
       "section_id": "data-integrity-and-reporting-quality",
@@ -3236,11 +3310,11 @@
         "8d8c28f726e09218",
         "c680a16482a4af12"
       ],
-      "start_line": 206
+      "start_line": 222
     },
     {
       "confidence": "structural",
-      "end_line": 225,
+      "end_line": 241,
       "heading": "Domain Reporting Workflows",
       "needs_live_verification": false,
       "section_id": "domain-reporting-workflows",
@@ -3253,11 +3327,11 @@
         "c7ad4595daa53e01",
         "05669ee011fd07aa"
       ],
-      "start_line": 224
+      "start_line": 240
     },
     {
       "confidence": "normal",
-      "end_line": 231,
+      "end_line": 247,
       "heading": "Registration grain",
       "needs_live_verification": false,
       "section_id": "domain-reporting-workflows-registration-grain",
@@ -3265,11 +3339,11 @@
         "7808ba03b95d07eb",
         "df0b5e90e2997b15"
       ],
-      "start_line": 226
+      "start_line": 242
     },
     {
       "confidence": "community-supported",
-      "end_line": 241,
+      "end_line": 257,
       "heading": "Communication audiences and delivery health",
       "needs_live_verification": true,
       "section_id": "domain-reporting-workflows-communication-audiences-and-delivery-health",
@@ -3279,11 +3353,11 @@
         "2cf11aac4d7e5e09",
         "6dab0627c35106f3"
       ],
-      "start_line": 232
+      "start_line": 248
     },
     {
       "confidence": "citation-only",
-      "end_line": 247,
+      "end_line": 263,
       "heading": "Schedule dates and operational snapshots",
       "needs_live_verification": true,
       "section_id": "domain-reporting-workflows-schedule-dates-and-operational-snapshots",
@@ -3291,22 +3365,22 @@
         "c7ad4595daa53e01",
         "05669ee011fd07aa"
       ],
-      "start_line": 242
+      "start_line": 258
     },
     {
       "confidence": "citation-only",
-      "end_line": 264,
+      "end_line": 280,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
       "source_keys": [
         "f10c1b474e10b117"
       ],
-      "start_line": 248
+      "start_line": 264
     },
     {
       "confidence": "structural",
-      "end_line": 266,
+      "end_line": 282,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -3323,11 +3397,11 @@
         "7808ba03b95d07eb",
         "df0b5e90e2997b15"
       ],
-      "start_line": 265
+      "start_line": 281
     },
     {
       "confidence": "normal",
-      "end_line": 277,
+      "end_line": 293,
       "heading": "A Data View returns the wrong records",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-data-view-returns-the-wrong-records",
@@ -3335,11 +3409,11 @@
         "d4fc266bd7a83bc9",
         "918a3ade8658e485"
       ],
-      "start_line": 267
+      "start_line": 283
     },
     {
       "confidence": "normal",
-      "end_line": 287,
+      "end_line": 303,
       "heading": "A Report is slow",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-report-is-slow",
@@ -3347,11 +3421,11 @@
         "be335a48f32132fe",
         "20492a805dc9b319"
       ],
-      "start_line": 278
+      "start_line": 294
     },
     {
       "confidence": "normal",
-      "end_line": 296,
+      "end_line": 312,
       "heading": "Results are correct but stale",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-results-are-correct-but-stale",
@@ -3359,44 +3433,44 @@
         "918a3ade8658e485",
         "0584ab813abc5b62"
       ],
-      "start_line": 288
+      "start_line": 304
     },
     {
       "confidence": "normal",
-      "end_line": 305,
+      "end_line": 321,
       "heading": "A Report exposes unexpected sensitive data",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-report-exposes-unexpected-sensitive-data",
       "source_keys": [
         "0b60377350b44915"
       ],
-      "start_line": 297
+      "start_line": 313
     },
     {
       "confidence": "normal",
-      "end_line": 314,
+      "end_line": 330,
       "heading": "A Dynamic Report filter does not behave as expected",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-dynamic-report-filter-does-not-behave-as-expected",
       "source_keys": [
         "8f6296a444e98498"
       ],
-      "start_line": 306
+      "start_line": 322
     },
     {
       "confidence": "citation-only",
-      "end_line": 322,
+      "end_line": 338,
       "heading": "A Lava Entity query ignores its filters",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-lava-entity-query-ignores-its-filters",
       "source_keys": [
         "3d7f0942c946fafb"
       ],
-      "start_line": 315
+      "start_line": 331
     },
     {
       "confidence": "normal",
-      "end_line": 331,
+      "end_line": 347,
       "heading": "A BI report is empty or missing a domain",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-bi-report-is-empty-or-missing-a-domain",
@@ -3404,11 +3478,11 @@
         "0584ab813abc5b62",
         "69d5fb8b9728dc85"
       ],
-      "start_line": 323
+      "start_line": 339
     },
     {
       "confidence": "normal",
-      "end_line": 341,
+      "end_line": 357,
       "heading": "Dashboard totals disagree",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-dashboard-totals-disagree",
@@ -3416,11 +3490,11 @@
         "7808ba03b95d07eb",
         "df0b5e90e2997b15"
       ],
-      "start_line": 332
+      "start_line": 348
     },
     {
       "confidence": "structural",
-      "end_line": 343,
+      "end_line": 359,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -3434,11 +3508,11 @@
         "7808ba03b95d07eb",
         "df0b5e90e2997b15"
       ],
-      "start_line": 342
+      "start_line": 358
     },
     {
       "confidence": "normal",
-      "end_line": 379,
+      "end_line": 395,
       "heading": "Recipe: Create a reusable operational Report",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-create-a-reusable-operational-report",
@@ -3446,33 +3520,33 @@
         "c3e3569135040e5d",
         "0b60377350b44915"
       ],
-      "start_line": 344
+      "start_line": 360
     },
     {
       "confidence": "normal",
-      "end_line": 402,
+      "end_line": 418,
       "heading": "Recipe: Convert duplicated Reports into one Dynamic Report",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-convert-duplicated-reports-into-one-dynamic-report",
       "source_keys": [
         "8f6296a444e98498"
       ],
-      "start_line": 380
+      "start_line": 396
     },
     {
       "confidence": "normal",
-      "end_line": 425,
+      "end_line": 441,
       "heading": "Recipe: Introduce persistence for a slow Data View",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-introduce-persistence-for-a-slow-data-view",
       "source_keys": [
         "918a3ade8658e485"
       ],
-      "start_line": 403
+      "start_line": 419
     },
     {
       "confidence": "normal",
-      "end_line": 448,
+      "end_line": 464,
       "heading": "Recipe: Diagnose an empty BI dashboard",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-diagnose-an-empty-bi-dashboard",
@@ -3480,11 +3554,11 @@
         "0584ab813abc5b62",
         "5403b889dbcb45e2"
       ],
-      "start_line": 426
+      "start_line": 442
     },
     {
       "confidence": "normal",
-      "end_line": 471,
+      "end_line": 487,
       "heading": "Recipe: Validate a registration analytics dashboard",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-a-registration-analytics-dashboard",
@@ -3492,11 +3566,11 @@
         "7808ba03b95d07eb",
         "df0b5e90e2997b15"
       ],
-      "start_line": 449
+      "start_line": 465
     },
     {
       "confidence": "needs-citation",
-      "end_line": 491,
+      "end_line": 507,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
       "section_id": "known-gaps-and-live-verification",
@@ -3504,11 +3578,11 @@
         "7808ba03b95d07eb",
         "df0b5e90e2997b15"
       ],
-      "start_line": 472
+      "start_line": 488
     },
     {
       "confidence": "structural",
-      "end_line": 493,
+      "end_line": 509,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
@@ -3551,11 +3625,11 @@
         "5d3d426d31ceb690",
         "2875c2fd16260053"
       ],
-      "start_line": 492
+      "start_line": 508
     },
     {
       "confidence": "normal",
-      "end_line": 518,
+      "end_line": 534,
       "heading": "Official Rock documentation and release material",
       "needs_live_verification": false,
       "section_id": "source-map-official-rock-documentation-and-release-material",
@@ -3583,11 +3657,11 @@
         "c7ad4595daa53e01",
         "05669ee011fd07aa"
       ],
-      "start_line": 494
+      "start_line": 510
     },
     {
       "confidence": "citation-only",
-      "end_line": 527,
+      "end_line": 543,
       "heading": "RockU operational guidance",
       "needs_live_verification": false,
       "section_id": "source-map-rocku-operational-guidance",
@@ -3599,11 +3673,11 @@
         "7392dbb131202d0a",
         "c48789f22dbf970d"
       ],
-      "start_line": 519
+      "start_line": 535
     },
     {
       "confidence": "community-supported",
-      "end_line": 536,
+      "end_line": 552,
       "heading": "Community-reviewed patterns",
       "needs_live_verification": false,
       "section_id": "source-map-community-reviewed-patterns",
@@ -3615,11 +3689,11 @@
         "4f8e5e0d0ad869d3",
         "df0b5e90e2997b15"
       ],
-      "start_line": 528
+      "start_line": 544
     },
     {
       "confidence": "normal",
-      "end_line": 541,
+      "end_line": 559,
       "heading": "Immutable implementation evidence",
       "needs_live_verification": true,
       "section_id": "source-map-immutable-implementation-evidence",
@@ -3628,11 +3702,61 @@
         "5d3d426d31ceb690",
         "2875c2fd16260053"
       ],
-      "start_line": 537
+      "start_line": 553
+    },
+    {
+      "confidence": "normal",
+      "end_line": 585,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "3d7f0942c946fafb",
+        "c3e3569135040e5d",
+        "be335a48f32132fe",
+        "0584ab813abc5b62",
+        "2a134ae9d6daa156",
+        "c3e3569135040e5d",
+        "8f6296a444e98498",
+        "8f6296a444e98498",
+        "0584ab813abc5b62",
+        "be335a48f32132fe",
+        "efb687d5c0448b53",
+        "7808ba03b95d07eb"
+      ],
+      "start_line": 560
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 605,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "64e6134e814940e9",
+        "ee9796ce7f9afea9",
+        "d50e9300409bad92",
+        "c48789f22dbf970d",
+        "add61f36fc8d2512",
+        "d26a070ba9bc8cae",
+        "7392dbb131202d0a",
+        "ef1e6fc776f40c8b"
+      ],
+      "start_line": 586
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T15:39:02+00:00",
+  "source_pack_hydrated_at": "2026-09-09T23:11:54+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official-training",
       "authority_score": 75,
@@ -3670,8 +3794,8 @@
       "authority": "community-reference",
       "authority_score": 45,
       "change_type": null,
-      "content_hash": "6e6c3b983f27d42d4e0d783a6c06c3c316ef453cbad55d3ac4dfc3c10f673937",
-      "excerpt_hash": "3fb9d0b351f44643ccd6458598c806a0f7916bc93762dbf417da020ecfd83e6d",
+      "content_hash": "f384084af5dfcc182eee629c755a109eb146037e719dd831c671003a03f9db6c",
+      "excerpt_hash": "43e90f332063d1afc0083309a14b406dd9847959a209d17880d401a0f277c221",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3700,8 +3824,22 @@
         "data view",
         "dataview",
         "report",
+        "reports",
+        "sql",
+        "metric",
+        "analytics",
+        "bi",
+        "model map",
+        "modelmap",
+        "query",
+        "model-map",
+        "lava",
+        "finance",
+        "attendance",
         "filter",
-        "reporting"
+        "reporting",
+        "power bi",
+        "powerbi"
       ],
       "path": "Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
       "repo": "SparkDevNetwork/Rock",
@@ -4099,8 +4237,8 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "2c7d51eab0cbd828e2ebe636ff553ac17d153e5e117e795e6738203e6039458d",
-      "excerpt_hash": "13fd142bfa53fbe8eba8e637c34788de5b028582588456ffabf3ee84bacc6409",
+      "content_hash": "5988cbec4861fc785a39e5a6adf4220e4c2572de6a8e4f24b127d2ba058062bc",
+      "excerpt_hash": "96822ba05a8a561f499171f848302ac19a27c528043fab806e1eabbd8f1e586e",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4371,8 +4509,8 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "83166c53c778248aad867c6165a0f41d33ac9b2aee335150ab753e537b296ce0",
-      "excerpt_hash": "d2b1c10f9937f7b3ce31f0f5398c6812a27a9905f33bd34bc4762f268ef5bf2a",
+      "content_hash": "75720a738263f499953351d95c0fd0569ad01ce4af6c73f0fdd6426e47b90650",
+      "excerpt_hash": "e66f09a390d2aa3476716c1a95e4f4ada6493d7322fa796dadded994f37c5794",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4396,8 +4534,8 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "a917ae93f1a0bf51ae14597dc1590bf0a5666b06c1b091515eb6e2b602ec6626",
-      "excerpt_hash": "ee37b8a017877329cd53edb24b5053b79499accd3551b295296d8354b3d64137",
+      "content_hash": "a3fc094d22d32448b66486de7ff43e491a4e6b758c61d08f29232ab572945c07",
+      "excerpt_hash": "737865a28447b129d11fa6b23c385805fa429d47df3cadb5d5becf964685cb1d",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4421,7 +4559,7 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "76279fb79b585ed29666174e6d7eaf5e54c4f7382613fd9478399814d50c91ef",
+      "content_hash": "cfc2a47f51147c1c3e13258693fbf033e59ea1675968769cb49b05ef0d371642",
       "excerpt_hash": "e9e0e9574238cbb86cc18b9be697de7c44cafc99eac670794e42f9c4696eaa55",
       "hydrated": true,
       "kind": "normalized_record",
@@ -4454,9 +4592,22 @@
         "data view",
         "dataview",
         "report",
+        "reports",
+        "sql",
+        "metric",
+        "analytics",
+        "bi",
+        "model map",
+        "modelmap",
+        "query",
+        "model-map",
+        "lava",
+        "finance",
         "attendance",
         "filter",
-        "reporting"
+        "reporting",
+        "power bi",
+        "powerbi"
       ],
       "path": "Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
       "repo": "SparkDevNetwork/Rock",
@@ -4477,8 +4628,22 @@
         "data view",
         "dataview",
         "report",
+        "reports",
+        "sql",
+        "metric",
+        "analytics",
+        "bi",
+        "model map",
+        "modelmap",
+        "query",
+        "model-map",
+        "lava",
+        "finance",
+        "attendance",
         "filter",
-        "reporting"
+        "reporting",
+        "power bi",
+        "powerbi"
       ],
       "path": "Rock.Tests.Integration/Reporting/DataFilter/DataViewTests.cs",
       "repo": "SparkDevNetwork/Rock",
@@ -4487,9 +4652,144 @@
       "source_record_id": "SparkDevNetwork/Rock:Rock.Tests.Integration/Reporting/DataFilter/DataViewTests.cs",
       "title": "Rock.Tests.Integration/Reporting/DataFilter/DataViewTests.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests.Integration/Reporting/DataFilter/DataViewTests.cs"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "64e6134e814940e9",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/lava/assign-statement",
+      "url": "https://community.rockrms.com/rocku/lava/assign-statement"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "dd5cc32727beb5e0fb085cf897688b9cacd323584ca14ddff4d68978e876d01a",
+      "excerpt_hash": "9adecb37ac8483cd7898b316e28f79eca8682a44cba298fe65eb866b5998d0ef",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "ee9796ce7f9afea9",
+      "source_record_id": "media-insight:e066ef3153b2cc3d",
+      "title": "Attendance Analytics Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "fe4796ab26efc6b30a4a0ce14e3c549575e549c9a3e9d49633bd905544e2e75c",
+      "excerpt_hash": "c36a9ae25ab0eeb230e9019656bce759b15b6da876fe0008f492ab95d67082cc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d50e9300409bad92",
+      "source_record_id": "media-insight:b32a4e808360fabc",
+      "title": "BI Attendance Report Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "e9419aade3286f9c20f2153de64056229b1f4027b2611b7dc67f654758d6c854",
+      "excerpt_hash": "018143cf8aaed5ec9317903342171132b0b626c369d460e9ad246e3e5cfc4ad1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "add61f36fc8d2512",
+      "source_record_id": "media-insight:26c55120b777db34",
+      "title": "BI Family Report Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "e3275419582fac2e92efb6673e2330f534d68852ebb7c79bcdf3f02ecba0e024",
+      "excerpt_hash": "329b7cc7429e91bb484d07f1e5430bc967d34856b6e68dd5cf3740eba38b494b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d26a070ba9bc8cae",
+      "source_record_id": "media-insight:a815728575995f92",
+      "title": "BI Financial Transaction Report Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "621d3d5822e3f932c408af71e144ffa576d946ada479ffb2d7f2306eac356942",
+      "excerpt_hash": "04f59c8ad6878a896cc91d8552447ecb6d2b14d30d380127acbe43148aba2c96",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "ef1e6fc776f40c8b",
+      "source_record_id": "media-insight:10e310226ed0945a",
+      "title": "BI Models Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-models",
+      "version": null
     }
   ],
-  "synthesis_profile": "comprehensive",
+  "synthesis_profile": null,
   "synthesis_provenance": {
     "model": "gpt-5.6-sol",
     "prompt_id": "rock-kb-concept-guide-synthesis",

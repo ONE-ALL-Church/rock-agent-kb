@@ -14,7 +14,7 @@
     "tv-apps",
     "workflows"
   ],
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-09T23:40:23+00:00",
   "resource_paths": {
     "agent_capabilities": "agent/lava-capabilities.jsonl",
     "agent_summary": "agent/lava-capability-summary.json",
@@ -53,7 +53,7 @@
       "source_url": "https://community.rockrms.com/lava/commands/cache-commands"
     },
     {
-      "content_hash": "bf214123ac691579bd002aa65f3346ba50126ba162f93c71f313757046f88059",
+      "content_hash": "d09389cab5e92cd9eaecbd8af72e60469b799e2b1c08f6d90dcafaa513202402",
       "lava_doc_category": "command",
       "lava_element_count": 1,
       "source_id": "rock_lava_docs",
@@ -305,7 +305,7 @@
       "source_url": "https://community.rockrms.com/lava/filters/color-filters"
     },
     {
-      "content_hash": "fb585d77d195d1382a56aa3653d715ef54d187b52dad22d18512e4aaf164c513",
+      "content_hash": "5d2426f8e892c7f35b32e9df9576b681e3303e8e5701093c7e870f3ecda4332f",
       "lava_doc_category": "filter",
       "lava_element_count": 17,
       "source_id": "rock_lava_docs",
@@ -332,7 +332,7 @@
       "source_url": "https://community.rockrms.com/lava/filters/other-filters"
     },
     {
-      "content_hash": "0cf6facdb3c3de9112e2fbdfe17224e4812194376f6d853d3d51371fa8c07a44",
+      "content_hash": "7e20c4c2b4506fc90ec1c41616843d06bdde8703196f1d59651a251b9545d69d",
       "lava_doc_category": "filter",
       "lava_element_count": 37,
       "source_id": "rock_lava_docs",

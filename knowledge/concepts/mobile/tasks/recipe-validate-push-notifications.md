@@ -49,11 +49,11 @@ A real target device receives and opens a notification through the intended rout
 
 ## Source Links
 
+- https://community.rockrms.com/developer/mobile-docs
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
 - https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
+- https://community.rockrms.com/recipes/402

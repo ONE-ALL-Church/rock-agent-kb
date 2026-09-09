@@ -46,11 +46,29 @@ generated: true
 | --- | --- | --- |
 | `18.3` | core | Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669 |
 | `17.2` | core | Fixed an issue where Group Schedule ICS calendar events had unclear summaries. The Summary now uses the format "Group - Location - Schedule" to provide clarity for calendar events. Fixes: #6174 |
+| `17.2` | core | Fixed an issue where removing a Schedule from one Group Location also deleted capacity settings for that same Schedule in other Group Locations. Fixes: #6315 |
+| `19.1` | core | Added a new Schedule Builder Field Type and Attribute that allows administrators to create and select custom schedules using the standard Schedule Builder interface. |
+| `18.3` | core | Fixed the Check-In Type Detail Block "Scheduled Times" list to exclude schedules from Archived or Inactive Groups that still have a GroupLocationSchedule assigned. Previously, schedules from these Groups could appear in the list, resulting  |
+| `17.5` | core | Added the ability to filter by Group Location Schedules to target more specific people based on their schedule for a group or sign up project in a data view. |
+| `16.7` | core | Added a Group Schedule Coordinator that can be notified when a Person accepts, declines or self-schedules for a Schedule occurrence tied to the Group. |
+| `16.6` | core | Fixed issue of Group Schedule Notifications and Group Schedule Reminders not honoring the schedule exlusions. Fixes: #5880 |
+| `16.4` | core | Modified the calendar export to improve support for specific date schedules in Microsoft/Google/Apple calendar applications. Fixes: #5150 |
+| `16.0` | core | Fixed an issue where the group schedule calendar feed would create duplicate calendar entries for the same scheduled occurrence. |
+| `15.2` | core | Updated the SignUpFinder block to return the Schedule name and available date range for Schedules with multiple dates when displaying the Schedule filter. Fixes: #5513 |
+| `19.1` | core | Improved the Group Scheduler block to keep the occurrence date and its Schedules fixed at the top of the screen while scrolling. Additionally, the Group name now appears above each Location. These updates make it easier for a scheduler to s |
+| `18.3` | core | Improved the friendly schedule text display for single-date schedules to use a more friendly format (e.g., "Once on March 29, 2026 at 11:00 AM" instead of "Once at 3/29/2026 11:00 AM"). Fixes: #6694 |
+| `17.5` | core | Improved the layout of the Next-Gen Check-In schedule select screen when too many schedules were available to fit in one row. The screen will now wrap the buttons to multiple rows of buttons. Fixes: #6371 |
+| `17.5` | core | Fixed an issue where EventScheduledInstance Lava commands did not work in the Calendar Item List and Calendar Item Occurrence List blocks due to security changes. Fixes: #6386 |
+| `17.1` | core | Fixed legacy check-in issue where it didn't check schedule categories for exclusions when loading schedules. Fixes: #6196 |
+| `17.1` | core | Fixed the logic that sets a schedule's EffectiveEndDateTime to be more accurate when a schedule's duration passes midnight. This ensures it better aligns with iCal's DTEND behavior. Fixes: #6227 |
+| `17.0` | core | Added ability to copy which locations are enabled for a check-in configuration from one schedule to another. |
+| `17.0` | core | Updated the logic that opens/closes room (locations) to write the changes to history. |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `locations-address-and-geographic-integrity` | normal | live verification |
 | `group-and-volunteer-scheduling-confirmation-and-reminder-delivery` | normal | live verification |
@@ -74,3 +92,4 @@ generated: true
 | `agent-task-recipes-recipe-audit-a-v19-date-based-schedule-query` | citation-only | live verification |
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
 | `source-map-community-examples` | community-supported | community-supported |
+| `approved-claim-coverage` | citation-only | live verification |

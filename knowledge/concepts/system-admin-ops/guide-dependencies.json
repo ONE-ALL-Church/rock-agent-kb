@@ -72,13 +72,22 @@
   },
   "approved_media_hash": "a9b1fb28ade1c7326d319ef92aec2a18f5ff90bf712165a1408421ffd51e57af",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-09-03T16:50:53+00:00",
+  "built_at": "2026-09-09T23:39:28+00:00",
   "concept_id": "system-admin-ops",
-  "guide_hash": "8a7c6ebd0491504db37b42405df90cc7140613c08266ea50ca0718fd2b6535cd",
-  "guide_line_count": 635,
+  "guide_hash": "7e567313323d55cd7c64bbea132cab1c2a8fe726ab57e1ccd8a5546dd333de63",
+  "guide_line_count": 679,
   "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
-  "guide_word_count": 7614,
+  "guide_word_count": 7897,
   "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "unknown",
       "content_hash": null,
@@ -90,304 +99,279 @@
     },
     {
       "authority": "official",
-      "content_hash": "6995577b9a530d0e0ad369aa6ec8376f85cf9589136c22c4b7db72042e1d06f1",
-      "excerpt_hash": "a8cb432e10e90967b2548a66cd1ebc4bf852c409c91e1ace597ff254525f49de",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "b170361ac0cb5f25",
-      "source_record_id": "rock_documentation:article:1016",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-entities-for-universal-search"
     },
     {
       "authority": "official",
-      "content_hash": "c8c39c115dc7a88c65b03f42ba70fcbbcd5ca0a622464c961ffe7e53180cecd1",
-      "excerpt_hash": "39ff98996e8f008108a7be0254f6849a26041e932bdd16bf49f17c870239e578",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "c5aecb3789dfe9c9",
-      "source_record_id": "rock_documentation:article:1017",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities"
     },
     {
       "authority": "official",
-      "content_hash": "a2afd579359b6a7f628857665b462bbaf58901cc860b25d0a10604c373d97f59",
-      "excerpt_hash": "ffae3f68db0cfc76a29e420b14bfc7314383fdf4a7e14eb216a841c4dd6dfed7",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "b6d7c3aea3acfa13",
-      "source_record_id": "rock_documentation:article:1062",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-data-automation"
     },
     {
       "authority": "source-code",
-      "content_hash": "8db70061c837a7d5d75c8c5fa8cec65987d854455137ba985b269acfdc17542c",
-      "excerpt_hash": "ceb2c01b47a926cb29047efdba0d2f90836fe2f7b67896ca73e8e141e22cc53c",
+      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "c3a20ff33e281983",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "1172c50e1809f0675b4cd8433952e82609ca24f481022d0ad5675fff1bce161c",
-      "excerpt_hash": "695006ad54d9d5b6aee394da168fca51bb06fa08590c8c67e30a06e636ce5244",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4ab78dee19b758f4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Core/ScheduledJobHistoryList.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Core/ScheduledJobHistoryList.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "60e16eae1ebf6a3cb769edbf44366acea9f802922749305696bdb830fccecbab",
-      "excerpt_hash": "f1a536e418e9d94e96dd3e0a2e86b83befb65c5af3d92cae438da7746f84e275",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0e033ece3399652c",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
       "authority": "official-release",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "bff5fde1c6bf15b032fc14f634cd3ca02c99048a2de5f6675a3147bf4b264620",
+      "content_hash": "5b99b8e29707fd6ba61808ee908b6e44862a0da5b439f9e8054a9703273544fe",
+      "excerpt_hash": "9b39ba68a5a8ed452535232bab57eb5f7f2cd70d8797d3354e4155faf5cb3823",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:aeb3364d697105ff",
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
-      "authority": "source-code",
-      "content_hash": "cc10e53c550d43f81b405bce0406c956f779d3d5f4f83f87184a91a4758cde5f",
-      "excerpt_hash": "28ed85d6dd7552421996ddd75e62a877a514f91e70ae7e0e6db27c44e876e9a0",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "77753979270bb812",
-      "source_record_id": "SparkDevNetwork/Rock:specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md"
-    },
-    {
       "authority": "official",
-      "content_hash": "d4faca21aa49f8f576884b6f489121b62a83bd0072031cc618e51b639ffc1511",
-      "excerpt_hash": "a1d706b55be57deca016c5fa98aa5bcfd16bd8d748efeb524054a8a87e69572b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "aae96501e17acd46",
-      "source_record_id": "rock_documentation:article:2129",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets"
     },
     {
-      "authority": "source-code",
-      "content_hash": "a1a9f267fa84287d13876b353f7687cb3d924c880bd874fb59f45e77e677949d",
-      "excerpt_hash": "0259ef1f33ef46b63f645aeb216a59f24dacdabd7e0d61da18c8e9f175c88bea",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5ec7c81d75192aaf",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Jobs/UpdatePersistedDataviews.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Jobs/UpdatePersistedDataviews.cs"
-    },
-    {
       "authority": "official",
-      "content_hash": "104f3d3b2e7fb605057ef327b3113932aefd0194b7b776b6208052d870a58d8e",
-      "excerpt_hash": "943e07d565d34ca0701d1a32b6071ebb9160b11d307f73e0af17c88c96470a9f",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "a030fe9b96bb7878",
-      "source_record_id": "rock_documentation:article:1075",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list"
     },
     {
       "authority": "official",
-      "content_hash": "bd31d25be34fdf8e31930e1f0cad567ce0261666c34398372bc3aca350826448",
-      "excerpt_hash": "2ceaeb231735429e51900b820ad7e2d9386e8ca00452e330b380ce94a6c8131d",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "aa06f8c30d590df4",
-      "source_record_id": "rock_documentation:article:2128",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/intro-to-caching"
     },
     {
       "authority": "official",
-      "content_hash": "f25f55e0917b84d326a714a58ac8068d77f9c045e4a2e82767086f4b3d33d761",
-      "excerpt_hash": "06c52a870694219796ff856de0866037c207ceb3befee1a9544556b3f7c30b05",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "b2c6d8b710a45c2b",
-      "source_record_id": "rock_documentation:article:1065",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-audit-information"
     },
     {
       "authority": "official",
-      "content_hash": "b357330250019563db4f9a56a643b41fcc6c2e413464dfe9caed1b1744d4aa17",
-      "excerpt_hash": "ee01dd948a2f41999b41f2346277ffa6d6168c3d73ccec3a8b0a10928bd98369",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "8d32772b57c5bcaf",
-      "source_record_id": "rock_documentation:article:2131",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-manager"
     },
     {
       "authority": "official",
-      "content_hash": "d9e8cc0e4b36fe9921523005a9da5102f7f91327bc6145cf3750157da06ccfe5",
-      "excerpt_hash": "c163e8189f59d93bc577aef33795ec28c648ff4ead698bc7e262dedd762ad01d",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "8b8e75793e8c8f5a",
-      "source_record_id": "rock_documentation:article:2133",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/add-cache-tags"
     },
     {
       "authority": "official",
-      "content_hash": "ab68b2301e01dd7f21858ba36c937c775af673c499fcfd019a1c3a43b433c782",
-      "excerpt_hash": "c8109a71a99f1c50c879ccff6e8abeb4f1053ab703ba85e1340a4b6103c9f9c8",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "f5f76594952a481b",
-      "source_record_id": "rock_documentation:article:2134",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/use-cache-tags"
     },
     {
       "authority": "official",
-      "content_hash": "631218e40705fb869f82297f6ad7eddf27d817cc5b7b7adc25efba28858cd4b6",
-      "excerpt_hash": "6e29956a25ffb914c9ec1bb54598b45a7dcd03348527c2178ce01875c99f51b0",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "989a1b3f1202531e",
-      "source_record_id": "rock_documentation:article:2135",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/clear-cache-tags"
     },
     {
       "authority": "official",
-      "content_hash": "7d0507880bc753c22cbf6d8fd40cb288e21964bbbdde2d1c3a81e4bb8a4f5d18",
-      "excerpt_hash": "68e1bd041bd2654855affb984fe7a72e888b24667808c512bfc2783ed3abf0ed",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "81e32a52cecd7b88",
-      "source_record_id": "rock_documentation:article:2116",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/intro-to-data-integrity"
     },
     {
       "authority": "official",
-      "content_hash": "6829aa7c138b64463047903a18bc60da7df8c627e009de976ce01c5ec9fe5038",
-      "excerpt_hash": "db80d867a7f6a292b686cce4a9f54a0d7e2d25fd0fd5466317bbb74b0c184f3f",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "53826c4c1696c466",
-      "source_record_id": "rock_documentation:article:1061",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder"
     },
     {
       "authority": "official",
-      "content_hash": "f71817b9b241d30560d46062e691192a9aa424f54faec67542addf4f104f2152",
-      "excerpt_hash": "07ae7acab4505495a1d94bc7eb3017801037706632ef85b71da953ecb8a35617",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "87e313b4be28fc52",
-      "source_record_id": "rock_documentation:article:2282",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/track-record-sources"
     },
     {
       "authority": "official",
-      "content_hash": "dc7bc4c7bd08b84dbebbf8c93dcb39ad3e5103d4d3ce54b1a04ed09527bccd9a",
-      "excerpt_hash": "71926b2aa776cbdf1022111ec9fed55f53949c27e4015df1807357f395b43c0e",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7da836710b028faf",
-      "source_record_id": "rock_documentation:article:1070",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/merge-duplicate-records"
     },
     {
       "authority": "official",
-      "content_hash": "6bc68f610150733ed33f19d17b576ea3b411673ec30eb28914d75f7531369621",
-      "excerpt_hash": "09ddefd23f77768935be601eef506a0024115d1800fd0793c15f87e48ce22638",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "cff864117e0cec2a",
-      "source_record_id": "rock_documentation:article:1796",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor"
     },
     {
       "authority": "official",
-      "content_hash": "4504663b3c5aa7d4e2f369126012ca86bb956999e5b96cb0652882a98298a2ae",
-      "excerpt_hash": "b4b708b25237dca450cc8102b813551c1ee9ff937d2aa8fce06c24f17697bd3b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7db14e9cfb05ca94",
-      "source_record_id": "rock_documentation:article:1068",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/administer-photo-requests"
     },
     {
       "authority": "official",
-      "content_hash": "58d9b24b328a10b0824c9a235aeb3b9f03d9b42755783143f0aa3100667bb43d",
-      "excerpt_hash": "3d923b74393f226e125fd0d33370370075e599363699f9c4080fec82038bb74b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "520e476bf317a752",
-      "source_record_id": "rock_documentation:article:2063",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name"
     },
     {
       "authority": "official",
-      "content_hash": "90e93a990affd5f0e8fb9d1cf159b9f4af68a2f9f730b3cc74212f49a050bbe3",
-      "excerpt_hash": "4fd1dd2fee56629fbfd722b69aa734fcffef96759bb1af814f79bc2f3bb23a71",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "4733e03b0f9c7aeb",
-      "source_record_id": "rock_documentation:article:1015",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-a-search-provider"
     },
     {
       "authority": "official",
-      "content_hash": "4b30f2ca25663b3877f676fbec3ad6b2c05060e978676722a9d4368eefebdb75",
-      "excerpt_hash": "6872f160a0915a3dc45bdd64c521a297088c7eac39fb568ec62f3ca4c3193a6b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "83f75e28bf2e6684",
-      "source_record_id": "rock_documentation:article:1020",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch"
     },
     {
       "authority": "official",
-      "content_hash": "c60e129fb2c7fad8ccd32ca8225399adee3236cbc59f069b8087c94032cb9d8a",
-      "excerpt_hash": "4ef56b1ba0e539a5e45e44bc9edb6ec8c54ff0a9172f358d0cf79492ce40bf27",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "c4d8a9dcfec11b7d",
-      "source_record_id": "rock_documentation:article:1019",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search"
     },
     {
       "authority": "official",
-      "content_hash": "541d0c66ff2ba7e3c0a5d58c3dc9bb89a797027be099602961f2e4f50ad10270",
-      "excerpt_hash": "126c8c032a95ffc9807efff615c3f95d8597899f0df5b0cba46733693ac65ad8",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "d4fd70afbe01ba63",
-      "source_record_id": "rock_documentation:article:1018",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities"
     },
     {
-      "authority": "official",
-      "content_hash": "ebac3f6fe5e8dd4c93939711ada424a1a1355a4ebf050a27d6be97a9de62fccd",
-      "excerpt_hash": "474b14f24f86a89de4a234656f146502de46132301e611c2fb45274879ab6012",
-      "source_id": "rock_documentation",
-      "source_key": "5be5522867fe4f06",
-      "source_record_id": "rock_documentation:article:1057",
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity"
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "2a835fe90be9f475",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 31,
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 47,
       "heading": "Agent Summary",
       "needs_live_verification": false,
       "section_id": "agent-summary",
       "source_keys": [
         "1d7508435cedfe30"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "needs-citation",
-      "end_line": 47,
+      "end_line": 63,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "1d7508435cedfe30"
       ],
-      "start_line": 32
+      "start_line": 48
     },
     {
       "confidence": "needs-citation",
-      "end_line": 68,
+      "end_line": 84,
       "heading": "Mental Model",
       "needs_live_verification": true,
       "section_id": "mental-model",
       "source_keys": [
         "1d7508435cedfe30"
       ],
-      "start_line": 48
+      "start_line": 64
     },
     {
       "confidence": "structural",
-      "end_line": 70,
+      "end_line": 86,
       "heading": "Jobs And Scheduling",
       "needs_live_verification": false,
       "section_id": "jobs-and-scheduling",
@@ -395,19 +379,15 @@
         "b170361ac0cb5f25",
         "c5aecb3789dfe9c9",
         "b6d7c3aea3acfa13",
-        "c3a20ff33e281983",
-        "4ab78dee19b758f4",
-        "0e033ece3399652c",
+        "d275b5b94a9da833",
         "776256c424368312",
-        "77753979270bb812",
-        "aae96501e17acd46",
-        "5ec7c81d75192aaf"
+        "aae96501e17acd46"
       ],
-      "start_line": 69
+      "start_line": 85
     },
     {
       "confidence": "high",
-      "end_line": 78,
+      "end_line": 94,
       "heading": "Job configuration and history",
       "needs_live_verification": true,
       "section_id": "jobs-and-scheduling-job-configuration-and-history",
@@ -415,27 +395,27 @@
         "b170361ac0cb5f25",
         "c5aecb3789dfe9c9",
         "b6d7c3aea3acfa13",
-        "c3a20ff33e281983",
-        "4ab78dee19b758f4",
-        "0e033ece3399652c"
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
       ],
-      "start_line": 71
+      "start_line": 87
     },
     {
       "confidence": "normal",
-      "end_line": 89,
+      "end_line": 105,
       "heading": "Version-specific job-history failures",
       "needs_live_verification": true,
       "section_id": "jobs-and-scheduling-version-specific-job-history-failures",
       "source_keys": [
         "776256c424368312",
-        "77753979270bb812"
+        "d275b5b94a9da833"
       ],
-      "start_line": 79
+      "start_line": 95
     },
     {
       "confidence": "high",
-      "end_line": 101,
+      "end_line": 117,
       "heading": "Job-backed operational processes",
       "needs_live_verification": true,
       "section_id": "jobs-and-scheduling-job-backed-operational-processes",
@@ -444,13 +424,13 @@
         "c5aecb3789dfe9c9",
         "aae96501e17acd46",
         "b6d7c3aea3acfa13",
-        "5ec7c81d75192aaf"
+        "d275b5b94a9da833"
       ],
-      "start_line": 90
+      "start_line": 106
     },
     {
       "confidence": "structural",
-      "end_line": 103,
+      "end_line": 119,
       "heading": "Diagnostics And Exceptions",
       "needs_live_verification": false,
       "section_id": "diagnostics-and-exceptions",
@@ -461,22 +441,22 @@
         "aae96501e17acd46",
         "b2c6d8b710a45c2b"
       ],
-      "start_line": 102
+      "start_line": 118
     },
     {
       "confidence": "normal",
-      "end_line": 117,
+      "end_line": 133,
       "heading": "Exception history",
       "needs_live_verification": true,
       "section_id": "diagnostics-and-exceptions-exception-history",
       "source_keys": [
         "a030fe9b96bb7878"
       ],
-      "start_line": 104
+      "start_line": 120
     },
     {
       "confidence": "normal",
-      "end_line": 123,
+      "end_line": 139,
       "heading": "Page performance diagnostics",
       "needs_live_verification": false,
       "section_id": "diagnostics-and-exceptions-page-performance-diagnostics",
@@ -485,22 +465,22 @@
         "aa06f8c30d590df4",
         "aae96501e17acd46"
       ],
-      "start_line": 118
+      "start_line": 134
     },
     {
       "confidence": "normal",
-      "end_line": 129,
+      "end_line": 145,
       "heading": "Auditing",
       "needs_live_verification": false,
       "section_id": "diagnostics-and-exceptions-auditing",
       "source_keys": [
         "b2c6d8b710a45c2b"
       ],
-      "start_line": 124
+      "start_line": 140
     },
     {
       "confidence": "structural",
-      "end_line": 131,
+      "end_line": 147,
       "heading": "Cache And Persisted Data",
       "needs_live_verification": false,
       "section_id": "cache-and-persisted-data",
@@ -513,11 +493,11 @@
         "aae96501e17acd46",
         "776256c424368312"
       ],
-      "start_line": 130
+      "start_line": 146
     },
     {
       "confidence": "normal",
-      "end_line": 139,
+      "end_line": 155,
       "heading": "What Rock caches",
       "needs_live_verification": false,
       "section_id": "cache-and-persisted-data-what-rock-caches",
@@ -526,11 +506,11 @@
         "aa06f8c30d590df4",
         "aa06f8c30d590df4"
       ],
-      "start_line": 132
+      "start_line": 148
     },
     {
       "confidence": "normal",
-      "end_line": 149,
+      "end_line": 165,
       "heading": "Cache Manager and cache tags",
       "needs_live_verification": true,
       "section_id": "cache-and-persisted-data-cache-manager-and-cache-tags",
@@ -542,33 +522,33 @@
         "8d32772b57c5bcaf",
         "8d32772b57c5bcaf"
       ],
-      "start_line": 140
+      "start_line": 156
     },
     {
       "confidence": "normal",
-      "end_line": 160,
+      "end_line": 176,
       "heading": "Persisted Datasets",
       "needs_live_verification": false,
       "section_id": "cache-and-persisted-data-persisted-datasets",
       "source_keys": [
         "aae96501e17acd46"
       ],
-      "start_line": 150
+      "start_line": 166
     },
     {
       "confidence": "normal",
-      "end_line": 164,
+      "end_line": 180,
       "heading": "Cleanup-related cache caveat",
       "needs_live_verification": false,
       "section_id": "cache-and-persisted-data-cleanup-related-cache-caveat",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 161
+      "start_line": 177
     },
     {
       "confidence": "structural",
-      "end_line": 166,
+      "end_line": 182,
       "heading": "Cleanup And Data Integrity",
       "needs_live_verification": false,
       "section_id": "cleanup-and-data-integrity",
@@ -581,22 +561,22 @@
         "b6d7c3aea3acfa13",
         "7db14e9cfb05ca94"
       ],
-      "start_line": 165
+      "start_line": 181
     },
     {
       "confidence": "normal",
-      "end_line": 172,
+      "end_line": 188,
       "heading": "Access and review boundary",
       "needs_live_verification": false,
       "section_id": "cleanup-and-data-integrity-access-and-review-boundary",
       "source_keys": [
         "81e32a52cecd7b88"
       ],
-      "start_line": 167
+      "start_line": 183
     },
     {
       "confidence": "normal",
-      "end_line": 182,
+      "end_line": 198,
       "heading": "Duplicate detection and merging",
       "needs_live_verification": false,
       "section_id": "cleanup-and-data-integrity-duplicate-detection-and-merging",
@@ -607,33 +587,33 @@
         "7da836710b028faf",
         "7da836710b028faf"
       ],
-      "start_line": 173
+      "start_line": 189
     },
     {
       "confidence": "normal",
-      "end_line": 188,
+      "end_line": 204,
       "heading": "Record Source",
       "needs_live_verification": false,
       "section_id": "cleanup-and-data-integrity-record-source",
       "source_keys": [
         "87e313b4be28fc52"
       ],
-      "start_line": 183
+      "start_line": 199
     },
     {
       "confidence": "normal",
-      "end_line": 194,
+      "end_line": 210,
       "heading": "Location correction",
       "needs_live_verification": false,
       "section_id": "cleanup-and-data-integrity-location-correction",
       "source_keys": [
         "cff864117e0cec2a"
       ],
-      "start_line": 189
+      "start_line": 205
     },
     {
       "confidence": "normal",
-      "end_line": 210,
+      "end_line": 226,
       "heading": "Data Automation",
       "needs_live_verification": false,
       "section_id": "cleanup-and-data-integrity-data-automation",
@@ -641,11 +621,11 @@
         "b6d7c3aea3acfa13",
         "b6d7c3aea3acfa13"
       ],
-      "start_line": 195
+      "start_line": 211
     },
     {
       "confidence": "normal",
-      "end_line": 216,
+      "end_line": 232,
       "heading": "Photo verification",
       "needs_live_verification": true,
       "section_id": "cleanup-and-data-integrity-photo-verification",
@@ -653,11 +633,11 @@
         "7db14e9cfb05ca94",
         "7db14e9cfb05ca94"
       ],
-      "start_line": 211
+      "start_line": 227
     },
     {
       "confidence": "structural",
-      "end_line": 218,
+      "end_line": 234,
       "heading": "Search And Indexing",
       "needs_live_verification": false,
       "section_id": "search-and-indexing",
@@ -671,22 +651,22 @@
         "d4fd70afbe01ba63",
         "776256c424368312"
       ],
-      "start_line": 217
+      "start_line": 233
     },
     {
       "confidence": "normal",
-      "end_line": 224,
+      "end_line": 240,
       "heading": "Smart Search and person-name behavior",
       "needs_live_verification": false,
       "section_id": "search-and-indexing-smart-search-and-person-name-behavior",
       "source_keys": [
         "520e476bf317a752"
       ],
-      "start_line": 219
+      "start_line": 235
     },
     {
       "confidence": "normal",
-      "end_line": 232,
+      "end_line": 248,
       "heading": "Provider configuration",
       "needs_live_verification": false,
       "section_id": "search-and-indexing-provider-configuration",
@@ -695,11 +675,11 @@
         "83f75e28bf2e6684",
         "83f75e28bf2e6684"
       ],
-      "start_line": 225
+      "start_line": 241
     },
     {
       "confidence": "normal",
-      "end_line": 238,
+      "end_line": 254,
       "heading": "Enabling entities and keeping them current",
       "needs_live_verification": false,
       "section_id": "search-and-indexing-enabling-entities-and-keeping-them-current",
@@ -707,11 +687,11 @@
         "b170361ac0cb5f25",
         "b170361ac0cb5f25"
       ],
-      "start_line": 233
+      "start_line": 249
     },
     {
       "confidence": "normal",
-      "end_line": 252,
+      "end_line": 268,
       "heading": "Entity-specific eligibility",
       "needs_live_verification": false,
       "section_id": "search-and-indexing-entity-specific-eligibility",
@@ -725,11 +705,11 @@
         "c5aecb3789dfe9c9",
         "c5aecb3789dfe9c9"
       ],
-      "start_line": 239
+      "start_line": 255
     },
     {
       "confidence": "high",
-      "end_line": 260,
+      "end_line": 276,
       "heading": "Smart Search integration and result presentation",
       "needs_live_verification": false,
       "section_id": "search-and-indexing-smart-search-integration-and-result-presentation",
@@ -738,11 +718,11 @@
         "d4fd70afbe01ba63",
         "776256c424368312"
       ],
-      "start_line": 253
+      "start_line": 269
     },
     {
       "confidence": "normal",
-      "end_line": 276,
+      "end_line": 292,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
@@ -750,17 +730,17 @@
         "776256c424368312",
         "1d7508435cedfe30"
       ],
-      "start_line": 261
+      "start_line": 277
     },
     {
       "confidence": "structural",
-      "end_line": 278,
+      "end_line": 294,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
       "source_keys": [
         "776256c424368312",
-        "77753979270bb812",
+        "d275b5b94a9da833",
         "1d7508435cedfe30",
         "aa06f8c30d590df4",
         "8d32772b57c5bcaf",
@@ -777,23 +757,23 @@
         "b6d7c3aea3acfa13",
         "b2c6d8b710a45c2b"
       ],
-      "start_line": 277
+      "start_line": 293
     },
     {
       "confidence": "normal",
-      "end_line": 287,
+      "end_line": 303,
       "heading": "A scheduled job stopped producing new history",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-scheduled-job-stopped-producing-new-history",
       "source_keys": [
         "776256c424368312",
-        "77753979270bb812"
+        "d275b5b94a9da833"
       ],
-      "start_line": 279
+      "start_line": 295
     },
     {
       "confidence": "normal",
-      "end_line": 295,
+      "end_line": 311,
       "heading": "A page is slow",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-page-is-slow",
@@ -801,11 +781,11 @@
         "1d7508435cedfe30",
         "aa06f8c30d590df4"
       ],
-      "start_line": 288
+      "start_line": 304
     },
     {
       "confidence": "normal",
-      "end_line": 304,
+      "end_line": 320,
       "heading": "Updated content remains stale",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-updated-content-remains-stale",
@@ -814,44 +794,44 @@
         "f5f76594952a481b",
         "aae96501e17acd46"
       ],
-      "start_line": 296
+      "start_line": 312
     },
     {
       "confidence": "normal",
-      "end_line": 312,
+      "end_line": 328,
       "heading": "Clear Cache throws a missing-directory error",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-clear-cache-throws-a-missing-directory-error",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 305
+      "start_line": 321
     },
     {
       "confidence": "normal",
-      "end_line": 321,
+      "end_line": 337,
       "heading": "Exceptions repeat after a page or block change",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-exceptions-repeat-after-a-page-or-block-change",
       "source_keys": [
         "a030fe9b96bb7878"
       ],
-      "start_line": 313
+      "start_line": 329
     },
     {
       "confidence": "normal",
-      "end_line": 329,
+      "end_line": 345,
       "heading": "Universal Search cannot connect after an environment refresh",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-universal-search-cannot-connect-after-an-environment-refresh",
       "source_keys": [
         "83f75e28bf2e6684"
       ],
-      "start_line": 322
+      "start_line": 338
     },
     {
       "confidence": "high",
-      "end_line": 338,
+      "end_line": 354,
       "heading": "A person attribute is missing from Universal Search",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-person-attribute-is-missing-from-universal-search",
@@ -859,11 +839,11 @@
         "c5aecb3789dfe9c9",
         "776256c424368312"
       ],
-      "start_line": 330
+      "start_line": 346
     },
     {
       "confidence": "normal",
-      "end_line": 348,
+      "end_line": 364,
       "heading": "An entity type returns no Universal Search results",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-entity-type-returns-no-universal-search-results",
@@ -871,22 +851,22 @@
         "b170361ac0cb5f25",
         "c5aecb3789dfe9c9"
       ],
-      "start_line": 339
+      "start_line": 355
     },
     {
       "confidence": "normal",
-      "end_line": 357,
+      "end_line": 373,
       "heading": "Universal Search works directly but not through Smart Search",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-universal-search-works-directly-but-not-through-smart-search",
       "source_keys": [
         "c4d8a9dcfec11b7d"
       ],
-      "start_line": 349
+      "start_line": 365
     },
     {
       "confidence": "normal",
-      "end_line": 366,
+      "end_line": 382,
       "heading": "Two person records may be duplicates, but identity is uncertain",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-two-person-records-may-be-duplicates-but-identity-is-uncertain",
@@ -894,22 +874,22 @@
         "53826c4c1696c466",
         "7da836710b028faf"
       ],
-      "start_line": 358
+      "start_line": 374
     },
     {
       "confidence": "normal",
-      "end_line": 374,
+      "end_line": 390,
       "heading": "An address is missing coordinates",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-address-is-missing-coordinates",
       "source_keys": [
         "cff864117e0cec2a"
       ],
-      "start_line": 367
+      "start_line": 383
     },
     {
       "confidence": "normal",
-      "end_line": 383,
+      "end_line": 399,
       "heading": "Data Automation changed more records than expected",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-data-automation-changed-more-records-than-expected",
@@ -917,11 +897,11 @@
         "b6d7c3aea3acfa13",
         "b2c6d8b710a45c2b"
       ],
-      "start_line": 375
+      "start_line": 391
     },
     {
       "confidence": "structural",
-      "end_line": 385,
+      "end_line": 401,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -932,29 +912,29 @@
         "8b8e75793e8c8f5a",
         "f5f76594952a481b",
         "776256c424368312",
-        "c3a20ff33e281983",
+        "d275b5b94a9da833",
         "b170361ac0cb5f25",
         "c5aecb3789dfe9c9",
         "53826c4c1696c466",
         "7da836710b028faf",
         "b6d7c3aea3acfa13"
       ],
-      "start_line": 384
+      "start_line": 400
     },
     {
       "confidence": "normal",
-      "end_line": 415,
+      "end_line": 431,
       "heading": "Recipe: Triage a recurring exception",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-triage-a-recurring-exception",
       "source_keys": [
         "a030fe9b96bb7878"
       ],
-      "start_line": 386
+      "start_line": 402
     },
     {
       "confidence": "normal",
-      "end_line": 442,
+      "end_line": 458,
       "heading": "Recipe: Refresh stale cached output with minimum scope",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-refresh-stale-cached-output-with-minimum-scope",
@@ -962,11 +942,11 @@
         "8d32772b57c5bcaf",
         "989a1b3f1202531e"
       ],
-      "start_line": 416
+      "start_line": 432
     },
     {
       "confidence": "normal",
-      "end_line": 459,
+      "end_line": 475,
       "heading": "Recipe: Create and assign a cache tag",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-create-and-assign-a-cache-tag",
@@ -974,23 +954,23 @@
         "8b8e75793e8c8f5a",
         "f5f76594952a481b"
       ],
-      "start_line": 443
+      "start_line": 459
     },
     {
       "confidence": "normal",
-      "end_line": 480,
+      "end_line": 496,
       "heading": "Recipe: Audit a scheduled job’s recent health",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-audit-a-scheduled-job-s-recent-health",
       "source_keys": [
         "776256c424368312",
-        "c3a20ff33e281983"
+        "d275b5b94a9da833"
       ],
-      "start_line": 460
+      "start_line": 476
     },
     {
       "confidence": "normal",
-      "end_line": 512,
+      "end_line": 528,
       "heading": "Recipe: Restore a missing Universal Search entity",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-restore-a-missing-universal-search-entity",
@@ -998,22 +978,22 @@
         "b170361ac0cb5f25",
         "c5aecb3789dfe9c9"
       ],
-      "start_line": 481
+      "start_line": 497
     },
     {
       "confidence": "normal",
-      "end_line": 535,
+      "end_line": 551,
       "heading": "Recipe: Configure a bounded site-index crawl",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-bounded-site-index-crawl",
       "source_keys": [
         "c5aecb3789dfe9c9"
       ],
-      "start_line": 513
+      "start_line": 529
     },
     {
       "confidence": "normal",
-      "end_line": 568,
+      "end_line": 584,
       "heading": "Recipe: Review and resolve a duplicate-person candidate",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-review-and-resolve-a-duplicate-person-candidate",
@@ -1021,43 +1001,43 @@
         "53826c4c1696c466",
         "7da836710b028faf"
       ],
-      "start_line": 536
+      "start_line": 552
     },
     {
       "confidence": "normal",
-      "end_line": 592,
+      "end_line": 608,
       "heading": "Recipe: Review a Data Automation change before execution",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-review-a-data-automation-change-before-execution",
       "source_keys": [
         "b6d7c3aea3acfa13"
       ],
-      "start_line": 569
+      "start_line": 585
     },
     {
       "confidence": "needs-citation",
-      "end_line": 613,
+      "end_line": 629,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
         "b6d7c3aea3acfa13"
       ],
-      "start_line": 593
+      "start_line": 609
     },
     {
       "confidence": "high",
-      "end_line": 635,
+      "end_line": 653,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
       "source_keys": [
         "1d7508435cedfe30",
-        "c3a20ff33e281983",
-        "0e033ece3399652c",
-        "4ab78dee19b758f4",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
         "776256c424368312",
-        "77753979270bb812",
+        "d275b5b94a9da833",
         "a030fe9b96bb7878",
         "b2c6d8b710a45c2b",
         "aa06f8c30d590df4",
@@ -1066,10 +1046,10 @@
         "f5f76594952a481b",
         "989a1b3f1202531e",
         "aae96501e17acd46",
-        "5ec7c81d75192aaf",
+        "d275b5b94a9da833",
         "776256c424368312",
         "81e32a52cecd7b88",
-        "5be5522867fe4f06",
+        "cff864117e0cec2a",
         "53826c4c1696c466",
         "7da836710b028faf",
         "87e313b4be28fc52",
@@ -1085,11 +1065,43 @@
         "d4fd70afbe01ba63",
         "776256c424368312"
       ],
-      "start_line": 614
+      "start_line": 630
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 667,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "1d7508435cedfe30"
+      ],
+      "start_line": 654
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 679,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "2a835fe90be9f475"
+      ],
+      "start_line": 668
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:33:35+00:00",
+  "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "unknown",
       "authority_score": 0,
@@ -1103,145 +1115,65 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "6995577b9a530d0e0ad369aa6ec8376f85cf9589136c22c4b7db72042e1d06f1",
-      "excerpt_hash": "a8cb432e10e90967b2548a66cd1ebc4bf852c409c91e1ace597ff254525f49de",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "b170361ac0cb5f25",
-      "source_record_id": "rock_documentation:article:1016",
-      "title": "Enable Entities for Universal Search",
-      "topics": [
-        "admin",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-entities-for-universal-search",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-entities-for-universal-search",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-entities-for-universal-search"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c8c39c115dc7a88c65b03f42ba70fcbbcd5ca0a622464c961ffe7e53180cecd1",
-      "excerpt_hash": "39ff98996e8f008108a7be0254f6849a26041e932bdd16bf49f17c870239e578",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "c5aecb3789dfe9c9",
-      "source_record_id": "rock_documentation:article:1017",
-      "title": "Specifics for Entities",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "security",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities"
     },
     {
       "authority": "official",
       "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "b6d7c3aea3acfa13",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-data-automation",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-data-automation"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
       "change_type": null,
-      "content_hash": "a2afd579359b6a7f628857665b462bbaf58901cc860b25d0a10604c373d97f59",
-      "excerpt_hash": "ffae3f68db0cfc76a29e420b14bfc7314383fdf4a7e14eb216a841c4dd6dfed7",
+      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "b6d7c3aea3acfa13",
-      "source_record_id": "rock_documentation:article:1062",
-      "title": "Use Data Automation",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
       "topics": [
-        "admin",
-        "operations",
-        "usage"
+        "development",
+        "source",
+        "api",
+        "model-map"
       ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-data-automation",
+      "url": "https://github.com/SparkDevNetwork/Rock",
       "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8db70061c837a7d5d75c8c5fa8cec65987d854455137ba985b269acfdc17542c",
-      "excerpt_hash": "ceb2c01b47a926cb29047efdba0d2f90836fe2f7b67896ca73e8e141e22cc53c",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "service job",
-        "servicejob",
-        "job history",
-        "jobhistory"
-      ],
-      "path": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c3a20ff33e281983",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
-      "title": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "1172c50e1809f0675b4cd8433952e82609ca24f481022d0ad5675fff1bce161c",
-      "excerpt_hash": "695006ad54d9d5b6aee394da168fca51bb06fa08590c8c67e30a06e636ce5244",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "job history",
-        "jobhistory",
-        "scheduled job",
-        "scheduledjob"
-      ],
-      "path": "Rock.Blocks/Core/ScheduledJobHistoryList.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4ab78dee19b758f4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Core/ScheduledJobHistoryList.cs",
-      "title": "Rock.Blocks/Core/ScheduledJobHistoryList.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Core/ScheduledJobHistoryList.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "60e16eae1ebf6a3cb769edbf44366acea9f802922749305696bdb830fccecbab",
-      "excerpt_hash": "f1a536e418e9d94e96dd3e0a2e86b83befb65c5af3d92cae438da7746f84e275",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "service job",
-        "servicejob",
-        "job history",
-        "jobhistory"
-      ],
-      "path": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "0e033ece3399652c",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
-      "title": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs"
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "bff5fde1c6bf15b032fc14f634cd3ca02c99048a2de5f6675a3147bf4b264620",
+      "content_hash": "5b99b8e29707fd6ba61808ee908b6e44862a0da5b439f9e8054a9703273544fe",
+      "excerpt_hash": "9b39ba68a5a8ed452535232bab57eb5f7f2cd70d8797d3354e4155faf5cb3823",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": "June 11, 2026",
+      "release_date": "May 20, 2026",
       "severity": "normal",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
@@ -1256,507 +1188,204 @@
       "version": "19.1"
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "cc10e53c550d43f81b405bce0406c956f779d3d5f4f83f87184a91a4758cde5f",
-      "excerpt_hash": "28ed85d6dd7552421996ddd75e62a877a514f91e70ae7e0e6db27c44e876e9a0",
-      "kind": "github_file",
-      "language": "Markdown",
-      "matched_terms": [
-        "service job",
-        "servicejob",
-        "job history",
-        "jobhistory",
-        "orphaned"
-      ],
-      "path": "specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "77753979270bb812",
-      "source_record_id": "SparkDevNetwork/Rock:specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md",
-      "title": "specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md"
-    },
-    {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "d4faca21aa49f8f576884b6f489121b62a83bd0072031cc618e51b639ffc1511",
-      "excerpt_hash": "a1d706b55be57deca016c5fa98aa5bcfd16bd8d748efeb524054a8a87e69572b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "aae96501e17acd46",
-      "source_record_id": "rock_documentation:article:2129",
-      "title": "Cache Persisted Datasets",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a1a9f267fa84287d13876b353f7687cb3d924c880bd874fb59f45e77e677949d",
-      "excerpt_hash": "0259ef1f33ef46b63f645aeb216a59f24dacdabd7e0d61da18c8e9f175c88bea",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "data-views",
-        "data views",
-        "dataviews",
-        "jobs"
-      ],
-      "path": "Rock/Jobs/UpdatePersistedDataviews.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5ec7c81d75192aaf",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Jobs/UpdatePersistedDataviews.cs",
-      "title": "Rock/Jobs/UpdatePersistedDataviews.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Jobs/UpdatePersistedDataviews.cs"
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "104f3d3b2e7fb605057ef327b3113932aefd0194b7b776b6208052d870a58d8e",
-      "excerpt_hash": "943e07d565d34ca0701d1a32b6071ebb9160b11d307f73e0af17c88c96470a9f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "a030fe9b96bb7878",
-      "source_record_id": "rock_documentation:article:1075",
-      "title": "View the Exception List",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "bd31d25be34fdf8e31930e1f0cad567ce0261666c34398372bc3aca350826448",
-      "excerpt_hash": "2ceaeb231735429e51900b820ad7e2d9386e8ca00452e330b380ce94a6c8131d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "aa06f8c30d590df4",
-      "source_record_id": "rock_documentation:article:2128",
-      "title": "Intro to Caching",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/intro-to-caching",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/intro-to-caching",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/intro-to-caching"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "f25f55e0917b84d326a714a58ac8068d77f9c045e4a2e82767086f4b3d33d761",
-      "excerpt_hash": "06c52a870694219796ff856de0866037c207ceb3befee1a9544556b3f7c30b05",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "b2c6d8b710a45c2b",
-      "source_record_id": "rock_documentation:article:1065",
-      "title": "Use Audit Information",
-      "topics": [
-        "admin",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-audit-information",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-audit-information",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-audit-information"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "b357330250019563db4f9a56a643b41fcc6c2e413464dfe9caed1b1744d4aa17",
-      "excerpt_hash": "ee01dd948a2f41999b41f2346277ffa6d6168c3d73ccec3a8b0a10928bd98369",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "8d32772b57c5bcaf",
-      "source_record_id": "rock_documentation:article:2131",
-      "title": "Cache Manager",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-manager",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-manager",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-manager"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "d9e8cc0e4b36fe9921523005a9da5102f7f91327bc6145cf3750157da06ccfe5",
-      "excerpt_hash": "c163e8189f59d93bc577aef33795ec28c648ff4ead698bc7e262dedd762ad01d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "8b8e75793e8c8f5a",
-      "source_record_id": "rock_documentation:article:2133",
-      "title": "Add Cache Tags",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/add-cache-tags",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/add-cache-tags",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/add-cache-tags"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ab68b2301e01dd7f21858ba36c937c775af673c499fcfd019a1c3a43b433c782",
-      "excerpt_hash": "c8109a71a99f1c50c879ccff6e8abeb4f1053ab703ba85e1340a4b6103c9f9c8",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "f5f76594952a481b",
-      "source_record_id": "rock_documentation:article:2134",
-      "title": "Use Cache Tags",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/use-cache-tags",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/use-cache-tags",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/use-cache-tags"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "631218e40705fb869f82297f6ad7eddf27d817cc5b7b7adc25efba28858cd4b6",
-      "excerpt_hash": "6e29956a25ffb914c9ec1bb54598b45a7dcd03348527c2178ce01875c99f51b0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "989a1b3f1202531e",
-      "source_record_id": "rock_documentation:article:2135",
-      "title": "Clear Cache Tags",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/clear-cache-tags",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/clear-cache-tags",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/clear-cache-tags"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "7d0507880bc753c22cbf6d8fd40cb288e21964bbbdde2d1c3a81e4bb8a4f5d18",
-      "excerpt_hash": "68e1bd041bd2654855affb984fe7a72e888b24667808c512bfc2783ed3abf0ed",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "81e32a52cecd7b88",
-      "source_record_id": "rock_documentation:article:2116",
-      "title": "Intro to Data Integrity",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/intro-to-data-integrity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/intro-to-data-integrity",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/intro-to-data-integrity"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "6829aa7c138b64463047903a18bc60da7df8c627e009de976ce01c5ec9fe5038",
-      "excerpt_hash": "db80d867a7f6a292b686cce4a9f54a0d7e2d25fd0fd5466317bbb74b0c184f3f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "53826c4c1696c466",
-      "source_record_id": "rock_documentation:article:1061",
-      "title": "Use Duplicate Finder",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "f71817b9b241d30560d46062e691192a9aa424f54faec67542addf4f104f2152",
-      "excerpt_hash": "07ae7acab4505495a1d94bc7eb3017801037706632ef85b71da953ecb8a35617",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "87e313b4be28fc52",
-      "source_record_id": "rock_documentation:article:2282",
-      "title": "Track Record Sources",
-      "topics": [
-        "admin",
-        "check-in",
-        "finance",
-        "operations",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/track-record-sources",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/track-record-sources",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/track-record-sources"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "dc7bc4c7bd08b84dbebbf8c93dcb39ad3e5103d4d3ce54b1a04ed09527bccd9a",
-      "excerpt_hash": "71926b2aa776cbdf1022111ec9fed55f53949c27e4015df1807357f395b43c0e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7da836710b028faf",
-      "source_record_id": "rock_documentation:article:1070",
-      "title": "Merge Duplicate Records",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/merge-duplicate-records",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/merge-duplicate-records",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/merge-duplicate-records"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "6bc68f610150733ed33f19d17b576ea3b411673ec30eb28914d75f7531369621",
-      "excerpt_hash": "09ddefd23f77768935be601eef506a0024115d1800fd0793c15f87e48ce22638",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "cff864117e0cec2a",
-      "source_record_id": "rock_documentation:article:1796",
-      "title": "Location Editor",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "4504663b3c5aa7d4e2f369126012ca86bb956999e5b96cb0652882a98298a2ae",
-      "excerpt_hash": "b4b708b25237dca450cc8102b813551c1ee9ff937d2aa8fce06c24f17697bd3b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7db14e9cfb05ca94",
-      "source_record_id": "rock_documentation:article:1068",
-      "title": "Administer Photo Requests",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/administer-photo-requests",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/administer-photo-requests",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/administer-photo-requests"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "58d9b24b328a10b0824c9a235aeb3b9f03d9b42755783143f0aa3100667bb43d",
-      "excerpt_hash": "3d923b74393f226e125fd0d33370370075e599363699f9c4080fec82038bb74b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "520e476bf317a752",
-      "source_record_id": "rock_documentation:article:2063",
-      "title": "Search by Name",
-      "topics": [
-        "admin",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "90e93a990affd5f0e8fb9d1cf159b9f4af68a2f9f730b3cc74212f49a050bbe3",
-      "excerpt_hash": "4fd1dd2fee56629fbfd722b69aa734fcffef96759bb1af814f79bc2f3bb23a71",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "4733e03b0f9c7aeb",
-      "source_record_id": "rock_documentation:article:1015",
-      "title": "Enable a Search Provider",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-a-search-provider",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-a-search-provider",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-a-search-provider"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "4b30f2ca25663b3877f676fbec3ad6b2c05060e978676722a9d4368eefebdb75",
-      "excerpt_hash": "6872f160a0915a3dc45bdd64c521a297088c7eac39fb568ec62f3ca4c3193a6b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "83f75e28bf2e6684",
-      "source_record_id": "rock_documentation:article:1020",
-      "title": "Installing Elasticsearch",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c60e129fb2c7fad8ccd32ca8225399adee3236cbc59f069b8087c94032cb9d8a",
-      "excerpt_hash": "4ef56b1ba0e539a5e45e44bc9edb6ec8c54ff0a9172f358d0cf79492ce40bf27",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "c4d8a9dcfec11b7d",
-      "source_record_id": "rock_documentation:article:1019",
-      "title": "Integrating Smart Search",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "541d0c66ff2ba7e3c0a5d58c3dc9bb89a797027be099602961f2e4f50ad10270",
-      "excerpt_hash": "126c8c032a95ffc9807efff615c3f95d8597899f0df5b0cba46733693ac65ad8",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "d4fd70afbe01ba63",
-      "source_record_id": "rock_documentation:article:1018",
-      "title": "Customizing Results for Entities",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities",
+      "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ebac3f6fe5e8dd4c93939711ada424a1a1355a4ebf050a27d6be97a9de62fccd",
-      "excerpt_hash": "474b14f24f86a89de4a234656f146502de46132301e611c2fb45274879ab6012",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "5be5522867fe4f06",
-      "source_record_id": "rock_documentation:article:1057",
-      "title": "Data Integrity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity",
-      "version": null
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "2a835fe90be9f475",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
     }
   ],
   "synthesis_profile": "comprehensive",

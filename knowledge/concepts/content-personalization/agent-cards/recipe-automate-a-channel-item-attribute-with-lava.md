@@ -54,8 +54,8 @@ A scheduled job safely writes evaluated Lava output into a compatible target att
 
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/self-update-content-channel-items
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.Designer.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.Designer.cs
 - https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/manage-content-items
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/secure-content
 - https://www.rockrms.com/releasenotes

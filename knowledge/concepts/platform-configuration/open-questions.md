@@ -14,15 +14,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `analytics-and-reporting-configuration`: Analytics And Reporting Configuration
-- `troubleshooting-decision-tree-a-dashboard-is-slow`: A dashboard is slow
-- `troubleshooting-decision-tree-an-embedded-bi-report-is-inaccessible-or-overexposed`: An embedded BI report is inaccessible or overexposed
-- `agent-task-recipes-recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage`: Recipe: Move an expensive dashboard calculation to scheduled storage
-- `agent-task-recipes-recipe-secure-an-embedded-bi-report`: Recipe: Secure an embedded BI report
-- `source-map-reviewed-community-evidence`: Reviewed community evidence
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `attributes-and-attribute-values-separate-the-definition-from-stored-values`: Separate the definition from stored values
 - `attributes-and-attribute-values-present-attributes-intentionally`: Present attributes intentionally

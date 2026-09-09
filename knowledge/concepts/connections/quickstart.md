@@ -27,18 +27,20 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-36: Agent Summary (normal)
-- `mental-model` lines 52-72: Mental Model (normal)
-- `opportunities` lines 73-94: Opportunities (normal)
-- `requests-and-statuses` lines 95-104: Requests And Statuses (normal)
-- `requests-and-statuses-state` lines 105-115: State (normal)
-- `requests-and-statuses-status` lines 116-123: Status (high)
+- `agent-summary` lines 34-52: Agent Summary (normal)
+- `mental-model` lines 68-88: Mental Model (normal)
+- `opportunities` lines 89-110: Opportunities (normal)
+- `requests-and-statuses` lines 111-120: Requests And Statuses (normal)
+- `requests-and-statuses-state` lines 121-131: State (normal)
+- `requests-and-statuses-status` lines 132-139: Status (high)
 
 ## Core Entities
 
+- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the connections guide.
 - `Block`: Rock concept/entity referenced by the connections guide.
 - `Campus`: Rock concept/entity referenced by the connections guide.
+- `Check-in Configuration`: Rock concept/entity referenced by the connections guide.
 - `DataView`: Rock concept/entity referenced by the connections guide.
 - `Family`: Rock concept/entity referenced by the connections guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
@@ -46,8 +48,6 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 - `Page`: Rock concept/entity referenced by the connections guide.
 - `Person`: Rock concept/entity referenced by the connections guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
-- `Step`: Person-specific engagement milestone instance.
-- `Workflow`: Rock concept/entity referenced by the connections guide.
 
 ## Version Caveats
 

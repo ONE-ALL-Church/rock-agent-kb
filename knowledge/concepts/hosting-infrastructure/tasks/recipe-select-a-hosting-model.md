@@ -44,4 +44,9 @@ A documented hosting choice with explicit ownership, workload, security, and ver
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server
+- https://community.rockrms.com/rocku/workflows/workflow-performance-tips
+- https://community.rockrms.com/rocku/workflows
+- https://community.rockrms.com/rocku/workflows/custom-grid-actions
+- https://community.rockrms.com/rocku/workflows/deconstructing-a-sample-workflow
 - https://community.rockrms.com/rocku/workflows/text-to-workflow-performance
+- https://community.rockrms.com/rocku/workflows/electronic-signatures-1

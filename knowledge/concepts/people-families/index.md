@@ -2,12 +2,12 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:38:19+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:15+00:00
+source_last_checked_at: 2026-09-09T21:15:41+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/39
 legacy_summary_retirement_coverage: 0/39
@@ -161,29 +161,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Person Alias](../../model-map/models/person-alias.md) | CRM | 19.2.0 | 26 | 12 | 16 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Family Historical](../../model-map/models/analytics-source-family-historical.md) | Reporting | 19.2.0 | 33 | 21 | 26 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Person Historical](../../model-map/models/analytics-source-person-historical.md) | Reporting | 19.2.0 | 56 | 43 | 49 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute](../../model-map/models/attribute.md) | Core | 19.2.0 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 19.2.0 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Person Alias](../../model-map/models/person-alias.md) | CRM | 19.3.4 | 26 | 12 | 16 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.3.4 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.3.4 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.3.4 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.3.4 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.3.4 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Family Historical](../../model-map/models/analytics-source-family-historical.md) | Reporting | 19.3.4 | 33 | 21 | 26 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Person Historical](../../model-map/models/analytics-source-person-historical.md) | Reporting | 19.3.4 | 56 | 43 | 49 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute](../../model-map/models/attribute.md) | Core | 19.3.4 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 19.3.4 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.3.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Person Alias.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.Person` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.TypeName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Person Alias.UrlEncodedKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Attribute.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.Person` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.TypeName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Person Alias.UrlEncodedKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeQualifiers` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Attribute.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -304,7 +304,7 @@ Keywords: `attribute, person attribute`
 ## Source Lifecycle
 
 - Official article records routed here: `39`
-- Upstream check range: `2026-08-12T06:18:13+00:00` through `2026-08-12T06:18:15+00:00`
+- Upstream check range: `2026-09-09T21:15:38+00:00` through `2026-09-09T21:15:41+00:00`
 - Source-native typed articles: `0` of `39`
 - Legacy source summaries retired: `0`; still active: `39`
 - Migration status: `not_started`

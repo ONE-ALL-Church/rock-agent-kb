@@ -2,12 +2,12 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:38:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:22:00+00:00
+source_last_checked_at: 2026-09-09T23:22:42+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 13/215
 legacy_summary_retirement_coverage: 28/215
@@ -40,8 +40,8 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 ## How To Think About This Area
 
 - `Helix` spans lava, api-integrations, security, cms, workflows, forms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_lava_docs, rock_documentation, rock_recipes, rock_core_release_notes, rock_model_map.
-- Related tags found in source records: development, lava, api, cms, workflow, obsidian, operations, security.
+- The strongest source families in this build are: rock_developer, rock_documentation, rock_lava_docs, rock_recipes, rock_core_release_notes, rock_model_map.
+- Related tags found in source records: development, lava, workflow, cms, api, obsidian, security, sql.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_community_site, rock_lava_docs, triumph_resources.
 
 ## Approved Claims
@@ -71,13 +71,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `public_rock_repos`: 1
-- `rock_community_site`: 2
-- `rock_core_release_notes`: 10
+- `rock_community_site`: 1
+- `rock_core_release_notes`: 4
 - `rock_developer`: 27
 - `rock_documentation`: 4
-- `rock_lava_docs`: 31
+- `rock_lava_docs`: 36
 - `rock_model_map`: 12
-- `rock_recipes`: 1
+- `rock_recipes`: 3
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
 
@@ -93,38 +93,38 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Lava Applications | rock_developer | HTMX empowers you to build responsive and dynamic applications by creating server-side endpoints that return HTML snippets. Managing multiple endpoints is common, even in basic applications. To simplify this, we introduced Lava Applications, which consist of two key components: the Application and its Endpoints. Below is a diagram of a very basic Lava Application: The example showcases an application with five... | [source](https://community.rockrms.com/developer/helix/lava-applications) |
 | Content Block | rock_developer | With your application and endpoints ready you're pretty much set on the backend. While you can technically call the backend from any webpage by importing the HTMX library yourself, we highly recommend using the provided Lava Application Content block on the front-end. This block automatically registers HTMX for you and provides convenience features and styling. Below are the block settings for the Lava Application... | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
 | 🧬 Helix | rock_developer | Redefine the boundaries of what you believed possible with Lava. ** Dynamic Content without the Need for JavaScript** Infuse your web pages with live content updates using Lava, bypassing the complexity of JavaScript. [HTMX](/documentation/helix/htmx) ** Elevate Lava Beyond Reading to Updating Data** Transform Lava into a powerful tool that not only reads but also updates data seamlessly within your applications.... | [source](https://community.rockrms.com/developer/helix) |
-| Customizing Rock | rock_developer | There are several levels of customization available for your Rock instance, described below in basic categories. While it might seem desirable to aim for the highest level, it's often better to aim lower. Each new level, while offering more power and capabilities, also introduces greater complexity and increased support costs. We advise staying as low on the pyramid as possible. Lava Applications provide enhanced... | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
 | HTMX | rock_developer | [Learning More](/documentation/helix/htmx/learning-more) [Syntax Style Guides](/documentation/helix/htmx/syntax-style-guides) | [source](https://community.rockrms.com/developer/helix/htmx) |
+| Customizing Rock | rock_developer | There are several levels of customization available for your Rock instance, described below in basic categories. While it might seem desirable to aim for the highest level, it's often better to aim lower. Each new level, while offering more power and capabilities, also introduces greater complexity and increased support costs. We advise staying as low on the pyramid as possible. Lava Applications provide enhanced... | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
+| Loading Indicator | rock_developer | HTMX has a sophisticated and well considered loading indicator pattern. See their documentation for all of the details. Below are a couple of prebuilt patterns to help you get started. Note The image paths below are for when using Helix with Rock v18 or later. If you are using the plugin version of Helix, the paths will be `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/...` ## Adding Indicator To Buttons One great... | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
 | Applications | rock_developer | Configuring a Lava Application is quite straightforward. Below is a screenshot of the editing panel. Below are the properties that are required: * **Name** - A friendly name for you to keep your applications organized. * **Description** - To serve as a place for some documentation about your application. * **Slug** - Helps to tell HTMX what application to use (in the example above the application slug is... | [source](https://community.rockrms.com/developer/helix/lava-applications/applications) |
-| FAQ | rock_developer | Here you'll find a comprehensive list of frequently asked questions about the Helix project, accompanied by detailed answers. **Why is Helix not a part of core?** ~~Helix is a R&D project by Triumph Tech. Only Spark Development Network can decide to put code into core.~~ It is now in core! **Is Helix available in Rock Mobile?** We like the way you think! Helix would be very powerful if it was a part of Rock Mobile.... | [source](https://community.rockrms.com/developer/helix/overview/faq) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Lava Application](../../model-map/models/lava-application.md) | CMS | 19.2.0 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Lava Endpoint](../../model-map/models/lava-endpoint.md) | CMS | 19.2.0 | 52 | 23 | 36 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.2.0 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Lava Application](../../model-map/models/lava-application.md) | CMS | 19.3.4 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Lava Endpoint](../../model-map/models/lava-endpoint.md) | CMS | 19.3.4 | 52 | 23 | 36 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.3.4 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -132,14 +132,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | --- | --- | --- | --- |
 | 18.1 | CMS | Added Helix support for Lava Applications to core. This provides a great new way to build interactive pages in Rock powered by Lava for more advanced administrators. | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Lava | Added Body and RawBody merge fields to Lava Applications. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Lava | Fixed an error that prevented non-administrators from running a Lava Application endpoint when the "RSR - Lava Application Developer" security role was inactive. Previously, an inactive role caused an error before permissions were even checked, blocking access for everyone except Rock Administrators. Fixes: #7002 | [source](https://www.rockrms.com/releasenotes) |
 | 16.4 | Core | Updated the Save button in Obsidian Detail blocks to show a loading indicator while waiting for the data to be saved. Fixes: #5661 | [source](https://www.rockrms.com/releasenotes) |
-| 17.1 | Core | Added additional Observability Metrics for memory and volume usage. | [source](https://www.rockrms.com/releasenotes) |
-| 17.1 | Core | Added new minimal trace mode for Observability to reduce network load. | [source](https://www.rockrms.com/releasenotes) |
-| 17.0 | Core | Added system metrics to the Observability Platform. | [source](https://www.rockrms.com/releasenotes) |
-| 16.6 | Core | Added Observability to the Update Personalization Data job. This will show details on the performance of each segment as it is being updated. | [source](https://www.rockrms.com/releasenotes) |
-| 16.4 | Core | Updated Observability so it won't log full SQL query text unless enabled in settings. | [source](https://www.rockrms.com/releasenotes) |
-| 16.3 | Lava | Added new Lava 'observe' command to allow wrapping fragments of Lava in an observability activity. | [source](https://www.rockrms.com/releasenotes) |
-| 16.1 | Core | Added system metrics to the Observability Platform. | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -240,7 +234,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `215`
-- Upstream check range: `2026-08-12T06:13:20+00:00` through `2026-08-12T06:22:00+00:00`
+- Upstream check range: `2026-09-09T21:15:23+00:00` through `2026-09-09T23:22:42+00:00`
 - Source-native typed articles: `13` of `215`
 - Legacy source summaries retired: `28`; still active: `187`
 - Migration status: `partial`
@@ -249,7 +243,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 
 ## Rebuild Dependencies
 
-- Source records: `119`
+- Source records: `114`
 - Lava capability source records: `60`
 - Approved claims: `17`
 - Dependency file: `agent/concept-dependencies.jsonl`

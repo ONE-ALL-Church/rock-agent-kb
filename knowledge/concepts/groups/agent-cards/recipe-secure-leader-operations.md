@@ -49,15 +49,15 @@ Leaders can perform approved group tasks without unnecessary database or group-a
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group
-- https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync
-- https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history
-- https://community.rockrms.com/documentation/engagement/groups/manage-groups/edit-a-group
-- https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder
-- https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email
-- https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types
-- https://community.rockrms.com/documentation/engagement/groups/group-leader-toolbox/use-the-group-toolbox
-- https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types
-- https://community.rockrms.com/documentation/engagement/groups/group-types/administer-group-types
+- https://community.rockrms.com/documentation/engagement/groups
 - https://community.rockrms.com/rocku/check-in/rapid-attendance-entry
-- https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-digest
+- https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists
+- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/rocku/workflows
+- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupMemberWorkflowTriggerBag.cs
+- https://community.rockrms.com/recipes/519
+- https://community.rockrms.com/documentation/church-management/reporting/metrics
+- https://community.rockrms.com/documentation/bookcontent/7/296
+- https://community.rockrms.com/documentation/bookcontent/7/361

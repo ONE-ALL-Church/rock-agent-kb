@@ -46,3 +46,4 @@ A provisional Azure tier supported by workload evidence and marked for validatio
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options
+- https://community.rockrms.com/recipes/296

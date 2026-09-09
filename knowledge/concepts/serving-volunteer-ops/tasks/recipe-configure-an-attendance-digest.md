@@ -53,6 +53,6 @@ Leaders at the intended regional level receive attendance summaries for their ch
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp
 - https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox
-- https://community.rockrms.com/documentation/engagement/groups/group-attendance
-- https://community.rockrms.com/documentation/church-management/check-in/attendance
-- https://community.rockrms.com/documentation/engagement/groups/group-rsvp
+- https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp
+- https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications
+- https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications

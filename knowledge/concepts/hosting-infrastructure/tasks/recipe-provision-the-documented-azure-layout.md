@@ -44,5 +44,7 @@ A resource group containing the intended Rock web VM and Azure SQL resources.
 ## Source Links
 
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting
+- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Blocks/Security/Login/PasswordlessLoginStep.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/AccountEntry/AccountEntryStep.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/Login/PasswordlessLoginStep.cs

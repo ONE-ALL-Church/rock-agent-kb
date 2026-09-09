@@ -42,6 +42,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `mental-model-control-stack` | citation-only | live verification |
 | `permissions-and-data-boundaries-apply-least-privilege-at-every-layer` | normal | live verification |
@@ -70,3 +71,4 @@ generated: true
 | `agent-task-recipes-recipe-diagnose-incorrect-tool-selection` | normal | live verification |
 | `agent-task-recipes-recipe-roll-out-an-agent-assisted-process-to-staff` | citation-only | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
+| `approved-claim-coverage` | citation-only | live verification |

@@ -29,12 +29,12 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-32: Agent Summary (normal)
-- `mental-model-policy-team-assignment-response-and-attendance` lines 52-63: Policy, team, assignment, response, and attendance (high)
-- `mental-model-group-scheduling-and-group-rsvp-are-related-but-different` lines 64-71: Group Scheduling and Group RSVP are related but different (normal)
-- `serving-teams-and-roles-establish-the-operating-group-structure` lines 78-93: Establish the operating group structure (normal)
-- `serving-teams-and-roles-distinguish-operational-roles` lines 94-106: Distinguish operational roles (normal)
-- `serving-teams-and-roles-be-precise-when-identifying-volunteers-in-reports` lines 107-112: Be precise when identifying volunteers in reports (normal)
+- `agent-summary` lines 34-48: Agent Summary (normal)
+- `mental-model-policy-team-assignment-response-and-attendance` lines 68-79: Policy, team, assignment, response, and attendance (high)
+- `mental-model-group-scheduling-and-group-rsvp-are-related-but-different` lines 80-87: Group Scheduling and Group RSVP are related but different (normal)
+- `serving-teams-and-roles-establish-the-operating-group-structure` lines 94-109: Establish the operating group structure (normal)
+- `serving-teams-and-roles-distinguish-operational-roles` lines 110-122: Distinguish operational roles (normal)
+- `serving-teams-and-roles-be-precise-when-identifying-volunteers-in-reports` lines 123-128: Be precise when identifying volunteers in reports (normal)
 
 ## Core Entities
 
@@ -53,8 +53,8 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 ## Version Caveats
 
-- `19.3`: Fixed an issue with the RSVP Response block where the heading would show the generic "RSVP for Event" text instead of the Attendance Occurrence Name when accessed through the Accept or Decline link in an RSVP email. Fixe
 - `18.3`: Fixed the Send Attendance Reminder job so Group leaders still receive reminders when a Group only has scheduling/RSVP-related Attendance records. The job now treats those tracking records as not being “attendance” and on
+- `17.2`: Fixed an issue where the Group Scheduling Confirmation workflow could incorrectly record a response if the confirmation email was opened by an automated link-checker, or if a decline reason was required but not provided.
 
 ## Files For Agents
 

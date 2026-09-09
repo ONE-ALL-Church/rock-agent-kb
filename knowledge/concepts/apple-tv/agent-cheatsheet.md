@@ -43,6 +43,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `mental-model` | normal | live verification |
@@ -81,3 +82,4 @@ generated: true
 | `agent-task-recipes-recipe-review-a-lava-api-before-connecting-it-to-apple-tv` | normal | live verification |
 | `known-gaps-and-live-verification` | normal | live verification |
 | `source-map` | normal | live verification |
+| `approved-claim-coverage` | normal | live verification |

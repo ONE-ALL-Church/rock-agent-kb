@@ -1370,6 +1370,27 @@ def promote_source_native_legacy_migration(
             for candidate_id, row in generated_articles_by_id.items()
         }
         promoted_dir = temporary_dir / "bundle"
+        # Existing retirement rows bind the old artifact hashes. Remove only
+        # the explicitly re-reviewed rows from a private staging base before
+        # compiling their replacements, then rebuild every retirement below.
+        # Validating the original base first preserves the fail-closed gate.
+        load_source_native_pilot_directory(base_dir)
+        staging_base = temporary_dir / "base"
+        shutil.copytree(base_dir, staging_base)
+        reviewed_legacy_ids = {
+            decision.legacy_knowledge_unit_id
+            for article in reviewed_output.articles
+            for decision in article.legacy_decisions
+        }
+        write_jsonl(
+            staging_base / SOURCE_NATIVE_LEGACY_MIGRATIONS_NAME,
+            [
+                row
+                for row in read_jsonl(base_dir / SOURCE_NATIVE_LEGACY_MIGRATIONS_NAME)
+                if row["legacy_knowledge_unit_id"] not in reviewed_legacy_ids
+            ],
+        )
+        write_source_native_manifest(staging_base)
         promote_source_native_distillation(
             input_path=input_path,
             output_path=standard_output_path,
@@ -1380,7 +1401,7 @@ def promote_source_native_legacy_migration(
             generation_prompt_id=SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_ID,
             generation_prompt_version=SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_VERSION,
             generation_prompt_path=SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_PATH,
-            base_dir=base_dir,
+            base_dir=staging_base,
             generated_article_payloads=(generated_standard_articles or None),
         )
 

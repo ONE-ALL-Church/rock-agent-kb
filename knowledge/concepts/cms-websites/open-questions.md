@@ -16,16 +16,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `page-parameters-filters-and-short-links`: Page Parameters, Filters, And Short Links
-- `troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer`: A Page Parameter Filter does not update its consumer
-- `troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor`: A Helix endpoint works for an administrator but fails for the intended visitor
-- `troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options`: A generated short link is blank or uses the wrong options
-- `agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer`: Recipe: Connect a Page Parameter Filter to a consumer
-- `agent-task-recipes-recipe-build-a-bounded-helix-active-search-page`: Recipe: Build a bounded Helix active-search page
-- `agent-task-recipes-recipe-publish-background-generated-video`: Recipe: Publish background-generated video
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `sites-routes-and-navigation`: Sites, Routes, And Navigation
 - `pages-layouts-zones-and-blocks`: Pages, Layouts, Zones, And Blocks
@@ -60,6 +54,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-retire-a-seasonal-public-feature`: Recipe: Retire a seasonal public feature
 - `agent-task-recipes-recipe-publish-background-generated-video`: Recipe: Publish background-generated video
 - `agent-task-recipes-recipe-configure-mobile-cms-content-with-the-correct-freshness-and-identity`: Recipe: Configure mobile CMS content with the correct freshness and identity
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

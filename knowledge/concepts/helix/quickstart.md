@@ -27,12 +27,12 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-25: Agent Summary (normal)
-- `scope-and-boundaries` lines 26-43: Scope And Boundaries (normal)
-- `mental-model` lines 44-68: Mental Model (normal)
-- `overview-and-roadmap` lines 69-82: Overview And Roadmap (normal)
-- `htmx` lines 83-105: HTMX (normal)
-- `lava-applications` lines 106-118: Lava Applications (normal)
+- `agent-summary` lines 34-41: Agent Summary (normal)
+- `scope-and-boundaries` lines 42-59: Scope And Boundaries (normal)
+- `mental-model` lines 60-84: Mental Model (normal)
+- `overview-and-roadmap` lines 85-98: Overview And Roadmap (normal)
+- `htmx` lines 99-121: HTMX (normal)
+- `lava-applications` lines 122-134: Lava Applications (normal)
 
 ## Core Entities
 

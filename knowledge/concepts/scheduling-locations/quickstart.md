@@ -29,12 +29,12 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-30: Agent Summary (normal)
-- `scope-and-boundaries` lines 31-48: Scope And Boundaries (normal)
-- `mental-model` lines 49-64: Mental Model (high)
-- `locations-positional-and-named-locations` lines 67-78: Positional And Named Locations (normal)
-- `locations-named-location-hierarchy` lines 79-86: Named Location Hierarchy (high)
-- `locations-address-and-geographic-integrity` lines 87-92: Address And Geographic Integrity (normal)
+- `agent-summary` lines 34-46: Agent Summary (normal)
+- `scope-and-boundaries` lines 47-64: Scope And Boundaries (normal)
+- `mental-model` lines 65-80: Mental Model (high)
+- `locations-positional-and-named-locations` lines 83-94: Positional And Named Locations (normal)
+- `locations-named-location-hierarchy` lines 95-102: Named Location Hierarchy (high)
+- `locations-address-and-geographic-integrity` lines 103-108: Address And Geographic Integrity (normal)
 
 ## Core Entities
 
@@ -55,6 +55,12 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 
 - `18.3`: Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669
 - `17.2`: Fixed an issue where Group Schedule ICS calendar events had unclear summaries. The Summary now uses the format "Group - Location - Schedule" to provide clarity for calendar events. Fixes: #6174
+- `17.2`: Fixed an issue where removing a Schedule from one Group Location also deleted capacity settings for that same Schedule in other Group Locations. Fixes: #6315
+- `19.1`: Added a new Schedule Builder Field Type and Attribute that allows administrators to create and select custom schedules using the standard Schedule Builder interface.
+- `18.3`: Fixed the Check-In Type Detail Block "Scheduled Times" list to exclude schedules from Archived or Inactive Groups that still have a GroupLocationSchedule assigned. Previously, schedules from these Groups could appear in
+- `17.5`: Added the ability to filter by Group Location Schedules to target more specific people based on their schedule for a group or sign up project in a data view.
+- `16.7`: Added a Group Schedule Coordinator that can be notified when a Person accepts, declines or self-schedules for a Schedule occurrence tied to the Group.
+- `16.6`: Fixed issue of Group Schedule Notifications and Group Schedule Reminders not honoring the schedule exlusions. Fixes: #5880
 
 ## Files For Agents
 

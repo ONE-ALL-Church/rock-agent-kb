@@ -30,12 +30,12 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-33: Agent Summary (normal)
-- `mental-model-1-workload` lines 65-68: 1. Workload (normal)
-- `mental-model-2-service-ownership` lines 69-74: 2. Service ownership (normal)
-- `mental-model-4-rock-specific-invariants` lines 79-91: 4. Rock-specific invariants (normal)
-- `sizing-and-service-options-choose-the-ownership-model-first` lines 100-110: Choose the ownership model first (normal)
-- `sizing-and-service-options-use-sizing-tables-as-baselines` lines 111-131: Use sizing tables as baselines (normal)
+- `agent-summary` lines 34-49: Agent Summary (normal)
+- `mental-model-1-workload` lines 81-84: 1. Workload (normal)
+- `mental-model-2-service-ownership` lines 85-90: 2. Service ownership (normal)
+- `mental-model-4-rock-specific-invariants` lines 95-107: 4. Rock-specific invariants (normal)
+- `sizing-and-service-options-choose-the-ownership-model-first` lines 116-126: Choose the ownership model first (normal)
+- `sizing-and-service-options-use-sizing-tables-as-baselines` lines 127-147: Use sizing tables as baselines (normal)
 
 ## Core Entities
 
@@ -53,6 +53,11 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 - `19.1`: Added an automatic data migration that moves File Storage Provider settings from any existing legacy Azure Blob Storage provider plugin (Pillars) to the core Azure Blob Storage provider. This is required because the lega
 - `17.5`: Fixed an error that occurred when editing a Content Channel Type with Attributes of type Image, File, or Binary File. The issue happened if the storage location was set to Azure Blob Storage or File System (or newly crea
 - `17.0`: Improved database performance with new and revised indexes across multiple tables. These changes improve query efficiency for transactions, person records, group hierarchies, and interactions, based on SQL Server recomme
+- `18.1`: Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #
+- `17.5`: Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prev
+- `17.1`: Fixed a performance issue in Next-Gen Check-in that caused delays when printing to Bluetooth printers. The slowdown was due to how label image data was encoded, which has now been optimized. Printing performance should n
+- `16.3`: Fixed issue where Communication Entry Wizard block becomes unusable when an SMS image attachment is auto-resized and uploaded to Azure Blob Storage. Fixes: #5719
+- `17.2`: Improved the database index fill factor from 80% to 100% to reduce table size and improve maintenance performance. In the past, this was changed due to a common practice of reserving space to reduce page splits in the ta
 
 ## Files For Agents
 

@@ -2,12 +2,12 @@
 id: concept-connections
 title: Connections
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:37:51+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:41+00:00
+source_last_checked_at: 2026-09-09T21:16:14+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/21
 legacy_summary_retirement_coverage: 0/21
@@ -124,7 +124,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_community_hubs`: 7
-- `rock_core_release_notes`: 7
+- `rock_core_release_notes`: 8
 - `rock_documentation`: 21
 - `rock_mobile_release_notes`: 1
 - `rock_model_map`: 12
@@ -157,29 +157,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Connection Opportunity](../../model-map/models/connection-opportunity.md) | Engagement | 19.2.0 | 60 | 24 | 40 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Campus](../../model-map/models/connection-opportunity-campus.md) | Engagement | 19.2.0 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Connector Group](../../model-map/models/connection-opportunity-connector-group.md) | Engagement | 19.2.0 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Group](../../model-map/models/connection-opportunity-group.md) | Engagement | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Opportunity Group Config](../../model-map/models/connection-opportunity-group-config.md) | Engagement | 19.2.0 | 44 | 14 | 29 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request](../../model-map/models/connection-request.md) | Engagement | 19.2.0 | 72 | 29 | 55 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request Activity](../../model-map/models/connection-request-activity.md) | Engagement | 19.2.0 | 45 | 14 | 30 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request Status History](../../model-map/models/connection-request-status-history.md) | Engagement | 19.2.0 | 48 | 17 | 33 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Request Workflow](../../model-map/models/connection-request-workflow.md) | Engagement | 19.2.0 | 44 | 14 | 29 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Status](../../model-map/models/connection-status.md) | Engagement | 19.2.0 | 51 | 22 | 36 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Status Automation](../../model-map/models/connection-status-automation.md) | Engagement | 19.2.0 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Type](../../model-map/models/connection-type.md) | Engagement | 19.2.0 | 69 | 33 | 53 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity](../../model-map/models/connection-opportunity.md) | Engagement | 19.3.4 | 60 | 24 | 40 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Campus](../../model-map/models/connection-opportunity-campus.md) | Engagement | 19.3.4 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Connector Group](../../model-map/models/connection-opportunity-connector-group.md) | Engagement | 19.3.4 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Group](../../model-map/models/connection-opportunity-group.md) | Engagement | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Opportunity Group Config](../../model-map/models/connection-opportunity-group-config.md) | Engagement | 19.3.4 | 44 | 14 | 29 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request](../../model-map/models/connection-request.md) | Engagement | 19.3.4 | 72 | 29 | 55 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request Activity](../../model-map/models/connection-request-activity.md) | Engagement | 19.3.4 | 45 | 14 | 30 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request Status History](../../model-map/models/connection-request-status-history.md) | Engagement | 19.3.4 | 48 | 17 | 33 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Request Workflow](../../model-map/models/connection-request-workflow.md) | Engagement | 19.3.4 | 44 | 14 | 29 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Status](../../model-map/models/connection-status.md) | Engagement | 19.3.4 | 51 | 22 | 36 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Status Automation](../../model-map/models/connection-status-automation.md) | Engagement | 19.3.4 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Type](../../model-map/models/connection-type.md) | Engagement | 19.3.4 | 69 | 33 | 53 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Connection Opportunity.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.ConnectionOpportunityCampuses` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.ConnectionType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Connection Opportunity.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.ConnectionOpportunityCampuses` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.ConnectionType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Connection Opportunity.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -189,6 +189,7 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 18.1 | Connection | Improved the Connection Request Board with updates to campus filtering, connector preferences, and workflow configuration. Added new block settings to define default Connection State and Status filters. Workflows on the Connection Opportunity block can now be reordered using drag-and-drop functionality. Additionally, workflows on this block can be... | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Connection | Fixed an issue with the Connection Opportunity Navigation block where individuals could see Connection Opportunities and Connection Request counts they did not have permission to view. Fixes: #6866 | [source](https://www.rockrms.com/releasenotes) |
 | 17.2 | Connection | Fixed an issue where the Connection Opportunity Signup block only displayed request attributes defined on the opportunity itself, now correctly including attributes inherited from the Connection Type. Fixes: #6356 | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Connection | Fixed the security button on the Connection Type and Connection Opportunity attribute grids so it now opens the security settings. Fixes: #6948 | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Connection | Fixed the placement group dropdown showing no groups in the Connection List Block when a Connection Opportunity's placement group is configured to "Use all Groups of this Type". Fixes: #6867 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Mobile | Fixed an issue in the Connection Request Detail block Edit view where the status displayed as "Connected" even when the Show Connect Button setting was disabled on the Connection Opportunity. | [source](https://www.rockrms.com/releasenotes) |
 | 18.1 | CRM | Added a new "Serving Connection" option to the Record Source feature and updated the Connection Opportunity Signup block to automatically assign this source when new individuals are added through a sign-up. This helps track when individuals first engaged with the organization via a Connection Opportunity. Fixes: #6514 | [source](https://www.rockrms.com/releasenotes) |
@@ -285,10 +286,10 @@ Keywords: `connections board, connections list, board, list`
 | Campaign Connection Requests | rock_documentation | There's nothing special about working with the connection requests. A button at the top of the connections pages allows a person to create more requests from the campaign list for themselves. Pressing this button will activate a modal to ask how many requests the individual would like to create. Note When creating new requests, the person will be assigned first to any current connection requests that do not have a... | [source](https://community.rockrms.com/documentation/engagement/connections/connection-campaigns/campaign-connection-requests) |
 | Set Up Connection Campaigns | rock_documentation | Before diving into the details, let’s take a high-level tour of how a connection campaign works. The diagram pictured below shows the flow of a campaign. 1. **Campaign Settings** - We start by configuring our campaign. This includes defining: 1. The connection opportunity to link to 2. Who should be contacted by the campaign (think [data view](/documentation/church-management/reporting/data-views)). 3. How to assign... | [source](https://community.rockrms.com/documentation/engagement/connections/connection-campaigns/set-up-connection-campaigns) |
 | Connections Helps Prevent Your People from Falling Through the Cracks Transcript Insight | rock_youtube | This official v19 Connections demonstration covers navigation metrics, due-date calculation, list configuration, bulk actions, optional AI summaries and sequential statuses. These are version- and configuration-sensitive behaviors; verify enabled views, prompts, providers, permissions and the installed v19 build. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
-| Connection Opportunities - Pre-v19 Training | rock_rocku | Connection Opportunities - Pre-v19 Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-opportunities) |
-| Connection Request Status Automation Training | rock_rocku | Connection Request Status Automation Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-request-status-automation) |
-| Connection Status Changes Training | rock_rocku | Connection Status Changes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-status-changes) |
-| Connection Types - Pre-v19 Training | rock_rocku | Connection Types - Pre-v19 Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-types) |
+| Connection Opportunities - Pre-v19 | rock_rocku | Connection Opportunities - Pre-v19 Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-opportunities) |
+| Connection Request Status Automation | rock_rocku | Connection Request Status Automation Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-request-status-automation) |
+| Connection Status Changes | rock_rocku | Connection Status Changes Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-status-changes) |
+| Connection Types - Pre-v19 | rock_rocku | Connection Types - Pre-v19 Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-types) |
 
 ### Assignment And Follow-Up
 
@@ -318,13 +319,13 @@ Keywords: `assignment, assigned, follow-up, follow up, connector`
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session gives public-safe guidance for online groups and digital community workflows. It emphasizes that Rock-backed digital ministry can connect group participation, communication, data, and follow-up when teams intentionally design the path from online engagement to pastoral care or in-person connection. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session gives public-safe guidance for using first-time guest and retention measures as a connection strategy input. It emphasizes defining the few metrics that matter, comparing retention patterns over time, and using data to improve follow-up without replacing the relational work of connecting new people to ministry. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session is a strong public-safe source for family preregistration and check-in readiness. It describes using Rock preregistration to capture family information before arrival, prepare for check-in, and design follow-up around new families, while making clear that preregistration should be tested as part of the real family and check-in data flow. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| Connection Request Connector Report with Unavailability Workflow | rock_recipes | 0 Connection Request Connector Report with Unavailability Workflow Shared by Christine Ronk , Trinity Fellowship Church one year ago 15.0 Connection, Operations, Reporting Intermediate Description : This short workflow and report help us to better manage assigning Connectors to Connection Requests. For the following process, our primary focus is on our “New Connections” connection type which we catch brand new... | [source](https://community.rockrms.com/recipes/446) |
+| Connection Request Connector Report with Unavailability Workflow | rock_recipes | 0 Connection Request Connector Report with Unavailability Workflow Shared by Christine Ronk , Trinity Fellowship Church 2 years ago 15.0 Connection, Operations, Reporting Intermediate Description : This short workflow and report help us to better manage assigning Connectors to Connection Requests. For the following process, our primary focus is on our “New Connections” connection type which we catch brand new people... | [source](https://community.rockrms.com/recipes/446) |
 
 
 ## Source Lifecycle
 
 - Official article records routed here: `21`
-- Upstream check range: `2026-08-12T06:18:40+00:00` through `2026-08-12T06:18:41+00:00`
+- Upstream check range: `2026-09-09T21:16:13+00:00` through `2026-09-09T21:16:14+00:00`
 - Source-native typed articles: `0` of `21`
 - Legacy source summaries retired: `0`; still active: `21`
 - Migration status: `not_started`
@@ -333,7 +334,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 
 ## Rebuild Dependencies
 
-- Source records: `87`
+- Source records: `88`
 - Approved claims: `19`
 - Dependency file: `agent/concept-dependencies.jsonl`
 

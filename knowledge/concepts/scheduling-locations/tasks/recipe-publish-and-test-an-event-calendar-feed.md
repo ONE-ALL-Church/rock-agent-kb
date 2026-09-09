@@ -55,7 +55,7 @@ The intended Rock calendar is available through a bounded iCalendar feed.
 ## Source Links
 
 - https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule
-- https://www.youtube.com/watch?v=edanHiYSDIM
+- https://community.rockrms.com/documentation/church-management/event-calendar/calendars
 - https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types
 - https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox
 - https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations
@@ -64,6 +64,6 @@ The intended Rock calendar is available through a bounded iCalendar feed.
 - https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
-- https://community.rockrms.com/documentation/engagement/groups/group-schedules
 - https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule
+- https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox
 - https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20

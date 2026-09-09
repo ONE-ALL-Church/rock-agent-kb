@@ -51,7 +51,7 @@ A standardized detail block with an explicit write boundary.
 - https://community.rockrms.com/developer/obsidian/grids
 - https://community.rockrms.com/developer/obsidian/blocks
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/CheckIn/CheckInScheduleBuilder.cs
 - https://community.rockrms.com/developer/obsidian/browser-bus
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian.Blocks/src/Security/AccountEntry/utils.partial.ts
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian.Blocks/src/Security/LoginHistory/types.partial.ts

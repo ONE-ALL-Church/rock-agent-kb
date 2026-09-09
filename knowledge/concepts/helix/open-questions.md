@@ -14,11 +14,11 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard`: Recipe: Validate a rendered Helix dashboard
 - `source-map-community-examples`: Community examples
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `htmx`: HTMX
 - `lava-applications`: Lava Applications
@@ -45,6 +45,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-build-a-validated-mutation-form`: Recipe: Build a validated mutation form
 - `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard`: Recipe: Validate a rendered Helix dashboard
 - `agent-task-recipes-recipe-decide-whether-to-replace-a-lava-application`: Recipe: Decide whether to replace a Lava Application
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

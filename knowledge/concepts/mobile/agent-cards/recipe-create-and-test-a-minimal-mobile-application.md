@@ -45,15 +45,15 @@ A deployed application opens in the Rock Mobile Core test shell.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
+- https://community.rockrms.com/developer/mobile-docs
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/engagement
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
-- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs

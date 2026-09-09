@@ -48,15 +48,15 @@ Use the attendance data model correctly so reports match check-in behavior.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry
-- https://community.rockrms.com/documentation/church-management/check-in/attendance/use-attendance-analytics
-- https://community.rockrms.com/documentation/church-management/check-in/attendance/attendance-self-entry
-- https://community.rockrms.com/documentation/church-management/check-in/additional-check-in-options/use-proximity-attendance
 - https://community.rockrms.com/documentation/church-management/check-in/attendance
+- https://community.rockrms.com/documentation/church-management/check-in/additional-check-in-options/use-proximity-attendance
 - https://community.rockrms.com/recipes/461
 - https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile
 - https://community.rockrms.com/documentation/church-management/check-in/labels/use-the-label-designer
 - https://community.rockrms.com/documentation/church-management/check-in/labels/link-labels-to-check-in
-- https://community.rockrms.com/rocku/check-in/attendance-analytics
-- https://community.rockrms.com/rocku/check-in/rapid-attendance-entry
-- https://community.rockrms.com/rocku/check-in/attendance-self-entry
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
+- https://community.rockrms.com/developer/mobile-docs/essentials/advanced-topics/proximity-attendance
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.4/202204271322510_UpdateAttendanceAnalyticsQuerySP_spCheckin_AttendanceAnalyticsQuery_Attendees.sql
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/104_MigrationRollupsFor10_3_0_spCheckin_AttendanceAnalyticsQuery_NonAttendees.sql
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.4/202204271322510_UpdateAttendanceAnalyticsQuerySP_spCheckin_AttendanceAnalyticsQuery_NonAttendees.sql
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/104_MigrationRollupsFor10_3_0_spCheckin_AttendanceAnalyticsQuery_AttendeeLastAttendance.sql

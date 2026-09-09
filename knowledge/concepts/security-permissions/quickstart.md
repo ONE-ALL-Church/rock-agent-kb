@@ -28,15 +28,16 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 18-34: 1. Executive Summary For Agents (normal)
-- `scope-and-boundaries` lines 35-58: Scope And Boundaries (normal)
-- `3-security-and-permissions-mental-model-the-object-layer` lines 65-68: The Object Layer (normal)
-- `3-security-and-permissions-mental-model-the-action-layer` lines 69-84: The Action Layer (high)
-- `authorization-and-security-roles` lines 85-92: Authorization And Security Roles (normal)
-- `authorization-and-security-roles-permission-evaluation` lines 93-106: Permission evaluation (normal)
+- `1-executive-summary-for-agents` lines 34-50: 1. Executive Summary For Agents (normal)
+- `scope-and-boundaries` lines 51-74: Scope And Boundaries (normal)
+- `3-security-and-permissions-mental-model-the-object-layer` lines 81-84: The Object Layer (normal)
+- `3-security-and-permissions-mental-model-the-action-layer` lines 85-100: The Action Layer (high)
+- `authorization-and-security-roles` lines 101-108: Authorization And Security Roles (normal)
+- `authorization-and-security-roles-permission-evaluation` lines 109-122: Permission evaluation (normal)
 
 ## Core Entities
 
+- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the security-permissions guide.
 - `Block`: Rock concept/entity referenced by the security-permissions guide.
 - `Campus`: Rock concept/entity referenced by the security-permissions guide.
@@ -48,7 +49,6 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the security-permissions guide.
 - `Person`: Rock concept/entity referenced by the security-permissions guide.
-- `Step`: Person-specific engagement milestone instance.
 
 ## Version Caveats
 

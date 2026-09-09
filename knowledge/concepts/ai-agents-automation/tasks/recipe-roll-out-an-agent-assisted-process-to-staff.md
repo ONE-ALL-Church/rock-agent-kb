@@ -41,12 +41,12 @@ Staff understand the approved use case, review boundary and authoritative Rock w
 
 ## Source Links
 
-- https://www.youtube.com/watch?v=bu5nPeAVCAo
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs
+- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflow.cs
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
-- https://www.youtube.com/watch?v=dpYJiOAiJYM
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.GetWorkflowAvailableAttributes.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowBuilderSkill.GetWorkflowActionTypeAvailableAttributes.cs
+- https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s
+- https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s
 - https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s
+- https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2042s
+- https://www.youtube.com/watch?v=bu5nPeAVCAo&t=713s
+- https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1714s

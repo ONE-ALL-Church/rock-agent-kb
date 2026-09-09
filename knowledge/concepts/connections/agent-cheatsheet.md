@@ -21,9 +21,11 @@ generated: true
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
+| `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Check-in Configuration` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
@@ -45,6 +47,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | needs-citation | needs-citation |
 | `mental-model` | normal | live verification |
@@ -76,3 +79,5 @@ generated: true
 | `agent-task-recipes-recipe-validate-status-automation` | needs-citation | live verification |
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
 | `source-map-community-reviewed-guidance-and-examples` | community-supported | live verification |
+| `approved-claim-coverage` | community-supported | live verification |
+| `approved-media-coverage` | community-supported | community-supported |

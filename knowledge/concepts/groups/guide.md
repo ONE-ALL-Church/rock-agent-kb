@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "8ef211df4b8494486595d36da8996ab3f3b4e3abedf73b185a7
 
 # Groups
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Groups index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Groups are Rock’s configurable structure for organizing people, leadership, attendance, locations, schedules, security, and operational automation. Begin every group task by identifying the group type, hierarchy position, member role, membership status, and the relevant security scope. Those settings determine which children a group may contain, what attributes and roles are available, whether it appears in Group Finder, how attendance operates, and who may manage it. [Rock v19 Groups documentation](https://community.rockrms.com/documentation/engagement/groups)
@@ -249,6 +265,8 @@ For analytics, community-reviewed claims support calculating expensive engagemen
 When embedding Power BI or a similar report in Rock, pair Rock page and block authorization with external licensing checks. Rock-side authorization alone does not prove that the viewer is licensed by the external provider. [Community BI example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) (`claim:60d40983fd53c0173dd9`)
 
 ## Version And Authority Caveats
+
+Check the [official Rock release notes](https://www.rockrms.com/releasenotes) for the installed patch version before diagnosing a group or attendance behavior as a configuration problem. Match the affected block and version to the documented change.
 
 Most official documentation in this evidence pack is scoped to Rock v19.0. Verify behavior after upgrades, especially block settings, jobs, workflow triggers, authentication, and Obsidian replacements. [Rock v19 Groups documentation](https://community.rockrms.com/documentation/engagement/groups)
 
@@ -659,3 +677,32 @@ The pack supplies no reviewed live result for any reader’s target installation
 - [Bulk Group Member Mover](https://community.rockrms.com/recipes/519): draft, non-endorsed community recipe.
 - [Triumph Guided Group Finder](https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix): vendor example of a customized finder.
 - [Rock Model Map](https://community.rockrms.com/ModelMap), [RockU Workflows](https://community.rockrms.com/rocku/workflows), and [Helix Content Blocks](https://community.rockrms.com/developer/helix/lava-applications/content-block): public sources referenced by reviewed community patterns that still require target-instance verification.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `19`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Archiving a group removes it from normal group-viewer surfaces without deleting it and allows restoration later from the Archived Groups administration page. | [source](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) |
+| More |  | 18 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `1`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Group Type Inheritance Transcript Insight](https://community.rockrms.com/rocku/groups/group-type-inheritance) | approved_for_public_distillation | 3 | media-insight:b9e4c6fc0514f0e1 |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

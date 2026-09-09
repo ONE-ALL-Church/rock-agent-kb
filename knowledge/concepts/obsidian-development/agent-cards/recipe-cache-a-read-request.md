@@ -39,4 +39,4 @@ Concurrent callers share one in-flight request and reuse its result for a bounde
 
 ## Source Links
 
-- https://community.rockrms.com/developer/obsidian
+- https://community.rockrms.com/developer/obsidian/caching-api-calls

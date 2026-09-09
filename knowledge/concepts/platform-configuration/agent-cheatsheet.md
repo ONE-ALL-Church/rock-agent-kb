@@ -45,11 +45,13 @@ generated: true
 | --- | --- | --- |
 | `19.1` | core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 |
 | `17.2` | core | Fixed an issue where the list of attribute categories shown when editing a Content Channel Item attribute from the Content Channel Type Detail block included incorrect or unrelated categories. This made it difficult to assign attributes to  |
+| `18.2` | core | Fixed an issue where the Attribute Editor did not correctly save configuration changes when creating an Attribute designed to store other Attributes (e.g., an Attribute of type Attribute). This affected scenarios such as defining filters in |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `attributes-and-attribute-values-separate-the-definition-from-stored-values` | normal | live verification |
 | `attributes-and-attribute-values-present-attributes-intentionally` | normal | live verification |
@@ -61,7 +63,7 @@ generated: true
 | `campuses-and-global-settings-campus-attributes` | normal | live verification |
 | `campuses-and-global-settings-room-capacity-and-schedule-availability` | citation-only | live verification |
 | `campuses-and-global-settings-global-attributes-and-system-settings` | normal | live verification |
-| `analytics-and-reporting-configuration` | community-supported | live verification |
+| `analytics-and-reporting-configuration` | citation-only | live verification |
 | `ai-agents-lava-tools-and-extensions` | normal | live verification |
 | `cross-domain-version-19-configuration-captcha` | citation-only | live verification |
 | `cross-domain-version-19-configuration-check-in` | citation-only | live verification |
@@ -75,8 +77,7 @@ generated: true
 | `troubleshooting-decision-tree-a-campus-selector-is-absent-or-chooses-a-campus-automatically` | normal | live verification |
 | `troubleshooting-decision-tree-a-campus-cannot-use-the-intended-location` | normal | live verification |
 | `troubleshooting-decision-tree-check-in-room-capacity-or-availability-is-wrong` | citation-only | live verification |
-| `troubleshooting-decision-tree-a-dashboard-is-slow` | community-supported | community-supported |
-| `troubleshooting-decision-tree-an-embedded-bi-report-is-inaccessible-or-overexposed` | community-supported | live verification |
+| `troubleshooting-decision-tree-an-embedded-bi-report-is-inaccessible-or-overexposed` | citation-only | live verification |
 | `troubleshooting-decision-tree-the-v19-check-in-manager-roster-does-not-update-live` | citation-only | live verification |
 | `troubleshooting-decision-tree-a-v19-registration-rejects-an-apparently-eligible-person` | citation-only | live verification |
 | `troubleshooting-decision-tree-an-agent-chooses-the-wrong-tool-or-returns-too-much-data` | citation-only | live verification |
@@ -85,10 +86,9 @@ generated: true
 | `agent-task-recipes-recipe-audit-a-defined-value-source-mismatch` | citation-only | live verification |
 | `agent-task-recipes-recipe-operate-seasonal-defined-value-options` | citation-only | live verification |
 | `agent-task-recipes-recipe-stage-a-campus` | normal | live verification |
-| `agent-task-recipes-recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage` | community-supported | live verification |
-| `agent-task-recipes-recipe-secure-an-embedded-bi-report` | community-supported | live verification |
+| `agent-task-recipes-recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage` | citation-only | live verification |
+| `agent-task-recipes-recipe-secure-an-embedded-bi-report` | citation-only | live verification |
 | `agent-task-recipes-recipe-preflight-a-v19-configuration-change` | citation-only | live verification |
 | `agent-task-recipes-recipe-design-a-bounded-rock-agent-tool` | citation-only | live verification |
 | `agent-task-recipes-recipe-plan-a-rock-upgrade-as-configuration-change` | citation-only | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
-| `source-map-reviewed-community-evidence` | community-supported | community-supported |

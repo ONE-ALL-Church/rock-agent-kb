@@ -2,12 +2,12 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:38:10+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:16+00:00
+source_last_checked_at: 2026-09-09T21:15:44+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/32
 legacy_summary_retirement_coverage: 0/32
@@ -231,35 +231,35 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Calculate Metrics | rock_documentation | Metric values can be added using the methods described [in this article](/documentation/church-management/reporting/metrics/add-metrics-values). However, metrics that use a *Source Type* of SQL, Data View or Lava can be automatically calculated based on a schedule you provide when editing or creating the metric. The calculations are performed when the *Calculate Metrics* job is run. As pictured below, this job runs... | [source](https://community.rockrms.com/documentation/church-management/reporting/metrics/calculate-metrics) |
 | Intro to BI | rock_documentation | Business Intelligence is a buzz word for tools that allow you to quickly analyze data and present actionable information to leaders. In large organizations, these tools usually are separate from the normal day-to-day systems, but in Rock we’ve simplified the process and built the tools right in. # Why You Need Rock's BI Tools With all of the reporting tools in Rock, why do I even need the BI capabilities? That’s a... | [source](https://community.rockrms.com/documentation/church-management/reporting/power-bi/intro-to-bi) |
 | Use Lava in Reports | rock_documentation | You'll notice that one of your field options is [Lava](https://community.rockrms.com/Lava). Lava is a templating engine that allows you to customize the way data is presented. With this field type you can mix and match data in lots of different ways. Warning **One Caveat**Every field you would like to use in your Lava must be included in your report. For instance, if you want to use the *First Visit* date in your... | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/use-lava-in-reports) |
-| Dynamic Data Block | rock_documentation | Most of your reporting needs can be met using Data Views and Reports. However, if you have unique requirements that can't be addressed with these tools—or if you want a more customized experience—the Dynamic Data Block provides a flexible solution. You should be able to use data views and reports to meet most of your reporting requirements. If you have a special requirement that can’t be met, or you prefer a... | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-data-block) |
+| BI Attendance Report Transcript Insight | rock_rocku | BI Attendance Report is approved as a public-safe RockU training distillation for reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.2.0 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Financial Account](../../model-map/models/analytics-dim-financial-account.md) | Reporting | 19.2.0 | 37 | 25 | 30 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Financial Batch](../../model-map/models/analytics-dim-financial-batch.md) | Reporting | 19.2.0 | 26 | 14 | 18 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.2.0 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Fact Financial Transaction](../../model-map/models/analytics-fact-financial-transaction.md) | Reporting | 19.2.0 | 63 | 48 | 56 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.2.0 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.2.0 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.3.4 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.3.4 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.3.4 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.3.4 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Financial Account](../../model-map/models/analytics-dim-financial-account.md) | Reporting | 19.3.4 | 37 | 25 | 30 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Financial Batch](../../model-map/models/analytics-dim-financial-batch.md) | Reporting | 19.3.4 | 26 | 14 | 18 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.3.4 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.3.4 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.3.4 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Fact Financial Transaction](../../model-map/models/analytics-fact-financial-transaction.md) | Reporting | 19.3.4 | 63 | 48 | 56 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.3.4 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.3.4 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Analytics Dim Campus.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.TypeName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Campus.UrlEncodedKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Family Current.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Family Current.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Analytics Dim Family Current.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.TypeName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Campus.UrlEncodedKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Family Current.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Family Current.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Analytics Dim Family Current.TypeId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Repository Landmarks
 
@@ -293,8 +293,8 @@ Keywords: `data view, filter`
 | Dynamic Report Block | rock_documentation | As you create reports you may find that you need to duplicate Data Views and Reports to solve similar problems. For instance, your organization may want a list of people who have a background check that's expired or about to expire. Let's say the report will be used at each of your campuses. You might be tempted to create a data view and report for each campus, but there is an easier way. Rock provides a block... | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block) |
 | Persist Data Views in Reports | rock_documentation | As you'd expect from our earlier discussion, if your report is based on a persisted Data View, the report should display much more quickly than if the Data View wasn't persisted. That's because it's not having to figure out which rows to display- that's already been calculated, so it'll just use that list. And if your report is based on a persisted Data View that also references *other* Data Views, it doesn't... | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/persist-data-views-in-reports) |
 | Calculate Metrics | rock_documentation | Metric values can be added using the methods described [in this article](/documentation/church-management/reporting/metrics/add-metrics-values). However, metrics that use a *Source Type* of SQL, Data View or Lava can be automatically calculated based on a schedule you provide when editing or creating the metric. The calculations are performed when the *Calculate Metrics* job is run. As pictured below, this job runs... | [source](https://community.rockrms.com/documentation/church-management/reporting/metrics/calculate-metrics) |
-| Dynamic Data Block | rock_documentation | Most of your reporting needs can be met using Data Views and Reports. However, if you have unique requirements that can't be addressed with these tools—or if you want a more customized experience—the Dynamic Data Block provides a flexible solution. You should be able to use data views and reports to meet most of your reporting requirements. If you have a special requirement that can’t be met, or you prefer a... | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-data-block) |
 | Reporting | rock_documentation | SECTIONS [Overview](?Version=v19.0#overview) [Data Views](?Version=v19.0#data-views) [Reports](?Version=v19.0#reports) [Metrics](?Version=v19.0#metrics) ### Overview Articles [Intro to Reporting](/documentation/church-management/reporting/overview/intro-to-reporting?Version=v19.0) ### Data Views Articles [Intro to Data Views](/documentation/church-management/reporting/data-views/intro-to-data-views?Version=v19.0)... | [source](https://community.rockrms.com/documentation/church-management/reporting) |
+| Dynamic Data Block | rock_documentation | Most of your reporting needs can be met using Data Views and Reports. However, if you have unique requirements that can't be addressed with these tools—or if you want a more customized experience—the Dynamic Data Block provides a flexible solution. When you add a Dynamic Data block to a page (see [Adding Blocks](/documentation/digital-publishing/websites/manage-pages/add-blocks-pages) for more details on adding... | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-data-block) |
 | Media Watch Transcript Insight | rock_community_hubs | This Data Analytics Hub panel gives a practical decision frame for Rock-native reporting versus external BI tools. The panel favors starting with Rock metrics, Data Views, Lava, Dynamic Data, and embedded pages for operational or person-actionable workflows, while using BI tools for complex joins, third-party sources, leadership KPIs, and broader analytical exploration. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) |
 | Add a Data View | rock_documentation | Let's start by looking at a couple of the Data Views that come out-of-the-box. Data Views are configured under `Tools > Data Views`. Below is a figure of the default list of data views. Over time you'll collect plenty of data views. To help you organize them we allow you to create a hierarchical directory of categories. The use of categories again becomes a part of your reporting strategy. What good is a reusable... | [source](https://community.rockrms.com/documentation/church-management/reporting/data-views/add-a-data-view) |
 | Intro to Metrics | rock_documentation | > "What’s measured improves." -Peter Drucker Using metrics can help provide your organization with a framework for improvement by tracking key performance indicators. Metrics describe what’s going on under the hood of your organization. Rock includes a full set of features for tracking and displaying metrics. First let's walk through how we define metrics and then we'll look briefly at how we can present metrics in... | [source](https://community.rockrms.com/documentation/church-management/reporting/metrics/intro-to-metrics) |
@@ -389,7 +389,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `32`
-- Upstream check range: `2026-08-12T06:18:15+00:00` through `2026-08-12T06:18:16+00:00`
+- Upstream check range: `2026-09-09T21:15:41+00:00` through `2026-09-09T21:15:44+00:00`
 - Source-native typed articles: `0` of `32`
 - Legacy source summaries retired: `0`; still active: `32`
 - Migration status: `not_started`

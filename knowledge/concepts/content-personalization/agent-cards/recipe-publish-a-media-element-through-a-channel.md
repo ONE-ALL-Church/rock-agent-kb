@@ -44,7 +44,7 @@ A media item appears through normal content tools with the intended player behav
 
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/self-update-content-channel-items
 - https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/publishing-media
-- https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.Designer.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.cs
+- https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/use-with-content-channel-items
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202501171949509_FixAdaptiveMessagesAttributeKey.Designer.cs

@@ -21,6 +21,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `scope-and-boundaries`: Scope And Boundaries
 - `locations-address-and-geographic-integrity`: Address And Geographic Integrity
 - `group-and-volunteer-scheduling-confirmation-and-reminder-delivery`: Confirmation And Reminder Delivery
@@ -41,6 +42,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-publish-and-test-an-event-calendar-feed`: Recipe: Publish And Test An Event Calendar Feed
 - `agent-task-recipes-recipe-evaluate-reservation-to-calendar-synchronization`: Recipe: Evaluate Reservation-To-Calendar Synchronization
 - `agent-task-recipes-recipe-audit-a-v19-date-based-schedule-query`: Recipe: Audit A V19 Date-Based Schedule Query
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

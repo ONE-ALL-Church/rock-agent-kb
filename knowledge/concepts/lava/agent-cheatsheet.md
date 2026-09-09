@@ -39,21 +39,23 @@ generated: true
 
 | Version | Channel | Summary |
 | --- | --- | --- |
+| `19.1` | core | Added a new Shortcode Scope Behavior property to the Lava Shortcode Entity. This setting allows Rock administrators to choose whether variables defined inside a shortcode should be isolated from or shared with the surrounding Lava. This hel |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | needs-citation | needs-citation |
 | `core-syntax-and-engine` | normal | live verification |
 | `core-syntax-and-engine-fluid-and-dotliquid` | normal | live verification |
-| `filters-text-and-output-encoding` | community-supported | live verification |
+| `filters-text-and-output-encoding` | normal | live verification |
 | `filters-dates-and-time-zones` | normal | live verification |
-| `filters-where-and-short-link-caveats` | community-supported | live verification |
-| `commands` | community-supported | live verification |
+| `filters-where-and-short-link-caveats` | normal | live verification |
+| `commands` | normal | live verification |
 | `commands-entity-retrieval` | normal | live verification |
-| `commands-workflow-activation` | community-supported | live verification |
+| `commands-workflow-activation` | normal | live verification |
 | `shortcodes` | high | live verification |
 | `execution-contexts-and-output-contracts-advanced-html-and-communications` | normal | live verification |
 | `execution-contexts-and-output-contracts-rock-mobile` | normal | live verification |
@@ -61,26 +63,29 @@ generated: true
 | `remote-lava-and-apis` | normal | live verification |
 | `helix-and-lava-applications` | normal | live verification |
 | `workflows-and-lava` | normal | live verification |
-| `reporting-and-persisted-results` | community-supported | community-supported |
 | `lava-backed-ai-tools` | citation-only | live verification |
+| `version-and-authority-caveats` | normal | live verification |
 | `troubleshooting-decision-tree-lava-renders-blank-or-a-merge-field-is-missing` | normal | live verification |
 | `troubleshooting-decision-tree-a-parser-error-points-at-an-innocent-looking-line` | normal | live verification |
-| `troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration` | community-supported | live verification |
+| `troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration` | normal | live verification |
 | `troubleshooting-decision-tree-a-modify-command-appears-to-succeed-but-data-is-unchanged` | normal | live verification |
 | `troubleshooting-decision-tree-a-later-write-fails-with-an-earlier-validation-error` | normal | live verification |
-| `troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing` | community-supported | live verification |
+| `troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing` | normal | live verification |
 | `troubleshooting-decision-tree-a-shortcode-displays-as-raw-text` | normal | live verification |
-| `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience` | community-supported | live verification |
+| `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience` | normal | live verification |
 | `troubleshooting-decision-tree-an-htmx-fragment-loses-scripts-styles-or-ui-state` | normal | live verification |
 | `troubleshooting-decision-tree-rock-mobile-content-is-stale-anonymous-or-invalid-xaml` | normal | live verification |
 | `troubleshooting-decision-tree-a-remote-lava-route-exposes-more-than-intended` | normal | live verification |
-| `agent-task-recipes-recipe-review-an-existing-lava-surface-safely` | community-supported | live verification |
+| `agent-task-recipes-recipe-review-an-existing-lava-surface-safely` | normal | live verification |
 | `agent-task-recipes-recipe-build-a-bounded-read-only-entity-view` | normal | live verification |
 | `agent-task-recipes-recipe-preflight-a-workflow-activation` | normal | live verification |
 | `agent-task-recipes-recipe-publish-a-reusable-shortcode` | normal | live verification |
 | `agent-task-recipes-recipe-build-a-read-only-helix-active-search-page` | normal | live verification |
 | `agent-task-recipes-recipe-validate-a-rock-mobile-lava-block` | normal | live verification |
 | `agent-task-recipes-recipe-design-a-lava-backed-ai-tool` | citation-only | live verification |
-| `known-gaps-and-live-verification` | community-supported | live verification |
+| `known-gaps-and-live-verification` | normal | live verification |
+| `source-map-official-training-and-release-context` | community-supported | community-supported |
 | `source-map-immutable-implementation-evidence` | normal | live verification |
 | `source-map-reviewed-community-patterns` | community-supported | community-supported |
+| `approved-claim-coverage` | normal | live verification |
+| `approved-media-coverage` | community-supported | community-supported |

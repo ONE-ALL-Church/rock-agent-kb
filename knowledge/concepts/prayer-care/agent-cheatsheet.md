@@ -40,15 +40,18 @@ generated: true
 | Version | Channel | Summary |
 | --- | --- | --- |
 | `17.0` | core | Fixed an issue where Prayer Request Attributes not marked as "Public" were incorrectly displaying in the Obsidian version of the Prayer Request Entry block. These Attributes are now properly hidden on the Prayer Request Entry block. Fixes:  |
-| `19.3` | core | Fixed the Prayer Comment List block: custom grid columns can now access the prayer request and requester via the Row Lava merge field, the From-column and date-range filters work, and several performance and dead-code issues were resolved.  |
 | `19.1` | core | Improved the Prayer Request List block to display prayer request text at a wider width for better readability. Fixes: #6824 |
 | `17.5` | core | Fixed an issue where approving a Prayer Request in the Obsidian Prayer Request Detail block did not update the ApprovedOnDateTime and ApprovedByPersonAliasId fields. Fixes: #6403 |
 | `17.2` | core | Fixed an issue where the Prayer Request Detail block in Obsidian did not recognize the PersonId URL parameter, which prevented person data from being pre-filled when creating a new prayer request. Fixes: #6357 |
+| `17.0` | core | Added support for editing custom attributes within the Mobile Prayer Request block. This enhancement allows individuals to update custom attributes when submitting or managing prayer requests from a mobile device. Be aware that Rock Mobile  |
+| `18.3` | core | Added a Campus Type filter to the campus picker on the Prayer Request Detail block. This allows individuals to narrow the list of selectable campuses when adding a new prayer request. |
+| `17.0` | core | Added a new feature to Prayer which will optionally run several pre-configured AI completions on saved prayer requests. If you plan on using this feature, read the Tech Bulletin item on this topic. |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `prayer-request-intake-and-lifecycle` | high | live verification |
 | `categories-visibility-and-page-security` | high | live verification |
 | `teams-approval-and-human-moderation` | normal | live verification |

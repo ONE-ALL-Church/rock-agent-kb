@@ -30,12 +30,12 @@ Group types, group members, attendance, group finder, small groups, serving team
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-30: Agent Summary (normal)
-- `scope-and-boundaries` lines 31-45: Scope And Boundaries (normal)
-- `mental-model` lines 46-57: Mental Model (high)
-- `group-types-and-hierarchies` lines 58-79: Group Types And Hierarchies (normal)
-- `creating-editing-inactivating-and-archiving-groups` lines 80-96: Creating, Editing, Inactivating, And Archiving Groups (normal)
-- `members-roles-statuses-and-attributes` lines 97-127: Members, Roles, Statuses, And Attributes (normal)
+- `agent-summary` lines 34-46: Agent Summary (normal)
+- `scope-and-boundaries` lines 47-61: Scope And Boundaries (normal)
+- `mental-model` lines 62-73: Mental Model (high)
+- `group-types-and-hierarchies` lines 74-95: Group Types And Hierarchies (normal)
+- `creating-editing-inactivating-and-archiving-groups` lines 96-112: Creating, Editing, Inactivating, And Archiving Groups (normal)
+- `members-roles-statuses-and-attributes` lines 113-143: Members, Roles, Statuses, And Attributes (normal)
 
 ## Core Entities
 
@@ -54,6 +54,7 @@ Group types, group members, attendance, group finder, small groups, serving team
 
 ## Version Caveats
 
+- `18.3`: Fixed an issue where the Attendance Analytics block incorrectly included groups whose Group Type was listed as an "Allowed Child Group Type" of a selected Group Type, even though it was not explicitly selected in the blo
 
 ## Files For Agents
 

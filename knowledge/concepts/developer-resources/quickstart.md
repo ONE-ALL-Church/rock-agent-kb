@@ -31,12 +31,12 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-30: Agent Summary (normal)
-- `mental-model` lines 50-61: Mental Model (normal)
-- `learning-path-quickstart-101-202-and-303` lines 62-74: Learning Path: Quickstart, 101, 202, And 303 (normal)
-- `learning-path-quickstart-101-202-and-303-rest-authorization-in-303` lines 75-80: REST authorization in 303 (normal)
-- `developer-codex-naming-and-compatibility` lines 85-90: Naming and compatibility (normal)
-- `developer-codex-model-changes-and-generated-artifacts` lines 91-103: Model changes and generated artifacts (normal)
+- `agent-summary` lines 34-46: Agent Summary (normal)
+- `mental-model` lines 66-77: Mental Model (normal)
+- `learning-path-quickstart-101-202-and-303` lines 78-90: Learning Path: Quickstart, 101, 202, And 303 (normal)
+- `learning-path-quickstart-101-202-and-303-rest-authorization-in-303` lines 91-96: REST authorization in 303 (normal)
+- `developer-codex-naming-and-compatibility` lines 101-106: Naming and compatibility (normal)
+- `developer-codex-model-changes-and-generated-artifacts` lines 107-119: Model changes and generated artifacts (normal)
 
 ## Core Entities
 

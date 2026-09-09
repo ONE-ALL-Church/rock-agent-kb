@@ -2,12 +2,12 @@
 id: concept-learning-lms-engagement
 title: Learning, LMS, And Engagement
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:38:01+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 38
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:48+00:00
+source_last_checked_at: 2026-09-09T21:16:23+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/32
 legacy_summary_retirement_coverage: 0/32
@@ -41,7 +41,7 @@ Learning programs, LMS courses, lessons, requirements, completion tracking, enga
 ## How To Think About This Area
 
 - `Learning, LMS, And Engagement` spans people, groups, communications, workflows, event-registration, data-views. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_rocku, rock_model_map, rock_recipes, rock_core_release_notes, rock_qa.
+- The strongest source families in this build are: rock_documentation, rock_recipes, rock_rocku, rock_model_map, rock_core_release_notes, rock_qa.
 - Related tags found in source records: operations, usage, admin, workflow, development, lava, security, releases.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
@@ -96,29 +96,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Learning Class Activity Completion](../../model-map/models/learning-class-activity-completion.md) | LMS | 19.2.0 | 65 | 32 | 42 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Course Requirement](../../model-map/models/learning-course-requirement.md) | LMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Class](../../model-map/models/learning-class.md) | LMS | 19.2.0 | 126 | 64 | 99 | 35 | 5 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Class Activity](../../model-map/models/learning-class-activity.md) | LMS | 19.2.0 | 62 | 31 | 40 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Class Announcement](../../model-map/models/learning-class-announcement.md) | LMS | 19.2.0 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Class Content Page](../../model-map/models/learning-class-content-page.md) | LMS | 19.2.0 | 41 | 13 | 26 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Course](../../model-map/models/learning-course.md) | LMS | 19.2.0 | 58 | 25 | 40 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Program Completion](../../model-map/models/learning-program-completion.md) | LMS | 19.2.0 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Achievement Attempt](../../model-map/models/achievement-attempt.md) | Engagement | 19.2.0 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Achievement Type](../../model-map/models/achievement-type.md) | Engagement | 19.2.0 | 72 | 33 | 56 | 24 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Achievement Type Prerequisite](../../model-map/models/achievement-type-prerequisite.md) | Engagement | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Learning Activity](../../model-map/models/learning-activity.md) | LMS | 19.2.0 | 43 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Class Activity Completion](../../model-map/models/learning-class-activity-completion.md) | LMS | 19.3.4 | 65 | 32 | 42 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Course Requirement](../../model-map/models/learning-course-requirement.md) | LMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Class](../../model-map/models/learning-class.md) | LMS | 19.3.4 | 126 | 64 | 99 | 35 | 6 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Class Activity](../../model-map/models/learning-class-activity.md) | LMS | 19.3.4 | 62 | 31 | 40 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Class Announcement](../../model-map/models/learning-class-announcement.md) | LMS | 19.3.4 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Class Content Page](../../model-map/models/learning-class-content-page.md) | LMS | 19.3.4 | 41 | 13 | 26 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Course](../../model-map/models/learning-course.md) | LMS | 19.3.4 | 58 | 25 | 40 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Program Completion](../../model-map/models/learning-program-completion.md) | LMS | 19.3.4 | 47 | 17 | 32 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Achievement Attempt](../../model-map/models/achievement-attempt.md) | Engagement | 19.3.4 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Achievement Type](../../model-map/models/achievement-type.md) | Engagement | 19.3.4 | 72 | 33 | 56 | 24 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Achievement Type Prerequisite](../../model-map/models/achievement-type-prerequisite.md) | Engagement | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Learning Activity](../../model-map/models/learning-activity.md) | LMS | 19.3.4 | 43 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Achievement Attempt.AchievementType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Achievement Attempt.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.AchievementType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Achievement Attempt.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -207,7 +207,7 @@ Keywords: `report, reporting, dashboard, administration, configuration, lms`
 ## Source Lifecycle
 
 - Official article records routed here: `32`
-- Upstream check range: `2026-08-12T06:18:46+00:00` through `2026-08-12T06:18:48+00:00`
+- Upstream check range: `2026-09-09T21:16:21+00:00` through `2026-09-09T21:16:23+00:00`
 - Source-native typed articles: `0` of `32`
 - Legacy source summaries retired: `0`; still active: `32`
 - Migration status: `not_started`

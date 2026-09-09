@@ -42,12 +42,15 @@ A person Data View identifies people with a specified supported assessment resul
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment
-- https://community.rockrms.com/documentation/engagement/assessments/available-assessments
+- https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment
 - https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types
-- https://community.rockrms.com/documentation/engagement/assessments
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals
 - https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments
-- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile
+- https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group

@@ -26,12 +26,12 @@ Learning programs, LMS courses, lessons, requirements, completion tracking, enga
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-36: Agent Summary (normal)
-- `mental-model` lines 54-67: Mental Model (normal)
-- `courses-and-lessons-choose-the-program-mode-first` lines 70-77: Choose the program mode first (normal)
-- `courses-and-lessons-build-the-hierarchy-in-configuration-order` lines 78-94: Build the hierarchy in configuration order (normal)
-- `courses-and-lessons-revise-a-class-without-disrupting-the-current-one` lines 95-100: Revise a class without disrupting the current one (normal)
-- `activity-design-and-staff-responsibilities-content-article` lines 111-116: Content article (high)
+- `agent-summary` lines 34-52: Agent Summary (normal)
+- `mental-model` lines 70-83: Mental Model (normal)
+- `courses-and-lessons-choose-the-program-mode-first` lines 86-93: Choose the program mode first (normal)
+- `courses-and-lessons-build-the-hierarchy-in-configuration-order` lines 94-110: Build the hierarchy in configuration order (normal)
+- `courses-and-lessons-revise-a-class-without-disrupting-the-current-one` lines 111-116: Revise a class without disrupting the current one (normal)
+- `activity-design-and-staff-responsibilities-content-article` lines 127-132: Content article (high)
 
 ## Core Entities
 

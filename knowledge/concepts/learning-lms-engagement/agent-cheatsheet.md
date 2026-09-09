@@ -69,6 +69,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | community-supported | community-supported |
 | `courses-and-lessons-revise-a-class-without-disrupting-the-current-one` | normal | live verification |
 | `activity-design-and-staff-responsibilities-file-upload` | normal | live verification |
@@ -92,3 +93,4 @@ generated: true
 | `agent-task-recipes-recipe-roll-out-training-for-a-changed-rock-interface` | citation-only | live verification |
 | `agent-task-recipes-recipe-build-a-bounded-lms-completion-report` | normal | live verification |
 | `known-gaps-and-live-verification` | structural | live verification |
+| `approved-claim-coverage` | citation-only | live verification |

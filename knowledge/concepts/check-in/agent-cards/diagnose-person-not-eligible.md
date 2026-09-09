@@ -50,13 +50,13 @@ Trace eligibility from person/family search through configuration, group type, g
 
 - https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk
 - https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/individual-vs-family-check-in
+- https://community.rockrms.com/documentation/church-management/check-in/attendance
 - https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/check-in-relationships
 - https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
 - https://community.rockrms.com/rocku/check-in/check-in-manager-1
+- https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/use-grade-and-age-matching-behavior
 - https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/configure-by-birthdate
-- https://community.rockrms.com/documentation/church-management/check-in/attendance/use-attendance-analytics
 - https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile
 - https://community.rockrms.com/documentation/church-management/check-in/printing/reprint-a-label
 - https://community.rockrms.com/documentation/church-management/check-in/prepare-for-check-in/view-the-administration-screen
-- https://community.rockrms.com/documentation/church-management/check-in/registration/intro-to-registration

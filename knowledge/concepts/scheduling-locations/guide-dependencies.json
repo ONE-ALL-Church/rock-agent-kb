@@ -555,116 +555,107 @@
   },
   "approved_media_hash": "aebcaa061fb04d7cb10d9f129006a9537fe6b88c39fabbbed8010a7354aa6976",
   "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
-  "built_at": "2026-09-03T17:05:21+00:00",
+  "built_at": "2026-09-09T23:40:18+00:00",
   "concept_id": "scheduling-locations",
-  "guide_hash": "6d2dcde13c422b5d537e1f3f360f282c038f804229f6a0353f5c77d28b0da25e",
-  "guide_line_count": 635,
+  "guide_hash": "95a61500137710395cad56ac50c18c36b2b6f0e58d68548c04d4bd1001e9d86a",
+  "guide_line_count": 695,
   "guide_path": "knowledge/concepts/scheduling-locations/guide.md",
-  "guide_word_count": 6632,
+  "guide_word_count": 7369,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
-      "content_hash": "80de7cd79fbb3b28835e05a5392cf90cc879fd5f9c8005df63103a3ac96327e2",
-      "excerpt_hash": "cfbfcd7eb4f121bfd7d85949c66ea4d9db3dbc211eab8523ed2d138001791918",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7e6e7e7413585075",
-      "source_record_id": "rock_documentation:article:2072",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations"
     },
     {
       "authority": "official",
-      "content_hash": "c68fcbb20252b16c41f7a3539e45add834a1e236a3618859f85f385209a326c4",
-      "excerpt_hash": "856f41ab801361843e395b7a07dc59557c4f704278e4fa0efa17e1e955074f4f",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "b8276de050696295",
-      "source_record_id": "rock_documentation:article:1162",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk"
     },
     {
       "authority": "official",
-      "content_hash": "469374c967537d1fe6bbcc9f48911ebabfd995e554a55c2b5c42e48a6c55d979",
-      "excerpt_hash": "6b7d160e49c4f5051baf47fd7760bba5087b41d9315175b3fabf6813a7916797",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "30828c5e464f491d",
-      "source_record_id": "rock_documentation:article:1548",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule"
     },
     {
-      "authority": "official-training",
-      "content_hash": "875c31b3728e3386098520f2b74991556e7457c65c666b3c91fee11eba622d54",
-      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
-      "source_id": "rock_youtube",
-      "source_key": "5fa353d6f0648800",
-      "source_record_id": "media-insight:e966cbaf8af14d10",
-      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "c7ad4595daa53e01",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s"
     },
     {
       "authority": "official",
-      "content_hash": "0a3d925bd3cf7424ce0f0c36f5b4d4170643a43c4ff938607fbe13e6e0f02ac1",
-      "excerpt_hash": "736d9459dba48c32b5ce8972120b57be818c1f81a7e425aa034461dbff6b4d5c",
-      "source_id": "rock_documentation",
-      "source_key": "12679de2d0b79767",
-      "source_record_id": "rock_documentation:article:2070",
-      "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations"
-    },
-    {
-      "authority": "official",
-      "content_hash": "24d45b876ad0c860550158c484b658ffbd06a9de94d290bd871fe68c9336d3fd",
-      "excerpt_hash": "c3080f4eff56a73833e0257cd2cd8c4b766827a345944e15126c375ab9ac7dcd",
-      "source_id": "rock_documentation",
-      "source_key": "0acc276a417452ad",
-      "source_record_id": "rock_documentation:article:1526",
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules"
-    },
-    {
-      "authority": "official",
-      "content_hash": "a6a8bbabf2c0346289e34323978b507f6aca6d1f82c5c829e9fc8319e016a22d",
-      "excerpt_hash": "075efc690a1031647852f63f5f947bc607d22b16b7be139bbb8a826182a38417",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "0cea5e3d4dc6613d",
-      "source_record_id": "rock_documentation:article:1317",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars"
     },
     {
       "authority": "official",
-      "content_hash": "2460e05c2abbba2709048c7b03966d7d1d0889b6dd7e2209139763645a54679d",
-      "excerpt_hash": "70ce87bcc14e4334546b7afac3ad571b83991c41bb9ae8f231aa545afb6daada",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "ad1b70c97442fd41",
-      "source_record_id": "rock_documentation:article:1899",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations"
     },
     {
       "authority": "source-code",
-      "content_hash": "98dc0002d096079bf976268e15dd2edfc4a1fc5c2f749a7d5730a0bf31af9bbf",
-      "excerpt_hash": "57ba30bfa87abf4f459a50f99046afffa7e1123e06b69fa72a32ca5d0a8d2650",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "886454c02f035066",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/CheckIn/CheckInGroupLocationSchedule.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/CheckIn/CheckInGroupLocationSchedule.cs"
     },
     {
       "authority": "official",
-      "content_hash": "293301b3a8fd278d5c438ef1818d09759c5f472919bfc97f66cb62e68829c0ce",
-      "excerpt_hash": "a7d67e1dd9ad3e369a11698bb14210e334606154b9203b45aca11d8c48a69ba3",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "054a4f80e60ff77c",
-      "source_record_id": "rock_documentation:article:2074",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations"
     },
     {
       "authority": "official",
-      "content_hash": "7362fc7df924705c08cd1f3b25143b2e33fe9c1db41649900f9e4b106eb216ba",
-      "excerpt_hash": "1de318595e79e833e75c032406e3ac4b924669cf17cdd74b155722fc5ae8eb86",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "91ab48e733572524",
-      "source_record_id": "rock_documentation:article:1153",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations"
     },
     {
       "authority": "official-release",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "59ef4e51518da1a94efd95412c814b002444f342c2ad7009ae7654e64a0d6b80",
+      "content_hash": "e7f6c7c0608094f3fb67dbff38b8952924a406b322ead7a8dafca3d0f7f7d72f",
+      "excerpt_hash": "f75cd2c1089935285712d30c0c38870fa8abbd1c09b2245c48989810515ea4e9",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:c231bac171db66f2",
@@ -672,83 +663,83 @@
     },
     {
       "authority": "official",
-      "content_hash": "6bc68f610150733ed33f19d17b576ea3b411673ec30eb28914d75f7531369621",
-      "excerpt_hash": "09ddefd23f77768935be601eef506a0024115d1800fd0793c15f87e48ce22638",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "cff864117e0cec2a",
-      "source_record_id": "rock_documentation:article:1796",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor"
     },
     {
       "authority": "official",
-      "content_hash": "bfebd10bde8e8a4135fe27244a03cbc869f7e7c30f6e4c77eccdb47cd61d173c",
-      "excerpt_hash": "0de432fe6d4edaf54c56de325678e81b32df302bae15a9214bab7363e2063a07",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "98cd8b13547f253e",
-      "source_record_id": "rock_documentation:article:1156",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder"
     },
     {
       "authority": "official",
-      "content_hash": "72512c9b642aebb1b124515c6cbf06a04fe8c496ed81302d300edbce2dd80328",
-      "excerpt_hash": "d3e8a4408c7bd294aec116e5599c9e6d2f2f156791c9eac35aae47dfd439ec53",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "85971491349f47e2",
-      "source_record_id": "rock_documentation:article:1868",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations"
     },
     {
       "authority": "source-code",
-      "content_hash": "4fb507ce7577e5059d6b69fb225d935eeff553efd9e58416970d5b0b5d37aa88",
-      "excerpt_hash": "f9795e052a2bda7fe3eed41d279606e19e968e696f5d19cff2e43f6743e05b5b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "9f225d67226a5bda",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
     },
     {
       "authority": "official",
-      "content_hash": "c56b235ed52b9bc3986e50c15583e20156d1547787f7bb7d99c6ef6cc16fb75a",
-      "excerpt_hash": "c6ddc3626da0ee926e83031f4c13b1349f9c9cf7c98f888532312148bedecac0",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "3d458e2eb95441f0",
-      "source_record_id": "rock_documentation:article:1151",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule"
     },
     {
       "authority": "official",
-      "content_hash": "9a583a173123466eb853c461349e697a60bf3d34961cef8caf2adca1384daf39",
-      "excerpt_hash": "065b899e28f8d5554943bf5e019089a714bf3f4824f3eef2ed1642139f73acd5",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "1785ab6b7c0ad13c",
-      "source_record_id": "rock_documentation:article:1543",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types"
     },
     {
       "authority": "official",
-      "content_hash": "166c6c7f75cbf0e4ec3db6907de3a026218ee234f4e0ccfeee90a7ee02aa4ce4",
-      "excerpt_hash": "58d2ccc3bdeac6f77c6e3caaa5b7898498ce85178f52e9bddabfc08d70cfe4c1",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "9baf2a4acfed1871",
-      "source_record_id": "rock_documentation:article:1913",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules"
     },
     {
       "authority": "official",
-      "content_hash": "682927f4ee0af1899ecfb4639d666968dca392a8f2fc7f3bd0d3585cb5ab1d4a",
-      "excerpt_hash": "8919b591d6fde6e43e431e75ddc4c682f707ceb92f7517662de27e19b3f4741a",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "3bf8948074438f13",
-      "source_record_id": "rock_documentation:article:1918",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox"
     },
     {
       "authority": "official",
-      "content_hash": "36079cb293a8a5f0cf498b9e2f1be4f771f5ed1f884c3c0e894b40dfcd881908",
-      "excerpt_hash": "dcd41f9314f3835babf9c04ffaa2f4fc12bdabd5fe3c7edc3af8c012b25d4e74",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "aa688e57707cdf7d",
-      "source_record_id": "rock_documentation:article:1919",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox"
     },
     {
@@ -762,35 +753,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "d65a41cbf2505a88d898f2df53df64f80756241095fcc968c4db11b0da95a131",
-      "excerpt_hash": "5d64dc41f3aa2ee1764766ed1ca400a52cb1738773c3b312a8df21d2fffe26dd",
-      "source_id": "rock_documentation",
-      "source_key": "3bfcf489e02a7f4d",
-      "source_record_id": "rock_documentation:article:1342",
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-an-event"
-    },
-    {
-      "authority": "official",
-      "content_hash": "54f06079ec09c693175fb3b95fbc550640cf31001cc8a1c859a70d00905fb1d8",
-      "excerpt_hash": "482a78ce579be27b6b8d8748ddcdcb8001de4d3e805f76dd45858b50bb6ab807",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7d23a16886c45662",
-      "source_record_id": "rock_documentation:article:1348",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks"
     },
     {
-      "authority": "official",
-      "content_hash": "fc7bed0715107d3518cdf3feb7bde94a20ab49752cfff33bb2d2fdf4a02f12e8",
-      "excerpt_hash": "c450d22899cf528c930a3dae208217b5c03453aa66d291a581547cd35da272d8",
-      "source_id": "rock_documentation",
-      "source_key": "68528af2fc62a254",
-      "source_record_id": "rock_documentation:article:1343",
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed"
-    },
-    {
       "authority": "community-example",
-      "content_hash": "232373c4503d6495d6dce32ea0f1ec67ac69ad7d0b1676c6361f288877d450ae",
-      "excerpt_hash": "7359929fc35f92036997cca019b346584047a087b77b9a83132c0a927bced62b",
+      "content_hash": "2cfe297f043db4be6c5c3d39640105eb19ef5a13a7d25e4238cbf6305946be99",
+      "excerpt_hash": "595390d6cff8ca5dd907cae0d8a836817d0ec180560cfbb310ea9cd5a0b5d5e0",
       "source_id": "rock_recipes",
       "source_key": "eb219bea22e48f70",
       "source_record_id": "rock_recipes:eb219bea22e48f70",
@@ -798,8 +771,8 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "ff1b87f2987befb69f947df4200b4471f5923531b185ac3591b6496b358c2f8f",
-      "excerpt_hash": "84fcf07e94a042f5b44c69ef9148beed207d0bfa2bf873b75ce2208575da1b31",
+      "content_hash": "a11450da0a9a3a7789be3f10bb4e1ea5e3dab2613fc9521a90e8eaf6e9b9b340",
+      "excerpt_hash": "0a4aa54f6cdd99673734dd96581ada28577fbb78222bdb5d7732c43bb6457a7a",
       "source_id": "rock_recipes",
       "source_key": "520dfe184485a9d1",
       "source_record_id": "rock_recipes:520dfe184485a9d1",
@@ -807,8 +780,8 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "54425f527fdc63fde1dfa2e6e8a67d9a6b5cf113836c831942054cc247e20316",
-      "excerpt_hash": "9ed068e8eabb2651d6856a1f71a72e1d60f2adca44fa3120b5469971523c018d",
+      "content_hash": "06eacd882b4063c0ec20d7c23575b0c7bc7a8481d0f6f30b05ea3e317e5cbf72",
+      "excerpt_hash": "fb9de92b45ae560a004caed4987f2d640a359026cba7844044044450d26a55e6",
       "source_id": "rock_recipes",
       "source_key": "e8068f7bf9b9c14f",
       "source_record_id": "rock_recipes:e8068f7bf9b9c14f",
@@ -816,35 +789,44 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "4f26cc606c3180fccee078ac42789fc00c526b8a54f81eb55b4fe715255a1af2",
-      "excerpt_hash": "fdcb905a4a1592fd26548f4f68d253b86841e06751378039c2770ef7493e2f5e",
+      "content_hash": "cebd21ee41f2360a5e2063194e6b2db899389c133bb85c666c8e4c8a6986904d",
+      "excerpt_hash": "7214f2202b4540c511238cc27a19879201a785026e2c270c4354b26330e5944f",
       "source_id": "rock_recipes",
       "source_key": "31045fdc8f468a7e",
       "source_record_id": "rock_recipes:31045fdc8f468a7e",
       "url": "https://community.rockrms.com/recipes/112"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "aa07035840eb4fea",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=268s"
+    },
+    {
       "authority": "source-code",
-      "content_hash": "aeb9cbe8a4eb6822e68515e71821eccb0fbc751092da5bec70b2c118463113f4",
-      "excerpt_hash": "087ce643a0bc0e49f50eb2131209cc89c8ad70b5a5efdeeff140c32186877627",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "a954cfe3bcf0e33b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts"
     },
     {
       "authority": "source-code",
-      "content_hash": "0501b850c1557508c00960fe2e342c7b0c82c3b5592941e622e431b9af28fe96",
-      "excerpt_hash": "7ce5faf7fc4f032360722dbe89e7eb0b540957283e0fbec121da6d853d61fb90",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "786f516657218c7a",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs"
     },
     {
       "authority": "community-example",
-      "content_hash": "920aee7e26ceca3b7247b560657afdced959f357f90df9155a62176a6f174c56",
-      "excerpt_hash": "1476dc18aaa1169549e28d643fad885abf77f8d72645947171505d7f0d716998",
+      "content_hash": "937e589b7d861cafb661f20f1dfff4a09e95589bba9f9179038a1a952e78190a",
+      "excerpt_hash": "3d0d157ab0f74b594d3376021a37a2a81fc482ad01e9d82ad5630dd8325935bb",
       "source_id": "rock_recipes",
       "source_key": "3a126f8b9dcc63d7",
       "source_record_id": "rock_recipes:3a126f8b9dcc63d7",
@@ -852,19 +834,93 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "887e8c95999d721e72f19bf520e8304f1f562612f7716dd48b55d0d867da18bd",
-      "excerpt_hash": "3470185e939434a0bc2b6bbf418e11e24b2028bc860bdffb3e0ad4346f8a408b",
+      "content_hash": "ba1454eb410a660e598845e4d6de990769cfa9a5ee05f75c98b1acf4391e2d4a",
+      "excerpt_hash": "3c3f2cec1c39f61c7af614c89764fd10f36bd76477eab312cbb6893c35ef974d",
       "source_id": "rock_recipes",
       "source_key": "2e546ad927545965",
       "source_record_id": "rock_recipes:2e546ad927545965",
       "url": "https://community.rockrms.com/recipes/356"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
+      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "source_id": "rock_rocku",
+      "source_key": "d0d7d71631f3f890",
+      "source_record_id": "rock_rocku:d0d7d71631f3f890",
+      "url": "https://community.rockrms.com/rocku/groups/group-location"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "10148858efab7b7c26d953f0589a51d1ea4064aa67491f4c9876ea0bd7c217d3",
+      "excerpt_hash": "c8e3e8c447465870edc1d4fe3ccca799bbf39e27c95e6ad3e6e52364c7334648",
+      "source_id": "rock_rocku",
+      "source_key": "7e09b4c6a92264f6",
+      "source_record_id": "rock_rocku:7e09b4c6a92264f6",
+      "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
+      "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "url": "https://community.rockrms.com/rocku/check-in/locations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
+      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
+      "source_id": "rock_rocku",
+      "source_key": "2a863471e239f0b9",
+      "source_record_id": "rock_rocku:2a863471e239f0b9",
+      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "3d0824ff41704b39",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 30,
+      "end_line": 46,
       "heading": "Agent Summary",
       "needs_live_verification": false,
       "section_id": "agent-summary",
@@ -872,27 +928,27 @@
         "7e6e7e7413585075",
         "b8276de050696295",
         "30828c5e464f491d",
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "normal",
-      "end_line": 48,
+      "end_line": 64,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
       "source_keys": [
-        "12679de2d0b79767",
-        "0acc276a417452ad",
+        "7e6e7e7413585075",
+        "30828c5e464f491d",
         "0cea5e3d4dc6613d",
         "ad1b70c97442fd41"
       ],
-      "start_line": 31
+      "start_line": 47
     },
     {
       "confidence": "high",
-      "end_line": 64,
+      "end_line": 80,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
@@ -901,11 +957,11 @@
         "b8276de050696295",
         "886454c02f035066"
       ],
-      "start_line": 49
+      "start_line": 65
     },
     {
       "confidence": "structural",
-      "end_line": 66,
+      "end_line": 82,
       "heading": "Locations",
       "needs_live_verification": false,
       "section_id": "locations",
@@ -917,11 +973,11 @@
         "776256c424368312",
         "cff864117e0cec2a"
       ],
-      "start_line": 65
+      "start_line": 81
     },
     {
       "confidence": "normal",
-      "end_line": 78,
+      "end_line": 94,
       "heading": "Positional And Named Locations",
       "needs_live_verification": false,
       "section_id": "locations-positional-and-named-locations",
@@ -929,11 +985,11 @@
         "7e6e7e7413585075",
         "054a4f80e60ff77c"
       ],
-      "start_line": 67
+      "start_line": 83
     },
     {
       "confidence": "high",
-      "end_line": 86,
+      "end_line": 102,
       "heading": "Named Location Hierarchy",
       "needs_live_verification": false,
       "section_id": "locations-named-location-hierarchy",
@@ -943,11 +999,11 @@
         "054a4f80e60ff77c",
         "776256c424368312"
       ],
-      "start_line": 79
+      "start_line": 95
     },
     {
       "confidence": "normal",
-      "end_line": 92,
+      "end_line": 108,
       "heading": "Address And Geographic Integrity",
       "needs_live_verification": true,
       "section_id": "locations-address-and-geographic-integrity",
@@ -955,22 +1011,22 @@
         "054a4f80e60ff77c",
         "cff864117e0cec2a"
       ],
-      "start_line": 87
+      "start_line": 103
     },
     {
       "confidence": "normal",
-      "end_line": 104,
+      "end_line": 120,
       "heading": "Location Metadata That Changes Behavior",
       "needs_live_verification": false,
       "section_id": "locations-location-metadata-that-changes-behavior",
       "source_keys": [
         "054a4f80e60ff77c"
       ],
-      "start_line": 93
+      "start_line": 109
     },
     {
       "confidence": "structural",
-      "end_line": 106,
+      "end_line": 122,
       "heading": "Check-In Location Scheduling",
       "needs_live_verification": false,
       "section_id": "check-in-location-scheduling",
@@ -981,11 +1037,11 @@
         "b8276de050696295",
         "3d458e2eb95441f0"
       ],
-      "start_line": 105
+      "start_line": 121
     },
     {
       "confidence": "high",
-      "end_line": 114,
+      "end_line": 130,
       "heading": "Building The Group-Location-Schedule Matrix",
       "needs_live_verification": false,
       "section_id": "check-in-location-scheduling-building-the-group-location-schedule-matrix",
@@ -994,11 +1050,11 @@
         "85971491349f47e2",
         "9f225d67226a5bda"
       ],
-      "start_line": 107
+      "start_line": 123
     },
     {
       "confidence": "normal",
-      "end_line": 126,
+      "end_line": 142,
       "heading": "Scheduled, Open And Within Capacity",
       "needs_live_verification": false,
       "section_id": "check-in-location-scheduling-scheduled-open-and-within-capacity",
@@ -1006,11 +1062,11 @@
         "b8276de050696295",
         "b8276de050696295"
       ],
-      "start_line": 115
+      "start_line": 131
     },
     {
       "confidence": "normal",
-      "end_line": 132,
+      "end_line": 148,
       "heading": "Cloning A Check-In Schedule",
       "needs_live_verification": false,
       "section_id": "check-in-location-scheduling-cloning-a-check-in-schedule",
@@ -1018,11 +1074,11 @@
         "3d458e2eb95441f0",
         "3d458e2eb95441f0"
       ],
-      "start_line": 127
+      "start_line": 143
     },
     {
       "confidence": "structural",
-      "end_line": 134,
+      "end_line": 150,
       "heading": "Group And Volunteer Scheduling",
       "needs_live_verification": false,
       "section_id": "group-and-volunteer-scheduling",
@@ -1034,11 +1090,11 @@
         "aa688e57707cdf7d",
         "7bc4d34ca2e12079"
       ],
-      "start_line": 133
+      "start_line": 149
     },
     {
       "confidence": "normal",
-      "end_line": 142,
+      "end_line": 158,
       "heading": "Prerequisites",
       "needs_live_verification": false,
       "section_id": "group-and-volunteer-scheduling-prerequisites",
@@ -1047,11 +1103,11 @@
         "30828c5e464f491d",
         "30828c5e464f491d"
       ],
-      "start_line": 135
+      "start_line": 151
     },
     {
       "confidence": "normal",
-      "end_line": 154,
+      "end_line": 170,
       "heading": "Weekly, Custom And Named Group Schedules",
       "needs_live_verification": false,
       "section_id": "group-and-volunteer-scheduling-weekly-custom-and-named-group-schedules",
@@ -1059,11 +1115,11 @@
         "1785ab6b7c0ad13c",
         "9baf2a4acfed1871"
       ],
-      "start_line": 143
+      "start_line": 159
     },
     {
       "confidence": "normal",
-      "end_line": 172,
+      "end_line": 188,
       "heading": "Volunteer Preferences, Unavailability And Open Slots",
       "needs_live_verification": false,
       "section_id": "group-and-volunteer-scheduling-volunteer-preferences-unavailability-and-open-slots",
@@ -1072,11 +1128,11 @@
         "3bf8948074438f13",
         "aa688e57707cdf7d"
       ],
-      "start_line": 155
+      "start_line": 171
     },
     {
       "confidence": "normal",
-      "end_line": 178,
+      "end_line": 194,
       "heading": "Confirmation And Reminder Delivery",
       "needs_live_verification": true,
       "section_id": "group-and-volunteer-scheduling-confirmation-and-reminder-delivery",
@@ -1084,64 +1140,63 @@
         "30828c5e464f491d",
         "7bc4d34ca2e12079"
       ],
-      "start_line": 173
+      "start_line": 189
     },
     {
       "confidence": "structural",
-      "end_line": 180,
+      "end_line": 196,
       "heading": "Calendars And iCalendar",
       "needs_live_verification": false,
       "section_id": "calendars-and-icalendar",
       "source_keys": [
-        "3bfcf489e02a7f4d",
+        "0cea5e3d4dc6613d",
         "7d23a16886c45662",
-        "68528af2fc62a254",
         "aa688e57707cdf7d",
         "776256c424368312",
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 179
+      "start_line": 195
     },
     {
       "confidence": "normal",
-      "end_line": 186,
+      "end_line": 202,
       "heading": "Calendar Events Are Publication Records",
       "needs_live_verification": false,
       "section_id": "calendars-and-icalendar-calendar-events-are-publication-records",
       "source_keys": [
-        "3bfcf489e02a7f4d",
+        "0cea5e3d4dc6613d",
         "7d23a16886c45662"
       ],
-      "start_line": 181
+      "start_line": 197
     },
     {
       "confidence": "high",
-      "end_line": 199,
+      "end_line": 215,
       "heading": "iCalendar Feeds",
       "needs_live_verification": false,
       "section_id": "calendars-and-icalendar-icalendar-feeds",
       "source_keys": [
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
         "aa688e57707cdf7d",
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
         "776256c424368312"
       ],
-      "start_line": 187
+      "start_line": 203
     },
     {
       "confidence": "citation-only",
-      "end_line": 205,
+      "end_line": 221,
       "heading": "Recurring Schedule Dates In v19",
       "needs_live_verification": true,
       "section_id": "calendars-and-icalendar-recurring-schedule-dates-in-v19",
       "source_keys": [
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 200
+      "start_line": 216
     },
     {
       "confidence": "community-supported",
-      "end_line": 217,
+      "end_line": 233,
       "heading": "Reservations And Calendar Coordination",
       "needs_live_verification": true,
       "section_id": "reservations-and-calendar-coordination",
@@ -1151,23 +1206,23 @@
         "e8068f7bf9b9c14f",
         "31045fdc8f468a7e"
       ],
-      "start_line": 206
+      "start_line": 222
     },
     {
       "confidence": "normal",
-      "end_line": 236,
+      "end_line": 252,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
       "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "5fa353d6f0648800",
+        "aa07035840eb4fea",
         "776256c424368312"
       ],
-      "start_line": 218
+      "start_line": 234
     },
     {
       "confidence": "structural",
-      "end_line": 238,
+      "end_line": 254,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -1179,16 +1234,17 @@
         "30828c5e464f491d",
         "aa688e57707cdf7d",
         "7bc4d34ca2e12079",
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
         "776256c424368312",
-        "5fa353d6f0648800",
-        "eb219bea22e48f70"
+        "c7ad4595daa53e01",
+        "eb219bea22e48f70",
+        "aa07035840eb4fea"
       ],
-      "start_line": 237
+      "start_line": 253
     },
     {
       "confidence": "high",
-      "end_line": 251,
+      "end_line": 267,
       "heading": "A Room Does Not Appear During Check-In",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-room-does-not-appear-during-check-in",
@@ -1197,22 +1253,22 @@
         "98cd8b13547f253e",
         "a954cfe3bcf0e33b"
       ],
-      "start_line": 239
+      "start_line": 255
     },
     {
       "confidence": "normal",
-      "end_line": 261,
+      "end_line": 277,
       "heading": "A Schedule Does Not Appear In A Check-In Scheduling Screen",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-schedule-does-not-appear-in-a-check-in-scheduling-screen",
       "source_keys": [
         "786f516657218c7a"
       ],
-      "start_line": 252
+      "start_line": 268
     },
     {
       "confidence": "normal",
-      "end_line": 273,
+      "end_line": 289,
       "heading": "A Volunteer Cannot See, Accept Or Decline An Assignment",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-volunteer-cannot-see-accept-or-decline-an-assignment",
@@ -1220,11 +1276,11 @@
         "30828c5e464f491d",
         "aa688e57707cdf7d"
       ],
-      "start_line": 262
+      "start_line": 278
     },
     {
       "confidence": "normal",
-      "end_line": 284,
+      "end_line": 300,
       "heading": "A Volunteer Is Missing A Reminder",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-volunteer-is-missing-a-reminder",
@@ -1232,68 +1288,68 @@
         "30828c5e464f491d",
         "7bc4d34ca2e12079"
       ],
-      "start_line": 274
+      "start_line": 290
     },
     {
       "confidence": "high",
-      "end_line": 296,
+      "end_line": 312,
       "heading": "A Calendar File Or Feed Is Empty, Stale Or Missing Events",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-calendar-file-or-feed-is-empty-stale-or-missing-events",
       "source_keys": [
         "aa688e57707cdf7d",
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
         "776256c424368312"
       ],
-      "start_line": 285
+      "start_line": 301
     },
     {
       "confidence": "citation-only",
-      "end_line": 306,
+      "end_line": 322,
       "heading": "A Date-Based Query Misses Recurring Schedule Occurrences",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-date-based-query-misses-recurring-schedule-occurrences",
       "source_keys": [
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 297
+      "start_line": 313
     },
     {
       "confidence": "community-supported",
-      "end_line": 317,
+      "end_line": 333,
       "heading": "A Reservation And Calendar Event Do Not Match",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-reservation-and-calendar-event-do-not-match",
       "source_keys": [
         "eb219bea22e48f70"
       ],
-      "start_line": 307
+      "start_line": 323
     },
     {
       "confidence": "normal",
-      "end_line": 327,
+      "end_line": 343,
       "heading": "The Named Location Tree Will Not Load",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-the-named-location-tree-will-not-load",
       "source_keys": [
         "776256c424368312"
       ],
-      "start_line": 318
+      "start_line": 334
     },
     {
       "confidence": "citation-only",
-      "end_line": 337,
+      "end_line": 353,
       "heading": "Check-In Manager Attendance Changes Do Not Update In Real Time",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-check-in-manager-attendance-changes-do-not-update-in-real-time",
       "source_keys": [
-        "5fa353d6f0648800"
+        "aa07035840eb4fea"
       ],
-      "start_line": 328
+      "start_line": 344
     },
     {
       "confidence": "structural",
-      "end_line": 339,
+      "end_line": 355,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -1304,17 +1360,16 @@
         "3d458e2eb95441f0",
         "30828c5e464f491d",
         "3bf8948074438f13",
-        "3bfcf489e02a7f4d",
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
         "eb219bea22e48f70",
         "e8068f7bf9b9c14f",
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 338
+      "start_line": 354
     },
     {
       "confidence": "normal",
-      "end_line": 375,
+      "end_line": 391,
       "heading": "Recipe: Build A Check-In Location Hierarchy",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-a-check-in-location-hierarchy",
@@ -1322,67 +1377,67 @@
         "91ab48e733572524",
         "054a4f80e60ff77c"
       ],
-      "start_line": 340
+      "start_line": 356
     },
     {
       "confidence": "normal",
-      "end_line": 409,
+      "end_line": 425,
       "heading": "Recipe: Prove Why A Check-In Room Is Not Available",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-prove-why-a-check-in-room-is-not-available",
       "source_keys": [
         "98cd8b13547f253e"
       ],
-      "start_line": 376
+      "start_line": 392
     },
     {
       "confidence": "normal",
-      "end_line": 436,
+      "end_line": 452,
       "heading": "Recipe: Clone A Check-In Schedule For A Special Event",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-clone-a-check-in-schedule-for-a-special-event",
       "source_keys": [
         "3d458e2eb95441f0"
       ],
-      "start_line": 410
+      "start_line": 426
     },
     {
       "confidence": "normal",
-      "end_line": 471,
+      "end_line": 487,
       "heading": "Recipe: Configure A Group Type For Volunteer Scheduling",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-group-type-for-volunteer-scheduling",
       "source_keys": [
         "30828c5e464f491d"
       ],
-      "start_line": 437
+      "start_line": 453
     },
     {
       "confidence": "normal",
-      "end_line": 498,
+      "end_line": 514,
       "heading": "Recipe: Prepare Volunteer Availability For Auto-Schedule",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-prepare-volunteer-availability-for-auto-schedule",
       "source_keys": [
         "3bf8948074438f13"
       ],
-      "start_line": 472
+      "start_line": 488
     },
     {
       "confidence": "normal",
-      "end_line": 525,
+      "end_line": 541,
       "heading": "Recipe: Publish And Test An Event Calendar Feed",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-publish-and-test-an-event-calendar-feed",
       "source_keys": [
-        "3bfcf489e02a7f4d",
-        "68528af2fc62a254"
+        "0cea5e3d4dc6613d",
+        "0cea5e3d4dc6613d"
       ],
-      "start_line": 499
+      "start_line": 515
     },
     {
       "confidence": "community-supported",
-      "end_line": 554,
+      "end_line": 570,
       "heading": "Recipe: Evaluate Reservation-To-Calendar Synchronization",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-evaluate-reservation-to-calendar-synchronization",
@@ -1390,38 +1445,39 @@
         "eb219bea22e48f70",
         "e8068f7bf9b9c14f"
       ],
-      "start_line": 526
+      "start_line": 542
     },
     {
       "confidence": "citation-only",
-      "end_line": 574,
+      "end_line": 590,
       "heading": "Recipe: Audit A V19 Date-Based Schedule Query",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-audit-a-v19-date-based-schedule-query",
       "source_keys": [
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 555
+      "start_line": 571
     },
     {
       "confidence": "needs-citation",
-      "end_line": 593,
+      "end_line": 609,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "5fa353d6f0648800"
+        "c7ad4595daa53e01"
       ],
-      "start_line": 575
+      "start_line": 591
     },
     {
       "confidence": "structural",
-      "end_line": 595,
+      "end_line": 611,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
       "source_keys": [
-        "5fa353d6f0648800",
+        "c7ad4595daa53e01",
+        "aa07035840eb4fea",
         "7bc4d34ca2e12079",
         "7e6e7e7413585075",
         "054a4f80e60ff77c",
@@ -1435,8 +1491,7 @@
         "30828c5e464f491d",
         "3bf8948074438f13",
         "aa688e57707cdf7d",
-        "3bfcf489e02a7f4d",
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
         "7d23a16886c45662",
         "776256c424368312",
         "886454c02f035066",
@@ -1450,24 +1505,24 @@
         "3a126f8b9dcc63d7",
         "2e546ad927545965"
       ],
-      "start_line": 594
+      "start_line": 610
     },
     {
       "confidence": "citation-only",
-      "end_line": 601,
+      "end_line": 617,
       "heading": "Approved Answer-Bearing Claims",
       "needs_live_verification": false,
       "section_id": "source-map-approved-answer-bearing-claims",
       "source_keys": [
-        "5fa353d6f0648800",
-        "5fa353d6f0648800",
+        "c7ad4595daa53e01",
+        "aa07035840eb4fea",
         "7bc4d34ca2e12079"
       ],
-      "start_line": 596
+      "start_line": 612
     },
     {
       "confidence": "normal",
-      "end_line": 619,
+      "end_line": 635,
       "heading": "Official Documentation",
       "needs_live_verification": false,
       "section_id": "source-map-official-documentation",
@@ -1484,15 +1539,15 @@
         "30828c5e464f491d",
         "3bf8948074438f13",
         "aa688e57707cdf7d",
-        "3bfcf489e02a7f4d",
-        "68528af2fc62a254",
+        "0cea5e3d4dc6613d",
+        "0cea5e3d4dc6613d",
         "7d23a16886c45662"
       ],
-      "start_line": 602
+      "start_line": 618
     },
     {
       "confidence": "normal",
-      "end_line": 627,
+      "end_line": 643,
       "heading": "Release Notes And Source Code",
       "needs_live_verification": false,
       "section_id": "source-map-release-notes-and-source-code",
@@ -1503,11 +1558,11 @@
         "786f516657218c7a",
         "a954cfe3bcf0e33b"
       ],
-      "start_line": 620
+      "start_line": 636
     },
     {
       "confidence": "community-supported",
-      "end_line": 635,
+      "end_line": 653,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "source-map-community-examples",
@@ -1519,271 +1574,157 @@
         "3a126f8b9dcc63d7",
         "2e546ad927545965"
       ],
-      "start_line": 628
+      "start_line": 644
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 675,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "c7ad4595daa53e01",
+        "c7ad4595daa53e01",
+        "c7ad4595daa53e01",
+        "c7ad4595daa53e01",
+        "7bc4d34ca2e12079",
+        "e3517fa274c4048c",
+        "e3517fa274c4048c",
+        "e3517fa274c4048c",
+        "e3517fa274c4048c"
+      ],
+      "start_line": 654
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 695,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "e3517fa274c4048c",
+        "c7ad4595daa53e01",
+        "f4d1879d32a182fe",
+        "d0d7d71631f3f890",
+        "7e09b4c6a92264f6",
+        "90ed168a3283ccaa",
+        "2a863471e239f0b9",
+        "3d0824ff41704b39"
+      ],
+      "start_line": 676
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:17:30+00:00",
+  "source_pack_hydrated_at": "2026-06-02T20:25:44+00:00",
   "sources": [
     {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "80de7cd79fbb3b28835e05a5392cf90cc879fd5f9c8005df63103a3ac96327e2",
-      "excerpt_hash": "cfbfcd7eb4f121bfd7d85949c66ea4d9db3dbc211eab8523ed2d138001791918",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7e6e7e7413585075",
-      "source_record_id": "rock_documentation:article:2072",
-      "title": "Intro to Locations",
-      "topics": [
-        "admin",
-        "check-in",
-        "mobile",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations",
+      "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c68fcbb20252b16c41f7a3539e45add834a1e236a3618859f85f385209a326c4",
-      "excerpt_hash": "856f41ab801361843e395b7a07dc59557c4f704278e4fa0efa17e1e955074f4f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "b8276de050696295",
-      "source_record_id": "rock_documentation:article:1162",
-      "title": "Configure Locations for a Kiosk",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk",
+      "url": "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "469374c967537d1fe6bbcc9f48911ebabfd995e554a55c2b5c42e48a6c55d979",
-      "excerpt_hash": "6b7d160e49c4f5051baf47fd7760bba5087b41d9315175b3fabf6813a7916797",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "30828c5e464f491d",
-      "source_record_id": "rock_documentation:article:1548",
-      "title": "Configure Group Schedule",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule"
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "875c31b3728e3386098520f2b74991556e7457c65c666b3c91fee11eba622d54",
-      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_youtube",
-      "source_key": "5fa353d6f0648800",
-      "source_record_id": "media-insight:e966cbaf8af14d10",
-      "title": "3 Underrated Features Churches Are Overlooking | Ep 217 Transcript Insight",
-      "topics": [
-        "v19",
-        "connections-training",
-        "captcha",
-        "real-time-check-in",
-        "schedule-date"
-      ],
-      "url": "https://www.youtube.com/watch?v=edanHiYSDIM",
-      "version": null
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "c7ad4595daa53e01",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "0a3d925bd3cf7424ce0f0c36f5b4d4170643a43c4ff938607fbe13e6e0f02ac1",
-      "excerpt_hash": "736d9459dba48c32b5ce8972120b57be818c1f81a7e425aa034461dbff6b4d5c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "12679de2d0b79767",
-      "source_record_id": "rock_documentation:article:2070",
-      "title": "Locations",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "24d45b876ad0c860550158c484b658ffbd06a9de94d290bd871fe68c9336d3fd",
-      "excerpt_hash": "c3080f4eff56a73833e0257cd2cd8c4b766827a345944e15126c375ab9ac7dcd",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "0acc276a417452ad",
-      "source_record_id": "rock_documentation:article:1526",
-      "title": "Group Schedules",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "a6a8bbabf2c0346289e34323978b507f6aca6d1f82c5c829e9fc8319e016a22d",
-      "excerpt_hash": "075efc690a1031647852f63f5f947bc607d22b16b7be139bbb8a826182a38417",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "0cea5e3d4dc6613d",
-      "source_record_id": "rock_documentation:article:1317",
-      "title": "Calendars",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "2460e05c2abbba2709048c7b03966d7d1d0889b6dd7e2209139763645a54679d",
-      "excerpt_hash": "70ce87bcc14e4334546b7afac3ad571b83991c41bb9ae8f231aa545afb6daada",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "ad1b70c97442fd41",
-      "source_record_id": "rock_documentation:article:1899",
-      "title": "Event Registrations",
-      "topics": [
-        "admin",
-        "finance",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "98dc0002d096079bf976268e15dd2edfc4a1fc5c2f749a7d5730a0bf31af9bbf",
-      "excerpt_hash": "57ba30bfa87abf4f459a50f99046afffa7e1123e06b69fa72a32ca5d0a8d2650",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "schedule",
-        "location",
-        "locations",
-        "check-in",
-        "check in",
-        "checkin"
-      ],
-      "path": "Rock/CheckIn/CheckInGroupLocationSchedule.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "886454c02f035066",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/CheckIn/CheckInGroupLocationSchedule.cs",
-      "title": "Rock/CheckIn/CheckInGroupLocationSchedule.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/CheckIn/CheckInGroupLocationSchedule.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/CheckIn/CheckInGroupLocationSchedule.cs"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "293301b3a8fd278d5c438ef1818d09759c5f472919bfc97f66cb62e68829c0ce",
-      "excerpt_hash": "a7d67e1dd9ad3e369a11698bb14210e334606154b9203b45aca11d8c48a69ba3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "054a4f80e60ff77c",
-      "source_record_id": "rock_documentation:article:2074",
-      "title": "Maintain Locations",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations",
+      "url": "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "7362fc7df924705c08cd1f3b25143b2e33fe9c1db41649900f9e4b106eb216ba",
-      "excerpt_hash": "1de318595e79e833e75c032406e3ac4b924669cf17cdd74b155722fc5ae8eb86",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "91ab48e733572524",
-      "source_record_id": "rock_documentation:article:1153",
-      "title": "Configure Locations",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations",
+      "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations"
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "59ef4e51518da1a94efd95412c814b002444f342c2ad7009ae7654e64a0d6b80",
+      "content_hash": "e7f6c7c0608094f3fb67dbff38b8952924a406b322ead7a8dafca3d0f7f7d72f",
+      "excerpt_hash": "f75cd2c1089935285712d30c0c38870fa8abbd1c09b2245c48989810515ea4e9",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": "June 30, 2026",
+      "release_date": "May 20, 2026",
       "severity": "normal",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
@@ -1800,207 +1741,92 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "6bc68f610150733ed33f19d17b576ea3b411673ec30eb28914d75f7531369621",
-      "excerpt_hash": "09ddefd23f77768935be601eef506a0024115d1800fd0793c15f87e48ce22638",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "cff864117e0cec2a",
-      "source_record_id": "rock_documentation:article:1796",
-      "title": "Location Editor",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "sql",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "bfebd10bde8e8a4135fe27244a03cbc869f7e7c30f6e4c77eccdb47cd61d173c",
-      "excerpt_hash": "0de432fe6d4edaf54c56de325678e81b32df302bae15a9214bab7363e2063a07",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "98cd8b13547f253e",
-      "source_record_id": "rock_documentation:article:1156",
-      "title": "Use the Schedule Builder",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder",
+      "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "72512c9b642aebb1b124515c6cbf06a04fe8c496ed81302d300edbce2dd80328",
-      "excerpt_hash": "d3e8a4408c7bd294aec116e5599c9e6d2f2f156791c9eac35aae47dfd439ec53",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "85971491349f47e2",
-      "source_record_id": "rock_documentation:article:1868",
-      "title": "Use Schedule Locations",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations",
+      "url": "https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "4fb507ce7577e5059d6b69fb225d935eeff553efd9e58416970d5b0b5d37aa88",
-      "excerpt_hash": "f9795e052a2bda7fe3eed41d279606e19e968e696f5d19cff2e43f6743e05b5b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "schedule",
-        "location",
-        "locations",
-        "check-in",
-        "check in",
-        "checkin"
-      ],
-      "path": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "9f225d67226a5bda",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
-      "title": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c56b235ed52b9bc3986e50c15583e20156d1547787f7bb7d99c6ef6cc16fb75a",
-      "excerpt_hash": "c6ddc3626da0ee926e83031f4c13b1349f9c9cf7c98f888532312148bedecac0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "3d458e2eb95441f0",
-      "source_record_id": "rock_documentation:article:1151",
-      "title": "Clone a Schedule",
-      "topics": [
-        "admin",
-        "check-in",
-        "operations",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule",
+      "url": "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "9a583a173123466eb853c461349e697a60bf3d34961cef8caf2adca1384daf39",
-      "excerpt_hash": "065b899e28f8d5554943bf5e019089a714bf3f4824f3eef2ed1642139f73acd5",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "1785ab6b7c0ad13c",
-      "source_record_id": "rock_documentation:article:1543",
-      "title": "Group Schedule Types",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "166c6c7f75cbf0e4ec3db6907de3a026218ee234f4e0ccfeee90a7ee02aa4ce4",
-      "excerpt_hash": "58d2ccc3bdeac6f77c6e3caaa5b7898498ce85178f52e9bddabfc08d70cfe4c1",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "9baf2a4acfed1871",
-      "source_record_id": "rock_documentation:article:1913",
-      "title": "Intro to Group Schedules",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "682927f4ee0af1899ecfb4639d666968dca392a8f2fc7f3bd0d3585cb5ab1d4a",
-      "excerpt_hash": "8919b591d6fde6e43e431e75ddc4c682f707ceb92f7517662de27e19b3f4741a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "3bf8948074438f13",
-      "source_record_id": "rock_documentation:article:1918",
-      "title": "Set Schedule Availability (Toolbox)",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/set-schedule-availability-toolbox"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "36079cb293a8a5f0cf498b9e2f1be4f771f5ed1f884c3c0e894b40dfcd881908",
-      "excerpt_hash": "dcd41f9314f3835babf9c04ffaa2f4fc12bdabd5fe3c7edc3af8c012b25d4e74",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "aa688e57707cdf7d",
-      "source_record_id": "rock_documentation:article:1919",
-      "title": "View your Schedule (Toolbox)",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox"
     },
     {
       "authority": "unknown",
@@ -2015,80 +1841,19 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "d65a41cbf2505a88d898f2df53df64f80756241095fcc968c4db11b0da95a131",
-      "excerpt_hash": "5d64dc41f3aa2ee1764766ed1ca400a52cb1738773c3b312a8df21d2fffe26dd",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "3bfcf489e02a7f4d",
-      "source_record_id": "rock_documentation:article:1342",
-      "title": "Add an Event",
-      "topics": [
-        "admin",
-        "api",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-an-event",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "54f06079ec09c693175fb3b95fbc550640cf31001cc8a1c859a70d00905fb1d8",
-      "excerpt_hash": "482a78ce579be27b6b8d8748ddcdcb8001de4d3e805f76dd45858b50bb6ab807",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7d23a16886c45662",
-      "source_record_id": "rock_documentation:article:1348",
-      "title": "Explore Different Event Blocks",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "fc7bed0715107d3518cdf3feb7bde94a20ab49752cfff33bb2d2fdf4a02f12e8",
-      "excerpt_hash": "c450d22899cf528c930a3dae208217b5c03453aa66d291a581547cd35da272d8",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "68528af2fc62a254",
-      "source_record_id": "rock_documentation:article:1343",
-      "title": "Configure the iCalendar Feed",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/explore-different-event-blocks"
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "232373c4503d6495d6dce32ea0f1ec67ac69ad7d0b1676c6361f288877d450ae",
-      "excerpt_hash": "7359929fc35f92036997cca019b346584047a087b77b9a83132c0a927bced62b",
+      "content_hash": "2cfe297f043db4be6c5c3d39640105eb19ef5a13a7d25e4238cbf6305946be99",
+      "excerpt_hash": "595390d6cff8ca5dd907cae0d8a836817d0ec180560cfbb310ea9cd5a0b5d5e0",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2111,8 +1876,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "ff1b87f2987befb69f947df4200b4471f5923531b185ac3591b6496b358c2f8f",
-      "excerpt_hash": "84fcf07e94a042f5b44c69ef9148beed207d0bfa2bf873b75ce2208575da1b31",
+      "content_hash": "a11450da0a9a3a7789be3f10bb4e1ea5e3dab2613fc9521a90e8eaf6e9b9b340",
+      "excerpt_hash": "0a4aa54f6cdd99673734dd96581ada28577fbb78222bdb5d7732c43bb6457a7a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2136,8 +1901,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "54425f527fdc63fde1dfa2e6e8a67d9a6b5cf113836c831942054cc247e20316",
-      "excerpt_hash": "9ed068e8eabb2651d6856a1f71a72e1d60f2adca44fa3120b5469971523c018d",
+      "content_hash": "06eacd882b4063c0ec20d7c23575b0c7bc7a8481d0f6f30b05ea3e317e5cbf72",
+      "excerpt_hash": "fb9de92b45ae560a004caed4987f2d640a359026cba7844044044450d26a55e6",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2161,8 +1926,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "4f26cc606c3180fccee078ac42789fc00c526b8a54f81eb55b4fe715255a1af2",
-      "excerpt_hash": "fdcb905a4a1592fd26548f4f68d253b86841e06751378039c2770ef7493e2f5e",
+      "content_hash": "cebd21ee41f2360a5e2063194e6b2db899389c133bb85c666c8e4c8a6986904d",
+      "excerpt_hash": "7214f2202b4540c511238cc27a19879201a785026e2c270c4354b26330e5944f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2183,56 +1948,41 @@
       "version": null
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "aa07035840eb4fea",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM&t=268s",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM&t=268s"
+    },
+    {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "aeb9cbe8a4eb6822e68515e71821eccb0fbc751092da5bec70b2c118463113f4",
-      "excerpt_hash": "087ce643a0bc0e49f50eb2131209cc89c8ad70b5a5efdeeff140c32186877627",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "location",
-        "locations",
-        "check-in",
-        "check in",
-        "checkin"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "a954cfe3bcf0e33b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "0501b850c1557508c00960fe2e342c7b0c82c3b5592941e622e431b9af28fe96",
-      "excerpt_hash": "7ce5faf7fc4f032360722dbe89e7eb0b540957283e0fbec121da6d853d61fb90",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "schedule",
-        "location",
-        "locations",
-        "check-in",
-        "check in",
-        "checkin"
-      ],
-      "path": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "786f516657218c7a",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
-      "title": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs"
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "920aee7e26ceca3b7247b560657afdced959f357f90df9155a62176a6f174c56",
-      "excerpt_hash": "1476dc18aaa1169549e28d643fad885abf77f8d72645947171505d7f0d716998",
+      "content_hash": "937e589b7d861cafb661f20f1dfff4a09e95589bba9f9179038a1a952e78190a",
+      "excerpt_hash": "3d0d157ab0f74b594d3376021a37a2a81fc482ad01e9d82ad5630dd8325935bb",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2257,8 +2007,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "887e8c95999d721e72f19bf520e8304f1f562612f7716dd48b55d0d867da18bd",
-      "excerpt_hash": "3470185e939434a0bc2b6bbf418e11e24b2028bc860bdffb3e0ad4346f8a408b",
+      "content_hash": "ba1454eb410a660e598845e4d6de990769cfa9a5ee05f75c98b1acf4391e2d4a",
+      "excerpt_hash": "3c3f2cec1c39f61c7af614c89764fd10f36bd76477eab312cbb6893c35ef974d",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2276,6 +2026,133 @@
       ],
       "url": "https://community.rockrms.com/recipes/356",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/core-concepts/campuses",
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
+      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d0d7d71631f3f890",
+      "source_record_id": "rock_rocku:d0d7d71631f3f890",
+      "title": "Group Location",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/group-location",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "10148858efab7b7c26d953f0589a51d1ea4064aa67491f4c9876ea0bd7c217d3",
+      "excerpt_hash": "c8e3e8c447465870edc1d4fe3ccca799bbf39e27c95e6ad3e6e52364c7334648",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "7e09b4c6a92264f6",
+      "source_record_id": "rock_rocku:7e09b4c6a92264f6",
+      "title": "Group Scheduler and Status Board",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
+      "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "title": "Locations",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/locations",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
+      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2a863471e239f0b9",
+      "source_record_id": "rock_rocku:2a863471e239f0b9",
+      "title": "Person Preferences and Auto Schedule",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "3d0824ff41704b39",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
     }
   ],
   "synthesis_profile": "comprehensive",

@@ -57,6 +57,9 @@ All expected Rock nodes are visible and coordinated without duplicate job runner
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context
 - https://www.rockrms.com/releasenotes
+- https://www.triumph.tech/resources/page/16
+- https://www.triumph.tech/resources/page/18
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster
+- https://community.rockrms.com/recipes/296
 - https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s

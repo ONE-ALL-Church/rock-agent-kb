@@ -50,11 +50,11 @@ A selected category of Person Attributes appears in the intended profile locatio
 - https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes
 - https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab
 - https://www.rockrms.com/releasenotes
-- https://www.youtube.com/watch?v=c-wycR9HEuQ
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/303---blast-off/attributes
 - https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes
 - https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql
 - https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses
+- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns

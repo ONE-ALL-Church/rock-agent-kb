@@ -55,8 +55,8 @@ A campus is configured without prematurely exposing it as active.
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
 - https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql
 - https://community.rockrms.com/rocku/check-in/check-in-manager-1
+- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes

@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "d3fe999a05020bfd62c171ede1e6ab12704aff9764230be78e0
 
 # System Administration And Operations
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [System Administration And Operations index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Treat Rock operations as several connected control loops:
@@ -633,3 +649,31 @@ The pack does not support claiming that a cleanup, re-index, job execution, cach
 | Universal Search entities and jobs | Official v19.0 documentation | [Enable Entities for Universal Search](https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-entities-for-universal-search); [Specifics for Entities](https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities) |
 | Search integration and result templates | Official v19.0 documentation | [Integrating Smart Search](https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search); [Customizing Results for Entities](https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities) |
 | Person attribute indexing defect | Official v19.3 release note | [Rock release notes](https://www.rockrms.com/releasenotes) |
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `1`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | release_caveat | The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `1`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) | approved_for_public_distillation | 5 | media-insight:574371376cd3e666 |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

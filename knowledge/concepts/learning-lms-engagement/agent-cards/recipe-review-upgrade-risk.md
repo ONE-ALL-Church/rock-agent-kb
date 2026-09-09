@@ -52,10 +52,10 @@ Review LMS, engagement, requirement, workflow, and communication behavior agains
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example
-- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms
-- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub
 - https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
 - https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators
 - https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class
+- https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/intro-to-program-administration

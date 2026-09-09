@@ -42,3 +42,4 @@ A provider-ready migration plan with a reserved test window and clear responsibi
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
+- https://community.rockrms.com/recipes/296

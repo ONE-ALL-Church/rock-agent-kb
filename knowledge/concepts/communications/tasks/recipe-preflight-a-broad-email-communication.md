@@ -50,7 +50,8 @@ A reviewed draft whose audience, sender, classification, content, consent and de
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics
-- https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
-- https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists
+- https://community.rockrms.com/documentation/engagement/communications
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
+- https://community.rockrms.com/recipes/370
+- https://community.rockrms.com/recipes/132

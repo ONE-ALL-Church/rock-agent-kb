@@ -50,5 +50,6 @@ The page renders correctly on .NET MAUI without silently breaking retained older
 ## Source Links
 
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
+- https://community.rockrms.com/developer/mobile-docs
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
+- https://community.rockrms.com/recipes/402

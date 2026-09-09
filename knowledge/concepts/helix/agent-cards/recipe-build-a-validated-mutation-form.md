@@ -44,7 +44,6 @@ A non-GET endpoint that rejects unauthorized or invalid direct calls as well as 
 
 ## Source Links
 
+- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/developer/helix/forms-controls/form-validation
-- https://community.rockrms.com/lava/commands/db-transaction
-- https://community.rockrms.com/lava/commands/http-response
 - https://community.rockrms.com/developer/helix/overview/security

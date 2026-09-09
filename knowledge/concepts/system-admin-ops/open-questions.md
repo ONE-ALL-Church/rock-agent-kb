@@ -19,6 +19,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `scope-and-boundaries`: Scope And Boundaries
 - `mental-model`: Mental Model
 - `jobs-and-scheduling-job-configuration-and-history`: Job configuration and history

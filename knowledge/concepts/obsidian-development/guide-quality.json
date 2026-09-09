@@ -1,24 +1,24 @@
 {
   "authority_coverage": [
     "official-developer",
+    "official-model-map",
     "official-release",
-    "org-contribution",
     "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 6777 words; expected at least 1200.",
+      "message": "Guide has 7468 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 6777 words; expected no more than 9000.",
+      "message": "Guide has 7468 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 56 sections; expected at least 9.",
+      "message": "Guide has 59 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -60,49 +60,29 @@
       "id": "source_code",
       "message": "Available source code should be cited.",
       "passed": true
-    },
-    {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
-    },
-    {
-      "id": "contribution_traceability",
-      "message": "Reviewed public contribution records must include source URLs or source record IDs.",
-      "passed": true
-    },
-    {
-      "id": "contribution_not_official",
-      "message": "Guides using org/community contributions must label them as examples, patterns, or non-official guidance.",
-      "passed": true
-    },
-    {
-      "id": "contribution_live_verification",
-      "message": "Contribution-influenced guides that need live verification must tell agents what to verify.",
-      "passed": true
     }
   ],
   "concept_id": "obsidian-development",
-  "contribution_record_count": 4,
+  "contribution_record_count": 0,
   "entity_count": 10,
-  "generated_at": "2026-09-03T16:51:05+00:00",
-  "guide_line_count": 579,
-  "guide_word_count": 6777,
+  "generated_at": "2026-09-09T23:39:50+00:00",
+  "guide_line_count": 629,
+  "guide_word_count": 7468,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 74,
-    "answer_claim_reference_count": 74,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 10,
-    "section_count": 56,
-    "source_count": 41,
-    "substantive_uncited_section_ratio": 0.0244,
+    "section_count": 59,
+    "source_count": 49,
+    "substantive_uncited_section_ratio": 0.0465,
     "task_card_count": 9,
-    "word_count": 6777
+    "word_count": 7468
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 56,
-  "source_count": 41,
+  "section_count": 59,
+  "source_count": 49,
   "status": "pass",
   "task_card_count": 9
 }

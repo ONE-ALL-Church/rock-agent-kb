@@ -40,13 +40,14 @@ generated: true
 
 | Version | Channel | Summary |
 | --- | --- | --- |
-| `19.3` | core | Fixed the Content Channel Item List block to show the add and delete options for individuals with Edit access to the content channel, rather than requiring Edit access on the Content Channel Item entity itself. Fixes: #6914 |
 | `17.5` | core | Fixed an issue where the Content Channel Item View block and the InteractionContentChannelItemWrite Lava command logged interactions using the Content Channel entity type instead of the Content Channel Item entity type. This caused interact |
+| `18.2` | core | Fixed a security issue affecting multiple blocks that interact with Content Channels, where individuals with only View permissions could delete content items. The delete option is now correctly limited to those with Edit access. Fixes: #653 |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `content-channels-manage-editorial-work` | high | live verification |
 | `content-channels-relate-items` | normal | live verification |

@@ -52,6 +52,6 @@ A tool exposes one managed Rock capability with bounded inputs, results, and aut
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens
-- https://www.youtube.com/watch?v=UvW68dZBcJ8
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
+- https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s
 - https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s

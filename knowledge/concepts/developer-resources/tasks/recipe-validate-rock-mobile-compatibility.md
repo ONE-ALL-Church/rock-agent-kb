@@ -39,4 +39,5 @@ Determine whether a feature is supported by the exact Core/Shell pair.
 
 ## Source Links
 
-- https://community.rockrms.com/developer
+- https://community.rockrms.com/developer/mobile-docs/developers
+- https://community.rockrms.com/developer/mobile-docs

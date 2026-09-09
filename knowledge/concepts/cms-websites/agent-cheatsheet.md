@@ -50,14 +50,15 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | needs-citation | needs-citation |
 | `sites-routes-and-navigation` | normal | live verification |
 | `pages-layouts-zones-and-blocks` | normal | live verification |
 | `advanced-html-lava-and-context` | normal | live verification |
 | `personalization` | citation-only | live verification |
-| `content-channels-and-media-presentation` | normal | live verification |
-| `page-parameters-filters-and-short-links` | community-supported | live verification |
+| `content-channels-and-media-presentation` | high | live verification |
+| `page-parameters-filters-and-short-links` | normal | live verification |
 | `obsidian-helix-htmx-and-forms` | normal | live verification |
 | `mobile-content-boundary` | normal | live verification |
 | `version-and-authority-caveats` | normal | live verification |
@@ -65,13 +66,13 @@ generated: true
 | `troubleshooting-decision-tree-a-saved-page-block-route-or-style-change-does-not-appear` | normal | live verification |
 | `troubleshooting-decision-tree-the-wrong-personalized-or-contextual-content-appears` | normal | live verification |
 | `troubleshooting-decision-tree-a-content-channel-item-is-missing-duplicated-or-exposed` | normal | live verification |
-| `troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer` | community-supported | live verification |
-| `troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor` | community-supported | live verification |
+| `troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer` | normal | live verification |
+| `troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor` | normal | live verification |
 | `troubleshooting-decision-tree-an-htmx-result-is-correct-but-its-controls-assets-or-metadata-are-wrong` | structural | live verification |
 | `troubleshooting-decision-tree-a-page-is-slow` | normal | live verification |
 | `troubleshooting-decision-tree-a-web-form-fails-validation-nests-incorrectly-or-receives-bot-submissions` | normal | live verification |
 | `troubleshooting-decision-tree-mobile-content-is-stale-or-lacks-currentperson` | normal | live verification |
-| `troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options` | community-supported | live verification |
+| `troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options` | citation-only | live verification |
 | `troubleshooting-decision-tree-background-generated-media-is-linked-before-it-is-ready` | citation-only | live verification |
 | `agent-task-recipes-recipe-publish-a-page-and-block-safely` | normal | live verification |
 | `agent-task-recipes-recipe-copy-a-page-hierarchy-without-carrying-stale-configuration` | normal | live verification |
@@ -79,10 +80,11 @@ generated: true
 | `agent-task-recipes-recipe-change-a-theme-without-surprising-other-sites-or-pages` | normal | live verification |
 | `agent-task-recipes-recipe-publish-a-content-channel-list-and-detail-experience` | citation-only | live verification |
 | `agent-task-recipes-recipe-build-and-verify-personalized-content` | citation-only | live verification |
-| `agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer` | community-supported | live verification |
-| `agent-task-recipes-recipe-build-a-bounded-helix-active-search-page` | community-supported | live verification |
+| `agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer` | normal | live verification |
+| `agent-task-recipes-recipe-build-a-bounded-helix-active-search-page` | normal | live verification |
 | `agent-task-recipes-recipe-launch-a-landing-page` | normal | live verification |
 | `agent-task-recipes-recipe-retire-a-seasonal-public-feature` | needs-citation | live verification |
-| `agent-task-recipes-recipe-publish-background-generated-video` | community-supported | live verification |
+| `agent-task-recipes-recipe-publish-background-generated-video` | normal | live verification |
 | `agent-task-recipes-recipe-configure-mobile-cms-content-with-the-correct-freshness-and-identity` | normal | live verification |
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
+| `approved-claim-coverage` | normal | live verification |

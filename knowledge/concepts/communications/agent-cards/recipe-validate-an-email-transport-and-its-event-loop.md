@@ -42,5 +42,4 @@ A bounded test proves Rock-to-provider handoff, inbox delivery and expected even
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics
-- https://community.rockrms.com/documentation/engagement/communications/email/configure-email
+- https://community.rockrms.com/documentation/engagement/communications

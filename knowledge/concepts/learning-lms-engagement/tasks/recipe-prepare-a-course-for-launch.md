@@ -56,7 +56,7 @@ Prepare a course or class for learners by checking structure, activities, schedu
 - https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-program
 - https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity
 - https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity
-- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan
 - https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
 - https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity
 - https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example
+- https://community.rockrms.com/documentation/engagement/learning-management-system/activities/file-upload-activity

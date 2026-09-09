@@ -19,9 +19,12 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `public-intake-and-cross-system-handoffs`: Public Intake And Cross-System Handoffs
 - `agent-task-recipes-recipe-connect-preregistration-to-staff-follow-up`: Recipe: Connect preregistration to staff follow-up
 - `source-map-community-reviewed-guidance-and-examples`: Community-reviewed guidance and examples
+- `approved-claim-coverage`: Approved Claim Coverage
+- `approved-media-coverage`: Approved Media Coverage
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `mental-model`: Mental Model
 - `opportunities`: Opportunities
@@ -51,6 +54,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-connect-preregistration-to-staff-follow-up`: Recipe: Connect preregistration to staff follow-up
 - `agent-task-recipes-recipe-validate-status-automation`: Recipe: Validate status automation
 - `source-map-community-reviewed-guidance-and-examples`: Community-reviewed guidance and examples
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

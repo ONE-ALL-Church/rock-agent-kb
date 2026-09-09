@@ -5,23 +5,22 @@
     "official-model-map",
     "official-release",
     "official-training",
-    "org-contribution",
     "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 6741 words; expected at least 1200.",
+      "message": "Guide has 7464 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 6741 words; expected no more than 9000.",
+      "message": "Guide has 7464 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 45 sections; expected at least 9.",
+      "message": "Guide has 48 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -65,52 +64,32 @@
       "passed": true
     },
     {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
-    },
-    {
       "id": "community_marked",
       "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
-      "passed": true
-    },
-    {
-      "id": "contribution_traceability",
-      "message": "Reviewed public contribution records must include source URLs or source record IDs.",
-      "passed": true
-    },
-    {
-      "id": "contribution_not_official",
-      "message": "Guides using org/community contributions must label them as examples, patterns, or non-official guidance.",
-      "passed": true
-    },
-    {
-      "id": "contribution_live_verification",
-      "message": "Contribution-influenced guides that need live verification must tell agents what to verify.",
       "passed": true
     }
   ],
   "concept_id": "documents-signatures",
-  "contribution_record_count": 4,
+  "contribution_record_count": 0,
   "entity_count": 9,
-  "generated_at": "2026-09-03T16:50:59+00:00",
-  "guide_line_count": 546,
-  "guide_word_count": 6741,
+  "generated_at": "2026-09-09T23:39:39+00:00",
+  "guide_line_count": 603,
+  "guide_word_count": 7464,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 26,
-    "answer_claim_reference_count": 26,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 9,
-    "section_count": 45,
-    "source_count": 27,
-    "substantive_uncited_section_ratio": 0.0513,
+    "section_count": 48,
+    "source_count": 29,
+    "substantive_uncited_section_ratio": 0.0714,
     "task_card_count": 8,
-    "word_count": 6741
+    "word_count": 7464
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 45,
-  "source_count": 27,
+  "section_count": 48,
+  "source_count": 29,
   "status": "pass",
   "task_card_count": 8
 }

@@ -13,15 +13,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `scope-and-boundaries`: Scope And Boundaries
-- `caching-api-calls`: Caching API Calls
-- `development-environment-plugin-development`: Plugin Development
-- `troubleshooting-decision-tree-an-older-component-fails-with-syntaxerror-15`: An Older Component Fails With `SyntaxError 15`
-- `agent-task-recipes-recipe-cache-a-read-request`: Recipe: Cache A Read Request
-- `agent-task-recipes-recipe-verify-a-community-suggested-block-action-save-path`: Recipe: Verify A Community-Suggested Block-Action Save Path
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `components-forms-and-typescript-contracts`: Components, Forms, And TypeScript Contracts
 - `grid-reference-labels-and-number-badges`: Labels And Number Badges
 - `grid-reference-attribute-person-and-rock-field-columns`: Attribute, Person, And Rock Field Columns

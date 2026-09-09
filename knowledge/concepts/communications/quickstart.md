@@ -29,12 +29,12 @@ Email, SMS, communication templates, transports, segments, and deliverability.
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-34: Agent Summary (normal)
-- `scope-and-boundaries` lines 35-54: Scope And Boundaries (normal)
-- `mental-model` lines 55-66: Mental Model (high)
-- `communication-foundations` lines 67-83: Communication Foundations (normal)
-- `audiences-communication-lists-and-segments` lines 84-93: Audiences, Communication Lists And Segments (normal)
-- `templates-and-system-communications` lines 94-103: Templates And System Communications (normal)
+- `agent-summary` lines 34-50: Agent Summary (normal)
+- `scope-and-boundaries` lines 51-70: Scope And Boundaries (normal)
+- `mental-model` lines 71-82: Mental Model (high)
+- `communication-foundations` lines 83-99: Communication Foundations (normal)
+- `audiences-communication-lists-and-segments` lines 100-109: Audiences, Communication Lists And Segments (normal)
+- `templates-and-system-communications` lines 110-119: Templates And System Communications (normal)
 
 ## Core Entities
 
@@ -54,6 +54,12 @@ Email, SMS, communication templates, transports, segments, and deliverability.
 
 - `18.3`: Fixed an issue where saving a Communication Template from the Communication Wizard failed if the template name included special characters. The preview image generation used the template name for the file, which caused a
 - `18.2`: Fixed an issue where communication approvers were always redirected to the Communication Wizard page, even when the communication was originally created using the Simple Communication page. Approvers are now redirected t
+- `18.2`: Fixed an issue with the Communication Entry Wizard block where changing the Communication Type (e.g., from Recipient Preference to Email or SMS) while creating a message could result in some recipients being excluded fro
+- `18.1`: Added an Obsidian Communication Detail block with improved message visualization and Communication Recipient insights, allowing administrators to review communication content, delivery status, and recipient activity more
+- `19.1`: Added a "Communication Access Mode" setting to the Communication Detail Block along with a new "View All" security action. The default mode is "Strict", which limits viewing of Communication details to the individual who
+- `18.3`: Fixed an issue where the Obsidian Communication Entry Wizard block did not enforce the allowed Communication Types configured in block settings when a Communication was started from outside the wizard (e.g., when using a
+- `18.2`: Fixed an issue where submitting a registration would disable an individual's SMS setting when the "Show SMS Opt-In" option on the Registration Template was set to False. The registration process will now preserve the ind
+- `18.1`: Added Communication Flows, a new tool under Admin Tools › Communications that lets administrators create automated, multi-step sequences across email, SMS, and push notifications. The feature tracks email opens, link cli
 
 ## Files For Agents
 

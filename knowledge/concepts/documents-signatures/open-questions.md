@@ -19,6 +19,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `mental-model`: Mental Model
 - `entity-documents-document-types-and-storage`: Document types and storage
 - `document-templates-and-merge-documents-word-templates`: Word templates
