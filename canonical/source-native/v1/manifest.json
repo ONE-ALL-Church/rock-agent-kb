@@ -41,29 +41,29 @@
     "artifact-migrations.jsonl": "4f515c4a0b22e18b1e5ae390de4df5bd53075ea8ee13497967ab49a790ca18e1",
     "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
     "evaluation-set.jsonl": "bb6abfbf24d8869d2a4b0d45f3db81bd21ddbc63a601960433789748a74d69c3",
-    "generation-activities.jsonl": "3eddb146adab748541f2a790e9afa5e4f770da582842c99a71f37ce8a8f247bb",
-    "legacy-migrations.jsonl": "adcc30045e77d5d42d1dac455808519504086637df19ed12ed6cefd323705e82",
-    "relationships.jsonl": "ad1a6d5d30b36620638f5cf78f3b2c0e591fc7ea850f5fced1f49b48c997c234",
-    "reviewed-artifacts.jsonl": "09b4e30d48a90abc7bff80ad752e25b3d7e6707138752580328fbe8744f7b9a2",
-    "source-snapshots.jsonl": "687ab40d40eb00f885e520d9d5b43cbdda1cddcf66736ca2fc44a0b9c5c2259a",
-    "source-units.jsonl": "f58bc04192f08c2efb2c88303fc4c94336074d6d7a7d48910f74f6a6d5ef8468",
+    "generation-activities.jsonl": "fc7e4d53f971711a593272a565ecf6c176f08052fe3082d09be08f136aed9580",
+    "legacy-migrations.jsonl": "b753214217a2115f1292bdcfb11b20b7b96883050445405a7bc2e286672a3d96",
+    "relationships.jsonl": "b781555ae484afaf522884e5c6506de7e6f6d8d31a247b12fcd1cb2431c34145",
+    "reviewed-artifacts.jsonl": "81e40901aeb56a0b315688e66e9f32834ec79d4a92fc595b9b97d610f4a05153",
+    "source-snapshots.jsonl": "fee4a5f840832a2e4670af7b0f5d9076460a7026b68a09379ccc584bf51be69f",
+    "source-units.jsonl": "bf1a7faa7c710a620ffa03c410f6f7e11c1fcb64bfc5ad6937ed31719329cfa1",
     "split-rules.jsonl": "a15e10839ff24b5701740312c36542aaf9ba33807522a20608137609a327c927",
-    "verification-queue.jsonl": "d4a9bc18126726e13d19d969e211e24c2cd3f0d723358936c32f8e7828c1a5ac",
-    "verification-report.json": "0b827b4403eb06292d40db29a91ca416d62a0510df7997d5414e63160c6a2b38",
-    "verification-resolutions.jsonl": "5abbdfac77aa988a2b2e38c71ff27b37a44d7284c346c0df5cdbdf11c85a74bb"
+    "verification-queue.jsonl": "bb2af53a040b894551b406c3395daa8af1a6126a04b42691899104737242da30",
+    "verification-report.json": "1271f44d0ff2aec327c60f139813a8d3fb3b765962826726dbcdb8aab41bf2b3",
+    "verification-resolutions.jsonl": "c54f112e9bdaaa4210cff6374d94652a2be7264ab6fc753277f9695ab9482250"
   },
   "generation_activity_count": 147,
   "generation_input_hash_versions": {
     "2": 147
   },
   "generation_models": {
-    "gpt-5": 4,
-    "gpt-5.6-sol": 143
+    "gpt-5": 10,
+    "gpt-5.6-sol": 137
   },
   "generation_prompt_versions": {
-    "1.3.0": 25,
-    "1.3.1": 57,
-    "1.3.3": 61,
+    "1.3.0": 22,
+    "1.3.1": 55,
+    "1.3.3": 66,
     "2.3.1": 4
   },
   "notes": [
@@ -76,7 +76,7 @@
   "prompt_version": "2.3.3",
   "public_retrieval_changed": false,
   "relationship_count": 723,
-  "review_changed_article_count": 113,
+  "review_changed_article_count": 108,
   "reviewed_artifact_count": 607,
   "reviewed_artifact_migration_count": 7,
   "reviewed_legacy_migration_count": 211,
@@ -90,12 +90,12 @@
   },
   "source_refresh_required_for_rebuild": true,
   "source_snapshot_count": 147,
-  "source_unit_count": 2906,
+  "source_unit_count": 2902,
   "status": "canonical_input",
-  "verification_request_count": 98,
-  "verification_resolution_count": 98,
+  "verification_request_count": 96,
+  "verification_resolution_count": 96,
   "verification_state_counts": {
-    "verified": 98
+    "verified": 96
   },
   "verification_unresolved_count": 0
 }

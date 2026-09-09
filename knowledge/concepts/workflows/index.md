@@ -2,12 +2,12 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-09-09T23:13:16+00:00
+last_built: 2026-09-09T23:37:50+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-09-09T21:15:59+00:00
+source_last_checked_at: 2026-09-09T23:22:42+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/59
 legacy_summary_retirement_coverage: 4/59
@@ -252,7 +252,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `59`
-- Upstream check range: `2026-09-09T21:15:54+00:00` through `2026-09-09T21:15:59+00:00`
+- Upstream check range: `2026-09-09T21:15:54+00:00` through `2026-09-09T23:22:42+00:00`
 - Source-native typed articles: `4` of `59`
 - Legacy source summaries retired: `4`; still active: `55`
 - Migration status: `partial`

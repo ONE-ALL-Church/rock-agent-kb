@@ -467,7 +467,7 @@
   ],
   "concept_id": "check-in",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-09-09T23:14:44+00:00",
+  "generated_at": "2026-09-09T23:39:16+00:00",
   "guide_sections": [
     "troubleshooting-decision-tree",
     "troubleshooting-decision-tree-a-person-or-family-cannot-be-found",

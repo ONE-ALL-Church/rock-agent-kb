@@ -1933,6 +1933,7 @@
 {"citations": [{"source_id": "rock_developer", "url": "https://community.rockrms.com/developer/slingshot/specifics-of-migration"}], "id": "rock_developer:article:2292", "source_id": "rock_developer"}
 {"citations": [{"source_id": "rock_developer", "url": "https://community.rockrms.com/developer/sql-style-guide"}], "id": "rock_developer:39f46d0795ded949", "source_id": "rock_developer"}
 {"citations": [{"source_id": "rock_developer", "url": "https://community.rockrms.com/developer/videos/70"}], "id": "rock_developer:1f7dcd1234f2bf05", "source_id": "rock_developer"}
+{"citations": [{"source_id": "rock_developer", "url": "https://community.rockrms.com/developer/ai-agents/skills/creating-lava-skills"}], "id": "rock_developer:article:1037", "source_id": "rock_developer"}
 {"citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation"}], "id": "rock_documentation:c42028891566ee98", "source_id": "rock_documentation"}
 {"citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation/bookcontent/1"}], "id": "rock_documentation:26ec6bf5ab8ccc8e", "source_id": "rock_documentation"}
 {"citations": [{"source_id": "rock_documentation", "url": "https://community.rockrms.com/documentation/bookcontent/10/288"}], "id": "rock_documentation:5ed4b9c199b81944", "source_id": "rock_documentation"}
@@ -5657,6 +5658,12 @@
 {"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"}], "id": "media-insight:de21ecd38cde9a0c", "source_id": "rock_youtube"}
 {"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/shorts/9EGrW9pnRzk"}], "id": "media-insight:2eb9c9504b189b88", "source_id": "rock_youtube"}
 {"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"}], "id": "media-insight:4eb69bc5dde5cacb", "source_id": "rock_youtube"}
+{"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/watch?v=zK9r1hTfbMY"}], "id": "media-insight:961af9236ed6bac5", "source_id": "rock_youtube"}
+{"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/watch?v=F8HUXDXSW4A"}], "id": "media-insight:09ece4a1e6ba2b04", "source_id": "rock_youtube"}
+{"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"}], "id": "media-insight:029a8ffa4a325a4e", "source_id": "rock_youtube"}
+{"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/shorts/6YgSg4_RiVM"}], "id": "media-insight:257072a90ff57258", "source_id": "rock_youtube"}
+{"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/watch?v=Mj_OLeSnf0k"}], "id": "media-insight:a343d2007bfeb6d9", "source_id": "rock_youtube"}
+{"citations": [{"source_id": "rock_youtube", "url": "https://www.youtube.com/shorts/s6uoKD-QICc"}], "id": "media-insight:bcbee25a0c42a9e8", "source_id": "rock_youtube"}
 {"citations": [{"source_id": "sparkdevnetwork_rock", "url": "https://github.com/SparkDevNetwork/Rock"}], "id": "sparkdevnetwork_rock:d275b5b94a9da833", "source_id": "sparkdevnetwork_rock"}
 {"citations": [{"source_id": "sparkdevnetwork_slingshot", "url": "https://github.com/SparkDevNetwork/Slingshot"}], "id": "sparkdevnetwork_slingshot:f4b8858a09924202", "source_id": "sparkdevnetwork_slingshot"}
 {"citations": [{"source_id": "triumph_resources", "url": "https://www.triumph.tech/resources"}], "id": "triumph_resources:477898e01857d4a3", "source_id": "triumph_resources"}

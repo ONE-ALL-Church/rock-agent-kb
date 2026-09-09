@@ -10,7 +10,7 @@ Lava syntax, filters, commands, shortcodes, and CMS/developer usage.
 
 This page is generated from normalized records. Follow source links before applying operational or code changes.
 
-Matched records: 2079
+Matched records: 2080
 
 ## Highest Signal Records
 

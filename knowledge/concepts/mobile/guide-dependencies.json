@@ -1,6 +1,6 @@
 {
-  "answer_bearing_claim_count": 22,
-  "approved_claim_count": 22,
+  "answer_bearing_claim_count": 24,
+  "approved_claim_count": 24,
   "approved_claim_dependencies": [
     {
       "authority_tier": "community-reviewed",
@@ -260,6 +260,40 @@
       "version_scope_status": "unprocessed"
     },
     {
+      "authority_tier": "official",
+      "claim": "The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data.",
+      "claim_hash": "d291450dceb9b593065f6ca1373b8a568dddb5f2f6c865e65b0017816a9b3c66",
+      "claim_id": "claim:3ef1600029f31b67f720",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "052498f25b7f3a538fbea89be3df539fb6af8e15954da8f84d324e53faefc0a4",
+      "source_record_ids": [
+        "rock_youtube:3ce8f625ef357f1d"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI&t=478s",
+          "timestamp": "07:58",
+          "timestamp_seconds": 478.0,
+          "title": "Your Congregation's Second Brain for Ministry | Ep 219",
+          "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
       "authority_tier": "community-reviewed",
       "claim": "The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data.",
       "claim_hash": "ee25c8f6d546c68865e946f76e6467f71f780b28ba6fc605b6621504c2187cc9",
@@ -499,6 +533,39 @@
         }
       ],
       "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The team demonstrates the v19 Outreach Toolbox, including personal contacts, touchpoints, reminders and app rollout choices. The episode also discusses future mobile work; those roadmap remarks do not establish shipped availability.",
+      "claim_hash": "63effbd36787385e7ea72638cb843878a973e773a029d252a4665e8bf7d415d6",
+      "claim_id": "claim:9a78c3b84c4bb626fd42",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
+      "safe_evidence_hash": "052498f25b7f3a538fbea89be3df539fb6af8e15954da8f84d324e53faefc0a4",
+      "source_record_ids": [
+        "rock_youtube:3ce8f625ef357f1d"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Your Congregation's Second Brain for Ministry | Ep 219",
+          "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
+        }
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
@@ -949,12 +1016,14 @@
     "claim:2d534c63c723204ad8c9": "3adf570e3a370ee7026446bc5c87f0d72960bf1145d056ff4bb07d4cc0b1f802",
     "claim:3b4b8ec335aa0a17968c": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
     "claim:3d32a2c3e36e71683eb0": "0c60528c11fa896bf9bd411e1ff46a1c9f47114aedd224c4977a267b3f61c3af",
+    "claim:3ef1600029f31b67f720": "d291450dceb9b593065f6ca1373b8a568dddb5f2f6c865e65b0017816a9b3c66",
     "claim:3f37e8a8eb1c044fd9fe": "ee25c8f6d546c68865e946f76e6467f71f780b28ba6fc605b6621504c2187cc9",
     "claim:483a11b884e0e69ffd4d": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
     "claim:520ba5f389698ad4894c": "d8d15a936979ff887fb7da575b1048dc6f52714f0242cbe54aeda481d0ee0e00",
     "claim:54aeb223a9029e9f7707": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
     "claim:72dd1841cd10ed6d5a30": "b9c0ceb5a3455bcb9439894db3f3bd2de2df261c3e91bf5afb697558cba4c506",
     "claim:896d78fdcfa734dde54e": "efc0162206ad0a3b2264b30d0ff28fa86f067d2b9bb51ad3ef211a6dc3a1b3c6",
+    "claim:9a78c3b84c4bb626fd42": "63effbd36787385e7ea72638cb843878a973e773a029d252a4665e8bf7d415d6",
     "claim:9c8ce297c9c4a4cda982": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
     "claim:9f505350705f22d88caf": "d765801ba0f2bbbf8a4f26c18d1df71387370608bff0b4d18406b6cbc9c419e4",
     "claim:aa549ff122698db9c8a1": "8c70ab39c5a2813c20c7796b4605495b6a1ea6700555476a14ba92d0c07bc019",
@@ -966,15 +1035,15 @@
     "claim:e704f98991439e3e1576": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2",
     "claim:ff136cde6aa716bfc87c": "0332e6be0a15d0418505a3483fc2388cad1ee457549dde309c1536218769ff7c"
   },
-  "approved_claims_hash": "a77a0afb92c8d136576ab3fbb5b0476416464bea2bdedc6730d6a903f4c8702a",
+  "approved_claims_hash": "eceb54805cf4afc74f0e1f700f8f77a58cdcf5dfe436d9a9c8c7cce2a9e22b50",
   "approved_claims_path": "knowledge/concepts/mobile/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "c30805988027af70524bdf4a04caa952875350055c6b882e8b0943f1f85981b3",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-09-09T23:15:31+00:00",
+  "built_at": "2026-09-09T23:40:01+00:00",
   "concept_id": "mobile",
-  "guide_hash": "23481f64e6a00e54bc02bce7b987fe953882f16eac60867b09eaacc314874e1a",
+  "guide_hash": "7aa8d70ec850fcf8de577109dbce7cceb7e887bc32889f951d65ffd4370ab040",
   "guide_line_count": 808,
   "guide_path": "knowledge/concepts/mobile/guide.md",
   "guide_word_count": 8517,

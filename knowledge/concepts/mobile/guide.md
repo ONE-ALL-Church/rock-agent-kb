@@ -790,12 +790,12 @@ The evidence pack does not include a reviewed live conclusion for a specific app
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `22`
+- Approved claims routed to this concept: `24`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
-| More |  | 22 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 24 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

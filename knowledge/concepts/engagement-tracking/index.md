@@ -2,12 +2,12 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-09-09T23:13:30+00:00
+last_built: 2026-09-09T23:38:05+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-09-09T21:16:26+00:00
+source_last_checked_at: 2026-09-09T23:22:43+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 7/76
 legacy_summary_retirement_coverage: 7/76
@@ -213,7 +213,7 @@ Keywords: `achievement, achievements, badge, achievement type`
 ## Source Lifecycle
 
 - Official article records routed here: `76`
-- Upstream check range: `2026-09-09T21:16:06+00:00` through `2026-09-09T21:16:26+00:00`
+- Upstream check range: `2026-09-09T21:16:06+00:00` through `2026-09-09T23:22:43+00:00`
 - Source-native typed articles: `7` of `76`
 - Legacy source summaries retired: `7`; still active: `69`
 - Migration status: `partial`

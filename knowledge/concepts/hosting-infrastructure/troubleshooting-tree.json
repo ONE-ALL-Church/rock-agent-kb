@@ -260,7 +260,7 @@
   ],
   "concept_id": "hosting-infrastructure",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-09-09T23:15:06+00:00",
+  "generated_at": "2026-09-09T23:39:41+00:00",
   "guide_sections": [
     "troubleshooting-decision-tree",
     "troubleshooting-decision-tree-a-rock-page-is-slow",

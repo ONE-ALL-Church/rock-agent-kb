@@ -9,12 +9,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 7945 words; expected at least 1200.",
+      "message": "Guide has 7955 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 7945 words; expected no more than 9000.",
+      "message": "Guide has 7955 words; expected no more than 9000.",
       "passed": true
     },
     {
@@ -66,9 +66,9 @@
   "concept_id": "ai-agents-automation",
   "contribution_record_count": 0,
   "entity_count": 7,
-  "generated_at": "2026-09-09T23:15:01+00:00",
+  "generated_at": "2026-09-09T23:39:35+00:00",
   "guide_line_count": 729,
-  "guide_word_count": 7945,
+  "guide_word_count": 7955,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
@@ -78,7 +78,7 @@
     "source_count": 35,
     "substantive_uncited_section_ratio": 0.0465,
     "task_card_count": 8,
-    "word_count": 7945
+    "word_count": 7955
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,

@@ -336,7 +336,7 @@
   ],
   "concept_id": "platform-configuration",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-09-09T23:14:57+00:00",
+  "generated_at": "2026-09-09T23:39:30+00:00",
   "guide_sections": [
     "troubleshooting-decision-tree",
     "troubleshooting-decision-tree-an-attribute-exists-but-is-not-visible",

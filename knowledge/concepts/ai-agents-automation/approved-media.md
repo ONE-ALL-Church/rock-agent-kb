@@ -2,7 +2,7 @@
 concept_id: ai-agents-automation
 generated: true
 artifact_level: media_distillation
-approved_media_count: 18
+approved_media_count: 23
 ---
 
 # AI Agents And Automation Approved Media
@@ -11,8 +11,10 @@ This generated artifact contains reviewed public media distillations routed to t
 
 | Source Record | Title | Review Status | Insights | Citation |
 | --- | --- | --- | --- | --- |
+| `media-insight:961af9236ed6bac5` | AI Hit Singularity But It Still Has Zero Wisdom \| Ep 220 Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/watch?v=zK9r1hTfbMY) |
 | `media-insight:d03a93f4e7ef8c02` | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | approved_for_public_distillation | 11 | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | `media-insight:1cb65e44984bb55c` | AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight | approved_for_public_distillation | 6 | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| `media-insight:257072a90ff57258` | AI is smart but not wise Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/shorts/6YgSg4_RiVM) |
 | `media-insight:0eaf921555a4c075` | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
 | `media-insight:70eec93ffcb16fc8` | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
 | `media-insight:5287d1b4b5bb8aaf` | Last Chance to Register for the AI Summit Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/shorts/tW4104R1N_o) |
@@ -24,8 +26,11 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:927b060aba73b666` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) |
 | `media-insight:b4cdf69722ad5d13` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz) |
 | `media-insight:e81a9f6b5e5e2f8a` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) |
+| `media-insight:a343d2007bfeb6d9` | Meet Your New Ministry Assistant: Rock's Voice Agent Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/watch?v=Mj_OLeSnf0k) |
 | `media-insight:d0ed2c36ffd5d934` | Risk, Cost or Apathy: What's Really Blocking Your Church's AI Adoption \| Ep 220 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/unblocking-church-ai-adoption-ep-220) |
 | `media-insight:00a8a57d7db012dc` | Rock's Future Anchored in Vision \| Ep 202 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision) |
 | `media-insight:59f5bb8f9a0bfcf3` | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218) |
 | `media-insight:a437d9f5be13ad57` | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | approved_for_public_distillation | 10 | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| `media-insight:bcbee25a0c42a9e8` | Spark Connect Was a Labor of Love Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/shorts/s6uoKD-QICc) |
+| `media-insight:09ece4a1e6ba2b04` | Stop the Slop: How We're Keeping AI Out of Our Blind Spots \| Ep 221 Transcript Insight | approved_for_public_distillation | 1 | [source](https://www.youtube.com/watch?v=F8HUXDXSW4A) |
 | `media-insight:97b48ee86bf43c06` | Stop the Slop: How We're Keeping AI Out of Our Blind Spots \| Ep 221 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/stop-the-ai-slop-ep-221) |

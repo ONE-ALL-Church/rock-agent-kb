@@ -2,15 +2,15 @@
 id: concept-ai-agents-automation
 title: AI Agents And Automation
 generated: true
-last_built: 2026-09-09T23:13:25+00:00
+last_built: 2026-09-09T23:38:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-09-09T21:22:56+00:00
+source_last_checked_at: 2026-09-09T23:29:32+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 5/22
-legacy_summary_retirement_coverage: 5/22
+source_native_article_coverage: 6/23
+legacy_summary_retirement_coverage: 6/23
 depends_on_topics:
   - security
   - api-integrations
@@ -41,7 +41,7 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 
 - `AI Agents And Automation` spans security, api-integrations, workflows, platform-configuration, data-views, reports. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_developer, rock_youtube, rock_podcast_rss, rock_community_hubs, rock_community_blog, rock_recipes.
-- Related tags found in source records: releases, api, development, lava, ai, operations, obsidian, sql.
+- Related tags found in source records: api, development, lava, releases, ai, operations, obsidian, sql.
 - Source detail types include: community_blog_article, developer_doc, question, recipe, triumph_resources.
 
 ## Reviewed Media Insights
@@ -69,6 +69,7 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 | AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight | role-based Rock LMS training | 33:03 | Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=1983s) |
 | AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight | shadow-tool prevention | 34:02 | Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2042s) |
 | AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight | staff-first training sequence | 40:09 | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s) |
+| Meet Your New Ministry Assistant: Rock's Voice Agent Transcript Insight | AI review and deployment boundaries | 01:50 | In the voice-agent demonstration, the agent presents the drafted text and asks for confirmation before sending; administrators should verify the corresponding tool permissions and guardrails in their own installation. | [source](https://www.youtube.com/watch?v=Mj_OLeSnf0k&t=110s) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | Rock IQ release target | 00:43 | The episode describes Rock 19.4 as the team's target for initial Rock IQ availability, not as a committed release, and advises churches to complete their Rock 19 upgrade work first. Confirm the final version and timing in current release notes before planning a rollout. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=43s) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | authenticated-user permissions | 01:53 | The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | MCP OAuth security | 05:40 | Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s) |
@@ -109,6 +110,10 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | managed AI data access | 09:21 | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
 | Risk, Cost or Apathy: What's Really Blocking Your Church's AI Adoption \| Ep 220 Transcript Insight | Staff adoption sequence | 07:54 | The hosts recommend that early adopters first coach colleagues who are receptive but inexperienced, rather than starting an AI rollout with the most resistant staff members. | [source](https://shows.acast.com/rock-cast/episodes/unblocking-church-ai-adoption-ep-220) |
 | Stop the Slop: How We're Keeping AI Out of Our Blind Spots \| Ep 221 Transcript Insight | AI communication review | 17:28 | The hosts recommend that the sender personally review and take responsibility for every statement in AI-assisted communication; attributing an error to the model does not transfer that responsibility. | [source](https://shows.acast.com/rock-cast/episodes/stop-the-ai-slop-ep-221) |
+| AI Hit Singularity But It Still Has Zero Wisdom \| Ep 220 Transcript Insight | Staff adoption sequence | 07:54 | The hosts recommend that early adopters first coach colleagues who are receptive but inexperienced, rather than starting an AI rollout with the most resistant staff members. | [source](https://www.youtube.com/watch?v=zK9r1hTfbMY&t=474s) |
+| Stop the Slop: How We're Keeping AI Out of Our Blind Spots \| Ep 221 Transcript Insight | AI communication review | 17:28 | The hosts recommend that the sender personally review and take responsibility for every statement in AI-assisted communication; attributing an error to the model does not transfer that responsibility. | [source](https://www.youtube.com/watch?v=F8HUXDXSW4A&t=1048s) |
+| AI is smart but not wise Transcript Insight | AI review and deployment boundaries | 00:00 | The speaker uses an example in which a model recommends walking to a car wash despite the task requiring the car, illustrating why users should review whether a proposed plan satisfies the original objective. | [source](https://www.youtube.com/shorts/6YgSg4_RiVM) |
+| Spark Connect Was a Labor of Love Transcript Insight | AI review and deployment boundaries | 00:00 | The speaker presents Spark Connect as a way to reduce the provisioning steps churches would otherwise need for additional services; this roadmap discussion does not establish that every anticipated service has shipped. | [source](https://www.youtube.com/shorts/s6uoKD-QICc) |
 
 
 ## Approved Claims
@@ -134,22 +139,22 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | release_caveat | The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| community-reviewed | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
-| More |  | 3 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| official | operational_guidance | The hosts recommend that the sender personally review and take responsibility for every statement in AI-assisted communication; attributing an error to the model does not transfer that responsibility. _(live verification recommended)_ | [source](https://www.youtube.com/watch?v=F8HUXDXSW4A) |
+| More |  | 13 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
-- `rock_community_blog`: 6
+- `rock_community_blog`: 3
 - `rock_community_hubs`: 8
 - `rock_core_release_notes`: 6
-- `rock_developer`: 22
+- `rock_developer`: 23
 - `rock_model_map`: 12
-- `rock_podcast_rss`: 11
+- `rock_podcast_rss`: 10
 - `rock_qa`: 1
 - `rock_recipes`: 1
-- `rock_youtube`: 14
+- `rock_youtube`: 19
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 5
+- `triumph_resources`: 3
 
 ## Highest Signal Sources
 
@@ -165,8 +170,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Types of Tools | rock_developer | We have broken tools down into a number of recommended types, which are identified by the verb prefix on the tool name. You will likely run into cases where you are not sure if your tool should be `List` or `Lookup` for certain entities. This will be especially true for small result sets, such as Campus as it could fit either option. Do your best to think through the most likely use case. To see these, navigate to... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools) |
 | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | rock_youtube | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | Gotchas | rock_developer | ## Overview Things to look out for when writing native tools. ## Queryable object creation must be identical When using a queryable to get the data directly from the database, as opposed to materializing full entity objects and then pulling out the specific properties you want, you may run into the following error: > The type 'Rock.AI.Agent.Classes.Entity.PersonResult' appears in two structurally incompatible... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas) |
+| Creating Lava Skills | rock_developer | ## Overview Creating new skills in Lava is straightforward. When defining a skill, you’ll provide a name, description, and optional instructions. Here are some tips to keep in mind: * **Name:** The name is critical since the agent orchestrator uses it to decide when and whether its tools should be called. Choose something clear that helps the AI understand the purpose of the tools within the skill. *... | [source](https://community.rockrms.com/developer/ai-agents/skills/creating-lava-skills) |
 | Skills | rock_developer | ## Overview Skills group related tools together so agents can work more effectively. They also provide shared usage context, which helps the agent understand how the tools connect without repeating the same explanation on every tool. For example, an *Event Registration skill* can explain how *Registration Templates*, *Registration Instances*, *Registrations* and *Registrants* relate to each other, giving the agent... | [source](https://community.rockrms.com/developer/ai-agents/skills) |
-| Lookup Tools | rock_developer | ## Overview Lookup tools usually take no parameters and are straightforward to implement. There are basically three steps. 1. Load data 2. Format data 3. Return data Typically, steps one and two will be the same since you can often do both in a single query or cache request. For clarity, we will list them separately. ## Load Data Whenever possible, use cache objects if they are available. Let's take a look at a... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools) |
 
 ## Data Model Landmarks
 
@@ -225,6 +230,7 @@ Keywords: `custom tool, lookup tool, native tool, available attributes, agent to
 | Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
 | Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
 | Gotchas | rock_developer | ## Overview Things to look out for when writing native tools. ## Queryable object creation must be identical When using a queryable to get the data directly from the database, as opposed to materializing full entity objects and then pulling out the specific properties you want, you may run into the following error: > The type 'Rock.AI.Agent.Classes.Entity.PersonResult' appears in two structurally incompatible... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas) |
+| Creating Lava Skills | rock_developer | ## Overview Creating new skills in Lava is straightforward. When defining a skill, you’ll provide a name, description, and optional instructions. Here are some tips to keep in mind: * **Name:** The name is critical since the agent orchestrator uses it to decide when and whether its tools should be called. Choose something clear that helps the AI understand the purpose of the tools within the skill. *... | [source](https://community.rockrms.com/developer/ai-agents/skills/creating-lava-skills) |
 | Lookup Tools | rock_developer | ## Overview Lookup tools usually take no parameters and are straightforward to implement. There are basically three steps. 1. Load data 2. Format data 3. Return data Typically, steps one and two will be the same since you can often do both in a single query or cache request. For clarity, we will list them separately. ## Load Data Whenever possible, use cache objects if they are available. Let's take a look at a... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools) |
 | AvailableAttributes Tools | rock_developer | ## Overview Tools to get the available attributes can be broken down into 2 basic parts. 1. Loading or initializing the entity. 2. Retrieving the attributes. Note When we are talking about available attributes in this tool, we are talking about the attribute definitions. Not the actual values. In other words, the data required for the language model to construct a value for the attribute. Such as the Key and... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools) |
 | Rock Core Release Notes | rock_core_release_notes | Improved AI agent tool results to include each entity's unique identifier and, for attributes, the description, field type and allowed values so agents can reference entities Rock stores by GUID rather than by ID. | [source](https://www.rockrms.com/releasenotes) |
@@ -311,10 +317,10 @@ Keywords: `verification, review gate, approval, evidence, hallucination, live ve
 
 ## Source Lifecycle
 
-- Official article records routed here: `22`
-- Upstream check range: `2026-09-09T21:22:55+00:00` through `2026-09-09T21:22:56+00:00`
-- Source-native typed articles: `5` of `22`
-- Legacy source summaries retired: `5`; still active: `17`
+- Official article records routed here: `23`
+- Upstream check range: `2026-09-09T21:22:55+00:00` through `2026-09-09T23:29:32+00:00`
+- Source-native typed articles: `6` of `23`
+- Legacy source summaries retired: `6`; still active: `17`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
@@ -322,7 +328,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 ## Rebuild Dependencies
 
 - Source records: `87`
-- Approved claims: `21`
+- Approved claims: `31`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

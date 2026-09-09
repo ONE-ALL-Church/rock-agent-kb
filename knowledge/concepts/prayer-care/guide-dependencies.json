@@ -1,6 +1,6 @@
 {
-  "answer_bearing_claim_count": 24,
-  "approved_claim_count": 24,
+  "answer_bearing_claim_count": 26,
+  "approved_claim_count": 26,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
@@ -238,6 +238,40 @@
           "source_id": "rock_documentation",
           "title": "Prayer Card View Block",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data.",
+      "claim_hash": "d291450dceb9b593065f6ca1373b8a568dddb5f2f6c865e65b0017816a9b3c66",
+      "claim_id": "claim:3ef1600029f31b67f720",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "052498f25b7f3a538fbea89be3df539fb6af8e15954da8f84d324e53faefc0a4",
+      "source_record_ids": [
+        "rock_youtube:3ce8f625ef357f1d"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI&t=478s",
+          "timestamp": "07:58",
+          "timestamp_seconds": 478.0,
+          "title": "Your Congregation's Second Brain for Ministry | Ep 219",
+          "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
         }
       ],
       "version_scope_status": "unprocessed"
@@ -590,6 +624,39 @@
     },
     {
       "authority_tier": "official",
+      "claim": "The team demonstrates the v19 Outreach Toolbox, including personal contacts, touchpoints, reminders and app rollout choices. The episode also discusses future mobile work; those roadmap remarks do not establish shipped availability.",
+      "claim_hash": "63effbd36787385e7ea72638cb843878a973e773a029d252a4665e8bf7d415d6",
+      "claim_id": "claim:9a78c3b84c4bb626fd42",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "mobile",
+        "prayer-care"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
+      "safe_evidence_hash": "052498f25b7f3a538fbea89be3df539fb6af8e15954da8f84d324e53faefc0a4",
+      "source_record_ids": [
+        "rock_youtube:3ce8f625ef357f1d"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Your Congregation's Second Brain for Ministry | Ep 219",
+          "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
+        }
+      ],
+      "version_scope_status": "scoped"
+    },
+    {
+      "authority_tier": "official",
       "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
       "claim_hash": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
       "claim_id": "claim:9c8ce297c9c4a4cda982",
@@ -761,6 +828,7 @@
     "claim:3938564907eb4fab37f7": "e3c90b18a774892f4dc71f66acd6ba519447279ac1f2db4ad6c1e4990c8a5470",
     "claim:3ad8495d7893123893fb": "0c6e6dfc8836adc8dc573488541e80ced04dc37816125d86d896200a8273ea0f",
     "claim:3adb0c2e259a8595879b": "b45e6270ccc581eb9856367293f583780d9f3c28c4e4c8338f357063ddde957b",
+    "claim:3ef1600029f31b67f720": "d291450dceb9b593065f6ca1373b8a568dddb5f2f6c865e65b0017816a9b3c66",
     "claim:3f37e8a8eb1c044fd9fe": "ee25c8f6d546c68865e946f76e6467f71f780b28ba6fc605b6621504c2187cc9",
     "claim:483a11b884e0e69ffd4d": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
     "claim:496a8a34d83b9fdeab49": "ec4d05ee472c3726620a6826d0fdb5e78f3678ff2ff8b94cc99f736a2381c88b",
@@ -772,13 +840,14 @@
     "claim:730dc8002a49af1f97f8": "db78a2f505873ba21a225bef2657d1ebdebde4a92317eef7b6216c1ffdffcfa2",
     "claim:86749b850c84898312d8": "6d4042f8d76808eebc67d3215e87d65551c0f2c87b9b7a23bea594c84c968949",
     "claim:91425a8f1fedfc67184b": "da58f8144d5d5a9254304a95bc039f5fe9bff7603117ec94424f79fd61f11911",
+    "claim:9a78c3b84c4bb626fd42": "63effbd36787385e7ea72638cb843878a973e773a029d252a4665e8bf7d415d6",
     "claim:9c8ce297c9c4a4cda982": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
     "claim:af86fbd3c6e261b719b0": "c1397b65dbd12ae394b6d4a77b839da59542520c0dee1ddbbb202e9ba70e666c",
     "claim:b8239b164ebf31857a31": "2fdf8bfbe34f814cb3ebfd5d9f45cbb915eb5bca7a69db7e04396e80a5708df0",
     "claim:d50afbd009bd242e4ca9": "6f725cf7391e28c098610bd91fb1b794ffb287c3c1ee10ffde13a213c4fed07b",
     "claim:e704f98991439e3e1576": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2"
   },
-  "approved_claims_hash": "fb0e8181bc31a721e89f95534ddcf2d5920810557327906cf7bc9936d739b8c0",
+  "approved_claims_hash": "a0aac011ed645ea189197dd77690b3c89d109a5454bab1cfe6d27a1d3cdb3b24",
   "approved_claims_path": "knowledge/concepts/prayer-care/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -833,6 +902,22 @@
     },
     {
       "approved_concept_ids": [
+        "mobile",
+        "prayer-care"
+      ],
+      "content_hash": "481df6385d5a878f0ffc47b09e01e3f12358fd19a77b2b3fd18cfb58122aa685",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:029a8ffa4a325a4e",
+      "public_promotion_id": "media-public-promotion:481df6385d5a878f",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:029a8ffa4a325a4e",
+      "source_title": "Your Congregation's Second Brain for Ministry | Ep 219 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
+    },
+    {
+      "approved_concept_ids": [
         "check-in",
         "groups",
         "workflows"
@@ -883,6 +968,7 @@
     }
   ],
   "approved_media_dependency_hashes": {
+    "media-insight:029a8ffa4a325a4e": "481df6385d5a878f0ffc47b09e01e3f12358fd19a77b2b3fd18cfb58122aa685",
     "media-insight:4eb69bc5dde5cacb": "c30b786a73658c0455c7ed7b672d5153f4b4d8168ce6a3c33ba8012a9d13e26f",
     "media-insight:53d999e9f28b3496": "6177fbb8db29004950b041d9167df48214a4b768254b89fd71168454304e7f50",
     "media-insight:762111bd5a9d1218": "27561046c0bab311556210276f759b97aec8b74fedd6994c25b449f6e0ba7779",
@@ -890,14 +976,14 @@
     "media-insight:de21ecd38cde9a0c": "1f20fbf0a5aa002046203e40e6f2dea319195a49c87be36c75cb376c61eda718",
     "media-insight:f131f156d62b7d38": "8f1bd90ed2f6cfcbcc717b6a17b11a578d3be4a723f5301db757b37d25f0a902"
   },
-  "approved_media_hash": "01ef9948bff440827b638ef639a300b5030390793e93ffa57823f01b93207842",
+  "approved_media_hash": "c232811bfe35cf6ae1b349cb7334177196bb7d603b183dd529a4bced15fe15da",
   "approved_media_path": "knowledge/concepts/prayer-care/approved-media.md",
-  "built_at": "2026-09-09T23:15:08+00:00",
+  "built_at": "2026-09-09T23:39:44+00:00",
   "concept_id": "prayer-care",
-  "guide_hash": "e613f45b2ce9f1044feb417ebd999fca015e9a490e7f5f2ff6aadf78137b1b20",
-  "guide_line_count": 674,
+  "guide_hash": "0e6a6c16569a03b5169997cb5e550af50949f6abf741acbd19043f9ea54fb6f1",
+  "guide_line_count": 675,
   "guide_path": "knowledge/concepts/prayer-care/guide.md",
-  "guide_word_count": 7657,
+  "guide_word_count": 7678,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1222,6 +1308,15 @@
       "source_key": "8f42746b6ac656d0",
       "source_record_id": "rock_rocku:8f42746b6ac656d0",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "68a3997f7d96797f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
     },
     {
       "authority": "unknown",
@@ -1804,7 +1899,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 674,
+      "end_line": 675,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1813,6 +1908,7 @@
         "a56a73c5681795bd",
         "8f42746b6ac656d0",
         "78f1e8bbd9d351ff",
+        "68a3997f7d96797f",
         "053323ad646c71fc",
         "1c59cd336e8baae0"
       ],
@@ -2492,6 +2588,16 @@
       ],
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests",
       "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "68a3997f7d96797f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=KEnhnd7h3ZI",
+      "url": "https://www.youtube.com/watch?v=KEnhnd7h3ZI"
     },
     {
       "authority": "unknown",

@@ -2,28 +2,28 @@
   "answer_bearing_count": 609,
   "authority_tiers": {
     "community-reviewed": 40,
-    "official": 494,
+    "official": 506,
     "release-note-confirmed": 1,
     "rocku-confirmed": 78
   },
-  "claim_count": 613,
+  "claim_count": 625,
   "claim_tiers": {
     "answer_pack_approved": 505,
     "live_verified": 104,
-    "source_backed": 4
+    "source_backed": 16
   },
   "claim_types": {
     "behavior": 149,
     "configuration": 152,
     "implementation_pattern": 78,
-    "operational_guidance": 99,
+    "operational_guidance": 103,
     "recipe": 27,
-    "release_caveat": 49,
+    "release_caveat": 51,
     "risk": 29,
-    "source_summary": 30
+    "source_summary": 36
   },
   "concept_ids": {
-    "ai-agents-automation": 21,
+    "ai-agents-automation": 31,
     "api-integrations": 16,
     "apple-tv": 16,
     "check-in": 35,
@@ -42,11 +42,11 @@
     "hosting-infrastructure": 29,
     "lava": 30,
     "learning-lms-engagement": 12,
-    "mobile": 22,
+    "mobile": 24,
     "obsidian-development": 74,
     "people-families": 32,
     "platform-configuration": 45,
-    "prayer-care": 24,
+    "prayer-care": 26,
     "roku": 16,
     "scheduling-locations": 9,
     "security-permissions": 63,
@@ -63,39 +63,39 @@
     "source_summary": 494
   },
   "excluded_routing_context_count": 1715,
-  "generated_at": "2026-09-09T23:13:11+00:00",
+  "generated_at": "2026-09-09T23:37:32+00:00",
   "generation_provenance": {
     "legacy_claims_without_provenance": 124,
     "methods": {
       "agent_reviewed_full_article": 431,
-      "agent_reviewed_whole_source": 58
+      "agent_reviewed_whole_source": 70
     },
     "models": {
       "codex-gpt-5": 36,
-      "gpt-5": 4,
+      "gpt-5": 16,
       "gpt-5.6-sol": 449
     },
     "prompt_ids": {
       "codex-whole-video-review": 5,
-      "rock-kb-media-claim-distillation": 53,
+      "rock-kb-media-claim-distillation": 65,
       "rock-kb-source-claim-distillation": 431
     },
     "prompt_versions": {
-      "1.0.0": 448,
+      "1.0.0": 460,
       "1.1.0": 36,
       "legacy-unversioned": 5
     },
-    "recorded_claims": 489
+    "recorded_claims": 501
   },
   "output": "claims/approved-claims.jsonl",
-  "retrieval_eligible_count": 613,
+  "retrieval_eligible_count": 625,
   "review_statuses": {
-    "approved_for_public_distillation": 613
+    "approved_for_public_distillation": 625
   },
   "routing_context_count": 0,
   "routing_context_destination": "agent/source-summaries.jsonl",
   "schema": "rock-kb-claim-export-report-v1",
   "version_independent_count": 0,
-  "version_scoped_count": 61,
-  "version_unprocessed_count": 552
+  "version_scoped_count": 62,
+  "version_unprocessed_count": 563
 }

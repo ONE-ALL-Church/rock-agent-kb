@@ -2,19 +2,19 @@
   "concept_count": 31,
   "concepts": [
     {
-      "answer_bearing_claim_count": 21,
+      "answer_bearing_claim_count": 31,
       "answer_bearing_ratio": 1.0,
-      "claim_facet_count": 21,
+      "claim_facet_count": 31,
       "concept_id": "ai-agents-automation",
       "documentation_branches": [
         "developer/ai-agents"
       ],
-      "matching_branch_record_count": 22,
+      "matching_branch_record_count": 23,
       "parent_concept_id": "",
       "path_constrained": true,
       "routing_context_claim_count": 0,
       "routing_role": "primary",
-      "selected_official_document_count": 22,
+      "selected_official_document_count": 23,
       "selected_record_count": 80,
       "title": "AI Agents And Automation",
       "warnings": []
@@ -166,7 +166,7 @@
       "claim_facet_count": 13,
       "concept_id": "developer-resources",
       "documentation_branches": [],
-      "matching_branch_record_count": 650,
+      "matching_branch_record_count": 651,
       "parent_concept_id": "",
       "path_constrained": true,
       "routing_context_claim_count": 0,
@@ -338,9 +338,9 @@
       "warnings": []
     },
     {
-      "answer_bearing_claim_count": 22,
+      "answer_bearing_claim_count": 24,
       "answer_bearing_ratio": 1.0,
-      "claim_facet_count": 22,
+      "claim_facet_count": 24,
       "concept_id": "mobile",
       "documentation_branches": [
         "developer/mobile-docs"
@@ -408,9 +408,9 @@
       "warnings": []
     },
     {
-      "answer_bearing_claim_count": 24,
+      "answer_bearing_claim_count": 26,
       "answer_bearing_ratio": 1.0,
-      "claim_facet_count": 24,
+      "claim_facet_count": 26,
       "concept_id": "prayer-care",
       "documentation_branches": [
         "documentation/engagement/prayer"
@@ -549,7 +549,7 @@
     }
   ],
   "errors": [],
-  "generated_at": "2026-09-09T23:14:02+00:00",
+  "generated_at": "2026-09-09T23:38:35+00:00",
   "highest_overlap_records": [
     {
       "concept_ids": [
@@ -754,9 +754,9 @@
   "metrics": {
     "explicit_branch_count": 27,
     "overlapping_selected_official_record_count": 212,
-    "selected_official_record_count": 1174,
+    "selected_official_record_count": 1175,
     "selected_official_record_overlap_distribution": {
-      "1": 962,
+      "1": 963,
       "2": 190,
       "3": 20,
       "4": 2

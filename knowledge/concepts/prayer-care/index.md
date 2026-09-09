@@ -2,7 +2,7 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-09-09T23:13:30+00:00
+last_built: 2026-09-09T23:38:04+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
@@ -51,6 +51,7 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 | Outreach Toolbox is Here in v19 Transcript Insight | outreach touchpoint lifecycle | 07:56 | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s) |
 | Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | Outreach Toolbox dashboard | 00:00 | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | Your Congregation's Second Brain for Ministry \| Ep 219 Transcript Insight | Outreach contact stewardship | 07:41 | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. | [source](https://shows.acast.com/rock-cast/episodes/outreach-toolbox-ep-219) |
+| Your Congregation's Second Brain for Ministry \| Ep 219 Transcript Insight | Outreach contact stewardship | 07:58 | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. | [source](https://www.youtube.com/watch?v=KEnhnd7h3ZI&t=478s) |
 | Rapid Attendance Entry Transcript Insight | rapid attendance setup | 00:32 | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Rapid Attendance Entry Transcript Insight | attendance and care capture | 02:17 | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Rapid Attendance Entry Transcript Insight | block configuration | 03:14 | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
@@ -85,19 +86,19 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | configuration | A Prayer Card View block can launch a workflow after a request is prayed for or flagged; the workflow receives the prayer request as an entity and identifies the acting person through the PrayerOfferedByPersonId or FlaggedByPersonId workflow attribute, respectively. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Card View block is included with Rock but must be manually placed on an external-site page; it presents requests as cards and records a prayer when a team member selects the prayer action. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Request Entry block can launch a configured workflow after submission, and that workflow can access information from the submitted prayer request. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
-| More |  | 6 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 8 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 1
-- `rock_core_release_notes`: 13
+- `rock_core_release_notes`: 12
 - `rock_documentation`: 17
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `rock_qa`: 1
 - `rock_recipes`: 8
 - `rock_rocku`: 5
-- `rock_youtube`: 2
+- `rock_youtube`: 3
 - `triumph_resources`: 1
 
 ## Highest Signal Sources
@@ -246,7 +247,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 ## Rebuild Dependencies
 
 - Source records: `61`
-- Approved claims: `24`
+- Approved claims: `26`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

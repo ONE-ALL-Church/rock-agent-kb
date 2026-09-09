@@ -2,7 +2,7 @@
 concept_id: mobile
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 22
+approved_claim_count: 24
 ---
 
 # Rock Mobile Approved Claims
@@ -19,6 +19,8 @@ This generated artifact contains the full approved public claim coverage for the
 | `claim:9c8ce297c9c4a4cda982` | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `claim:dc73468ceef82ee62d45` | official | release_caveat | Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
 | `claim:e704f98991439e3e1576` | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:3ef1600029f31b67f720` | official | operational_guidance | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. _(live verification recommended)_ | [source](https://www.youtube.com/watch?v=KEnhnd7h3ZI) |
+| `claim:9a78c3b84c4bb626fd42` | official | source_summary | The team demonstrates the v19 Outreach Toolbox, including personal contacts, touchpoints, reminders and app rollout choices. The episode also discusses future mobile work; those roadmap remarks do not establish shipped availability. _(live verification recommended)_ | [source](https://www.youtube.com/watch?v=KEnhnd7h3ZI) |
 | `claim:72dd1841cd10ed6d5a30` | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | `claim:0b388b0e4afdabbc9903` | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | `claim:c04a3055801d1b1a9fa4` | rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |

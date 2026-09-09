@@ -2,12 +2,12 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-09-09T23:13:23+00:00
+last_built: 2026-09-09T23:37:58+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-09-09T21:24:34+00:00
+source_last_checked_at: 2026-09-09T23:23:18+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/30
 legacy_summary_retirement_coverage: 4/30
@@ -298,7 +298,7 @@ Keywords: `attendance, check-in, follow-up, no show, serving attendance`
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `30`
-- Upstream check range: `2026-09-09T21:15:24+00:00` through `2026-09-09T21:24:34+00:00`
+- Upstream check range: `2026-09-09T21:15:24+00:00` through `2026-09-09T23:23:18+00:00`
 - Source-native typed articles: `1` of `30`
 - Legacy source summaries retired: `4`; still active: `26`
 - Migration status: `partial`

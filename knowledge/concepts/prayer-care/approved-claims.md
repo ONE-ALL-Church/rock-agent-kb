@@ -2,7 +2,7 @@
 concept_id: prayer-care
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 24
+approved_claim_count: 26
 ---
 
 # Prayer And Care Approved Claims
@@ -34,4 +34,6 @@ This generated artifact contains the full approved public claim coverage for the
 | `claim:54aeb223a9029e9f7707` | official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
 | `claim:9c8ce297c9c4a4cda982` | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
 | `claim:e704f98991439e3e1576` | official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| `claim:3ef1600029f31b67f720` | official | operational_guidance | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. _(live verification recommended)_ | [source](https://www.youtube.com/watch?v=KEnhnd7h3ZI) |
+| `claim:9a78c3b84c4bb626fd42` | official | source_summary | The team demonstrates the v19 Outreach Toolbox, including personal contacts, touchpoints, reminders and app rollout choices. The episode also discusses future mobile work; those roadmap remarks do not establish shipped availability. _(live verification recommended)_ | [source](https://www.youtube.com/watch?v=KEnhnd7h3ZI) |
 | `claim:3f37e8a8eb1c044fd9fe` | community-reviewed | operational_guidance | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/outreach-toolbox-ep-219) |

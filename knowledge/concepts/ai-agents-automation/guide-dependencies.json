@@ -1,6 +1,6 @@
 {
-  "answer_bearing_claim_count": 21,
-  "approved_claim_count": 21,
+  "answer_bearing_claim_count": 31,
+  "approved_claim_count": 31,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
@@ -32,6 +32,99 @@
           "timestamp_seconds": 583.82,
           "title": "Connections Helps Prevent Your People from Falling Through the Cracks",
           "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The speaker presents Spark Connect as a way to reduce the provisioning steps churches would otherwise need for additional services; this roadmap discussion does not establish that every anticipated service has shipped.",
+      "claim_hash": "75e3e88e932d62dab29acae846f0d5ef484a8c6965ecbb58eff4a28232366121",
+      "claim_id": "claim:0ab11849d2c95201e029",
+      "claim_tier": "source_backed",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "2fc9a09dcc56915eb703709f7f091b4186e6071aff92e6d7705dc9c4d66eb2a3",
+      "source_record_ids": [
+        "rock_youtube:7050af29736f3674"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/shorts/s6uoKD-QICc",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "Spark Connect Was a Labor of Love",
+          "url": "https://www.youtube.com/shorts/s6uoKD-QICc"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "A Rock voice-agent demonstration shows profile retrieval, a requested profile update and an outbound-message confirmation. The demonstration does not prove availability or permissions in another installation.",
+      "claim_hash": "419a8bcc5824fd9a6c4a7212b6f2cd006a044d52d95ebdf681a3713ea9929f96",
+      "claim_id": "claim:174c0af7541f12ee5ecc",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "05d739cacec1606337b0c1d41447d02634797ee341e8e3d65240f5c4ddcf75a3",
+      "source_record_ids": [
+        "rock_youtube:1e222d261d8a34e6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Meet Your New Ministry Assistant: Rock's Voice Agent",
+          "url": "https://www.youtube.com/watch?v=Mj_OLeSnf0k"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The clip illustrates a reasoning mistake reported by the speaker, not a benchmark of current models.",
+      "claim_hash": "08066cef3a10b231350abc7e1afcfdb19d2ffebb5eed1e25eeb3a19bab90cbd6",
+      "claim_id": "claim:1a230c83cd8fe80c96e8",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "7948a377f4d043743a901fa1d142e58bf553ff332d8eb8b7abaf99d5d6e12e3a",
+      "source_record_ids": [
+        "rock_youtube:acf00a1b5aa573b8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "AI is smart but not wise",
+          "url": "https://www.youtube.com/shorts/6YgSg4_RiVM"
         }
       ],
       "version_scope_status": "unprocessed"
@@ -102,6 +195,69 @@
           "timestamp_seconds": 113.0,
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The hosts recommend that the sender personally review and take responsibility for every statement in AI-assisted communication; attributing an error to the model does not transfer that responsibility.",
+      "claim_hash": "6474e3cfb84fc2887eb5f4a702a29251afd8516e3823dbbb8955ec7741ce1886",
+      "claim_id": "claim:3c05c07eb76d2e0458c3",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "1bc57e98c09f492199de71e2f7ef69de4f01391e9b4ed0f2cd0aefcf667f46a3",
+      "source_record_ids": [
+        "rock_youtube:104318d9f8ff7213"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=F8HUXDXSW4A&t=1048s",
+          "timestamp": "17:28",
+          "timestamp_seconds": 1048.0,
+          "title": "Stop the Slop: How We're Keeping AI Out of Our Blind Spots | Ep 221",
+          "url": "https://www.youtube.com/watch?v=F8HUXDXSW4A"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The speaker describes Spark Connect as groundwork for easier service provisioning and future services, without specifying a complete available-service catalog.",
+      "claim_hash": "0e9c0f13d25cb4e0afa0fdbd6aeba26f2d284926dd42a3e29313a2380edd742b",
+      "claim_id": "claim:4439b246e2204149654d",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "2fc9a09dcc56915eb703709f7f091b4186e6071aff92e6d7705dc9c4d66eb2a3",
+      "source_record_ids": [
+        "rock_youtube:7050af29736f3674"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Spark Connect Was a Labor of Love",
+          "url": "https://www.youtube.com/shorts/s6uoKD-QICc"
         }
       ],
       "version_scope_status": "unprocessed"
@@ -456,6 +612,39 @@
     },
     {
       "authority_tier": "official",
+      "claim": "In the voice-agent demonstration, the agent presents the drafted text and asks for confirmation before sending; administrators should verify the corresponding tool permissions and guardrails in their own installation.",
+      "claim_hash": "ea60ef69429f962d68d3ae32946e768f95e2191a0eb207be017bae005c350db9",
+      "claim_id": "claim:782b604cac35151ab7ea",
+      "claim_tier": "source_backed",
+      "claim_type": "release_caveat",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "05d739cacec1606337b0c1d41447d02634797ee341e8e3d65240f5c4ddcf75a3",
+      "source_record_ids": [
+        "rock_youtube:1e222d261d8a34e6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=Mj_OLeSnf0k&t=110s",
+          "timestamp": "01:50",
+          "timestamp_seconds": 110.0,
+          "title": "Meet Your New Ministry Assistant: Rock's Voice Agent",
+          "url": "https://www.youtube.com/watch?v=Mj_OLeSnf0k"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
       "claim": "Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls.",
       "claim_hash": "e630aeb9c95efeba507ddbcd1ad9446a0bf4eb6fc8b9a7e8e4588d6d1c9cc5ba",
       "claim_id": "claim:903c8ff9b5d2590fd616",
@@ -597,6 +786,39 @@
     },
     {
       "authority_tier": "official",
+      "claim": "The speaker uses an example in which a model recommends walking to a car wash despite the task requiring the car, illustrating why users should review whether a proposed plan satisfies the original objective.",
+      "claim_hash": "fce8eb79595e7ec11e17d7082e6343f6ca6b84037c1e09026bb8c391609dacad",
+      "claim_id": "claim:aba028f606391196f710",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "7948a377f4d043743a901fa1d142e58bf553ff332d8eb8b7abaf99d5d6e12e3a",
+      "source_record_ids": [
+        "rock_youtube:acf00a1b5aa573b8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/shorts/6YgSg4_RiVM",
+          "timestamp": "00:00",
+          "timestamp_seconds": 0.0,
+          "title": "AI is smart but not wise",
+          "url": "https://www.youtube.com/shorts/6YgSg4_RiVM"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
       "claim": "Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent.",
       "claim_hash": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
       "claim_id": "claim:b4fb38224ff8452078f3",
@@ -628,6 +850,36 @@
           "timestamp_seconds": 1441.0,
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The hosts discuss human responsibility for AI-assisted communication and demonstrate their custom writing-style workflow. Rock IQ pricing, model-provider policies and release timing are episode-specific discussion, not verified current service terms.",
+      "claim_hash": "1e7434228dd10bb4dc0618fb5eda97eccd321551d6a0c325a46c5cd08a4828e2",
+      "claim_id": "claim:c20173c8ebf222ae3906",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "1bc57e98c09f492199de71e2f7ef69de4f01391e9b4ed0f2cd0aefcf667f46a3",
+      "source_record_ids": [
+        "rock_youtube:104318d9f8ff7213"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "Stop the Slop: How We're Keeping AI Out of Our Blind Spots | Ep 221",
+          "url": "https://www.youtube.com/watch?v=F8HUXDXSW4A"
         }
       ],
       "version_scope_status": "unprocessed"
@@ -739,12 +991,80 @@
         }
       ],
       "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The episode offers an organizational adoption approach for church teams and cautions against treating generated code as a substitute for architecture and security review. Its release announcements and broader AI predictions are not current product guarantees.",
+      "claim_hash": "8c1d8ccd1df932e03a731bf7b6d0ab1fe3259e608e968efc4152e6919467b15c",
+      "claim_id": "claim:d5e71798dd4c2b84b4b2",
+      "claim_tier": "source_backed",
+      "claim_type": "source_summary",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "dc8515c84fcf020d1a68509b5df590339e9be8d28b37eb02caa906ca0206e87c",
+      "source_record_ids": [
+        "rock_youtube:605c9134833f0bd2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "title": "AI Hit Singularity But It Still Has Zero Wisdom | Ep 220",
+          "url": "https://www.youtube.com/watch?v=zK9r1hTfbMY"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "official",
+      "claim": "The hosts recommend that early adopters first coach colleagues who are receptive but inexperienced, rather than starting an AI rollout with the most resistant staff members.",
+      "claim_hash": "857c7c35bbb7371f16c4be07e1f83c4e1afe8d910c3b5bc49db6156c887991b6",
+      "claim_id": "claim:fdc551088c9d6ed28a7a",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": false,
+      "concept_ids": [
+        "ai-agents-automation"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "dc8515c84fcf020d1a68509b5df590339e9be8d28b37eb02caa906ca0206e87c",
+      "source_record_ids": [
+        "rock_youtube:605c9134833f0bd2"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_youtube",
+          "source_timestamp_url": "https://www.youtube.com/watch?v=zK9r1hTfbMY&t=474s",
+          "timestamp": "07:54",
+          "timestamp_seconds": 474.0,
+          "title": "AI Hit Singularity But It Still Has Zero Wisdom | Ep 220",
+          "url": "https://www.youtube.com/watch?v=zK9r1hTfbMY"
+        }
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
     "claim:069aa7a39db4563841a2": "60fc7bd81c054fa03b8607e6a55120012da29a30b76e035b8e5672ab1ca86ccd",
+    "claim:0ab11849d2c95201e029": "75e3e88e932d62dab29acae846f0d5ef484a8c6965ecbb58eff4a28232366121",
+    "claim:174c0af7541f12ee5ecc": "419a8bcc5824fd9a6c4a7212b6f2cd006a044d52d95ebdf681a3713ea9929f96",
+    "claim:1a230c83cd8fe80c96e8": "08066cef3a10b231350abc7e1afcfdb19d2ffebb5eed1e25eeb3a19bab90cbd6",
     "claim:2a2a9fc94666d58b0e4f": "bd385211a6a44172d6835d029b4cfda62dfe24b80db5addb537ea20fb15b0076",
     "claim:2a7ef23854b5dd315c7d": "10c4e528501bd19523ce5e9df0e2380f248722bc2c6042636f8ddc1c1356e13e",
+    "claim:3c05c07eb76d2e0458c3": "6474e3cfb84fc2887eb5f4a702a29251afd8516e3823dbbb8955ec7741ce1886",
+    "claim:4439b246e2204149654d": "0e9c0f13d25cb4e0afa0fdbd6aeba26f2d284926dd42a3e29313a2380edd742b",
     "claim:47eb2888127bc9a29b9e": "93d2daef2628071a765cc53cd086b6d0feede13b523e47c756a6ae5aab9701a4",
     "claim:4b083dda9f0d9ccc4aff": "028703347fc1a24be182fe6f594f534cefbf86a11922205ae9dd2a198f6f6c75",
     "claim:4b7b8d0b0379ceb7587f": "af4c7c6efca4403e0cd077071605b6d574e15109159e511dc28c66854b66010e",
@@ -755,16 +1075,21 @@
     "claim:693f15bb6ffcad4756cc": "6a347c36cb45bbf8d27bc85e92b7aeda416776abdf0cf85546bf70021a827496",
     "claim:6d6775c71c60beaf1669": "0a2a1dad4d9219531eec3c37d3d6761507329ab239f6f85063043334642e12cc",
     "claim:725a3342f3dc657cc546": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
+    "claim:782b604cac35151ab7ea": "ea60ef69429f962d68d3ae32946e768f95e2191a0eb207be017bae005c350db9",
     "claim:903c8ff9b5d2590fd616": "e630aeb9c95efeba507ddbcd1ad9446a0bf4eb6fc8b9a7e8e4588d6d1c9cc5ba",
     "claim:91be2ad338eb6b1cdaed": "652300b34467a8d689502f1bdcafc9220972617627778399802e05dc01dff474",
     "claim:9cd70d19320375c27cb3": "4c7eeeb0486b93e111ea3e289b11e3aea93b3dc67694b5bfedec738660de462c",
     "claim:a181b9ddd5b0e689895b": "02bb404eb8bc4fd1779103c0b1b1d7d9fb91b5043248d58eef251176f7b4a34b",
+    "claim:aba028f606391196f710": "fce8eb79595e7ec11e17d7082e6343f6ca6b84037c1e09026bb8c391609dacad",
     "claim:b4fb38224ff8452078f3": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
+    "claim:c20173c8ebf222ae3906": "1e7434228dd10bb4dc0618fb5eda97eccd321551d6a0c325a46c5cd08a4828e2",
     "claim:c3921cb1d8b61e06c713": "f55db3f15d81a1daf2030b0a010200b7d3261233e31832b90ed1c4d138d42aad",
     "claim:c8c3a60f71790dd3616d": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
-    "claim:c9c1fa08cb0434d501e6": "6e79f697e5d5db5ee5c8415b3b2aa5b2616d76e49fdf1cc69096e89ad33e569b"
+    "claim:c9c1fa08cb0434d501e6": "6e79f697e5d5db5ee5c8415b3b2aa5b2616d76e49fdf1cc69096e89ad33e569b",
+    "claim:d5e71798dd4c2b84b4b2": "8c1d8ccd1df932e03a731bf7b6d0ab1fe3259e608e968efc4152e6919467b15c",
+    "claim:fdc551088c9d6ed28a7a": "857c7c35bbb7371f16c4be07e1f83c4e1afe8d910c3b5bc49db6156c887991b6"
   },
-  "approved_claims_hash": "27528ca97c5cb90e8ba90cb2660893741c16120fdd8adbc41cda462ef6972f48",
+  "approved_claims_hash": "6b84dc742ccf5047224bc3583d21a75062d7341693833d9ff552ce53c787ca09",
   "approved_claims_path": "knowledge/concepts/ai-agents-automation/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -821,6 +1146,21 @@
       "source_record_id": "media-insight:1cb65e44984bb55c",
       "source_title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214 Transcript Insight",
       "source_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "028229d1619ebb8b0f76e44a3c99521c87924a0a6f955f12aebaf97d7a80526c",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:a343d2007bfeb6d9",
+      "public_promotion_id": "media-public-promotion:028229d1619ebb8b",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:a343d2007bfeb6d9",
+      "source_title": "Meet Your New Ministry Assistant: Rock's Voice Agent Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=Mj_OLeSnf0k"
     },
     {
       "approved_concept_ids": [
@@ -1073,13 +1413,75 @@
       "source_record_id": "media-insight:97b48ee86bf43c06",
       "source_title": "Stop the Slop: How We're Keeping AI Out of Our Blind Spots | Ep 221 Transcript Insight",
       "source_url": "https://shows.acast.com/rock-cast/episodes/stop-the-ai-slop-ep-221"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "ff4dad58b5a6e4f3debda81dba235c41b761c272cd0cc3c1b5cfabbf752736a5",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:961af9236ed6bac5",
+      "public_promotion_id": "media-public-promotion:ff4dad58b5a6e4f3",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:961af9236ed6bac5",
+      "source_title": "AI Hit Singularity But It Still Has Zero Wisdom | Ep 220 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=zK9r1hTfbMY"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "328f4a3d0c9bf530a5d032ae7e5b19054f1cd5af2e58defec2e1abce7a4a621c",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:09ece4a1e6ba2b04",
+      "public_promotion_id": "media-public-promotion:328f4a3d0c9bf530",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:09ece4a1e6ba2b04",
+      "source_title": "Stop the Slop: How We're Keeping AI Out of Our Blind Spots | Ep 221 Transcript Insight",
+      "source_url": "https://www.youtube.com/watch?v=F8HUXDXSW4A"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "a14f8d44f216466055124dec434d57b48b803e800efd927665a5535aa8550e84",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:257072a90ff57258",
+      "public_promotion_id": "media-public-promotion:a14f8d44f2164660",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:257072a90ff57258",
+      "source_title": "AI is smart but not wise Transcript Insight",
+      "source_url": "https://www.youtube.com/shorts/6YgSg4_RiVM"
+    },
+    {
+      "approved_concept_ids": [
+        "ai-agents-automation"
+      ],
+      "content_hash": "29d875e72fbf0b885d45e8a941347e17d079333b685e325fa04e4aa43b1562c7",
+      "key_insight_count": 1,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:bcbee25a0c42a9e8",
+      "public_promotion_id": "media-public-promotion:29d875e72fbf0b88",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_youtube",
+      "source_record_id": "media-insight:bcbee25a0c42a9e8",
+      "source_title": "Spark Connect Was a Labor of Love Transcript Insight",
+      "source_url": "https://www.youtube.com/shorts/s6uoKD-QICc"
     }
   ],
   "approved_media_dependency_hashes": {
     "media-insight:00a8a57d7db012dc": "86e368cf6c9ef4e0c60b6d49c6040c7b34d78279ad15836ada768cee0f8ac345",
+    "media-insight:09ece4a1e6ba2b04": "328f4a3d0c9bf530a5d032ae7e5b19054f1cd5af2e58defec2e1abce7a4a621c",
     "media-insight:0eaf921555a4c075": "e465475aba25d5206882f7c741c7fea6a5cd7fa6579a17aaaa88f7bb8d06b85f",
     "media-insight:1b335b58b0acc8b1": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
     "media-insight:1cb65e44984bb55c": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
+    "media-insight:257072a90ff57258": "a14f8d44f216466055124dec434d57b48b803e800efd927665a5535aa8550e84",
     "media-insight:5287d1b4b5bb8aaf": "d642b52bd46bfca19e9972409b5f15c675acc16f1d551e8e774b1274d92b1c2a",
     "media-insight:56972ff0f97e563a": "1ec1705a0b22a429010514b8c87070b149237b86d7e9fb31a779f8ddb17c4759",
     "media-insight:59f5bb8f9a0bfcf3": "c667c450d59ce26d5373f40ea25e824b3225a63f76d2b3e91053731e2758dd20",
@@ -1088,21 +1490,24 @@
     "media-insight:70eec93ffcb16fc8": "4d3b5ca45b22b9082f043fcb5510dcada10f3c623833339ff1121ec5d0b5bf2a",
     "media-insight:71525fead483ddca": "f195092064e7188bdd93a51c563b621e366e5bee5eebe113e1c7c022e734333f",
     "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
+    "media-insight:961af9236ed6bac5": "ff4dad58b5a6e4f3debda81dba235c41b761c272cd0cc3c1b5cfabbf752736a5",
     "media-insight:97b48ee86bf43c06": "63d41daabdd84bdec84faf852ef8fdd47b985697d3bb1425f03c73f81c5f595b",
+    "media-insight:a343d2007bfeb6d9": "028229d1619ebb8b0f76e44a3c99521c87924a0a6f955f12aebaf97d7a80526c",
     "media-insight:a437d9f5be13ad57": "7888545a0fcbfba57d5dce2fd735d24954c524745d882bdbc2ad9f42f6cf9b6a",
     "media-insight:b4cdf69722ad5d13": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
+    "media-insight:bcbee25a0c42a9e8": "29d875e72fbf0b885d45e8a941347e17d079333b685e325fa04e4aa43b1562c7",
     "media-insight:d03a93f4e7ef8c02": "fbf4f0dfe8f255051b5afa5a16b0587a7dd52f051c83e0d8c6041b1882ea12e9",
     "media-insight:d0ed2c36ffd5d934": "274526b1fa2d21f308f4b5ab96b6ab8f631baf23705a73113da138ac711a51af",
     "media-insight:e81a9f6b5e5e2f8a": "7d9a0b46eea49c267bae112db010102c7118fc8ca15a0561b158347e69d53717"
   },
-  "approved_media_hash": "5a0841b017897e0de734b4d5cb324837f0e2aeb1ec4e8a630478c2217c7b756a",
+  "approved_media_hash": "62f668d0433c08bd87b30bff91e845453e7441aabeb15bf8921ec5d7160662c4",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-09-09T23:15:01+00:00",
+  "built_at": "2026-09-09T23:39:35+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "304378e6d16f4eede62b133cff00dc1347f138d8c76bb77a229478b042d83fd6",
+  "guide_hash": "aae058849f3f212c5db92f420911af54f64a90c1385e920d9cb9d9bf44cf8e54",
   "guide_line_count": 729,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 7945,
+  "guide_word_count": 7955,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1379,6 +1784,24 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
+      "source_key": "db30b97085c5f8d8",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=zK9r1hTfbMY"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "a2477bcd936cbc85",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/shorts/6YgSg4_RiVM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "9c54a75bab4e39e3",
       "source_record_id": "",
       "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
@@ -1400,24 +1823,6 @@
       "source_key": "d2890df9787aa1ae",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "f325315718b03eb6",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "1fae67b5dc09e2b0",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
     }
   ],
   "routing_context_claim_count": 0,
@@ -2139,14 +2544,14 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
+        "db30b97085c5f8d8",
         "3209d44f5f3edeff",
         "d00f3fde25d28846",
+        "a2477bcd936cbc85",
         "a05dc1f637c5da3c",
         "9c54a75bab4e39e3",
         "e9afd5bba3859930",
-        "d2890df9787aa1ae",
-        "f325315718b03eb6",
-        "1fae67b5dc09e2b0"
+        "d2890df9787aa1ae"
       ],
       "start_line": 710
     }
@@ -2663,6 +3068,26 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
+      "source_key": "db30b97085c5f8d8",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=zK9r1hTfbMY",
+      "url": "https://www.youtube.com/watch?v=zK9r1hTfbMY"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "a2477bcd936cbc85",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/shorts/6YgSg4_RiVM",
+      "url": "https://www.youtube.com/shorts/6YgSg4_RiVM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "9c54a75bab4e39e3",
       "source_record_id": "",
       "title": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216",
@@ -2687,26 +3112,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "f325315718b03eb6",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "1fae67b5dc09e2b0",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
     }
   ],
   "synthesis_profile": "comprehensive",
