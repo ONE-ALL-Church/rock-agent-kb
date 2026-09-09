@@ -77,8 +77,8 @@
     "staff response text or identity",
     "comments"
   ],
-  "generated_at": "2026-09-07T16:08:39Z",
-  "last_checked_at": "2026-09-07T16:08:39Z",
+  "generated_at": "2026-09-09T21:20:48Z",
+  "last_checked_at": "2026-09-09T21:20:48Z",
   "latest_idea_number": 2269,
   "public_shape": [
     "idea_id",
@@ -106,7 +106,7 @@
       "references_official_documentation": 6,
       "references_official_source": 5
     },
-    "candidate_count": 15,
+    "candidate_count": 17,
     "ideas_with_issue_links": 11,
     "ideas_with_model_links": 152,
     "ideas_with_relationships": 1093,
@@ -121,17 +121,18 @@
         "under_review": 5
       },
       "by_verification_state": {
-        "evidence_needed": 137,
+        "candidate_review_pending": 2,
+        "evidence_needed": 135,
         "maintainer_reviewed_no_official_match": 38,
         "maintainer_reviewed_references_only": 5,
         "officially_corroborated": 8,
         "references_available": 2
       },
-      "candidate_review_count": 9,
-      "high_priority_count": 0,
+      "candidate_review_count": 11,
+      "high_priority_count": 2,
       "maintainer_reviewed_count": 49,
       "officially_corroborated_count": 8,
-      "queue_content_hash": "eef6437c0e4461c3f56bdb67eb713a36bc03c3d0deb503a3617b0d0bdb34cf4c",
+      "queue_content_hash": "c0bd9bf8888c4993efc3f4d40cf3e0c1df29f9e92356e6e2298120cb1d8e0d1e",
       "queue_count": 190,
       "schema": "rock-kb-rock-idea-verification-queue-summary-v1",
       "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."

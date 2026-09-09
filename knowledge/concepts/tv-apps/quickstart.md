@@ -27,12 +27,12 @@ Apple TV and Roku developer documentation for Rock-powered TV applications, page
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-32: Agent Summary (normal)
-- `scope-and-boundaries` lines 33-48: Scope And Boundaries (normal)
-- `mental-model` lines 49-61: Mental Model (normal)
-- `apple-tv-application-configuration` lines 64-80: Application configuration (normal)
-- `apple-tv-pages-and-lava-output` lines 81-103: Pages and Lava output (normal)
-- `apple-tv-commands` lines 104-109: Commands (normal)
+- `agent-summary` lines 34-48: Agent Summary (normal)
+- `scope-and-boundaries` lines 49-64: Scope And Boundaries (normal)
+- `mental-model` lines 65-77: Mental Model (normal)
+- `apple-tv-application-configuration` lines 80-96: Application configuration (normal)
+- `apple-tv-pages-and-lava-output` lines 97-119: Pages and Lava output (normal)
+- `apple-tv-commands` lines 120-125: Commands (normal)
 
 ## Core Entities
 

@@ -56,6 +56,8 @@ A repeatable diagnosis identifies either a page component or a broader infrastru
 
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context
+- https://www.triumph.tech/resources/page/16
+- https://www.triumph.tech/resources/page/18
 - https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm
 - https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s

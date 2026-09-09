@@ -57,7 +57,8 @@ An item is uploaded or downloaded with its license and overwrite behavior unders
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-library
+- https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/library-viewer
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-library/set-up-the-content-library
-- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/configure-site-for-personalization
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/configure-content-components

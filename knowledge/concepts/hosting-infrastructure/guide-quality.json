@@ -2,25 +2,25 @@
   "authority_coverage": [
     "community-example",
     "official",
+    "official-model-map",
     "official-release",
-    "official-training",
     "source-code",
     "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 8185 words; expected at least 1200.",
+      "message": "Guide has 8424 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 8185 words; expected no more than 9000.",
+      "message": "Guide has 8424 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 67 sections; expected at least 9.",
+      "message": "Guide has 70 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -64,11 +64,6 @@
       "passed": true
     },
     {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
-    },
-    {
       "id": "community_marked",
       "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
       "passed": true
@@ -77,24 +72,24 @@
   "concept_id": "hosting-infrastructure",
   "contribution_record_count": 0,
   "entity_count": 8,
-  "generated_at": "2026-09-03T16:51:01+00:00",
-  "guide_line_count": 781,
-  "guide_word_count": 8185,
+  "generated_at": "2026-09-09T23:15:06+00:00",
+  "guide_line_count": 825,
+  "guide_word_count": 8424,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 29,
-    "answer_claim_reference_count": 27,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 8,
-    "section_count": 67,
-    "source_count": 27,
-    "substantive_uncited_section_ratio": 0.0625,
+    "section_count": 70,
+    "source_count": 29,
+    "substantive_uncited_section_ratio": 0.0816,
     "task_card_count": 9,
-    "word_count": 8185
+    "word_count": 8424
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 67,
-  "source_count": 27,
+  "section_count": 70,
+  "source_count": 29,
   "status": "pass",
   "task_card_count": 9
 }

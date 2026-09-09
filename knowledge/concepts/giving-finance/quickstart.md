@@ -27,12 +27,12 @@ Giving, transactions, batches, statements, pledges, gateways, and finance admini
 
 ## High-Signal Sections
 
-- `scope-and-boundaries` lines 34-47: Scope And Boundaries (normal)
-- `mental-model` lines 48-67: Mental Model (normal)
-- `transactions` lines 68-79: Transactions (normal)
-- `payment-gateways` lines 80-94: Payment Gateways (normal)
-- `online-giving-and-receipts` lines 95-106: Online Giving And Receipts (normal)
-- `text-giving` lines 107-116: Text Giving (normal)
+- `scope-and-boundaries` lines 50-63: Scope And Boundaries (normal)
+- `mental-model` lines 64-83: Mental Model (normal)
+- `transactions` lines 84-95: Transactions (normal)
+- `payment-gateways` lines 96-110: Payment Gateways (normal)
+- `online-giving-and-receipts` lines 111-122: Online Giving And Receipts (normal)
+- `text-giving` lines 123-132: Text Giving (normal)
 
 ## Core Entities
 

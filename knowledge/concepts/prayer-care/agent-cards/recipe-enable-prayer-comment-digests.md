@@ -54,9 +54,15 @@ Allowed comments are delivered to request-specific email addresses within the in
 
 ## Source Links
 
-- https://www.youtube.com/watch?v=LNcx8t0mlQ4
 - https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest
 - https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailAddPersonResponseBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailAddPersonResponseBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailAddPersonResponseBag.d.ts
+- https://community.rockrms.com/rocku/individuals-in-rock/impersonation
+- https://community.rockrms.com/rocku/individuals-in-rock/person-profile
+- https://community.rockrms.com/rocku/individuals-in-rock/person-attributes
+- https://community.rockrms.com/rocku/individuals-in-rock/person-note
+- https://community.rockrms.com/rocku/individuals-in-rock/person-note-1
+- https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person
 - https://www.youtube.com/shorts/c6T9Ha13jKE
-- https://community.rockrms.com/recipes/72
+- https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s

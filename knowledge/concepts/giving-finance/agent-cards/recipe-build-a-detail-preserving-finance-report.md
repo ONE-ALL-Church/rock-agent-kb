@@ -50,13 +50,9 @@ Show each account allocation with transaction-level context without accidental r
 
 ## Source Links
 
+- https://community.rockrms.com/documentation/church-management/finance
 - https://www.triumph.tech/resources/sql-window-functions
-- https://community.rockrms.com/documentation/church-management/finance/fundraising-groups/fundraising-financial-transactions
-- https://community.rockrms.com/documentation/church-management/finance/advanced-finance/advanced-utility-payment-entry-block-settings
-- https://community.rockrms.com/documentation/church-management/finance/online-giving/giving-pages
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations
-- https://community.rockrms.com/documentation/church-management/finance/fundraising-groups
-- https://community.rockrms.com/documentation/church-management/finance/track-giving/view-giving-on-person-profile
-- https://community.rockrms.com/documentation/church-management/finance/track-giving/family-giving
-- https://community.rockrms.com/documentation/church-management/finance/payment-gateways/configure-a-gateway
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql
+- https://community.rockrms.com/rocku/finance/fundraising-group
+- https://community.rockrms.com/recipes/90

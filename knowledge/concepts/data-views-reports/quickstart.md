@@ -26,12 +26,12 @@ Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-32: Agent Summary (normal)
-- `scope-and-boundaries` lines 33-51: Scope And Boundaries (normal)
-- `mental-model` lines 52-72: Mental Model (normal)
-- `data-views` lines 73-93: Data Views (normal)
-- `reports` lines 94-105: Reports (normal)
-- `report-security` lines 106-121: Report Security (normal)
+- `agent-summary` lines 34-48: Agent Summary (normal)
+- `scope-and-boundaries` lines 49-67: Scope And Boundaries (normal)
+- `mental-model` lines 68-88: Mental Model (normal)
+- `data-views` lines 89-109: Data Views (normal)
+- `reports` lines 110-121: Reports (normal)
+- `report-security` lines 122-137: Report Security (normal)
 
 ## Core Entities
 

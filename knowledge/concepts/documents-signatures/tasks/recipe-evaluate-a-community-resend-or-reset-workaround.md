@@ -48,7 +48,10 @@ A maintainer determines whether a community recipe is safe and still necessary w
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/workflows
 - https://community.rockrms.com/recipes/482
+- https://community.rockrms.com/rocku/workflows/workflow-entry
 - https://community.rockrms.com/rocku/workflows/components-of-a-workflow
+- https://community.rockrms.com/rocku/workflows/persisted-workflows
+- https://community.rockrms.com/rocku/workflows/workflow-performance-tips
 - https://community.rockrms.com/rocku/workflows/custom-grid-actions
-- https://community.rockrms.com/rocku/workflows/electronic-signatures-1
-- https://community.rockrms.com/recipes/434
+- https://community.rockrms.com/rocku/workflows/deconstructing-a-sample-workflow
+- https://community.rockrms.com/rocku/workflows/text-to-workflow-performance

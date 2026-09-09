@@ -43,6 +43,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `htmx` | normal | live verification |
 | `lava-applications` | normal | live verification |
@@ -67,7 +68,8 @@ generated: true
 | `agent-task-recipes-recipe-inspect-an-existing-helix-application-before-changing-it` | normal | live verification |
 | `agent-task-recipes-recipe-build-a-read-only-htmx-result-fragment` | normal | live verification |
 | `agent-task-recipes-recipe-build-a-validated-mutation-form` | normal | live verification |
-| `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard` | community-supported | live verification |
+| `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard` | citation-only | live verification |
 | `agent-task-recipes-recipe-decide-whether-to-replace-a-lava-application` | normal | live verification |
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
 | `source-map-community-examples` | community-supported | community-supported |
+| `approved-claim-coverage` | normal | live verification |

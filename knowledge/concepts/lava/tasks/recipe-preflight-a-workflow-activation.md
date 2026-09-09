@@ -48,10 +48,9 @@ A workflow is activated with verified attribute values.
 - https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows
 - https://community.rockrms.com/lava/commands/workflow-activate-commands
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/GroupPlacement/PersonFiltersBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupPlacement/personFiltersBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Plugin/HotFixes/295_FixGoupPlacementPersonFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Reporting/DataFilter/Person/FirstContributionDateFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests.Integration/Core/Lava/Filters/PersonFilterTests.cs
-- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/lava/commands/entity-commands
+- https://community.rockrms.com/lava/filters/attribute-filters
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupPlacement/PersonFiltersBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/FirstContributionDateFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupPlacement/personFiltersBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Filters/PersonFilterTests.cs

@@ -17,6 +17,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `courses-and-lessons-revise-a-class-without-disrupting-the-current-one`: Revise a class without disrupting the current one
 - `activity-design-and-staff-responsibilities-file-upload`: File upload
 - `requirements-and-completion-course-requirements`: Course requirements
@@ -39,6 +40,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-roll-out-training-for-a-changed-rock-interface`: Recipe: Roll out training for a changed Rock interface
 - `agent-task-recipes-recipe-build-a-bounded-lms-completion-report`: Recipe: Build a bounded LMS completion report
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

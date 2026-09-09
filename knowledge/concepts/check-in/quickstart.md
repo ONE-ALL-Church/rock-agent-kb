@@ -26,12 +26,12 @@ Attendance, kiosks, labels, families, schedules, locations, mobile check-in, and
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-33: Agent Summary (normal)
-- `scope-and-boundaries` lines 34-50: Scope And Boundaries (normal)
-- `mental-model-configuration-selects-the-rules` lines 53-58: Configuration selects the rules (normal)
-- `mental-model-eligibility-is-an-intersection` lines 59-64: Eligibility is an intersection (normal)
-- `core-configuration-kiosks-locations-and-schedules-check-in-type-and-behavior` lines 75-80: Check-in type and behavior (normal)
-- `core-configuration-kiosks-locations-and-schedules-kiosk-configuration` lines 81-88: Kiosk configuration (normal)
+- `agent-summary` lines 34-49: Agent Summary (normal)
+- `scope-and-boundaries` lines 50-66: Scope And Boundaries (normal)
+- `mental-model-configuration-selects-the-rules` lines 69-74: Configuration selects the rules (normal)
+- `mental-model-eligibility-is-an-intersection` lines 75-80: Eligibility is an intersection (normal)
+- `core-configuration-kiosks-locations-and-schedules-check-in-type-and-behavior` lines 91-96: Check-in type and behavior (normal)
+- `core-configuration-kiosks-locations-and-schedules-kiosk-configuration` lines 97-104: Kiosk configuration (normal)
 
 ## Core Entities
 

@@ -1,6 +1,6 @@
 {
-  "answer_bearing_claim_count": 21,
-  "approved_claim_count": 21,
+  "answer_bearing_claim_count": 22,
+  "approved_claim_count": 22,
   "approved_claim_dependencies": [
     {
       "authority_tier": "community-reviewed",
@@ -255,6 +255,40 @@
           "timestamp_seconds": 43.0,
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
+        }
+      ],
+      "version_scope_status": "unprocessed"
+    },
+    {
+      "authority_tier": "community-reviewed",
+      "claim": "The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data.",
+      "claim_hash": "ee25c8f6d546c68865e946f76e6467f71f780b28ba6fc605b6621504c2187cc9",
+      "claim_id": "claim:3f37e8a8eb1c044fd9fe",
+      "claim_tier": "source_backed",
+      "claim_type": "operational_guidance",
+      "community_derived": true,
+      "concept_ids": [
+        "mobile",
+        "prayer-care"
+      ],
+      "confidence": "medium",
+      "live_verification": {},
+      "mentioned_in_guide": true,
+      "needs_live_verification": true,
+      "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
+      "safe_evidence_hash": "f0ee53d707c0192155d1184d67cf9d1fed412cf278c2ae8634e5f4ef839b1f5e",
+      "source_record_ids": [
+        "rock_podcast_rss:bc525bdcf5faee01"
+      ],
+      "source_refs": [
+        {
+          "source_id": "rock_podcast_rss",
+          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/outreach-toolbox-ep-219",
+          "timestamp": "07:41",
+          "timestamp_seconds": 461.0,
+          "title": "Your Congregation's Second Brain for Ministry | Ep 219",
+          "url": "https://shows.acast.com/rock-cast/episodes/outreach-toolbox-ep-219"
         }
       ],
       "version_scope_status": "unprocessed"
@@ -915,6 +949,7 @@
     "claim:2d534c63c723204ad8c9": "3adf570e3a370ee7026446bc5c87f0d72960bf1145d056ff4bb07d4cc0b1f802",
     "claim:3b4b8ec335aa0a17968c": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
     "claim:3d32a2c3e36e71683eb0": "0c60528c11fa896bf9bd411e1ff46a1c9f47114aedd224c4977a267b3f61c3af",
+    "claim:3f37e8a8eb1c044fd9fe": "ee25c8f6d546c68865e946f76e6467f71f780b28ba6fc605b6621504c2187cc9",
     "claim:483a11b884e0e69ffd4d": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
     "claim:520ba5f389698ad4894c": "d8d15a936979ff887fb7da575b1048dc6f52714f0242cbe54aeda481d0ee0e00",
     "claim:54aeb223a9029e9f7707": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
@@ -931,63 +966,63 @@
     "claim:e704f98991439e3e1576": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2",
     "claim:ff136cde6aa716bfc87c": "0332e6be0a15d0418505a3483fc2388cad1ee457549dde309c1536218769ff7c"
   },
-  "approved_claims_hash": "ac27a3f1bb2a2de8c01bf616726b1e738c9b5f863a0e31d5a03c7a89de41f9ba",
+  "approved_claims_hash": "a77a0afb92c8d136576ab3fbb5b0476416464bea2bdedc6730d6a903f4c8702a",
   "approved_claims_path": "knowledge/concepts/mobile/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "c30805988027af70524bdf4a04caa952875350055c6b882e8b0943f1f85981b3",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-09-03T16:51:12+00:00",
+  "built_at": "2026-09-09T23:15:31+00:00",
   "concept_id": "mobile",
-  "guide_hash": "62dfe0b391e5975a8ac71c3452341ccd8346e7af60a857aa837c0bc85a50ee59",
-  "guide_line_count": 770,
+  "guide_hash": "23481f64e6a00e54bc02bce7b987fe953882f16eac60867b09eaacc314874e1a",
+  "guide_line_count": 808,
   "guide_path": "knowledge/concepts/mobile/guide.md",
-  "guide_word_count": 8299,
+  "guide_word_count": 8517,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official-developer",
-      "content_hash": "ded54ff51a5e46a0d460b43066a6cc8ae9c53638e927c259580c0b268ea8a733",
-      "excerpt_hash": "4933593521dfd509b0651402af9f20c2e7a79856807be72f78975f1db7cbab7d",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "0b4d886af43e6d70e426c0c3749ba966e2e5cb1d97bb3f1207f7973a604474de",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "7151c6037ac8c7a3",
-      "source_record_id": "rock_mobile_docs:article:188",
+      "source_record_id": "rock_developer:7151c6037ac8c7a3",
       "url": "https://community.rockrms.com/developer/mobile-docs"
     },
     {
       "authority": "official-developer",
-      "content_hash": "966148a3429463e11ff15abc51837912b29c53f7ceaaf5da7d4104b89be5f7a6",
-      "excerpt_hash": "c8b9fd99a7a59d27632e6c86e03214a59007b62b8b945082e7fda88b57827b31",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "759a518a18cb0f306df5835261e82d22fa6e682d47861a2c94954bc887ccdc3e",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "d750e214c15d336f",
-      "source_record_id": "rock_mobile_docs:article:415",
+      "source_record_id": "rock_developer:d750e214c15d336f",
       "url": "https://community.rockrms.com/developer/mobile-docs/lexicon"
     },
     {
       "authority": "official-developer",
-      "content_hash": "34db79c1363d006a59be68bb28db73d9605825204f42dd93b0115df80d59506b",
-      "excerpt_hash": "0fb810b1361bd1de3872374a9a15d6cd5d35751571b40e0346bd1aa7dac684ea",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "1df8d49e9f1e2e8df358277a9304bda0f03b6ca6586c25ed241c901cbc2e4091",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "96807cec6618e288",
-      "source_record_id": "rock_mobile_docs:article:431",
+      "source_record_id": "rock_developer:96807cec6618e288",
       "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
     },
     {
       "authority": "official-developer",
-      "content_hash": "9c4b52e178227734013a893b7e2195cd7822302d17e8c7d965fc2a95c1c62390",
-      "excerpt_hash": "dbc18abc35c74ae994006ba14356f49b8116dc40497448c4899ce33ed967b90a",
-      "source_id": "rock_mobile_docs",
-      "source_key": "127269e4afa33de4",
-      "source_record_id": "rock_mobile_docs:article:456",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
-    },
-    {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "65c61eecbb590b92",
-      "source_record_id": "org_contribution:oneall:mobile-content-dynamic-context-boundary",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
+      "content_hash": "82d7841cde8359ab111d691a5550e5ce764dced3044d8544e103dd1c304eb639",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "c29e6072da46b367",
+      "source_record_id": "rock_developer:c29e6072da46b367",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms"
     },
     {
       "authority": "official-training",
@@ -1009,209 +1044,155 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "61791cf8f89a9cb396dea2dbd6de61be823fe1b9a964a365304ff71fd310d6f0",
-      "excerpt_hash": "869d4921b10b6c543fb2f115dff434634d6d35860290eed28be4aa2f71e179ae",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "289d23ce934a3a44ad3db6fb3441aa25709ee1265f99053c67d2466f3814e729",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "c4e03e5116856543",
-      "source_record_id": "rock_mobile_docs:article:414",
+      "source_record_id": "rock_developer:c4e03e5116856543",
       "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app"
     },
     {
       "authority": "official-developer",
-      "content_hash": "fd5e710185f90b3c41a94b6afb549b1c053f8c260a3f47eac873e42c79ed248b",
-      "excerpt_hash": "658d9de67aa89519bbae9dfd4a1b422ad2731b336aeb93f5b311cc00b5a5d4ef",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "f3081fe63031a73ed225abe13a8b40b7ed31b2eaa4e1755eba4f8c966f6305ac",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "2aebfbd90f616482",
-      "source_record_id": "rock_mobile_docs:article:410",
+      "source_record_id": "rock_developer:2aebfbd90f616482",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory"
     },
     {
       "authority": "official-developer",
-      "content_hash": "f6a2ab132aef3e6589c5f0cc6a80bdbab2707fd9dd8668047d2d7a5bf40dbb74",
-      "excerpt_hash": "4b653f0cedcf4c3e12c27902d2ad321fdd97f74c0c485b3d0d8b0f452f03ac9e",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "1e03df6f67113be2167a7764fa86e624d014db015c62d9320abc09aeb1014d12",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "a54f0299534eff0b",
-      "source_record_id": "rock_mobile_docs:article:438",
+      "source_record_id": "rock_developer:a54f0299534eff0b",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources"
     },
     {
       "authority": "official-developer",
-      "content_hash": "6321b9dc72da2190752897ab91f587e55dbbf05408c9f18bbd3f3ca332531ed4",
-      "excerpt_hash": "ea14d137d031bb2b1caa08de33456566894a5208c8eaa7a4b7bd5115fded63d5",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "075b4d02804b22552b0fc67b9f4e97173ee8d8dad840bc07889fb01ca2838592",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "427b1530c85cfeda",
-      "source_record_id": "rock_mobile_docs:article:419",
+      "source_record_id": "rock_developer:427b1530c85cfeda",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/commands"
     },
     {
       "authority": "official-developer",
-      "content_hash": "25e785bb603c31151e9f3d1c8a31a27fe50c21565802d051613a1e276148bc88",
-      "excerpt_hash": "551a9e1ef258010c4ee774fa14abafdd2bbab1e11a3bff0679056af94da19c08",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "85c88a6493ae46916759957b93880e3bc561ece22372eb1af623f9f4b909bd44",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "b6629f8b91a753ec",
-      "source_record_id": "rock_mobile_docs:article:411",
+      "source_record_id": "rock_developer:b6629f8b91a753ec",
       "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app"
     },
     {
       "authority": "official-developer",
-      "content_hash": "70e36acf1e8bca9ebe14695f969aecb8dad985b1ca507f3cff2d85e62c021263",
-      "excerpt_hash": "756062e1d526dce8da2b45b180ebbfeab2af6bef35589a1bfcd16e3ac0271624",
+      "content_hash": "911baf8bff3375e983b0ae65e51b76e43ba6e0d5995d2c0b622ceb3c9c360b80",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "source_id": "rock_mobile_docs",
       "source_key": "c6de358ae1d5157b",
-      "source_record_id": "rock_mobile_docs:article:412",
+      "source_record_id": "rock_mobile_docs:c6de358ae1d5157b",
       "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration"
     },
     {
       "authority": "official-developer",
-      "content_hash": "b21db0ef708ee0bfd72f3344846cc82287a8477c20b53c56fd6606934b403788",
-      "excerpt_hash": "a3608fcc0b7ad7c80b65a0562ba351ea0de73c09516a18ba1a91b0bdb424322e",
-      "source_id": "rock_mobile_docs",
-      "source_key": "f8d78acf8301b510",
-      "source_record_id": "rock_mobile_docs:article:413",
-      "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/adding-content"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "9a9b33bfe625c427fb7a9eb82520ff608f4e8f4c205d47395fba4b977a8c97b3",
-      "excerpt_hash": "101c6f55049bba1fc4e5d23fc0a8e609a7bd995cd3df89a0154aa4200860591d",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "c955e29e749544af72676d9f9bae6036c17f6ec53b081d2d1b1b5a74b90ceb43",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "9201fe8635986015",
-      "source_record_id": "rock_mobile_docs:article:654",
+      "source_record_id": "rock_developer:9201fe8635986015",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
     },
     {
       "authority": "official-developer",
-      "content_hash": "52df98421a84c504a235ca71ad9cdc76e8a9da0de71bdfc292f8de30e889eb9a",
-      "excerpt_hash": "1f42c07e7a6dd9aed9a5e8322b28a5b21c57b3191face067714361266ff23c49",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "57aac0fe709d42d7ed46190e33f50b1d9cbf846c1cbf2394ab0766b3e1c7c822",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "070471cfc7c5bacc",
-      "source_record_id": "rock_mobile_docs:article:590",
+      "source_record_id": "rock_developer:070471cfc7c5bacc",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference"
     },
     {
       "authority": "official-developer",
-      "content_hash": "f53373d471f31dce22d849c2b3e6df07682d509cfc33bf460355107a3bb63d5f",
-      "excerpt_hash": "185deb102be4b81791e27391b8e0a53f6800120e0c9d64d2ecbb58afe91567b0",
-      "source_id": "rock_mobile_docs",
-      "source_key": "598a7118f38d8ad1",
-      "source_record_id": "rock_mobile_docs:article:535",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors/event-to-command-behavior"
+      "content_hash": "51a219c12e24ec90508431ef20f87b7beb4f0717286dc6c7f44239f25a7a60bf",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "a0529e5342ad7824",
+      "source_record_id": "rock_developer:a0529e5342ad7824",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors"
     },
     {
       "authority": "official-developer",
-      "content_hash": "5c8ce18e5a3dcba12eeadc9739568f8ba36216d40b1e9d78e1521237d9747633",
-      "excerpt_hash": "c279fb59b0482d2fc1fbd54b62b86625f29f9522dfbc9e10895e00b6261a4d07",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "0e3ac7b099badc63e72eec6f7b4b4aa131244b193445be96d12116db4daf73ce",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "8789a75933cc6915",
-      "source_record_id": "rock_mobile_docs:article:588",
+      "source_record_id": "rock_developer:8789a75933cc6915",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command"
     },
     {
       "authority": "official-developer",
-      "content_hash": "02beb33b0f2f95c1660aa1bf686d8de95f07076bea3739dc1deb5d56beb2a00c",
-      "excerpt_hash": "cfc3212de4881b5fed1e7fb3f4f2bd678213ca378f041af644c2ee350a17986e",
-      "source_id": "rock_mobile_docs",
-      "source_key": "b56fd3f031c1f542",
-      "source_record_id": "rock_mobile_docs:article:530",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "ea5e00199e82843443b3574755f07e2e3ef9aa60ec34b0cff7e674e5fb4aaaa2",
-      "excerpt_hash": "02134484b6f2de5cc5d6baa45cf83930e248c22e88fe608fca3040503c42adab",
-      "source_id": "rock_mobile_docs",
-      "source_key": "fe2d9ee37052a3f9",
-      "source_record_id": "rock_mobile_docs:article:531",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c604f6315affb7696e78bb43ad0bb1ed2100727d127380ac7bf13713abbea7a5",
-      "excerpt_hash": "68d6a0212984627390e52eb85cbb6576301ccafa0b014340dca16892baf61749",
-      "source_id": "rock_mobile_docs",
-      "source_key": "d973648867411aa4",
-      "source_record_id": "rock_mobile_docs:article:621",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "3f56765028ff7df162691479524022d627bd64192deddf65676a77164df5068b",
-      "excerpt_hash": "5e253a7a374e8f752919d9ca2cc42d6af9778a673f66a4e93f0fce1dc44f4a67",
-      "source_id": "rock_mobile_docs",
-      "source_key": "b1b268face61b060",
-      "source_record_id": "rock_mobile_docs:article:622",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2c98cd9f5067f08a6f89ac51a27ddf5ab9229b87689f8dae3817af259dfb3b00",
-      "excerpt_hash": "94bc41c53fa00a43f72241935d8bebf5e7473180a59d594d096ca3af9f537899",
-      "source_id": "rock_mobile_docs",
-      "source_key": "4725293a0044fb8b",
-      "source_record_id": "rock_mobile_docs:article:623",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "1fc87a444d3d39b85cfcc1555458577cfcbc5edbb65e9912b1d1c0ead47e4d23",
-      "excerpt_hash": "de3d2a8ac9bed5cfd19423727ac230eca029217529996578bf84fa9b47a53928",
-      "source_id": "rock_mobile_docs",
-      "source_key": "52b1e0e2f1c51a91",
-      "source_record_id": "rock_mobile_docs:article:545",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "5f939c90bb1a2fa506917477b816f2ffa3f3c0e842c240efca666f16d5548028",
-      "excerpt_hash": "b1c42ad681d1ad23c604d5c6c7361f4033f71a1dee4270d83f4231be9ac5fb26",
-      "source_id": "rock_mobile_docs",
-      "source_key": "6c3a5e0a58448ea3",
-      "source_record_id": "rock_mobile_docs:article:583",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/styled-border"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "d4381914392cdba4dbdd1d4270ad4efe1db643fc05cab3ed333278898f146c63",
-      "excerpt_hash": "d545ded1d84c647aef72796dec988fc1133fc29dcfd559f9f2f1617f31ceaca2",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "3a552b848534aa8ea16cfcf45e05f632c61f1defcb0df034c422b194b84a874c",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "b688a305b25bb667",
-      "source_record_id": "rock_mobile_docs:article:587",
+      "source_record_id": "rock_developer:b688a305b25bb667",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view"
     },
     {
       "authority": "official-developer",
-      "content_hash": "a01207e867f73d87e0c6bb110b8a2395ff485be4993902c8aad240b22fcacd23",
-      "excerpt_hash": "a37d918610cfc2cfed41efd7e627b3de2946eba5dac58a4fcff135464d4885e4",
-      "source_id": "rock_mobile_docs",
-      "source_key": "9871edd2ca9127ca",
-      "source_record_id": "rock_mobile_docs:article:599",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/effects/blur-effect"
+      "content_hash": "62640127a7031b5196b1e1f3e8014a5e7fff32c94c1458868c663074cbf436f4",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "d973648867411aa4",
+      "source_record_id": "rock_developer:d973648867411aa4",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform"
     },
     {
       "authority": "official-developer",
-      "content_hash": "3bf2bc05d2c92889fa1df72c814705905e2d050806059b085ef0be9cdf0cf2e3",
-      "excerpt_hash": "8482bd97e8bad53e882b1a7d2effa48350f54b1a6ab733b8937ad5308b5724d9",
-      "source_id": "rock_mobile_docs",
-      "source_key": "4242ef769852e116",
-      "source_record_id": "rock_mobile_docs:article:630",
-      "url": "https://community.rockrms.com/developer/mobile-docs/styling/style-guide/shell-components"
+      "content_hash": "089ab55c7132d04e92a202888d0deb0c98f797255b1f052de3beb0660647574e",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "4725293a0044fb8b",
+      "source_record_id": "rock_developer:4725293a0044fb8b",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c326936969251a6a84aac17b46908f2ff1003512e0932a84d93feb6523db8e24",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "52b1e0e2f1c51a91",
+      "source_record_id": "rock_developer:52b1e0e2f1c51a91",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c82769c587565cf7e33d0a4a7e340feeee15fe0262d343dcbdfc4497d49bc8aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "f7002493e6fe0527",
+      "source_record_id": "rock_developer:f7002493e6fe0527",
+      "url": "https://community.rockrms.com/developer/mobile-docs/styling"
     },
     {
       "authority": "source-code",
-      "content_hash": "3482313dfabeb8b445bed7f6750427925e4126241356f09d3491cdbcd0cd5ce6",
-      "excerpt_hash": "0b7b52b7784fc02ea2aa9312ee455efb1975299559c03c613f46473a0225166a",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "556ab80c5e0f3f72",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs"
     },
     {
       "authority": "source-code",
-      "content_hash": "183f74f7de3449a7e9100c3764dbd533d5c049a84838b6ea855f5d79fefdf6ae",
-      "excerpt_hash": "3d659cf2e4b2c6963d006484438e10ac7b32d484b35dd42a4559dc0782eb3828",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "613ceea48f501824",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs"
     },
     {
@@ -1252,100 +1233,93 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "24fc7b4aa24d8fba16cd3fa9b938c5a71617b5932c6dce74c33a5c0df7267072",
-      "excerpt_hash": "fb9b8773754a058792a455ed23e037b04ee867234ea8dc7cc43ba542c1fa3fd1",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "19a481805d469e017f6c302320b33b7ae636940fbcd41b315ff7508c21713c57",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "38f659081e23c0d5",
-      "source_record_id": "rock_mobile_docs:article:441",
+      "source_record_id": "rock_developer:38f659081e23c0d5",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications"
     },
     {
       "authority": "official-developer",
-      "content_hash": "00d0ac71264eb7b91077c17da8590154a843d2c4a708759d69e2d98bc44b8be3",
-      "excerpt_hash": "068030ca7e75a7d6baf8985fe0ca20b58f5d40efaff05fa87c4291420c6fe867",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "f95ccec778d3b133b82727fbb52f679c0bf6b7307550d453835ed26e75f964ef",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "6ec62a1509d61113",
-      "source_record_id": "rock_mobile_docs:article:437",
+      "source_record_id": "rock_developer:6ec62a1509d61113",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts"
     },
     {
       "authority": "official-developer",
-      "content_hash": "9071bf97854414dc270a2a6b3695b90e5d815116924fc697886285de315ed0a6",
-      "excerpt_hash": "548300582c959a42b74a5a3f6efb341dd613b97c43459d9830b69841dda4e850",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "5670202bf1a89e39017570a3d6c97873b68f498ebc32ab7f9b0ae95a3879ebf1",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "e1c6e91a2341a6ca",
-      "source_record_id": "rock_mobile_docs:article:442",
+      "source_record_id": "rock_developer:e1c6e91a2341a6ca",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins"
     },
     {
       "authority": "official-developer",
-      "content_hash": "9a17bb57104e6f3ba2d0072a1c8b030bf79dc3c783231e024e860241e4c0b069",
-      "excerpt_hash": "ddc9cfaf75a4ac11e497713d0684874570875a3848bb4b8ff62d855628dccdb9",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "df9e1d6e0b56d93021a5d78479496ebf9fc50ff579497004b4aac67d9a746f52",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "b2bd874c41f3be1c",
-      "source_record_id": "rock_mobile_docs:article:436",
+      "source_record_id": "rock_developer:b2bd874c41f3be1c",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page"
     },
     {
       "authority": "official-developer",
-      "content_hash": "94d9cf4dc5d9875ac51fa8c9d0f6fbedd6fe9efab507dc512dd415cd8850147c",
-      "excerpt_hash": "559386fd4a64521191ca83c657b8b4548426152fc7db6309d9aeef96405cace3",
-      "source_id": "rock_mobile_docs",
-      "source_key": "055593fef7ab6e0c",
-      "source_record_id": "rock_mobile_docs:article:3524",
-      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "1409e1b641a70e5806737a1ef08cbfc9667691a1d49d1e2713209dad37fb5cb9",
-      "excerpt_hash": "037d70f439d7c8695b2e0600e64642f9296a42a530183f1db970fc2dbed6c995",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "519c446d8155376d15e838c5947e0034d016abf07740c8919e04b2b1cb1e10f8",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "2b29c6766ad7c0c1",
-      "source_record_id": "rock_mobile_docs:article:435",
+      "source_record_id": "rock_developer:2b29c6766ad7c0c1",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore"
     },
     {
       "authority": "official-developer",
-      "content_hash": "3107a180ab1e1f1d3f57c7bc02f0438a6ae2c135b43f75ba144ac890991dd473",
-      "excerpt_hash": "0acec509f1c8546caf472651c056f8a70618b168c874e7b1e152829b9dee0f8d",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "7902e06bd04f0bb7f9310e218afdf3ccc7024895135c94f477136b4ae910080b",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "c8682e1082f5f91b",
-      "source_record_id": "rock_mobile_docs:article:439",
+      "source_record_id": "rock_developer:c8682e1082f5f91b",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving"
     },
     {
       "authority": "official-developer",
-      "content_hash": "7429c5b4648400a8212c2d960f0c5a2834f7cdfadbed3d9c9ede3b1794fa5466",
-      "excerpt_hash": "e1b4422b901b83d91caeb4ecae24ef841d7e0921750d18cc42f96d37f204c84f",
-      "source_id": "rock_mobile_docs",
+      "content_hash": "3ac9bb15461fbca6cc249112a67f12961a6e2f4d4bf00899ebc7c37215cca2f4",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
       "source_key": "6920f6e860c4b936",
-      "source_record_id": "rock_mobile_docs:article:443",
+      "source_record_id": "rock_developer:6920f6e860c4b936",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements"
     },
     {
       "authority": "official-release",
-      "content_hash": "146e67d4bf6dd26614879c054a5d556ecc2dddec10065cd521807881e64139ce",
-      "excerpt_hash": "a331b7eb405051e00123672fe217b78267e8430386bdf3b2162faf62b17d6748",
+      "content_hash": "519691ff68dec90b0d77b2abb7e8543fe5a9958da53cb7e0b9272ec1e3197ad6",
+      "excerpt_hash": "5acfa74656c6c6fbffecc5db09092f94867f223126a319723350a4368518c8d8",
       "source_id": "rock_mobile_release_notes",
       "source_key": "18a10aca58c2b1f1",
-      "source_record_id": "rock_mobile_release_notes:a0d1cf84d0c0688a",
+      "source_record_id": "rock_mobile_release_notes:e3b57fe663cff4b3",
       "url": "https://www.rockrms.com/mobilereleasenotes"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "e082a1da8aca42cb80d1ba4278e283a3a7bc7715d0bbf3a47937666b1b4ee96c",
-      "excerpt_hash": "f5e36884f1f362ad347d85df106a290aad89d5bd363faf58739135f94a1e630f",
-      "source_id": "rock_mobile_docs",
-      "source_key": "765f5565df709de0",
-      "source_record_id": "rock_mobile_docs:article:429",
-      "url": "https://community.rockrms.com/developer/mobile-docs/styling/legacy"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 32,
+      "end_line": 48,
       "heading": "Agent Summary",
       "needs_live_verification": true,
       "section_id": "agent-summary",
@@ -1353,16 +1327,16 @@
         "7151c6037ac8c7a3",
         "d750e214c15d336f",
         "96807cec6618e288",
-        "127269e4afa33de4",
-        "65c61eecbb590b92",
+        "c29e6072da46b367",
+        "7151c6037ac8c7a3",
         "281ea075e1d0d1ab",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "needs-citation",
-      "end_line": 51,
+      "end_line": 67,
       "heading": "Scope And Boundaries",
       "needs_live_verification": true,
       "section_id": "scope-and-boundaries",
@@ -1370,16 +1344,16 @@
         "7151c6037ac8c7a3",
         "d750e214c15d336f",
         "96807cec6618e288",
-        "127269e4afa33de4",
-        "65c61eecbb590b92",
+        "c29e6072da46b367",
+        "7151c6037ac8c7a3",
         "281ea075e1d0d1ab",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 33
+      "start_line": 49
     },
     {
       "confidence": "structural",
-      "end_line": 53,
+      "end_line": 69,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
@@ -1390,13 +1364,13 @@
         "2aebfbd90f616482",
         "a54f0299534eff0b",
         "427b1530c85cfeda",
-        "127269e4afa33de4"
+        "c29e6072da46b367"
       ],
-      "start_line": 52
+      "start_line": 68
     },
     {
       "confidence": "normal",
-      "end_line": 68,
+      "end_line": 84,
       "heading": "Shell, application and core are separate compatibility surfaces",
       "needs_live_verification": false,
       "section_id": "mental-model-shell-application-and-core-are-separate-compatibility-surfaces",
@@ -1404,11 +1378,11 @@
         "d750e214c15d336f",
         "96807cec6618e288"
       ],
-      "start_line": 54
+      "start_line": 70
     },
     {
       "confidence": "normal",
-      "end_line": 74,
+      "end_line": 90,
       "heading": "Deploying is not publishing",
       "needs_live_verification": false,
       "section_id": "mental-model-deploying-is-not-publishing",
@@ -1417,33 +1391,33 @@
         "2aebfbd90f616482",
         "a54f0299534eff0b"
       ],
-      "start_line": 69
+      "start_line": 85
     },
     {
       "confidence": "normal",
-      "end_line": 78,
+      "end_line": 94,
       "heading": "XAML declares views; commands provide behavior",
       "needs_live_verification": false,
       "section_id": "mental-model-xaml-declares-views-commands-provide-behavior",
       "source_keys": [
         "427b1530c85cfeda"
       ],
-      "start_line": 75
+      "start_line": 91
     },
     {
       "confidence": "normal",
-      "end_line": 89,
+      "end_line": 105,
       "heading": "Dynamic content crosses a trust and context boundary",
       "needs_live_verification": false,
       "section_id": "mental-model-dynamic-content-crosses-a-trust-and-context-boundary",
       "source_keys": [
-        "127269e4afa33de4"
+        "c29e6072da46b367"
       ],
-      "start_line": 79
+      "start_line": 95
     },
     {
       "confidence": "normal",
-      "end_line": 113,
+      "end_line": 129,
       "heading": "Application Configuration And Deployment",
       "needs_live_verification": true,
       "section_id": "application-configuration-and-deployment",
@@ -1455,46 +1429,46 @@
         "c4e03e5116856543",
         "c4e03e5116856543"
       ],
-      "start_line": 90
-    },
-    {
-      "confidence": "normal",
-      "end_line": 117,
-      "heading": "Content, XAML And Lava",
-      "needs_live_verification": false,
-      "section_id": "content-xaml-and-lava",
-      "source_keys": [
-        "f8d78acf8301b510",
-        "9201fe8635986015"
-      ],
-      "start_line": 114
+      "start_line": 106
     },
     {
       "confidence": "normal",
       "end_line": 133,
+      "heading": "Content, XAML And Lava",
+      "needs_live_verification": false,
+      "section_id": "content-xaml-and-lava",
+      "source_keys": [
+        "7151c6037ac8c7a3",
+        "9201fe8635986015"
+      ],
+      "start_line": 130
+    },
+    {
+      "confidence": "normal",
+      "end_line": 149,
       "heading": "Dynamic versus static content",
       "needs_live_verification": true,
       "section_id": "content-xaml-and-lava-dynamic-versus-static-content",
       "source_keys": [
-        "127269e4afa33de4",
-        "127269e4afa33de4"
-      ],
-      "start_line": 118
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 139,
-      "heading": "Escaping XAML-producing Lava",
-      "needs_live_verification": true,
-      "section_id": "content-xaml-and-lava-escaping-xaml-producing-lava",
-      "source_keys": [
-        "65c61eecbb590b92"
+        "c29e6072da46b367",
+        "c29e6072da46b367"
       ],
       "start_line": 134
     },
     {
       "confidence": "normal",
-      "end_line": 162,
+      "end_line": 155,
+      "heading": "Escaping XAML-producing Lava",
+      "needs_live_verification": true,
+      "section_id": "content-xaml-and-lava-escaping-xaml-producing-lava",
+      "source_keys": [
+        "7151c6037ac8c7a3"
+      ],
+      "start_line": 150
+    },
+    {
+      "confidence": "normal",
+      "end_line": 178,
       "heading": "Commands",
       "needs_live_verification": false,
       "section_id": "commands",
@@ -1503,39 +1477,39 @@
         "427b1530c85cfeda",
         "427b1530c85cfeda",
         "070471cfc7c5bacc",
-        "598a7118f38d8ad1",
+        "a0529e5342ad7824",
         "8789a75933cc6915"
       ],
-      "start_line": 140
+      "start_line": 156
     },
     {
       "confidence": "normal",
-      "end_line": 166,
+      "end_line": 182,
       "heading": "Controls",
       "needs_live_verification": false,
       "section_id": "controls",
       "source_keys": [
-        "b56fd3f031c1f542",
-        "fe2d9ee37052a3f9"
+        "b688a305b25bb667",
+        "8789a75933cc6915"
       ],
-      "start_line": 163
+      "start_line": 179
     },
     {
       "confidence": "normal",
-      "end_line": 172,
+      "end_line": 188,
       "heading": "Platform and device adaptation",
       "needs_live_verification": false,
       "section_id": "controls-platform-and-device-adaptation",
       "source_keys": [
         "d973648867411aa4",
-        "b1b268face61b060",
+        "7151c6037ac8c7a3",
         "4725293a0044fb8b"
       ],
-      "start_line": 167
+      "start_line": 183
     },
     {
       "confidence": "normal",
-      "end_line": 178,
+      "end_line": 194,
       "heading": "Context menus",
       "needs_live_verification": true,
       "section_id": "controls-context-menus",
@@ -1543,57 +1517,57 @@
         "52b1e0e2f1c51a91",
         "52b1e0e2f1c51a91"
       ],
-      "start_line": 173
+      "start_line": 189
     },
     {
       "confidence": "normal",
-      "end_line": 182,
+      "end_line": 198,
       "heading": "Borders and migration-era controls",
       "needs_live_verification": true,
       "section_id": "controls-borders-and-migration-era-controls",
       "source_keys": [
-        "6c3a5e0a58448ea3",
+        "7151c6037ac8c7a3",
         "9201fe8635986015"
       ],
-      "start_line": 179
+      "start_line": 195
     },
     {
       "confidence": "normal",
-      "end_line": 186,
+      "end_line": 202,
       "heading": "Web views",
       "needs_live_verification": false,
       "section_id": "controls-web-views",
       "source_keys": [
         "b688a305b25bb667"
       ],
-      "start_line": 183
+      "start_line": 199
     },
     {
       "confidence": "normal",
-      "end_line": 192,
+      "end_line": 208,
       "heading": "Platform-specific visual effects",
       "needs_live_verification": false,
       "section_id": "controls-platform-specific-visual-effects",
       "source_keys": [
-        "9871edd2ca9127ca",
-        "4242ef769852e116"
+        "7151c6037ac8c7a3",
+        "f7002493e6fe0527"
       ],
-      "start_line": 187
+      "start_line": 203
     },
     {
       "confidence": "citation-only",
-      "end_line": 196,
+      "end_line": 212,
       "heading": "Mobile Check-In",
       "needs_live_verification": false,
       "section_id": "mobile-check-in",
       "source_keys": [
         "281ea075e1d0d1ab"
       ],
-      "start_line": 193
+      "start_line": 209
     },
     {
       "confidence": "normal",
-      "end_line": 212,
+      "end_line": 228,
       "heading": "Prerequisites and configuration",
       "needs_live_verification": true,
       "section_id": "mobile-check-in-prerequisites-and-configuration",
@@ -1603,11 +1577,11 @@
         "556ab80c5e0f3f72",
         "613ceea48f501824"
       ],
-      "start_line": 197
+      "start_line": 213
     },
     {
       "confidence": "citation-only",
-      "end_line": 226,
+      "end_line": 242,
       "heading": "Participant flow",
       "needs_live_verification": false,
       "section_id": "mobile-check-in-participant-flow",
@@ -1617,11 +1591,11 @@
         "d7a4121f91c3b42b",
         "d7a4121f91c3b42b"
       ],
-      "start_line": 213
+      "start_line": 229
     },
     {
       "confidence": "citation-only",
-      "end_line": 237,
+      "end_line": 253,
       "heading": "Availability and fallback states",
       "needs_live_verification": false,
       "section_id": "mobile-check-in-availability-and-fallback-states",
@@ -1629,22 +1603,22 @@
         "d7a4121f91c3b42b",
         "6c0184b4e7ec7558"
       ],
-      "start_line": 227
+      "start_line": 243
     },
     {
       "confidence": "citation-only",
-      "end_line": 243,
+      "end_line": 259,
       "heading": "Mobile Engagement And Background Work",
       "needs_live_verification": true,
       "section_id": "mobile-engagement-and-background-work",
       "source_keys": [
         "4e3a8aa1d3a4e953"
       ],
-      "start_line": 238
+      "start_line": 254
     },
     {
       "confidence": "citation-only",
-      "end_line": 258,
+      "end_line": 274,
       "heading": "Outreach Toolbox",
       "needs_live_verification": true,
       "section_id": "outreach-toolbox",
@@ -1653,11 +1627,11 @@
         "1c59cd336e8baae0",
         "a56a73c5681795bd"
       ],
-      "start_line": 244
+      "start_line": 260
     },
     {
       "confidence": "normal",
-      "end_line": 266,
+      "end_line": 282,
       "heading": "Push Notifications",
       "needs_live_verification": true,
       "section_id": "push-notifications",
@@ -1665,11 +1639,11 @@
         "38f659081e23c0d5",
         "38f659081e23c0d5"
       ],
-      "start_line": 259
+      "start_line": 275
     },
     {
       "confidence": "normal",
-      "end_line": 270,
+      "end_line": 286,
       "heading": "App Publishing",
       "needs_live_verification": false,
       "section_id": "app-publishing",
@@ -1677,11 +1651,11 @@
         "2aebfbd90f616482",
         "d750e214c15d336f"
       ],
-      "start_line": 267
+      "start_line": 283
     },
     {
       "confidence": "normal",
-      "end_line": 276,
+      "end_line": 292,
       "heading": "Developer-account ownership and access",
       "needs_live_verification": false,
       "section_id": "app-publishing-developer-account-ownership-and-access",
@@ -1689,23 +1663,23 @@
         "6ec62a1509d61113",
         "e1c6e91a2341a6ca"
       ],
-      "start_line": 271
+      "start_line": 287
     },
     {
       "confidence": "normal",
-      "end_line": 289,
+      "end_line": 305,
       "heading": "Store listing and graphics",
       "needs_live_verification": false,
       "section_id": "app-publishing-store-listing-and-graphics",
       "source_keys": [
         "b2bd874c41f3be1c",
-        "055593fef7ab6e0c"
+        "2aebfbd90f616482"
       ],
-      "start_line": 277
+      "start_line": 293
     },
     {
       "confidence": "normal",
-      "end_line": 295,
+      "end_line": 311,
       "heading": "Android signing",
       "needs_live_verification": true,
       "section_id": "app-publishing-android-signing",
@@ -1713,11 +1687,11 @@
         "2b29c6766ad7c0c1",
         "2b29c6766ad7c0c1"
       ],
-      "start_line": 290
+      "start_line": 306
     },
     {
       "confidence": "normal",
-      "end_line": 301,
+      "end_line": 317,
       "heading": "Compiled image resources",
       "needs_live_verification": false,
       "section_id": "app-publishing-compiled-image-resources",
@@ -1725,22 +1699,22 @@
         "a54f0299534eff0b",
         "a54f0299534eff0b"
       ],
-      "start_line": 296
+      "start_line": 312
     },
     {
       "confidence": "normal",
-      "end_line": 305,
+      "end_line": 321,
       "heading": "In-app giving",
       "needs_live_verification": false,
       "section_id": "app-publishing-in-app-giving",
       "source_keys": [
         "c8682e1082f5f91b"
       ],
-      "start_line": 302
+      "start_line": 318
     },
     {
       "confidence": "structural",
-      "end_line": 307,
+      "end_line": 323,
       "heading": "Mobile Releases",
       "needs_live_verification": false,
       "section_id": "mobile-releases",
@@ -1749,13 +1723,13 @@
         "6920f6e860c4b936",
         "18a10aca58c2b1f1",
         "9201fe8635986015",
-        "765f5565df709de0"
+        "f7002493e6fe0527"
       ],
-      "start_line": 306
+      "start_line": 322
     },
     {
       "confidence": "normal",
-      "end_line": 315,
+      "end_line": 331,
       "heading": "Core and shell compatibility",
       "needs_live_verification": false,
       "section_id": "mobile-releases-core-and-shell-compatibility",
@@ -1764,46 +1738,46 @@
         "6920f6e860c4b936",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 308
+      "start_line": 324
     },
     {
       "confidence": "normal",
-      "end_line": 335,
+      "end_line": 351,
       "heading": "Xamarin Forms to .NET MAUI",
       "needs_live_verification": true,
       "section_id": "mobile-releases-xamarin-forms-to-net-maui",
       "source_keys": [
         "9201fe8635986015",
         "9201fe8635986015",
-        "765f5565df709de0"
+        "f7002493e6fe0527"
       ],
-      "start_line": 316
+      "start_line": 332
     },
     {
       "confidence": "normal",
-      "end_line": 339,
+      "end_line": 355,
       "heading": "Release-specific behavior",
       "needs_live_verification": false,
       "section_id": "mobile-releases-release-specific-behavior",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 336
+      "start_line": 352
     },
     {
       "confidence": "needs-citation",
-      "end_line": 350,
+      "end_line": 366,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 340
+      "start_line": 356
     },
     {
       "confidence": "structural",
-      "end_line": 352,
+      "end_line": 368,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -1812,8 +1786,8 @@
         "a54f0299534eff0b",
         "c6de358ae1d5157b",
         "96807cec6618e288",
-        "127269e4afa33de4",
-        "65c61eecbb590b92",
+        "c29e6072da46b367",
+        "7151c6037ac8c7a3",
         "427b1530c85cfeda",
         "b688a305b25bb667",
         "9201fe8635986015",
@@ -1825,11 +1799,11 @@
         "6920f6e860c4b936",
         "a56a73c5681795bd"
       ],
-      "start_line": 351
+      "start_line": 367
     },
     {
       "confidence": "normal",
-      "end_line": 360,
+      "end_line": 376,
       "heading": "Changes do not appear in the app",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-changes-do-not-appear-in-the-app",
@@ -1837,22 +1811,22 @@
         "c4e03e5116856543",
         "a54f0299534eff0b"
       ],
-      "start_line": 353
+      "start_line": 369
     },
     {
       "confidence": "normal",
-      "end_line": 368,
+      "end_line": 384,
       "heading": "The test shell cannot connect",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-the-test-shell-cannot-connect",
       "source_keys": [
         "c4e03e5116856543"
       ],
-      "start_line": 361
+      "start_line": 377
     },
     {
       "confidence": "normal",
-      "end_line": 376,
+      "end_line": 392,
       "heading": "The app crashes immediately after opening",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-the-app-crashes-immediately-after-opening",
@@ -1860,162 +1834,162 @@
         "c6de358ae1d5157b",
         "96807cec6618e288"
       ],
-      "start_line": 369
+      "start_line": 385
     },
     {
       "confidence": "normal",
-      "end_line": 385,
+      "end_line": 401,
       "heading": "Personalized content is blank or anonymous",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-personalized-content-is-blank-or-anonymous",
       "source_keys": [
-        "127269e4afa33de4"
+        "c29e6072da46b367"
       ],
-      "start_line": 377
+      "start_line": 393
     },
     {
-      "confidence": "community-supported",
-      "end_line": 393,
+      "confidence": "normal",
+      "end_line": 409,
       "heading": "One record causes a XAML page to fail",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail",
       "source_keys": [
-        "65c61eecbb590b92"
+        "7151c6037ac8c7a3"
       ],
-      "start_line": 386
+      "start_line": 402
     },
     {
       "confidence": "normal",
-      "end_line": 403,
+      "end_line": 419,
       "heading": "A command does nothing",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-command-does-nothing",
       "source_keys": [
         "427b1530c85cfeda"
       ],
-      "start_line": 394
+      "start_line": 410
     },
     {
       "confidence": "normal",
-      "end_line": 411,
+      "end_line": 427,
       "heading": "A WebView is blank, clipped or cannot navigate natively",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-webview-is-blank-clipped-or-cannot-navigate-natively",
       "source_keys": [
         "b688a305b25bb667"
       ],
-      "start_line": 404
+      "start_line": 420
     },
     {
       "confidence": "normal",
-      "end_line": 420,
+      "end_line": 436,
       "heading": "A page layout breaks after moving to Shell v6",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-page-layout-breaks-after-moving-to-shell-v6",
       "source_keys": [
         "9201fe8635986015"
       ],
-      "start_line": 412
+      "start_line": 428
     },
     {
       "confidence": "normal",
-      "end_line": 427,
+      "end_line": 443,
       "heading": "A context menu works differently on Android",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-context-menu-works-differently-on-android",
       "source_keys": [
         "52b1e0e2f1c51a91"
       ],
-      "start_line": 421
+      "start_line": 437
     },
     {
       "confidence": "normal",
-      "end_line": 437,
+      "end_line": 453,
       "heading": "Push notifications are not arriving",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-push-notifications-are-not-arriving",
       "source_keys": [
         "38f659081e23c0d5"
       ],
-      "start_line": 428
+      "start_line": 444
     },
     {
       "confidence": "citation-only",
-      "end_line": 446,
+      "end_line": 462,
       "heading": "Mobile check-in cannot find a kiosk",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-mobile-check-in-cannot-find-a-kiosk",
       "source_keys": [
         "6c0184b4e7ec7558"
       ],
-      "start_line": 438
+      "start_line": 454
     },
     {
       "confidence": "citation-only",
-      "end_line": 455,
+      "end_line": 471,
       "heading": "Mobile check-in finds a kiosk but says no service is available",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-mobile-check-in-finds-a-kiosk-but-says-no-service-is-available",
       "source_keys": [
         "d7a4121f91c3b42b"
       ],
-      "start_line": 447
+      "start_line": 463
     },
     {
       "confidence": "citation-only",
-      "end_line": 464,
+      "end_line": 480,
       "heading": "Check-in completes but labels do not print",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-check-in-completes-but-labels-do-not-print",
       "source_keys": [
         "d7a4121f91c3b42b"
       ],
-      "start_line": 456
+      "start_line": 472
     },
     {
       "confidence": "normal",
-      "end_line": 472,
+      "end_line": 488,
       "heading": "A store update cannot replace the existing Android app",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-store-update-cannot-replace-the-existing-android-app",
       "source_keys": [
         "2b29c6766ad7c0c1"
       ],
-      "start_line": 465
+      "start_line": 481
     },
     {
       "confidence": "normal",
-      "end_line": 480,
+      "end_line": 496,
       "heading": "The app is unavailable on newer Android devices",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-the-app-is-unavailable-on-newer-android-devices",
       "source_keys": [
         "6920f6e860c4b936"
       ],
-      "start_line": 473
+      "start_line": 489
     },
     {
       "confidence": "citation-only",
-      "end_line": 491,
+      "end_line": 507,
       "heading": "Outreach Toolbox is missing or reminders do not fire",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-outreach-toolbox-is-missing-or-reminders-do-not-fire",
       "source_keys": [
         "a56a73c5681795bd"
       ],
-      "start_line": 481
+      "start_line": 497
     },
     {
       "confidence": "structural",
-      "end_line": 493,
+      "end_line": 509,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
       "source_keys": [
         "b6629f8b91a753ec",
         "c4e03e5116856543",
-        "127269e4afa33de4",
-        "65c61eecbb590b92",
+        "c29e6072da46b367",
+        "7151c6037ac8c7a3",
         "427b1530c85cfeda",
         "9201fe8635986015",
         "6c0184b4e7ec7558",
@@ -2027,11 +2001,11 @@
         "4e3a8aa1d3a4e953",
         "a56a73c5681795bd"
       ],
-      "start_line": 492
+      "start_line": 508
     },
     {
       "confidence": "normal",
-      "end_line": 523,
+      "end_line": 539,
       "heading": "Recipe: Create and test a minimal mobile application",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-create-and-test-a-minimal-mobile-application",
@@ -2039,45 +2013,45 @@
         "b6629f8b91a753ec",
         "c4e03e5116856543"
       ],
-      "start_line": 494
+      "start_line": 510
     },
     {
       "confidence": "normal",
-      "end_line": 546,
+      "end_line": 562,
       "heading": "Recipe: Build personalized Content block output safely",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-personalized-content-block-output-safely",
       "source_keys": [
-        "127269e4afa33de4",
-        "65c61eecbb590b92"
+        "c29e6072da46b367",
+        "7151c6037ac8c7a3"
       ],
-      "start_line": 524
+      "start_line": 540
     },
     {
       "confidence": "normal",
-      "end_line": 570,
+      "end_line": 586,
       "heading": "Recipe: Add a command-driven interaction",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-add-a-command-driven-interaction",
       "source_keys": [
         "427b1530c85cfeda"
       ],
-      "start_line": 547
+      "start_line": 563
     },
     {
       "confidence": "normal",
-      "end_line": 594,
+      "end_line": 610,
       "heading": "Recipe: Migrate a page from Shell v5 to v6+",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-migrate-a-page-from-shell-v5-to-v6",
       "source_keys": [
         "9201fe8635986015"
       ],
-      "start_line": 571
+      "start_line": 587
     },
     {
       "confidence": "citation-only",
-      "end_line": 621,
+      "end_line": 637,
       "heading": "Recipe: Prepare mobile check-in",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-prepare-mobile-check-in",
@@ -2085,11 +2059,11 @@
         "6c0184b4e7ec7558",
         "d7a4121f91c3b42b"
       ],
-      "start_line": 595
+      "start_line": 611
     },
     {
       "confidence": "normal",
-      "end_line": 649,
+      "end_line": 665,
       "heading": "Recipe: Prepare an App Factory publication",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-prepare-an-app-factory-publication",
@@ -2098,55 +2072,55 @@
         "6ec62a1509d61113",
         "2b29c6766ad7c0c1"
       ],
-      "start_line": 622
+      "start_line": 638
     },
     {
       "confidence": "normal",
-      "end_line": 667,
+      "end_line": 683,
       "heading": "Recipe: Validate push notifications",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-push-notifications",
       "source_keys": [
         "38f659081e23c0d5"
       ],
-      "start_line": 650
+      "start_line": 666
     },
     {
       "confidence": "citation-only",
-      "end_line": 689,
+      "end_line": 705,
       "heading": "Recipe: Orchestrate slow media or content work",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-orchestrate-slow-media-or-content-work",
       "source_keys": [
         "4e3a8aa1d3a4e953"
       ],
-      "start_line": 668
+      "start_line": 684
     },
     {
       "confidence": "citation-only",
-      "end_line": 708,
+      "end_line": 724,
       "heading": "Recipe: Validate Outreach Toolbox for ministry use",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-outreach-toolbox-for-ministry-use",
       "source_keys": [
         "a56a73c5681795bd"
       ],
-      "start_line": 690
+      "start_line": 706
     },
     {
       "confidence": "needs-citation",
-      "end_line": 729,
+      "end_line": 745,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
         "a56a73c5681795bd"
       ],
-      "start_line": 709
+      "start_line": 725
     },
     {
       "confidence": "structural",
-      "end_line": 731,
+      "end_line": 747,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
@@ -2155,13 +2129,11 @@
         "d750e214c15d336f",
         "b6629f8b91a753ec",
         "c6de358ae1d5157b",
-        "f8d78acf8301b510",
         "c4e03e5116856543",
-        "127269e4afa33de4",
-        "65c61eecbb590b92",
+        "c29e6072da46b367",
         "427b1530c85cfeda",
-        "b56fd3f031c1f542",
-        "fe2d9ee37052a3f9",
+        "b688a305b25bb667",
+        "8789a75933cc6915",
         "96807cec6618e288",
         "9201fe8635986015",
         "6920f6e860c4b936",
@@ -2180,11 +2152,11 @@
         "556ab80c5e0f3f72",
         "613ceea48f501824"
       ],
-      "start_line": 730
+      "start_line": 746
     },
     {
       "confidence": "normal",
-      "end_line": 754,
+      "end_line": 770,
       "heading": "Official Rock Mobile documentation",
       "needs_live_verification": true,
       "section_id": "source-map-official-rock-mobile-documentation",
@@ -2193,13 +2165,13 @@
         "d750e214c15d336f",
         "b6629f8b91a753ec",
         "c6de358ae1d5157b",
-        "f8d78acf8301b510",
+        "7151c6037ac8c7a3",
         "c4e03e5116856543",
-        "127269e4afa33de4",
-        "65c61eecbb590b92",
+        "c29e6072da46b367",
+        "7151c6037ac8c7a3",
         "427b1530c85cfeda",
-        "b56fd3f031c1f542",
-        "fe2d9ee37052a3f9",
+        "b688a305b25bb667",
+        "8789a75933cc6915",
         "96807cec6618e288",
         "9201fe8635986015",
         "6920f6e860c4b936",
@@ -2210,11 +2182,11 @@
         "c8682e1082f5f91b",
         "18a10aca58c2b1f1"
       ],
-      "start_line": 732
+      "start_line": 748
     },
     {
       "confidence": "citation-only",
-      "end_line": 762,
+      "end_line": 778,
       "heading": "Official RockU and release media",
       "needs_live_verification": false,
       "section_id": "source-map-official-rocku-and-release-media",
@@ -2225,22 +2197,22 @@
         "a56a73c5681795bd",
         "1c59cd336e8baae0"
       ],
-      "start_line": 755
+      "start_line": 771
     },
     {
       "confidence": "citation-only",
-      "end_line": 766,
+      "end_line": 782,
       "heading": "Community-reviewed example",
       "needs_live_verification": false,
       "section_id": "source-map-community-reviewed-example",
       "source_keys": [
         "4e3a8aa1d3a4e953"
       ],
-      "start_line": 763
+      "start_line": 779
     },
     {
       "confidence": "normal",
-      "end_line": 770,
+      "end_line": 788,
       "heading": "Immutable implementation evidence",
       "needs_live_verification": false,
       "section_id": "source-map-immutable-implementation-evidence",
@@ -2248,32 +2220,65 @@
         "556ab80c5e0f3f72",
         "613ceea48f501824"
       ],
-      "start_line": 767
+      "start_line": 783
+    },
+    {
+      "confidence": "structural",
+      "end_line": 802,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "556ab80c5e0f3f72",
+        "613ceea48f501824"
+      ],
+      "start_line": 789
+    },
+    {
+      "confidence": "structural",
+      "end_line": 808,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "556ab80c5e0f3f72",
+        "613ceea48f501824"
+      ],
+      "start_line": 803
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:35:31+00:00",
+  "source_pack_hydrated_at": "2026-06-02T19:13:12+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "ded54ff51a5e46a0d460b43066a6cc8ae9c53638e927c259580c0b268ea8a733",
-      "excerpt_hash": "4933593521dfd509b0651402af9f20c2e7a79856807be72f78975f1db7cbab7d",
+      "content_hash": "0b4d886af43e6d70e426c0c3749ba966e2e5cb1d97bb3f1207f7973a604474de",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "7151c6037ac8c7a3",
-      "source_record_id": "rock_mobile_docs:article:188",
+      "source_record_id": "rock_developer:7151c6037ac8c7a3",
       "title": "Mobile Docs",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs",
       "version": null
@@ -2282,23 +2287,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "966148a3429463e11ff15abc51837912b29c53f7ceaaf5da7d4104b89be5f7a6",
-      "excerpt_hash": "c8b9fd99a7a59d27632e6c86e03214a59007b62b8b945082e7fda88b57827b31",
+      "content_hash": "759a518a18cb0f306df5835261e82d22fa6e682d47861a2c94954bc887ccdc3e",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "d750e214c15d336f",
-      "source_record_id": "rock_mobile_docs:article:415",
+      "source_record_id": "rock_developer:d750e214c15d336f",
       "title": "📖 Lexicon",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/lexicon",
       "version": null
@@ -2307,23 +2311,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "34db79c1363d006a59be68bb28db73d9605825204f42dd93b0115df80d59506b",
-      "excerpt_hash": "0fb810b1361bd1de3872374a9a15d6cd5d35751571b40e0346bd1aa7dac684ea",
+      "content_hash": "1df8d49e9f1e2e8df358277a9304bda0f03b6ca6586c25ed241c901cbc2e4091",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "96807cec6618e288",
-      "source_record_id": "rock_mobile_docs:article:431",
+      "source_record_id": "rock_developer:96807cec6618e288",
       "title": "Core & Shell Dependencies",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies",
       "version": null
@@ -2332,52 +2335,29 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "9c4b52e178227734013a893b7e2195cd7822302d17e8c7d965fc2a95c1c62390",
-      "excerpt_hash": "dbc18abc35c74ae994006ba14356f49b8116dc40497448c4899ce33ed967b90a",
+      "content_hash": "82d7841cde8359ab111d691a5550e5ce764dced3044d8544e103dd1c304eb639",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "127269e4afa33de4",
-      "source_record_id": "rock_mobile_docs:article:456",
-      "title": "Content",
+      "source_id": "rock_developer",
+      "source_key": "c29e6072da46b367",
+      "source_record_id": "rock_developer:c29e6072da46b367",
+      "title": "CMS",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
+        "api",
+        "check-in",
+        "development",
+        "finance",
         "lava",
-        "maui",
         "mobile",
-        "xaml"
+        "obsidian",
+        "security",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms",
       "version": null
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:mobile-content-dynamic-context-boundary",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "65c61eecbb590b92",
-      "source_record_id": "org_contribution:oneall:mobile-content-dynamic-context-boundary",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
-      ],
-      "title": "Check Rock Mobile Content block processing context before relying on CurrentPerson",
-      "topics": [
-        "mobile",
-        "lava",
-        "cms-websites"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
     },
     {
       "authority": "official-training",
@@ -2403,23 +2383,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "61791cf8f89a9cb396dea2dbd6de61be823fe1b9a964a365304ff71fd310d6f0",
-      "excerpt_hash": "869d4921b10b6c543fb2f115dff434634d6d35860290eed28be4aa2f71e179ae",
+      "content_hash": "289d23ce934a3a44ad3db6fb3441aa25709ee1265f99053c67d2466f3814e729",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "c4e03e5116856543",
-      "source_record_id": "rock_mobile_docs:article:414",
+      "source_record_id": "rock_developer:c4e03e5116856543",
       "title": "Deploying Your App",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app",
       "version": null
@@ -2428,23 +2407,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "fd5e710185f90b3c41a94b6afb549b1c053f8c260a3f47eac873e42c79ed248b",
-      "excerpt_hash": "658d9de67aa89519bbae9dfd4a1b422ad2731b336aeb93f5b311cc00b5a5d4ef",
+      "content_hash": "f3081fe63031a73ed225abe13a8b40b7ed31b2eaa4e1755eba4f8c966f6305ac",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "2aebfbd90f616482",
-      "source_record_id": "rock_mobile_docs:article:410",
+      "source_record_id": "rock_developer:2aebfbd90f616482",
       "title": "🏭 App Factory",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory",
       "version": null
@@ -2453,23 +2431,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "f6a2ab132aef3e6589c5f0cc6a80bdbab2707fd9dd8668047d2d7a5bf40dbb74",
-      "excerpt_hash": "4b653f0cedcf4c3e12c27902d2ad321fdd97f74c0c485b3d0d8b0f452f03ac9e",
+      "content_hash": "1e03df6f67113be2167a7764fa86e624d014db015c62d9320abc09aeb1014d12",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "a54f0299534eff0b",
-      "source_record_id": "rock_mobile_docs:article:438",
+      "source_record_id": "rock_developer:a54f0299534eff0b",
       "title": "Image Resources",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources",
       "version": null
@@ -2478,23 +2455,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "6321b9dc72da2190752897ab91f587e55dbbf05408c9f18bbd3f3ca332531ed4",
-      "excerpt_hash": "ea14d137d031bb2b1caa08de33456566894a5208c8eaa7a4b7bd5115fded63d5",
+      "content_hash": "075b4d02804b22552b0fc67b9f4e97173ee8d8dad840bc07889fb01ca2838592",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "427b1530c85cfeda",
-      "source_record_id": "rock_mobile_docs:article:419",
+      "source_record_id": "rock_developer:427b1530c85cfeda",
       "title": "Commands",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/commands",
       "version": null
@@ -2503,23 +2479,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "25e785bb603c31151e9f3d1c8a31a27fe50c21565802d051613a1e276148bc88",
-      "excerpt_hash": "551a9e1ef258010c4ee774fa14abafdd2bbab1e11a3bff0679056af94da19c08",
+      "content_hash": "85c88a6493ae46916759957b93880e3bc561ece22372eb1af623f9f4b909bd44",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "b6629f8b91a753ec",
-      "source_record_id": "rock_mobile_docs:article:411",
+      "source_record_id": "rock_developer:b6629f8b91a753ec",
       "title": "Creating An App",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
       "version": null
@@ -2528,23 +2503,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "70e36acf1e8bca9ebe14695f969aecb8dad985b1ca507f3cff2d85e62c021263",
-      "excerpt_hash": "756062e1d526dce8da2b45b180ebbfeab2af6bef35589a1bfcd16e3ac0271624",
+      "content_hash": "911baf8bff3375e983b0ae65e51b76e43ba6e0d5995d2c0b622ceb3c9c360b80",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_mobile_docs",
       "source_key": "c6de358ae1d5157b",
-      "source_record_id": "rock_mobile_docs:article:412",
+      "source_record_id": "rock_mobile_docs:c6de358ae1d5157b",
       "title": "App Configuration",
       "topics": [
-        "blocks",
+        "mobile",
+        "maui",
+        "xaml",
         "commands",
         "controls",
-        "maui",
-        "mobile",
-        "xaml"
+        "blocks"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration",
       "version": null
@@ -2553,48 +2528,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "b21db0ef708ee0bfd72f3344846cc82287a8477c20b53c56fd6606934b403788",
-      "excerpt_hash": "a3608fcc0b7ad7c80b65a0562ba351ea0de73c09516a18ba1a91b0bdb424322e",
+      "content_hash": "c955e29e749544af72676d9f9bae6036c17f6ec53b081d2d1b1b5a74b90ceb43",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "f8d78acf8301b510",
-      "source_record_id": "rock_mobile_docs:article:413",
-      "title": "Adding Content",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/adding-content",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "9a9b33bfe625c427fb7a9eb82520ff608f4e8f4c205d47395fba4b977a8c97b3",
-      "excerpt_hash": "101c6f55049bba1fc4e5d23fc0a8e609a7bd995cd3df89a0154aa4200860591d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "9201fe8635986015",
-      "source_record_id": "rock_mobile_docs:article:654",
+      "source_record_id": "rock_developer:9201fe8635986015",
       "title": "Migrating to .NET MAUI (V6)",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
       "version": null
@@ -2603,23 +2552,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "52df98421a84c504a235ca71ad9cdc76e8a9da0de71bdfc292f8de30e889eb9a",
-      "excerpt_hash": "1f42c07e7a6dd9aed9a5e8322b28a5b21c57b3191face067714361266ff23c49",
+      "content_hash": "57aac0fe709d42d7ed46190e33f50b1d9cbf846c1cbf2394ab0766b3e1c7c822",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "070471cfc7c5bacc",
-      "source_record_id": "rock_mobile_docs:article:590",
+      "source_record_id": "rock_developer:070471cfc7c5bacc",
       "title": "Command Reference",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/command-reference",
       "version": null
@@ -2628,48 +2576,50 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "f53373d471f31dce22d849c2b3e6df07682d509cfc33bf460355107a3bb63d5f",
-      "excerpt_hash": "185deb102be4b81791e27391b8e0a53f6800120e0c9d64d2ecbb58afe91567b0",
+      "content_hash": "51a219c12e24ec90508431ef20f87b7beb4f0717286dc6c7f44239f25a7a60bf",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "598a7118f38d8ad1",
-      "source_record_id": "rock_mobile_docs:article:535",
-      "title": "Event To Command Behavior",
+      "source_id": "rock_developer",
+      "source_key": "a0529e5342ad7824",
+      "source_record_id": "rock_developer:a0529e5342ad7824",
+      "title": "Behaviors",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian",
+        "security",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors/event-to-command-behavior",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "5c8ce18e5a3dcba12eeadc9739568f8ba36216d40b1e9d78e1521237d9747633",
-      "excerpt_hash": "c279fb59b0482d2fc1fbd54b62b86625f29f9522dfbc9e10895e00b6261a4d07",
+      "content_hash": "0e3ac7b099badc63e72eec6f7b4b4aa131244b193445be96d12116db4daf73ce",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "8789a75933cc6915",
-      "source_record_id": "rock_mobile_docs:article:588",
+      "source_record_id": "rock_developer:8789a75933cc6915",
       "title": "Execute Command",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command",
       "version": null
@@ -2678,198 +2628,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "02beb33b0f2f95c1660aa1bf686d8de95f07076bea3739dc1deb5d56beb2a00c",
-      "excerpt_hash": "cfc3212de4881b5fed1e7fb3f4f2bd678213ca378f041af644c2ee350a17986e",
+      "content_hash": "3a552b848534aa8ea16cfcf45e05f632c61f1defcb0df034c422b194b84a874c",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "b56fd3f031c1f542",
-      "source_record_id": "rock_mobile_docs:article:530",
-      "title": "Content Controls",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "ea5e00199e82843443b3574755f07e2e3ef9aa60ec34b0cff7e674e5fb4aaaa2",
-      "excerpt_hash": "02134484b6f2de5cc5d6baa45cf83930e248c22e88fe608fca3040503c42adab",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "fe2d9ee37052a3f9",
-      "source_record_id": "rock_mobile_docs:article:531",
-      "title": "Developer Controls",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c604f6315affb7696e78bb43ad0bb1ed2100727d127380ac7bf13713abbea7a5",
-      "excerpt_hash": "68d6a0212984627390e52eb85cbb6576301ccafa0b014340dca16892baf61749",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "d973648867411aa4",
-      "source_record_id": "rock_mobile_docs:article:621",
-      "title": "On Device Platform",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3f56765028ff7df162691479524022d627bd64192deddf65676a77164df5068b",
-      "excerpt_hash": "5e253a7a374e8f752919d9ca2cc42d6af9778a673f66a4e93f0fce1dc44f4a67",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "b1b268face61b060",
-      "source_record_id": "rock_mobile_docs:article:622",
-      "title": "On Device Type",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2c98cd9f5067f08a6f89ac51a27ddf5ab9229b87689f8dae3817af259dfb3b00",
-      "excerpt_hash": "94bc41c53fa00a43f72241935d8bebf5e7473180a59d594d096ca3af9f537899",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "4725293a0044fb8b",
-      "source_record_id": "rock_mobile_docs:article:623",
-      "title": "Palette Color",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "1fc87a444d3d39b85cfcc1555458577cfcbc5edbb65e9912b1d1c0ead47e4d23",
-      "excerpt_hash": "de3d2a8ac9bed5cfd19423727ac230eca029217529996578bf84fa9b47a53928",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "52b1e0e2f1c51a91",
-      "source_record_id": "rock_mobile_docs:article:545",
-      "title": "Context Menu",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "5f939c90bb1a2fa506917477b816f2ffa3f3c0e842c240efca666f16d5548028",
-      "excerpt_hash": "b1c42ad681d1ad23c604d5c6c7361f4033f71a1dee4270d83f4231be9ac5fb26",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "6c3a5e0a58448ea3",
-      "source_record_id": "rock_mobile_docs:article:583",
-      "title": "Styled Border",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/styled-border",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "d4381914392cdba4dbdd1d4270ad4efe1db643fc05cab3ed333278898f146c63",
-      "excerpt_hash": "d545ded1d84c647aef72796dec988fc1133fc29dcfd559f9f2f1617f31ceaca2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "b688a305b25bb667",
-      "source_record_id": "rock_mobile_docs:article:587",
+      "source_record_id": "rock_developer:b688a305b25bb667",
       "title": "Web View",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view",
       "version": null
@@ -2878,97 +2652,116 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "a01207e867f73d87e0c6bb110b8a2395ff485be4993902c8aad240b22fcacd23",
-      "excerpt_hash": "a37d918610cfc2cfed41efd7e627b3de2946eba5dac58a4fcff135464d4885e4",
+      "content_hash": "62640127a7031b5196b1e1f3e8014a5e7fff32c94c1458868c663074cbf436f4",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "9871edd2ca9127ca",
-      "source_record_id": "rock_mobile_docs:article:599",
-      "title": "Blur Effect",
+      "source_id": "rock_developer",
+      "source_key": "d973648867411aa4",
+      "source_record_id": "rock_developer:d973648867411aa4",
+      "title": "On Device Platform",
       "topics": [
         "api",
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/effects/blur-effect",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "3bf2bc05d2c92889fa1df72c814705905e2d050806059b085ef0be9cdf0cf2e3",
-      "excerpt_hash": "8482bd97e8bad53e882b1a7d2effa48350f54b1a6ab733b8937ad5308b5724d9",
+      "content_hash": "089ab55c7132d04e92a202888d0deb0c98f797255b1f052de3beb0660647574e",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "4242ef769852e116",
-      "source_record_id": "rock_mobile_docs:article:630",
-      "title": "Shell Components",
+      "source_id": "rock_developer",
+      "source_key": "4725293a0044fb8b",
+      "source_record_id": "rock_developer:4725293a0044fb8b",
+      "title": "Palette Color",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/styling/style-guide/shell-components",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c326936969251a6a84aac17b46908f2ff1003512e0932a84d93feb6523db8e24",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "52b1e0e2f1c51a91",
+      "source_record_id": "rock_developer:52b1e0e2f1c51a91",
+      "title": "Context Menu",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c82769c587565cf7e33d0a4a7e340feeee15fe0262d343dcbdfc4497d49bc8aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f7002493e6fe0527",
+      "source_record_id": "rock_developer:f7002493e6fe0527",
+      "title": "🎨 Styling",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/styling",
       "version": null
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "3482313dfabeb8b445bed7f6750427925e4126241356f09d3491cdbcd0cd5ce6",
-      "excerpt_hash": "0b7b52b7784fc02ea2aa9312ee455efb1975299559c03c613f46473a0225166a",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "mobile",
-        "ios",
-        "check-in",
-        "check in",
-        "checkin",
-        "view"
-      ],
-      "path": "Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "556ab80c5e0f3f72",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs",
-      "title": "Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "183f74f7de3449a7e9100c3764dbd533d5c049a84838b6ea855f5d79fefdf6ae",
-      "excerpt_hash": "3d659cf2e4b2c6963d006484438e10ac7b32d484b35dd42a4559dc0782eb3828",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "mobile",
-        "ios",
-        "check-in",
-        "check in",
-        "checkin",
-        "view"
-      ],
-      "path": "Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "613ceea48f501824",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs",
-      "title": "Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs"
     },
     {
@@ -3015,24 +2808,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "24fc7b4aa24d8fba16cd3fa9b938c5a71617b5932c6dce74c33a5c0df7267072",
-      "excerpt_hash": "fb9b8773754a058792a455ed23e037b04ee867234ea8dc7cc43ba542c1fa3fd1",
+      "content_hash": "19a481805d469e017f6c302320b33b7ae636940fbcd41b315ff7508c21713c57",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "38f659081e23c0d5",
-      "source_record_id": "rock_mobile_docs:article:441",
+      "source_record_id": "rock_developer:38f659081e23c0d5",
       "title": "Push Notifications",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "security",
-        "xaml"
+        "obsidian",
+        "security"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications",
       "version": null
@@ -3041,23 +2833,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "00d0ac71264eb7b91077c17da8590154a843d2c4a708759d69e2d98bc44b8be3",
-      "excerpt_hash": "068030ca7e75a7d6baf8985fe0ca20b58f5d40efaff05fa87c4291420c6fe867",
+      "content_hash": "f95ccec778d3b133b82727fbb52f679c0bf6b7307550d453835ed26e75f964ef",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "6ec62a1509d61113",
-      "source_record_id": "rock_mobile_docs:article:437",
+      "source_record_id": "rock_developer:6ec62a1509d61113",
       "title": "Developer Accounts",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
       "version": null
@@ -3066,24 +2857,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "9071bf97854414dc270a2a6b3695b90e5d815116924fc697886285de315ed0a6",
-      "excerpt_hash": "548300582c959a42b74a5a3f6efb341dd613b97c43459d9830b69841dda4e850",
+      "content_hash": "5670202bf1a89e39017570a3d6c97873b68f498ebc32ab7f9b0ae95a3879ebf1",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "e1c6e91a2341a6ca",
-      "source_record_id": "rock_mobile_docs:article:442",
+      "source_record_id": "rock_developer:e1c6e91a2341a6ca",
       "title": "Rock Logins",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "security",
-        "xaml"
+        "obsidian",
+        "security"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins",
       "version": null
@@ -3092,23 +2882,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "9a17bb57104e6f3ba2d0072a1c8b030bf79dc3c783231e024e860241e4c0b069",
-      "excerpt_hash": "ddc9cfaf75a4ac11e497713d0684874570875a3848bb4b8ff62d855628dccdb9",
+      "content_hash": "df9e1d6e0b56d93021a5d78479496ebf9fc50ff579497004b4aac67d9a746f52",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "b2bd874c41f3be1c",
-      "source_record_id": "rock_mobile_docs:article:436",
+      "source_record_id": "rock_developer:b2bd874c41f3be1c",
       "title": "App Store Product Page",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
       "version": null
@@ -3117,49 +2906,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "94d9cf4dc5d9875ac51fa8c9d0f6fbedd6fe9efab507dc512dd415cd8850147c",
-      "excerpt_hash": "559386fd4a64521191ca83c657b8b4548426152fc7db6309d9aeef96405cace3",
+      "content_hash": "519c446d8155376d15e838c5947e0034d016abf07740c8919e04b2b1cb1e10f8",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "055593fef7ab6e0c",
-      "source_record_id": "rock_mobile_docs:article:3524",
-      "title": "Store Graphics & Icons",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "1409e1b641a70e5806737a1ef08cbfc9667691a1d49d1e2713209dad37fb5cb9",
-      "excerpt_hash": "037d70f439d7c8695b2e0600e64642f9296a42a530183f1db970fc2dbed6c995",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "2b29c6766ad7c0c1",
-      "source_record_id": "rock_mobile_docs:article:435",
+      "source_record_id": "rock_developer:2b29c6766ad7c0c1",
       "title": "Android Keystore",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "api",
+        "development",
+        "lava",
         "mobile",
-        "security",
-        "xaml"
+        "obsidian",
+        "security"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
       "version": null
@@ -3168,24 +2931,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "3107a180ab1e1f1d3f57c7bc02f0438a6ae2c135b43f75ba144ac890991dd473",
-      "excerpt_hash": "0acec509f1c8546caf472651c056f8a70618b168c874e7b1e152829b9dee0f8d",
+      "content_hash": "7902e06bd04f0bb7f9310e218afdf3ccc7024895135c94f477136b4ae910080b",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "c8682e1082f5f91b",
-      "source_record_id": "rock_mobile_docs:article:439",
+      "source_record_id": "rock_developer:c8682e1082f5f91b",
       "title": "In-App Giving",
       "topics": [
-        "blocks",
-        "commands",
-        "controls",
+        "api",
+        "development",
         "finance",
-        "maui",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving",
       "version": null
@@ -3194,24 +2956,22 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "7429c5b4648400a8212c2d960f0c5a2834f7cdfadbed3d9c9ede3b1794fa5466",
-      "excerpt_hash": "e1b4422b901b83d91caeb4ecae24ef841d7e0921750d18cc42f96d37f204c84f",
+      "content_hash": "3ac9bb15461fbca6cc249112a67f12961a6e2f4d4bf00899ebc7c37215cca2f4",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_mobile_docs",
+      "source_id": "rock_developer",
       "source_key": "6920f6e860c4b936",
-      "source_record_id": "rock_mobile_docs:article:443",
+      "source_record_id": "rock_developer:6920f6e860c4b936",
       "title": "Shell Update Requirements",
       "topics": [
         "api",
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
+        "development",
+        "lava",
         "mobile",
-        "xaml"
+        "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
       "version": null
@@ -3220,15 +2980,15 @@
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "146e67d4bf6dd26614879c054a5d556ecc2dddec10065cd521807881e64139ce",
-      "excerpt_hash": "a331b7eb405051e00123672fe217b78267e8430386bdf3b2162faf62b17d6748",
+      "content_hash": "519691ff68dec90b0d77b2abb7e8543fe5a9958da53cb7e0b9272ec1e3197ad6",
+      "excerpt_hash": "5acfa74656c6c6fbffecc5db09092f94867f223126a319723350a4368518c8d8",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": "June 11, 2026",
+      "release_date": "July 16, 2025",
       "severity": "normal",
       "source_id": "rock_mobile_release_notes",
       "source_key": "18a10aca58c2b1f1",
-      "source_record_id": "rock_mobile_release_notes:a0d1cf84d0c0688a",
+      "source_record_id": "rock_mobile_release_notes:e3b57fe663cff4b3",
       "title": "Rock Mobile Release Notes",
       "topics": [
         "mobile",
@@ -3236,32 +2996,7 @@
         "maui"
       ],
       "url": "https://www.rockrms.com/mobilereleasenotes",
-      "version": "19.1"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e082a1da8aca42cb80d1ba4278e283a3a7bc7715d0bbf3a47937666b1b4ee96c",
-      "excerpt_hash": "f5e36884f1f362ad347d85df106a290aad89d5bd363faf58739135f94a1e630f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_mobile_docs",
-      "source_key": "765f5565df709de0",
-      "source_record_id": "rock_mobile_docs:article:429",
-      "title": "Legacy",
-      "topics": [
-        "blocks",
-        "commands",
-        "controls",
-        "maui",
-        "mobile",
-        "xaml"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/styling/legacy",
-      "version": null
+      "version": "7.0"
     }
   ],
   "synthesis_profile": "comprehensive",

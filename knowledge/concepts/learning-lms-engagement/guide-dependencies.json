@@ -562,53 +562,62 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "0fc0a475d8f593d335935a585499fce62114ba4f53fc18427ffba406a4a4a6df",
   "approved_media_path": "knowledge/concepts/learning-lms-engagement/approved-media.md",
-  "built_at": "2026-09-03T16:50:58+00:00",
+  "built_at": "2026-09-09T23:15:03+00:00",
   "concept_id": "learning-lms-engagement",
-  "guide_hash": "16dcab4aede77f26b248b69fa49fc5accad3dc205401d8becf6bf2134f09cac2",
-  "guide_line_count": 512,
+  "guide_hash": "7ddd4a6c20f576c01156019934cb8223090e67e15d75a2be2a389875eee65b6a",
+  "guide_line_count": 561,
   "guide_path": "knowledge/concepts/learning-lms-engagement/guide.md",
-  "guide_word_count": 6284,
+  "guide_word_count": 6946,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
-      "content_hash": "54614fd7927c5eb7bd2f6f06fe095c83c41bbcb077f42965dc6fd4c6a11aad6e",
-      "excerpt_hash": "5a7ea0f4499acf41ecfd92165191d4e5bf25ef432eae7b56188790b3a547c7ac",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7ae31f8ce1d8e726",
-      "source_record_id": "rock_documentation:article:2001",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms"
     },
     {
       "authority": "official",
-      "content_hash": "1d3c5e2ef94dfc63eb6a774767704d309d22467f8754b4e5e246cfa99762310a",
-      "excerpt_hash": "45dcfd711ab2e804a36834904301ac553d58281bfd596c91d66e0fe9d42b907a",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "d804cd25a18cc62b",
-      "source_record_id": "rock_documentation:article:1638",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan"
     },
     {
       "authority": "official",
-      "content_hash": "0f74e960f1919e53cb532b0d7cc8e1d1df9a2655daee420aa6621bbb4576de60",
-      "excerpt_hash": "08b1981030897774d80bf1dc5b1ef2308ca81d5cf78c711785ff4730837c487e",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "fd840865e137bb75",
-      "source_record_id": "rock_documentation:article:1644",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program"
     },
     {
       "authority": "official",
-      "content_hash": "6422f20d023deacfa728d6a075825ce2d284f47c5d07c76a5aecd588d5df92e0",
-      "excerpt_hash": "39000b5f0ac2e46d30a4cb3a0d2cef986624f2a138f2d21d2b8807390a332624",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "073b3aeee414c612",
-      "source_record_id": "rock_documentation:article:1637",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class"
     },
     {
       "authority": "community-example",
-      "content_hash": "4e2e63a46bd8b1a8a47a9dd196b4aa693d2972416df88e7a58a9faf2b708aeb4",
-      "excerpt_hash": "4f4c2f25fb092d422cdc63b2f3332bfdea96d41923a0179d6df2acba7d374f60",
+      "content_hash": "9b5d8f800acd6c719d2c69e4ea69ce0ecb47b1918956e303041c96148917b2e1",
+      "excerpt_hash": "1d87ea548b06b2bc1aef194bcbc4c8f623063d1470ecd630ce63e5c20c3270df",
       "source_id": "rock_recipes",
       "source_key": "9af162570ab9ac58",
       "source_record_id": "rock_recipes:9af162570ab9ac58",
@@ -616,65 +625,65 @@
     },
     {
       "authority": "official",
-      "content_hash": "9036f6fab04bfbc87e31ed1bbb2a9154921f2a91b70a17cc78093fb437468618",
-      "excerpt_hash": "0f6ae7dc74c6125a4a60cbb6ce4ff95eb0f57cb9c45d004e75a9f4e0be078035",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "fe95bcbc8097696f",
-      "source_record_id": "rock_documentation:article:1647",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses"
     },
     {
       "authority": "official",
-      "content_hash": "4c4027c7b3d78960a2a29ea7008390a40c3474cc4730e6d910a2e2eceb57f31b",
-      "excerpt_hash": "7267b7b20b4511b6f77504ae7032d861da3e4a55500c0b83e6c1fd848dd8afa8",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "590278d5a6b85d45",
-      "source_record_id": "rock_documentation:article:1648",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes"
     },
     {
       "authority": "official",
-      "content_hash": "8790d48cd5dcf7a1119683c3b4ff3169a3b82a2dfe40a270dea11a90ce683dff",
-      "excerpt_hash": "171fe14e386486ede5938f7c60c17bf1da91bb4b3582ee1622da1cb2fbc777d0",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "2e855600403acc90",
-      "source_record_id": "rock_documentation:article:3640",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/intro-to-activities"
     },
     {
       "authority": "official",
-      "content_hash": "17bd194a7691505ce24de95c32ed5aabfa82ade9df9679a7608963ec34995cb9",
-      "excerpt_hash": "d4c9e2b822fcf3d59a1239107f3c5689e9a3b46c09a938de316e4c1e4692202c",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "ce446ea5f567fb5f",
-      "source_record_id": "rock_documentation:article:1652",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes"
     },
     {
       "authority": "official",
-      "content_hash": "93bfd87ce60a78b58e2d79f3cb6f5db84b39e7554979c9bc753771666a195714",
-      "excerpt_hash": "5241b0829de8bd4a196f599dcbce3567ce5498ab031ab60384e356249536dbdf",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "47928aa1187ee5ce",
-      "source_record_id": "rock_documentation:article:2010",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar"
     },
     {
       "authority": "official",
-      "content_hash": "f45b6ebc7177c49e715a065a89840f4e6f46222d2c193622b915fa7c113c5fe5",
-      "excerpt_hash": "3c8792305a6377ee03cccd691ff264e835dded6622daa0c10583e4e73efe5d4a",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "bc81bb48d2d59b95",
-      "source_record_id": "rock_documentation:article:1635",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-program"
     },
     {
       "authority": "official",
-      "content_hash": "aed4b76e35b0eafa17132684ff4747821d7292bd210704c4e520292f910bae9c",
-      "excerpt_hash": "fdc85cb84122d7d41451ce15b4a3fa4e661960ba25ed35c4501299030f676c4e",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "89605d7177238b44",
-      "source_record_id": "rock_documentation:article:1636",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course"
     },
     {
@@ -688,26 +697,26 @@
     },
     {
       "authority": "official",
-      "content_hash": "00f2dafcf2557148d73daab0e665d1ed5c64d48836dd8f24805cf9bf53955414",
-      "excerpt_hash": "4e6e87cbccf8980dda4357c1b4b4bd5a3570e1b7a618216dfc7db354a58b2416",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "a6f6ad5c3930fbb0",
-      "source_record_id": "rock_documentation:article:2004",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/acknowledgment-activity"
     },
     {
       "authority": "official",
-      "content_hash": "2400627895ee612d3f1e55e194af57363f9027d9908a0902f10964e317b0fd79",
-      "excerpt_hash": "8dcdc5aa09d9c770f2c8dae6d2f29498913a9215f2744b98acf9ea3d571cc5e6",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "076ef462d9fc951c",
-      "source_record_id": "rock_documentation:article:2007",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity"
     },
     {
       "authority": "official-release",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "9608932e06c342f7357133da1491fa539e1203ec6fd9beae64bf60183afcd249",
+      "content_hash": "8832bfe54e23d9dbcf66bc4d9bd13b95dd1f22470a1fa5b2b85c65ed9e242788",
+      "excerpt_hash": "4056fd309e24cc77d1308b1ea0a96ecf47a64956d43e05f7e4b4a5ae7266bb47",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:2a6c9b2de23fd4bb",
@@ -715,11 +724,11 @@
     },
     {
       "authority": "official",
-      "content_hash": "282a30cde2a0d60c9d279b6ae6bb3d277d3171abc22fc78800c25d2c61ee1802",
-      "excerpt_hash": "50aa3c9c2f975e9d06d6f143f28a24592bb1d3c5ac2caede867839731556d3de",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "491b657c44898d6c",
-      "source_record_id": "rock_documentation:article:2009",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity"
     },
     {
@@ -733,52 +742,52 @@
     },
     {
       "authority": "official",
-      "content_hash": "c6d92c9411445cc216d7503483409fed5b696d2e66d9368b9c6703f639ccedfd",
-      "excerpt_hash": "8dde97a147f7ba256b73a9af915b800b05ed6a406be5f722ad675d9e77a5a32b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "a5067735e52a8de2",
-      "source_record_id": "rock_documentation:article:2005",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity"
     },
     {
       "authority": "official",
-      "content_hash": "60236fb2741c4bba5e148447c0b004d5a748703899f2381b515a7da648077faa",
-      "excerpt_hash": "b8a5236c72a7e6711726556cd0f96ee5abd4905c00f2fcee7104326d4657f01b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "37cf4ed180e12fdb",
-      "source_record_id": "rock_documentation:article:2006",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/file-upload-activity"
     },
     {
       "authority": "official",
-      "content_hash": "bb397242a5b9e08279b9761385074289bdfd8be35fcc5a66bb8b4ff30628020b",
-      "excerpt_hash": "0901145e1247cc529cb74a509efdd3e6af2537534221466108983f473a80889f",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "931817331db2d8ca",
-      "source_record_id": "rock_documentation:article:2008",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/point-assessment-activity"
     },
     {
       "authority": "source-code",
-      "content_hash": "4e36348d2be9e118a71ccc34c5bdcdae7c5a6d4e5c23f017f2de6feff511c63e",
-      "excerpt_hash": "9161acbcec752f111c6ce480afe2754736c503490c683ed39cf4db4c947c8ec7",
+      "content_hash": "74e5dea92a7024b72e7b4595d38c41ea68950e0bfc0b3d05e2aed4981fe428e9",
+      "excerpt_hash": "5d9982c4707a0883e1f33c353dd264ef400e2bab117debed5bbe5ef94fdf6ccf",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "8b0fed4be668309a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
       "authority": "official",
-      "content_hash": "9d195676f7714c8215847472ebcfdd16e1fd33754c957b4e190c83a28810bb27",
-      "excerpt_hash": "960b74eddf1524c033d2fbf6993a5fa91c77f6f85359b7e9b2171512855f4180",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7e917ae378fbc2ce",
-      "source_record_id": "rock_documentation:article:1650",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems"
     },
     {
       "authority": "official-model-map",
-      "content_hash": "9b49a05018d41473215ec81b67d935a31bde0529daea94cb4b15cb0706c5498e",
+      "content_hash": "cc030d75c6d33bb2cd9ff63661b1585ce9f4df86660fcc19b760d3dfcde9db74",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "source_id": "rock_model_map",
       "source_key": "bce31f25cb8a199e",
@@ -787,29 +796,29 @@
     },
     {
       "authority": "official",
-      "content_hash": "c240eff1b0280c06d3818e5de9efb0021198115f59e6d6d4f5b8c7ab5190bb55",
-      "excerpt_hash": "cbe2b9154b438547e97d77d7bb0ede26135ef55aa42c1b0a63c4e9fc1c654902",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "e5836be5b3a1b655",
-      "source_record_id": "rock_documentation:article:3618",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub"
     },
     {
       "authority": "official",
-      "content_hash": "63a0644ec4ff44f0be4f9ea23c8944c0c17f609523865b95a4cdab13e51ec6ac",
-      "excerpt_hash": "e1179223a8634c960eb7bb9c887d204f7a46c5b7f810b7604762e7b6fd321d82",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "06cbf274038c8bb8",
-      "source_record_id": "rock_documentation:article:1640",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example"
     },
     {
       "authority": "official",
-      "content_hash": "77949b89f2017dffc56308b3d1950fc2d5afd1fdf3e90cd6d5b7d7b52bb3621a",
-      "excerpt_hash": "0cb8b82145a6fbdf83928e6bb611b8f420782ec79e953e70eed036740dbbe48a",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "293a651efbca6b2d",
-      "source_record_id": "rock_documentation:article:1641",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example"
     },
     {
@@ -823,39 +832,30 @@
     },
     {
       "authority": "official",
-      "content_hash": "5680b1a87c97461c31c83744126e668d67e0b15f42bdf8279e86c724776c169f",
-      "excerpt_hash": "944877854e163807029d870e5dbf557c90c78de74201060578918b4366f98cf3",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "7b8389a065aa1b3c",
-      "source_record_id": "rock_documentation:article:1642",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security"
     },
     {
       "authority": "official",
-      "content_hash": "8f322e3eda90b63e16cd8437add5635e6fe4486251223d329e500891841a12e1",
-      "excerpt_hash": "f09fd682d14df2695839615378e68a15f654cb95df66b67d191e2a84f9803c12",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "13d904376483ca1c",
-      "source_record_id": "rock_documentation:article:2002",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/intro-to-program-administration"
     },
     {
       "authority": "official",
-      "content_hash": "6aa4ba7cb1b5454a896acf040a9c275d96eef464fbfdc730be66aa37ccd2a06f",
-      "excerpt_hash": "bd5f6cd3756c2ac405fc664e25a9e2540e0110235a1be20e07ab5561695890c0",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "0207e6dd2b3a2fef",
-      "source_record_id": "rock_documentation:article:1643",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d6c2b269b1add9e07375b2b01750c952f5b91ddcf6d198e47776290a508404a1",
-      "excerpt_hash": "cc01a540a44509d1fb330883d81242d7058e599e3531d144c0b11e6173f8693d",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3085cfdba844aaae",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs"
     },
     {
       "authority": "unknown",
@@ -913,37 +913,39 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "e9434e349f5ac094271ecbe4ab20b24d2cd01ebef45105d13c4c6a843719c096",
-      "excerpt_hash": "54fdcb37af46f99215f654953c80860700205fb1fdfe1c3c50c2e77dfc4b04a3",
+      "content_hash": "36f9861217f76df0017879becbc6383657789030a93ac23be4b415404b2bfd1f",
+      "excerpt_hash": "5f822a74bfdd17f03b15331c81df6147d8d0e2cd0994b04d65202cfd93a32fc9",
       "source_id": "rock_rocku",
       "source_key": "bb36a9170c60ca9d",
       "source_record_id": "rock_rocku:bb36a9170c60ca9d",
       "url": "https://community.rockrms.com/rocku/lms"
     },
     {
-      "authority": "official",
-      "content_hash": "46bfd716e60490b0814fbc1648c6e39f26d5cb5e6e0e2cc436e45bd05bdfd78b",
-      "excerpt_hash": "8eef6d3b2503f22bfd9dd18827160aaae332a837ebb8ea049264202544ab2fdb",
-      "source_id": "rock_documentation",
-      "source_key": "8909f401bc74de38",
-      "source_record_id": "rock_documentation:article:1513",
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system"
-    },
-    {
-      "authority": "official",
-      "content_hash": "637ce1da346840f9bbc13d3c2c421bdc51b5f2c17612bda44a5ce8a3e61c0535",
-      "excerpt_hash": "0018a19f9cd7cb767b3eebde985ff4cbf07ff22b69bf043e4dbfd2d09c5f208c",
-      "source_id": "rock_documentation",
-      "source_key": "cf8d792c871fc383",
-      "source_record_id": "rock_documentation:article:1633",
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities"
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 36,
+      "end_line": 52,
       "heading": "Agent Summary",
       "needs_live_verification": false,
       "section_id": "agent-summary",
@@ -953,22 +955,22 @@
         "fd840865e137bb75",
         "073b3aeee414c612"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "community-supported",
-      "end_line": 53,
+      "end_line": 69,
       "heading": "Scope And Boundaries",
       "needs_live_verification": false,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "9af162570ab9ac58"
       ],
-      "start_line": 37
+      "start_line": 53
     },
     {
       "confidence": "normal",
-      "end_line": 67,
+      "end_line": 83,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
@@ -980,11 +982,11 @@
         "2e855600403acc90",
         "ce446ea5f567fb5f"
       ],
-      "start_line": 54
+      "start_line": 70
     },
     {
       "confidence": "structural",
-      "end_line": 69,
+      "end_line": 85,
       "heading": "Courses And Lessons",
       "needs_live_verification": false,
       "section_id": "courses-and-lessons",
@@ -996,11 +998,11 @@
         "073b3aeee414c612",
         "590278d5a6b85d45"
       ],
-      "start_line": 68
+      "start_line": 84
     },
     {
       "confidence": "normal",
-      "end_line": 77,
+      "end_line": 93,
       "heading": "Choose the program mode first",
       "needs_live_verification": false,
       "section_id": "courses-and-lessons-choose-the-program-mode-first",
@@ -1008,11 +1010,11 @@
         "7ae31f8ce1d8e726",
         "47928aa1187ee5ce"
       ],
-      "start_line": 70
+      "start_line": 86
     },
     {
       "confidence": "normal",
-      "end_line": 94,
+      "end_line": 110,
       "heading": "Build the hierarchy in configuration order",
       "needs_live_verification": false,
       "section_id": "courses-and-lessons-build-the-hierarchy-in-configuration-order",
@@ -1022,44 +1024,44 @@
         "073b3aeee414c612",
         "073b3aeee414c612"
       ],
-      "start_line": 78
+      "start_line": 94
     },
     {
       "confidence": "normal",
-      "end_line": 100,
+      "end_line": 116,
       "heading": "Revise a class without disrupting the current one",
       "needs_live_verification": true,
       "section_id": "courses-and-lessons-revise-a-class-without-disrupting-the-current-one",
       "source_keys": [
         "590278d5a6b85d45"
       ],
-      "start_line": 95
+      "start_line": 111
     },
     {
       "confidence": "citation-only",
-      "end_line": 104,
+      "end_line": 120,
       "heading": "Activity Design And Staff Responsibilities",
       "needs_live_verification": false,
       "section_id": "activity-design-and-staff-responsibilities",
       "source_keys": [
         "892f43823742ae10"
       ],
-      "start_line": 101
+      "start_line": 117
     },
     {
       "confidence": "normal",
-      "end_line": 110,
+      "end_line": 126,
       "heading": "Acknowledgment",
       "needs_live_verification": false,
       "section_id": "activity-design-and-staff-responsibilities-acknowledgment",
       "source_keys": [
         "a6f6ad5c3930fbb0"
       ],
-      "start_line": 105
+      "start_line": 121
     },
     {
       "confidence": "high",
-      "end_line": 116,
+      "end_line": 132,
       "heading": "Content article",
       "needs_live_verification": false,
       "section_id": "activity-design-and-staff-responsibilities-content-article",
@@ -1067,11 +1069,11 @@
         "076ef462d9fc951c",
         "776256c424368312"
       ],
-      "start_line": 111
+      "start_line": 127
     },
     {
       "confidence": "normal",
-      "end_line": 122,
+      "end_line": 138,
       "heading": "Video watch",
       "needs_live_verification": false,
       "section_id": "activity-design-and-staff-responsibilities-video-watch",
@@ -1080,51 +1082,51 @@
         "d804cd25a18cc62b",
         "b68311e84ce45057"
       ],
-      "start_line": 117
+      "start_line": 133
     },
     {
       "confidence": "normal",
-      "end_line": 128,
+      "end_line": 144,
       "heading": "Assessment",
       "needs_live_verification": false,
       "section_id": "activity-design-and-staff-responsibilities-assessment",
       "source_keys": [
         "a5067735e52a8de2"
       ],
-      "start_line": 123
+      "start_line": 139
     },
     {
       "confidence": "normal",
-      "end_line": 134,
+      "end_line": 150,
       "heading": "File upload",
       "needs_live_verification": true,
       "section_id": "activity-design-and-staff-responsibilities-file-upload",
       "source_keys": [
         "37cf4ed180e12fdb"
       ],
-      "start_line": 129
+      "start_line": 145
     },
     {
       "confidence": "normal",
-      "end_line": 140,
+      "end_line": 156,
       "heading": "Point assessment",
       "needs_live_verification": false,
       "section_id": "activity-design-and-staff-responsibilities-point-assessment",
       "source_keys": [
         "931817331db2d8ca"
       ],
-      "start_line": 135
+      "start_line": 151
     },
     {
       "confidence": "structural",
-      "end_line": 142,
+      "end_line": 158,
       "heading": "Requirements And Completion",
       "needs_live_verification": false,
       "section_id": "requirements-and-completion",
       "source_keys": [
         "fe95bcbc8097696f",
         "89605d7177238b44",
-        "8b0fed4be668309a",
+        "d275b5b94a9da833",
         "073b3aeee414c612",
         "7e917ae378fbc2ce",
         "590278d5a6b85d45",
@@ -1132,24 +1134,24 @@
         "ce446ea5f567fb5f",
         "bce31f25cb8a199e"
       ],
-      "start_line": 141
+      "start_line": 157
     },
     {
       "confidence": "high",
-      "end_line": 150,
+      "end_line": 166,
       "heading": "Course requirements",
       "needs_live_verification": true,
       "section_id": "requirements-and-completion-course-requirements",
       "source_keys": [
         "fe95bcbc8097696f",
         "89605d7177238b44",
-        "8b0fed4be668309a"
+        "d275b5b94a9da833"
       ],
-      "start_line": 143
+      "start_line": 159
     },
     {
       "confidence": "normal",
-      "end_line": 158,
+      "end_line": 174,
       "heading": "Grading systems and class completion",
       "needs_live_verification": true,
       "section_id": "requirements-and-completion-grading-systems-and-class-completion",
@@ -1159,11 +1161,11 @@
         "590278d5a6b85d45",
         "073b3aeee414c612"
       ],
-      "start_line": 151
+      "start_line": 167
     },
     {
       "confidence": "normal",
-      "end_line": 166,
+      "end_line": 182,
       "heading": "Course and program completion automation",
       "needs_live_verification": false,
       "section_id": "requirements-and-completion-course-and-program-completion-automation",
@@ -1174,11 +1176,11 @@
         "ce446ea5f567fb5f",
         "bce31f25cb8a199e"
       ],
-      "start_line": 159
+      "start_line": 175
     },
     {
       "confidence": "normal",
-      "end_line": 178,
+      "end_line": 194,
       "heading": "Engagement Journeys And Learner Access",
       "needs_live_verification": true,
       "section_id": "engagement-journeys-and-learner-access",
@@ -1189,11 +1191,11 @@
         "06cbf274038c8bb8",
         "293a651efbca6b2d"
       ],
-      "start_line": 167
+      "start_line": 183
     },
     {
       "confidence": "normal",
-      "end_line": 195,
+      "end_line": 211,
       "heading": "Groups, Workflows, And Operational Follow-Up",
       "needs_live_verification": true,
       "section_id": "groups-workflows-and-operational-follow-up",
@@ -1202,11 +1204,11 @@
         "892f43823742ae10",
         "d00f3fde25d28846"
       ],
-      "start_line": 179
+      "start_line": 195
     },
     {
       "confidence": "normal",
-      "end_line": 210,
+      "end_line": 226,
       "heading": "Security And Facilitation",
       "needs_live_verification": false,
       "section_id": "security-and-facilitation",
@@ -1217,11 +1219,11 @@
         "13d904376483ca1c",
         "0207e6dd2b3a2fef"
       ],
-      "start_line": 196
+      "start_line": 212
     },
     {
       "confidence": "normal",
-      "end_line": 218,
+      "end_line": 234,
       "heading": "Notifications And Communications",
       "needs_live_verification": true,
       "section_id": "notifications-and-communications",
@@ -1232,24 +1234,24 @@
         "293a651efbca6b2d",
         "293a651efbca6b2d"
       ],
-      "start_line": 211
+      "start_line": 227
     },
     {
       "confidence": "high",
-      "end_line": 234,
+      "end_line": 250,
       "heading": "Reporting And Administration",
       "needs_live_verification": false,
       "section_id": "reporting-and-administration",
       "source_keys": [
         "13d904376483ca1c",
-        "3085cfdba844aaae",
+        "d275b5b94a9da833",
         "95396b5eafd3b56c"
       ],
-      "start_line": 219
+      "start_line": 235
     },
     {
       "confidence": "citation-only",
-      "end_line": 242,
+      "end_line": 258,
       "heading": "Staff Enablement And Change Management",
       "needs_live_verification": true,
       "section_id": "staff-enablement-and-change-management",
@@ -1260,11 +1262,11 @@
         "fc4cde37de76b30e",
         "47e56d33826a7400"
       ],
-      "start_line": 235
+      "start_line": 251
     },
     {
       "confidence": "normal",
-      "end_line": 252,
+      "end_line": 268,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
@@ -1272,11 +1274,11 @@
         "776256c424368312",
         "bb36a9170c60ca9d"
       ],
-      "start_line": 243
+      "start_line": 259
     },
     {
       "confidence": "structural",
-      "end_line": 254,
+      "end_line": 270,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -1295,11 +1297,11 @@
         "293a651efbca6b2d",
         "95396b5eafd3b56c"
       ],
-      "start_line": 253
+      "start_line": 269
     },
     {
       "confidence": "normal",
-      "end_line": 263,
+      "end_line": 279,
       "heading": "A learner cannot find a program or course",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-learner-cannot-find-a-program-or-course",
@@ -1307,11 +1309,11 @@
         "e5836be5b3a1b655",
         "590278d5a6b85d45"
       ],
-      "start_line": 255
+      "start_line": 271
     },
     {
       "confidence": "normal",
-      "end_line": 272,
+      "end_line": 288,
       "heading": "A learner is blocked from enrollment",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-learner-is-blocked-from-enrollment",
@@ -1319,22 +1321,22 @@
         "fe95bcbc8097696f",
         "47928aa1187ee5ce"
       ],
-      "start_line": 264
+      "start_line": 280
     },
     {
       "confidence": "normal",
-      "end_line": 280,
+      "end_line": 296,
       "heading": "A facilitator cannot open LMS administration pages",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-facilitator-cannot-open-lms-administration-pages",
       "source_keys": [
         "7b8389a065aa1b3c"
       ],
-      "start_line": 273
+      "start_line": 289
     },
     {
       "confidence": "normal",
-      "end_line": 289,
+      "end_line": 305,
       "heading": "An activity is submitted but still incomplete",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-activity-is-submitted-but-still-incomplete",
@@ -1343,22 +1345,22 @@
         "a5067735e52a8de2",
         "0207e6dd2b3a2fef"
       ],
-      "start_line": 281
+      "start_line": 297
     },
     {
       "confidence": "normal",
-      "end_line": 298,
+      "end_line": 314,
       "heading": "A failed learner is marked complete",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-failed-learner-is-marked-complete",
       "source_keys": [
         "073b3aeee414c612"
       ],
-      "start_line": 290
+      "start_line": 306
     },
     {
       "confidence": "normal",
-      "end_line": 307,
+      "end_line": 323,
       "heading": "Program completion is not updating",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-program-completion-is-not-updating",
@@ -1366,11 +1368,11 @@
         "fd840865e137bb75",
         "ce446ea5f567fb5f"
       ],
-      "start_line": 299
+      "start_line": 315
     },
     {
       "confidence": "normal",
-      "end_line": 316,
+      "end_line": 332,
       "heading": "Learning notifications are delayed or absent",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-learning-notifications-are-delayed-or-absent",
@@ -1378,22 +1380,22 @@
         "293a651efbca6b2d",
         "fd840865e137bb75"
       ],
-      "start_line": 308
+      "start_line": 324
     },
     {
       "confidence": "citation-only",
-      "end_line": 325,
+      "end_line": 341,
       "heading": "An LMS dashboard is slow",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-lms-dashboard-is-slow",
       "source_keys": [
         "95396b5eafd3b56c"
       ],
-      "start_line": 317
+      "start_line": 333
     },
     {
       "confidence": "structural",
-      "end_line": 327,
+      "end_line": 343,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -1407,14 +1409,14 @@
         "fe95bcbc8097696f",
         "ce446ea5f567fb5f",
         "fc4cde37de76b30e",
-        "3085cfdba844aaae",
+        "d275b5b94a9da833",
         "95396b5eafd3b56c"
       ],
-      "start_line": 326
+      "start_line": 342
     },
     {
       "confidence": "normal",
-      "end_line": 366,
+      "end_line": 382,
       "heading": "Recipe: Create a self-paced volunteer training course",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-create-a-self-paced-volunteer-training-course",
@@ -1422,11 +1424,11 @@
         "bc81bb48d2d59b95",
         "d804cd25a18cc62b"
       ],
-      "start_line": 328
+      "start_line": 344
     },
     {
       "confidence": "normal",
-      "end_line": 387,
+      "end_line": 403,
       "heading": "Recipe: Prepare an Academic Calendar class",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-prepare-an-academic-calendar-class",
@@ -1434,11 +1436,11 @@
         "47928aa1187ee5ce",
         "293a651efbca6b2d"
       ],
-      "start_line": 367
+      "start_line": 383
     },
     {
       "confidence": "citation-only",
-      "end_line": 401,
+      "end_line": 417,
       "heading": "Recipe: Assign role-specific staff training",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes-recipe-assign-role-specific-staff-training",
@@ -1446,11 +1448,11 @@
         "01aeddd18c6296c2",
         "e1e383344a042a4e"
       ],
-      "start_line": 388
+      "start_line": 404
     },
     {
       "confidence": "normal",
-      "end_line": 421,
+      "end_line": 437,
       "heading": "Recipe: Connect course completion to operational follow-up",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-connect-course-completion-to-operational-follow-up",
@@ -1458,51 +1460,50 @@
         "fe95bcbc8097696f",
         "ce446ea5f567fb5f"
       ],
-      "start_line": 402
+      "start_line": 418
     },
     {
       "confidence": "citation-only",
-      "end_line": 441,
+      "end_line": 457,
       "heading": "Recipe: Roll out training for a changed Rock interface",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-roll-out-training-for-a-changed-rock-interface",
       "source_keys": [
         "fc4cde37de76b30e"
       ],
-      "start_line": 422
+      "start_line": 438
     },
     {
       "confidence": "normal",
-      "end_line": 454,
+      "end_line": 470,
       "heading": "Recipe: Build a bounded LMS completion report",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-a-bounded-lms-completion-report",
       "source_keys": [
-        "3085cfdba844aaae",
+        "d275b5b94a9da833",
         "95396b5eafd3b56c"
       ],
-      "start_line": 442
+      "start_line": 458
     },
     {
       "confidence": "structural",
-      "end_line": 475,
+      "end_line": 491,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "3085cfdba844aaae",
+        "d275b5b94a9da833",
         "95396b5eafd3b56c"
       ],
-      "start_line": 455
+      "start_line": 471
     },
     {
       "confidence": "structural",
-      "end_line": 477,
+      "end_line": 493,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
       "source_keys": [
-        "8909f401bc74de38",
         "7ae31f8ce1d8e726",
         "bc81bb48d2d59b95",
         "89605d7177238b44",
@@ -1517,7 +1518,7 @@
         "590278d5a6b85d45",
         "0207e6dd2b3a2fef",
         "ce446ea5f567fb5f",
-        "cf8d792c871fc383",
+        "2e855600403acc90",
         "7e917ae378fbc2ce",
         "776256c424368312",
         "bb36a9170c60ca9d",
@@ -1526,20 +1527,19 @@
         "95396b5eafd3b56c",
         "d00f3fde25d28846",
         "47e56d33826a7400",
-        "8b0fed4be668309a",
-        "3085cfdba844aaae",
+        "d275b5b94a9da833",
         "bce31f25cb8a199e"
       ],
-      "start_line": 476
+      "start_line": 492
     },
     {
       "confidence": "high",
-      "end_line": 499,
+      "end_line": 515,
       "heading": "Official documentation",
       "needs_live_verification": false,
       "section_id": "source-map-official-documentation",
       "source_keys": [
-        "8909f401bc74de38",
+        "7ae31f8ce1d8e726",
         "7ae31f8ce1d8e726",
         "bc81bb48d2d59b95",
         "89605d7177238b44",
@@ -1554,16 +1554,16 @@
         "590278d5a6b85d45",
         "0207e6dd2b3a2fef",
         "ce446ea5f567fb5f",
-        "cf8d792c871fc383",
+        "2e855600403acc90",
         "7e917ae378fbc2ce",
         "776256c424368312",
         "bb36a9170c60ca9d"
       ],
-      "start_line": 478
+      "start_line": 494
     },
     {
       "confidence": "citation-only",
-      "end_line": 507,
+      "end_line": 523,
       "heading": "Approved operational claims and reviewed examples",
       "needs_live_verification": false,
       "section_id": "source-map-approved-operational-claims-and-reviewed-examples",
@@ -1574,120 +1574,124 @@
         "d00f3fde25d28846",
         "47e56d33826a7400"
       ],
-      "start_line": 500
+      "start_line": 516
     },
     {
       "confidence": "normal",
-      "end_line": 512,
+      "end_line": 530,
       "heading": "Implementation evidence",
       "needs_live_verification": false,
       "section_id": "source-map-implementation-evidence",
       "source_keys": [
-        "8b0fed4be668309a",
-        "3085cfdba844aaae",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
         "bce31f25cb8a199e"
       ],
-      "start_line": 508
+      "start_line": 524
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 555,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "47e56d33826a7400",
+        "892f43823742ae10",
+        "95396b5eafd3b56c",
+        "892f43823742ae10",
+        "b68311e84ce45057",
+        "892f43823742ae10",
+        "e3517fa274c4048c"
+      ],
+      "start_line": 531
+    },
+    {
+      "confidence": "structural",
+      "end_line": 561,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "d00f3fde25d28846",
+        "47e56d33826a7400",
+        "892f43823742ae10",
+        "95396b5eafd3b56c",
+        "892f43823742ae10",
+        "b68311e84ce45057",
+        "892f43823742ae10",
+        "e3517fa274c4048c"
+      ],
+      "start_line": 556
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:31:47+00:00",
+  "source_pack_hydrated_at": "2026-06-03T19:55:32+00:00",
   "sources": [
     {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "54614fd7927c5eb7bd2f6f06fe095c83c41bbcb077f42965dc6fd4c6a11aad6e",
-      "excerpt_hash": "5a7ea0f4499acf41ecfd92165191d4e5bf25ef432eae7b56188790b3a547c7ac",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7ae31f8ce1d8e726",
-      "source_record_id": "rock_documentation:article:2001",
-      "title": "Intro to LMS",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "1d3c5e2ef94dfc63eb6a774767704d309d22467f8754b4e5e246cfa99762310a",
-      "excerpt_hash": "45dcfd711ab2e804a36834904301ac553d58281bfd596c91d66e0fe9d42b907a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "d804cd25a18cc62b",
-      "source_record_id": "rock_documentation:article:1638",
-      "title": "Create the Learning Plan",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-the-learning-plan"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "0f74e960f1919e53cb532b0d7cc8e1d1df9a2655daee420aa6621bbb4576de60",
-      "excerpt_hash": "08b1981030897774d80bf1dc5b1ef2308ca81d5cf78c711785ff4730837c487e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "fd840865e137bb75",
-      "source_record_id": "rock_documentation:article:1644",
-      "title": "Configure Program",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "6422f20d023deacfa728d6a075825ce2d284f47c5d07c76a5aecd588d5df92e0",
-      "excerpt_hash": "39000b5f0ac2e46d30a4cb3a0d2cef986624f2a138f2d21d2b8807390a332624",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "073b3aeee414c612",
-      "source_record_id": "rock_documentation:article:1637",
-      "title": "Edit the Class",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class"
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "4e2e63a46bd8b1a8a47a9dd196b4aa693d2972416df88e7a58a9faf2b708aeb4",
-      "excerpt_hash": "4f4c2f25fb092d422cdc63b2f3332bfdea96d41923a0179d6df2acba7d374f60",
+      "content_hash": "9b5d8f800acd6c719d2c69e4ea69ce0ecb47b1918956e303041c96148917b2e1",
+      "excerpt_hash": "1d87ea548b06b2bc1aef194bcbc4c8f623063d1470ecd630ce63e5c20c3270df",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1709,159 +1713,72 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "9036f6fab04bfbc87e31ed1bbb2a9154921f2a91b70a17cc78093fb437468618",
-      "excerpt_hash": "0f6ae7dc74c6125a4a60cbb6ce4ff95eb0f57cb9c45d004e75a9f4e0be078035",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "fe95bcbc8097696f",
-      "source_record_id": "rock_documentation:article:1647",
-      "title": "Courses",
-      "topics": [
-        "admin",
-        "operations",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "4c4027c7b3d78960a2a29ea7008390a40c3474cc4730e6d910a2e2eceb57f31b",
-      "excerpt_hash": "7267b7b20b4511b6f77504ae7032d861da3e4a55500c0b83e6c1fd848dd8afa8",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "590278d5a6b85d45",
-      "source_record_id": "rock_documentation:article:1648",
-      "title": "Classes",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "8790d48cd5dcf7a1119683c3b4ff3169a3b82a2dfe40a270dea11a90ce683dff",
-      "excerpt_hash": "171fe14e386486ede5938f7c60c17bf1da91bb4b3582ee1622da1cb2fbc777d0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "2e855600403acc90",
-      "source_record_id": "rock_documentation:article:3640",
-      "title": "Intro to Activities",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/intro-to-activities",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/intro-to-activities",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/intro-to-activities"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "17bd194a7691505ce24de95c32ed5aabfa82ade9df9679a7608963ec34995cb9",
-      "excerpt_hash": "d4c9e2b822fcf3d59a1239107f3c5689e9a3b46c09a938de316e4c1e4692202c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "ce446ea5f567fb5f",
-      "source_record_id": "rock_documentation:article:1652",
-      "title": "LMS Behind the Scenes",
-      "topics": [
-        "admin",
-        "operations",
-        "sql",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "93bfd87ce60a78b58e2d79f3cb6f5db84b39e7554979c9bc753771666a195714",
-      "excerpt_hash": "5241b0829de8bd4a196f599dcbce3567ce5498ab031ab60384e356249536dbdf",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "47928aa1187ee5ce",
-      "source_record_id": "rock_documentation:article:2010",
-      "title": "Configure Academic Calendar",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/configure-academic-calendar"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "f45b6ebc7177c49e715a065a89840f4e6f46222d2c193622b915fa7c113c5fe5",
-      "excerpt_hash": "3c8792305a6377ee03cccd691ff264e835dded6622daa0c10583e4e73efe5d4a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "bc81bb48d2d59b95",
-      "source_record_id": "rock_documentation:article:1635",
-      "title": "Create a Program",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-program",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-program",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-program"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "aed4b76e35b0eafa17132684ff4747821d7292bd210704c4e520292f910bae9c",
-      "excerpt_hash": "fdc85cb84122d7d41451ce15b4a3fa4e661960ba25ed35c4501299030f676c4e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "89605d7177238b44",
-      "source_record_id": "rock_documentation:article:1636",
-      "title": "Create a Course",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course"
     },
     {
       "authority": "unknown",
@@ -1876,53 +1793,29 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "00f2dafcf2557148d73daab0e665d1ed5c64d48836dd8f24805cf9bf53955414",
-      "excerpt_hash": "4e6e87cbccf8980dda4357c1b4b4bd5a3570e1b7a618216dfc7db354a58b2416",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "a6f6ad5c3930fbb0",
-      "source_record_id": "rock_documentation:article:2004",
-      "title": "Acknowledgment Activity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/acknowledgment-activity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/acknowledgment-activity",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/acknowledgment-activity"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "2400627895ee612d3f1e55e194af57363f9027d9908a0902f10964e317b0fd79",
-      "excerpt_hash": "8dcdc5aa09d9c770f2c8dae6d2f29498913a9215f2744b98acf9ea3d571cc5e6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "076ef462d9fc951c",
-      "source_record_id": "rock_documentation:article:2007",
-      "title": "Content Article Activity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/content-article-activity"
     },
     {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "new_feature",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "9608932e06c342f7357133da1491fa539e1203ec6fd9beae64bf60183afcd249",
+      "content_hash": "8832bfe54e23d9dbcf66bc4d9bd13b95dd1f22470a1fa5b2b85c65ed9e242788",
+      "excerpt_hash": "4056fd309e24cc77d1308b1ea0a96ecf47a64956d43e05f7e4b4a5ae7266bb47",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "December 8, 2025",
@@ -1942,24 +1835,12 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "282a30cde2a0d60c9d279b6ae6bb3d277d3171abc22fc78800c25d2c61ee1802",
-      "excerpt_hash": "50aa3c9c2f975e9d06d6f143f28a24592bb1d3c5ac2caede867839731556d3de",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "491b657c44898d6c",
-      "source_record_id": "rock_documentation:article:2009",
-      "title": "Video Watch Activity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/video-watch-activity"
     },
     {
       "authority": "unknown",
@@ -1974,118 +1855,71 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c6d92c9411445cc216d7503483409fed5b696d2e66d9368b9c6703f639ccedfd",
-      "excerpt_hash": "8dde97a147f7ba256b73a9af915b800b05ed6a406be5f722ad675d9e77a5a32b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "a5067735e52a8de2",
-      "source_record_id": "rock_documentation:article:2005",
-      "title": "Assessment Activity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/assessment-activity"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "60236fb2741c4bba5e148447c0b004d5a748703899f2381b515a7da648077faa",
-      "excerpt_hash": "b8a5236c72a7e6711726556cd0f96ee5abd4905c00f2fcee7104326d4657f01b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "37cf4ed180e12fdb",
-      "source_record_id": "rock_documentation:article:2006",
-      "title": "File Upload Activity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/file-upload-activity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/file-upload-activity",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/file-upload-activity"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "bb397242a5b9e08279b9761385074289bdfd8be35fcc5a66bb8b4ff30628020b",
-      "excerpt_hash": "0901145e1247cc529cb74a509efdd3e6af2537534221466108983f473a80889f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "931817331db2d8ca",
-      "source_record_id": "rock_documentation:article:2008",
-      "title": "Point Assessment Activity",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/point-assessment-activity",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/point-assessment-activity",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities/point-assessment-activity"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "4e36348d2be9e118a71ccc34c5bdcdae7c5a6d4e5c23f017f2de6feff511c63e",
-      "excerpt_hash": "9161acbcec752f111c6ce480afe2754736c503490c683ed39cf4db4c947c8ec7",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "learning",
-        "lms",
-        "course",
-        "requirement",
-        "requirements"
-      ],
-      "path": "Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "8b0fed4be668309a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
-      "title": "Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
       "change_type": null,
-      "content_hash": "9d195676f7714c8215847472ebcfdd16e1fd33754c957b4e190c83a28810bb27",
-      "excerpt_hash": "960b74eddf1524c033d2fbf6993a5fa91c77f6f85359b7e9b2171512855f4180",
+      "content_hash": "74e5dea92a7024b72e7b4595d38c41ea68950e0bfc0b3d05e2aed4981fe428e9",
+      "excerpt_hash": "5d9982c4707a0883e1f33c353dd264ef400e2bab117debed5bbe5ef94fdf6ccf",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7e917ae378fbc2ce",
-      "source_record_id": "rock_documentation:article:1650",
-      "title": "Configure Grading Systems",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems"
     },
     {
       "authority": "official-model-map",
       "authority_score": 86,
       "change_type": null,
-      "content_hash": "9b49a05018d41473215ec81b67d935a31bde0529daea94cb4b15cb0706c5498e",
+      "content_hash": "cc030d75c6d33bb2cd9ff63661b1585ce9f4df86660fcc19b760d3dfcde9db74",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "hydrated": true,
       "kind": "normalized_record",
@@ -2108,69 +1942,32 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "c240eff1b0280c06d3818e5de9efb0021198115f59e6d6d4f5b8c7ab5190bb55",
-      "excerpt_hash": "cbe2b9154b438547e97d77d7bb0ede26135ef55aa42c1b0a63c4e9fc1c654902",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "e5836be5b3a1b655",
-      "source_record_id": "rock_documentation:article:3618",
-      "title": "Intro to the Learning Hub",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "63a0644ec4ff44f0be4f9ea23c8944c0c17f609523865b95a4cdab13e51ec6ac",
-      "excerpt_hash": "e1179223a8634c960eb7bb9c887d204f7a46c5b7f810b7604762e7b6fd321d82",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "06cbf274038c8bb8",
-      "source_record_id": "rock_documentation:article:1640",
-      "title": "On-Demand Class Workspace Example",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "77949b89f2017dffc56308b3d1950fc2d5afd1fdf3e90cd6d5b7d7b52bb3621a",
-      "excerpt_hash": "0cb8b82145a6fbdf83928e6bb611b8f420782ec79e953e70eed036740dbbe48a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "293a651efbca6b2d",
-      "source_record_id": "rock_documentation:article:1641",
-      "title": "Academic Calendar Class Workspace Example",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example"
     },
     {
       "authority": "unknown",
@@ -2185,92 +1982,32 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "5680b1a87c97461c31c83744126e668d67e0b15f42bdf8279e86c724776c169f",
-      "excerpt_hash": "944877854e163807029d870e5dbf557c90c78de74201060578918b4366f98cf3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "7b8389a065aa1b3c",
-      "source_record_id": "rock_documentation:article:1642",
-      "title": "Configure Security",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "8f322e3eda90b63e16cd8437add5635e6fe4486251223d329e500891841a12e1",
-      "excerpt_hash": "f09fd682d14df2695839615378e68a15f654cb95df66b67d191e2a84f9803c12",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "13d904376483ca1c",
-      "source_record_id": "rock_documentation:article:2002",
-      "title": "Intro to Program Administration",
-      "topics": [
-        "admin",
-        "operations",
-        "security",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/intro-to-program-administration",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/intro-to-program-administration",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/intro-to-program-administration"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "6aa4ba7cb1b5454a896acf040a9c275d96eef464fbfdc730be66aa37ccd2a06f",
-      "excerpt_hash": "bd5f6cd3756c2ac405fc664e25a9e2540e0110235a1be20e07ab5561695890c0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "0207e6dd2b3a2fef",
-      "source_record_id": "rock_documentation:article:1643",
-      "title": "Facilitators",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d6c2b269b1add9e07375b2b01750c952f5b91ddcf6d198e47776290a508404a1",
-      "excerpt_hash": "cc01a540a44509d1fb330883d81242d7058e599e3531d144c0b11e6173f8693d",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "course",
-        "courses",
-        "completed",
-        "report",
-        "reporting"
-      ],
-      "path": "Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3085cfdba844aaae",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs",
-      "title": "Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs"
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators",
+      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators"
     },
     {
       "authority": "unknown",
@@ -2336,8 +2073,8 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "e9434e349f5ac094271ecbe4ab20b24d2cd01ebef45105d13c4c6a843719c096",
-      "excerpt_hash": "54fdcb37af46f99215f654953c80860700205fb1fdfe1c3c50c2e77dfc4b04a3",
+      "content_hash": "36f9861217f76df0017879becbc6383657789030a93ac23be4b415404b2bfd1f",
+      "excerpt_hash": "5f822a74bfdd17f03b15331c81df6147d8d0e2cd0994b04d65202cfd93a32fc9",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2355,48 +2092,14 @@
       "version": null
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "46bfd716e60490b0814fbc1648c6e39f26d5cb5e6e0e2cc436e45bd05bdfd78b",
-      "excerpt_hash": "8eef6d3b2503f22bfd9dd18827160aaae332a837ebb8ea049264202544ab2fdb",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "8909f401bc74de38",
-      "source_record_id": "rock_documentation:article:1513",
-      "title": "Learning Management System",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "637ce1da346840f9bbc13d3c2c421bdc51b5f2c17612bda44a5ce8a3e61c0535",
-      "excerpt_hash": "0018a19f9cd7cb767b3eebde985ff4cbf07ff22b69bf043e4dbfd2d09c5f208c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "cf8d792c871fc383",
-      "source_record_id": "rock_documentation:article:1633",
-      "title": "Activities",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/learning-management-system/activities",
-      "version": null
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     }
   ],
   "synthesis_profile": "comprehensive",

@@ -2,7 +2,7 @@
 concept_id: mobile
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 21
+approved_claim_count: 22
 ---
 
 # Rock Mobile Approved Claims
@@ -32,3 +32,4 @@ This generated artifact contains the full approved public claim coverage for the
 | `claim:aa549ff122698db9c8a1` | rocku-confirmed | operational_guidance | The mobile flow still follows the familiar check-in pattern: identify the person, choose who is checking in, complete the check-in, then use the generated QR code only for label-printing handoff when labels are needed. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
 | `claim:0af9f556ecfaad976a8c` | community-reviewed | implementation_pattern | When a content process depends on slow background work, a Rock workflow can own the orchestration and communicate status instead of blocking the user interface. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | `claim:b7fce9e2838433343824` | community-reviewed | operational_guidance | Video rendering or similar background tasks should be modeled with explicit workflow states, retries, and completion checks before linking the output into public pages or apps. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
+| `claim:3f37e8a8eb1c044fd9fe` | community-reviewed | operational_guidance | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/outreach-toolbox-ep-219) |

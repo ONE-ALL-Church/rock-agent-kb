@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "ced36397a2f4c709aa1fbdeccb5064bae106402b82e94779d50
 
 # Security And Permissions
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Security And Permissions index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## 1. Executive Summary For Agents
 
 Rock authorization is evaluated for a specific person, action, and secured item. Access may depend on role membership, explicit item rules, inherited rules, parent entities, page and block security, data-level security, and the authenticated identity behind an API or automation. Never infer authorization from a visible menu, reachable route, hidden control, opaque identifier, or successful administrator test.
@@ -580,3 +596,48 @@ The Group Security RockU record in the pack was approved only as a public-safe t
 - [Workflow-Backed SMS Verification](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
 
 These community sources illustrate patterns only. Each is marked as requiring live verification before use.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `63`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock's PersonActionIdentifier identifies a person only for a specific bound action, such as RSVP, rather than functioning as a general-purpose authentication or authorization token. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
+| official | behavior | Rock evaluates an item's ordered Allow and Deny permission rules from top to bottom and applies the first rule matching the current person, so a broad deny placed above a narrower allow can block the narrower role. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
+| official | behavior | The Security Change Audit records changes to an item's permission rules, including role rules or direct user rules, but it does not record adding or removing a person from a security role. | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit) |
+| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
+| official | configuration | Creating a top-level Sign-Up group requires Edit permission on both the Project Type group attribute and the Sign-Up Groups block, in addition to the permissions needed to manage the project or its attendees. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions) |
+| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
+| official | implementation_pattern | For public-facing Obsidian blocks beginning with Rock v14, IdKey is preferred over exposing numeric entity IDs in URLs, but the server must still authorize and validate the referenced entity. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
+| official | operational_guidance | The Inspect Security page can show the source of a person's effective permission for a selected entity type and entity ID or GUID, including the parent from which an inherited rule originates. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
+| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| More |  | 54 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `35`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Advanced HTML Block Transcript Insight](https://community.rockrms.com/rocku/cms/advanced-html-block) | approved_for_public_distillation | 2 | media-insight:2cf056c2b84e6365 |
+| [Assessments - Emotional Intelligence (EQ) Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/assessments-emotional-intelligence) | approved_for_public_distillation | 2 | media-insight:2d198493692adb6c |
+| [Attendance Self-Entry Transcript Insight](https://community.rockrms.com/rocku/check-in/attendance-self-entry) | approved_for_public_distillation | 3 | media-insight:1fb05cc8930bc9e2 |
+| [BI Embed Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report) | approved_for_public_distillation | 3 | media-insight:5fc8b3a315612c59 |
+| [Check-in Celebrations Transcript Insight](https://community.rockrms.com/rocku/check-in/check-in-celebrations) | approved_for_public_distillation | 2 | media-insight:726c382b13da37a9 |
+| [Check-in Settings Transcript Insight](https://community.rockrms.com/rocku/check-in/settings) | approved_for_public_distillation | 3 | media-insight:43111d964e899603 |
+| [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
+| [Communication Templates [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates-legacy) | approved_for_public_distillation | 3 | media-insight:66b971954eb3655e |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

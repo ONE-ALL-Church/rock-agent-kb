@@ -57,8 +57,8 @@ A registered core field type with compatible server and client representations.
 - https://community.rockrms.com/developer/obsidian/blocks
 - https://community.rockrms.com/developer/obsidian/grids
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/CheckIn/CheckInScheduleBuilder.cs
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn
 - https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types
 - https://community.rockrms.com/developer/obsidian/browser-bus
 - https://community.rockrms.com/developer/obsidian/creating-field-types

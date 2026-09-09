@@ -14,6 +14,33 @@ from rock_kb.hydrate import (
 from rock_kb.jsonl import write_jsonl
 
 
+def test_pinned_guide_sources_keep_exact_commit_and_reject_mutable_links(monkeypatch):
+    import httpx
+    from rock_kb import hydrate
+    commit = 'a' * 40
+    url = f'https://github.com/SparkDevNetwork/Rock/blob/{commit}/Rock/Model.cs'
+    requested = []
+    original_client = httpx.Client
+
+    def handle(request):
+        requested.append(str(request.url))
+        return httpx.Response(200, text='public class Model {}')
+
+    monkeypatch.setattr(hydrate.httpx, 'Client', lambda **kwargs: original_client(
+        transport=httpx.MockTransport(handle), **kwargs))
+    rows = hydrate.hydrate_pinned_guide_sources(
+        f'[source]({url}#L1) [duplicate]({url}) '
+        '[mutable](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model.cs) '
+        f'[other](https://github.com/example/private/blob/{commit}/secret.cs)',
+        ['Model'],
+    )
+    assert len(rows) == 1
+    assert rows[0]['url'] == url
+    assert rows[0]['source_ref'] == commit
+    assert len(rows[0]['content_hash']) == 64
+    assert requested == [f'https://raw.githubusercontent.com/SparkDevNetwork/Rock/{commit}/Rock/Model.cs']
+
+
 def test_relevant_excerpt_prefers_keyword_chunks():
     text = (
         "General introduction that does not matter much.\n\n"

@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "57adb97ba7387f60137bea4f4a182f63a2eda9670cf28466f17
 
 # Platform Configuration
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Platform Configuration index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Platform configuration is a cross-cutting concern. Attributes extend entities with organization-specific data; Defined Types provide controlled sets of reusable values; categories organize configuration and presentation; entity types identify the kind of record being configured; campuses connect organizational sites to locations, schedules, status, type, and optional attributes. The supplied evidence supports these areas unevenly: attributes and campuses have current v19 documentation, while global attributes and general system settings have only routing-level evidence and therefore remain documented gaps. [Attributes documentation](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/attributes) [Manage Campuses](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses)
@@ -765,3 +781,31 @@ All source observations below refer to commit `471fd303d111b2e46218228dbc1e93dba
 - [Defined Types v2 controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs)
 - [Defined Values v2 controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs)
 - [Entity Types v2 controller](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs)
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `45`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| More |  | 45 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `27`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

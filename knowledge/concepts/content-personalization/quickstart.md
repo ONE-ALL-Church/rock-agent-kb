@@ -30,12 +30,12 @@ Content channels, assets, structured content, adaptive messages, personalization
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-40: Agent Summary (normal)
-- `scope-and-boundaries` lines 41-56: Scope And Boundaries (normal)
-- `mental-model` lines 57-82: Mental Model (normal)
-- `content-channels-choose-the-structure` lines 85-92: Choose the structure (normal)
-- `content-channels-configure-publication-behavior` lines 93-100: Configure publication behavior (normal)
-- `content-channels-manage-editorial-work` lines 101-108: Manage editorial work (high)
+- `agent-summary` lines 34-56: Agent Summary (normal)
+- `scope-and-boundaries` lines 57-72: Scope And Boundaries (normal)
+- `mental-model` lines 73-98: Mental Model (normal)
+- `content-channels-choose-the-structure` lines 101-108: Choose the structure (normal)
+- `content-channels-configure-publication-behavior` lines 109-116: Configure publication behavior (normal)
+- `content-channels-manage-editorial-work` lines 117-124: Manage editorial work (high)
 
 ## Core Entities
 
@@ -53,8 +53,8 @@ Content channels, assets, structured content, adaptive messages, personalization
 
 ## Version Caveats
 
-- `19.3`: Fixed the Content Channel Item List block to show the add and delete options for individuals with Edit access to the content channel, rather than requiring Edit access on the Content Channel Item entity itself. Fixes: #6
 - `17.5`: Fixed an issue where the Content Channel Item View block and the InteractionContentChannelItemWrite Lava command logged interactions using the Content Channel entity type instead of the Content Channel Item entity type.
+- `18.2`: Fixed a security issue affecting multiple blocks that interact with Content Channels, where individuals with only View permissions could delete content items. The delete option is now correctly limited to those with Edit
 
 ## Files For Agents
 

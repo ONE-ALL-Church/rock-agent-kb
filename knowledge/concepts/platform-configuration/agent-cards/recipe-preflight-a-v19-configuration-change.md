@@ -43,11 +43,15 @@ A version-sensitive feature is enabled with its dependencies and risks tested.
 
 ## Source Links
 
-- https://www.youtube.com/watch?v=c-wycR9HEuQ
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
+- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs
 - https://community.rockrms.com/rocku/workflows
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=684s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=96s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s

@@ -2,12 +2,12 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:29+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:54+00:00
+source_last_checked_at: 2026-09-09T21:16:30+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/21
 legacy_summary_retirement_coverage: 4/21
@@ -39,7 +39,7 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 
 - `Hosting And Infrastructure` spans operations, security, jobs, cache, search, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_documentation, rock_youtube, rock_podcast_rss, rock_recipes, triumph_resources, rock_core_release_notes.
-- Related tags found in source records: operations, sql, usage, workflow, admin, lava, releases, integrations.
+- Related tags found in source records: operations, sql, usage, admin, releases, workflow, lava, development.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -50,7 +50,6 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 | The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | solution-option discipline | 12:27 | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s) |
 | The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | Rock security patch cadence | 06:36 | Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. | [source](https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215) |
 | The Vatican on AI and Grandmasters on Ministry \| Ep 215 Transcript Insight | solution-option discipline | 12:18 | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215) |
-| Workflow Performance Tips Transcript Insight | Rock operations | 00:00 | The Workflow Performance Tips RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
 
 
 ## Approved Claims
@@ -81,24 +80,24 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_core_release_notes`: 8
+- `rock_core_release_notes`: 10
 - `rock_documentation`: 21
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `rock_qa`: 2
 - `rock_recipes`: 12
-- `rock_rocku`: 3
+- `rock_rocku`: 2
 - `rock_youtube`: 1
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 11
+- `triumph_resources`: 10
 
 ## Highest Signal Sources
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
 | Azure Hosting | rock_documentation | [Intro to Azure Hosting](/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting?Version=v19.0) [Compare Sizing and Service Options](/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options?Version=v19.0) [Register for Credits as a Non-Profit](/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit?Version=v19.0) [Next Steps for... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting) |
-| Internal Hosting | rock_documentation | [Intro to Internal Hosting](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting?Version=v19.0) [Install Server Roles and Features](/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features?Version=v19.0) [Configure Internet Information Services... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting) |
 | Intro to Azure Hosting | rock_documentation | The big factors in deciding where to host are cost and quality. Microsoft brings the best of both worlds to non-profits by offering a generous $2,000 annual Azure hosting credit. That's right, you can get premium hosting services with an industry-leading cloud provider at a significantly reduced rate. Depending on your organization's size and needs, your hosting costs might even be completely covered by the credit.... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting) |
+| Internal Hosting | rock_documentation | [Intro to Internal Hosting](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting?Version=v19.0) [Install Server Roles and Features](/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features?Version=v19.0) [Configure Internet Information Services... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting) |
 | Next Steps for Azure Hosting | rock_documentation | Whether or not you qualify for Microsoft's non-profit credit, your next steps will be about the same. Azure hosting includes Windows Server and Azure SQL Server, so you don’t need to worry about obtaining separate licenses. Once your account is set up with Azure, you're ready to start provisioning. # Provision Your Services First, create the *resource group* that you'll use to group all of your Rock services. A... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
 | Configure a Two-Server Environment | rock_documentation | If you were looking at the [system requirements](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting) in this guide's introduction, you might have noticed that there is a two-server configuration for larger installations. Even for smaller installations, we recommend two servers for the following reasons: * **Performance:** Having your Rock Database and Web Environment on separate... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment) |
 | Configure SQL Server | rock_documentation | In this article, we'll start by setting up a user account for Rock to use to access the SQL Server. But before you begin creating users, it's important to understand the type of SQL Server environment you're working with: * **Azure SQL Database**: A fully managed database service where you interact with the database directly. To create users in Azure SQL Database, you'll need to use actual SQL commands in SSMS. We... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server) |
@@ -113,29 +112,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Asset Storage Provider](../../model-map/models/asset-storage-provider.md) | Core | 19.2.0 | 42 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Web Farm Node](../../model-map/models/web-farm-node.md) | WebFarm | 19.2.0 | 50 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Web Farm Node Log](../../model-map/models/web-farm-node-log.md) | WebFarm | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Web Farm Node Metric](../../model-map/models/web-farm-node-metric.md) | WebFarm | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Asset Storage Provider](../../model-map/models/asset-storage-provider.md) | Core | 19.3.4 | 42 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Web Farm Node](../../model-map/models/web-farm-node.md) | WebFarm | 19.3.4 | 50 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Web Farm Node Log](../../model-map/models/web-farm-node-log.md) | WebFarm | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Web Farm Node Metric](../../model-map/models/web-farm-node-metric.md) | WebFarm | 19.3.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -144,6 +143,8 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 19.1 | Core | Added an automatic data migration that moves File Storage Provider settings from any existing legacy Azure Blob Storage provider plugin (Pillars) to the core Azure Blob Storage provider. This is required because the legacy provider can no longer upload large files due to library updates in v19. All settings are carried over, related File Types are updated,... | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | CMS | Fixed an error that occurred when editing a Content Channel Type with Attributes of type Image, File, or Binary File. The issue happened if the storage location was set to Azure Blob Storage or File System (or newly created FileType). This was resolved by setting a default CacheControlHeaderSettings value when new Binary File Types are created using the... | [source](https://www.rockrms.com/releasenotes) |
 | 17.0 | Core | Improved database performance with new and revised indexes across multiple tables. These changes improve query efficiency for transactions, person records, group hierarchies, and interactions, based on SQL Server recommendations and other analysis. Key updates include new indexes on FinancialTransaction, enhanced indexing on Person and Group, and a... | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Farm | Fixed a Web Farm issue where a difference in capitalization between a node's saved name and its actual name caused an error and made the node appear unresponsive. Fixes: #6946 | [source](https://www.rockrms.com/releasenotes) |
+| 19.4 | Core | Fixed an issue where web servers using Azure Blob Storage could reach 100% CPU with hanging requests after an application restart under concurrent load, requiring an application pool recycle to recover. Fixes: #6919 | [source](https://www.rockrms.com/releasenotes) |
 | 18.1 | Core | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | Check-in | Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prevents loading attendance data when context is missing. Fixes: #6409 | [source](https://www.rockrms.com/releasenotes) |
 | 17.1 | Check-in | Fixed a performance issue in Next-Gen Check-in that caused delays when printing to Bluetooth printers. The slowdown was due to how label image data was encoded, which has now been optimized. Printing performance should now be smooth and immediate. Fixes: #6260 | [source](https://www.rockrms.com/releasenotes) |
@@ -165,8 +166,8 @@ Keywords: `sizing, service options, compare sizing, hosting plan`
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Azure Hosting | rock_documentation | [Intro to Azure Hosting](/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting?Version=v19.0) [Compare Sizing and Service Options](/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options?Version=v19.0) [Register for Credits as a Non-Profit](/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit?Version=v19.0) [Next Steps for... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting) |
-| Internal Hosting | rock_documentation | [Intro to Internal Hosting](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting?Version=v19.0) [Install Server Roles and Features](/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features?Version=v19.0) [Configure Internet Information Services... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting) |
 | Intro to Azure Hosting | rock_documentation | The big factors in deciding where to host are cost and quality. Microsoft brings the best of both worlds to non-profits by offering a generous $2,000 annual Azure hosting credit. That's right, you can get premium hosting services with an industry-leading cloud provider at a significantly reduced rate. Depending on your organization's size and needs, your hosting costs might even be completely covered by the credit.... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting) |
+| Internal Hosting | rock_documentation | [Intro to Internal Hosting](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting?Version=v19.0) [Install Server Roles and Features](/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features?Version=v19.0) [Configure Internet Information Services... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting) |
 | Next Steps for Azure Hosting | rock_documentation | Whether or not you qualify for Microsoft's non-profit credit, your next steps will be about the same. Azure hosting includes Windows Server and Azure SQL Server, so you don’t need to worry about obtaining separate licenses. Once your account is set up with Azure, you're ready to start provisioning. # Provision Your Services First, create the *resource group* that you'll use to group all of your Rock services. A... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
 | Configure a Two-Server Environment | rock_documentation | If you were looking at the [system requirements](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting) in this guide's introduction, you might have noticed that there is a two-server configuration for larger installations. Even for smaller installations, we recommend two servers for the following reasons: * **Performance:** Having your Rock Database and Web Environment on separate... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment) |
 | Configure SQL Server | rock_documentation | In this article, we'll start by setting up a user account for Rock to use to access the SQL Server. But before you begin creating users, it's important to understand the type of SQL Server environment you're working with: * **Azure SQL Database**: A fully managed database service where you interact with the database directly. To create users in Azure SQL Database, you'll need to use actual SQL commands in SSMS. We... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server) |
@@ -191,13 +192,6 @@ Keywords: `azure, app service, sql database, storage account`
 
 Keywords: `backup, ssl, smtp, storage, performance, readiness`
 
-
-#### Reviewed distilled media insights
-
-| Source | Topic | Timestamp | Distilled Claim | Citation |
-| --- | --- | --- | --- | --- |
-| Workflow Performance Tips Transcript Insight | Rock operations | 00:00 | The Workflow Performance Tips RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/workflows/workflow-performance-tips) |
-
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Configure a Two-Server Environment | rock_documentation | If you were looking at the [system requirements](/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting) in this guide's introduction, you might have noticed that there is a two-server configuration for larger installations. Even for smaller installations, we recommend two servers for the following reasons: * **Performance:** Having your Rock Database and Web Environment on separate... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment) |
@@ -213,7 +207,7 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 ## Source Lifecycle
 
 - Official article records routed here: `21`
-- Upstream check range: `2026-08-12T06:18:54+00:00` through `2026-08-12T06:18:54+00:00`
+- Upstream check range: `2026-09-09T21:16:29+00:00` through `2026-09-09T21:16:30+00:00`
 - Source-native typed articles: `4` of `21`
 - Legacy source summaries retired: `4`; still active: `17`
 - Migration status: `partial`

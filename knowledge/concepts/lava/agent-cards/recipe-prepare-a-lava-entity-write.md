@@ -41,10 +41,7 @@ An idempotent, verifiable single-entity change plan.
 
 ## Source Links
 
+- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava
-- https://community.rockrms.com/lava/commands/modify-entity
-- https://community.rockrms.com/lava/commands/entity-commands
-- https://community.rockrms.com/lava/workflows
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/lava/commands/workflow-activate-commands
+- https://community.rockrms.com/lava/filters/attribute-filters

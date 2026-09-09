@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "3f491523f1f74bdf50c552bbdb164b386550c469eb83cff0894
 
 # Helix
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Helix index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Helix is Rock’s server-driven web-development surface for building interactive pages with HTMX, Lava Applications, endpoint-executed Lava, Lava Commands, and form-control shortcodes. A typical Helix interaction begins in a Lava Application Content block, sends an HTMX request to a Lava Endpoint, and replaces part of the current page with the endpoint’s rendered response. Because endpoints can expose data or perform mutations, treat every endpoint as independently callable and subject it to explicit authorization, input-validation, data-integrity, and performance review. [Helix overview](https://community.rockrms.com/developer/helix/overview) [Helix security](https://community.rockrms.com/developer/helix/overview/security)
@@ -629,3 +645,37 @@ Additional evidence gaps remain:
 - [Manage Following records with Helix](https://community.rockrms.com/recipes/497) — unendorsed community recipe requiring independent review.
 - [Communication History Active Search](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search) — immutable read-only search pattern.
 - [Event Registration Analytics Dashboard](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard) — immutable source for the reviewed rendered-validation pattern.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `17`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
+| official | behavior | In Rock 19 and later, Helix Lava endpoints expose request content through Body and RawBody merge fields; Body converts JSON or XML into objects, RawBody preserves the original string, and neither field supplies a body for GET requests. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
+| official | behavior | Each Helix Lava Endpoint call creates an observability activity whose name identifies both the endpoint and its Lava Application; the root activity also records their names as attributes, while the HTTP method is available through an existing activity attribute. | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
+| official | configuration | In Rock 18 or later, Helix loading indicators can reference spinner assets under `/Assets/Images/Spinners/`; installations using the Helix plugin instead use `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/`. | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
+| official | configuration | Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
+| official | implementation_pattern | The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code, allowing linked front-end content blocks and back-end endpoints to be managed together during application development. | [source](https://community.rockrms.com/developer/helix/lava-applications/magnus) |
+| official | implementation_pattern | A Helix form can display a form-level HTMX loading indicator by placing an element with the `htmx-indicator` class inside the form and setting the submitting control's `hx-indicator` attribute to target that form. | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
+| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
+| official | implementation_pattern | A Helix Lava Application groups server-side endpoints that return HTML fragments, and each endpoint is addressed by a route composed from the application slug and endpoint slug; endpoints may share that route when they use different HTTP methods. | [source](https://community.rockrms.com/developer/helix/lava-applications) |
+| official | operational_guidance | When developing Helix Lava Applications, monitor endpoint observability data to identify inefficient execution and excessive database calls. | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
+| official | operational_guidance | Consider replacing a Helix Lava Application with a purpose-built custom solution if it would require custom models, at least 50 endpoints, or has become difficult and fragile to develop. | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
+| official | operational_guidance | For readable Helix HTMX markup, place each HTML attribute on its own line and list the CSS class attribute first. | [source](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides) |
+| More |  | 5 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+No approved media distillations are currently routed to this concept.
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

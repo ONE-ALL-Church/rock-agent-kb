@@ -45,6 +45,6 @@ A Streak Type calculates the intended cadence from the intended source.
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/streaks/streak-types/add-a-new-streak-type
-- https://community.rockrms.com/documentation/engagement/streaks
+- https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps
 - https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail
 - https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/manually-track-streaks

@@ -305,7 +305,7 @@
   ],
   "concept_id": "apple-tv",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-09-03T16:51:18+00:00",
+  "generated_at": "2026-09-09T23:15:42+00:00",
   "guide_sections": [
     "troubleshooting-decision-tree",
     "troubleshooting-decision-tree-the-application-or-start-screen-does-not-load",

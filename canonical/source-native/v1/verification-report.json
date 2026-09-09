@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 41,
+    "confirms": 40,
     "corrects": 27,
     "narrows": 31
   },
   "by_state": {
-    "verified": 99
+    "verified": 98
   },
   "by_surface": {
-    "maintainer_review": 36,
+    "maintainer_review": 35,
     "official_api": 1,
     "public_source_code": 62
   },
-  "checked_at": "2026-08-12T12:45:00+00:00",
+  "checked_at": "2026-09-09T23:17:06+00:00",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -743,16 +743,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1160:check-in-kiosk-configuration-fields"
-      ],
-      "reviewed_at": "2026-08-04T23:10:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:b7804c2104eafda1d06ef60e",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-443:rock-mobile-shell-update-new-os-availability-risk"
       ],
       "reviewed_at": "2026-08-08T14:55:00Z",
@@ -1024,10 +1014,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 99,
-  "resolution_count": 99,
+  "queue_count": 98,
+  "resolution_count": 98,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 99
+  "verified_count": 98
 }

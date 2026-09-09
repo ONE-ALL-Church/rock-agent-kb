@@ -46,7 +46,4 @@ Produce a reviewable statement set whose population and finance rules are explic
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/church-management/finance/contribution-statements/use-contribution-statement-templates
-- https://community.rockrms.com/documentation/church-management/finance/track-giving/view-giving-on-person-profile
-- https://community.rockrms.com/documentation/church-management/finance/track-giving/family-giving
-- https://community.rockrms.com/documentation/church-management/finance/contribution-statements/set-up-the-statement-generator-software
+- https://community.rockrms.com/documentation/church-management/finance

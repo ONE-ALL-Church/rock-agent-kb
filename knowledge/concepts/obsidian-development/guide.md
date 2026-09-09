@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "fd91366745658cc24f13adfe38fc3211252b67244c6db801dcf
 
 # Obsidian Development
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Obsidian Development index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Treat an Obsidian feature as a client-server system, not as a browser-only component. The required C# block owns server logic, data access, authorization, and block actions. The Obsidian client renders the interface, exchanges JSON with the server, and may be omitted only for a web block that returns static HTML without interaction. Block-action endpoints retain the block’s settings and normal security enforcement, but each action is stateless and must validate its input and authorization independently. ([Blocks](https://community.rockrms.com/developer/obsidian/blocks), [Creating Blocks](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks))
@@ -577,3 +593,37 @@ These files describe implementation at commit `471fd303d111b2e46218228dbc1e93dba
 - Bounded checks of block identity, authorization, current state, and persisted state.
 
 These are operational examples rather than official Rock behavior and require live verification before use.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `74`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | An Obsidian grid CopyColumn renders a button that copies text to the browser clipboard; it uses the row value identified by the column's field setting unless valueToCopy is supplied to compute the text from the row, column definition, and grid state. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/copycolumn) |
+| official | behavior | In an Obsidian grid, SelectColumn renders row-selection checkboxes that allow grid actions to operate on multiple selected rows. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/selectcolumn) |
+| official | behavior | In an Obsidian grid, DateColumn renders the value of its configured field as a short-form date and supplies defaults for formatting, skeleton display, quick-filter values, and exported values; it adds no column-specific properties. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/datecolumn) |
+| official | behavior | The Obsidian Browser Bus is a page-local publish-subscribe mechanism backed by DOM events; its messages do not cross browser tabs or reach another user's browser. | [source](https://community.rockrms.com/developer/obsidian/browser-bus) |
+| official | behavior | For an Obsidian plugin, `npm run build` performs TypeScript type checking before compiling and copying assets to RockWeb, whereas `npm run watch` continuously recompiles changed files without type checking. | [source](https://community.rockrms.com/developer/obsidian/plugin-development) |
+| official | behavior | Obsidian block clients exchange JSON data with their C# server component and invoke block actions through endpoints that retain the block's settings and normal security enforcement. | [source](https://community.rockrms.com/developer/obsidian/blocks) |
+| official | behavior | When NumberBadgeColumn ranges overlap, the effective precedence from highest to lowest is danger, warning, success, info, then hidden; therefore a matching color range can override a configured hide range. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/numberbadgecolumn) |
+| official | behavior | The Obsidian grid SecurityColumn displays a per-row control that opens Rock's standard security editor for the corresponding item. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn) |
+| official | behavior | The Obsidian grid EditColumn invokes its optional click callback with the row key; the callback may be synchronous or return a Promise, in which case the edit button stays disabled until that Promise settles. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/editcolumn) |
+| official | behavior | In an Obsidian grid, HighlightDetailColumn renders its primary field in bold and can render a secondary row-property value beneath it when detailField names that property; omitting detailField or setting it to false leaves the secondary area empty. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/highlightdetailcolumn) |
+| official | behavior | In an Obsidian grid, BooleanColumn renders a checkmark when its bound value is true and leaves the cell empty otherwise. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/booleancolumn) |
+| official | behavior | DeleteColumn can disable deletion per row through rowDisabled, and when its onClick callback returns a Promise, the delete button stays disabled until that Promise resolves. | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/deletecolumn) |
+| More |  | 62 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+No approved media distillations are currently routed to this concept.
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

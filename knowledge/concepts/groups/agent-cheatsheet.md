@@ -44,11 +44,13 @@ generated: true
 
 | Version | Channel | Summary |
 | --- | --- | --- |
+| `18.3` | core | Fixed an issue where the Attendance Analytics block incorrectly included groups whose Group Type was listed as an "Allowed Child Group Type" of a selected Group Type, even though it was not explicitly selected in the block settings. The blo |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `mental-model` | high | live verification |
 | `creating-editing-inactivating-and-archiving-groups` | normal | live verification |
@@ -56,10 +58,10 @@ generated: true
 | `group-security-and-leader-operations` | normal | live verification |
 | `locations-and-schedules` | high | live verification |
 | `group-finder` | normal | live verification |
-| `group-attendance-entry` | community-supported | live verification |
+| `group-attendance-entry` | normal | live verification |
 | `group-sync-and-communication-lists` | normal | live verification |
 | `groups-in-workflows-training-and-reporting` | normal | live verification |
-| `version-and-authority-caveats` | normal | live verification |
+| `version-and-authority-caveats` | high | live verification |
 | `troubleshooting-decision-tree-add-child-to-selected-is-disabled` | normal | live verification |
 | `troubleshooting-decision-tree-a-group-is-missing-from-group-finder` | normal | live verification |
 | `troubleshooting-decision-tree-the-day-or-time-filter-does-not-return-a-group` | normal | live verification |
@@ -69,7 +71,7 @@ generated: true
 | `troubleshooting-decision-tree-a-synced-group-or-communication-list-has-unexpected-members` | normal | live verification |
 | `troubleshooting-decision-tree-member-attributes-disappeared-after-a-move` | normal | live verification |
 | `troubleshooting-decision-tree-a-location-or-schedule-link-is-wrong-after-api-work` | normal | live verification |
-| `troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data` | community-supported | live verification |
+| `troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data` | citation-only | live verification |
 | `agent-task-recipes-recipe-design-a-group-type-and-hierarchy` | normal | live verification |
 | `agent-task-recipes-recipe-publish-a-group-through-group-finder` | normal | live verification |
 | `agent-task-recipes-recipe-configure-focused-attendance-entry` | citation-only | live verification |

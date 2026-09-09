@@ -26,12 +26,12 @@ Registration instances, templates, payments, forms, event occurrences, and regis
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-32: Agent Summary (normal)
-- `mental-model` lines 51-68: Mental Model (normal)
-- `registration-instances-build-reusable-behavior-in-the-template` lines 71-78: Build reusable behavior in the template (normal)
-- `registration-instances-put-occurrence-specific-settings-on-the-instance` lines 79-86: Put occurrence-specific settings on the instance (normal)
-- `registration-instances-manage-at-the-correct-grain` lines 87-92: Manage at the correct grain (normal)
-- `forms-identity-eligibility-and-communications-design-the-form-around-the-record-being-updated` lines 95-102: Design the form around the record being updated (normal)
+- `agent-summary` lines 34-48: Agent Summary (normal)
+- `mental-model` lines 67-84: Mental Model (normal)
+- `registration-instances-build-reusable-behavior-in-the-template` lines 87-94: Build reusable behavior in the template (normal)
+- `registration-instances-put-occurrence-specific-settings-on-the-instance` lines 95-102: Put occurrence-specific settings on the instance (normal)
+- `registration-instances-manage-at-the-correct-grain` lines 103-108: Manage at the correct grain (normal)
+- `forms-identity-eligibility-and-communications-design-the-form-around-the-record-being-updated` lines 111-118: Design the form around the record being updated (normal)
 
 ## Core Entities
 
@@ -52,6 +52,8 @@ Registration instances, templates, payments, forms, event occurrences, and regis
 
 - `18.3`: Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant with
 - `19.1`: Added a Prevent Duplicate Registrants setting to the Registration Template that prevents the same person record from registering for the same Registration Instance more than once. When enabled, the Registration Entry Blo
+- `19.1`: Added Registrant eligibility rules to the Registration Template Detail Block and updated the Registration Entry Block to prevent incorrect family member registrations. Added new "Registrant Eligibility" settings to the R
+- `19.1`: Fixed an issue in the Registration Instance Registration List block where the Discount Code column on the Registrations tab was hidden when the registration template had no per-registrant cost, even if a discount code wa
 
 ## Files For Agents
 

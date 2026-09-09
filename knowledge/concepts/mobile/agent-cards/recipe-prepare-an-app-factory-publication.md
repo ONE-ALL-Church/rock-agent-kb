@@ -48,10 +48,10 @@ The publishing provider has a reviewable, secure and complete submission package
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
 - https://community.rockrms.com/developer/mobile-docs/app-factory
 - https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
 - https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
+- https://community.rockrms.com/developer/mobile-docs

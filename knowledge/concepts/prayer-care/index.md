@@ -2,12 +2,12 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:30+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:49+00:00
+source_last_checked_at: 2026-09-09T21:16:24+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/17
 legacy_summary_retirement_coverage: 0/17
@@ -38,7 +38,7 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 ## How To Think About This Area
 
 - `Prayer And Care` spans people, groups, communications, workflows, security, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_youtube, rock_recipes, rock_rocku, rock_core_release_notes, rock_model_map.
+- The strongest source families in this build are: rock_documentation, rock_youtube, rock_podcast_rss, rock_recipes, rock_rocku, rock_core_release_notes.
 - Related tags found in source records: operations, usage, admin, development, releases, workflow, lava, sql.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
@@ -50,6 +50,7 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 | Outreach Toolbox is Here in v19 Transcript Insight | outreach schedules and reminders | 01:04 | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s) |
 | Outreach Toolbox is Here in v19 Transcript Insight | outreach touchpoint lifecycle | 07:56 | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s) |
 | Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight | Outreach Toolbox dashboard | 00:00 | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
+| Your Congregation's Second Brain for Ministry \| Ep 219 Transcript Insight | Outreach contact stewardship | 07:41 | The hosts advise churches not to mine individual Outreach Toolbox contact details for church marketing. This is a stewardship recommendation, not a claim that database administrators are technically unable to access the stored data. | [source](https://shows.acast.com/rock-cast/episodes/outreach-toolbox-ep-219) |
 | Rapid Attendance Entry Transcript Insight | rapid attendance setup | 00:32 | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Rapid Attendance Entry Transcript Insight | attendance and care capture | 02:17 | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | Rapid Attendance Entry Transcript Insight | block configuration | 03:14 | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
@@ -84,14 +85,15 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | configuration | A Prayer Card View block can launch a workflow after a request is prayed for or flagged; the workflow receives the prayer request as an entity and identifies the acting person through the PrayerOfferedByPersonId or FlaggedByPersonId workflow attribute, respectively. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Card View block is included with Rock but must be manually placed on an external-site page; it presents requests as cards and records a prayer when a team member selects the prayer action. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Request Entry block can launch a configured workflow after submission, and that workflow can access information from the submitted prayer request. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
-| More |  | 5 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 6 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
 - `rock_community_hubs`: 1
-- `rock_core_release_notes`: 14
+- `rock_core_release_notes`: 13
 - `rock_documentation`: 17
 - `rock_model_map`: 12
+- `rock_podcast_rss`: 1
 - `rock_qa`: 1
 - `rock_recipes`: 8
 - `rock_rocku`: 5
@@ -119,35 +121,36 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Prayer Request](../../model-map/models/prayer-request.md) | Prayer | 19.2.0 | 69 | 33 | 51 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.2.0 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.2.0 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Prayer Request](../../model-map/models/prayer-request.md) | Prayer | 19.3.4 | 69 | 33 | 51 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.3.4 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.3.4 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 17.0 | Prayer | Fixed an issue where Prayer Request Attributes not marked as "Public" were incorrectly displaying in the Obsidian version of the Prayer Request Entry block. These Attributes are now properly hidden on the Prayer Request Entry block. Fixes: #6253 | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Prayer | Added a Comments column to the Prayer Request List block to display the number of comments associated with a prayer request. | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Prayer | Fixed the Prayer Comment List block: custom grid columns can now access the prayer request and requester via the Row Lava merge field, the From-column and date-range filters work, and several performance and dead-code issues were resolved. Fixes: #6896 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Prayer | Improved the Prayer Request List block to display prayer request text at a wider width for better readability. Fixes: #6824 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | Prayer | Fixed an issue where approving a Prayer Request in the Obsidian Prayer Request Detail block did not update the ApprovedOnDateTime and ApprovedByPersonAliasId fields. Fixes: #6403 | [source](https://www.rockrms.com/releasenotes) |
@@ -155,10 +158,9 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 17.0 | Prayer | Added support for editing custom attributes within the Mobile Prayer Request block. This enhancement allows individuals to update custom attributes when submitting or managing prayer requests from a mobile device. Be aware that Rock Mobile doesn't support all Attribute Types but it does support the most common ones. | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | Mobile | Added a Campus Type filter to the campus picker on the Prayer Request Detail block. This allows individuals to narrow the list of selectable campuses when adding a new prayer request. | [source](https://www.rockrms.com/releasenotes) |
 | 17.0 | CRM | Added a new feature to Prayer which will optionally run several pre-configured AI completions on saved prayer requests. If you plan on using this feature, read the Tech Bulletin item on this topic. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Prayer | Fixed the Prayer Request List block to restore the "Expires After (days)" setting and other block settings and behaviors that were missed during its conversion to Obsidian. Fixes: #6950 | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Prayer | Fixed an issue on the Prayer Request List block that would cause the grid to not properly update when scrolling vertically on small devices. Fixes: #6839 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Prayer | Added a server-side date range filter to the Prayer Request List block. Fixes: #6852 | [source](https://www.rockrms.com/releasenotes) |
-| 18.1 | Prayer | Fixed an issue where the Campus field on the Prayer Request Entry (Obsidian) block automatically selected the first campus in the list when the individual was not signed in. The field now remains blank until a campus is intentionally selected, ensuring accurate submissions. Fixes: #6520 | [source](https://www.rockrms.com/releasenotes) |
-| 17.5 | Prayer | Fixed an issue where the Expiration Date field in the Prayer Request Detail block would not appear on smaller screen sizes. Fixes: #6402 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Subguides
 
@@ -234,7 +236,7 @@ Keywords: `follow-up, communication, notification, pastoral care`
 ## Source Lifecycle
 
 - Official article records routed here: `17`
-- Upstream check range: `2026-08-12T06:18:48+00:00` through `2026-08-12T06:18:49+00:00`
+- Upstream check range: `2026-09-09T21:16:23+00:00` through `2026-09-09T21:16:24+00:00`
 - Source-native typed articles: `0` of `17`
 - Legacy source summaries retired: `0`; still active: `17`
 - Migration status: `not_started`
@@ -244,7 +246,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 ## Rebuild Dependencies
 
 - Source records: `61`
-- Approved claims: `23`
+- Approved claims: `24`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

@@ -40,6 +40,4 @@ The agent can search a large entity set and retrieve details only for the select
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/CmsSkill.GetPageAvailableAttributes.cs
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools

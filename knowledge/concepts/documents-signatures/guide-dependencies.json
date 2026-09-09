@@ -858,17 +858,26 @@
   },
   "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
   "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
-  "built_at": "2026-09-03T16:50:59+00:00",
+  "built_at": "2026-09-09T23:15:04+00:00",
   "concept_id": "documents-signatures",
-  "guide_hash": "1e9dbe65374328c41dfda7637635bf00c34dcf7ed6ebaee7e048866e03bca006",
-  "guide_line_count": 546,
+  "guide_hash": "3b602534e0c336e1c367e3e12b96a29b796832d40569cc2a105278d77c8310b5",
+  "guide_line_count": 603,
   "guide_path": "knowledge/concepts/documents-signatures/guide.md",
-  "guide_word_count": 6741,
+  "guide_word_count": 7464,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official",
-      "content_hash": "f39c1f0b91168eea5e48a15ff19f12ad7c35835f76d58e50b4ac422ceea3588c",
-      "excerpt_hash": "eea234c167b34d6a3e54e818e553b95a990f2b21f4b3d8b1be96be4b9f93bb7b",
+      "content_hash": "d43496d0d11eac79d825edcaa28efe9f41b93415091cfb8738b761f06dac6400",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "78a1616603d19339",
       "source_record_id": "rock_documentation:article:2066",
@@ -876,8 +885,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "b638bc775b89edf73b6f5c233c81d3da80577f394af132dc128157b68bddcd5d",
-      "excerpt_hash": "9371620b79f18f85eb7a66e19acb05baf175dc96289f93a9fac964c71b436a36",
+      "content_hash": "afa800fa7e89c21ed6b55e6b1b267346200e45616d1e88defc46d56333b42657",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "b17d2eb5b76ffc9d",
       "source_record_id": "rock_documentation:article:2067",
@@ -885,8 +894,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "a40487da3e357e7c6158b7c2e0ad644955959c1b718dbf9dbf0d9d3645605331",
-      "excerpt_hash": "13477c6ec2c34bb4464e304ba047381006ff65a33119b39792cadb5205564c0e",
+      "content_hash": "1fea87f451af65db75ccca73c180b9315419615cf423ccf0237267faff754ab0",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "a6483a2997e256f2",
       "source_record_id": "rock_documentation:article:2068",
@@ -894,8 +903,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "310edd347207cc362427f4d471872569dd93691d7370a5c3b6c4659e1675a540",
-      "excerpt_hash": "1f10f4d8f2851c31165edce498df8dbbe39fd4cdbfec265213eb463b1233ac54",
+      "content_hash": "6919e2842e322f34189240a3dcbb4e0c9795b35e057b6755d2392063f24464e1",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "41740a6da0b39cb2",
       "source_record_id": "rock_documentation:article:1007",
@@ -903,8 +912,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "83dd1654eb710646afcd613785e709f8b7e051dac4733b13aff68ccc04d25496",
-      "excerpt_hash": "d77bb034fefde17ef72da13483fe55765760f712e881af6b6e079ba2f197afdd",
+      "content_hash": "1b8ddd3cc6d23eb1de2a6b9f45b77e7a84495474801bbc51ca618bf639dfd72e",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "44c48fbb00fd6286",
       "source_record_id": "rock_documentation:article:852",
@@ -912,8 +921,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "0c6b83106fcdad05fe5d8151960529e5ed7fbcbf90180d49fbade96a8e1a985c",
-      "excerpt_hash": "3de64b24cbb6929f16c0fd859d276ca264f338df27cdbfb6ad32a7a9a65fb397",
+      "content_hash": "88da5cbc33211a0cc314f1d6db44f221c7b2139296fcc1e746a70b07646f8cb4",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "source_id": "rock_documentation",
       "source_key": "fdd60a02728922f1",
       "source_record_id": "rock_documentation:article:1002",
@@ -921,8 +930,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "68577003556376de565e0af3a61a515e424f1228b326c28fb834374bdd20def8",
-      "excerpt_hash": "4a5ee98769ef5405e51ebd438a8857d336720229bd4a09a42d6426b0f58d95ee",
+      "content_hash": "7d442b7a282fe42e4a4056f286b4c55b79da3fdc4c288e3911ed6214b55fe7f0",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "source_id": "rock_documentation",
       "source_key": "eed5ec59886a5637",
       "source_record_id": "rock_documentation:article:1792",
@@ -930,8 +939,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "6268dd04678c1e69294e7aeec9b84bfcbabcab0923fff2bf8e112d2c9960b708",
-      "excerpt_hash": "bfda53e054ffbaa8523e9303257e987f17324b153667e3dfcd58080f9093c1a6",
+      "content_hash": "1221535bf452e702f8e98fe5b272c613b0dc90331d336ae31cfc26139872c8b8",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "source_id": "rock_documentation",
       "source_key": "009d2d5a9a58e27d",
       "source_record_id": "rock_documentation:article:1791",
@@ -939,8 +948,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "6ddbc39f0c4ad1102473f09d5c258df2af0aaceeb3d848ac21dc0b5111915fef",
-      "excerpt_hash": "cdb03b6aeb90a805fc5b8ffade16d49b30bfb5c7a10c2adf04259438aad1415e",
+      "content_hash": "76be35d9de42a13b9e5573296e136d5fef66a8e097214b6666a064a7ab4a5653",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "ea25fdaf3ca6d95a",
       "source_record_id": "rock_documentation:article:1793",
@@ -948,8 +957,8 @@
     },
     {
       "authority": "official-release",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "d3f35180cb68ff2f31564501e9d9a183cf3be6c0de08949130c325ee9efefff9",
+      "content_hash": "2ff3aba729d04b9fd8d025ae493d719334ff61edba48dc0ceeee89b8adaa9013",
+      "excerpt_hash": "06f226808452ac6332ab301a9e89fd79ca2945fb487bb0d18cedb35cf46c877e",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:fd91665df6fc5388",
@@ -957,8 +966,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "9440c2988b40999cca1fdfc2f5d5b83744b3cd18a4c82ccc48811decc3de5c9d",
-      "excerpt_hash": "77468a7e9909b000ba2e78004dd40ecc80d500058343270b5cbd9bb12549ebb5",
+      "content_hash": "088e6f88e47194f5dd6961952f8e4e6bbac67cab0b4754343d5bf680e8a522c6",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "a404c3b63bdc4fa7",
       "source_record_id": "rock_documentation:article:999",
@@ -966,8 +975,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "283961d704c1414df65e77754ff965f069392e3b1cc179bc3b8f179ecc0e7425",
-      "excerpt_hash": "4bde410a13338b975d08ff95c99994238f6abc9c359f8c79e0d6d489dd1b958f",
+      "content_hash": "27dff02fefed6054a768d429025327dee7822535e4461530fb84e3103c5fce45",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "cd037db8203ba8ca",
       "source_record_id": "rock_documentation:article:1794",
@@ -975,17 +984,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "b82deb8bc8efd583e79048bca44ee81031886db70308f86da1c0174c92142192",
-      "excerpt_hash": "25ea2d1d1f0b4fbf67937fb49f1237cccaf262104383f77f282510c536b3f620",
+      "content_hash": "f8421a39c3e07bb775dad4443c8f3168dee05c18c045290107f4b32fcb1eb975",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
-      "source_key": "70d1e3020bb610ec",
-      "source_record_id": "rock_documentation:article:1000",
-      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document"
+      "source_key": "d3188f462123438a",
+      "source_record_id": "rock_documentation:article:1790",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents"
     },
     {
       "authority": "official",
-      "content_hash": "6a83bece2f9ad1f82bca81658d3799b7bc4fc67e14f1fd867f2f0981df8425cc",
-      "excerpt_hash": "7a185abba183c0d4d2be3396ca5930191bdbf03142a4106e07bf7140dfc5d588",
+      "content_hash": "9d87406a0c609dbc2fb0cdd6ecdbac89f7bc09a0c5466d2f79e887ac8ff80757",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "6acc458f24b001e7",
       "source_record_id": "rock_documentation:article:1001",
@@ -993,8 +1002,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "322a925e5a4af114b909215d388c65c1926af418b31303500ddb04bc8130e3e0",
-      "excerpt_hash": "54890480f778a23880563b2d443864a15788bfef6ad944d2eaae098310550ac6",
+      "content_hash": "bd038ae5ac93df9097ba8ca316f7aae45788042559c69a81bd0d09b4d77c512c",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "source_id": "rock_documentation",
       "source_key": "0d2d7572294232a0",
       "source_record_id": "rock_documentation:article:1006",
@@ -1002,35 +1011,35 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "d0ff6343ea1bbcb2718621ec815a3ee97b43a11fc04b34670f61d56f8dc0dae7",
-      "excerpt_hash": "3c16e951d823063d4813b6becb78e7e20db05946b8c5042af81f9ea3fd1ed172",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "3ba07640688524db",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs"
     },
     {
       "authority": "official",
-      "content_hash": "6fac8a296aebee11941023fe208ae81d490798a9218044b68307a286fa1384c0",
-      "excerpt_hash": "a9fa9ac8ad9f28d6f23fed724667df07d08b68de3e3af16fd9ac9bcfd149ec26",
+      "content_hash": "29799f2165ed4d8af277ebe8c5185005b4a28c7cad18924cb7046dcd8f5bdcbc",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "source_id": "rock_documentation",
       "source_key": "f0d82abf12c3d539",
       "source_record_id": "rock_documentation:article:1004",
       "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow"
     },
     {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "c6e270c4cd917a1a",
-      "source_record_id": "org_contribution:oneall:signed-document-workflow-guard-connection-actions",
+      "authority": "official-training",
+      "content_hash": "1847b345f021f2c887781b545c7c7ca8ac85d9829600bde0ea86e71f21cfb319",
+      "excerpt_hash": "9c390913ec78cb27426c86c674ab509c00b61c67df0fb28602309ac8242b5153",
+      "source_id": "rock_rocku",
+      "source_key": "390a990a15a512ec",
+      "source_record_id": "rock_rocku:390a990a15a512ec",
       "url": "https://community.rockrms.com/rocku/workflows"
     },
     {
       "authority": "official",
-      "content_hash": "e6d245b4ee015e2db39dd3da97c473f087b6355a05c5e62d337c3801e2f2f2c5",
-      "excerpt_hash": "c3210aa09a680f00a564e8159d75a24509f7cee5e565191a2ecfde26784c2590",
+      "content_hash": "9a6ab4ae10c9b831d854674b98e3e104031e8f5014882274eae91ffba6cc358a",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "source_id": "rock_documentation",
       "source_key": "6574dbdfe17fcdc5",
       "source_record_id": "rock_documentation:article:1005",
@@ -1038,17 +1047,17 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "db9b2eb72d92ed915426d9a20d9f371b93e13e2d273c67b4d66be3949a8c72e9",
-      "excerpt_hash": "e3ce46a45717a8069628eb1138710493aae3309495542c278f809328fe2e1325",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "f4746d776b68bbab",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs"
     },
     {
       "authority": "official",
-      "content_hash": "47d377e48827e24df87c18fe38274fdd1022d729ac069aba00e872c80002ff5f",
-      "excerpt_hash": "cbf765557df3917cfd8ac4203f2a88298faacdea7d63696b482129bda6ca13a4",
+      "content_hash": "e653a8776911996c7fc0f73b3cf4f7b99f8882610dbd8e6ed2fa3fb0b9a4fdf3",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
       "source_key": "ba453d3167752790",
       "source_record_id": "rock_documentation:article:1008",
@@ -1056,7 +1065,7 @@
     },
     {
       "authority": "official-model-map",
-      "content_hash": "9b49a05018d41473215ec81b67d935a31bde0529daea94cb4b15cb0706c5498e",
+      "content_hash": "a98f1410c530a48789619459638205a80d062f3cbc6b3e71ef5588d4fe4af0a9",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "source_id": "rock_model_map",
       "source_key": "bce31f25cb8a199e",
@@ -1065,17 +1074,17 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "bd06eb3e894f37962af13936710741cb2b391f30169e13b4b6e6417d3b3eec53",
-      "excerpt_hash": "33f7693baa9b14268c708e3b4984b3ad10c98f1d1a7cf395434a9bcd87bab32f",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "ca01acea06a4efbb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs"
     },
     {
       "authority": "community-example",
-      "content_hash": "78a7a62e9d78fdcb3e16d84d823714051b67e1aee8429cb76938d9b60d0fd951",
-      "excerpt_hash": "1279b91e0e77c3a3078edcca6f76a58813899220fc0e6c9463374cf635cfc96e",
+      "content_hash": "709fec47c750536c047cdd83fc65da9ec5f95c5bc76b001c9dfc341b9c03479a",
+      "excerpt_hash": "8670e43ba588478813f4db6c473ad3a273fcf60c4ebbdb6af5618682c9481cce",
       "source_id": "rock_recipes",
       "source_key": "badab030c195b30e",
       "source_record_id": "rock_recipes:badab030c195b30e",
@@ -1083,8 +1092,8 @@
     },
     {
       "authority": "community-example",
-      "content_hash": "4e2e63a46bd8b1a8a47a9dd196b4aa693d2972416df88e7a58a9faf2b708aeb4",
-      "excerpt_hash": "4f4c2f25fb092d422cdc63b2f3332bfdea96d41923a0179d6df2acba7d374f60",
+      "content_hash": "6082da2ae1505755ad20602158f3be66356530542a7276b4aa2b6e4ca783115a",
+      "excerpt_hash": "08487c734581117311417148626fc5fd38f678944626432f46446a3421b54f79",
       "source_id": "rock_recipes",
       "source_key": "9af162570ab9ac58",
       "source_record_id": "rock_recipes:9af162570ab9ac58",
@@ -1092,28 +1101,48 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "4e028ded3c4dc3e30cacaa4477c6af60f54b38b7a9077cbcd07bf3765c9e672f",
-      "excerpt_hash": "7bd68ef3c0ff758820f7bf751dad4f482606caecf62890cfa385a4a06ef3e6a9",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_rocku",
       "source_key": "c9b62ef412644ea9",
-      "source_record_id": "rock_rocku:c9b62ef412644ea9",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/documents"
     },
     {
       "authority": "official-training",
-      "content_hash": "65687e109f2232b01e5cb4ab9ce3d6391e4d9b92173b3e261baed16c0989b7fa",
-      "excerpt_hash": "e696386691eee9185df6e2a22f21e2b3847adc71f23b7884e9441e393c80f13b",
+      "content_hash": "4d57e82209287f67300a949ae071fb7efcec394b5ba3939c2189ef754fa44fed",
+      "excerpt_hash": "e05a984956d49660e7375432a4c971314876d22652188474c2420cddf25eab20",
       "source_id": "rock_rocku",
       "source_key": "9ca73fb85a7d51b9",
       "source_record_id": "rock_rocku:9ca73fb85a7d51b9",
       "url": "https://community.rockrms.com/rocku/workflows/electronic-signatures-1"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "06e6792241e3caacedf2cb182e3f4a1570a500ff82f0b2ae37c6bc153cebd608",
+      "excerpt_hash": "75df322194e2cd9f5af314ee12433a52ac8abbe0257e49a29ffdbef8178921bc",
+      "source_id": "rock_rocku",
+      "source_key": "99161b788cad1f6e",
+      "source_record_id": "rock_rocku:99161b788cad1f6e",
+      "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 27,
+      "end_line": 43,
       "heading": "Agent Summary",
       "needs_live_verification": false,
       "section_id": "agent-summary",
@@ -1123,11 +1152,11 @@
         "a6483a2997e256f2",
         "41740a6da0b39cb2"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "needs-citation",
-      "end_line": 47,
+      "end_line": 63,
       "heading": "Scope And Boundaries",
       "needs_live_verification": false,
       "section_id": "scope-and-boundaries",
@@ -1137,11 +1166,11 @@
         "a6483a2997e256f2",
         "41740a6da0b39cb2"
       ],
-      "start_line": 28
+      "start_line": 44
     },
     {
       "confidence": "normal",
-      "end_line": 67,
+      "end_line": 83,
       "heading": "Mental Model",
       "needs_live_verification": true,
       "section_id": "mental-model",
@@ -1149,11 +1178,11 @@
         "44c48fbb00fd6286",
         "a6483a2997e256f2"
       ],
-      "start_line": 48
+      "start_line": 64
     },
     {
       "confidence": "structural",
-      "end_line": 69,
+      "end_line": 85,
       "heading": "Entity Documents",
       "needs_live_verification": false,
       "section_id": "entity-documents",
@@ -1165,11 +1194,11 @@
         "ea25fdaf3ca6d95a",
         "776256c424368312"
       ],
-      "start_line": 68
+      "start_line": 84
     },
     {
       "confidence": "normal",
-      "end_line": 86,
+      "end_line": 102,
       "heading": "Document types and storage",
       "needs_live_verification": true,
       "section_id": "entity-documents-document-types-and-storage",
@@ -1178,11 +1207,11 @@
         "78a1616603d19339",
         "fdd60a02728922f1"
       ],
-      "start_line": 70
+      "start_line": 86
     },
     {
       "confidence": "normal",
-      "end_line": 94,
+      "end_line": 110,
       "heading": "Page context and Documents block",
       "needs_live_verification": false,
       "section_id": "entity-documents-page-context-and-documents-block",
@@ -1192,11 +1221,11 @@
         "009d2d5a9a58e27d",
         "009d2d5a9a58e27d"
       ],
-      "start_line": 87
+      "start_line": 103
     },
     {
       "confidence": "high",
-      "end_line": 107,
+      "end_line": 123,
       "heading": "Adding entity documents through workflows",
       "needs_live_verification": false,
       "section_id": "entity-documents-adding-entity-documents-through-workflows",
@@ -1205,25 +1234,25 @@
         "ea25fdaf3ca6d95a",
         "776256c424368312"
       ],
-      "start_line": 95
+      "start_line": 111
     },
     {
       "confidence": "structural",
-      "end_line": 109,
+      "end_line": 125,
       "heading": "Document Templates And Merge Documents",
       "needs_live_verification": false,
       "section_id": "document-templates-and-merge-documents",
       "source_keys": [
         "a404c3b63bdc4fa7",
         "cd037db8203ba8ca",
-        "70d1e3020bb610ec",
+        "d3188f462123438a",
         "6acc458f24b001e7"
       ],
-      "start_line": 108
+      "start_line": 124
     },
     {
       "confidence": "normal",
-      "end_line": 115,
+      "end_line": 131,
       "heading": "Global and personal templates",
       "needs_live_verification": false,
       "section_id": "document-templates-and-merge-documents-global-and-personal-templates",
@@ -1231,11 +1260,11 @@
         "a404c3b63bdc4fa7",
         "a404c3b63bdc4fa7"
       ],
-      "start_line": 110
+      "start_line": 126
     },
     {
       "confidence": "normal",
-      "end_line": 129,
+      "end_line": 145,
       "heading": "Preparing and inspecting merge data",
       "needs_live_verification": false,
       "section_id": "document-templates-and-merge-documents-preparing-and-inspecting-merge-data",
@@ -1243,34 +1272,34 @@
         "cd037db8203ba8ca",
         "cd037db8203ba8ca"
       ],
-      "start_line": 116
-    },
-    {
-      "confidence": "normal",
-      "end_line": 140,
-      "heading": "Word templates",
-      "needs_live_verification": true,
-      "section_id": "document-templates-and-merge-documents-word-templates",
-      "source_keys": [
-        "70d1e3020bb610ec",
-        "70d1e3020bb610ec"
-      ],
-      "start_line": 130
-    },
-    {
-      "confidence": "normal",
-      "end_line": 144,
-      "heading": "HTML templates",
-      "needs_live_verification": true,
-      "section_id": "document-templates-and-merge-documents-html-templates",
-      "source_keys": [
-        "70d1e3020bb610ec"
-      ],
-      "start_line": 141
+      "start_line": 132
     },
     {
       "confidence": "normal",
       "end_line": 156,
+      "heading": "Word templates",
+      "needs_live_verification": true,
+      "section_id": "document-templates-and-merge-documents-word-templates",
+      "source_keys": [
+        "d3188f462123438a",
+        "d3188f462123438a"
+      ],
+      "start_line": 146
+    },
+    {
+      "confidence": "normal",
+      "end_line": 160,
+      "heading": "HTML templates",
+      "needs_live_verification": true,
+      "section_id": "document-templates-and-merge-documents-html-templates",
+      "source_keys": [
+        "d3188f462123438a"
+      ],
+      "start_line": 157
+    },
+    {
+      "confidence": "normal",
+      "end_line": 172,
       "heading": "Lava row behavior",
       "needs_live_verification": false,
       "section_id": "document-templates-and-merge-documents-lava-row-behavior",
@@ -1278,11 +1307,11 @@
         "6acc458f24b001e7",
         "6acc458f24b001e7"
       ],
-      "start_line": 145
+      "start_line": 161
     },
     {
       "confidence": "structural",
-      "end_line": 158,
+      "end_line": 174,
       "heading": "Electronic Signatures",
       "needs_live_verification": false,
       "section_id": "electronic-signatures",
@@ -1292,25 +1321,25 @@
         "3ba07640688524db",
         "776256c424368312",
         "f0d82abf12c3d539",
-        "c6e270c4cd917a1a",
+        "390a990a15a512ec",
         "6574dbdfe17fcdc5"
       ],
-      "start_line": 157
+      "start_line": 173
     },
     {
       "confidence": "normal",
-      "end_line": 170,
+      "end_line": 186,
       "heading": "Signature roles",
       "needs_live_verification": false,
       "section_id": "electronic-signatures-signature-roles",
       "source_keys": [
         "a6483a2997e256f2"
       ],
-      "start_line": 159
+      "start_line": 175
     },
     {
       "confidence": "high",
-      "end_line": 194,
+      "end_line": 210,
       "heading": "Signature document templates",
       "needs_live_verification": false,
       "section_id": "electronic-signatures-signature-document-templates",
@@ -1321,24 +1350,24 @@
         "0d2d7572294232a0",
         "776256c424368312"
       ],
-      "start_line": 171
+      "start_line": 187
     },
     {
       "confidence": "normal",
-      "end_line": 202,
+      "end_line": 218,
       "heading": "Electronic signatures in workflows",
       "needs_live_verification": false,
       "section_id": "electronic-signatures-electronic-signatures-in-workflows",
       "source_keys": [
         "f0d82abf12c3d539",
         "f0d82abf12c3d539",
-        "c6e270c4cd917a1a"
+        "390a990a15a512ec"
       ],
-      "start_line": 195
+      "start_line": 211
     },
     {
       "confidence": "high",
-      "end_line": 218,
+      "end_line": 234,
       "heading": "Electronic signatures in event registration",
       "needs_live_verification": true,
       "section_id": "electronic-signatures-electronic-signatures-in-event-registration",
@@ -1348,11 +1377,11 @@
         "6574dbdfe17fcdc5",
         "776256c424368312"
       ],
-      "start_line": 203
+      "start_line": 219
     },
     {
       "confidence": "high",
-      "end_line": 226,
+      "end_line": 242,
       "heading": "Generated PDFs And Completion Delivery",
       "needs_live_verification": false,
       "section_id": "generated-pdfs-and-completion-delivery",
@@ -1362,11 +1391,11 @@
         "41740a6da0b39cb2",
         "f4746d776b68bbab"
       ],
-      "start_line": 219
+      "start_line": 235
     },
     {
       "confidence": "high",
-      "end_line": 239,
+      "end_line": 255,
       "heading": "Managing Completed Signature Documents",
       "needs_live_verification": true,
       "section_id": "managing-completed-signature-documents",
@@ -1377,11 +1406,11 @@
         "bce31f25cb8a199e",
         "776256c424368312"
       ],
-      "start_line": 227
+      "start_line": 243
     },
     {
       "confidence": "high",
-      "end_line": 252,
+      "end_line": 268,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
@@ -1396,11 +1425,11 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 240
+      "start_line": 256
     },
     {
       "confidence": "structural",
-      "end_line": 254,
+      "end_line": 270,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -1411,7 +1440,7 @@
         "776256c424368312",
         "009d2d5a9a58e27d",
         "ba453d3167752790",
-        "70d1e3020bb610ec",
+        "d3188f462123438a",
         "6acc458f24b001e7",
         "f0d82abf12c3d539",
         "a6483a2997e256f2",
@@ -1419,11 +1448,11 @@
         "41740a6da0b39cb2",
         "0d2d7572294232a0"
       ],
-      "start_line": 253
+      "start_line": 269
     },
     {
       "confidence": "normal",
-      "end_line": 263,
+      "end_line": 279,
       "heading": "A document type is missing from the Documents block",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-document-type-is-missing-from-the-documents-block",
@@ -1431,11 +1460,11 @@
         "fdd60a02728922f1",
         "eed5ec59886a5637"
       ],
-      "start_line": 255
+      "start_line": 271
     },
     {
       "confidence": "high",
-      "end_line": 273,
+      "end_line": 289,
       "heading": "An Entity Document Add workflow fails",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-entity-document-add-workflow-fails",
@@ -1443,11 +1472,11 @@
         "ea25fdaf3ca6d95a",
         "776256c424368312"
       ],
-      "start_line": 264
+      "start_line": 280
     },
     {
       "confidence": "high",
-      "end_line": 281,
+      "end_line": 297,
       "heading": "A user cannot view or download a document",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-user-cannot-view-or-download-a-document",
@@ -1456,34 +1485,34 @@
         "ba453d3167752790",
         "776256c424368312"
       ],
-      "start_line": 274
+      "start_line": 290
     },
     {
       "confidence": "normal",
-      "end_line": 289,
+      "end_line": 305,
       "heading": "Lava fails in a Word merge template",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-lava-fails-in-a-word-merge-template",
       "source_keys": [
-        "70d1e3020bb610ec",
+        "d3188f462123438a",
         "6acc458f24b001e7"
       ],
-      "start_line": 282
+      "start_line": 298
     },
     {
       "confidence": "normal",
-      "end_line": 297,
+      "end_line": 313,
       "heading": "Email addresses are missing from an HTML merge document",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-email-addresses-are-missing-from-an-html-merge-document",
       "source_keys": [
-        "70d1e3020bb610ec"
+        "d3188f462123438a"
       ],
-      "start_line": 290
+      "start_line": 306
     },
     {
       "confidence": "high",
-      "end_line": 305,
+      "end_line": 321,
       "heading": "A workflow uses the wrong signature template",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-workflow-uses-the-wrong-signature-template",
@@ -1491,11 +1520,11 @@
         "f0d82abf12c3d539",
         "776256c424368312"
       ],
-      "start_line": 298
+      "start_line": 314
     },
     {
       "confidence": "normal",
-      "end_line": 315,
+      "end_line": 331,
       "heading": "The wrong person is expected to sign",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-the-wrong-person-is-expected-to-sign",
@@ -1504,11 +1533,11 @@
         "f0d82abf12c3d539",
         "6574dbdfe17fcdc5"
       ],
-      "start_line": 306
+      "start_line": 322
     },
     {
       "confidence": "high",
-      "end_line": 323,
+      "end_line": 339,
       "heading": "Event registration signatures break or display the wrong document",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-event-registration-signatures-break-or-display-the-wrong-document",
@@ -1516,11 +1545,11 @@
         "6574dbdfe17fcdc5",
         "776256c424368312"
       ],
-      "start_line": 316
+      "start_line": 332
     },
     {
       "confidence": "normal",
-      "end_line": 333,
+      "end_line": 349,
       "heading": "A signed PDF is not generated or delivery stalls",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-signed-pdf-is-not-generated-or-delivery-stalls",
@@ -1528,11 +1557,11 @@
         "41740a6da0b39cb2",
         "0d2d7572294232a0"
       ],
-      "start_line": 324
+      "start_line": 340
     },
     {
       "confidence": "structural",
-      "end_line": 335,
+      "end_line": 351,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -1541,21 +1570,21 @@
         "eed5ec59886a5637",
         "a404c3b63bdc4fa7",
         "cd037db8203ba8ca",
-        "70d1e3020bb610ec",
+        "d3188f462123438a",
         "0d2d7572294232a0",
         "f0d82abf12c3d539",
-        "c6e270c4cd917a1a",
+        "390a990a15a512ec",
         "6574dbdfe17fcdc5",
         "ba453d3167752790",
         "41740a6da0b39cb2",
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 334
+      "start_line": 350
     },
     {
       "confidence": "normal",
-      "end_line": 362,
+      "end_line": 378,
       "heading": "Recipe: Configure an entity document type and management surface",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-an-entity-document-type-and-management-surface",
@@ -1563,80 +1592,80 @@
         "fdd60a02728922f1",
         "eed5ec59886a5637"
       ],
-      "start_line": 336
+      "start_line": 352
     },
     {
       "confidence": "normal",
-      "end_line": 384,
+      "end_line": 400,
       "heading": "Recipe: Create and validate a merge template",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-create-and-validate-a-merge-template",
       "source_keys": [
         "a404c3b63bdc4fa7",
         "cd037db8203ba8ca",
-        "70d1e3020bb610ec"
+        "d3188f462123438a"
       ],
-      "start_line": 363
+      "start_line": 379
     },
     {
       "confidence": "normal",
-      "end_line": 405,
+      "end_line": 421,
       "heading": "Recipe: Configure a signature template",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-signature-template",
       "source_keys": [
         "0d2d7572294232a0"
       ],
-      "start_line": 385
+      "start_line": 401
     },
     {
       "confidence": "normal",
-      "end_line": 424,
+      "end_line": 440,
       "heading": "Recipe: Add an electronic signature to a workflow",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-add-an-electronic-signature-to-a-workflow",
       "source_keys": [
         "f0d82abf12c3d539",
-        "c6e270c4cd917a1a"
+        "390a990a15a512ec"
       ],
-      "start_line": 406
+      "start_line": 422
     },
     {
       "confidence": "normal",
-      "end_line": 439,
+      "end_line": 455,
       "heading": "Recipe: Configure an event-registration signature requirement",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-an-event-registration-signature-requirement",
       "source_keys": [
         "6574dbdfe17fcdc5"
       ],
-      "start_line": 425
+      "start_line": 441
     },
     {
       "confidence": "normal",
-      "end_line": 452,
+      "end_line": 468,
       "heading": "Recipe: Review a completed signature document and resend its receipt",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-review-a-completed-signature-document-and-resend-its-receipt",
       "source_keys": [
         "ba453d3167752790"
       ],
-      "start_line": 440
+      "start_line": 456
     },
     {
       "confidence": "normal",
-      "end_line": 465,
+      "end_line": 481,
       "heading": "Recipe: Decide whether to offload signed-PDF rendering",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-decide-whether-to-offload-signed-pdf-rendering",
       "source_keys": [
         "41740a6da0b39cb2"
       ],
-      "start_line": 453
+      "start_line": 469
     },
     {
       "confidence": "community-supported",
-      "end_line": 478,
+      "end_line": 494,
       "heading": "Recipe: Evaluate a community resend or reset workaround",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-evaluate-a-community-resend-or-reset-workaround",
@@ -1644,11 +1673,11 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 466
+      "start_line": 482
     },
     {
       "confidence": "structural",
-      "end_line": 509,
+      "end_line": 525,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
@@ -1656,11 +1685,11 @@
         "badab030c195b30e",
         "9af162570ab9ac58"
       ],
-      "start_line": 479
+      "start_line": 495
     },
     {
       "confidence": "structural",
-      "end_line": 511,
+      "end_line": 527,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
@@ -1674,7 +1703,7 @@
         "b17d2eb5b76ffc9d",
         "a404c3b63bdc4fa7",
         "cd037db8203ba8ca",
-        "70d1e3020bb610ec",
+        "d3188f462123438a",
         "6acc458f24b001e7",
         "a6483a2997e256f2",
         "0d2d7572294232a0",
@@ -1691,13 +1720,13 @@
         "9ca73fb85a7d51b9",
         "badab030c195b30e",
         "9af162570ab9ac58",
-        "c6e270c4cd917a1a"
+        "390a990a15a512ec"
       ],
-      "start_line": 510
+      "start_line": 526
     },
     {
       "confidence": "normal",
-      "end_line": 531,
+      "end_line": 547,
       "heading": "Official documentation",
       "needs_live_verification": false,
       "section_id": "source-map-official-documentation",
@@ -1711,7 +1740,7 @@
         "b17d2eb5b76ffc9d",
         "a404c3b63bdc4fa7",
         "cd037db8203ba8ca",
-        "70d1e3020bb610ec",
+        "d3188f462123438a",
         "6acc458f24b001e7",
         "a6483a2997e256f2",
         "0d2d7572294232a0",
@@ -1720,11 +1749,11 @@
         "41740a6da0b39cb2",
         "ba453d3167752790"
       ],
-      "start_line": 512
+      "start_line": 528
     },
     {
       "confidence": "normal",
-      "end_line": 539,
+      "end_line": 555,
       "heading": "Release and implementation evidence",
       "needs_live_verification": false,
       "section_id": "source-map-release-and-implementation-evidence",
@@ -1735,11 +1764,11 @@
         "f4746d776b68bbab",
         "bce31f25cb8a199e"
       ],
-      "start_line": 532
+      "start_line": 548
     },
     {
       "confidence": "community-supported",
-      "end_line": 546,
+      "end_line": 564,
       "heading": "Training and community examples",
       "needs_live_verification": false,
       "section_id": "source-map-training-and-community-examples",
@@ -1748,19 +1777,63 @@
         "9ca73fb85a7d51b9",
         "badab030c195b30e",
         "9af162570ab9ac58",
-        "c6e270c4cd917a1a"
+        "390a990a15a512ec"
       ],
-      "start_line": 540
+      "start_line": 556
+    },
+    {
+      "confidence": "normal",
+      "end_line": 590,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "b17d2eb5b76ffc9d",
+        "6574dbdfe17fcdc5",
+        "a6483a2997e256f2",
+        "cd037db8203ba8ca",
+        "009d2d5a9a58e27d",
+        "78a1616603d19339",
+        "6acc458f24b001e7",
+        "41740a6da0b39cb2",
+        "009d2d5a9a58e27d",
+        "a404c3b63bdc4fa7",
+        "d3188f462123438a",
+        "f0d82abf12c3d539"
+      ],
+      "start_line": 565
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 603,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "99161b788cad1f6e",
+        "9ca73fb85a7d51b9"
+      ],
+      "start_line": 591
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T15:46:54+00:00",
+  "source_pack_hydrated_at": "2026-06-18T23:39:56+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f39c1f0b91168eea5e48a15ff19f12ad7c35835f76d58e50b4ac422ceea3588c",
-      "excerpt_hash": "eea234c167b34d6a3e54e818e553b95a990f2b21f4b3d8b1be96be4b9f93bb7b",
+      "content_hash": "d43496d0d11eac79d825edcaa28efe9f41b93415091cfb8738b761f06dac6400",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1781,8 +1854,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "b638bc775b89edf73b6f5c233c81d3da80577f394af132dc128157b68bddcd5d",
-      "excerpt_hash": "9371620b79f18f85eb7a66e19acb05baf175dc96289f93a9fac964c71b436a36",
+      "content_hash": "afa800fa7e89c21ed6b55e6b1b267346200e45616d1e88defc46d56333b42657",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1793,7 +1866,6 @@
       "title": "Intro to Merge Documents",
       "topics": [
         "admin",
-        "finance",
         "lava",
         "operations",
         "usage"
@@ -1805,8 +1877,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "a40487da3e357e7c6158b7c2e0ad644955959c1b718dbf9dbf0d9d3645605331",
-      "excerpt_hash": "13477c6ec2c34bb4464e304ba047381006ff65a33119b39792cadb5205564c0e",
+      "content_hash": "1fea87f451af65db75ccca73c180b9315419615cf423ccf0237267faff754ab0",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1828,8 +1900,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "310edd347207cc362427f4d471872569dd93691d7370a5c3b6c4659e1675a540",
-      "excerpt_hash": "1f10f4d8f2851c31165edce498df8dbbe39fd4cdbfec265213eb463b1233ac54",
+      "content_hash": "6919e2842e322f34189240a3dcbb4e0c9795b35e057b6755d2392063f24464e1",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1850,8 +1922,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "83dd1654eb710646afcd613785e709f8b7e051dac4733b13aff68ccc04d25496",
-      "excerpt_hash": "d77bb034fefde17ef72da13483fe55765760f712e881af6b6e079ba2f197afdd",
+      "content_hash": "1b8ddd3cc6d23eb1de2a6b9f45b77e7a84495474801bbc51ca618bf639dfd72e",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1872,8 +1944,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "0c6b83106fcdad05fe5d8151960529e5ed7fbcbf90180d49fbade96a8e1a985c",
-      "excerpt_hash": "3de64b24cbb6929f16c0fd859d276ca264f338df27cdbfb6ad32a7a9a65fb397",
+      "content_hash": "88da5cbc33211a0cc314f1d6db44f221c7b2139296fcc1e746a70b07646f8cb4",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1894,8 +1966,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "68577003556376de565e0af3a61a515e424f1228b326c28fb834374bdd20def8",
-      "excerpt_hash": "4a5ee98769ef5405e51ebd438a8857d336720229bd4a09a42d6426b0f58d95ee",
+      "content_hash": "7d442b7a282fe42e4a4056f286b4c55b79da3fdc4c288e3911ed6214b55fe7f0",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1916,8 +1988,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6268dd04678c1e69294e7aeec9b84bfcbabcab0923fff2bf8e112d2c9960b708",
-      "excerpt_hash": "bfda53e054ffbaa8523e9303257e987f17324b153667e3dfcd58080f9093c1a6",
+      "content_hash": "1221535bf452e702f8e98fe5b272c613b0dc90331d336ae31cfc26139872c8b8",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1938,8 +2010,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6ddbc39f0c4ad1102473f09d5c258df2af0aaceeb3d848ac21dc0b5111915fef",
-      "excerpt_hash": "cdb03b6aeb90a805fc5b8ffade16d49b30bfb5c7a10c2adf04259438aad1415e",
+      "content_hash": "76be35d9de42a13b9e5573296e136d5fef66a8e097214b6666a064a7ab4a5653",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -1961,8 +2033,8 @@
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "new_feature",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "d3f35180cb68ff2f31564501e9d9a183cf3be6c0de08949130c325ee9efefff9",
+      "content_hash": "2ff3aba729d04b9fd8d025ae493d719334ff61edba48dc0ceeee89b8adaa9013",
+      "excerpt_hash": "06f226808452ac6332ab301a9e89fd79ca2945fb487bb0d18cedb35cf46c877e",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "April 21, 2025",
@@ -1983,8 +2055,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "9440c2988b40999cca1fdfc2f5d5b83744b3cd18a4c82ccc48811decc3de5c9d",
-      "excerpt_hash": "77468a7e9909b000ba2e78004dd40ecc80d500058343270b5cbd9bb12549ebb5",
+      "content_hash": "088e6f88e47194f5dd6961952f8e4e6bbac67cab0b4754343d5bf680e8a522c6",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2007,8 +2079,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "283961d704c1414df65e77754ff965f069392e3b1cc179bc3b8f179ecc0e7425",
-      "excerpt_hash": "4bde410a13338b975d08ff95c99994238f6abc9c359f8c79e0d6d489dd1b958f",
+      "content_hash": "27dff02fefed6054a768d429025327dee7822535e4461530fb84e3103c5fce45",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2029,31 +2101,31 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "b82deb8bc8efd583e79048bca44ee81031886db70308f86da1c0174c92142192",
-      "excerpt_hash": "25ea2d1d1f0b4fbf67937fb49f1237cccaf262104383f77f282510c536b3f620",
+      "content_hash": "f8421a39c3e07bb775dad4443c8f3168dee05c18c045290107f4b32fcb1eb975",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "70d1e3020bb610ec",
-      "source_record_id": "rock_documentation:article:1000",
-      "title": "Create a Merge Document",
+      "source_key": "d3188f462123438a",
+      "source_record_id": "rock_documentation:article:1790",
+      "title": "Merge Documents",
       "topics": [
         "admin",
         "lava",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6a83bece2f9ad1f82bca81658d3799b7bc4fc67e14f1fd867f2f0981df8425cc",
-      "excerpt_hash": "7a185abba183c0d4d2be3396ca5930191bdbf03142a4106e07bf7140dfc5d588",
+      "content_hash": "9d87406a0c609dbc2fb0cdd6ecdbac89f7bc09a0c5466d2f79e887ac8ff80757",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2075,8 +2147,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "322a925e5a4af114b909215d388c65c1926af418b31303500ddb04bc8130e3e0",
-      "excerpt_hash": "54890480f778a23880563b2d443864a15788bfef6ad944d2eaae098310550ac6",
+      "content_hash": "bd038ae5ac93df9097ba8ca316f7aae45788042559c69a81bd0d09b4d77c512c",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2096,32 +2168,19 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "d0ff6343ea1bbcb2718621ec815a3ee97b43a11fc04b34670f61d56f8dc0dae7",
-      "excerpt_hash": "3c16e951d823063d4813b6becb78e7e20db05946b8c5042af81f9ea3fd1ed172",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "document",
-        "documents",
-        "signature",
-        "e-signature",
-        "e signature",
-        "esignature"
-      ],
-      "path": "Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "3ba07640688524db",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs",
-      "title": "Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs"
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6fac8a296aebee11941023fe208ae81d490798a9218044b68307a286fa1384c0",
-      "excerpt_hash": "a9fa9ac8ad9f28d6f23fed724667df07d08b68de3e3af16fd9ac9bcfd149ec26",
+      "content_hash": "29799f2165ed4d8af277ebe8c5185005b4a28c7cad18924cb7046dcd8f5bdcbc",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2140,35 +2199,33 @@
       "version": null
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:signed-document-workflow-guard-connection-actions",
-      "contribution_type": "guide_section",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "c6e270c4cd917a1a",
-      "source_record_id": "org_contribution:oneall:signed-document-workflow-guard-connection-actions",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/workflows",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "title": "Guard connection-mutating actions when one signed-document workflow supports both pipeline and mass-send launches",
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "1847b345f021f2c887781b545c7c7ca8ac85d9829600bde0ea86e71f21cfb319",
+      "excerpt_hash": "9c390913ec78cb27426c86c674ab509c00b61c67df0fb28602309ac8242b5153",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "390a990a15a512ec",
+      "source_record_id": "rock_rocku:390a990a15a512ec",
+      "title": "Workflows",
       "topics": [
-        "workflows",
-        "documents-signatures"
+        "training",
+        "usage",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/workflows"
+      "url": "https://community.rockrms.com/rocku/workflows",
+      "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "e6d245b4ee015e2db39dd3da97c473f087b6355a05c5e62d337c3801e2f2f2c5",
-      "excerpt_hash": "c3210aa09a680f00a564e8159d75a24509f7cee5e565191a2ecfde26784c2590",
+      "content_hash": "9a6ab4ae10c9b831d854674b98e3e104031e8f5014882274eae91ffba6cc358a",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2188,35 +2245,19 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "db9b2eb72d92ed915426d9a20d9f371b93e13e2d273c67b4d66be3949a8c72e9",
-      "excerpt_hash": "e3ce46a45717a8069628eb1138710493aae3309495542c278f809328fe2e1325",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "document",
-        "signature",
-        "e-signature",
-        "e signature",
-        "esignature",
-        "pdf",
-        "document template",
-        "documenttemplate",
-        "template"
-      ],
-      "path": "Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "f4746d776b68bbab",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs",
-      "title": "Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs"
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "47d377e48827e24df87c18fe38274fdd1022d729ac069aba00e872c80002ff5f",
-      "excerpt_hash": "cbf765557df3917cfd8ac4203f2a88298faacdea7d63696b482129bda6ca13a4",
+      "content_hash": "e653a8776911996c7fc0f73b3cf4f7b99f8882610dbd8e6ed2fa3fb0b9a4fdf3",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2239,7 +2280,7 @@
       "authority": "official-model-map",
       "authority_score": 86,
       "change_type": null,
-      "content_hash": "9b49a05018d41473215ec81b67d935a31bde0529daea94cb4b15cb0706c5498e",
+      "content_hash": "a98f1410c530a48789619459638205a80d062f3cbc6b3e71ef5588d4fe4af0a9",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "hydrated": true,
       "kind": "normalized_record",
@@ -2262,34 +2303,19 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "bd06eb3e894f37962af13936710741cb2b391f30169e13b4b6e6417d3b3eec53",
-      "excerpt_hash": "33f7693baa9b14268c708e3b4984b3ad10c98f1d1a7cf395434a9bcd87bab32f",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "document",
-        "signature",
-        "e-signature",
-        "e signature",
-        "esignature",
-        "document template",
-        "documenttemplate",
-        "template"
-      ],
-      "path": "Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "ca01acea06a4efbb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs",
-      "title": "Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs"
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "78a7a62e9d78fdcb3e16d84d823714051b67e1aee8429cb76938d9b60d0fd951",
-      "excerpt_hash": "1279b91e0e77c3a3078edcca6f76a58813899220fc0e6c9463374cf635cfc96e",
+      "content_hash": "709fec47c750536c047cdd83fc65da9ec5f95c5bc76b001c9dfc341b9c03479a",
+      "excerpt_hash": "8670e43ba588478813f4db6c473ad3a273fcf60c4ebbdb6af5618682c9481cce",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2312,8 +2338,8 @@
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "4e2e63a46bd8b1a8a47a9dd196b4aa693d2972416df88e7a58a9faf2b708aeb4",
-      "excerpt_hash": "4f4c2f25fb092d422cdc63b2f3332bfdea96d41923a0179d6df2acba7d374f60",
+      "content_hash": "6082da2ae1505755ad20602158f3be66356530542a7276b4aa2b6e4ca783115a",
+      "excerpt_hash": "08487c734581117311417148626fc5fd38f678944626432f46446a3421b54f79",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2335,31 +2361,19 @@
     {
       "authority": "official-training",
       "authority_score": 75,
-      "change_type": null,
-      "content_hash": "4e028ded3c4dc3e30cacaa4477c6af60f54b38b7a9077cbcd07bf3765c9e672f",
-      "excerpt_hash": "7bd68ef3c0ff758820f7bf751dad4f482606caecf62890cfa385a4a06ef3e6a9",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_rocku",
       "source_key": "c9b62ef412644ea9",
-      "source_record_id": "rock_rocku:c9b62ef412644ea9",
-      "title": "Documents",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/documents",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/documents",
+      "url": "https://community.rockrms.com/rocku/documents"
     },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "65687e109f2232b01e5cb4ab9ce3d6391e4d9b92173b3e261baed16c0989b7fa",
-      "excerpt_hash": "e696386691eee9185df6e2a22f21e2b3847adc71f23b7884e9441e393c80f13b",
+      "content_hash": "4d57e82209287f67300a949ae071fb7efcec394b5ba3939c2189ef754fa44fed",
+      "excerpt_hash": "e05a984956d49660e7375432a4c971314876d22652188474c2420cddf25eab20",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2367,13 +2381,35 @@
       "source_id": "rock_rocku",
       "source_key": "9ca73fb85a7d51b9",
       "source_record_id": "rock_rocku:9ca73fb85a7d51b9",
-      "title": "Electronic Signatures Training",
+      "title": "Electronic Signatures",
       "topics": [
         "training",
         "usage",
         "workflow"
       ],
       "url": "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "06e6792241e3caacedf2cb182e3f4a1570a500ff82f0b2ae37c6bc153cebd608",
+      "excerpt_hash": "75df322194e2cd9f5af314ee12433a52ac8abbe0257e49a29ffdbef8178921bc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "99161b788cad1f6e",
+      "source_record_id": "rock_rocku:99161b788cad1f6e",
+      "title": "Electronic Signatures",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
       "version": null
     }
   ],

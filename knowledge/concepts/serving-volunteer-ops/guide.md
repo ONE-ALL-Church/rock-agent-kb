@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "fbd19496aa3ad20405854d0570318a0232e0403aa42235affd7
 
 # Serving And Volunteer Operations
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Serving And Volunteer Operations index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Rock’s serving workflow is built from several related but distinct layers:
@@ -805,3 +821,41 @@ The pack does not establish:
 - [Group Member Schedule Templates: fifth-week and Auto-Schedule](https://community.rockrms.com/recipes/356) — unendorsed community scheduling-template patterns.
 - [View Serving Schedule on External Page](https://community.rockrms.com/recipes/459) — unendorsed community Lava, Dynamic Data, page, and SQL pattern.
 - [Limit sign-up registration by schedule or campus](https://community.rockrms.com/ask/using/2808) — anecdotal community group-type and Serving Finder pattern.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `10`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
+| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
+| More |  | 8 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `11`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Episode 40: v8 and more team updates Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) | approved_for_public_distillation | 3 | media-insight:6e8d02135da566a7 |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) | approved_for_public_distillation | 3 | media-insight:0a89bf5f60ad43fb |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) | approved_for_public_distillation | 6 | media-insight:392aedce4cf2d99c |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2) | approved_for_public_distillation | 3 | media-insight:4634d7d6cd38df2c |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) | approved_for_public_distillation | 3 | media-insight:a5cb300eafd257ca |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) | approved_for_public_distillation | 3 | media-insight:a8361b8714eb62ff |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) | approved_for_public_distillation | 3 | media-insight:c664b64e781d5fbb |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) | approved_for_public_distillation | 5 | media-insight:d1eb1a265dd0762b |
+| More |  | 3 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

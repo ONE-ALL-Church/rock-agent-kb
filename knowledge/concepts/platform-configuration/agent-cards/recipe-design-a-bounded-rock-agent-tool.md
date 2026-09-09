@@ -50,7 +50,15 @@ An authorized tool performs one clear task and returns a controlled result.
 
 ## Source Links
 
-- https://www.youtube.com/watch?v=c-wycR9HEuQ
 - https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes
-- https://www.youtube.com/watch?v=UvW68dZBcJ8
 - https://community.rockrms.com/documentation/church-management/people/person-profile-page/extended-attributes-tab
+- https://community.rockrms.com/rocku/individuals-in-rock/person-attributes
+- https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=963s
+- https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=902s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=845s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=790s
+- https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s
+- https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s

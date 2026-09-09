@@ -6,13 +6,15 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 
 | Action | Count |
 | --- | ---: |
-| No actionable claim review rows | 0 |
+| `verify_live_before_operational_answer` | 4 |
 
 ## Concept Queue
 
 | Concept | Actions |
 | --- | --- |
-| No actionable concepts | 0 |
+| `ai-agents-automation` | `verify_live_before_operational_answer`: 3 |
+| `mobile` | `verify_live_before_operational_answer`: 1 |
+| `prayer-care` | `verify_live_before_operational_answer`: 1 |
 
 ## Distilled Claim Clusters
 

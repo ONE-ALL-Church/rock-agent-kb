@@ -54,6 +54,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `steps-workflows-and-permissions` | high | live verification |
 | `steps-badges-metrics-and-charts` | normal | live verification |
 | `streaks-types-and-maps` | normal | live verification |

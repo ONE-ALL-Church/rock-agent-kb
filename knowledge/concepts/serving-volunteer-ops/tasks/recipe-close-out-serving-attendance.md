@@ -61,4 +61,4 @@ The occurrence records who served or that the team did not meet, with discrepanc
 - https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp
-- https://community.rockrms.com/documentation/engagement/groups/group-attendance
+- https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp

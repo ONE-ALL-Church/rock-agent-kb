@@ -31,12 +31,12 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-32: Agent Summary (normal)
-- `scope-and-boundaries` lines 33-46: Scope And Boundaries (normal)
-- `mental-model` lines 47-64: Mental Model (high)
-- `attributes-and-attribute-values-choose-the-owning-entity-first` lines 67-83: Choose the owning entity first (normal)
-- `attributes-and-attribute-values-separate-the-definition-from-stored-values` lines 84-97: Separate the definition from stored values (normal)
-- `attributes-and-attribute-values-present-attributes-intentionally` lines 98-103: Present attributes intentionally (normal)
+- `agent-summary` lines 34-48: Agent Summary (normal)
+- `scope-and-boundaries` lines 49-62: Scope And Boundaries (normal)
+- `mental-model` lines 63-80: Mental Model (high)
+- `attributes-and-attribute-values-choose-the-owning-entity-first` lines 83-99: Choose the owning entity first (normal)
+- `attributes-and-attribute-values-separate-the-definition-from-stored-values` lines 100-113: Separate the definition from stored values (normal)
+- `attributes-and-attribute-values-present-attributes-intentionally` lines 114-119: Present attributes intentionally (normal)
 
 ## Core Entities
 
@@ -57,6 +57,7 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 
 - `19.1`: Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729
 - `17.2`: Fixed an issue where the list of attribute categories shown when editing a Content Channel Item attribute from the Content Channel Type Detail block included incorrect or unrelated categories. This made it difficult to a
+- `18.2`: Fixed an issue where the Attribute Editor did not correctly save configuration changes when creating an Attribute designed to store other Attributes (e.g., an Attribute of type Attribute). This affected scenarios such as
 
 ## Files For Agents
 

@@ -53,13 +53,13 @@ The person becomes a complete, paid-as-required registrant with the intended gro
 
 - https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/group-placement
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations
 - https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-content-channel-items
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementConfigBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementBag.cs
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
 - https://community.rockrms.com/rocku/event-registration/event-attributes
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes
+- https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration

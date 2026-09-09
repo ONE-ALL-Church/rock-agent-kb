@@ -60,7 +60,7 @@ The failure is classified as person context, request state, opportunity configur
 - https://community.rockrms.com/documentation/church-management/people/people-basics/add-a-person
 - https://community.rockrms.com/documentation/church-management/people/person-attributes/person-public-attributes
 - https://community.rockrms.com/documentation/church-management/people/person-attributes/display-person-attributes
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Workflow/Action/People/SetPersonAttribute.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/rocku/cms/personalization
+- https://community.rockrms.com/documentation/church-management/people/person-family-analytics/intro-to-person-family-analytics
 - https://community.rockrms.com/rocku/engagement/connections-overview

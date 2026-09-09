@@ -2,12 +2,12 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:43+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:22:00+00:00
+source_last_checked_at: 2026-09-09T21:23:14+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 13/204
 legacy_summary_retirement_coverage: 29/204
@@ -85,8 +85,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| 👋 Roku Docs | rock_developer | ## 👋Welcome *Extend your digital ministry to Roku TV.* When we introduced support for Apple TV applications in 2022, one question kept coming up: "What about Roku?" With Roku’s vast user base, we knew we had to meet this need. Staying true to our mission of empowering organizations to deliver content seamlessly across platforms, we’ve developed comprehensive Roku integration for Rock. Designed to expand the reach of... | [source](https://community.rockrms.com/developer/roku-docs) |
 | Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. *Extends* [*LayoutGroup*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/layoutgroup.md) ## Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: 1. Display views vertically/horizontally. 2.... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
+| 👋 Roku Docs | rock_developer | ## 👋Welcome *Extend your digital ministry to Roku TV.* When we introduced support for Apple TV applications in 2022, one question kept coming up: "What about Roku?" With Roku’s vast user base, we knew we had to meet this need. Staying true to our mission of empowering organizations to deliver content seamlessly across platforms, we’ve developed comprehensive Roku integration for Rock. Designed to expand the reach of... | [source](https://community.rockrms.com/developer/roku-docs) |
 | Controls | rock_developer | Roku applications are built with an XML language named [SceneGraph](https://developer.roku.com/docs/developer-program/core-concepts/scenegraph-xml/overview.md). Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
 | Roku Resources | rock_developer | * [SceneGraph Reference](https://developer.roku.com/en-gb/docs/references/references-overview.md) - Roku documentation for all the built-in SceneGraph components. * [Roku Samples](https://github.com/rokudev/samples) - A repository of Roku sample applications/SceneGraph. | [source](https://community.rockrms.com/developer/roku-docs/resources/roku-resources) |
 | 📚 Resources | rock_developer | [Controls](/documentation/roku-docs/resources/controls) [Layout Nodes](/documentation/roku-docs/resources/layout-nodes) [Roku Resources](/documentation/roku-docs/resources/roku-resources) [Tips and Tricks](/documentation/roku-docs/resources/tips-and-tricks) [Useful Links](/documentation/roku-docs/resources/useful-links) | [source](https://community.rockrms.com/developer/roku-docs/resources) |
@@ -102,29 +102,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.2.0 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.2.0 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Collection Source](../../model-map/models/content-collection-source.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.3.4 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.3.4 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection Source](../../model-map/models/content-collection-source.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Repository Landmarks
 
@@ -207,7 +207,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `204`
-- Upstream check range: `2026-08-12T06:13:23+00:00` through `2026-08-12T06:22:00+00:00`
+- Upstream check range: `2026-09-09T21:15:23+00:00` through `2026-09-09T21:23:14+00:00`
 - Source-native typed articles: `13` of `204`
 - Legacy source summaries retired: `29`; still active: `175`
 - Migration status: `partial`

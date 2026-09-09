@@ -52,4 +52,7 @@ Guests or an existing group can register, and authorized operators can record at
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group

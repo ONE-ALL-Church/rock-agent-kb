@@ -51,3 +51,10 @@ A bounded webhook with an explicit security and input contract.
 
 - https://community.rockrms.com/lava/remote-lava
 - https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/developer/developer-codex/coding-standards/writing-migrations/standard-ef-migrations/feature-branch-merging-workflow
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionRequestWorkflowsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/BenevolenceWorkflowsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts
+- https://community.rockrms.com/recipes/453

@@ -13,12 +13,12 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links`: A REST integration creates unexpected schedules or links
 - `troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation`: Attendance appears to save but the page gives no confirmation
 - `source-map-community-patterns`: Community patterns
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `mental-model-labels-depend-on-context`: Labels depend on context

@@ -17,6 +17,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `getting-started-and-application-configuration`: Getting Started And Application Configuration
 - `page-authoring-and-caching`: Page Authoring And Caching

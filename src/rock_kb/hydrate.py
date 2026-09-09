@@ -27,6 +27,7 @@ from .concepts import (
 )
 from .contribution_sources import private_draft_contribution_records, public_contribution_records
 from .extract import USER_AGENT, main_markdown, now_iso, page_title, sha256_text
+from .paths import REPO_ROOT
 
 TEXT_EXTENSIONS = {
     ".ascx",
@@ -80,6 +81,13 @@ def hydrated_concept_synthesis_pack(
         if include_github
         else []
     )
+    if include_github:
+        guide = REPO_ROOT / 'knowledge' / 'concepts' / concept_id / 'guide.md'
+        if guide.exists():
+            cited_files = hydrate_pinned_guide_sources(guide.read_text(), keywords, max_code_chars)
+            by_url = {row['url']: row for row in github_files}
+            by_url.update({row['url']: row for row in cited_files})
+            github_files = list(by_url.values())
     return {
         "concept": {
             "id": concept.id,
@@ -264,6 +272,34 @@ def split_excerpt_chunks(text: str) -> list[str]:
     if current:
         chunks.append(current)
     return chunks
+
+
+def hydrate_pinned_guide_sources(
+    guide_text: str, keywords: list[str], max_chars: int = 3200,
+) -> list[dict[str, Any]]:
+    """Retain exact immutable evidence cited by an authored guide after upstream moves."""
+    urls = list(dict.fromkeys(re.findall(
+        r'https://github\.com/SparkDevNetwork/Rock/blob/[0-9a-f]{40}/[^\s)#?]+',
+        guide_text,
+    )))
+    if len(urls) > 40:
+        raise ValueError('Guide exceeds the bounded pinned-source hydration limit')
+    rows = []
+    with httpx.Client(follow_redirects=True, timeout=60.0, headers={'User-Agent': USER_AGENT}) as client:
+        for url in urls:
+            source_ref, path = url.split('/blob/', 1)[1].split('/', 1)
+            raw_url = f'https://raw.githubusercontent.com/SparkDevNetwork/Rock/{source_ref}/{path}'
+            response = client.get(raw_url)
+            response.raise_for_status()
+            excerpt = relevant_code_excerpt(response.text, keywords, max_chars=max_chars)
+            rows.append({
+                'kind': 'github_file', 'repo': 'SparkDevNetwork/Rock',
+                'source_ref': source_ref, 'path': path, 'url': url, 'raw_url': raw_url,
+                'language': language_for_path(path), 'matched_terms': keywords,
+                'content_hash': sha256_text(response.text), 'excerpt': excerpt,
+                'excerpt_hash': sha256_text(excerpt), 'retrieved_at': now_iso(),
+            })
+    return rows
 
 
 def discover_github_source_files(

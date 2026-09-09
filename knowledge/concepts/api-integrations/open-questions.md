@@ -17,14 +17,11 @@ This file is for human reviewers and future agents. It lists guide areas where s
 ## Community-Supported Only
 
 - `lava-apis-and-webhooks-community-webhook-example`: Community Webhook Example
-- `ai-mcp-and-custom-integration-tools-tool-contracts`: Tool Contracts
-- `troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records`: A relationship write created unexpected related records
-- `troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned`: A create request succeeds but no new identifier is returned
-- `agent-task-recipes-recipe-build-a-provider-event-health-report`: Recipe: Build A Provider Event Health Report
 - `source-map-community-patterns-and-examples`: Community Patterns And Examples
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `scope-and-boundaries`: Scope And Boundaries
 - `mental-model`: Mental Model
 - `rest-api-api-v1`: API v1
@@ -57,6 +54,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
 - `source-map-official-documentation-and-release-evidence`: Official Documentation And Release Evidence
 - `source-map-approved-claim-sources`: Approved Claim Sources
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

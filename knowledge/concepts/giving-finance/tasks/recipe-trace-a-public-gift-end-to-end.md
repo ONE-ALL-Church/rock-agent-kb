@@ -48,8 +48,6 @@ Account for a gift from donor action through its Rock records and reporting trea
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/church-management/finance/advanced-finance/advanced-utility-payment-entry-block-settings
-- https://community.rockrms.com/documentation/church-management/finance/online-giving/giving-pages
-- https://community.rockrms.com/documentation/church-management/finance/track-giving/view-giving-on-person-profile
-- https://community.rockrms.com/documentation/church-management/finance/payment-gateways/configure-a-gateway
+- https://community.rockrms.com/documentation/church-management/finance
 - https://community.rockrms.com/rocku/finance/giving-journey-1
+- https://community.rockrms.com/recipes/90

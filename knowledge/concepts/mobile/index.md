@@ -2,15 +2,15 @@
 id: concept-mobile
 title: Rock Mobile
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:37+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T11:27:24+00:00
+source_last_checked_at: 2026-09-09T21:24:50+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 4/277
-legacy_summary_retirement_coverage: 0/277
+source_native_article_coverage: 4/291
+legacy_summary_retirement_coverage: 0/291
 depends_on_topics:
   - api
   - check-in
@@ -35,7 +35,7 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 - `Rock Mobile` spans api, check-in, cms, security. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_mobile_docs, rock_mobile_release_notes, triumph_resources, sparkdevnetwork_rock.
-- Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, api, security.
+- Related tags found in source records: mobile, maui, blocks, commands, controls, xaml, api, lava.
 - Source detail types include: developer_doc, triumph_resources.
 
 ## Approved Claims
@@ -62,7 +62,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | rocku-confirmed | source_summary | Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
 | rocku-confirmed | operational_guidance | Before enabling mobile check-in, confirm the site is served over HTTPS, a Google API key is configured for geofencing, and the underlying check-in groups, locations, schedules, and check-in configuration already work through normal check-in. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-overview) |
 | rocku-confirmed | operational_guidance | After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
-| More |  | 3 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 4 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -93,36 +93,36 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Check In Label](../../model-map/models/check-in-label.md) | Check-in | 19.2.0 | 45 | 18 | 30 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.2.0 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.2.0 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Check In Label](../../model-map/models/check-in-label.md) | Check-in | 19.3.4 | 45 | 18 | 30 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.3.4 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.3.4 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
 | 19.1 | Mobile | Fixed external links silently failing on Android when the address belonged to a site that also has an installed app handler (for example, opening a YouTube link on a device with the YouTube app installed). The link now falls back to the device's default browser handling so it opens correctly. Fixes: #123 | [source](https://www.rockrms.com/mobilereleasenotes) |
-| 19.1 | Mobile | Fixed Android media playback so audio from other apps now lowers in volume when Rock Mobile starts playing audio. | [source](https://www.rockrms.com/mobilereleasenotes) |
+| 19.4 | Mobile | Updated Android builds to target API level 36, which Google Play now requires for all app submissions. | [source](https://www.rockrms.com/mobilereleasenotes) |
 
 ## Repository Landmarks
 
@@ -198,7 +198,7 @@ Keywords: `app factory, app store, google play, publish, publishing, store listi
 | Store Graphics & Icons | rock_mobile_docs | ### Launch Image The launch screen, commonly referred to as the splash screen, is the static visual that appears instantly when a user opens an app, filling the gap while the app loads in the background. App Factory utilizes a **2048x2048** graphic resolution with a safe area of **720x1440.** ### App Icons Your app icon is a crucial aspect of your app’s branding. It appears on the Home Screen and in key locations... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons) |
 | Deploying Your App | rock_mobile_docs | ## Deployment Navigating to the **Application** page for your app shows the deployment status in the top right. New apps start as Not Deployed, so you'll need to click the **Deploy** button in the bottom right corner to test your app. The first deploy may take a few moments, but generally this process happens quickly. Note that making changes to the app (like adding new pages and blocks or changing block settings... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app) |
 | Image Resources | rock_mobile_docs | When publishing a Rock Mobile app with App Factory, additional image resources can be provided and compiled into the shell that goes into the app stores. The advantage of this feature is that the images are not loaded over the network, improving performance in load time and avoiding pop-ins. This also means that the images are not processed on the server (or if using a CDN), so desired optimizations must be applied... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources) |
-| App Configuration | rock_mobile_docs | Now it's time to configure your app. There are some options that are not covered below; they are beyond the scope of this walkthrough. Start by filling in the **Application Name** and optional **Description**. Note Don't worry too much about the name you enter. It will be used to identify your application in Rock but has no effect on the official app name once deployed to the app stores. ## Application Type You have... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) |
+| Pre-Release Testing | rock_mobile_docs | *Rock Mobile Latest (the "blue app") has been retired as our pre-release distribution method as of July 2026.* Pre-release builds are distributed through the orange **Rock Core** app with the platforms Apple and Google provide: 1. **TestFlight** for iOS 2. **Firebase App Distribution** for Android ## How pre-release testing will work When a new Rock version is released, we'll plan to make the **next major and next... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/pre-release-testing) |
 
 
 ## Lava Capability References
@@ -212,10 +212,10 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records routed here: `277`
-- Upstream check range: `2026-08-12T11:27:08+00:00` through `2026-08-12T11:27:24+00:00`
-- Source-native typed articles: `4` of `277`
-- Legacy source summaries retired: `0`; still active: `277`
+- Official article records routed here: `291`
+- Upstream check range: `2026-09-09T21:24:26+00:00` through `2026-09-09T21:24:50+00:00`
+- Source-native typed articles: `4` of `291`
+- Legacy source summaries retired: `0`; still active: `291`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
@@ -224,7 +224,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 
 - Source records: `152`
 - Lava capability source records: `60`
-- Approved claims: `21`
+- Approved claims: `22`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

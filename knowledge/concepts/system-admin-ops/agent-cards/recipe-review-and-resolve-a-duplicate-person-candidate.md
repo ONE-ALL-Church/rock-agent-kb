@@ -48,3 +48,5 @@ Merge only records demonstrated to belong to the same person while preserving th
 - https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities
 - https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/rocku/core-concepts/properties-and-attributes
+- https://community.rockrms.com/rocku/core-concepts/custom-attributes

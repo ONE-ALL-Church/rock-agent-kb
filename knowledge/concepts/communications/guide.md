@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "51f9d38672cb5339f187f347aae78be183e7155702794c00c21
 
 # Communications
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Communications index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Treat every communication as a governed operation with six independently verified parts:
@@ -569,3 +585,48 @@ The anonymous SMS verification contribution is also only a community pattern. It
 | [Email Safeguards](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) | Community-reviewed governance guidance with a reviewed public-safe structural verification conclusion. |
 | [SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol) | Community recipe and estimate; not official provider billing behavior. |
 | [ONE&ALL public communication recipes](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes) | Reviewed community implementation patterns requiring local security and live verification. |
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `15`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
+| official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
+| official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
+| community-reviewed | operational_guidance | For communications work, email safeguards should be reviewed as a governance and deliverability topic, including sender policy, access, templates, and current Rock version behavior. | [source](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) |
+| More |  | 6 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `35`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Communication Analytics Transcript Insight](https://community.rockrms.com/rocku/communication/communication-analytics) | approved_for_public_distillation | 3 | media-insight:e08bd9ab6c410d25 |
+| [Communication Analytics [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-analytics-legacy) | approved_for_public_distillation | 2 | media-insight:d1aacd14e5660e87 |
+| [Communication Flows Transcript Insight](https://community.rockrms.com/rocku/communication/communication-flows) | approved_for_public_distillation | 3 | media-insight:349e6f04286e8cab |
+| [Communication Lists & Segments Transcript Insight](https://community.rockrms.com/rocku/communication/communication-lists--segments) | approved_for_public_distillation | 3 | media-insight:387bdcba06ac8a09 |
+| [Communication Overview Transcript Insight](https://community.rockrms.com/rocku/communication/communication-overview) | approved_for_public_distillation | 3 | media-insight:cb96416a43f75f86 |
+| [Communication Preferences Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences) | approved_for_public_distillation | 3 | media-insight:d0e322520f4ef2bc |
+| [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
+| [Communication Saturation Report Transcript Insight](https://community.rockrms.com/rocku/communication/communication-saturation-report) | approved_for_public_distillation | 3 | media-insight:5548c23004402975 |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

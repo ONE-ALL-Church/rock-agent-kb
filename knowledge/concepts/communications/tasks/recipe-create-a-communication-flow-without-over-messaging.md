@@ -45,5 +45,6 @@ A version-appropriate flow with a current audience, measurable goal and explicit
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
+- https://community.rockrms.com/documentation/engagement/communications
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
+- https://community.rockrms.com/recipes/132

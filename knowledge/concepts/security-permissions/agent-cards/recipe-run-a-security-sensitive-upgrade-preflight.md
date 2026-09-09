@@ -40,14 +40,15 @@ A version-aware plan that distinguishes security fixes from feature changes.
 
 ## Source Links
 
+- https://community.rockrms.com/documentation/core-concepts/security
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration
-- https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha
-- https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha
-- https://community.rockrms.com/documentation
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Mobile/LocationPermissionStatus.cs
-- https://community.rockrms.com/documentation/core-concepts/security/background-checks/administer-background-checks
-- https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-checkr
-- https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-protect-my-ministry
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs
-- https://community.rockrms.com/rocku/workflows
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs
+- https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s
+- https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s
+- https://www.youtube.com/watch?v=c-wycR9HEuQ&t=902s
+- https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s
+- https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification

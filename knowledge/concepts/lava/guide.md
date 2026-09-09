@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "29b9e588f224b149b839ef0c2ff0394d257edaff043f6b9e5b2
 
 # Lava
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Lava index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Lava is Rock’s Liquid-based templating layer for turning merge fields into formatted output, applying filters, controlling flow with tags, and invoking explicitly enabled commands. It appears across CMS blocks, workflows, communications, mobile content, TV applications, APIs, reporting surfaces, Helix applications and AI tools. The available merge fields, commands, security context and required output format vary by execution surface. [Lava Reference](https://community.rockrms.com/lava)
@@ -330,6 +346,8 @@ Lava tools should:
 Prompt context is layered across Rock’s core prompt, organization prompt, agent instructions, skill instructions and current-person context. Keep each layer concise, add instructions when testing demonstrates a need, and pass IdKeys rather than raw integer identifiers. [AI Summit, 76:13](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s)
 
 ## Version And Authority Caveats
+
+Check the [official Rock release notes](https://www.rockrms.com/releasenotes) for the installed patch version when investigating a Lava rendering or compatibility problem. Confirm that a documented fix applies to the engine and version being tested.
 
 - Fluid was introduced in v13; the `lava` tag is documented for Fluid beginning in v13.7. [About Lava Fluid](https://community.rockrms.com/lava/fluid), [Lava Tag](https://community.rockrms.com/lava/tags/lava-tags)
 - Rock marks DotLiquid support as ending with v17. Migration differences have fixes distributed across v17 and v19, so do not apply an old compatibility list without matching the installed version. [Fluid Differences](https://community.rockrms.com/lava/fluid/differences)
@@ -705,3 +723,51 @@ A successful source upload or file-content write is not proof of deployment. Com
 - [Data Analytics Hub panel](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) — Rock-native reporting versus external BI.
 - [VS Code Lava preview recipe](https://community.rockrms.com/recipes/456) — community development workflow with identity, command and JavaScript caveats.
 - Organization-contributed Helix, workflow, endpoint, mobile, dashboard and deployment patterns in the supplied evidence pack are examples requiring target-instance verification unless explicitly identified as already verified public-safe conclusions.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `30`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
+| official | behavior | Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+| official | behavior | Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
+| official | behavior | In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format. | [source](https://community.rockrms.com/lava/commands/workflow-activate-commands) |
+| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. | [source](https://community.rockrms.com/lava/filters/other-filters) |
+| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
+| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
+| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
+| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| More |  | 18 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `22`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
+| [Advanced HTML Block Transcript Insight](https://community.rockrms.com/rocku/cms/advanced-html-block) | approved_for_public_distillation | 2 | media-insight:2cf056c2b84e6365 |
+| [Assign Statement Transcript Insight](https://community.rockrms.com/rocku/lava/assign-statement) | approved_for_public_distillation | 1 | media-insight:446c751591a992b1 |
+| [BI Template Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-template) | approved_for_public_distillation | 3 | media-insight:22fb0ca5319b94a9 |
+| [Communication Templates Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates) | approved_for_public_distillation | 3 | media-insight:4ca253d09a443da7 |
+| [Communication Templates [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates-legacy) | approved_for_public_distillation | 3 | media-insight:66b971954eb3655e |
+| [Entity Commands Transcript Insight](https://community.rockrms.com/rocku/lava/entity-commands) | approved_for_public_distillation | 2 | media-insight:d361c226caa0b789 |
+| [Episode 185: Special Edition Lava Class Panel Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel) | approved_for_public_distillation | 3 | media-insight:914097c1d178331e |
+| More |  | 14 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

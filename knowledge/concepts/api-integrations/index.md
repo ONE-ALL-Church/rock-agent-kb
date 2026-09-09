@@ -2,15 +2,15 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:38+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T11:27:24+00:00
+source_last_checked_at: 2026-09-09T21:24:50+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 1/33
-legacy_summary_retirement_coverage: 7/33
+source_native_article_coverage: 1/46
+legacy_summary_retirement_coverage: 7/46
 depends_on_topics:
   - security
   - workflows
@@ -30,15 +30,14 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 - Check release records when the task could be version-sensitive.
 - Follow citations for operational steps, screenshots, or code before making a change.
 - Verify permissions and security inheritance before changing access, APIs, workflows, pages, or groups.
-- Use the data model landmarks to orient SQL, Lava entity commands, and API/entity work.
 - Treat recipes and Q&A as community guidance; validate against your Rock version and environment.
 
 ## How To Think About This Area
 
 - `API And Integrations` spans security, workflows, lava, model-map. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_community_hubs, triumph_resources, rock_youtube, rock_podcast_rss, rock_developer, rock_documentation.
-- Related tags found in source records: api, lava, development, operations, security, sql, obsidian, releases.
-- Source detail types include: developer_doc, documentation_article, question, recipe, rock_lava_docs, triumph_resources.
+- Related tags found in source records: api, lava, development, obsidian, security, sql, operations, workflow.
+- Source detail types include: developer_doc, documentation_article, question, recipe, rock_lava_docs.
 
 ## Reviewed Media Insights
 
@@ -107,65 +106,65 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_api_docs`: 1
 - `rock_community_hubs`: 2
-- `rock_core_release_notes`: 7
+- `rock_core_release_notes`: 4
 - `rock_demo_api_docs_v1`: 1
 - `rock_demo_api_docs_v2`: 1
-- `rock_developer`: 21
-- `rock_documentation`: 6
+- `rock_developer`: 32
+- `rock_documentation`: 7
 - `rock_lava_docs`: 4
-- `rock_mobile_docs`: 6
+- `rock_mobile_docs`: 7
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 5
 - `rock_qa`: 4
-- `rock_recipes`: 6
+- `rock_recipes`: 8
 - `rock_youtube`: 2
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 9
+- `triumph_resources`: 1
 
 ## Highest Signal Sources
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| Search Our Articles | triumph_resources | Search Our Articles All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&type=articles) |
-| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=394b2f5e-acca-4ae4-a114-303c79f9c14e) |
-| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=5a79c9c2-9ae1-42e0-9572-b57280ac6655) |
-| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=97833d33-8af3-4dee-84a4-2b513ca83b38) |
-| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=a165fe0b-a09c-4749-a4b5-dc554d65de9e) |
-| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=a25c41b9-769e-4116-94b9-27546a3f7d80) |
-| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows Whitepapers Optima Best practices guide for the community Read Guide Read Guide: Optima Load More | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=a7dc7b34-b1ed-4b95-9c65-fe57e9cbf26e) |
-| Skills Rubric | triumph_resources | Level 1: Foundational Awareness Basic understanding and vocabulary; competently follows guidance of experienced team members. Understands the core components of Azure (VMs, SQL, Resource Groups, Networking). Can follow step-by-step documentation to create or configure basic Azure resources (e.g., create VM, attach disk). Follows all Triumph’s Azure naming conventions and resource group structure. Can navigate the... | [source](https://www.triumph.tech/resources/skills-rubric) |
 | Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | triumph_resources | AI's Role in Digital Ministry adds public-safe guidance for AI use around Rock: treat AI as assistive, define data and approval boundaries, train staff, and verify outputs against real systems before acting. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
 | API | rock_documentation | [Intro to the Rock API](/documentation/supporting-rock/data/api/intro-to-the-rock-api?Version=v19.0) [Secure the API](/documentation/supporting-rock/data/api/secure-the-api?Version=v19.0) [REST Keys](/documentation/supporting-rock/data/api/rest-keys?Version=v19.0) | [source](https://community.rockrms.com/documentation/supporting-rock/data/api) |
 | API Documentation | rock_api_docs | Rock API Resources Build, integrate and create. Discover Rock’s APIs and take advantage of Rock's valuable database. API v1 Classic. Reliable. Now legacy. Try the API v1 Login: admin / admin API v2 Fast. Designed to do more. Try the API v2 Login: admin / admin Shared Resources Guides and walkthroughs that equip you for Rock's API. API Documentation The full reference. All things API. Introduction to Rock API... | [source](https://community.rockrms.com/api-docs) |
 | Alignment | rock_mobile_docs | Applies to: [Editor](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.editor?view=xamarin-forms), [Entry](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.entry?view=xamarin-forms), [EntryCell](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.entrycell?view=xamarin-forms), [Label](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.layout?view=xamarin-forms),... | [source](https://community.rockrms.com/developer/mobile-docs/styling/legacy/text/alignment) |
+| Border Radius | rock_mobile_docs | Applies to: [BoxView](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.boxview?view=xamarin-forms), [Button](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.button?view=xamarin-forms), [Frame](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.frame?view=xamarin-forms), [ImageButton](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.imagebutton?view=xamarin-forms) The following... | [source](https://community.rockrms.com/developer/mobile-docs/styling/legacy/borders/border-radius) |
+| Color | rock_mobile_docs | Applies to: [Button](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.button?view=xamarin-forms), [DatePicker](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.datepicker?view=xamarin-forms), [Editor](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.editor?view=xamarin-forms), [Entry](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.entry?view=xamarin-forms),... | [source](https://community.rockrms.com/developer/mobile-docs/styling/legacy/text/color) |
+| Configure Person Tokens | rock_documentation | Person tokens come preconfigured in Rock and can be found in the Global Attributes screen (`Admin Tools > Settings > Global Attributes`).There are three Person Token attributes: Person Token Expire Minutes, Person Token Usage Limit, and Person Token Use Legacy Fallback. Click on an attribute to open its configuration settings. The Person Token Expire Minutes attribute is the length of time the person token is valid,... | [source](https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens) |
+| Configure Rock Chat | rock_documentation | To start configuring Chat, you will need an *API Key*. You can sign-up for Rock Chat through the [Rock Mobile Chat add-on](https://www.triumph.tech/rock-mobile-chat). Our Mobile team will send you your chat key and API Secret. Once you have these, navigate to `Admin Tools > Settings > Chat Configuration`. Once you click Save with a proper API key, you are ready to configure your chat channels. Your chat channel... | [source](https://community.rockrms.com/documentation/engagement/communications/rock-chat/configure-rock-chat) |
+| Configure a Webhook to a Workflow | rock_documentation | Now that you're a workflow guru, let's turn up the volume to 11. As you've seen, there are several ways that you can launch workflows built into Rock. But what if we told you you could launch workflows from Twitter, Wufoo, Formstack, Dropbox, Evernote, Email, or... basically any modern web service? That's the power of Webhooks to Workflows. Most modern Web Services use the concept of webhooks. This allows the... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow) |
+| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
+| Endpoint Responses | rock_mobile_docs | Your endpoint's job is to return a XAML fragment. It can also send response headers to tell the app to do something other than a plain swap. ## The response contract \| Response \| What the app does \| \| --- \| --- \| \| **2xx with a body** \| Treats the body as a XAML fragment and swaps it per the initiator's target and swap. \| \| **2xx with an empty body** \| Nothing. This is a valid fire-and-forget response, not an error.... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava/lava-application/endpoint-responses) |
+| Intro to the Rock API | rock_documentation | Whether you're a developer or someone integrating a third-party app with Rock, the APIs unlock Rock’s full potential. With built-in tools to secure, test, and extend your endpoints, you can integrate and innovate with ease—no extra setup required. ## Why would I use an API with Rock? * **Data Integration**: Connect Rock to other apps and services for seamless data exchange. * **Custom Development**: Build custom... | [source](https://community.rockrms.com/documentation/supporting-rock/data/api/intro-to-the-rock-api) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Lava Endpoint](../../model-map/models/lava-endpoint.md) | CMS | 19.2.0 | 52 | 23 | 36 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Person Token](../../model-map/models/person-token.md) | Core | 19.2.0 | 26 | 12 | 16 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Rest Action](../../model-map/models/rest-action.md) | CMS | 19.2.0 | 44 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Rest Controller](../../model-map/models/rest-controller.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [History Login](../../model-map/models/history-login.md) | Security | 19.2.0 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.2.0 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.2.0 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.2.0 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.2.0 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.2.0 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Skill](../../model-map/models/ai-skill.md) | AI | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Lava Endpoint](../../model-map/models/lava-endpoint.md) | CMS | 19.3.4 | 52 | 23 | 36 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Person Token](../../model-map/models/person-token.md) | Core | 19.3.4 | 26 | 12 | 16 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Rest Action](../../model-map/models/rest-action.md) | CMS | 19.3.4 | 44 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Rest Controller](../../model-map/models/rest-controller.md) | CMS | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [History Login](../../model-map/models/history-login.md) | Security | 19.3.4 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.3.4 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.3.4 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.3.4 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.3.4 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.3.4 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.3.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Skill](../../model-map/models/ai-skill.md) | AI | 19.3.4 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -175,9 +174,6 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 16.1 | Communication | Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694 | [source](https://www.rockrms.com/releasenotes) |
 | 18.2 | API | Fixed an error that prevented the Workflows Action Launch API endpoint from functioning. Fixes: #6604 | [source](https://www.rockrms.com/releasenotes) |
 | 17.5 | API | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
-| 19.1 | Finance | Fixed slow performance on the Giving History API endpoint. Response times are significantly improved for organizations with large giving history data. Fixes: #6818 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | CMS | Fixed an issue where some REST v2 API endpoints incorrectly failed security checks when using ExecuteWrite permissions. | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Finance | Fixed two issues in the Giving History API. When "Combine Giving With" was blank, the API incorrectly returned family giving data instead of only the individual's authorized giving. When family giving (includeGivingGroup parameter) was excluded, contributions from the individual's other records were missing from results. Fixes: #6739 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -216,9 +212,9 @@ Keywords: `auth, token, bearer, api key`
 | Rock Security | rock_developer | See <https://community.rockrms.com/developer/videos/70> (from the beta launch at CITRT 2014) * Block Security Order * Entity Parent Authority * Block Security Actions * Entity Type Security (Admin UI) * Custom Action Verbs * **PersonActionIdentifier** The RSVP system uses our newer 'non-security' type identification token generator (called PersonActionIdentifier) which identifies a person for only one particular... | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
 | Rock Impersonation Token Leak (RCKIPID) | rock_recipes | 9 Rock Impersonation Token Leak (RCKIPID) Shared by Chuck Bump , Southeast Christian Church 6 years ago 7.0 Operations, Web Intermediate Note : This recipe was written with the knowledge that this is less of a recipe on how to do something cool or how to put something appetizing together for your organization and more of a howto guide for when things go horribly wrong. The Scenario So, imagine you've created a... | [source](https://community.rockrms.com/recipes/69) |
 | webrequest not running?? | rock_qa | 0 webrequest not running?? 1 Kelvin Liu posted 3 Years Ago Hi I have noticed that since sometime in mid March our lava codes which use webrequest have all been failing silently. No noticeable errors just suddenly not doing what it has been doing for more than a year(s). We were on Rock v9.x ... Just upgraded to 10 (in May) but I know it's not related to the upgrade because the problem has been there since March.... | [source](https://community.rockrms.com/ask/developing/2708) |
-| Rock Core Release Notes | rock_core_release_notes | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 | Creating An App | rock_developer | Creating a TV application from scratch. ### Creating an Application In your Rock instance, go ahead and navigate to `Admin Tools > CMS Configuration > Apple TV Apps`. Once there, create a new site. Let's break this down. **Name** - the name of your application. This is private to your Rock Instance, and isn't what it has to be named when published to the App Store. **Description** - An optional description of the... | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) |
 | Applications | rock_developer | *Learn how to create a Roku application in Rock to manage your TV content.* ## Application Settings When creating or editing a Roku application, you have access to the following configuration options. ### Enable Page Views Whether (or not) page interactions should be written to track the usage of your application. ### Page View Retention Duration The duration (in days) to retain the page interactions that are... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| Rock Core Release Notes | rock_core_release_notes | Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #6524 | [source](https://www.rockrms.com/releasenotes) |
 
 ### Webhooks
 
@@ -239,12 +235,12 @@ Keywords: `webhook, integration`
 | The Rock Rest API | rock_developer | Rock features a REST-based web service that supports integration with third-party websites and applications. The REST API is also utilized by various internal Rock components to retrieve and modify data such as populating item pickers, displaying person badges, and showing charts for metrics. The API is also used for external applications that access Rock data, such as the check-scanner and the financial statement... | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
 | REST Keys | rock_documentation | If you or your team plan to interact with Rock's API, you'll need to set up a REST Key first. REST Keys are how Rock authenticates external applications and scripts making API calls. Without one, those calls will be rejected before they can do anything useful. You can manage REST Keys at `Admin Tools > Settings > REST Keys`. To create one, select the Add button and fill out the REST Key Details: * **Name** — Give... | [source](https://community.rockrms.com/documentation/supporting-rock/data/api/rest-keys) |
 | Intro to the Rock API | rock_documentation | Whether you're a developer or someone integrating a third-party app with Rock, the APIs unlock Rock’s full potential. With built-in tools to secure, test, and extend your endpoints, you can integrate and innovate with ease—no extra setup required. ## Why would I use an API with Rock? * **Data Integration**: Connect Rock to other apps and services for seamless data exchange. * **Custom Development**: Build custom... | [source](https://community.rockrms.com/documentation/supporting-rock/data/api/intro-to-the-rock-api) |
-| Lava Webhook to Create an iCal (.ics) File | rock_recipes | 1 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 2 months ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file) |
-| Lava Webhook to Create an iCal (.ics) File | rock_recipes | 1 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 2 months ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540) |
+| Lava Webhook to Create an iCal (.ics) File | rock_recipes | 1 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 4 months ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file) |
+| Lava Webhook to Create an iCal (.ics) File | rock_recipes | 1 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 4 months ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540) |
 | Step 1: Create OpenAI Account | rock_recipes | 6 ChatGPT Shortcode Shared by Brian Davis , ONE&ALL Church 3 years ago 10.0 General Intermediate In this recipe we'll walk through the steps to build a basic integration in Rock RMS to communicate with ChatGPT to ask questions via the ChatGPT API. I'll also provide some examples of how this integration might be used. The recipe might look alarmingly long, but I'll have you chatting with an AI in a couple minutes and... | [source](https://community.rockrms.com/recipes/362) |
-| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
 | Extending Communication Transports | rock_developer | ## SMS Transports In Rock v12.1, we’ve added the `ISmsPipelineWebhook` interface that will let you identify the location of any corresponding webhook. The `SmsPipelineWebhookPath` property will be used by the SMS Pipeline block to display the full URL to the webhook which is useful when administrators are setting up the interface with the remote service. | [source](https://community.rockrms.com/developer/303---blast-off/extending-communication-transports) |
 | Docker Desktop | rock_developer | We use Docker Desktop to provide a clean database for each suite of integration tests. This makes sure the database is 1) in a known clean state and 2) does not require any specific steps to prepare the database for tests. To run the integration tests you just need to make sure Docker Desktop is installed and running. Everything else will be automatic. The first time you run the tests for that specific version of... | [source](https://community.rockrms.com/developer/developer-codex/coding-standards/testing/unit-testing/docker-desktop) |
+| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
 
 
 ## Lava Capability References
@@ -258,17 +254,17 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records in the bounded guide selection: `33`
-- Upstream check range: `2026-08-12T06:13:10+00:00` through `2026-08-12T11:27:24+00:00`
-- Source-native typed articles: `1` of `33`
-- Legacy source summaries retired: `7`; still active: `26`
+- Official article records in the bounded guide selection: `46`
+- Upstream check range: `2026-09-09T21:15:53+00:00` through `2026-09-09T21:24:50+00:00`
+- Source-native typed articles: `1` of `46`
+- Legacy source summaries retired: `7`; still active: `39`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 
-- Source records: `144`
+- Source records: `148`
 - Lava capability source records: `60`
 - Approved claims: `16`
 - Dependency file: `agent/concept-dependencies.jsonl`

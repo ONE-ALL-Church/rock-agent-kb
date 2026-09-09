@@ -2,7 +2,7 @@
 concept_id: ai-agents-automation
 generated: true
 artifact_level: media_distillation
-approved_media_count: 16
+approved_media_count: 18
 ---
 
 # AI Agents And Automation Approved Media
@@ -24,6 +24,8 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:927b060aba73b666` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo) |
 | `media-insight:b4cdf69722ad5d13` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz) |
 | `media-insight:e81a9f6b5e5e2f8a` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV) |
+| `media-insight:d0ed2c36ffd5d934` | Risk, Cost or Apathy: What's Really Blocking Your Church's AI Adoption \| Ep 220 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/unblocking-church-ai-adoption-ep-220) |
 | `media-insight:00a8a57d7db012dc` | Rock's Future Anchored in Vision \| Ep 202 Transcript Insight | approved_for_public_distillation | 4 | [source](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision) |
 | `media-insight:59f5bb8f9a0bfcf3` | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218) |
 | `media-insight:a437d9f5be13ad57` | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | approved_for_public_distillation | 10 | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| `media-insight:97b48ee86bf43c06` | Stop the Slop: How We're Keeping AI Out of Our Blind Spots \| Ep 221 Transcript Insight | approved_for_public_distillation | 1 | [source](https://shows.acast.com/rock-cast/episodes/stop-the-ai-slop-ep-221) |

@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "41fb72e73790f98002daa7d22627b532534879662d1a6a6aa7f
 
 # API And Integrations
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [API And Integrations index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Rock provides several integration surfaces with different contracts and security boundaries:
@@ -609,3 +625,51 @@ If a version-dependent route, property, permission, provider setting, or failure
 ### Immutable Source Evidence
 
 - Rock commit [`471fd303d111b2e46218228dbc1e93dba8856fa3`](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3) — bounded implementation evidence for API-model mapping and Model Map structure. It is not evidence of an installation’s version or configuration.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `16`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
+| official | configuration | Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
+| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
+| official | operational_guidance | Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | release_caveat | Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
+| official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
+| More |  | 4 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `10`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
+| [Episode 147: Change is Inevitable, Community is Essential: Navigating Both in Today's World Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-147-navigating-rapid-change-and-our-need-for-communi) | approved_for_public_distillation | 3 | media-insight:73ec0ec8f79d120c |
+| [Episode 197: Volunteers, Stewardship, & Shaping Your Digital Team Transcript Insight](https://community.rockrms.com/connect/rock-cast-episode-197) | approved_for_public_distillation | 3 | media-insight:3c8731057b505d28 |
+| [Escaping the Complexity Trap \| Ep 209 Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-209-escaping-the-complexity-trap) | approved_for_public_distillation | 3 | media-insight:5696d2af5b6df33b |
+| [Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight](https://www.youtube.com/watch?v=mYTaGxYMyyQ) | approved_for_public_distillation | 1 | media-insight:0eaf921555a4c075 |
+| [Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) | approved_for_public_distillation | 1 | media-insight:70eec93ffcb16fc8 |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0) | approved_for_public_distillation | 3 | media-insight:72c3c82fab79c57b |
+| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5) | approved_for_public_distillation | 3 | media-insight:efa1de0c74bcd9f0 |
+| More |  | 2 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

@@ -2,15 +2,15 @@
 id: concept-ai-agents-automation
 title: AI Agents And Automation
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:25+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:22:00+00:00
+source_last_checked_at: 2026-09-09T21:22:56+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 6/24
-legacy_summary_retirement_coverage: 6/24
+source_native_article_coverage: 5/22
+legacy_summary_retirement_coverage: 5/22
 depends_on_topics:
   - security
   - api-integrations
@@ -41,7 +41,7 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 
 - `AI Agents And Automation` spans security, api-integrations, workflows, platform-configuration, data-views, reports. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_developer, rock_youtube, rock_podcast_rss, rock_community_hubs, rock_community_blog, rock_recipes.
-- Related tags found in source records: ai, releases, api, lava, operations, development, obsidian, implementation.
+- Related tags found in source records: releases, api, development, lava, ai, operations, obsidian, sql.
 - Source detail types include: community_blog_article, developer_doc, question, recipe, triumph_resources.
 
 ## Reviewed Media Insights
@@ -107,6 +107,8 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 | Last Chance to Register for the AI Summit Transcript Insight | AI Summit recording route | 00:00 | Use this short only as a route to the completed Rock AI Summit recording and its reviewed distillations; event timing and preview statements do not establish current product availability. | [source](https://www.youtube.com/shorts/tW4104R1N_o) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | alternate Episode 218 source | 00:00 | This official podcast edition carries the same RockIQ Q&A covered by the reviewed video edition. Use it as an alternate source route, while treating rollout, pricing and pre-release behavior as directional until current documentation and release notes confirm them. | [source](https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218) |
 | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | managed AI data access | 09:21 | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
+| Risk, Cost or Apathy: What's Really Blocking Your Church's AI Adoption \| Ep 220 Transcript Insight | Staff adoption sequence | 07:54 | The hosts recommend that early adopters first coach colleagues who are receptive but inexperienced, rather than starting an AI rollout with the most resistant staff members. | [source](https://shows.acast.com/rock-cast/episodes/unblocking-church-ai-adoption-ep-220) |
+| Stop the Slop: How We're Keeping AI Out of Our Blind Spots \| Ep 221 Transcript Insight | AI communication review | 17:28 | The hosts recommend that the sender personally review and take responsibility for every statement in AI-assisted communication; attributing an error to the model does not transfer that responsibility. | [source](https://shows.acast.com/rock-cast/episodes/stop-the-ai-slop-ep-221) |
 
 
 ## Approved Claims
@@ -133,20 +135,21 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | community-reviewed | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
+| More |  | 3 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
-- `rock_community_blog`: 4
+- `rock_community_blog`: 6
 - `rock_community_hubs`: 8
-- `rock_core_release_notes`: 2
-- `rock_developer`: 24
+- `rock_core_release_notes`: 6
+- `rock_developer`: 22
 - `rock_model_map`: 12
-- `rock_podcast_rss`: 7
+- `rock_podcast_rss`: 11
 - `rock_qa`: 1
 - `rock_recipes`: 1
-- `rock_youtube`: 9
+- `rock_youtube`: 14
 - `sparkdevnetwork_rock`: 1
-- `triumph_resources`: 18
+- `triumph_resources`: 5
 
 ## Highest Signal Sources
 
@@ -157,48 +160,52 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Agents | rock_developer | ## Overview Agents are the central point of how AI works in Rock. An agent defines the skills and tools that are available for use. It also provides instructions to the language model about how the agent should behave. This means you might have multiple agents configured in Rock. One might be for general staff to use and includes the majority of tools. This would probably be the primary agent used in Rock. When you... | [source](https://community.rockrms.com/developer/ai-agents/agents) |
 | Context Anchors | rock_developer | ## Overview Normally when you are chatting with an agent, your context shifts over time. Questions you ask and responses from the agent can shift the context of "who" you are talking about, even if you didn't intend that to happen. Imagine the following conversion. `Me:` Does Ted Decker have children? `Agent:` Ted's children are Noah and Alex. `Me:` How old is Noah? `Agent:` Noah is 8 years old. `Me:` What about his... | [source](https://community.rockrms.com/developer/ai-agents/agents/context-anchors) |
 | AI Agents | rock_developer | Rock has a heavy load, holding all the data that your organization runs on, and we know that you have a heavy load too. Rock has always been about empowering staff and simplifying processes so people can focus on ministry. Agents are the next step. Think of them as digital helpers that free you up for ministry or for that task you've been putting off for months. As a developer building agents and the tools that... | [source](https://community.rockrms.com/developer/ai-agents) |
-| Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
 | Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
-| Rock Tool Helper | rock_developer | ## Overview There is a lot of logic and error checking involved when writing *Native Tools*, and much of it is repetitive. To reduce that overhead, Rock provides the *Rock Tool Helper*, a centralized class that standardizes common patterns like validation, error collection, pagination and safe entity access so your tools stay more consistent and the AI agent receives clearer, more actionable feedback. For example,... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) |
+| Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
 | Types of Tools | rock_developer | We have broken tools down into a number of recommended types, which are identified by the verb prefix on the tool name. You will likely run into cases where you are not sure if your tool should be `List` or `Lookup` for certain entities. This will be especially true for small result sets, such as Campus as it could fit either option. Do your best to think through the most likely use case. To see these, navigate to... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools) |
 | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | rock_youtube | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | Gotchas | rock_developer | ## Overview Things to look out for when writing native tools. ## Queryable object creation must be identical When using a queryable to get the data directly from the database, as opposed to materializing full entity objects and then pulling out the specific properties you want, you may run into the following error: > The type 'Rock.AI.Agent.Classes.Entity.PersonResult' appears in two structurally incompatible... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas) |
-| Creating Skills | rock_developer | ## Overview Creating new skills in Lava is straightforward. When defining a skill, you’ll provide a name, description, and optional instructions. Here are some tips to keep in mind: * **Name:** The name is critical since the agent orchestrator uses it to decide when and whether its tools should be called. Choose something clear that helps the AI understand the purpose of the tools within the skill. *... | [source](https://community.rockrms.com/developer/ai-agents/skills/creating-skills) |
+| Skills | rock_developer | ## Overview Skills group related tools together so agents can work more effectively. They also provide shared usage context, which helps the agent understand how the tools connect without repeating the same explanation on every tool. For example, an *Event Registration skill* can explain how *Registration Templates*, *Registration Instances*, *Registrations* and *Registrants* relate to each other, giving the agent... | [source](https://community.rockrms.com/developer/ai-agents/skills) |
+| Lookup Tools | rock_developer | ## Overview Lookup tools usually take no parameters and are straightforward to implement. There are basically three steps. 1. Load data 2. Format data 3. Return data Typically, steps one and two will be the same since you can often do both in a single query or cache request. For clarity, we will list them separately. ## Load Data Whenever possible, use cache objects if they are available. Let's take a look at a... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.2.0 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.2.0 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.2.0 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.2.0 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.2.0 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Automation Event](../../model-map/models/automation-event.md) | Core | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Automation Trigger](../../model-map/models/automation-trigger.md) | Core | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Connection Status Automation](../../model-map/models/connection-status-automation.md) | Engagement | 19.2.0 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Identity Verification](../../model-map/models/identity-verification.md) | CRM | 19.2.0 | 42 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Identity Verification Code](../../model-map/models/identity-verification-code.md) | CRM | 19.2.0 | 38 | 11 | 23 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [History Login](../../model-map/models/history-login.md) | Security | 19.2.0 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent](../../model-map/models/ai-agent.md) | AI | 19.3.4 | 45 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session](../../model-map/models/ai-agent-session.md) | AI | 19.3.4 | 28 | 12 | 19 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session Anchor](../../model-map/models/ai-agent-session-anchor.md) | AI | 19.3.4 | 29 | 15 | 20 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Session History](../../model-map/models/ai-agent-session-history.md) | AI | 19.3.4 | 27 | 14 | 19 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Agent Skill](../../model-map/models/ai-agent-skill.md) | AI | 19.3.4 | 22 | 8 | 13 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Automation Event](../../model-map/models/automation-event.md) | Core | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Automation Trigger](../../model-map/models/automation-trigger.md) | Core | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Connection Status Automation](../../model-map/models/connection-status-automation.md) | Engagement | 19.3.4 | 45 | 15 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Identity Verification](../../model-map/models/identity-verification.md) | CRM | 19.3.4 | 42 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Identity Verification Code](../../model-map/models/identity-verification-code.md) | CRM | 19.3.4 | 38 | 11 | 23 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [History Login](../../model-map/models/history-login.md) | Security | 19.3.4 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [AI Provider](../../model-map/models/ai-provider.md) | AI | 19.3.4 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AIAgentSkills` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.AvatarBinaryFile` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `AI Agent.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
 | Version | Module | Change | Citation |
 | --- | --- | --- | --- |
+| 20.0 | AI | Improved AI agent tool results to include each entity's unique identifier and, for attributes, the description, field type and allowed values so agents can reference entities Rock stores by GUID rather than by ID. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | AI | Added a Core Administration AI agent skill that gives agents read access to Rock's core configuration, including Defined Types and values, entity types, categories, field types, attributes and system communications. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | AI | Added a GetSystemPhoneNumber AI agent tool that returns a system phone number's full details, including the unique identifier that workflow action settings store it by. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | AI | Added a Workflow Builder AI agent skill. It discovers the installed workflow action components and their settings and can create, edit and remove workflow types, attributes, activities, actions and forms. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | AI | Added a Community Knowledge Base AI agent skill that searches Rock documentation and community content, searches the Rock source code and surfaces curated topic guides. | [source](https://www.rockrms.com/releasenotes) |
 | 18.1 | Communication | Added a new "Chat Message" Automation Trigger that can launch Automation Events when a Chat message is sent. Also added a "Send Fallback Chat Notification" Automation Event that alerts individuals via alternate methods (such as email or SMS) if they don’t have an active personal device or have notifications turned off. | [source](https://www.rockrms.com/releasenotes) |
-| 17.5 | API | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -215,12 +222,12 @@ Keywords: `custom tool, lookup tool, native tool, available attributes, agent to
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Lookup Tools | rock_developer | ## Overview `Lookup`*Tools* help Rock AI agents find the exact information they need and return it in a format the agent can use. There are basically three steps to a `Lookup`. 1. Load data 2. Format data 3. Return data ## Load Data ``` {% sql return:'results' %} SELECT DISTINCT [Id], [Name] FROM [GroupType] {% endsql %} ``` As you can see, this is quite simple. We just run a simple select statement to retrieve the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools) |
-| Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
 | Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
-| Rock Tool Helper | rock_developer | ## Overview There is a lot of logic and error checking involved when writing *Native Tools*, and much of it is repetitive. To reduce that overhead, Rock provides the *Rock Tool Helper*, a centralized class that standardizes common patterns like validation, error collection, pagination and safe entity access so your tools stay more consistent and the AI agent receives clearer, more actionable feedback. For example,... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) |
+| Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
 | Gotchas | rock_developer | ## Overview Things to look out for when writing native tools. ## Queryable object creation must be identical When using a queryable to get the data directly from the database, as opposed to materializing full entity objects and then pulling out the specific properties you want, you may run into the following error: > The type 'Rock.AI.Agent.Classes.Entity.PersonResult' appears in two structurally incompatible... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas) |
 | Lookup Tools | rock_developer | ## Overview Lookup tools usually take no parameters and are straightforward to implement. There are basically three steps. 1. Load data 2. Format data 3. Return data Typically, steps one and two will be the same since you can often do both in a single query or cache request. For clarity, we will list them separately. ## Load Data Whenever possible, use cache objects if they are available. Let's take a look at a... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools) |
 | AvailableAttributes Tools | rock_developer | ## Overview Tools to get the available attributes can be broken down into 2 basic parts. 1. Loading or initializing the entity. 2. Retrieving the attributes. Note When we are talking about available attributes in this tool, we are talking about the attribute definitions. Not the actual values. In other words, the data required for the language model to construct a value for the attribute. Such as the Key and... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools) |
+| Rock Core Release Notes | rock_core_release_notes | Improved AI agent tool results to include each entity's unique identifier and, for attributes, the description, field type and allowed values so agents can reference entities Rock stores by GUID rather than by ID. | [source](https://www.rockrms.com/releasenotes) |
 
 ### Permissions And Data Boundaries
 
@@ -250,6 +257,7 @@ Keywords: `tool security, least privilege, permission, authorization, data bound
 | Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
 | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | rock_youtube | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | Lookup Tools | rock_developer | ## Overview Lookup tools usually take no parameters and are straightforward to implement. There are basically three steps. 1. Load data 2. Format data 3. Return data Typically, steps one and two will be the same since you can often do both in a single query or cache request. For clarity, we will list them separately. ## Load Data Whenever possible, use cache objects if they are available. Let's take a look at a... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools) |
+| List Tools | rock_developer | ## Overview List tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set. There is also two different patterns for working with paged content. The first is Page Number paging. This is best for data that is not secured, meaning no `IsAuthorized()` check needs to be... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools) |
 | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | rock_youtube | This official Rock Cast episode includes pre-release Rock IQ architecture, AI-vendor evaluation guidance and ministry systems discussion. Its most durable technical guidance is to keep AI behind managed Rock authorization and business logic rather than exposing direct database access. Product rollout and event statements remain release-sensitive. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
 | Ladies and Gentlemen, Your RX26 Keynote Speaker \| Ep 216 Transcript Insight | rock_podcast_rss | This official podcast edition supports the same managed-data-access guidance as the reviewed video edition. Product rollout, external model news and event statements are context only. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
 | Rock Core Release Notes | rock_core_release_notes | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
@@ -277,16 +285,14 @@ Keywords: `automation, automations, workflow automation, scheduled job, trigger,
 
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
-| Rock Tool Helper | rock_developer | ## Overview There is a lot of logic and error checking involved when writing *Native Tools*, and much of it is repetitive. To reduce that overhead, Rock provides the *Rock Tool Helper*, a centralized class that standardizes common patterns like validation, error collection, pagination and safe entity access so your tools stay more consistent and the AI agent receives clearer, more actionable feedback. For example,... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) |
-| Data Automation - "Who was changed?" Report | rock_recipes | 8 Data Automation - "Who was changed?" Report Shared by Alyssa Winegar , Pathway Church 6 years ago 7.4 General Beginner We are implementing several of the Data Automation tools found under Tools > Data Integrity > Data Automation. One thing that has been asked of us is to create report(s) of individuals who were changed by Data Automation tools. In this Recipe, I'll explain how we created the report of those who... | [source](https://community.rockrms.com/recipes/53) |
-| Rock Core Release Notes | rock_core_release_notes | Added a new "Chat Message" Automation Trigger that can launch Automation Events when a Chat message is sent. Also added a "Send Fallback Chat Notification" Automation Event that alerts individuals via alternate methods (such as email or SMS) if they don’t have an active personal device or have notifications turned off. | [source](https://www.rockrms.com/releasenotes) |
+| Rock's AI Agents Are More Than a Sermon Prep Tool | rock_youtube | Rock's AI Agents are more than a sermon prep tool. They do what nobody thought was possible: they see your congregation the way you do. They know who got baptized last week. They flag who's struggling. They tell you who to connect with today. They're built to turn data into discipleship and take action with just a simple prompt, so pastors can be more... | [source](https://www.youtube.com/shorts/OlC-ftaqoYw) |
+| Data Automation - "Who was changed?" Report | rock_recipes | 8 Data Automation - "Who was changed?" Report Shared by Alyssa Winegar , Pathway Church 7 years ago 7.4 General Beginner We are implementing several of the Data Automation tools found under Tools > Data Integrity > Data Automation. One thing that has been asked of us is to create report(s) of individuals who were changed by Data Automation tools. In this Recipe, I'll explain how we created the report of those who... | [source](https://community.rockrms.com/recipes/53) |
+| Rock Core Release Notes | rock_core_release_notes | Added a GetSystemPhoneNumber AI agent tool that returns a system phone number's full details, including the unique identifier that workflow action settings store it by. | [source](https://www.rockrms.com/releasenotes) |
 | Data Automation Transcript Insight | rock_rocku | Data Automation is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, AI, automation, and responsible tool use, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) |
 | Connection Request Status Automation Transcript Insight | rock_rocku | Connection Request Status Automation is approved as a public-safe RockU training distillation for ministry process design, reporting, analytics, and measurement, AI, automation, and responsible tool use. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/engagement/connection-request-status-automation) |
 | Automations Transcript Insight | rock_rocku | Automations is approved as a public-safe RockU training distillation for Rock operations and administration, AI, automation, and responsible tool use, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. | [source](https://community.rockrms.com/rocku/core-concepts/automations) |
-| Automation Event | rock_model_map | Automation Event is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
-| Automation Trigger | rock_model_map | Automation Trigger is a Rock model in the Core category. | [source](https://community.rockrms.com/ModelMap) |
-| Connection Status Automation | rock_model_map | Connection Status Automation is a Rock model in the Engagement category. | [source](https://community.rockrms.com/ModelMap) |
-| Connection Request Status Automation Training | rock_rocku | Connection Request Status Automation Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-request-status-automation) |
+| Connection Request Status Automation | rock_rocku | Connection Request Status Automation Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Connections Overview 8:20 Connections Types 12:22 Connection Types - Pre-v19 9:04 Connections Opportunities 6:54 Connection Opportunities - Pre-v19 8:27 Connections List 13:40 Connections Board 7:34 Connection Status Changes 3:10 Connection Request Status Automation 5:23 Operational Snapshot 6:26 | [source](https://community.rockrms.com/rocku/connections/connection-request-status-automation) |
+| Automations | rock_rocku | Automations Blake Byers Experience Mode Trailblazer Essentials Trailblazer Persisted Datasets 7:35 Phone Number Lookup Overview 3:28 Phone Number Lookup Configuration 5:49 Using Phone Number Lookup 6:21 Automations 4:58 Data Integrity 11:55 | [source](https://community.rockrms.com/rocku/core-concepts/automations) |
 
 ### Verification And Review Gates
 
@@ -296,20 +302,19 @@ Keywords: `verification, review gate, approval, evidence, hallucination, live ve
 | --- | --- | --- | --- |
 | Rock's Future Anchored in Vision \| Ep 202 Transcript Insight | rock_podcast_rss | Episode 202 adds public-safe operational context for Rock release awareness, community-shaped priorities, AI-assisted group matching, and documentation currency; concrete implementation guidance remains tied to official docs, release notes, source code, or live-instance verification. | [source](https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | rock_podcast_rss | This is the official podcast edition of the reviewed RockIQ rapid-fire Q&A. It is retained as an alternate canonical route to the same release-sensitive discussion; use the existing detailed Episode 218 distillation and current release evidence for operational answers. | [source](https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218) |
+| Rock Core Release Notes | rock_core_release_notes | Added a Smarty Streets International location service for non-US address verification and optional geocoding. Requires a Smarty subscription for 'International Address Verification' or, if using geocoding, 'International Geocoding'. | [source](https://www.rockrms.com/releasenotes) |
 | Identity Verification | rock_model_map | Identity Verification is a Rock model in the CRM category. | [source](https://community.rockrms.com/ModelMap) |
 | Identity Verification Code | rock_model_map | Identity Verification Code is a Rock model in the CRM category. | [source](https://community.rockrms.com/ModelMap) |
 | Triumphant Problem Solving Transcript Insight | triumph_resources | Triumphant Problem Solving adds public-safe guidance for KB agents: troubleshoot by clarifying the problem, isolating variables, testing evidence, and teaching reusable diagnostic habits for Rock operations and reporting issues. | [source](https://www.triumph.tech/resources/triumphant-problem-solving) |
-| Rock Core Release Notes | rock_core_release_notes | Added CAPTCHA support to the Group Registration, Prayer Request Entry, Group Simple Register, Email Form, and Sign-Up Register blocks. This setting helps prevent automated bots by requiring individuals to complete a verification step before submitting these forms. Administrators can enable or disable CAPTCHA within each block’s settings. | [source](https://www.rockrms.com/releasenotes) |
 | AI Voice Models & the Hidden Costs of Untrained Staff \| Ep 214 Transcript Insight | rock_podcast_rss | AI Voice Models & the Hidden Costs of Untrained Staff is approved as a public-safe Rock Cast episode distillation for staff training and operational readiness, Rock operations and administration, AI, automation, and responsible tool use. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification. | [source](https://shows.acast.com/rock-cast/episodes/episode-214) |
-| The Vacation Test Every Rock Admin Should Run Right Now \| Ep 213 Transcript Insight | rock_podcast_rss | The Vacation Test Every Rock Admin Should Run Right Now is approved as a public-safe Rock Cast episode distillation for AI, automation, and responsible tool use, ministry process design, Rock operations and administration. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification. | [source](https://shows.acast.com/rock-cast/episodes/rock-cast-episode-213) |
 
 
 ## Source Lifecycle
 
-- Official article records routed here: `24`
-- Upstream check range: `2026-08-12T06:13:11+00:00` through `2026-08-12T06:22:00+00:00`
-- Source-native typed articles: `6` of `24`
-- Legacy source summaries retired: `6`; still active: `18`
+- Official article records routed here: `22`
+- Upstream check range: `2026-09-09T21:22:55+00:00` through `2026-09-09T21:22:56+00:00`
+- Source-native typed articles: `5` of `22`
+- Legacy source summaries retired: `5`; still active: `17`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
@@ -317,7 +322,7 @@ A recent source check or concept rebuild does not imply that every legacy summar
 ## Rebuild Dependencies
 
 - Source records: `87`
-- Approved claims: `18`
+- Approved claims: `21`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

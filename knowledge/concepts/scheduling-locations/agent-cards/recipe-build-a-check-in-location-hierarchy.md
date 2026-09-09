@@ -58,4 +58,4 @@ Named Locations represent the intended campus, building and room structure.
 - https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
 - https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule
 - https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder
-- https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs

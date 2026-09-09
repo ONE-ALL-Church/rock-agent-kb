@@ -44,12 +44,13 @@ generated: true
 | Version | Channel | Summary |
 | --- | --- | --- |
 | `19.1` | core | Fixed issue where refreshing cache displayed an error when the App_Data/Cache folder did not exist. The Rock Cleanup job deletes the App_Data/Cache folder, and if no file types are configured to cache to the server, the folder may not get r |
-| `19.3` | core | Fixed Person Attribute Values configured for indexing not being included in Universal Search results after a bulk re-index, and restored the missing "Indexing Enabled" option in the Attributes block so Attributes can be flagged for indexing |
+| `19.1` | core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | needs-citation | live verification |
 | `mental-model` | needs-citation | live verification |
 | `jobs-and-scheduling-job-configuration-and-history` | high | live verification |

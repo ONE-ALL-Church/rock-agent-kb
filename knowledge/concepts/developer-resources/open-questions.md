@@ -17,10 +17,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `helix-development-content-blocks-and-routing`: Content blocks and routing
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `mental-model`: Mental Model
@@ -59,6 +59,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-validate-a-slingshot-migration`: Recipe: Validate a Slingshot migration
 - `agent-task-recipes-recipe-inspect-page-content-with-a-rock-ai-agent`: Recipe: Inspect page content with a Rock AI agent
 - `agent-task-recipes-recipe-verify-a-save-or-rock-managed-file-deployment`: Recipe: Verify a save or Rock-managed file deployment
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

@@ -37,4 +37,6 @@ Authorized subscribers receive the intended daily event without exposing related
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events

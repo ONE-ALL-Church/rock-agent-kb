@@ -29,12 +29,12 @@ Person records, families, aliases, attributes, relationships, and data hygiene.
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-30: Agent Summary (normal)
-- `mental-model` lines 54-70: Mental Model (normal)
-- `person-model-and-record-lifecycle-creating-and-locating-people` lines 73-78: Creating and locating people (normal)
-- `person-model-and-record-lifecycle-editing-inactivating-and-preserving-history` lines 79-90: Editing, inactivating, and preserving history (normal)
-- `person-model-and-record-lifecycle-derived-person-data` lines 91-96: Derived person data (normal)
-- `person-profile-and-access-boundaries` lines 97-113: Person Profile And Access Boundaries (normal)
+- `agent-summary` lines 34-46: Agent Summary (normal)
+- `mental-model` lines 70-86: Mental Model (normal)
+- `person-model-and-record-lifecycle-creating-and-locating-people` lines 89-94: Creating and locating people (normal)
+- `person-model-and-record-lifecycle-editing-inactivating-and-preserving-history` lines 95-106: Editing, inactivating, and preserving history (normal)
+- `person-model-and-record-lifecycle-derived-person-data` lines 107-112: Derived person data (normal)
+- `person-profile-and-access-boundaries` lines 113-129: Person Profile And Access Boundaries (normal)
 
 ## Core Entities
 

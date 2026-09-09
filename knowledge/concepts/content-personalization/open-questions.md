@@ -17,6 +17,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `scope-and-boundaries`: Scope And Boundaries
 - `content-channels-manage-editorial-work`: Manage editorial work
 - `content-channels-relate-items`: Relate items

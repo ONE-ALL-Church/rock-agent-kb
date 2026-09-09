@@ -2,15 +2,15 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:45+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:52+00:00
+source_last_checked_at: 2026-09-09T21:16:28+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 0/43
-legacy_summary_retirement_coverage: 4/43
+source_native_article_coverage: 0/48
+legacy_summary_retirement_coverage: 4/48
 depends_on_topics:
   - check-in
   - groups
@@ -35,7 +35,7 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 
 - `Scheduling And Locations` spans check-in, groups, events, cms. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_rocku, rock_youtube, rock_podcast_rss, rock_documentation, rock_recipes, rock_qa.
-- Related tags found in source records: usage, operations, admin, workflow, lava, sql, integrations, recipes.
+- Related tags found in source records: usage, operations, admin, workflow, lava, check-in, sql, integrations.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -87,12 +87,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 43
+- `rock_documentation`: 48
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 2
 - `rock_qa`: 1
-- `rock_recipes`: 20
-- `rock_rocku`: 10
+- `rock_recipes`: 16
+- `rock_rocku`: 9
 - `rock_youtube`: 1
 - `triumph_resources`: 1
 
@@ -117,29 +117,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Calendar](../../model-map/models/event-calendar.md) | Event | 19.2.0 | 43 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Calendar Content Channel](../../model-map/models/event-calendar-content-channel.md) | Event | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Event Calendar Item](../../model-map/models/event-calendar-item.md) | Event | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Location](../../model-map/models/group-location.md) | Group | 19.2.0 | 50 | 17 | 35 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Location Historical](../../model-map/models/group-location-historical.md) | Group | 19.2.0 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Interaction Session Location](../../model-map/models/interaction-session-location.md) | Core | 19.2.0 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Interactive Experience Schedule](../../model-map/models/interactive-experience-schedule.md) | Event | 19.2.0 | 47 | 14 | 32 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Interactive Experience Schedule Campus](../../model-map/models/interactive-experience-schedule-campus.md) | Event | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Location](../../model-map/models/location.md) | Core | 19.2.0 | 81 | 39 | 66 | 27 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.3.4 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Calendar](../../model-map/models/event-calendar.md) | Event | 19.3.4 | 43 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Calendar Content Channel](../../model-map/models/event-calendar-content-channel.md) | Event | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Event Calendar Item](../../model-map/models/event-calendar-item.md) | Event | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Location](../../model-map/models/group-location.md) | Group | 19.3.4 | 50 | 17 | 35 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Location Historical](../../model-map/models/group-location-historical.md) | Group | 19.3.4 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Interaction Session Location](../../model-map/models/interaction-session-location.md) | Core | 19.3.4 | 49 | 19 | 34 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Interactive Experience Schedule](../../model-map/models/interactive-experience-schedule.md) | Event | 19.3.4 | 47 | 14 | 32 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Interactive Experience Schedule Campus](../../model-map/models/interactive-experience-schedule-campus.md) | Event | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Location](../../model-map/models/location.md) | Core | 19.3.4 | 81 | 39 | 66 | 27 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -167,12 +167,12 @@ Keywords: `location, room, campus`
 | Maintain Locations | rock_documentation | Locations are used in different contexts so there are different ways you might change a location's details. If it's a family's address on the *Person Profile* page then hover your mouse over the address and click on the icon that appears to the right. If it's a named location, you can adjust it by navigating to `Admin Tools > Settings > Named Locations` as described above. Wherever you access a location, you'll... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/maintain-locations) |
 | Use Schedule Locations | rock_documentation | From the main screen above, you can also choose the *Schedule Locations* button. This screen allows you to alter the room schedules. This is normally done in the Rock Admin screens (`Admin Tools > Check-in > Check-in Configuration > Schedule`) but you can also enable/disable the schedules for the kiosk's configured rooms here too. | [source](https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations) |
 | Intro to Locations | rock_documentation | With the development of mapping technologies, location has taken on a new importance in our lives. Concepts like proximity, distance and location are common in our everyday lives and our interactions with others. Rock has a very robust location strategy. It’s important that you understand all the possibilities as you set out to implement it in your organization. # Location Descriptors When you create a location, you... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/locations/intro-to-locations) |
-| Room Reservation to Calendar 2.0 | rock_recipes | 0 Draft Room Reservation to Calendar 2.0 Shared by Jasmine Chacko , BEMA Software Services 2 years ago 9.1 Administration / Finance Intermediate This recipe aims to improve on the original Room Reservation to Calendar recipe by updating code and using the ReservationLinkage table. Skip Step 1 - don't need the attribute anymore Skip Step 2a - this is now built in Step 2b: Create the Reservation Change to Calendar... | [source](https://community.rockrms.com/recipes/444) |
 | Use the Schedule Builder | rock_documentation | Now that we have many schedule details covered, we can schedule the locations and their availability. This allows you to configure check-in to only allow certain rooms to be used at specific times. We'll do this from the Schedule Builder. 1. First head to `Admin Tools > Settings > Check-in Configuration`. 2. Select the Schedule button in the lower right corner of the check-in configuration screen. 3. Now you'll see... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder) |
+| Room Reservation to Calendar 2.0 | rock_recipes | 0 Draft Room Reservation to Calendar 2.0 Shared by Jasmine Chacko , BEMA Software Services 2 years ago 9.1 Administration / Finance Intermediate This recipe aims to improve on the original Room Reservation to Calendar recipe by updating code and using the ReservationLinkage table. Skip Step 1 - don't need the attribute anymore Skip Step 2a - this is now built in Step 2b: Create the Reservation Change to Calendar... | [source](https://community.rockrms.com/recipes/444) |
 | Clone a Schedule | rock_documentation | For many organizations, creating schedules for special events often requires duplicating the complex setup of regular services. Manually verifying that every location is correctly included in a new schedule can be a cumbersome and stressful process, especially for larger organizations managing hundreds of locations where the risk of manual error is high. To streamline this workflow and ensure accuracy, Rock allows... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule) |
-| Room Reservation to Calendar Tool 2.0 | rock_recipes | 2 Room Reservation to Calendar Tool 2.0 Shared by Sharee Bryant , Colorado Community Church 7 months ago 15.0 Event Intermediate This recipe requires the Room Management plugin from the Rock Shop. This recipe is LARGELY based on Luke Bennett's original recipe . "If you use the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin doesn't sync to the event... | [source](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20) |
-| Why | rock_recipes | 1 Group Viewer Meeting Details Accordion (Locations + Schedules + Links) - QoL Shared by Yeşu Chum , Houston's First Baptist Church 10 months ago 5.0 Group, Check-in Beginner Why Add a clean “Meeting Details” panel to the Group Viewer so checkin admins and staff that need to can see each Location with its linked Schedules at a glance. Click the location pin to jump to the Location; click a schedule to jump straight... | [source](https://community.rockrms.com/recipes/500) |
-| Room Management Calendar View | rock_recipes | 15 Room Management Calendar View Shared by Luke Bennett , Christ Baptist Church 6 years ago 8.6 Administration / Finance Beginner This recipe requires version 1.4.1 of the Room Management plugin (not free) from the Rock Shop. This recipe will show you how to add a Calendar View to the Room Management plugin to allow you to view your room reservations in a traditional calendar format. To get started, visit the Admin... | [source](https://community.rockrms.com/recipes/112) |
+| Room Reservation to Calendar Tool 2.0 | rock_recipes | 2 Room Reservation to Calendar Tool 2.0 Shared by Sharee Bryant , Colorado Community Church 9 months ago 15.0 Event Intermediate This recipe requires the Room Management plugin from the Rock Shop. This recipe is LARGELY based on Luke Bennett's original recipe . "If you use the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin doesn't sync to the event... | [source](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20) |
+| Why | rock_recipes | 1 Group Viewer Meeting Details Accordion (Locations + Schedules + Links) - QoL Shared by Yeşu Chum , Houston's First Baptist Church one year ago 5.0 Group, Check-in Beginner Why Add a clean “Meeting Details” panel to the Group Viewer so checkin admins and staff that need to can see each Location with its linked Schedules at a glance. Click the location pin to jump to the Location; click a schedule to jump straight... | [source](https://community.rockrms.com/recipes/500) |
+| Configure Locations | rock_documentation | Next, let’s configure the locations where our children meet. Check-in locations follow a loose hierarchy: campus, then building, then room. Start with your top-level campus. You can rename the default campus Rock provides or add a new one to match your organization. 1. Navigate to `Admin Tools > Check-in > Named Locations`. 2. Start by renaming the top-level campus. 3. Next enter each building on your campus. 4.... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-locations) |
 
 ### Schedules
 
@@ -202,9 +202,9 @@ Keywords: `schedule, calendar`
 | Group Schedules | rock_documentation | [Intro to Group Schedules](/documentation/engagement/groups/group-schedules/intro-to-group-schedules?Version=v19.0) [Group Schedule Types](/documentation/engagement/groups/group-schedules/group-schedule-types?Version=v19.0) [Configure Group Schedule](/documentation/engagement/groups/group-schedules/configure-group-schedule?Version=v19.0) [Configure Groups for... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules) |
 | Use Schedule Locations | rock_documentation | From the main screen above, you can also choose the *Schedule Locations* button. This screen allows you to alter the room schedules. This is normally done in the Rock Admin screens (`Admin Tools > Check-in > Check-in Configuration > Schedule`) but you can also enable/disable the schedules for the kiosk's configured rooms here too. | [source](https://community.rockrms.com/documentation/church-management/check-in/device-manager/use-schedule-locations) |
 | Intro to Group Schedules | rock_documentation | Let's take a brief moment to see the various scheduling options for groups and how these settings affect the features available. Before starting to schedule volunteers, you’ll need to configure things like locations and schedules. Locations ensure volunteers know where they're needed, while Schedules pinpoint when their help is required. Then, the Group Scheduler is used to place volunteers into those positions at... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules/intro-to-group-schedules) |
-| Room Reservation to Calendar 2.0 | rock_recipes | 0 Draft Room Reservation to Calendar 2.0 Shared by Jasmine Chacko , BEMA Software Services 2 years ago 9.1 Administration / Finance Intermediate This recipe aims to improve on the original Room Reservation to Calendar recipe by updating code and using the ReservationLinkage table. Skip Step 1 - don't need the attribute anymore Skip Step 2a - this is now built in Step 2b: Create the Reservation Change to Calendar... | [source](https://community.rockrms.com/recipes/444) |
 | Use the Schedule Builder | rock_documentation | Now that we have many schedule details covered, we can schedule the locations and their availability. This allows you to configure check-in to only allow certain rooms to be used at specific times. We'll do this from the Schedule Builder. 1. First head to `Admin Tools > Settings > Check-in Configuration`. 2. Select the Schedule button in the lower right corner of the check-in configuration screen. 3. Now you'll see... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder) |
 | Configure Group Schedule | rock_documentation | This article delves into the administrative setup and management capabilities of the Group Scheduling feature. We’ll show you how that all gets set up, and what Group Scheduling looks like on the administrative side. Before starting to schedule volunteers, you’ll need to configure things like locations and schedules. Locations ensure volunteers know where they're needed, while Schedules pinpoint when their help is... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) |
+| Room Reservation to Calendar 2.0 | rock_recipes | 0 Draft Room Reservation to Calendar 2.0 Shared by Jasmine Chacko , BEMA Software Services 2 years ago 9.1 Administration / Finance Intermediate This recipe aims to improve on the original Room Reservation to Calendar recipe by updating code and using the ReservationLinkage table. Skip Step 1 - don't need the attribute anymore Skip Step 2a - this is now built in Step 2b: Create the Reservation Change to Calendar... | [source](https://community.rockrms.com/recipes/444) |
 | Clone a Schedule | rock_documentation | For many organizations, creating schedules for special events often requires duplicating the complex setup of regular services. Manually verifying that every location is correctly included in a new schedule can be a cumbersome and stressful process, especially for larger organizations managing hundreds of locations where the risk of manual error is high. To streamline this workflow and ensure accuracy, Rock allows... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule) |
 
 ### Reservations
@@ -214,23 +214,23 @@ Keywords: `reservation, resource`
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Room Reservation to Calendar 2.0 | rock_recipes | 0 Draft Room Reservation to Calendar 2.0 Shared by Jasmine Chacko , BEMA Software Services 2 years ago 9.1 Administration / Finance Intermediate This recipe aims to improve on the original Room Reservation to Calendar recipe by updating code and using the ReservationLinkage table. Skip Step 1 - don't need the attribute anymore Skip Step 2a - this is now built in Step 2b: Create the Reservation Change to Calendar... | [source](https://community.rockrms.com/recipes/444) |
-| Room Reservation to Calendar Tool 2.0 | rock_recipes | 2 Room Reservation to Calendar Tool 2.0 Shared by Sharee Bryant , Colorado Community Church 7 months ago 15.0 Event Intermediate This recipe requires the Room Management plugin from the Rock Shop. This recipe is LARGELY based on Luke Bennett's original recipe . "If you use the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin doesn't sync to the event... | [source](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20) |
+| Room Reservation to Calendar Tool 2.0 | rock_recipes | 2 Room Reservation to Calendar Tool 2.0 Shared by Sharee Bryant , Colorado Community Church 9 months ago 15.0 Event Intermediate This recipe requires the Room Management plugin from the Rock Shop. This recipe is LARGELY based on Luke Bennett's original recipe . "If you use the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin doesn't sync to the event... | [source](https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20) |
 | Room Management Calendar View | rock_recipes | 15 Room Management Calendar View Shared by Luke Bennett , Christ Baptist Church 6 years ago 8.6 Administration / Finance Beginner This recipe requires version 1.4.1 of the Room Management plugin (not free) from the Rock Shop. This recipe will show you how to add a Calendar View to the Room Management plugin to allow you to view your room reservations in a traditional calendar format. To get started, visit the Admin... | [source](https://community.rockrms.com/recipes/112) |
-| Room Reservation to Calendar Tool 2.0 | rock_recipes | 2 Room Reservation to Calendar Tool 2.0 Shared by Sharee Bryant , Colorado Community Church 7 months ago 15.0 Event Intermediate This recipe requires the Room Management plugin from the Rock Shop. This recipe is LARGELY based on Luke Bennett's original recipe . "If you use the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin doesn't sync to the event... | [source](https://community.rockrms.com/recipes/516) |
+| Room Reservation to Calendar Tool 2.0 | rock_recipes | 2 Room Reservation to Calendar Tool 2.0 Shared by Sharee Bryant , Colorado Community Church 9 months ago 15.0 Event Intermediate This recipe requires the Room Management plugin from the Rock Shop. This recipe is LARGELY based on Luke Bennett's original recipe . "If you use the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin doesn't sync to the event... | [source](https://community.rockrms.com/recipes/516) |
 | Recipe Screenshots | rock_recipes | 6 Room Reservation to Calendar tools Shared by Luke Bennett , Christ Baptist Church 6 years ago 9.0 Administration / Finance Advanced This recipe requires version 1.4.1 of the Room Management plugin (not free) from the Rock Shop. If you're a smaller church that uses the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin has no integration whatsoever with... | [source](https://community.rockrms.com/recipes/111/room-reservation-to-calendar-tools) |
 | Recipe Screenshots | rock_recipes | 6 Room Reservation to Calendar tools Shared by Luke Bennett , Christ Baptist Church 6 years ago 9.0 Administration / Finance Advanced This recipe requires version 1.4.1 of the Room Management plugin (not free) from the Rock Shop. If you're a smaller church that uses the Room Management plugin in Rock, your admin team is probably (mildly?) annoyed with the fact that the plugin has no integration whatsoever with... | [source](https://community.rockrms.com/recipes/111) |
 | Room Mangement Drafts | rock_recipes | 2 Room Mangement Drafts Shared by Ryan Desch , The Compass Church 2 years ago 14.4 Operations Intermediate The Problem Bema's Room management plug-in has been very helpful. One issue we have found is that on the review page when submitting a new reservation, the submit button is off the page. As a result our users often haven't submitted items they thought were submitted The Solution Instead of trying to skip that... | [source](https://community.rockrms.com/recipes/418) |
-| Add 'My Reservation Approvals' To Dashboard | rock_recipes | 8 Add 'My Reservation Approvals' To Dashboard Shared by David Turner , Pillars 6 years ago 9.0 Operations Intermediate If you are using the Room Management plugin from Central Christian Church you can use this recipe to add a new "My Reservation Approvals" section to the dashboard page. This will list any reservations that still require approval by the person viewing their dashboard and specifically what needs to be... | [source](https://community.rockrms.com/recipes/178) |
-| Create Web App | rock_recipes | 3 Draft Deploying Rock RMS as an Azure App Service Shared by Jeff Sanders , iChurch 5 years ago General Beginner Overview Rock RMS is an ASP.Net application that uses a SQL Database. This app can be deployed as an Azure App Service quickly and easily. Here is a simple walkthrough. Deployment Steps Create Web App In your Azure Portal, create a new Resource Group to contain your Rock RMS related resources. A resource... | [source](https://community.rockrms.com/recipes/202) |
 | Next Steps for Azure Hosting | rock_documentation | Whether or not you qualify for Microsoft's non-profit credit, your next steps will be about the same. Azure hosting includes Windows Server and Azure SQL Server, so you don’t need to worry about obtaining separate licenses. Once your account is set up with Azure, you're ready to start provisioning. # Provision Your Services First, create the *resource group* that you'll use to group all of your Rock services. A... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
+| Add 'My Reservation Approvals' To Dashboard | rock_recipes | 8 Add 'My Reservation Approvals' To Dashboard Shared by David Turner , Pillars 6 years ago 9.0 Operations Intermediate If you are using the Room Management plugin from Central Christian Church you can use this recipe to add a new "My Reservation Approvals" section to the dashboard page. This will list any reservations that still require approval by the person viewing their dashboard and specifically what needs to be... | [source](https://community.rockrms.com/recipes/178) |
+| Create Web App | rock_recipes | 3 Draft Deploying Rock RMS as an Azure App Service Shared by Jeff Sanders , iChurch 6 years ago General Beginner Overview Rock RMS is an ASP.Net application that uses a SQL Database. This app can be deployed as an Azure App Service quickly and easily. Here is a simple walkthrough. Deployment Steps Create Web App In your Azure Portal, create a new Resource Group to contain your Rock RMS related resources. A resource... | [source](https://community.rockrms.com/recipes/202) |
 
 
 ## Source Lifecycle
 
-- Official article records in the bounded guide selection: `43`
-- Upstream check range: `2026-08-12T06:18:04+00:00` through `2026-08-12T06:18:52+00:00`
-- Source-native typed articles: `0` of `43`
-- Legacy source summaries retired: `4`; still active: `39`
+- Official article records in the bounded guide selection: `48`
+- Upstream check range: `2026-09-09T21:15:24+00:00` through `2026-09-09T21:16:28+00:00`
+- Source-native typed articles: `0` of `48`
+- Legacy source summaries retired: `4`; still active: `44`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

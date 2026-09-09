@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "3c44b5acb7f2cad5c3d70b2f389e70b46eef26a88a66c8b2654
 
 # Event Registration
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Event Registration index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Rock Event Registration coordinates reusable registration configuration, event-specific registration instances, registrars and registrants, forms, costs, payments, communications, capacity, wait lists, groups, calendar occurrences, and follow-up processes.
@@ -518,3 +534,45 @@ The supplied live-verified preregistration claims confirm only that relevant fea
 - [Placement configuration model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementConfigBag.cs)
 - [Registrant placement model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementBag.cs)
 - [Wait-list display model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs)
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `7`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
+| official | release_caveat | When multiple v19 registrant-eligibility rules are enabled, a registrant must satisfy all selected criteria. Test combined age, gender, grade and Data View rules with representative people before opening registration. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| official | release_caveat | The v19 Prevent Duplicate Registrants option blocks a matched person from being registered twice, but the warning can reveal that a person is already registered to someone who knows matching identity details. Evaluate that disclosure risk before enabling it for sensitive events. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
+| community-reviewed | implementation_pattern | Before launching preregistration broadly, teams should test the full path from public form through family record creation, check-in eligibility, and staff follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
+| community-reviewed | implementation_pattern | New-family preregistration should be connected to a clear follow-up workflow or connection process so the data captured before arrival leads to ministry action. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
+| community-reviewed | operational_guidance | Family preregistration is useful when it reduces first-visit friction and improves the quality of people, family, and child data before check-in. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
+| community-reviewed | operational_guidance | A public preregistration page should explain the value to families and avoid creating duplicate or partial records that staff later need to clean manually. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `23`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Additional Registration Fees Transcript Insight](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) | approved_for_public_distillation | 1 | media-insight:6600e5869dac2651 |
+| [Calendar Overview Transcript Insight](https://community.rockrms.com/rocku/event-registration/calendar-overview) | approved_for_public_distillation | 1 | media-insight:b7cb6e0f0354451c |
+| [Calendars and Events Transcript Insight](https://community.rockrms.com/rocku/event-registration/calendars-and-events) | approved_for_public_distillation | 1 | media-insight:45d14ff6240ffaca |
+| [Electronic Signatures Transcript Insight](https://community.rockrms.com/rocku/event-registration/electronic-signatures) | approved_for_public_distillation | 2 | media-insight:7ededa8a19f050ad |
+| [Episode 111: Special Edition with Tim Dear Transcript Insight](https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear) | approved_for_public_distillation | 3 | media-insight:05f4fce834300a65 |
+| [Episode 37: Special Edition Garrett Johnson Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) | approved_for_public_distillation | 3 | media-insight:97a12ee26ba9575f |
+| [Event Attributes Transcript Insight](https://community.rockrms.com/rocku/event-registration/event-attributes) | approved_for_public_distillation | 1 | media-insight:9799f4791807924b |
+| [Event Registration Attributes Transcript Insight](https://community.rockrms.com/rocku/event-registration/event-registration-attributes) | approved_for_public_distillation | 1 | media-insight:0936a5104d35e615 |
+| More |  | 15 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

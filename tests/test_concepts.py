@@ -1195,6 +1195,23 @@ def test_refresh_long_form_approved_claims_inserts_summary_and_full_artifact(mon
     assert "No approved media distillations are currently routed to this concept." in media_text
     assert text.index("## Approved Claim Coverage") < text.index("## 20. Source Map And Dependency Notes")
 
+    authored_text = "# Check-In\n\n" + "Authored guidance. " * 4300
+    (guide_dir / "guide.md").write_text(authored_text, encoding="utf-8")
+    long_claim = "Supported detail. " * 400
+    monkeypatch.setattr(concepts_module, "approved_claim_dependencies_for_concept", lambda _: [
+        {"claim_id": "claim:long", "claim_hash": "long-hash", "claim": long_claim,
+         "claim_type": "operational_guidance", "authority_tier": "official",
+         "source_refs": [{"url": "https://example.com/source"}]}
+    ])
+    refresh_long_form_approved_claims("check-in")
+    bounded = (guide_dir / "guide.md").read_text(encoding="utf-8")
+    assert authored_text.rstrip() in bounded
+    assert len(bounded.split()) <= 9000
+    assert long_claim.strip() not in bounded
+    assert long_claim.strip() in (guide_dir / "approved-claims.md").read_text(encoding="utf-8")
+    refresh_long_form_approved_claims("check-in")
+    assert (guide_dir / "guide.md").read_text(encoding="utf-8") == bounded
+
 
 def test_long_form_claim_coverage_is_bounded():
     claims = [

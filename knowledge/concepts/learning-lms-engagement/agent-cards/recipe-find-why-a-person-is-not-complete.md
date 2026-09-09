@@ -54,9 +54,8 @@ Determine whether the missing completion is caused by enrollment, activity compl
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program
 - https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class
 - https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course
 - https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes
 - https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs
 - https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW

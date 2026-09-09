@@ -41,7 +41,7 @@ Notes are categorized, visible, and consumed according to documented staff purpo
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Workflow/Action/People/SetPersonAttribute.cs
+- https://github.com/SparkDevNetwork/Rock/blob/4debc0117b10dafa1d56a43636cb5c1c50ba2964/Rock/Workflow/Action/People/SetPersonAttribute.cs
 - https://community.rockrms.com/rocku/core-concepts/note-types
 - https://community.rockrms.com/rocku/workflows
 - https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request

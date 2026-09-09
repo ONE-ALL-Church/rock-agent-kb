@@ -67,9 +67,9 @@ A bounded group of signed-in mobile users can see, receive, complete, and review
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp
 - https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance
-- https://community.rockrms.com/documentation/engagement/groups/group-attendance
 - https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance
 - https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email
-- https://community.rockrms.com/documentation/engagement/groups/group-rsvp
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp
+- https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry
+- https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details
 - https://www.youtube.com/watch?v=LNcx8t0mlQ4

@@ -50,6 +50,6 @@ Staff can understand delivery health in Rock context without seeing unnecessary 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/security/person-tokens/configure-person-tokens
-- https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
+- https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5#t=177
 - https://www.rockrms.com/releasenotes

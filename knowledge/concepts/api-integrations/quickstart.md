@@ -28,12 +28,12 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-31: Agent Summary (normal)
-- `rest-api` lines 67-70: REST API (normal)
-- `rest-api-api-v1` lines 71-82: API v1 (normal)
-- `rest-api-api-v2` lines 83-104: API v2 (normal)
-- `rest-api-odata-and-response-shaping` lines 105-110: OData And Response Shaping (normal)
-- `rest-api-partial-and-relationship-writes` lines 111-118: Partial And Relationship Writes (normal)
+- `agent-summary` lines 34-47: Agent Summary (normal)
+- `rest-api` lines 83-86: REST API (normal)
+- `rest-api-api-v1` lines 87-98: API v1 (normal)
+- `rest-api-api-v2` lines 99-120: API v2 (normal)
+- `rest-api-odata-and-response-shaping` lines 121-126: OData And Response Shaping (normal)
+- `rest-api-partial-and-relationship-writes` lines 127-134: Partial And Relationship Writes (high)
 
 ## Core Entities
 
@@ -52,6 +52,10 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 
 - `18.1`: Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #
 - `16.1`: Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694
+- `15.5`: Improved the Mailgun integration to use the API Key for tracking opens, etc. if the HTTP Webhook Signing Key is not defined, as well as logging a single exception to alert Rock admins of this missing key value. Fixes: #5
+- `15.4`: Added support for separate "API key" and "HTTP webhook signing key" values within Mailgun integration. Fixes: #5694
+- `18.2`: Fixed an error that prevented the Workflows Action Launch API endpoint from functioning. Fixes: #6604
+- `17.5`: Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted expl
 
 ## Files For Agents
 

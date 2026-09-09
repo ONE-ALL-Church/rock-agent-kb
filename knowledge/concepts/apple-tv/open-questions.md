@@ -16,6 +16,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `mental-model`: Mental Model
@@ -54,6 +55,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-review-a-lava-api-before-connecting-it-to-apple-tv`: Recipe: Review a Lava API before connecting it to Apple TV
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
 - `source-map`: Source Map
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

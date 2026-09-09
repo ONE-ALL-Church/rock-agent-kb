@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "36991b0283d96e45ef721418b8716542ddedb18f14b94ae9507
 
 # Apple TV Apps
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Apple TV Apps index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Rock Apple TV provides Rock-managed pages, Lava data, styles, authentication, media playback commands, and other shell commands for TVML applications. The documented feature requires Rock 14 or later. Use Apple’s TVML documentation for the underlying markup and Rock’s Apple TV documentation for Rock-specific behavior. Avoid modifying the application JavaScript unless a separately reviewed requirement makes that necessary. [Apple TV Docs](https://community.rockrms.com/developer/apple-tv-docs)
@@ -835,3 +851,43 @@ Do not represent any of these checks as completed unless the exact application, 
 | Top Shelf sizes and historical applicability | Official Rock documentation: [Top Shelf Image](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/top-shelf-image) |
 | TVML operational tips and overflow behavior | Official Rock documentation: [Tips](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips) |
 | Optional Lava APIs and default-security warning | Official Rock Lava documentation: [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api) |
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `16`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock Apple TV media commands can play video from MP4 or HLS sources and audio from MP3 sources, but they cannot play YouTube content. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) |
+| official | behavior | Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
+| official | behavior | Apple TV page Lava can inspect the current person's edit and administration access, page parameters, TV shell version, device details, application theme, and whether the client shell is in demo mode. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages) |
+| official | configuration | A Rock Apple TV app is created as a Rock-managed TV application record under CMS configuration, with Rock-side settings that are distinct from the App Store name. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app) |
+| official | configuration | To support sign-in for a Rock Apple TV app without using the TV keyboard, place a Remote Authentication block on an external Rock page, associate the block with the TV application's site, and set that page as the application's authentication page. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) |
+| official | configuration | A Rock Apple TV page has a cacheability setting: Public permits shared-cache storage, Private limits caching to the client, No-Cache requires revalidation before a local copy is reused, and No-Store prevents local storage for sensitive content. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content) |
+| official | configuration | A Rock Apple TV app icon uses three separate image layers for the tvOS parallax effect; foreground layers must be PNG files and the background layer must be a JPG file. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons) |
+| official | implementation_pattern | Apple TV TVML text can be styled with predefined tv-text-style values, font weights and families, and inline bold, italic, or strikethrough tags. | [source](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style) |
+| official | implementation_pattern | Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
+| official | implementation_pattern | An Apple TV login menu item can use the login command with page GUIDs for the login, timeout, and success destinations; the login TVML receives single-brace authQrCodeUrl and authCode fields for presenting QR-code or manual-code authentication. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) |
+| official | implementation_pattern | For Apple TV media playback, supplying an existing watch map sets the resume position; pairing that map with an interaction GUID appends viewing progress to the existing interaction, while omitting the interaction GUID creates a new interaction and watch map beginning from the prior stopping point. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) |
+| More |  | 5 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `2`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Dashboard Design Part 1 Transcript Insight](https://www.triumph.tech/resources/dashboard-design-part-1) | approved_for_public_distillation | 3 | media-insight:22ee135c5240caf2 |
+| [Episode 143: Special Edition- Braden Cohen Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) | approved_for_public_distillation | 3 | media-insight:241f05754042fbc9 |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

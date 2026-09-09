@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "692a9e2e363a64d1bcc3e5685934418c1e59419b4d642478315
 
 # Roku Apps
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [Roku Apps index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Rock’s Roku support provides a Rock-managed way to deliver digital ministry content through a Roku TV application. A Roku application is organized much like a website: an application contains pages, pages render dynamic content through Lava, and commands connect controls to navigation, playback, context, and authentication behavior. The output is Roku SceneGraph XML rather than normal CMS HTML. Roku support was introduced in Rock v16.7. [Roku Docs](https://community.rockrms.com/developer/roku-docs) [Getting Started](https://community.rockrms.com/developer/roku-docs/getting-started)
@@ -692,3 +708,43 @@ Do not include raw configuration values, API keys, organization-specific identif
 - **Layout selection and RowList:** [Layout Nodes](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes), [RowList](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist), [Tips and Tricks](https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks), approved claim `claim:49c04d8f25f6c5546bb4`.
 - **Platform references and support routes:** [Roku Resources](https://community.rockrms.com/developer/roku-docs/resources/roku-resources), [Useful Links](https://community.rockrms.com/developer/roku-docs/resources/useful-links).
 - **Custom Lava API security:** [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api), approved claim `claim:410bf6750e90b7193262`.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `16`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+| official | behavior | In Rock Roku layouts, a FocusGroup arranges its child views horizontally or vertically and automatically moves focus left/right for horizontal groups or up/down for vertical groups. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
+| official | behavior | For Roku media playback, supplying a prior watch map sets the resume position; including its interaction GUID also appends progress to that interaction, while omitting the GUID creates a new interaction with a new watch map beginning from the resumed position. | [source](https://community.rockrms.com/developer/roku-docs/commands/media) |
+| official | configuration | A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| official | configuration | A Rock Roku application can reference a website authentication page that supports remote authentication within the TV application. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
+| official | configuration | Roku page caching can be configured as public, application-private, revalidated on every load, or disabled; separate maximum-age settings control application and shared-cache retention. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+| official | implementation_pattern | When selecting SceneGraph layout elements for a Rock Roku application, account for the fact that most Roku layouts lack default item templates and prefer built-in elements where possible to avoid custom BrightScript components. | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes) |
+| official | implementation_pattern | A Rock Roku page's SceneGraph content should use `Rock:Page` as its outermost component so the page can define which content receives initial focus. | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
+| official | implementation_pattern | Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas. | [source](https://community.rockrms.com/developer/roku-docs/commands) |
+| official | implementation_pattern | Rock Roku applications use Roku's SceneGraph XML language and are composed primarily from built-in SceneGraph components, supplemented by Rock-provided custom components. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
+| official | operational_guidance | Beginning Roku development with Rock requires contacting the Rock Core team to obtain a development application setup. | [source](https://community.rockrms.com/developer/roku-docs) |
+| official | recipe | Starting Roku development with Rock requires requesting a development application from the Rock Core team through the designated request form; the team then provides setup instructions. | [source](https://community.rockrms.com/developer/roku-docs/getting-started) |
+| More |  | 4 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `1`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Dashboard Design Part 1 Transcript Insight](https://www.triumph.tech/resources/dashboard-design-part-1) | approved_for_public_distillation | 3 | media-insight:22ee135c5240caf2 |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

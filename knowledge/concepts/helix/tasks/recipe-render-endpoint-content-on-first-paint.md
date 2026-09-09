@@ -39,5 +39,4 @@ Endpoint-generated content appears during the initial page render without a seco
 
 ## Source Links
 
-- https://community.rockrms.com/lava/commands/render-lava-endpoint
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://community.rockrms.com/lava/commands

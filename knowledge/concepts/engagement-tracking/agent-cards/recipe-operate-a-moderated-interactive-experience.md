@@ -50,4 +50,6 @@ Participants receive the intended actions while only approved responses appear p
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences

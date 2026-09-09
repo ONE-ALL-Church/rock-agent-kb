@@ -1,22 +1,25 @@
 {
   "authority_coverage": [
     "official-developer",
-    "source-code"
+    "official-model-map",
+    "official-triumph",
+    "source-code",
+    "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 7341 words; expected at least 1200.",
+      "message": "Guide has 8077 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 7341 words; expected no more than 9000.",
+      "message": "Guide has 8077 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 54 sections; expected at least 9.",
+      "message": "Guide has 57 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -53,34 +56,29 @@
       "id": "source_code",
       "message": "Available source code should be cited.",
       "passed": true
-    },
-    {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
     }
   ],
   "concept_id": "apple-tv",
   "contribution_record_count": 0,
   "entity_count": 10,
-  "generated_at": "2026-09-03T16:51:18+00:00",
-  "guide_line_count": 837,
-  "guide_word_count": 7341,
+  "generated_at": "2026-09-09T23:15:42+00:00",
+  "guide_line_count": 893,
+  "guide_word_count": 8077,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 16,
-    "answer_claim_reference_count": 16,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 10,
-    "section_count": 54,
-    "source_count": 33,
-    "substantive_uncited_section_ratio": 0.0,
+    "section_count": 57,
+    "source_count": 36,
+    "substantive_uncited_section_ratio": 0.0238,
     "task_card_count": 8,
-    "word_count": 7341
+    "word_count": 8077
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 54,
-  "source_count": 33,
+  "section_count": 57,
+  "source_count": 36,
   "status": "pass",
   "task_card_count": 8
 }

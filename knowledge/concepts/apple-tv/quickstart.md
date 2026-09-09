@@ -29,12 +29,12 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-37: Agent Summary (normal)
-- `scope-and-boundaries` lines 38-59: Scope And Boundaries (normal)
-- `mental-model` lines 60-73: Mental Model (normal)
-- `creating-and-configuring-an-application` lines 74-91: Creating And Configuring An Application (normal)
-- `pages-lava-and-cache-behavior-page-content-and-merge-fields` lines 94-114: Page content and merge fields (normal)
-- `pages-lava-and-cache-behavior-creating-page-content` lines 115-120: Creating page content (normal)
+- `agent-summary` lines 34-53: Agent Summary (normal)
+- `scope-and-boundaries` lines 54-75: Scope And Boundaries (normal)
+- `mental-model` lines 76-89: Mental Model (normal)
+- `creating-and-configuring-an-application` lines 90-107: Creating And Configuring An Application (normal)
+- `pages-lava-and-cache-behavior-page-content-and-merge-fields` lines 110-130: Page content and merge fields (normal)
+- `pages-lava-and-cache-behavior-creating-page-content` lines 131-136: Creating page content (normal)
 
 ## Core Entities
 

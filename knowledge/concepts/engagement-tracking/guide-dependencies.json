@@ -3341,26 +3341,35 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "79b1615d8b90e2855f4085d8ae88b47af6695f86081fd6b99fc997596166a855",
   "approved_media_path": "knowledge/concepts/engagement-tracking/approved-media.md",
-  "built_at": "2026-09-03T16:51:03+00:00",
+  "built_at": "2026-09-09T23:15:10+00:00",
   "concept_id": "engagement-tracking",
-  "guide_hash": "07759fe2812e8c50d57c35773ef6d9d00efba3ab78a1ff777566dde42756e3e5",
-  "guide_line_count": 619,
+  "guide_hash": "94b50da467fb59387967cf725019e94c3a94c94765233743d8b328c92e00d7d3",
+  "guide_line_count": 657,
   "guide_path": "knowledge/concepts/engagement-tracking/guide.md",
-  "guide_word_count": 8179,
+  "guide_word_count": 8397,
   "rebuild_triggers": [
     {
-      "authority": "official",
-      "content_hash": "3bf978848cc29cfd52a639145f467c7af07a24ace8b27f443af48502845e4619",
-      "excerpt_hash": "67a0a35622427b686b61da5028daa892095d583cb4d5e3aaf1f0e1bc6a444f99",
-      "source_id": "rock_documentation",
-      "source_key": "374e3d98f260df41",
-      "source_record_id": "rock_documentation:article:1666",
-      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals"
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
     },
     {
       "authority": "official",
-      "content_hash": "194ad2a3972878aeeb51a31091ffeb05a5277de2144c90746117cffdac77f191",
-      "excerpt_hash": "b7d30894c8633caba45a4c5f023f0c1d021fda5f7e0ece70c683e3c900988885",
+      "content_hash": "269f71a32dcae7ff95eb29b877ce1eae918bae88c7dd71e2dbc78b22b9952d55",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "4880767c10a7866e",
+      "source_record_id": "rock_documentation:article:2018",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+    },
+    {
+      "authority": "official",
+      "content_hash": "994cc0a3e935faa007ca9ccd65d07468c39a13a4d457b2e19a657074c6592606",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "bbfd7e82adb712c5",
       "source_record_id": "rock_documentation:article:1672",
@@ -3368,8 +3377,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "217e99f3f64b373752fe5cfd01c15ac6ea19e0c4a51b6682b8d99eab17060d8e",
-      "excerpt_hash": "5c35ed822000900da96bf0829736c294167dda71fb20a248b2c5451481d562c5",
+      "content_hash": "6475746d4c876c3e69ef1a2328ae6cf8cae7658f476c7b3438ac18baa2f5175a",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "ee53d0917eebf150",
       "source_record_id": "rock_documentation:article:2025",
@@ -3377,26 +3386,26 @@
     },
     {
       "authority": "official",
-      "content_hash": "484de8ef7ccaf557f0c20d51056d1199ac52aaaecb0b8d478a709fcfff0cea3b",
-      "excerpt_hash": "f1f1f330016cd8b0f04bf9a840710cb05a9850dc2d713a2bee69b624c5b286b0",
+      "content_hash": "02cdf4ea5a83fc88db6a80ff96ff0a488f503ae0708ab26b390df95a69bc8ac1",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "9f7f2404ad9395cf",
-      "source_record_id": "rock_documentation:article:1516",
-      "url": "https://community.rockrms.com/documentation/engagement/streaks"
+      "source_key": "83cee697f1c00613",
+      "source_record_id": "rock_documentation:article:2026",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps"
     },
     {
       "authority": "official",
-      "content_hash": "e278c435acfcd3ee9ada685286da0a99f05c7c3ca6726ce950aaed1ddabe51f6",
-      "excerpt_hash": "ecc468bc62155052dcb3197a5388923a88133716231d4a360f1b4cb2e6d78c9e",
+      "content_hash": "851ed36e3313f1b7a106de5923628ac4f020124e17c4ca199f638d155e37a6e3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "433c95686237aa43",
-      "source_record_id": "rock_documentation:article:1522",
-      "url": "https://community.rockrms.com/documentation/engagement/assessments"
+      "source_key": "e32cc51f8686468c",
+      "source_record_id": "rock_documentation:article:2030",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/overview"
     },
     {
       "authority": "official",
-      "content_hash": "cfae846306775285d8da8db08d4bf10400b86bb234390aedc237715d54f46ac7",
-      "excerpt_hash": "63b6b5f4f68ce0824118b1c827d1ad4c23d3ea3aa11372e19b99c384ae7acc8c",
+      "content_hash": "e402f386c177be6d465a98aa3ec3246afa2ab524beb949cd00951f78b6d88b8c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "6084831ade9b4592",
       "source_record_id": "rock_documentation:article:1720",
@@ -3404,8 +3413,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "dcdc96a8d9bec19069fb859da74cf2da7193c778411efe8ca1c2247ed6b411e5",
-      "excerpt_hash": "e45445a2eab53d6ebfeefebfa58eb696f463abd057cc16f5a49e74e8a93a836e",
+      "content_hash": "ad8a5bd5c5f07ee8bccb51469960b5102232854ad02efd3fc23437af3fdca609",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "a5a3bd7e1d675060",
       "source_record_id": "rock_documentation:article:2037",
@@ -3413,8 +3422,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "4f82b970209a799655835126b5ad8ed8684df42047274db1a9926e268efe20cd",
-      "excerpt_hash": "78aec3afb0862e3d640e3f35aa08c074dd5ff5b7ee4147d3fe98189bd5f31572",
+      "content_hash": "98a8e5b167699d281d1a2771e2ce06a01eb23f1caab1da070d57db3a27ecd4c4",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "d7523526d0f739ac",
       "source_record_id": "rock_documentation:article:1695",
@@ -3422,8 +3431,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "480f8390242a1f23021bd146351cb064b5093fe18e4bc77295597941d89d6df5",
-      "excerpt_hash": "0087d5d4188f6c43c5745c25a0741af224a75c9bba1d1ad6b16520b290973a7e",
+      "content_hash": "d065fa28de9d4aa3eb48de9f9eb8f48dfc5f400527d80c38ec43356395ba053c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "62c8e250fa83c52b",
       "source_record_id": "rock_documentation:article:1843",
@@ -3431,8 +3440,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "2687f44f835e83203959b3fb654c983a9bda2f61eda18f4e917be3629e0340c2",
-      "excerpt_hash": "9572473fc80b0f1bbeedd737f4ccf80d76dfa72fe70fffed4e2298d4c366ba12",
+      "content_hash": "6e0ff122231ccc73fdde4dec721831abe1d0408c58153ae1389488a4703d67d8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "e261a62bd0cdb7e8",
       "source_record_id": "rock_documentation:article:1515",
@@ -3440,17 +3449,35 @@
     },
     {
       "authority": "official",
-      "content_hash": "bd37862ae9927f6f8341e5d82e271aa319e351308055e9b4f01fdc830568e9e7",
-      "excerpt_hash": "b1b6583e535e0af92c67bc98adb86c1df3d3dcae916484c2433bd06a22ac6c02",
+      "content_hash": "fb3cbef3965c03a9ec984fb8a604bc9a96a7038e920db5feaae9de1063e7e57c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "6bee649eecbc907b",
-      "source_record_id": "rock_documentation:article:1680",
-      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment"
+      "source_key": "9f7f2404ad9395cf",
+      "source_record_id": "rock_documentation:article:1516",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks"
     },
     {
       "authority": "official",
-      "content_hash": "6c57fe7b46f0cdf7b168696ae124c85700cd64535da9e2b312a60f9f5ff75c51",
-      "excerpt_hash": "e5d8f7b70d6fec2e16c8777bf22955141f0d4dbb8ec24ebe03d2635781f53838",
+      "content_hash": "3ca54f8361e73b804ee6ee67d0d2e45877badd6cfdd24b3d82c8e61976afcf76",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "433c95686237aa43",
+      "source_record_id": "rock_documentation:article:1522",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments"
+    },
+    {
+      "authority": "official",
+      "content_hash": "0828e07d7ef368c59793ec1eb1e980257f7400b6ede0c7fced4ce514dde29d36",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "07ee444fe76842da",
+      "source_record_id": "rock_documentation:article:1690",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date"
+    },
+    {
+      "authority": "official",
+      "content_hash": "72fa34d81b5ee97518fc31ec8d710b5a3fa359be7a831e23b31544a3d79ebf51",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "9f5d44f6e7480cc5",
       "source_record_id": "rock_documentation:article:1692",
@@ -3458,8 +3485,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "3b0d7b9fad82253bc9d9795ec0e5fce2a0825c6896cbdf342c93c48d35b34a03",
-      "excerpt_hash": "5de22f5a4462d3af04f767b70eb134a175a5de32d4db59910f35515d20496913",
+      "content_hash": "56ad70d7fe016300da53a11c7205b7b0c65d8c665a4e83787a07b4f329d482ac",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "d13d90e097ad3bc4",
       "source_record_id": "rock_documentation:article:1673",
@@ -3467,8 +3494,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "ab106835af50b6b468c5eff6f4152d64930fdad5ceef17cd552bb4a5610ffce0",
-      "excerpt_hash": "ccc9543ca1fb0dc81975872d8469f488cfe08ea60eaf45456c419a04ea800a35",
+      "content_hash": "4d8348242164d4de35954b27f4ac42f61a1411246f7c16cc766cac43b6fee34d",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "9806cf8f17b3424c",
       "source_record_id": "rock_documentation:article:1670",
@@ -3476,17 +3503,26 @@
     },
     {
       "authority": "official",
-      "content_hash": "9cf588d07b690d6d658ae1f4d3039f84b9f2970da819325dc4426ae53410490d",
-      "excerpt_hash": "146fa395395d0ed6cbdbd5f778272b224f9023c68919191518643caabc68b3f9",
+      "content_hash": "e73687e9cee7edeac93d392d0e458345ecd97fa6d2e8f91c8d1aa136b09204f3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "37ab7b5868f2eccf",
-      "source_record_id": "rock_documentation:article:1669",
-      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types"
+      "source_key": "374e3d98f260df41",
+      "source_record_id": "rock_documentation:article:1666",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b8eecf3ea2f988562f64692d0a472f95d4ea32eb720869638250c7ea9b7e93dc",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "27df18163971b108",
+      "source_record_id": "rock_documentation:article:1671",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps"
     },
     {
       "authority": "community-example",
-      "content_hash": "41db1b765fae294a046084aed54cd7b4b9b367d3ebbe3445d05f870e953c8bf8",
-      "excerpt_hash": "426787f08b4c4b62418a5b15ea0f09f9c862e0f8e51adcf507dab98bcf0338ce",
+      "content_hash": "540ad1c0b126ec649f7874f0be8c81a4f57abd8e0957353d44a4671840a18094",
+      "excerpt_hash": "9e846081b89df0158809cf2aeeac82af8c53d7956028e9799e88c1a5d8d77e7f",
       "source_id": "rock_recipes",
       "source_key": "b4c0c9357fbd1a73",
       "source_record_id": "rock_recipes:b4c0c9357fbd1a73",
@@ -3494,8 +3530,8 @@
     },
     {
       "authority": "official-release",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "38bee53fa78375b3086b94ef328f2421c683f3ed10bc7cb81dd1b103d2bf5075",
+      "content_hash": "a92ef08b1bc7322dc23120b2a37dae92e5ea9c69883a8742f20797aad0ef4f58",
+      "excerpt_hash": "ca97e9824256e4c753e2a82a227217da0b9c409084d718bd709a33ed0114a5f1",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:03b7924433ad1fbc",
@@ -3503,8 +3539,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "f44f4e29a233a27b370650f560dcea3f8f392f2e2c3b8c330de6724a2a0c36e1",
-      "excerpt_hash": "179ef9bfd4dcbbe4a195d24b0066f84a12da99f2694e9c11031fc7b0bcd16c90",
+      "content_hash": "0702ab36f2398a3c29d57512e1ee67ce2f6691f3b164a6bb3dbd875744daca4b",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "f14a3995df468109",
       "source_record_id": "rock_documentation:article:2023",
@@ -3512,35 +3548,44 @@
     },
     {
       "authority": "official",
-      "content_hash": "727b00e2efc403517901746ef8271f1afd3b047eb3c9c5e0508ee1e5e821f6a9",
-      "excerpt_hash": "ba740aeced212c098f93123713a1ecddb0dfe4262dbeb6dcc52ade57bd333a9c",
+      "content_hash": "8a0134e914670db3c4a6ab786395b1bcf278aca09cbdbafa5eb670330449abd8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "923360c5f8b90202",
-      "source_record_id": "rock_documentation:article:1850",
-      "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "fbe0e2877e174e5e10dca49f9c859b8eb36ff5f588a4b4c7c7fd69a841201376",
-      "excerpt_hash": "b782a395abf5face5e4e97f637026aab9d1983323cdc4f5a29c11edf660e0bb6",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "14382f1026b2a348",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d1c652adf2ab79e5e80cc2405b1486ba1b43abf9c31646b34fb4a1ee71d101d3",
-      "excerpt_hash": "3ea28f85bab63a8f8a1197ddcaefd5f0fee81cff81bed5f6913ed14b571b7c6f",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "21c8862c11f86984",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs"
+      "source_key": "e3bac5e7b0c91727",
+      "source_record_id": "rock_documentation:article:2021",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts"
     },
     {
       "authority": "official",
-      "content_hash": "e3e52a46c89a7f788876eb9acebc9ae2ac5347c3ef2c2822b590f194f1e7dd3a",
-      "excerpt_hash": "4b4f0814058e4607ca00aa2081fa8c29f40594181d7e9a4bf404e4d7c09e31ff",
+      "content_hash": "94601a93b7a7afdd55b80aab9132736ebcc918cae58ac51c5c63fb4492b684de",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "8e4ba96642d3f16d",
+      "source_record_id": "rock_documentation:article:2022",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types"
+    },
+    {
+      "authority": "official",
+      "content_hash": "19e1bc6c00b76c8698d8a6d66c0612335161021115df43b5135865f21b2b2793",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "673c37a84a701f25",
+      "source_record_id": "rock_documentation:article:2020",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "923fb6ec6bd4cf1d8fdd190fc4ea8364d35b8b2d46a9fcede5cc2486db3bb873",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "official",
+      "content_hash": "3f4c85bfaf9ef8cfa93dc1a24bcffcf3b71df9921ec788060e17f8c3f94cb79d",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "f3b7aae73c6cb793",
       "source_record_id": "rock_documentation:article:2027",
@@ -3548,8 +3593,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "6e4ff5d152baa22fb34529aeb1494681fe6914fc2e3ef1ad463b1ef48bd8ae9a",
-      "excerpt_hash": "04da509b0719a1c7174d90ff373a5fc5139cf403378861e3a3d113b0071db857",
+      "content_hash": "e5b005be110cfd0f49e6921c2c7602454810aad1b85d992e949d01044cd75f3c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "73a1685954a4c42c",
       "source_record_id": "rock_documentation:article:1685",
@@ -3557,8 +3602,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "1b0dae799630fc42b7e44562d94ce61cbc8c2d83cbc17a11648fe5046f7a8309",
-      "excerpt_hash": "9c57d85e5a05f2eb1c3836f55bebe67527686b464c151efdacda18388a642aef",
+      "content_hash": "39c702e274c429532f37628c512ab77dfb0813cceb52a12759bc520fc0993ada",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "3e678fa567a30659",
       "source_record_id": "rock_documentation:article:1686",
@@ -3566,8 +3611,17 @@
     },
     {
       "authority": "official",
-      "content_hash": "2e249deffffaa12537f7c22bc4aa4d841b91a8fc57dffa07db087087bf0e5333",
-      "excerpt_hash": "a4b33ffc98c73a36876c4634ced1c0364b704b6b2521c28b2eb991c907f7a980",
+      "content_hash": "ae231d218730c824d895af18059422f52d766c580cd018bec2f70578e489c0c0",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "0cd46013ca9de548",
+      "source_record_id": "rock_documentation:article:2028",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment"
+    },
+    {
+      "authority": "official",
+      "content_hash": "1bb45107a62756e84f14092855ae60b690dd488607b1806e41991955836c6d33",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "3371dc982b957e90",
       "source_record_id": "rock_documentation:article:1688",
@@ -3575,35 +3629,35 @@
     },
     {
       "authority": "official",
-      "content_hash": "1b0f2dbce967f05a6305a20d0d43ad91a75fd29baab2b4654826c8dd9bdf3532",
-      "excerpt_hash": "3eac0d96b6c189b4b2416795fea100bb9de2fa95209329d980fbcd2492dcef9a",
+      "content_hash": "a52c054c02b133da7e2cea7d7af9252a99edc5e20c6cfdb87c053f6ac43f542c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "7f0de14eeb87118d",
-      "source_record_id": "rock_documentation:article:1689",
-      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually"
+      "source_key": "6bee649eecbc907b",
+      "source_record_id": "rock_documentation:article:1680",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment"
     },
     {
       "authority": "official",
-      "content_hash": "b387a36f703c36ee1ad397eb7c0035bbc8b5cfcaf4fd20f7c385523ad1c449b6",
-      "excerpt_hash": "c0ca72fff281fec61da7489e9fc876282c4342e75a70ac35a431339975d74dfd",
+      "content_hash": "d5c33f6b3f8fe961a8a2634a25ba8bdba955edcc3fa154c7873df8476fc0072d",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "3e38fa107cce1e26",
-      "source_record_id": "rock_documentation:article:1679",
-      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types"
+      "source_key": "4ab069b5bd259e0c",
+      "source_record_id": "rock_documentation:article:1691",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type"
     },
     {
       "authority": "official",
-      "content_hash": "93b4d51942f6fb7df416888e6e4015ae74d67306bdb1ba8ea62c14c16486c297",
-      "excerpt_hash": "2603a4c116115785706053b46a985b65e241d1ddeb7bf7e9aa02517521acf8d1",
+      "content_hash": "435303fb939ff4356f97957872302ce651becff17e1309ac95eae70cb6b25881",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "f973a3ffb115a8ad",
-      "source_record_id": "rock_documentation:article:1712",
-      "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments"
+      "source_key": "fa107429e468831f",
+      "source_record_id": "rock_documentation:article:1718",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests"
     },
     {
       "authority": "official",
-      "content_hash": "d89ed9830542c1be9c5844dc80c12508e0f2e0e42e5fa277a80ae44486839284",
-      "excerpt_hash": "f0e27b487e681b558523cd6ab8fdf86643954dd13efa5286c95a3b16df32d7a8",
+      "content_hash": "a71781032e22b7bc454fc6620dccb25e308b979c11f9101868b08c30eba0ce79",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "ff6bbdf96ba875be",
       "source_record_id": "rock_documentation:article:1719",
@@ -3611,8 +3665,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "4bad7252d39e162318812c7332129cdafae71155adb453fa82832e8275e257fe",
-      "excerpt_hash": "5e1ebef28330d3228bf54ac1f9038219161e53e4dc2152bed229f4743dd20dd6",
+      "content_hash": "58f2ae7a50b4483a13eac9ab1cc1abf4579076a0dc1f6eb571cba8bd1572b11a",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "54d93f958f8132f6",
       "source_record_id": "rock_documentation:article:1721",
@@ -3620,17 +3674,53 @@
     },
     {
       "authority": "official",
-      "content_hash": "fa18880f76470aea41a048e66f8549f8b907e6fa8b69cb9e40b0b4a86451c4ab",
-      "excerpt_hash": "bdd59bab1ca2f32a546ccfc6d1ad838ee4f5844ccdce39d6ed2b5dc58fb1337e",
+      "content_hash": "950929838d23a3958fcea7335562bfc6264bbddeaf1a8a9fad2790cf525e8c20",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
-      "source_key": "994fa92a51894597",
-      "source_record_id": "rock_documentation:article:2029",
-      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments"
+      "source_key": "60dc00a79e232bc2",
+      "source_record_id": "rock_documentation:article:2032",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment"
     },
     {
       "authority": "official",
-      "content_hash": "9b00339caa6e483e0f0a0f840b3e37da3d7a17b12d400681176d42b873406537",
-      "excerpt_hash": "9492fe4471b78e8266534eeecde007431bbfbc9da2a742462d7acb2391570825",
+      "content_hash": "8d2f6ae468d0a93399c249f623d9fdcca72d729c54e7f7fe94769128fc43d58a",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "efe91ad644d8d9fb",
+      "source_record_id": "rock_documentation:article:2033",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts"
+    },
+    {
+      "authority": "official",
+      "content_hash": "a15593c6a0f30b0b5eaf6fb2424dde44f70c49e17e1efbeb780c1c1f9d7d6884",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "9affd25f1f123848",
+      "source_record_id": "rock_documentation:article:2034",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/motivators"
+    },
+    {
+      "authority": "official",
+      "content_hash": "035dd620ad2b12eedfc027b19ca8defc5ad115693b76e8ce75f1aeda3dec5ccc",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "cb028ddb90b64bba",
+      "source_record_id": "rock_documentation:article:2035",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b99ae45dba1eee1e335fc5321ffcfd3a9c1ba95b4b187d540a136ade51a362a3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "629dbbe8f06f4813",
+      "source_record_id": "rock_documentation:article:2036",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ee895f12daaff26a911a33939fed9640be3466dd31efc9429a612fea3e1ec9ed",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "f94eed3c5620df6c",
       "source_record_id": "rock_documentation:article:1693",
@@ -3638,8 +3728,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "6e715be851b548ea69ae7bcf8d8106d34c74d9b134c6447fcbbe8a1c8e6c00ec",
-      "excerpt_hash": "86af3b0dc168bbf3163248f3e4652d76ffd92ae984b8cf54716d8321f6e04878",
+      "content_hash": "0c745220993557fecb4591e68ea866c17808951975c645e3071f777e03920a44",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "c28240ebbed8164c",
       "source_record_id": "rock_documentation:article:1694",
@@ -3647,12 +3737,102 @@
     },
     {
       "authority": "official",
-      "content_hash": "c8699039d199d0d548e64c38b2f8354d592531af7c008b2736d95b5117614a35",
-      "excerpt_hash": "076e2a6e3a358d94d403c43a24d7562d0ba9276db6088cbf60891308f6beabb5",
+      "content_hash": "eb74489f02af621a66581bf0ca1e6703f885c5ccbf642142524400489aaf0ac3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "e6d768556ab93ec9",
       "source_record_id": "rock_documentation:article:1696",
       "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings"
+    },
+    {
+      "authority": "official",
+      "content_hash": "3e8fa0a2ac9d0f3f0b549e67e86a9a0ef035f3a50778c4216258a2fbc73262fa",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "4aecd42e43ad8754",
+      "source_record_id": "rock_documentation:article:1518",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders"
+    },
+    {
+      "authority": "official",
+      "content_hash": "277b489e37b7a915b042e0701dd882d678322cce52ed34c393fb8be551a47fd7",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "5741d086d0fcc19c",
+      "source_record_id": "rock_documentation:article:1701",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow"
+    },
+    {
+      "authority": "official",
+      "content_hash": "3d10428db421e927552ba8ea63785aa72512e88a14679072ea4839b99091ef6c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "62b499d29d175b92",
+      "source_record_id": "rock_documentation:article:1519",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ca997472475547a072be962188683ecf869c59d6c2ee1f03cdc09cdbb5b47b93",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "e1e17908a5da60e6",
+      "source_record_id": "rock_documentation:article:1702",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events"
+    },
+    {
+      "authority": "official",
+      "content_hash": "6509382145d3b8861dbe295675fedc24b72e5e75379e24e559c2b85e9155592c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "d015b21bac426cd1",
+      "source_record_id": "rock_documentation:article:2040",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group"
+    },
+    {
+      "authority": "official",
+      "content_hash": "cc37f4ffaa12b22fd4b5b37ef3b210c717b2b3692ebc0988934206e81572e6a8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "cfead4bb35ba1771",
+      "source_record_id": "rock_documentation:article:2042",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences"
+    },
+    {
+      "authority": "official",
+      "content_hash": "48eb47e49e29e9deff9df4f6d5e03ce549a7d9161f879798978d2a81a1d76a50",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "6864588b4b0049c0",
+      "source_record_id": "rock_documentation:article:1520",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ff01a06c07cf8e209b56544292ccc0db2b8db22758e7e44661668a36a14413b8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "4304d221867d2f52",
+      "source_record_id": "rock_documentation:article:1521",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups"
+    },
+    {
+      "authority": "official",
+      "content_hash": "2c6a033f427f5aae52c59ff803b424ec14a160c329cae9e7fdecd2f88b757cd1",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "351ce5a202b064e3",
+      "source_record_id": "rock_documentation:article:1709",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups"
+    },
+    {
+      "authority": "official",
+      "content_hash": "a1e1eb74f277d51d12d88871f8478e5722f70233bd48044a780ddf6d0a33e168",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "source_id": "rock_documentation",
+      "source_key": "8c641622ba22f231",
+      "source_record_id": "rock_documentation:article:1711",
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions"
     },
     {
       "authority": "unknown",
@@ -3665,8 +3845,8 @@
     },
     {
       "authority": "official",
-      "content_hash": "f6dc443c74b4ca9cf1efa19cb3fc62844e01a4481576f128b641f159aeefaff7",
-      "excerpt_hash": "e8daa02835d18f41a55f8a28858847e53ce5cbae121440ba62db6e59d13f398f",
+      "content_hash": "1f406596745ad6ebe8c6c252920cd85900698e9b650158f4999f8d6b1503ed77",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "source_id": "rock_documentation",
       "source_key": "8dc32f58a61e137e",
       "source_record_id": "rock_documentation:article:1517",
@@ -3676,27 +3856,38 @@
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 29,
+      "end_line": 45,
       "heading": "Agent Summary",
       "needs_live_verification": false,
       "section_id": "agent-summary",
       "source_keys": [
-        "374e3d98f260df41",
+        "4880767c10a7866e",
         "bbfd7e82adb712c5",
         "ee53d0917eebf150",
-        "9f7f2404ad9395cf",
-        "433c95686237aa43",
+        "83cee697f1c00613",
+        "e32cc51f8686468c",
         "6084831ade9b4592",
         "a5a3bd7e1d675060",
         "d7523526d0f739ac",
         "62c8e250fa83c52b"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "normal",
-      "end_line": 45,
+      "end_line": 61,
       "heading": "Scope And Boundaries",
       "needs_live_verification": false,
       "section_id": "scope-and-boundaries",
@@ -3706,83 +3897,85 @@
         "433c95686237aa43",
         "62c8e250fa83c52b"
       ],
-      "start_line": 30
+      "start_line": 46
     },
     {
       "confidence": "normal",
-      "end_line": 57,
+      "end_line": 73,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
       "source_keys": [
-        "6bee649eecbc907b",
+        "07ee444fe76842da",
         "9f5d44f6e7480cc5"
       ],
-      "start_line": 46
+      "start_line": 62
     },
     {
       "confidence": "structural",
-      "end_line": 59,
+      "end_line": 75,
       "heading": "Steps",
       "needs_live_verification": false,
       "section_id": "steps",
       "source_keys": [
-        "374e3d98f260df41",
+        "4880767c10a7866e",
         "bbfd7e82adb712c5",
         "d13d90e097ad3bc4",
         "9806cf8f17b3424c",
-        "37ab7b5868f2eccf",
+        "374e3d98f260df41",
+        "27df18163971b108",
         "b4c0c9357fbd1a73",
         "776256c424368312",
         "f14a3995df468109",
-        "923360c5f8b90202",
-        "14382f1026b2a348",
-        "21c8862c11f86984"
+        "e3bac5e7b0c91727",
+        "8e4ba96642d3f16d",
+        "673c37a84a701f25",
+        "d275b5b94a9da833"
       ],
-      "start_line": 58
+      "start_line": 74
     },
     {
       "confidence": "normal",
-      "end_line": 71,
+      "end_line": 87,
       "heading": "Programs, types and completion",
       "needs_live_verification": false,
       "section_id": "steps-programs-types-and-completion",
       "source_keys": [
-        "374e3d98f260df41",
+        "4880767c10a7866e",
         "bbfd7e82adb712c5",
         "d13d90e097ad3bc4",
         "9806cf8f17b3424c"
       ],
-      "start_line": 60
+      "start_line": 76
     },
     {
       "confidence": "normal",
-      "end_line": 83,
+      "end_line": 99,
       "heading": "Entry, attributes and history",
       "needs_live_verification": false,
       "section_id": "steps-entry-attributes-and-history",
       "source_keys": [
         "9806cf8f17b3424c",
-        "37ab7b5868f2eccf"
+        "374e3d98f260df41"
       ],
-      "start_line": 72
+      "start_line": 88
     },
     {
       "confidence": "normal",
-      "end_line": 91,
+      "end_line": 107,
       "heading": "Bulk entry and automation",
       "needs_live_verification": false,
       "section_id": "steps-bulk-entry-and-automation",
       "source_keys": [
-        "374e3d98f260df41",
+        "27df18163971b108",
         "d13d90e097ad3bc4",
         "b4c0c9357fbd1a73"
       ],
-      "start_line": 84
+      "start_line": 100
     },
     {
       "confidence": "high",
-      "end_line": 97,
+      "end_line": 113,
       "heading": "Workflows and permissions",
       "needs_live_verification": true,
       "section_id": "steps-workflows-and-permissions",
@@ -3791,154 +3984,159 @@
         "d13d90e097ad3bc4",
         "776256c424368312"
       ],
-      "start_line": 92
+      "start_line": 108
     },
     {
       "confidence": "normal",
-      "end_line": 113,
+      "end_line": 129,
       "heading": "Badges, metrics and charts",
       "needs_live_verification": true,
       "section_id": "steps-badges-metrics-and-charts",
       "source_keys": [
         "f14a3995df468109",
         "374e3d98f260df41",
-        "923360c5f8b90202",
-        "923360c5f8b90202"
-      ],
-      "start_line": 98
-    },
-    {
-      "confidence": "high",
-      "end_line": 121,
-      "heading": "Moving Step Types and completion records",
-      "needs_live_verification": false,
-      "section_id": "steps-moving-step-types-and-completion-records",
-      "source_keys": [
-        "374e3d98f260df41",
-        "776256c424368312",
-        "14382f1026b2a348",
-        "21c8862c11f86984"
+        "e3bac5e7b0c91727",
+        "8e4ba96642d3f16d"
       ],
       "start_line": 114
     },
     {
+      "confidence": "high",
+      "end_line": 137,
+      "heading": "Moving Step Types and completion records",
+      "needs_live_verification": false,
+      "section_id": "steps-moving-step-types-and-completion-records",
+      "source_keys": [
+        "673c37a84a701f25",
+        "776256c424368312",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 130
+    },
+    {
       "confidence": "structural",
-      "end_line": 123,
+      "end_line": 139,
       "heading": "Streaks",
       "needs_live_verification": false,
       "section_id": "streaks",
       "source_keys": [
         "ee53d0917eebf150",
         "f3b7aae73c6cb793",
-        "9f7f2404ad9395cf",
+        "83cee697f1c00613",
         "73a1685954a4c42c",
         "3e678fa567a30659",
-        "6bee649eecbc907b",
+        "0cd46013ca9de548",
+        "07ee444fe76842da",
         "3371dc982b957e90",
-        "7f0de14eeb87118d",
-        "3e38fa107cce1e26"
+        "6bee649eecbc907b",
+        "4ab069b5bd259e0c"
       ],
-      "start_line": 122
+      "start_line": 138
     },
     {
       "confidence": "normal",
-      "end_line": 137,
+      "end_line": 153,
       "heading": "Types and maps",
       "needs_live_verification": true,
       "section_id": "streaks-types-and-maps",
       "source_keys": [
         "ee53d0917eebf150",
         "f3b7aae73c6cb793",
-        "9f7f2404ad9395cf",
+        "83cee697f1c00613",
         "73a1685954a4c42c"
       ],
-      "start_line": 124
+      "start_line": 140
     },
     {
       "confidence": "normal",
-      "end_line": 145,
+      "end_line": 161,
       "heading": "Enrollment and exclusions",
       "needs_live_verification": false,
       "section_id": "streaks-enrollment-and-exclusions",
       "source_keys": [
         "3e678fa567a30659",
-        "6bee649eecbc907b",
-        "6bee649eecbc907b",
-        "6bee649eecbc907b",
+        "0cd46013ca9de548",
+        "0cd46013ca9de548",
+        "07ee444fe76842da",
         "3371dc982b957e90",
         "3e678fa567a30659"
-      ],
-      "start_line": 138
-    },
-    {
-      "confidence": "normal",
-      "end_line": 151,
-      "heading": "Rebuild boundaries",
-      "needs_live_verification": false,
-      "section_id": "streaks-rebuild-boundaries",
-      "source_keys": [
-        "7f0de14eeb87118d",
-        "3e38fa107cce1e26"
-      ],
-      "start_line": 146
-    },
-    {
-      "confidence": "structural",
-      "end_line": 153,
-      "heading": "Assessments",
-      "needs_live_verification": false,
-      "section_id": "assessments",
-      "source_keys": [
-        "f973a3ffb115a8ad",
-        "ff6bbdf96ba875be",
-        "54d93f958f8132f6",
-        "6084831ade9b4592",
-        "994fa92a51894597"
-      ],
-      "start_line": 152
-    },
-    {
-      "confidence": "normal",
-      "end_line": 161,
-      "heading": "Requests, completion and history",
-      "needs_live_verification": false,
-      "section_id": "assessments-requests-completion-and-history",
-      "source_keys": [
-        "f973a3ffb115a8ad",
-        "ff6bbdf96ba875be",
-        "54d93f958f8132f6"
       ],
       "start_line": 154
     },
     {
       "confidence": "normal",
-      "end_line": 170,
+      "end_line": 167,
+      "heading": "Rebuild boundaries",
+      "needs_live_verification": false,
+      "section_id": "streaks-rebuild-boundaries",
+      "source_keys": [
+        "6bee649eecbc907b",
+        "4ab069b5bd259e0c"
+      ],
+      "start_line": 162
+    },
+    {
+      "confidence": "structural",
+      "end_line": 169,
+      "heading": "Assessments",
+      "needs_live_verification": false,
+      "section_id": "assessments",
+      "source_keys": [
+        "fa107429e468831f",
+        "ff6bbdf96ba875be",
+        "54d93f958f8132f6",
+        "6084831ade9b4592",
+        "60dc00a79e232bc2",
+        "efe91ad644d8d9fb",
+        "9affd25f1f123848",
+        "cb028ddb90b64bba",
+        "629dbbe8f06f4813"
+      ],
+      "start_line": 168
+    },
+    {
+      "confidence": "normal",
+      "end_line": 177,
+      "heading": "Requests, completion and history",
+      "needs_live_verification": false,
+      "section_id": "assessments-requests-completion-and-history",
+      "source_keys": [
+        "fa107429e468831f",
+        "ff6bbdf96ba875be",
+        "54d93f958f8132f6"
+      ],
+      "start_line": 170
+    },
+    {
+      "confidence": "normal",
+      "end_line": 186,
       "heading": "Retake controls",
       "needs_live_verification": true,
       "section_id": "assessments-retake-controls",
       "source_keys": [
         "6084831ade9b4592"
       ],
-      "start_line": 162
+      "start_line": 178
     },
     {
       "confidence": "normal",
-      "end_line": 182,
+      "end_line": 198,
       "heading": "Result interpretation and segmentation",
       "needs_live_verification": false,
       "section_id": "assessments-result-interpretation-and-segmentation",
       "source_keys": [
-        "994fa92a51894597",
-        "994fa92a51894597",
-        "994fa92a51894597",
-        "994fa92a51894597",
-        "994fa92a51894597"
+        "60dc00a79e232bc2",
+        "efe91ad644d8d9fb",
+        "9affd25f1f123848",
+        "cb028ddb90b64bba",
+        "629dbbe8f06f4813"
       ],
-      "start_line": 171
+      "start_line": 187
     },
     {
       "confidence": "structural",
-      "end_line": 184,
+      "end_line": 200,
       "heading": "Achievements",
       "needs_live_verification": false,
       "section_id": "achievements",
@@ -3950,11 +4148,11 @@
         "e6d768556ab93ec9",
         "d7523526d0f739ac"
       ],
-      "start_line": 183
+      "start_line": 199
     },
     {
       "confidence": "normal",
-      "end_line": 192,
+      "end_line": 208,
       "heading": "Types, attempts and progress",
       "needs_live_verification": false,
       "section_id": "achievements-types-attempts-and-progress",
@@ -3966,11 +4164,11 @@
         "9f5d44f6e7480cc5",
         "f94eed3c5620df6c"
       ],
-      "start_line": 185
+      "start_line": 201
     },
     {
       "confidence": "normal",
-      "end_line": 198,
+      "end_line": 214,
       "heading": "Workflows, badges and Step integration",
       "needs_live_verification": false,
       "section_id": "achievements-workflows-badges-and-step-integration",
@@ -3978,11 +4176,11 @@
         "e6d768556ab93ec9",
         "d7523526d0f739ac"
       ],
-      "start_line": 193
+      "start_line": 209
     },
     {
       "confidence": "normal",
-      "end_line": 204,
+      "end_line": 220,
       "heading": "Overrides and rebuilds",
       "needs_live_verification": true,
       "section_id": "achievements-overrides-and-rebuilds",
@@ -3990,74 +4188,74 @@
         "c28240ebbed8164c",
         "9f5d44f6e7480cc5"
       ],
-      "start_line": 199
-    },
-    {
-      "confidence": "normal",
-      "end_line": 214,
-      "heading": "Reminders",
-      "needs_live_verification": false,
-      "section_id": "reminders",
-      "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
-      ],
-      "start_line": 205
-    },
-    {
-      "confidence": "normal",
-      "end_line": 224,
-      "heading": "Following",
-      "needs_live_verification": false,
-      "section_id": "following",
-      "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
-      ],
       "start_line": 215
     },
     {
       "confidence": "normal",
-      "end_line": 232,
+      "end_line": 230,
+      "heading": "Reminders",
+      "needs_live_verification": false,
+      "section_id": "reminders",
+      "source_keys": [
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754"
+      ],
+      "start_line": 221
+    },
+    {
+      "confidence": "normal",
+      "end_line": 240,
+      "heading": "Following",
+      "needs_live_verification": false,
+      "section_id": "following",
+      "source_keys": [
+        "5741d086d0fcc19c",
+        "62b499d29d175b92",
+        "e1e17908a5da60e6",
+        "62b499d29d175b92",
+        "d015b21bac426cd1",
+        "62b499d29d175b92"
+      ],
+      "start_line": 231
+    },
+    {
+      "confidence": "normal",
+      "end_line": 248,
       "heading": "Interactive Experiences",
       "needs_live_verification": false,
       "section_id": "interactive-experiences",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "cfead4bb35ba1771",
+        "6864588b4b0049c0",
+        "6864588b4b0049c0",
+        "6864588b4b0049c0",
+        "6864588b4b0049c0"
       ],
-      "start_line": 225
+      "start_line": 241
     },
     {
       "confidence": "normal",
-      "end_line": 244,
+      "end_line": 260,
       "heading": "Sign-Ups",
       "needs_live_verification": true,
       "section_id": "sign-ups",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "4304d221867d2f52",
+        "4304d221867d2f52",
+        "351ce5a202b064e3",
+        "4304d221867d2f52",
+        "8c641622ba22f231"
       ],
-      "start_line": 233
+      "start_line": 249
     },
     {
       "confidence": "normal",
-      "end_line": 262,
+      "end_line": 278,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
@@ -4065,11 +4263,11 @@
         "776256c424368312",
         "621293a53c063388"
       ],
-      "start_line": 245
+      "start_line": 261
     },
     {
       "confidence": "structural",
-      "end_line": 264,
+      "end_line": 280,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -4078,80 +4276,90 @@
         "d13d90e097ad3bc4",
         "f14a3995df468109",
         "374e3d98f260df41",
-        "923360c5f8b90202",
+        "e3bac5e7b0c91727",
+        "8e4ba96642d3f16d",
+        "0cd46013ca9de548",
         "6bee649eecbc907b",
-        "7f0de14eeb87118d",
         "3e678fa567a30659",
         "3371dc982b957e90",
+        "07ee444fe76842da",
         "6084831ade9b4592",
         "54d93f958f8132f6",
         "c28240ebbed8164c",
         "9f5d44f6e7480cc5",
-        "62c8e250fa83c52b"
+        "4aecd42e43ad8754",
+        "5741d086d0fcc19c",
+        "e1e17908a5da60e6",
+        "62b499d29d175b92",
+        "cfead4bb35ba1771",
+        "6864588b4b0049c0",
+        "351ce5a202b064e3",
+        "4304d221867d2f52",
+        "8c641622ba22f231"
       ],
-      "start_line": 263
+      "start_line": 279
     },
     {
       "confidence": "normal",
-      "end_line": 272,
+      "end_line": 288,
       "heading": "A Step has a completion date but is not counted as complete",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-step-has-a-completion-date-but-is-not-counted-as-complete",
       "source_keys": [
         "bbfd7e82adb712c5"
       ],
-      "start_line": 265
+      "start_line": 281
     },
     {
       "confidence": "normal",
-      "end_line": 280,
+      "end_line": 296,
       "heading": "Step automation did not create or complete a record",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-step-automation-did-not-create-or-complete-a-record",
       "source_keys": [
         "d13d90e097ad3bc4"
       ],
-      "start_line": 273
+      "start_line": 289
     },
     {
       "confidence": "normal",
-      "end_line": 287,
+      "end_line": 303,
       "heading": "A Steps badge appears but its count does not",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree-a-steps-badge-appears-but-its-count-does-not",
       "source_keys": [
         "f14a3995df468109"
       ],
-      "start_line": 281
+      "start_line": 297
     },
     {
       "confidence": "normal",
-      "end_line": 295,
+      "end_line": 311,
       "heading": "Step metrics or charts appear inflated or use unexpected dates",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-step-metrics-or-charts-appear-inflated-or-use-unexpected-dates",
       "source_keys": [
         "374e3d98f260df41",
-        "923360c5f8b90202",
-        "923360c5f8b90202"
+        "e3bac5e7b0c91727",
+        "8e4ba96642d3f16d"
       ],
-      "start_line": 288
+      "start_line": 304
     },
     {
       "confidence": "normal",
-      "end_line": 303,
+      "end_line": 319,
       "heading": "A manually enrolled person has a streak of zero",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-manually-enrolled-person-has-a-streak-of-zero",
       "source_keys": [
-        "6bee649eecbc907b",
-        "7f0de14eeb87118d"
+        "0cd46013ca9de548",
+        "6bee649eecbc907b"
       ],
-      "start_line": 296
+      "start_line": 312
     },
     {
       "confidence": "normal",
-      "end_line": 310,
+      "end_line": 326,
       "heading": "A Streak Type map was changed but participant totals have not updated",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-streak-type-map-was-changed-but-participant-totals-have-not-updated",
@@ -4159,44 +4367,44 @@
         "3e678fa567a30659",
         "3371dc982b957e90"
       ],
-      "start_line": 304
+      "start_line": 320
     },
     {
       "confidence": "normal",
-      "end_line": 317,
+      "end_line": 333,
       "heading": "A streak spans a date that still looks absent",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-streak-spans-a-date-that-still-looks-absent",
       "source_keys": [
-        "6bee649eecbc907b"
+        "07ee444fe76842da"
       ],
-      "start_line": 311
+      "start_line": 327
     },
     {
       "confidence": "normal",
-      "end_line": 325,
+      "end_line": 341,
       "heading": "A person cannot retake an assessment",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-person-cannot-retake-an-assessment",
       "source_keys": [
         "6084831ade9b4592"
       ],
-      "start_line": 318
+      "start_line": 334
     },
     {
       "confidence": "normal",
-      "end_line": 332,
+      "end_line": 348,
       "heading": "An assessment request cannot be canceled",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-assessment-request-cannot-be-canceled",
       "source_keys": [
         "54d93f958f8132f6"
       ],
-      "start_line": 326
+      "start_line": 342
     },
     {
       "confidence": "normal",
-      "end_line": 341,
+      "end_line": 357,
       "heading": "Achievement progress or attempt state looks wrong",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-achievement-progress-or-attempt-state-looks-wrong",
@@ -4204,61 +4412,61 @@
         "c28240ebbed8164c",
         "9f5d44f6e7480cc5"
       ],
-      "start_line": 333
+      "start_line": 349
     },
     {
       "confidence": "normal",
-      "end_line": 350,
+      "end_line": 366,
       "heading": "A Reminder was created but no notification occurred",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-reminder-was-created-but-no-notification-occurred",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754"
       ],
-      "start_line": 342
-    },
-    {
-      "confidence": "normal",
-      "end_line": 359,
-      "heading": "A Following notification is missing",
-      "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-a-following-notification-is-missing",
-      "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
-      ],
-      "start_line": 351
-    },
-    {
-      "confidence": "normal",
-      "end_line": 367,
-      "heading": "An Interactive Experience response is missing from the visualizer",
-      "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-an-interactive-experience-response-is-missing-from-the-visualizer",
-      "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
-      ],
-      "start_line": 360
+      "start_line": 358
     },
     {
       "confidence": "normal",
       "end_line": 375,
+      "heading": "A Following notification is missing",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-following-notification-is-missing",
+      "source_keys": [
+        "5741d086d0fcc19c",
+        "e1e17908a5da60e6",
+        "62b499d29d175b92"
+      ],
+      "start_line": 367
+    },
+    {
+      "confidence": "normal",
+      "end_line": 383,
+      "heading": "An Interactive Experience response is missing from the visualizer",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-an-interactive-experience-response-is-missing-from-the-visualizer",
+      "source_keys": [
+        "cfead4bb35ba1771",
+        "6864588b4b0049c0"
+      ],
+      "start_line": 376
+    },
+    {
+      "confidence": "normal",
+      "end_line": 391,
       "heading": "A Sign-Up communication or attendance link fails",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-sign-up-communication-or-attendance-link-fails",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "351ce5a202b064e3",
+        "4304d221867d2f52",
+        "8c641622ba22f231"
       ],
-      "start_line": 368
+      "start_line": 384
     },
     {
       "confidence": "structural",
-      "end_line": 377,
+      "end_line": 393,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -4266,27 +4474,34 @@
         "bbfd7e82adb712c5",
         "d13d90e097ad3bc4",
         "9806cf8f17b3424c",
-        "374e3d98f260df41",
+        "27df18163971b108",
         "73a1685954a4c42c",
-        "9f7f2404ad9395cf",
+        "83cee697f1c00613",
         "3371dc982b957e90",
+        "07ee444fe76842da",
         "6bee649eecbc907b",
-        "7f0de14eeb87118d",
-        "3e38fa107cce1e26",
-        "f973a3ffb115a8ad",
+        "4ab069b5bd259e0c",
+        "fa107429e468831f",
         "54d93f958f8132f6",
-        "433c95686237aa43",
-        "994fa92a51894597",
+        "e32cc51f8686468c",
+        "cb028ddb90b64bba",
+        "629dbbe8f06f4813",
         "f94eed3c5620df6c",
         "e6d768556ab93ec9",
         "d7523526d0f739ac",
-        "62c8e250fa83c52b"
+        "4aecd42e43ad8754",
+        "e1e17908a5da60e6",
+        "5741d086d0fcc19c",
+        "6864588b4b0049c0",
+        "351ce5a202b064e3",
+        "4304d221867d2f52",
+        "8c641622ba22f231"
       ],
-      "start_line": 376
+      "start_line": 392
     },
     {
       "confidence": "normal",
-      "end_line": 403,
+      "end_line": 419,
       "heading": "Recipe: Configure a Step journey with reliable completion signals",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-step-journey-with-reliable-completion-signals",
@@ -4295,95 +4510,95 @@
         "d13d90e097ad3bc4",
         "9806cf8f17b3424c"
       ],
-      "start_line": 378
+      "start_line": 394
     },
     {
       "confidence": "normal",
-      "end_line": 415,
+      "end_line": 431,
       "heading": "Recipe: Bulk-record a Step",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-bulk-record-a-step",
       "source_keys": [
-        "374e3d98f260df41",
+        "27df18163971b108",
         "9806cf8f17b3424c"
       ],
-      "start_line": 404
+      "start_line": 420
     },
     {
       "confidence": "normal",
-      "end_line": 427,
+      "end_line": 443,
       "heading": "Recipe: Automate Step completion from a Data View",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-automate-step-completion-from-a-data-view",
       "source_keys": [
         "d13d90e097ad3bc4"
       ],
-      "start_line": 416
+      "start_line": 432
     },
     {
       "confidence": "normal",
-      "end_line": 443,
+      "end_line": 459,
       "heading": "Recipe: Build a Streak Type safely",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-a-streak-type-safely",
       "source_keys": [
         "73a1685954a4c42c",
-        "9f7f2404ad9395cf"
-      ],
-      "start_line": 428
-    },
-    {
-      "confidence": "normal",
-      "end_line": 458,
-      "heading": "Recipe: Correct one person’s streak",
-      "needs_live_verification": true,
-      "section_id": "agent-task-recipes-recipe-correct-one-person-s-streak",
-      "source_keys": [
-        "3371dc982b957e90",
-        "6bee649eecbc907b"
+        "83cee697f1c00613"
       ],
       "start_line": 444
     },
     {
       "confidence": "normal",
-      "end_line": 471,
+      "end_line": 474,
+      "heading": "Recipe: Correct one person’s streak",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-correct-one-person-s-streak",
+      "source_keys": [
+        "3371dc982b957e90",
+        "07ee444fe76842da"
+      ],
+      "start_line": 460
+    },
+    {
+      "confidence": "normal",
+      "end_line": 487,
       "heading": "Recipe: Rebuild a Streak with a controlled boundary",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-rebuild-a-streak-with-a-controlled-boundary",
       "source_keys": [
-        "7f0de14eeb87118d",
-        "3e38fa107cce1e26"
+        "6bee649eecbc907b",
+        "4ab069b5bd259e0c"
       ],
-      "start_line": 459
+      "start_line": 475
     },
     {
       "confidence": "normal",
-      "end_line": 489,
+      "end_line": 505,
       "heading": "Recipe: Request and monitor assessments",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-request-and-monitor-assessments",
       "source_keys": [
-        "f973a3ffb115a8ad",
+        "fa107429e468831f",
         "54d93f958f8132f6"
       ],
-      "start_line": 472
+      "start_line": 488
     },
     {
       "confidence": "normal",
-      "end_line": 501,
+      "end_line": 517,
       "heading": "Recipe: Build an assessment-result segment",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-an-assessment-result-segment",
       "source_keys": [
-        "433c95686237aa43",
-        "994fa92a51894597",
-        "994fa92a51894597"
+        "e32cc51f8686468c",
+        "cb028ddb90b64bba",
+        "629dbbe8f06f4813"
       ],
-      "start_line": 490
+      "start_line": 506
     },
     {
       "confidence": "normal",
-      "end_line": 516,
+      "end_line": 532,
       "heading": "Recipe: Connect an Achievement to workflows and Steps",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-connect-an-achievement-to-workflows-and-steps",
@@ -4392,73 +4607,73 @@
         "e6d768556ab93ec9",
         "d7523526d0f739ac"
       ],
-      "start_line": 502
+      "start_line": 518
     },
     {
       "confidence": "normal",
-      "end_line": 530,
+      "end_line": 546,
       "heading": "Recipe: Configure Reminder processing",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-reminder-processing",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754",
+        "4aecd42e43ad8754"
       ],
-      "start_line": 517
+      "start_line": 533
     },
     {
       "confidence": "normal",
-      "end_line": 543,
+      "end_line": 559,
       "heading": "Recipe: Configure a secure Following event",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-secure-following-event",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "e1e17908a5da60e6",
+        "5741d086d0fcc19c"
       ],
-      "start_line": 531
+      "start_line": 547
     },
     {
       "confidence": "normal",
-      "end_line": 558,
+      "end_line": 574,
       "heading": "Recipe: Operate a moderated Interactive Experience",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-operate-a-moderated-interactive-experience",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "6864588b4b0049c0",
+        "6864588b4b0049c0",
+        "6864588b4b0049c0"
       ],
-      "start_line": 544
+      "start_line": 560
     },
     {
       "confidence": "normal",
-      "end_line": 573,
+      "end_line": 589,
       "heading": "Recipe: Configure a Sign-Up registration and attendance route",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-sign-up-registration-and-attendance-route",
       "source_keys": [
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b",
-        "62c8e250fa83c52b"
+        "351ce5a202b064e3",
+        "4304d221867d2f52",
+        "8c641622ba22f231"
       ],
-      "start_line": 559
+      "start_line": 575
     },
     {
       "confidence": "normal",
-      "end_line": 599,
+      "end_line": 615,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
         "ff6bbdf96ba875be"
       ],
-      "start_line": 574
+      "start_line": 590
     },
     {
       "confidence": "structural",
-      "end_line": 601,
+      "end_line": 617,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
@@ -4469,16 +4684,15 @@
         "8dc32f58a61e137e",
         "62c8e250fa83c52b",
         "776256c424368312",
-        "14382f1026b2a348",
-        "21c8862c11f86984",
+        "d275b5b94a9da833",
         "621293a53c063388",
         "b4c0c9357fbd1a73"
       ],
-      "start_line": 600
+      "start_line": 616
     },
     {
       "confidence": "normal",
-      "end_line": 609,
+      "end_line": 625,
       "heading": "Official engagement documentation",
       "needs_live_verification": false,
       "section_id": "source-map-official-engagement-documentation",
@@ -4489,64 +4703,96 @@
         "8dc32f58a61e137e",
         "62c8e250fa83c52b"
       ],
-      "start_line": 602
+      "start_line": 618
     },
     {
       "confidence": "normal",
-      "end_line": 616,
+      "end_line": 632,
       "heading": "Version and implementation evidence",
       "needs_live_verification": false,
       "section_id": "source-map-version-and-implementation-evidence",
       "source_keys": [
         "776256c424368312",
-        "14382f1026b2a348",
-        "21c8862c11f86984",
+        "d275b5b94a9da833",
+        "d275b5b94a9da833",
         "621293a53c063388"
       ],
-      "start_line": 610
+      "start_line": 626
     },
     {
       "confidence": "community-supported",
-      "end_line": 619,
+      "end_line": 637,
       "heading": "Community example",
       "needs_live_verification": false,
       "section_id": "source-map-community-example",
       "source_keys": [
         "b4c0c9357fbd1a73"
       ],
-      "start_line": 617
+      "start_line": 633
+    },
+    {
+      "confidence": "structural",
+      "end_line": 651,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "b4c0c9357fbd1a73"
+      ],
+      "start_line": 638
+    },
+    {
+      "confidence": "structural",
+      "end_line": 657,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "b4c0c9357fbd1a73"
+      ],
+      "start_line": 652
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T15:51:03+00:00",
+  "source_pack_hydrated_at": "2026-06-18T23:52:32+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "3bf978848cc29cfd52a639145f467c7af07a24ace8b27f443af48502845e4619",
-      "excerpt_hash": "67a0a35622427b686b61da5028daa892095d583cb4d5e3aaf1f0e1bc6a444f99",
+      "content_hash": "269f71a32dcae7ff95eb29b877ce1eae918bae88c7dd71e2dbc78b22b9952d55",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "374e3d98f260df41",
-      "source_record_id": "rock_documentation:article:1666",
-      "title": "Fundamentals",
+      "source_key": "4880767c10a7866e",
+      "source_record_id": "rock_documentation:article:2018",
+      "title": "Intro to Steps",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "194ad2a3972878aeeb51a31091ffeb05a5277de2144c90746117cffdac77f191",
-      "excerpt_hash": "b7d30894c8633caba45a4c5f023f0c1d021fda5f7e0ece70c683e3c900988885",
+      "content_hash": "994cc0a3e935faa007ca9ccd65d07468c39a13a4d457b2e19a657074c6592606",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4567,8 +4813,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "217e99f3f64b373752fe5cfd01c15ac6ea19e0c4a51b6682b8d99eab17060d8e",
-      "excerpt_hash": "5c35ed822000900da96bf0829736c294167dda71fb20a248b2c5451481d562c5",
+      "content_hash": "6475746d4c876c3e69ef1a2328ae6cf8cae7658f476c7b3438ac18baa2f5175a",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4590,52 +4836,53 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "484de8ef7ccaf557f0c20d51056d1199ac52aaaecb0b8d478a709fcfff0cea3b",
-      "excerpt_hash": "f1f1f330016cd8b0f04bf9a840710cb05a9850dc2d713a2bee69b624c5b286b0",
+      "content_hash": "02cdf4ea5a83fc88db6a80ff96ff0a488f503ae0708ab26b390df95a69bc8ac1",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "9f7f2404ad9395cf",
-      "source_record_id": "rock_documentation:article:1516",
-      "title": "Streaks",
+      "source_key": "83cee697f1c00613",
+      "source_record_id": "rock_documentation:article:2026",
+      "title": "Streaks Maps",
       "topics": [
         "admin",
+        "check-in",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/streaks",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "e278c435acfcd3ee9ada685286da0a99f05c7c3ca6726ce950aaed1ddabe51f6",
-      "excerpt_hash": "ecc468bc62155052dcb3197a5388923a88133716231d4a360f1b4cb2e6d78c9e",
+      "content_hash": "851ed36e3313f1b7a106de5923628ac4f020124e17c4ca199f638d155e37a6e3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "433c95686237aa43",
-      "source_record_id": "rock_documentation:article:1522",
-      "title": "Assessments",
+      "source_key": "e32cc51f8686468c",
+      "source_record_id": "rock_documentation:article:2030",
+      "title": "Overview",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/assessments",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/overview",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "cfae846306775285d8da8db08d4bf10400b86bb234390aedc237715d54f46ac7",
-      "excerpt_hash": "63b6b5f4f68ce0824118b1c827d1ad4c23d3ea3aa11372e19b99c384ae7acc8c",
+      "content_hash": "e402f386c177be6d465a98aa3ec3246afa2ab524beb949cd00951f78b6d88b8c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4656,8 +4903,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "dcdc96a8d9bec19069fb859da74cf2da7193c778411efe8ca1c2247ed6b411e5",
-      "excerpt_hash": "e45445a2eab53d6ebfeefebfa58eb696f463abd057cc16f5a49e74e8a93a836e",
+      "content_hash": "ad8a5bd5c5f07ee8bccb51469960b5102232854ad02efd3fc23437af3fdca609",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4678,8 +4925,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "4f82b970209a799655835126b5ad8ed8684df42047274db1a9926e268efe20cd",
-      "excerpt_hash": "78aec3afb0862e3d640e3f35aa08c074dd5ff5b7ee4147d3fe98189bd5f31572",
+      "content_hash": "98a8e5b167699d281d1a2771e2ce06a01eb23f1caab1da070d57db3a27ecd4c4",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4700,8 +4947,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "480f8390242a1f23021bd146351cb064b5093fe18e4bc77295597941d89d6df5",
-      "excerpt_hash": "0087d5d4188f6c43c5745c25a0741af224a75c9bba1d1ad6b16520b290973a7e",
+      "content_hash": "d065fa28de9d4aa3eb48de9f9eb8f48dfc5f400527d80c38ec43356395ba053c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4722,8 +4969,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "2687f44f835e83203959b3fb654c983a9bda2f61eda18f4e917be3629e0340c2",
-      "excerpt_hash": "9572473fc80b0f1bbeedd737f4ccf80d76dfa72fe70fffed4e2298d4c366ba12",
+      "content_hash": "6e0ff122231ccc73fdde4dec721831abe1d0408c58153ae1389488a4703d67d8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4744,30 +4991,75 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "bd37862ae9927f6f8341e5d82e271aa319e351308055e9b4f01fdc830568e9e7",
-      "excerpt_hash": "b1b6583e535e0af92c67bc98adb86c1df3d3dcae916484c2433bd06a22ac6c02",
+      "content_hash": "fb3cbef3965c03a9ec984fb8a604bc9a96a7038e920db5feaae9de1063e7e57c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "6bee649eecbc907b",
-      "source_record_id": "rock_documentation:article:1680",
-      "title": "Streak Enrollment",
+      "source_key": "9f7f2404ad9395cf",
+      "source_record_id": "rock_documentation:article:1516",
+      "title": "Streaks",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6c57fe7b46f0cdf7b168696ae124c85700cd64535da9e2b312a60f9f5ff75c51",
-      "excerpt_hash": "e5d8f7b70d6fec2e16c8777bf22955141f0d4dbb8ec24ebe03d2635781f53838",
+      "content_hash": "3ca54f8361e73b804ee6ee67d0d2e45877badd6cfdd24b3d82c8e61976afcf76",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "433c95686237aa43",
+      "source_record_id": "rock_documentation:article:1522",
+      "title": "Assessments",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/assessments",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "0828e07d7ef368c59793ec1eb1e980257f7400b6ede0c7fced4ce514dde29d36",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "07ee444fe76842da",
+      "source_record_id": "rock_documentation:article:1690",
+      "title": "Exclude a Date",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "72fa34d81b5ee97518fc31ec8d710b5a3fa359be7a831e23b31544a3d79ebf51",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4788,8 +5080,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "3b0d7b9fad82253bc9d9795ec0e5fce2a0825c6896cbdf342c93c48d35b34a03",
-      "excerpt_hash": "5de22f5a4462d3af04f767b70eb134a175a5de32d4db59910f35515d20496913",
+      "content_hash": "56ad70d7fe016300da53a11c7205b7b0c65d8c665a4e83787a07b4f329d482ac",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4810,8 +5102,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "ab106835af50b6b468c5eff6f4152d64930fdad5ceef17cd552bb4a5610ffce0",
-      "excerpt_hash": "ccc9543ca1fb0dc81975872d8469f488cfe08ea60eaf45456c419a04ea800a35",
+      "content_hash": "4d8348242164d4de35954b27f4ac42f61a1411246f7c16cc766cac43b6fee34d",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4832,30 +5124,52 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "9cf588d07b690d6d658ae1f4d3039f84b9f2970da819325dc4426ae53410490d",
-      "excerpt_hash": "146fa395395d0ed6cbdbd5f778272b224f9023c68919191518643caabc68b3f9",
+      "content_hash": "e73687e9cee7edeac93d392d0e458345ecd97fa6d2e8f91c8d1aa136b09204f3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "37ab7b5868f2eccf",
-      "source_record_id": "rock_documentation:article:1669",
-      "title": "Intro to Step Types",
+      "source_key": "374e3d98f260df41",
+      "source_record_id": "rock_documentation:article:1666",
+      "title": "Fundamentals",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b8eecf3ea2f988562f64692d0a472f95d4ea32eb720869638250c7ea9b7e93dc",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "27df18163971b108",
+      "source_record_id": "rock_documentation:article:1671",
+      "title": "Use Bulk Entry With Steps",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps",
       "version": null
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "41db1b765fae294a046084aed54cd7b4b9b367d3ebbe3445d05f870e953c8bf8",
-      "excerpt_hash": "426787f08b4c4b62418a5b15ea0f09f9c862e0f8e51adcf507dab98bcf0338ce",
+      "content_hash": "540ad1c0b126ec649f7874f0be8c81a4f57abd8e0957353d44a4671840a18094",
+      "excerpt_hash": "9e846081b89df0158809cf2aeeac82af8c53d7956028e9799e88c1a5d8d77e7f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4879,8 +5193,8 @@
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "new_feature",
-      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
-      "excerpt_hash": "38bee53fa78375b3086b94ef328f2421c683f3ed10bc7cb81dd1b103d2bf5075",
+      "content_hash": "a92ef08b1bc7322dc23120b2a37dae92e5ea9c69883a8742f20797aad0ef4f58",
+      "excerpt_hash": "ca97e9824256e4c753e2a82a227217da0b9c409084d718bd709a33ed0114a5f1",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "December 8, 2025",
@@ -4901,8 +5215,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f44f4e29a233a27b370650f560dcea3f8f392f2e2c3b8c330de6724a2a0c36e1",
-      "excerpt_hash": "179ef9bfd4dcbbe4a195d24b0066f84a12da99f2694e9c11031fc7b0bcd16c90",
+      "content_hash": "0702ab36f2398a3c29d57512e1ee67ce2f6691f3b164a6bb3dbd875744daca4b",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4923,74 +5237,97 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "727b00e2efc403517901746ef8271f1afd3b047eb3c9c5e0508ee1e5e821f6a9",
-      "excerpt_hash": "ba740aeced212c098f93123713a1ecddb0dfe4262dbeb6dcc52ade57bd333a9c",
+      "content_hash": "8a0134e914670db3c4a6ab786395b1bcf278aca09cbdbafa5eb670330449abd8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "923360c5f8b90202",
-      "source_record_id": "rock_documentation:article:1850",
-      "title": "Steps Charts",
+      "source_key": "e3bac5e7b0c91727",
+      "source_record_id": "rock_documentation:article:2021",
+      "title": "Intro to Step Charts",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts",
+      "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/intro-to-step-charts",
       "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "fbe0e2877e174e5e10dca49f9c859b8eb36ff5f588a4b4c7c7fd69a841201376",
-      "excerpt_hash": "b782a395abf5face5e4e97f637026aab9d1983323cdc4f5a29c11edf660e0bb6",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "engagement",
-        "step",
-        "completion",
-        "step program",
-        "stepprogram"
-      ],
-      "path": "Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "14382f1026b2a348",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs",
-      "title": "Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d1c652adf2ab79e5e80cc2405b1486ba1b43abf9c31646b34fb4a1ee71d101d3",
-      "excerpt_hash": "3ea28f85bab63a8f8a1197ddcaefd5f0fee81cff81bed5f6913ed14b571b7c6f",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "engagement",
-        "step",
-        "completion",
-        "step program",
-        "stepprogram"
-      ],
-      "path": "Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "21c8862c11f86984",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs",
-      "title": "Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs"
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "e3e52a46c89a7f788876eb9acebc9ae2ac5347c3ef2c2822b590f194f1e7dd3a",
-      "excerpt_hash": "4b4f0814058e4607ca00aa2081fa8c29f40594181d7e9a4bf404e4d7c09e31ff",
+      "content_hash": "94601a93b7a7afdd55b80aab9132736ebcc918cae58ac51c5c63fb4492b684de",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "8e4ba96642d3f16d",
+      "source_record_id": "rock_documentation:article:2022",
+      "title": "Chart Types",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "19e1bc6c00b76c8698d8a6d66c0612335161021115df43b5135865f21b2b2793",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "673c37a84a701f25",
+      "source_record_id": "rock_documentation:article:2020",
+      "title": "Move a Step Type",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "923fb6ec6bd4cf1d8fdd190fc4ea8364d35b8b2d46a9fcede5cc2486db3bb873",
+      "excerpt_hash": "0cd235bd2b38dc989e24b748ef3c434417ca75b6e6309dc4b4db107ab5891b75",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3f4c85bfaf9ef8cfa93dc1a24bcffcf3b71df9921ec788060e17f8c3f94cb79d",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5012,8 +5349,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6e4ff5d152baa22fb34529aeb1494681fe6914fc2e3ef1ad463b1ef48bd8ae9a",
-      "excerpt_hash": "04da509b0719a1c7174d90ff373a5fc5139cf403378861e3a3d113b0071db857",
+      "content_hash": "e5b005be110cfd0f49e6921c2c7602454810aad1b85d992e949d01044cd75f3c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5035,8 +5372,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1b0dae799630fc42b7e44562d94ce61cbc8c2d83cbc17a11648fe5046f7a8309",
-      "excerpt_hash": "9c57d85e5a05f2eb1c3836f55bebe67527686b464c151efdacda18388a642aef",
+      "content_hash": "39c702e274c429532f37628c512ab77dfb0813cceb52a12759bc520fc0993ada",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5057,8 +5394,31 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "2e249deffffaa12537f7c22bc4aa4d841b91a8fc57dffa07db087087bf0e5333",
-      "excerpt_hash": "a4b33ffc98c73a36876c4634ced1c0364b704b6b2521c28b2eb991c907f7a980",
+      "content_hash": "ae231d218730c824d895af18059422f52d766c580cd018bec2f70578e489c0c0",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "0cd46013ca9de548",
+      "source_record_id": "rock_documentation:article:2028",
+      "title": "Intro to Streak Enrollment",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1bb45107a62756e84f14092855ae60b690dd488607b1806e41991955836c6d33",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5080,75 +5440,76 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1b0f2dbce967f05a6305a20d0d43ad91a75fd29baab2b4654826c8dd9bdf3532",
-      "excerpt_hash": "3eac0d96b6c189b4b2416795fea100bb9de2fa95209329d980fbcd2492dcef9a",
+      "content_hash": "a52c054c02b133da7e2cea7d7af9252a99edc5e20c6cfdb87c053f6ac43f542c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "7f0de14eeb87118d",
-      "source_record_id": "rock_documentation:article:1689",
-      "title": "Rebuild Streaks Individually",
+      "source_key": "6bee649eecbc907b",
+      "source_record_id": "rock_documentation:article:1680",
+      "title": "Streak Enrollment",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d5c33f6b3f8fe961a8a2634a25ba8bdba955edcc3fa154c7873df8476fc0072d",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "4ab069b5bd259e0c",
+      "source_record_id": "rock_documentation:article:1691",
+      "title": "Rebuild Streak Type",
       "topics": [
         "admin",
         "check-in",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/rebuild-streaks-individually",
+      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "b387a36f703c36ee1ad397eb7c0035bbc8b5cfcaf4fd20f7c385523ad1c449b6",
-      "excerpt_hash": "c0ca72fff281fec61da7489e9fc876282c4342e75a70ac35a431339975d74dfd",
+      "content_hash": "435303fb939ff4356f97957872302ce651becff17e1309ac95eae70cb6b25881",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "3e38fa107cce1e26",
-      "source_record_id": "rock_documentation:article:1679",
-      "title": "Streak Types",
+      "source_key": "fa107429e468831f",
+      "source_record_id": "rock_documentation:article:1718",
+      "title": "Send Requests",
       "topics": [
         "admin",
+        "lava",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/streaks/streak-types",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "93b4d51942f6fb7df416888e6e4015ae74d67306bdb1ba8ea62c14c16486c297",
-      "excerpt_hash": "2603a4c116115785706053b46a985b65e241d1ddeb7bf7e9aa02517521acf8d1",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "f973a3ffb115a8ad",
-      "source_record_id": "rock_documentation:article:1712",
-      "title": "Administer Assessments",
-      "topics": [
-        "admin",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-      "version": null
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "d89ed9830542c1be9c5844dc80c12508e0f2e0e42e5fa277a80ae44486839284",
-      "excerpt_hash": "f0e27b487e681b558523cd6ab8fdf86643954dd13efa5286c95a3b16df32d7a8",
+      "content_hash": "a71781032e22b7bc454fc6620dccb25e308b979c11f9101868b08c30eba0ce79",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5169,8 +5530,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "4bad7252d39e162318812c7332129cdafae71155adb453fa82832e8275e257fe",
-      "excerpt_hash": "5e1ebef28330d3228bf54ac1f9038219161e53e4dc2152bed229f4743dd20dd6",
+      "content_hash": "58f2ae7a50b4483a13eac9ab1cc1abf4579076a0dc1f6eb571cba8bd1572b11a",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5191,30 +5552,121 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "fa18880f76470aea41a048e66f8549f8b907e6fa8b69cb9e40b0b4a86451c4ab",
-      "excerpt_hash": "bdd59bab1ca2f32a546ccfc6d1ad838ee4f5844ccdce39d6ed2b5dc58fb1337e",
+      "content_hash": "950929838d23a3958fcea7335562bfc6264bbddeaf1a8a9fad2790cf525e8c20",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "994fa92a51894597",
-      "source_record_id": "rock_documentation:article:2029",
-      "title": "Available Assessments",
+      "source_key": "60dc00a79e232bc2",
+      "source_record_id": "rock_documentation:article:2032",
+      "title": "DISC Personality Assessment",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments",
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "9b00339caa6e483e0f0a0f840b3e37da3d7a17b12d400681176d42b873406537",
-      "excerpt_hash": "9492fe4471b78e8266534eeecde007431bbfbc9da2a742462d7acb2391570825",
+      "content_hash": "8d2f6ae468d0a93399c249f623d9fdcca72d729c54e7f7fe94769128fc43d58a",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "efe91ad644d8d9fb",
+      "source_record_id": "rock_documentation:article:2033",
+      "title": "Spiritual Gifts",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a15593c6a0f30b0b5eaf6fb2424dde44f70c49e17e1efbeb780c1c1f9d7d6884",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9affd25f1f123848",
+      "source_record_id": "rock_documentation:article:2034",
+      "title": "Motivators",
+      "topics": [
+        "admin",
+        "mobile",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/motivators",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "035dd620ad2b12eedfc027b19ca8defc5ad115693b76e8ce75f1aeda3dec5ccc",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "cb028ddb90b64bba",
+      "source_record_id": "rock_documentation:article:2035",
+      "title": "Emotional Intelligence",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b99ae45dba1eee1e335fc5321ffcfd3a9c1ba95b4b187d540a136ade51a362a3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "629dbbe8f06f4813",
+      "source_record_id": "rock_documentation:article:2036",
+      "title": "Conflict Profile",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ee895f12daaff26a911a33939fed9640be3466dd31efc9429a612fea3e1ec9ed",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5235,8 +5687,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "6e715be851b548ea69ae7bcf8d8106d34c74d9b134c6447fcbbe8a1c8e6c00ec",
-      "excerpt_hash": "86af3b0dc168bbf3163248f3e4652d76ffd92ae984b8cf54716d8321f6e04878",
+      "content_hash": "0c745220993557fecb4591e68ea866c17808951975c645e3071f777e03920a44",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5257,8 +5709,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "c8699039d199d0d548e64c38b2f8354d592531af7c008b2736d95b5117614a35",
-      "excerpt_hash": "076e2a6e3a358d94d403c43a24d7562d0ba9276db6088cbf60891308f6beabb5",
+      "content_hash": "eb74489f02af621a66581bf0ca1e6703f885c5ccbf642142524400489aaf0ac3",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -5278,6 +5730,233 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3e8fa0a2ac9d0f3f0b549e67e86a9a0ef035f3a50778c4216258a2fbc73262fa",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "4aecd42e43ad8754",
+      "source_record_id": "rock_documentation:article:1518",
+      "title": "Reminders",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/reminders",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "277b489e37b7a915b042e0701dd882d678322cce52ed34c393fb8be551a47fd7",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "5741d086d0fcc19c",
+      "source_record_id": "rock_documentation:article:1701",
+      "title": "How to Follow",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/how-to-follow",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3d10428db421e927552ba8ea63785aa72512e88a14679072ea4839b99091ef6c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "62b499d29d175b92",
+      "source_record_id": "rock_documentation:article:1519",
+      "title": "Following",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ca997472475547a072be962188683ecf869c59d6c2ee1f03cdc09cdbb5b47b93",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "e1e17908a5da60e6",
+      "source_record_id": "rock_documentation:article:1702",
+      "title": "Configure Follow Events",
+      "topics": [
+        "admin",
+        "api",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/configure-follow-events",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "6509382145d3b8861dbe295675fedc24b72e5e75379e24e559c2b85e9155592c",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d015b21bac426cd1",
+      "source_record_id": "rock_documentation:article:2040",
+      "title": "Follow a Group",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/following/follow-a-group",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "cc37f4ffaa12b22fd4b5b37ef3b210c717b2b3692ebc0988934206e81572e6a8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "cfead4bb35ba1771",
+      "source_record_id": "rock_documentation:article:2042",
+      "title": "Intro to Interactive Experiences",
+      "topics": [
+        "admin",
+        "mobile",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences/intro-to-interactive-experiences",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "48eb47e49e29e9deff9df4f6d5e03ce549a7d9161f879798978d2a81a1d76a50",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6864588b4b0049c0",
+      "source_record_id": "rock_documentation:article:1520",
+      "title": "Interactive Experiences",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/interactive-experiences",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ff01a06c07cf8e209b56544292ccc0db2b8db22758e7e44661668a36a14413b8",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "4304d221867d2f52",
+      "source_record_id": "rock_documentation:article:1521",
+      "title": "Sign-Ups",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2c6a033f427f5aae52c59ff803b424ec14a160c329cae9e7fdecd2f88b757cd1",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "351ce5a202b064e3",
+      "source_record_id": "rock_documentation:article:1709",
+      "title": "Configure Sign-Ups",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-ups",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a1e1eb74f277d51d12d88871f8478e5722f70233bd48044a780ddf6d0a33e168",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "8c641622ba22f231",
+      "source_record_id": "rock_documentation:article:1711",
+      "title": "Configure Sign-Up Permissions",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions",
+      "version": null
+    },
+    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -5291,8 +5970,8 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "f6dc443c74b4ca9cf1efa19cb3fc62844e01a4481576f128b641f159aeefaff7",
-      "excerpt_hash": "e8daa02835d18f41a55f8a28858847e53ce5cbae121440ba62db6e59d13f398f",
+      "content_hash": "1f406596745ad6ebe8c6c252920cd85900698e9b650158f4999f8d6b1503ed77",
+      "excerpt_hash": "aed22a788ea02f189d91b8f8c68713791e6a6455158a83a56a0f799613e47752",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,

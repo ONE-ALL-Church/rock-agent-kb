@@ -30,12 +30,12 @@ Obsidian block development, grid reference, custom actions, field types, browser
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-30: Agent Summary (normal)
-- `mental-model` lines 45-58: Mental Model (normal)
-- `blocks-block-initialization-and-actions` lines 61-75: Block Initialization And Actions (normal)
-- `blocks-list-blocks` lines 76-81: List Blocks (normal)
-- `blocks-detail-blocks-and-webforms-migration` lines 82-94: Detail Blocks And WebForms Migration (normal)
-- `blocks-custom-configuration-actions` lines 95-100: Custom Configuration Actions (normal)
+- `agent-summary` lines 34-46: Agent Summary (normal)
+- `scope-and-boundaries` lines 47-60: Scope And Boundaries (normal)
+- `mental-model` lines 61-74: Mental Model (normal)
+- `blocks-block-initialization-and-actions` lines 77-91: Block Initialization And Actions (normal)
+- `blocks-list-blocks` lines 92-97: List Blocks (normal)
+- `blocks-detail-blocks-and-webforms-migration` lines 98-110: Detail Blocks And WebForms Migration (normal)
 
 ## Core Entities
 
@@ -54,6 +54,12 @@ Obsidian block development, grid reference, custom actions, field types, browser
 
 - `18.1`: Fixed editing configuration settings of Universal field types from inside an Obsidian block. This only affected some configuration setting types which might cause the raw value to be stored as JSON.
 - `16.1`: Fixed issue of Note Type Field Type not showing up in Following Event Type Detail Obsidian block. Fixes: #5605
+- `17.1`: Added the obsidian Communication Template Detail block for viewing and editing communication templates using the Obsidian UI. This lays the foundation for managing versioned templates with a cleaner interface.
+- `19.1`: Fixed an issue where the Obsidian Workflow List block would time out when loading workflows assigned to groups with many members.
+- `18.3`: Fixed an issue in Obsidian blocks where Memo Fields configured to allow HTML displayed the HTML tags as encoded text instead of rendering the formatted content within the block. Fixes: #6718
+- `18.3`: Fixed an issue in the Defined Value picker component where Single-Select Defined Value attributes configured with "Enhanced for Long Lists" did not display the searchable enhanced experience in Obsidian blocks (e.g., Wor
+- `18.3`: Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669
+- `18.3`: Fixed an issue in the Obsidian Group Requirement Type Detail block that caused Attribute Values to not load or save correctly when editing a requirement type. This prevented individuals from configuring or updating Group
 
 ## Files For Agents
 

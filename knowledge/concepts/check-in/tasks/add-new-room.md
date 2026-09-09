@@ -53,3 +53,5 @@ Add a room without breaking eligibility, labels, printer routing, capacity, or r
 - https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-settings-for-a-check-in-type
 - https://community.rockrms.com/ModelMap
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs
+- https://community.rockrms.com/rocku/check-in/locations
+- https://community.rockrms.com/rocku/check-in/schedules

@@ -41,7 +41,8 @@ One controlled inbound message reaches exactly the intended conversation, reply 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline
-- https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms
+- https://community.rockrms.com/documentation/engagement/communications
 - https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/Workflow/Workflow.Logic.cs
+- https://community.rockrms.com/recipes/435
+- https://community.rockrms.com/ask/using/2824
 - https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification

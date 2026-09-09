@@ -45,6 +45,5 @@ Every published metric has an explicit grain, population, and reconciliation tes
 
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/commands/entity-commands
 - https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard
 - https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s

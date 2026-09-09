@@ -44,6 +44,7 @@ A specific, evidence-backed reason the person was included, excluded or routed t
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences
-- https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
+- https://community.rockrms.com/documentation/engagement/communications
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
+- https://community.rockrms.com/recipes/370

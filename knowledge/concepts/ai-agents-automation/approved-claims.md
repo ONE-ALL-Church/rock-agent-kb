@@ -2,7 +2,7 @@
 concept_id: ai-agents-automation
 generated: true
 artifact_level: claim_graph
-approved_claim_count: 18
+approved_claim_count: 21
 ---
 
 # AI Agents And Automation Approved Claims
@@ -29,3 +29,6 @@ This generated artifact contains the full approved public claim coverage for the
 | `claim:538f1a4e0ad7c90f7c5a` | official | release_caveat | Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | `claim:903c8ff9b5d2590fd616` | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | `claim:9cd70d19320375c27cb3` | community-reviewed | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216) |
+| `claim:47eb2888127bc9a29b9e` | community-reviewed | operational_guidance | The hosts recommend that early adopters first coach colleagues who are receptive but inexperienced, rather than starting an AI rollout with the most resistant staff members. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/unblocking-church-ai-adoption-ep-220) |
+| `claim:6d6775c71c60beaf1669` | community-reviewed | operational_guidance | The hosts recommend that the sender personally review and take responsibility for every statement in AI-assisted communication; attributing an error to the model does not transfer that responsibility. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/stop-the-ai-slop-ep-221) |
+| `claim:693f15bb6ffcad4756cc` | community-reviewed | source_summary | The episode offers an organizational adoption approach for church teams and cautions against treating generated code as a substitute for architecture and security review. Its release announcements and broader AI predictions are not current product guarantees. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/unblocking-church-ai-adoption-ep-220) |

@@ -58,8 +58,8 @@ A server action that accepts client data without trusting client state.
 - https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks
 - https://community.rockrms.com/developer/obsidian/grids
 - https://community.rockrms.com/developer/obsidian/blocks
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/CheckIn/CheckInScheduleBuilder.cs
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
-- https://community.rockrms.com/developer/obsidian/grid-reference
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn
 - https://community.rockrms.com/developer/obsidian/browser-bus
+- https://community.rockrms.com/developer/obsidian/grid-reference/filters

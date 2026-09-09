@@ -15,6 +15,22 @@ synthesis_source_pack_hash: "1f67abb67d8c73e24ead44780fa055f9b88dd0ca72678166f7d
 
 # CMS And Websites
 
+<!-- BEGIN GENERATED MODEL MAP POINTERS -->
+## Generated Model Map Pointers
+
+Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+
+- Concept data-model landmarks: [CMS And Websites index](index.md#data-model-landmarks)
+- Global model-map index: [Rock Model Map](../../model-map/index.md)
+- Stable model rows: `../../model-map/stable-models.jsonl`
+- Stable property rows: `../../model-map/stable-properties.jsonl`
+- Stable method rows: `../../model-map/stable-methods.jsonl`
+- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
+- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
+- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+
+<!-- END GENERATED MODEL MAP POINTERS -->
+
 ## Agent Summary
 
 Rock builds websites from a hierarchy of sites, themes, pages, layouts, zones, and blocks. A request is routed to a page, the page is assembled for the current visitor, and each block contributes content or behavior. This means a CMS change can affect navigation, authorization, presentation, data exposure, caching, and performance at the same time. [Rock website architecture](https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/intro-to-websites-in-rock)
@@ -652,3 +668,51 @@ A live review should remain read-only until the intended change is approved. Rec
 - [Search Rock Pages recipe](https://community.rockrms.com/recipes/432) — community recipe; evaluate security and performance locally.
 - [Media Watch](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) — reviewed community background-processing pattern.
 - [Rock source at immutable commit](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3) — implementation evidence only; not proof of installed configuration.
+
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+## Approved Claim Coverage
+
+This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+
+- Approved claims routed to this concept: `33`
+- Full generated claim table: `approved-claims.md`
+
+| Authority | Type | Claim | Source |
+| --- | --- | --- | --- |
+| official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
+| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. | [source](https://community.rockrms.com/lava/filters/other-filters) |
+| official | behavior | The Page Parameter Filter block publishes each selected value under its configured key so redirects, listening Obsidian blocks, and Lava PageParameter lookups can consume the same filter state. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block) |
+| official | configuration | With legacy reload disabled, Page Parameter Filter selections can be sent as virtual parameters to listening Obsidian blocks; enabling legacy reload puts the parameters in the query string and performs a full page reload for legacy consumers. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block) |
+| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
+| official | configuration | Saving a theme in Rock's Theme Styler compiles its Less into CSS, and CSS Overrides are appended after the compiled styles so they can take precedence; some themes expose no editable variables. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes) |
+| official | configuration | Rock's Media Player Lava shortcode can render a video from a supplied source URL, including a URL copied from one of a Rock Media Element's available media files such as HLS, HD, or SD. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode) |
+| official | configuration | A block placed at layout scope appears on every page using that layout, while a site-scoped block appears on every page in the site; administrators should confirm the intended scope before moving or adding a block. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration) |
+| official | implementation_pattern | An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
+| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
+| official | operational_guidance | Copying a Rock page also copies its blocks and child-page hierarchy and rewires references among the copies, but the resulting block settings should still be reviewed before publishing. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration) |
+| official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
+| More |  | 21 additional approved claims are tracked in `approved-claims.md`. |  |
+
+<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+
+<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
+## Approved Media Coverage
+
+This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+
+- Approved media records routed to this concept: `35`
+- Full generated media table: `approved-media.md`
+
+| Source | Review Status | Insights | Citation |
+| --- | --- | --- | --- |
+| [Adding Content Transcript Insight](https://community.rockrms.com/rocku/content-channels/adding-content) | approved_for_public_distillation | 2 | media-insight:de94e4d41ee28a38 |
+| [Adding Pages and Blocks Transcript Insight](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) | approved_for_public_distillation | 2 | media-insight:7848aa46e6ac3794 |
+| [Advanced HTML Block Transcript Insight](https://community.rockrms.com/rocku/cms/advanced-html-block) | approved_for_public_distillation | 2 | media-insight:2cf056c2b84e6365 |
+| [Asset Manager Transcript Insight](https://community.rockrms.com/rocku/cms/asset-manager) | approved_for_public_distillation | 1 | media-insight:313e84f7d769f286 |
+| [CMS Components Transcript Insight](https://community.rockrms.com/rocku/cms/cms-components) | approved_for_public_distillation | 2 | media-insight:47ad3e0c6f28cb69 |
+| [Cache Tags Transcript Insight](https://community.rockrms.com/rocku/cms/cache-tags) | approved_for_public_distillation | 1 | media-insight:5c0dae456ef72854 |
+| [Content Channel Types and Content Channels Transcript Insight](https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels) | approved_for_public_distillation | 2 | media-insight:6d0e9b93da800c18 |
+| [Content Channel View Transcript Insight](https://community.rockrms.com/rocku/content-channels/content-channel-view) | approved_for_public_distillation | 2 | media-insight:7b84e33ae0a6eee9 |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
+
+<!-- END GENERATED APPROVED MEDIA COVERAGE -->

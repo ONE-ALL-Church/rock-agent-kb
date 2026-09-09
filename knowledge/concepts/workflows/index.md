@@ -2,12 +2,12 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:16+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:27+00:00
+source_last_checked_at: 2026-09-09T21:15:59+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/59
 legacy_summary_retirement_coverage: 4/59
@@ -140,37 +140,37 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Workflow Actions | rock_documentation | [AI](/documentation/core-concepts/workflows/workflow-actions/ai?Version=v19.0) [Assessments](/documentation/core-concepts/workflows/workflow-actions/assessments?Version=v19.0) [Background Check](/documentation/core-concepts/workflows/workflow-actions/background-check?Version=v19.0) [CMS](/documentation/core-concepts/workflows/workflow-actions/cms?Version=v19.0)... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions) |
 | Understand Form Actions | rock_documentation | To help us understand this action better, let’s [go back to](/documentation/core-concepts/workflows/workflow-components/intro-to-workflows#a-sample-workflow) the simple *HR Position Request* example, specifically the first entry form that Ted used to start the request. Below is a screenshot of the entry form action used in that workflow. 1. **Purpose** - The Form Header is a great place to introduce the purpose of... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions) |
 | My Workflows | rock_documentation | The tools described in the [Manage Workflow Instances](/documentation/core-concepts/workflows/manage-workflow-instances) section are great for working on workflows of a specific workflow type. However, there are times you just want to see the workflows that are assigned to you or that you have initiated. You can track active workflows that are related to you under `Tools > My Workflows`. 1. **Initiated By Me /... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows) |
-| Configure Workflow Details | rock_documentation | Workflow types are configured under `Admin Tools > General Settings > Workflow Configuration`. After adding the workflow, we'll complete the detail section. 1. **Non-Persisted** - Note that this workflow is not automatically persisted. Workflows that start with an entry form are usually configured this way to keep workflows from being added to the database when the person clicks on the form but never enters... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/configure-workflow-details) |
 | Secure Workflows | rock_documentation | While we've already covered workflow security in other articles, we thought we'd summarize workflow security in one place. This should give you a good understanding of what's possible. # Editing A Workflow Type To be able to add or edit a workflow type, you’ll need Edit access to the workflow configuration page (`Admin Tools > General Settings > Workflow Configuration`) and the *Workflow Type Detail* block on it.... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows) |
+| Configure Workflow Details | rock_documentation | Workflow types are configured under `Admin Tools > General Settings > Workflow Configuration`. After adding the workflow, we'll complete the detail section. 1. **Non-Persisted** - Note that this workflow is not automatically persisted. Workflows that start with an entry form are usually configured this way to keep workflows from being added to the database when the person clicks on the form but never enters... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/configure-workflow-details) |
 | Chain Entry Forms | rock_documentation | In our [sample HR workflow](/documentation/core-concepts/workflows/workflow-components/intro-to-workflows#a-sample-workflow), you'll remember that the initial entry form asked if the position was full-time or part-time. Depending on the person's selection, they were taken to a new entry form based on their input. This is a feature called entry form chaining. When the command on the first form is executed, the... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Workflow Action Form](../../model-map/models/workflow-action-form.md) | Workflow | 19.2.0 | 85 | 47 | 70 | 23 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action Form Attribute](../../model-map/models/workflow-action-form-attribute.md) | Workflow | 19.2.0 | 52 | 21 | 36 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action Form Section](../../model-map/models/workflow-action-form-section.md) | Workflow | 19.2.0 | 46 | 16 | 30 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action](../../model-map/models/workflow-action.md) | Workflow | 19.2.0 | 47 | 14 | 31 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Action Type](../../model-map/models/workflow-action-type.md) | Workflow | 19.2.0 | 51 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Form Builder Template](../../model-map/models/workflow-form-builder-template.md) | Workflow | 19.2.0 | 46 | 19 | 31 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Trigger](../../model-map/models/workflow-trigger.md) | Workflow | 19.2.0 | 29 | 14 | 21 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Automation Trigger](../../model-map/models/automation-trigger.md) | Core | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Workflow Trigger](../../model-map/models/group-member-workflow-trigger.md) | Group | 19.2.0 | 29 | 14 | 22 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.2.0 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow](../../model-map/models/workflow.md) | Workflow | 19.2.0 | 60 | 22 | 42 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Workflow Activity](../../model-map/models/workflow-activity.md) | Workflow | 19.2.0 | 53 | 17 | 38 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form](../../model-map/models/workflow-action-form.md) | Workflow | 19.3.4 | 85 | 47 | 70 | 23 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form Attribute](../../model-map/models/workflow-action-form-attribute.md) | Workflow | 19.3.4 | 52 | 21 | 36 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Form Section](../../model-map/models/workflow-action-form-section.md) | Workflow | 19.3.4 | 46 | 16 | 30 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action](../../model-map/models/workflow-action.md) | Workflow | 19.3.4 | 47 | 14 | 31 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Action Type](../../model-map/models/workflow-action-type.md) | Workflow | 19.3.4 | 51 | 20 | 35 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Form Builder Template](../../model-map/models/workflow-form-builder-template.md) | Workflow | 19.3.4 | 46 | 19 | 31 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Trigger](../../model-map/models/workflow-trigger.md) | Workflow | 19.3.4 | 29 | 14 | 21 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Automation Trigger](../../model-map/models/automation-trigger.md) | Core | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Workflow Trigger](../../model-map/models/group-member-workflow-trigger.md) | Group | 19.3.4 | 29 | 14 | 22 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.3.4 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow](../../model-map/models/workflow.md) | Workflow | 19.3.4 | 60 | 22 | 42 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Workflow Activity](../../model-map/models/workflow-activity.md) | Workflow | 19.3.4 | 53 | 17 | 38 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Automation Trigger.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.AutomationEvents` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.ComponentEntityType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Automation Trigger.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.AutomationEvents` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.ComponentEntityType` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Automation Trigger.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Subguides
 
@@ -188,7 +188,7 @@ Keywords: `trigger, activate, workflow activate`
 | Workflow Activate | rock_lava_docs | Workflow Activate Command v7.0 This Lava command can launch a new workflow or activate a new activity on a current workflow. The Basics Let's take a simple example of launching a new workflow. {% workflowactivate workflowtype:'21' %} Activated new workflow with the id of #{{ Workflow.Id }}. {% endworkflowactivate %} Bam! A new workflow, of type 21, has been launched. The Id of this new workflow is provided by {{... | [source](https://community.rockrms.com/lava/commands/workflow-activate-commands) |
 | Resend a Group Requirement Helper Workflow | rock_recipes | 0 Resend a Group Requirement Helper Workflow Shared by Jonathan Anderson , The Ark Church one year ago 14.0 Group, Workflow Beginner Have you ever needed to resend a Group Member Requirement Workflow and not been able to? We recently started using them in conjunction with Signature Documents and came across a few challenges, so I wrote a workflow to solve them. Our Group Requirements are setup as follows Group... | [source](https://community.rockrms.com/recipes/482) |
 | How do I set attributes in my triggered workflow? | rock_recipes | 0 Draft What Entity is my workflow getting? Shared by Luke Taylor , Triumph Tech 4 years ago 4.0 General Intermediate How do I set attributes in my triggered workflow? Once we get past the first pass of making workflows like the examples that come out of the box, one of the areas that we get into very quickly is the idea of triggered workflows. For the purposes of this description, I'm mostly referring to the idea... | [source](https://community.rockrms.com/recipes/268) |
-| Webhook to Workflow - an Example from Monday.com | rock_recipes | 4 Webhook to Workflow - an Example from Monday.com Shared by Zack Dutra , Bayside Covenant Church one year ago 14.0 Workflow Intermediate The Webhook to Workflow documentation is a little sparse, and implementation has some very specific pieces that you have to get right. Here's an example setup using a Monday.com board as the webhook trigger. This recipe isn't meant to be a complete solution, but rather one example... | [source](https://community.rockrms.com/recipes/453) |
+| Webhook to Workflow - an Example from Monday.com | rock_recipes | 4 Webhook to Workflow - an Example from Monday.com Shared by Zack Dutra , Bayside Covenant Church 2 years ago 14.0 Workflow Intermediate The Webhook to Workflow documentation is a little sparse, and implementation has some very specific pieces that you have to get right. Here's an example setup using a Monday.com board as the webhook trigger. This recipe isn't meant to be a complete solution, but rather one example... | [source](https://community.rockrms.com/recipes/453) |
 | Summary | rock_recipes | 2 Recurring Donor Contribution Email Notification Shared by Steve Klein , Liquid Church one year ago 14.0 Administration / Finance Beginner Summary When we switched from Pushpay to My Well, we noticed that Rock does not automatically send an email confirmation to our donors when they set up a recurring contribution, so we created a workflow to generate this. The workflow is triggered on each new Financial Scheduled... | [source](https://community.rockrms.com/recipes/465) |
 
 ### Workflow Forms
@@ -234,10 +234,10 @@ Keywords: `zapier, webhook, api, integration`
 | Use Person Entry | rock_documentation | Often, one of primary reasons for using the Form action is to collect information about the person who is filling out the form. For instance, you might want their name, email address and phone number. This kind of information is requested so often that Rock has a feature to automate adding these kinds of questions to your form. As if that weren’t enough, this feature will also create a record in Rock if the person... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/use-person-entry) |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session adds public-safe technical context for email-status and webhook workflows. It discusses Mailgun calling back into Rock through a webhook, using delivery or engagement data to update Rock-side communication context, and treating external provider callbacks as integration points that need authentication, logging, and operational reporting. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5) |
 | Clearstream - Launch Rock Workflows Instantly With Webhooks | rock_recipes | 3 Clearstream - Launch Rock Workflows Instantly With Webhooks Shared by Zack Dutra , Bayside Covenant Church one year ago 14.0 Communications, Workflow Advanced The Push to Rock RMS > Launch Workflow step in Clearstream is helpful, but has one limitation. It depends on the Rock Process Workflows job. That results in workflows not being launched instantly when at times that is needed. Here's an alternative way to do... | [source](https://community.rockrms.com/recipes/473) |
-| Workflow Action Form | rock_model_map | Workflow Action Form is a Rock model in the Workflow category. | [source](https://community.rockrms.com/ModelMap) |
-| Workflow Action Form Attribute | rock_model_map | Workflow Action Form Attribute is a Rock model in the Workflow category. | [source](https://community.rockrms.com/ModelMap) |
-| Workflow Action Form Section | rock_model_map | Workflow Action Form Section is a Rock model in the Workflow category. | [source](https://community.rockrms.com/ModelMap) |
 | Send Workflow Info To Zapier | rock_recipes | 4 Send Workflow Info To Zapier Shared by One Life Christian Church , One Life Christian Church 5 years ago 11.0 General Beginner This is how to use a workflow to send information to Zapier. Zapier then serves as the main way to integrate with other products. One use case, that came out of a Q&A, would be to send your financial transactions from a workflow to zapier then to quickbooks. This recipe will only include... | [source](https://community.rockrms.com/recipes/211) |
+| Workflow Type Search | rock_recipes | 8 Workflow Type Search Shared by Jesse Beaird , Pathway Church 3 years ago 10.0 General Beginner If you are new to the team or have taken over for someone else or you just don't remember which category you put that last workflow in you may be interested in this workflow type search recipe. I have found this helpful since I am not the originator of most of our org's workflows and there may be multiple categories a... | [source](https://community.rockrms.com/recipes/343) |
+| Webhook to Workflow - an Example from Monday.com | rock_recipes | 4 Webhook to Workflow - an Example from Monday.com Shared by Zack Dutra , Bayside Covenant Church 2 years ago 14.0 Workflow Intermediate The Webhook to Workflow documentation is a little sparse, and implementation has some very specific pieces that you have to get right. Here's an example setup using a Monday.com board as the webhook trigger. This recipe isn't meant to be a complete solution, but rather one example... | [source](https://community.rockrms.com/recipes/453) |
+| Workflow Action Form | rock_model_map | Workflow Action Form is a Rock model in the Workflow category. | [source](https://community.rockrms.com/ModelMap) |
 
 
 ## Lava Capability References
@@ -252,7 +252,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `59`
-- Upstream check range: `2026-08-12T06:18:24+00:00` through `2026-08-12T06:18:27+00:00`
+- Upstream check range: `2026-09-09T21:15:54+00:00` through `2026-09-09T21:15:59+00:00`
 - Source-native typed articles: `4` of `59`
 - Legacy source summaries retired: `4`; still active: `55`
 - Migration status: `partial`

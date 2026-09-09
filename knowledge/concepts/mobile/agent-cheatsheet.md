@@ -44,18 +44,37 @@ generated: true
 
 | Version | Channel | Summary |
 | --- | --- | --- |
-| `19.1` | mobile | Fixed external links silently failing on Android when the address belonged to a site that also has an installed app handler (for example, opening a YouTube link on a device with the YouTube app installed). The link now falls back to the dev |
-| `19.1` | mobile | Fixed Android media playback so audio from other apps now lowers in volume when Rock Mobile starts playing audio. |
+| `7.0` | mobile | Fixed an issue where the ShowPopUp command displayed the popup on a white screen instead of overlaying the triggering page when running in MAUI. Fixes: #38 |
+| `7.0` | mobile | Added the ExecuteCommand control, enabling command execution with configurable timing and repetition. |
+| `4.0` | mobile | Added a custom ScrollView control that allows you to disable the native iOS bounce when scrolling. |
+| `2.1` | mobile | Fixed bug that prevented Flyout Shell from working properly if ListItem was not the root XAML element. |
+| `2.0` | mobile | Fixed bug in iOS that prevented a person from choosing the "Save..." option during a ShareFile command. |
+| `6.0` | mobile | Updated all of the mobile blocks to follow the new design system. |
+| `7.0` | mobile | Added the CopyToClipboard command, allowing text to be copied to the clipboard. |
+| `7.0` | mobile | Fixed an issue that caused the AddEventToCalendar command to not function properly. |
+| `7.0` | mobile | Fixed an issue where the TextColor property of the Tag control was not being respected. |
+| `7.0` | mobile | Added the EventToCommandBehavior, which triggers a command when a specified event occurs. |
+| `7.0` | mobile | Fixed an issue where the FollowHyperlinks property on the Rock:Html control was not functioning properly. Fixes: #46 |
+| `7.0` | mobile | Fixed an issue where the scheduled location was not recorded when an individual self-scheduled through the mobile Group Schedule Signup block. |
+| `7.0` | mobile | Added the AllowsPictureInPicturePlayback property to the MediaPlayer control, allowing PiP playback to be enabled or disabled. |
+| `4.0` | mobile | Added responsive Memo fields, specifically seen in mobile workflows. |
+| `4.0` | mobile | Added a ReloadPage command, used to reload the current page. |
+| `4.0` | mobile | Added Toast functionality, used by the ShowToast command. |
+| `4.0` | mobile | Added the ability to save specific, mobile-related user preferences. |
+| `4.0` | mobile | Fixed a bug in which being in dark mode on iOS caused the BibleBrowser picker to display white text on a white background. |
+| `3.0` | mobile | Added new Mobile Connection blocks for managing Connection Requests (requires Rock Server v13.0). |
+| `3.0` | mobile | Added new Add To Group mobile block that handles prompting individual for information in order to add them to a group. |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | needs-citation | live verification |
 | `application-configuration-and-deployment` | normal | live verification |
 | `content-xaml-and-lava-dynamic-versus-static-content` | normal | live verification |
-| `content-xaml-and-lava-escaping-xaml-producing-lava` | community-supported | live verification |
+| `content-xaml-and-lava-escaping-xaml-producing-lava` | normal | live verification |
 | `controls-context-menus` | normal | live verification |
 | `controls-borders-and-migration-era-controls` | normal | live verification |
 | `mobile-check-in-prerequisites-and-configuration` | normal | live verification |
@@ -68,7 +87,7 @@ generated: true
 | `troubleshooting-decision-tree-changes-do-not-appear-in-the-app` | normal | live verification |
 | `troubleshooting-decision-tree-the-app-crashes-immediately-after-opening` | normal | live verification |
 | `troubleshooting-decision-tree-personalized-content-is-blank-or-anonymous` | normal | live verification |
-| `troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail` | community-supported | live verification |
+| `troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail` | normal | live verification |
 | `troubleshooting-decision-tree-a-command-does-nothing` | normal | live verification |
 | `troubleshooting-decision-tree-a-page-layout-breaks-after-moving-to-shell-v6` | normal | live verification |
 | `troubleshooting-decision-tree-a-context-menu-works-differently-on-android` | normal | live verification |

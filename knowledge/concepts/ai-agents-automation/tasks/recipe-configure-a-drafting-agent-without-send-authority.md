@@ -42,4 +42,4 @@ Staff can research and compose a communication while sending remains a separate 
 ## Source Links
 
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
-- https://www.youtube.com/watch?v=dpYJiOAiJYM
+- https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s

@@ -54,13 +54,11 @@ A family can preregister without unnecessary friction, records are usable at che
 ## Source Links
 
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists
-- https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/event-registration/event-attributes
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes
-- https://community.rockrms.com/rocku/cms/family-pre-registration
-- https://community.rockrms.com/lava/commands/entity-commands
-- https://community.rockrms.com/rocku/workflows
-- https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification
+- https://community.rockrms.com/recipes/361
 - https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz
+- https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request
+- https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification
 - https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s

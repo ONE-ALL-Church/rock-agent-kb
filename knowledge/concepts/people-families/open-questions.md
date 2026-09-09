@@ -17,6 +17,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `person-model-and-record-lifecycle-editing-inactivating-and-preserving-history`: Editing, inactivating, and preserving history
 - `person-profile-and-access-boundaries-tags-signals-and-badges`: Tags, signals, and badges
@@ -46,6 +47,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-validate-family-preregistration-end-to-end`: Recipe: Validate family preregistration end to end
 - `agent-task-recipes-recipe-diagnose-a-connection-request-from-the-person-record`: Recipe: Diagnose a connection request from the person record
 - `agent-task-recipes-recipe-run-a-bounded-people-data-cleanup`: Recipe: Run a bounded people-data cleanup
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

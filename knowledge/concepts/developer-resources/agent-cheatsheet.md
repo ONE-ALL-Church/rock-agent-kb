@@ -47,6 +47,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | needs-citation | live verification |
 | `mental-model` | normal | live verification |
@@ -57,7 +58,7 @@ generated: true
 | `obsidian-development-plugin-development` | normal | live verification |
 | `obsidian-development-replacing-webforms-blocks` | normal | live verification |
 | `helix-development-applications-and-endpoints` | normal | live verification |
-| `helix-development-content-blocks-and-routing` | community-supported | live verification |
+| `helix-development-content-blocks-and-routing` | normal | live verification |
 | `helix-development-security-and-data-integrity` | normal | live verification |
 | `helix-development-packaging-status-conflict` | normal | live verification |
 | `ai-agents` | normal | live verification |
@@ -87,3 +88,4 @@ generated: true
 | `agent-task-recipes-recipe-inspect-page-content-with-a-rock-ai-agent` | normal | live verification |
 | `agent-task-recipes-recipe-verify-a-save-or-rock-managed-file-deployment` | needs-citation | live verification |
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
+| `approved-claim-coverage` | normal | live verification |

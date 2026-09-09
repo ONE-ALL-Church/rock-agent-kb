@@ -58,16 +58,17 @@ An item is structurally complete, correctly scheduled, reviewable, and eligible 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
-- https://community.rockrms.com/documentation/digital-publishing/personalization
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/troubleshoot-personalization
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-content-channel-items
+- https://community.rockrms.com/documentation/digital-publishing/personalization/localization
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/update-personalization-job
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-for-anonymous-visitors
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/use-request-filters
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/configure-site-for-personalization
+- https://community.rockrms.com/documentation/digital-publishing/personalization/overview/intro-to-personalization
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/intro-to-personalization-segments
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/configure-content-components
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/self-update-content-channel-items
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/content-channel-view-block
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes
-- https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/add-content-items
-- https://community.rockrms.com/documentation/digital-publishing/content-management/dynamic-content/manage-content-items
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx
+- https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages/set-up-adaptive-messages
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/add-a-content-channel-item
+- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/content-channel-view-block

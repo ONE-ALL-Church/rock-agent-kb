@@ -206,7 +206,7 @@
   ],
   "concept_id": "learning-lms-engagement",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-09-03T16:50:58+00:00",
+  "generated_at": "2026-09-09T23:15:03+00:00",
   "guide_sections": [
     "troubleshooting-decision-tree",
     "troubleshooting-decision-tree-a-learner-cannot-find-a-program-or-course",

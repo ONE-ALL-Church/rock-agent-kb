@@ -2,15 +2,15 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:18+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T11:27:22+00:00
+source_last_checked_at: 2026-09-09T21:24:47+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 1/13
-legacy_summary_retirement_coverage: 2/13
+source_native_article_coverage: 1/17
+legacy_summary_retirement_coverage: 2/17
 depends_on_topics:
   - cms
   - workflows
@@ -36,7 +36,7 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 
 - `Lava` spans cms, workflows, sql, security. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_rocku, rock_podcast_rss, rock_youtube, rock_community_hubs, rock_lava_docs, rock_documentation.
-- Related tags found in source records: workflow, lava, development, cms, sql, usage, training, media.
+- Related tags found in source records: lava, workflow, development, cms, usage, sql, training, media.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_lava_docs, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -145,11 +145,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 - `rock_developer`: 6
 - `rock_documentation`: 5
 - `rock_lava_docs`: 27
-- `rock_mobile_docs`: 2
+- `rock_mobile_docs`: 6
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
-- `rock_recipes`: 12
-- `rock_rocku`: 19
+- `rock_recipes`: 9
+- `rock_rocku`: 18
 - `rock_youtube`: 1
 - `triumph_resources`: 1
 
@@ -157,9 +157,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| Search Our Articles | triumph_resources | Search Our Articles All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&type=articles) |
+| Search Our Resources | triumph_resources | Search Our Resources All Articles Videos Whitepapers Check In Lava SQL Mobile Performance AI Workflows | [source](https://www.triumph.tech/resources/search?q=github%20spotlight&tag=394b2f5e-acca-4ae4-a114-303c79f9c14e) |
 | About Lava Fluid | rock_lava_docs | A New Engine Under the Hood Rock v13 introduces a new Lava engine called Fluid. What does that mean? It means the way your Lava is processed behind the scenes will be changing. We’re making this change because the new Fluid engine is faster than the old DotLiquid engine, and because the change to Fluid sets up Rock to move to the new .NET Core framework more easily. Generally you shouldn’t notice a big difference,... | [source](https://community.rockrms.com/lava/fluid) |
 | Adaptive Message | rock_lava_docs | Adaptive Message v17.0 This Lava command provides an easy way to retrieve personalized adaptive messages for an individual. This command operates in two modes: Message Mode or Category Mode . Message Mode In this mode the command returns adaptive messages that best match the individual. Below is an example of how to retrieve up to two matching adaptations for the "giving" Adaptive Message: {% adaptivemessage... | [source](https://community.rockrms.com/lava/commands/adaptivemessage-commands) |
+| Attribute Reference | rock_mobile_docs | Every `Hx.*` attribute in one table, plus the reserved values you can put in them. ## Attributes \| Attribute \| Type \| Inherits \| Applies to \| Details \| \| --- \| --- \| --- \| --- \| --- \| \| `Hx.Get` \| string \| No \| any `View` \| [Requests and Targeting](https://community.rockrms.com/developer/mobile-docs/essentials/lava/lava-application/requests-and-targeting) \| \| `Hx.Post` \| string \| No \| any `View` \| [Requests and... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava/lava-application/attribute-reference) |
 | Attributes | rock_lava_docs | Attribute Filters If you've worked with Rock for any length of time, you know Attributes are a key feature of its extensibility. Lava allows you to work with them in several powerful ways. Finding Attributes Most places that support Lava allow you to enable a Debug mode that lists all of the merge fields available. Fields that have "Attributes" show you those that are available; like so: Using Attributes In Lava Now... | [source](https://community.rockrms.com/lava/filters/attribute-filters) |
 | Authoring Shortcodes | rock_lava_docs | Authoring Shortcodes Writing shortcodes is simple. They're just Lava templates. Below are a few points to keep in mind as your write your own shortcodes. Select The Proper Shortcode Type As we already mentioned it's very important that you select the proper type of shortcode before you start using it. Changing it in the future means having to update all of your Lava templates that use it. The biggest factor in your... | [source](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes) |
 | Cache | rock_lava_docs | Cache Command Basics Want your Lava to run like lightning? Enable caching! Wrapping your Lava in a cache command will take the results and store it in Rock's memory cache. Subsequent runs will load faster than a New York minute. Let's take a look at a simple example: {% cache key:'decker-page-list' duration:'3600' %} {% person where:'LastName == "Decker"' %} {% for person in personItems %} {{ person.FullName }} <br... | [source](https://community.rockrms.com/lava/commands/cache-commands) |
@@ -168,35 +169,34 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Delete Entity | rock_lava_docs | Delete Entity v18.0 Delete an entity from the database. Introduction Familiar with Lava's Entity command for data retrieval? The Delete Entity command extends its capabilities, allowing you to delete data directly from your database. Warning While the Delete Entity command is a powerful tool, it comes with significant security responsibilities. It's crucial to thoroughly understand and implement the security... | [source](https://community.rockrms.com/lava/commands/delete-entity) |
 | Execute | rock_lava_docs | Execute Command Deprecated This command has been deprecated and should be eliminated from any usage since it will eventually be removed from core. If you know C# the world is now your oyster! You can now use those skills to make rich and powerful Lava templates. For this tutorial we'll start simple and work our way to more sophisticated script blocks. Warning This command is not recommended for normal use. It was... | [source](https://community.rockrms.com/lava/commands/execute-commands) |
 | Fluid Differences | rock_lava_docs | Differences Between DotLiquid and Fluid There are a few things that won’t work, or will work differently, between DotLiquid and Fluid. Below is a list of items you’ll want to know about to make sure your Lava is ready for Fluid. Note: When we say "differently" we mean for the better. The team that runs the Fluid open-source project do great work and have a great track record of matching the Shopify Liquid standard.... | [source](https://community.rockrms.com/lava/fluid/differences) |
-| Getting Started | rock_lava_docs | Getting Started With Lava Commands Lava, on its own, is quite amazing. Enabling Commands adds great power, and with that comes... you know... great responsibility. Commands let you do several things that can bypass the built-in security and business logic inside the code. Security To help keep things secure you must enable Lava Commands when you'd like to use them. Let's take a quick look at how to configure them.... | [source](https://community.rockrms.com/lava/commands/getting-started) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Lava Shortcode](../../model-map/models/lava-shortcode.md) | CMS | 19.2.0 | 48 | 20 | 31 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Lava Application](../../model-map/models/lava-application.md) | CMS | 19.2.0 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Lava Endpoint](../../model-map/models/lava-endpoint.md) | CMS | 19.2.0 | 52 | 23 | 36 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Request Filter](../../model-map/models/request-filter.md) | CMS | 19.2.0 | 43 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Data View Filter](../../model-map/models/data-view-filter.md) | Reporting | 19.2.0 | 48 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Entity Campus Filter](../../model-map/models/entity-campus-filter.md) | Core | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Lava Shortcode](../../model-map/models/lava-shortcode.md) | CMS | 19.3.4 | 48 | 20 | 31 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Lava Application](../../model-map/models/lava-application.md) | CMS | 19.3.4 | 44 | 16 | 29 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Lava Endpoint](../../model-map/models/lava-endpoint.md) | CMS | 19.3.4 | 52 | 23 | 36 | 13 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Request Filter](../../model-map/models/request-filter.md) | CMS | 19.3.4 | 43 | 14 | 27 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Data View Filter](../../model-map/models/data-view-filter.md) | Reporting | 19.3.4 | 48 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Entity Campus Filter](../../model-map/models/entity-campus-filter.md) | Core | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -232,9 +232,9 @@ Keywords: `command, sql command, web request, entity command`
 | Tag List | rock_lava_docs | Tag List Command v8.0 This is a very basic administrative command to list all of the registered Lava commands on your server. This is helpful if you'd like to find the command name of an entity, especially when working with plugins. {% taglist %} Results analyticsdimcampus - Rock.Lava.Blocks.RockEntity analyticsdimfamilycurrent - Rock.Lava.Blocks.RockEntity analyticsdimfamilyheadofhousehold -... | [source](https://community.rockrms.com/lava/commands/taglist-commands) |
 | Lava | rock_lava_docs | Lava v13.7 Fluid Ever feel like you type {% %} too much? Perhaps, text on those keys on your keyboard are worn off? The lava tag may be able to help. Syntax inside of the lava tag is basically reversed. Instead of 'tagging' keywords, and everything else is text to be displayed, you need to 'tag' text to display (using the echo command) and everythinge else is assumed to be code. Confused...? Don't worry an example... | [source](https://community.rockrms.com/lava/tags/lava-tags) |
 | Render Lava Endpoint | rock_lava_docs | Render Lava Endpoint v18.0 Sometimes, a Lava Endpoint generates content you'd like to display immediately when the page loads. While you could use HTMX to trigger a call to the endpoint on load, this approach introduces an extra HTTP request and might cause page layout shifts as the content loads. To address this, we introduced the renderlavaendpoint command. This command processes the Lava from the specified... | [source](https://community.rockrms.com/lava/commands/render-lava-endpoint) |
-| Delete Entity | rock_lava_docs | Delete Entity v18.0 Delete an entity from the database. Introduction Familiar with Lava's Entity command for data retrieval? The Delete Entity command extends its capabilities, allowing you to delete data directly from your database. Warning While the Delete Entity command is a powerful tool, it comes with significant security responsibilities. It's crucial to thoroughly understand and implement the security... | [source](https://community.rockrms.com/lava/commands/delete-entity) |
-| Modify Entity | rock_lava_docs | Modify Entity v18.0 Make changes to properties or attributes of an entity. Introduction Familiar with Lava's Entity command for data retrieval? The Modify Entity command extends its capabilities, allowing you to update or insert data directly into your database, enhancing your data management toolkit. Warning While the Modify Entity command is a powerful tool, it comes with significant security responsibilities.... | [source](https://community.rockrms.com/lava/commands/modify-entity) |
+| Run Lava within VS Code and Preview Results | rock_recipes | 12 Run Lava within VS Code and Preview Results Shared by Philip Bassham , Christ Chapel Bible Church 2 years ago 15.0 CMS, Web, General Intermediate I made an extension for VS Code that lets you test your lava right within the editor. This has been a huge productivity boost in writing and testing Lava over the last few months. To add it, search for " Lava Runner " in VS Code. This works alongside Magnus and the Lava... | [source](https://community.rockrms.com/recipes/456) |
 | Lava Commands | rock_developer | ## Overview Some Lava Commands are particularly useful when you need to read, update, or interact with data directly from within your Lava templates. These include commands for deleting entities, modifying data, responding to HTTP requests, and more. You'll now find all of these commands fully documented in the official [Lava Documentation](https://community.rockrms.com/lava). Here are direct links to each command’s... | [source](https://community.rockrms.com/developer/helix/lava-commands) |
+| Delete Entity | rock_lava_docs | Delete Entity v18.0 Delete an entity from the database. Introduction Familiar with Lava's Entity command for data retrieval? The Delete Entity command extends its capabilities, allowing you to delete data directly from your database. Warning While the Delete Entity command is a powerful tool, it comes with significant security responsibilities. It's crucial to thoroughly understand and implement the security... | [source](https://community.rockrms.com/lava/commands/delete-entity) |
 
 ### Filters
 
@@ -248,10 +248,10 @@ Keywords: `filter, text filter, date filter, person filter`
 | Insight Tools | rock_developer | ## Overview `Insight` tools help an agent analyze data instead of retrieve individual records. `Insight` tools can be broken down into 3 simple parts. 1. Filter and aggregate data. 2. Format the data 3. Return the data. ## Filter Data Because insight tools are opinionated, the only inputs would be filter options. The output is completely left up to your discretion which usually simplifies the logic you need to do.... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools) |
 | Filters | rock_developer | There are a number of standard filters that can be used with columns. Custom filters can also be created. These consist of a Component that is displayed in the popup which builds the "filter value" and a function that will be passed each row and the "filter value" to determine if the row matches. \| Filter \| Description \| \| --- \| --- \| \| booleanValueFilter \| A column filter that can be used with boolean values. \| \|... | [source](https://community.rockrms.com/developer/obsidian/grid-reference/filters) |
 | Countdown | rock_mobile_docs | M v1.0 Adding a countdown timer to your page is simple. There are several options for providing a date and time to the control. ### String Simply enter a raw date time value as a string. ``` <Rock:Countdown StartDateTime="08/27/2020 10:30AM" /> ``` ### Lava Filter See the [Lava documentation](https://community.rockrms.com/lava/filters/date-filters) for more information. ``` <Rock:Countdown StartDateTime="{{ 'Now' \|... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/countdown) |
-| Slicker Campus Filters | rock_recipes | 2 Slicker Campus Filters Shared by Steve Klein , Liquid Church 2 years ago 13.7 General Beginner The Why We have multiple locations so we are frequently building dynamic reports which include a campus filter. In the past, our campus filters would display all campuses by default or the selected campus. With a little bit of SQL and Lava, we found that we could include an All Campuses option in our campus filter and... | [source](https://community.rockrms.com/recipes/393) |
-| Person | rock_lava_docs | Person Filters Rock is based on managing people, so it's not surprising that we have special Lava filters for the Person model. Address Show Details Server: v2.0 Provides an address for the person you provide. Additional Details This filter has some input parameters: Address Type: Home, Work, etc. Format Template (optional) v3.0 : An optional template parameter to help you format the address any way you wish. See... | [source](https://community.rockrms.com/lava/filters/person-filters) |
-| List Tools | rock_developer | ## Overview `List` tools help an agent find and return a set of matching records. `List` tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set and return the data. The last item, pagination, is not required but is suggested if you have a large data set. At the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) |
 | Use Filter Groups | rock_documentation | Some views need both AND and OR logic, for example individuals who are married AND members, OR who are single AND attendees. Filter groups give you that. Inside a Data View, add a filter group with Add Filter Group, then set its Show results matching option to All, Any or None. Nest your criteria under it: an outer group set to Any holds two inner groups each set to All, so a record matches if it satisfies either... | [source](https://community.rockrms.com/documentation/church-management/reporting/data-views/use-filter-groups) |
+| Slicker Campus Filters | rock_recipes | 2 Slicker Campus Filters Shared by Steve Klein , Liquid Church 3 years ago 13.7 General Beginner The Why We have multiple locations so we are frequently building dynamic reports which include a campus filter. In the past, our campus filters would display all campuses by default or the selected campus. With a little bit of SQL and Lava, we found that we could include an All Campuses option in our campus filter and... | [source](https://community.rockrms.com/recipes/393) |
+| List Tools | rock_developer | ## Overview `List` tools help an agent find and return a set of matching records. `List` tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set and return the data. The last item, pagination, is not required but is suggested if you have a large data set. At the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) |
+| Person | rock_lava_docs | Person Filters Rock is based on managing people, so it's not surprising that we have special Lava filters for the Person model. Address Show Details Server: v2.0 Provides an address for the person you provide. Additional Details This filter has some input parameters: Address Type: Home, Work, etc. Format Template (optional) v3.0 : An optional template parameter to help you format the address any way you wish. See... | [source](https://community.rockrms.com/lava/filters/person-filters) |
 
 ### Shortcodes
 
@@ -262,13 +262,13 @@ Keywords: `shortcode, shortcode block`
 | Lava Shortcodes | rock_documentation | Shortcodes are a way to make Lava simpler and easier to read. They allow you to replace a simple Lava tag with a complex template written by a Lava specialist. This means you can do some really powerful things without having to know all the details of how things work. For example, instead of writing out Lava code to display a Google map with custom pins and styles, you can insert a Lava shortcode where you want the... | [source](https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes) |
 | Render Lava Endpoint | rock_lava_docs | Render Lava Endpoint v18.0 Sometimes, a Lava Endpoint generates content you'd like to display immediately when the page loads. While you could use HTMX to trigger a call to the endpoint on load, this approach introduces an extra HTTP request and might cause page layout shifts as the content loads. To address this, we introduced the renderlavaendpoint command. This command processes the Lava from the specified... | [source](https://community.rockrms.com/lava/commands/render-lava-endpoint) |
 | Types of Shortcodes | rock_lava_docs | Types of Shortcodes There are only two types of shortcodes: inline and block. Selecting the correct type is important as changing them in the future will break other people's Lava templates. Both short code types use the syntax: {[ shortcode ]} The first type is an 'inline' shortcode. This is a simple shortcode that does not require an end tag. Just reference the shortcode and provide a list of parameters and you’re... | [source](https://community.rockrms.com/lava/shortcodes/types-of-shortcodes) |
-| Authoring Shortcodes | rock_lava_docs | Authoring Shortcodes Writing shortcodes is simple. They're just Lava templates. Below are a few points to keep in mind as your write your own shortcodes. Select The Proper Shortcode Type As we already mentioned it's very important that you select the proper type of shortcode before you start using it. Changing it in the future means having to update all of your Lava templates that use it. The biggest factor in your... | [source](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes) |
 | Media Player Lava Shortcode | rock_documentation | Trying to get a video displayed on a page used to be kind of a pain. But not anymore, thanks to the Media Player Lava shortcode. At a minimum, you can add a media player and a video to a page by simply providing the video's URL in the *src* parameter of the shortcode as shown in the example below for a YouTube video. ``` {[ mediaplayer src:'https://www.youtube.com/watch?v=FZUH2tFM2Zg' ]}{[ endmediaplayer ]} ```... | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode) |
-| Lava Shortcode for Placement Groups on Check In | rock_recipes | 4 Lava Shortcode for Placement Groups on Check In Shared by Zack Dutra , Bayside Covenant Church 2 years ago 14.0 General Intermediate When doing event check in, it's often requested to have placement groups printed onto labels, wristbands , or shown on the success message screen. This recipe shows you how to create a lava shortcode that retrieves group placement information when provided with a ParentGroupId and... | [source](https://community.rockrms.com/recipes/386) |
+| Authoring Shortcodes | rock_lava_docs | Authoring Shortcodes Writing shortcodes is simple. They're just Lava templates. Below are a few points to keep in mind as your write your own shortcodes. Select The Proper Shortcode Type As we already mentioned it's very important that you select the proper type of shortcode before you start using it. Changing it in the future means having to update all of your Lava templates that use it. The biggest factor in your... | [source](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes) |
+| Lava Shortcode for Placement Groups on Check In | rock_recipes | 4 Lava Shortcode for Placement Groups on Check In Shared by Zack Dutra , Bayside Covenant Church 3 years ago 14.0 General Intermediate When doing event check in, it's often requested to have placement groups printed onto labels, wristbands , or shown on the success message screen. This recipe shows you how to create a lava shortcode that retrieves group placement information when provided with a ParentGroupId and... | [source](https://community.rockrms.com/recipes/386) |
 | The Power of Shortcode Blocks | rock_lava_docs | The Power of Shortcodes Shortcode blocks are very powerful as they allow you to provide advanced configuration options. Rock does a lot of the heavy lifting for you to help parse the configuration. Block Content The content (everything between the start and end tags) that the user adds to your shortcode is accessible to your template using the {{ blockContent }} variable. For instance, the parallax shortcode would... | [source](https://community.rockrms.com/lava/shortcodes/the-power-of-shortcode-blocks) |
 | Address Format Lava Shortcode (w/ Postal Code Shortener) | rock_recipes | 3 Address Format Lava Shortcode (w/ Postal Code Shortener) Shared by David Axelson , The Village Church one year ago 14.5 General Intermediate The Why This comes from a RocketChat thread about the best way to deal with formatting postal codes that could either be 5 digits or a longer format (43609-4100 vs 43609). This recipe shows a solution using a Lava Shortcode to format the address from either LocationId or... | [source](https://community.rockrms.com/recipes/467) |
 | Show Until, Show After Lava Shortcodes | rock_recipes | 2 Show Until, Show After Lava Shortcodes Shared by Josh LeVeque , West Side Christian Church 6 years ago 8.0 Web Beginner Want a simple way to have content appear and disappear on your site? Create this simple lava shortcode to have content that goes away when you tell it to. Home > Admin Tools > CMS Configuration > Lava Shortcodes Name: Show Until Tag Name: showuntil Tag Type: Block Description: Displays Content... | [source](https://community.rockrms.com/recipes/160) |
-| Rock Core Release Notes | rock_core_release_notes | Added a new Shortcode Scope Behavior property to the Lava Shortcode Entity. This setting allows Rock administrators to choose whether variables defined inside a shortcode should be isolated from or shared with the surrounding Lava. This helps prevent unintended variable conflicts in more complex Lava templates. Also refreshed the layout of the Lava... | [source](https://www.rockrms.com/releasenotes) |
+| Registrant Count Shortcode | rock_recipes | 6 Registrant Count Shortcode Shared by Jim Michael , The Crossing - Chesterfield 7 years ago 7.0 General, Operations, Web Intermediate This is a simple Lava Shortcode that returns the number of Registrants in a particular Registration Instance, by passing the RegistrationInstanceId . You can add the shortcode via Admin \| CMS Configuration \| Lava Shortcodes and it should be configured as follows: Name: Registrant... | [source](https://community.rockrms.com/recipes/31) |
 
 
 ## Lava Capability References
@@ -282,10 +282,10 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records in the bounded guide selection: `13`
-- Upstream check range: `2026-08-12T06:13:11+00:00` through `2026-08-12T11:27:22+00:00`
-- Source-native typed articles: `1` of `13`
-- Legacy source summaries retired: `2`; still active: `11`
+- Official article records in the bounded guide selection: `17`
+- Upstream check range: `2026-09-09T21:15:44+00:00` through `2026-09-09T21:24:47+00:00`
+- Source-native typed articles: `1` of `17`
+- Legacy source summaries retired: `2`; still active: `15`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

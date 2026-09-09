@@ -39,6 +39,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `getting-started-and-application-configuration` | normal | live verification |
 | `page-authoring-and-caching` | normal | live verification |

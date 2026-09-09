@@ -67,16 +67,16 @@ A participant can identify, select, complete check-in and hand labels to a kiosk
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-type
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
 - https://community.rockrms.com/rocku/check-in/using-mobile-check-in
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/getScheduledLocationsResponseBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/saveFamilyOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/editFamilyResponseBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/reprintAttendanceBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/getCurrentAttendanceResponseBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/saveFamilyResponseBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/activeAttendanceBag.d.ts
+- https://community.rockrms.com/developer/mobile-docs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/getScheduledLocationsResponseBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/saveFamilyOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/CheckInKiosk/activeAttendanceBag.d.ts
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration

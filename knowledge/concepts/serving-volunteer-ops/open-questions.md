@@ -15,18 +15,12 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `mental-model-serving-status-is-not-volunteer-eligibility`: Serving status is not volunteer eligibility
-- `volunteer-requirements-and-training-use-the-evidence-supported-lms-model`: Use the evidence-supported LMS model
-- `volunteer-requirements-and-training-connect-completion-to-operations-intentionally`: Connect completion to operations intentionally
 - `community-implementation-patterns`: Community Implementation Patterns
-- `troubleshooting-decision-tree-training-completion-did-not-change-serving-eligibility`: Training completion did not change serving eligibility
-- `agent-task-recipes-recipe-build-an-lms-based-volunteer-training-path`: Recipe: Build an LMS-based volunteer training path
-- `agent-task-recipes-recipe-secure-an-embedded-volunteer-dashboard`: Recipe: Secure an embedded volunteer dashboard
-- `source-map-approved-answer-bearing-claims`: Approved answer-bearing claims
 - `source-map-community-examples`: Community examples
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `mental-model-group-scheduling-and-group-rsvp-are-related-but-different`: Group Scheduling and Group RSVP are related but different
 - `mental-model-serving-status-is-not-volunteer-eligibility`: Serving status is not volunteer eligibility
@@ -64,6 +58,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-secure-an-embedded-volunteer-dashboard`: Recipe: Secure an embedded volunteer dashboard
 - `agent-task-recipes-recipe-pilot-outreach-toolbox-for-relationship-care-follow-up`: Recipe: Pilot Outreach Toolbox for relationship-care follow-up
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

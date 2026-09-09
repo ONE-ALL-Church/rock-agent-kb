@@ -2104,13 +2104,22 @@
   },
   "approved_media_hash": "20b69eadcc9511a5a54f8b14d28c7bb5347375a58c10492e985f420aadd8713c",
   "approved_media_path": "knowledge/concepts/people-families/approved-media.md",
-  "built_at": "2026-09-03T16:51:20+00:00",
+  "built_at": "2026-09-09T23:15:46+00:00",
   "concept_id": "people-families",
-  "guide_hash": "c055776cb87430e1fe95b99ddb476314a60ad4af099330f0cb356a594d9b8145",
-  "guide_line_count": 654,
+  "guide_hash": "a549022eb071cebcf5be0e9a5d855d88c25fdd4f4067cd8f0085a3664281bed1",
+  "guide_line_count": 718,
   "guide_path": "knowledge/concepts/people-families/guide.md",
-  "guide_word_count": 6934,
+  "guide_word_count": 7755,
   "rebuild_triggers": [
+    {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official",
       "content_hash": "f97b79266038b4c166651403e6f8219c7187016a681e4b700541effb35c9fbc9",
@@ -2122,8 +2131,8 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "e7c53f7faeb45c351c246776245a40ef006e7d4f1646245f87070491293b2042",
-      "excerpt_hash": "7d006ce3d6ec1c91078809fd825c87e1e11c0e7f2d7de10325b3dcf63bdaf515",
+      "content_hash": "69d852df498c4b26e05950cc7c7d490177ca5c37ba14cdc3f626fadf972a6d8c",
+      "excerpt_hash": "76cf28ecd5aaf967c15fae3fc9ce32b5aa475859f9d1ad7d7434e184f3f4c659",
       "source_id": "rock_rocku",
       "source_key": "303d884642f1666d",
       "source_record_id": "media-insight:82551cc01476c431",
@@ -2302,21 +2311,12 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "ab888d7089ef6246e4da1d6df7c1f34788efef57102b8903e3cc7d26ab46e4d3",
-      "excerpt_hash": "8ba4c0c4b44df4ac9b74b127983a65709be060f553ce5af4a940073679378397",
+      "content_hash": "4eda7e014034fcc3689f2903010451bc26f33effb65ee40693b4c1d37980d1a5",
+      "excerpt_hash": "bd91ca199a53d86b2adce5783a8e8f0ddbd67c9620f903d6d92e5ce2c8acb562",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "06e2dd55244fcaf6",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "2dadc09cbc709fed402fc1114d2c5bdc5d446005ccc03083f6c2696f9a2ee489",
-      "excerpt_hash": "a426ccff2bda3aa22f2d9273b42a64b4e93ccd292ebeefda63ab01c5fb5f6619",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f995b34f56d8005a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/People/SetPersonAttribute.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Workflow/Action/People/SetPersonAttribute.cs"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
       "authority": "official-training",
@@ -2455,8 +2455,8 @@
     },
     {
       "authority": "official-release",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "46ef92e202c2d69783834a090559f655f514331847058b9a5fad246b0d263c5c",
+      "content_hash": "280ae2542506cc58a7dd563d84c97cd6fb6ce752a7eb89352005af76aa099724",
+      "excerpt_hash": "5cab4fe81357ca5e998e49a9f0897bae3f87110d4536a4cd2fdff36664c86d02",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:8e172c4bcd394005",
@@ -2497,35 +2497,82 @@
       "source_key": "2f424ad9abbd88f9",
       "source_record_id": "rock_documentation:article:1092",
       "url": "https://community.rockrms.com/documentation/church-management/people/families"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "add61f36fc8d2512",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "47290b8c4150f42f",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "d48e27874620e147",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "103246342712cd75",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 30,
+      "end_line": 46,
       "heading": "Agent Summary",
       "needs_live_verification": true,
       "section_id": "agent-summary",
       "source_keys": [
         "54ad5692a399e76d"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "citation-only",
-      "end_line": 53,
+      "end_line": 69,
       "heading": "Scope And Boundaries",
       "needs_live_verification": false,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "303d884642f1666d"
       ],
-      "start_line": 31
+      "start_line": 47
     },
     {
       "confidence": "normal",
-      "end_line": 70,
+      "end_line": 86,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
@@ -2534,11 +2581,11 @@
         "2a973ad1f4127cec",
         "1dead833397c26b0"
       ],
-      "start_line": 54
+      "start_line": 70
     },
     {
       "confidence": "structural",
-      "end_line": 72,
+      "end_line": 88,
       "heading": "Person Model And Record Lifecycle",
       "needs_live_verification": false,
       "section_id": "person-model-and-record-lifecycle",
@@ -2549,11 +2596,11 @@
         "6657dbe52e9a5a21",
         "54ad5692a399e76d"
       ],
-      "start_line": 71
+      "start_line": 87
     },
     {
       "confidence": "normal",
-      "end_line": 78,
+      "end_line": 94,
       "heading": "Creating and locating people",
       "needs_live_verification": false,
       "section_id": "person-model-and-record-lifecycle-creating-and-locating-people",
@@ -2562,11 +2609,11 @@
         "6092d7a3c35c8dc5",
         "6092d7a3c35c8dc5"
       ],
-      "start_line": 73
+      "start_line": 89
     },
     {
       "confidence": "normal",
-      "end_line": 90,
+      "end_line": 106,
       "heading": "Editing, inactivating, and preserving history",
       "needs_live_verification": true,
       "section_id": "person-model-and-record-lifecycle-editing-inactivating-and-preserving-history",
@@ -2574,11 +2621,11 @@
         "2843120cbd9a91a5",
         "6657dbe52e9a5a21"
       ],
-      "start_line": 79
+      "start_line": 95
     },
     {
       "confidence": "normal",
-      "end_line": 96,
+      "end_line": 112,
       "heading": "Derived person data",
       "needs_live_verification": false,
       "section_id": "person-model-and-record-lifecycle-derived-person-data",
@@ -2586,11 +2633,11 @@
         "54ad5692a399e76d",
         "2843120cbd9a91a5"
       ],
-      "start_line": 91
+      "start_line": 107
     },
     {
       "confidence": "normal",
-      "end_line": 113,
+      "end_line": 129,
       "heading": "Person Profile And Access Boundaries",
       "needs_live_verification": false,
       "section_id": "person-profile-and-access-boundaries",
@@ -2600,11 +2647,11 @@
         "295d6c4795f9b734",
         "2e96a06db49aac61"
       ],
-      "start_line": 97
+      "start_line": 113
     },
     {
       "confidence": "normal",
-      "end_line": 123,
+      "end_line": 139,
       "heading": "Tags, signals, and badges",
       "needs_live_verification": true,
       "section_id": "person-profile-and-access-boundaries-tags-signals-and-badges",
@@ -2613,11 +2660,11 @@
         "2de85e16a952210a",
         "295d6c4795f9b734"
       ],
-      "start_line": 114
+      "start_line": 130
     },
     {
       "confidence": "structural",
-      "end_line": 125,
+      "end_line": 141,
       "heading": "Families, Membership, And Relationships",
       "needs_live_verification": false,
       "section_id": "families-membership-and-relationships",
@@ -2627,11 +2674,11 @@
         "f56d13023764f197",
         "aa2868c0765730ee"
       ],
-      "start_line": 124
+      "start_line": 140
     },
     {
       "confidence": "normal",
-      "end_line": 140,
+      "end_line": 156,
       "heading": "Family structure",
       "needs_live_verification": false,
       "section_id": "families-membership-and-relationships-family-structure",
@@ -2639,11 +2686,11 @@
         "64f4269a765139f5",
         "6b69f24645ae8320"
       ],
-      "start_line": 126
+      "start_line": 142
     },
     {
       "confidence": "normal",
-      "end_line": 146,
+      "end_line": 162,
       "heading": "Addresses and moves",
       "needs_live_verification": false,
       "section_id": "families-membership-and-relationships-addresses-and-moves",
@@ -2651,33 +2698,33 @@
         "6b69f24645ae8320",
         "6b69f24645ae8320"
       ],
-      "start_line": 141
+      "start_line": 157
     },
     {
       "confidence": "normal",
-      "end_line": 155,
+      "end_line": 171,
       "heading": "Blended families and multiple-family membership",
       "needs_live_verification": false,
       "section_id": "families-membership-and-relationships-blended-families-and-multiple-family-membership",
       "source_keys": [
         "f56d13023764f197"
       ],
-      "start_line": 147
+      "start_line": 163
     },
     {
       "confidence": "normal",
-      "end_line": 161,
+      "end_line": 177,
       "heading": "Known relationships",
       "needs_live_verification": true,
       "section_id": "families-membership-and-relationships-known-relationships",
       "source_keys": [
         "aa2868c0765730ee"
       ],
-      "start_line": 156
+      "start_line": 172
     },
     {
       "confidence": "structural",
-      "end_line": 163,
+      "end_line": 179,
       "heading": "Person And Family Attributes",
       "needs_live_verification": false,
       "section_id": "person-and-family-attributes",
@@ -2686,14 +2733,13 @@
         "1dead833397c26b0",
         "c969c3a5d495f024",
         "ba0110fab9eac6de",
-        "06e2dd55244fcaf6",
-        "f995b34f56d8005a"
+        "d275b5b94a9da833"
       ],
-      "start_line": 162
+      "start_line": 178
     },
     {
       "confidence": "normal",
-      "end_line": 176,
+      "end_line": 192,
       "heading": "Choosing the correct entity",
       "needs_live_verification": false,
       "section_id": "person-and-family-attributes-choosing-the-correct-entity",
@@ -2701,11 +2747,11 @@
         "2a973ad1f4127cec",
         "1dead833397c26b0"
       ],
-      "start_line": 164
+      "start_line": 180
     },
     {
       "confidence": "normal",
-      "end_line": 182,
+      "end_line": 198,
       "heading": "Configuration and security",
       "needs_live_verification": false,
       "section_id": "person-and-family-attributes-configuration-and-security",
@@ -2713,24 +2759,24 @@
         "2a973ad1f4127cec",
         "c969c3a5d495f024"
       ],
-      "start_line": 177
+      "start_line": 193
     },
     {
       "confidence": "high",
-      "end_line": 190,
+      "end_line": 206,
       "heading": "Public self-service attributes",
       "needs_live_verification": true,
       "section_id": "person-and-family-attributes-public-self-service-attributes",
       "source_keys": [
         "ba0110fab9eac6de",
-        "06e2dd55244fcaf6",
-        "f995b34f56d8005a"
+        "d275b5b94a9da833",
+        "d275b5b94a9da833"
       ],
-      "start_line": 183
+      "start_line": 199
     },
     {
       "confidence": "citation-only",
-      "end_line": 208,
+      "end_line": 224,
       "heading": "Person Notes And Note-Type Governance",
       "needs_live_verification": true,
       "section_id": "person-notes-and-note-type-governance",
@@ -2738,11 +2784,11 @@
         "a7e02a5142f7bd4b",
         "094493cd4f8f0313"
       ],
-      "start_line": 191
+      "start_line": 207
     },
     {
       "confidence": "citation-only",
-      "end_line": 227,
+      "end_line": 243,
       "heading": "Data Integrity, Duplicates, And Merge Preparation",
       "needs_live_verification": true,
       "section_id": "data-integrity-duplicates-and-merge-preparation",
@@ -2750,22 +2796,22 @@
         "8d8c28f726e09218",
         "c680a16482a4af12"
       ],
-      "start_line": 209
+      "start_line": 225
     },
     {
       "confidence": "citation-only",
-      "end_line": 238,
+      "end_line": 254,
       "heading": "Rock v19 merge evidence",
       "needs_live_verification": true,
       "section_id": "data-integrity-duplicates-and-merge-preparation-rock-v19-merge-evidence",
       "source_keys": [
         "f7edc61707a19d6d"
       ],
-      "start_line": 228
+      "start_line": 244
     },
     {
       "confidence": "normal",
-      "end_line": 259,
+      "end_line": 275,
       "heading": "Family Preregistration And Follow-Up",
       "needs_live_verification": true,
       "section_id": "family-preregistration-and-follow-up",
@@ -2776,11 +2822,11 @@
         "df7c8ffe1ca46e3d",
         "fe63cd4826aecb55"
       ],
-      "start_line": 239
+      "start_line": 255
     },
     {
       "confidence": "citation-only",
-      "end_line": 274,
+      "end_line": 290,
       "heading": "Connections As Person-Centered Process State",
       "needs_live_verification": true,
       "section_id": "connections-as-person-centered-process-state",
@@ -2788,22 +2834,22 @@
         "a7cecea2cefec5f0",
         "028b35260711018b"
       ],
-      "start_line": 260
+      "start_line": 276
     },
     {
       "confidence": "citation-only",
-      "end_line": 290,
+      "end_line": 306,
       "heading": "Personalization And Person Data",
       "needs_live_verification": true,
       "section_id": "personalization-and-person-data",
       "source_keys": [
         "11cdf9c3e9ac92ed"
       ],
-      "start_line": 275
+      "start_line": 291
     },
     {
       "confidence": "normal",
-      "end_line": 305,
+      "end_line": 321,
       "heading": "Person And Family Analytics",
       "needs_live_verification": false,
       "section_id": "person-and-family-analytics",
@@ -2812,11 +2858,11 @@
         "9f36b6a3bd45890f",
         "c11816bbbe58c996"
       ],
-      "start_line": 291
+      "start_line": 307
     },
     {
       "confidence": "normal",
-      "end_line": 318,
+      "end_line": 334,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
       "section_id": "version-and-authority-caveats",
@@ -2827,11 +2873,11 @@
         "776256c424368312",
         "776256c424368312"
       ],
-      "start_line": 306
+      "start_line": 322
     },
     {
       "confidence": "structural",
-      "end_line": 320,
+      "end_line": 336,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -2853,11 +2899,11 @@
         "c11816bbbe58c996",
         "9f36b6a3bd45890f"
       ],
-      "start_line": 319
+      "start_line": 335
     },
     {
       "confidence": "normal",
-      "end_line": 329,
+      "end_line": 345,
       "heading": "A person cannot be found, or a new record may be a duplicate",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-person-cannot-be-found-or-a-new-record-may-be-a-duplicate",
@@ -2865,11 +2911,11 @@
         "6092d7a3c35c8dc5",
         "6657dbe52e9a5a21"
       ],
-      "start_line": 321
+      "start_line": 337
     },
     {
       "confidence": "normal",
-      "end_line": 339,
+      "end_line": 355,
       "heading": "A person is in the wrong family, campus, or household report",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-person-is-in-the-wrong-family-campus-or-household-report",
@@ -2877,11 +2923,11 @@
         "6b69f24645ae8320",
         "f56d13023764f197"
       ],
-      "start_line": 330
+      "start_line": 346
     },
     {
       "confidence": "normal",
-      "end_line": 350,
+      "end_line": 366,
       "heading": "A user can see a profile but cannot view or edit one part of it",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-user-can-see-a-profile-but-cannot-view-or-edit-one-part-of-it",
@@ -2889,11 +2935,11 @@
         "303d884642f1666d",
         "a8d2445ecc9f8a98"
       ],
-      "start_line": 340
+      "start_line": 356
     },
     {
       "confidence": "citation-only",
-      "end_line": 361,
+      "end_line": 377,
       "heading": "A note is missing, appears in the wrong place, or is visible too broadly",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-note-is-missing-appears-in-the-wrong-place-or-is-visible-too-broadly",
@@ -2901,11 +2947,11 @@
         "094493cd4f8f0313",
         "a7e02a5142f7bd4b"
       ],
-      "start_line": 351
+      "start_line": 367
     },
     {
       "confidence": "normal",
-      "end_line": 373,
+      "end_line": 389,
       "heading": "An attribute is absent, blank, stale, or unexpectedly overwritten",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-an-attribute-is-absent-blank-stale-or-unexpectedly-overwritten",
@@ -2913,11 +2959,11 @@
         "2a973ad1f4127cec",
         "ba0110fab9eac6de"
       ],
-      "start_line": 362
+      "start_line": 378
     },
     {
       "confidence": "normal",
-      "end_line": 384,
+      "end_line": 400,
       "heading": "Family preregistration creates partial or duplicate records",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-family-preregistration-creates-partial-or-duplicate-records",
@@ -2925,33 +2971,33 @@
         "9fc1dacd740e1739",
         "7cd07bd6d4ff5479"
       ],
-      "start_line": 374
+      "start_line": 390
     },
     {
       "confidence": "citation-only",
-      "end_line": 395,
+      "end_line": 411,
       "heading": "A connection request is missing or stuck",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-connection-request-is-missing-or-stuck",
       "source_keys": [
         "028b35260711018b"
       ],
-      "start_line": 385
+      "start_line": 401
     },
     {
       "confidence": "citation-only",
-      "end_line": 405,
+      "end_line": 421,
       "heading": "Personalized content appears for the wrong person or not at all",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-personalized-content-appears-for-the-wrong-person-or-not-at-all",
       "source_keys": [
         "11cdf9c3e9ac92ed"
       ],
-      "start_line": 396
+      "start_line": 412
     },
     {
       "confidence": "normal",
-      "end_line": 417,
+      "end_line": 433,
       "heading": "Family analytics or eRA values appear stale or wrong",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-family-analytics-or-era-values-appear-stale-or-wrong",
@@ -2959,11 +3005,11 @@
         "c11816bbbe58c996",
         "9f36b6a3bd45890f"
       ],
-      "start_line": 406
+      "start_line": 422
     },
     {
       "confidence": "structural",
-      "end_line": 419,
+      "end_line": 435,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
@@ -2979,22 +3025,22 @@
         "a7cecea2cefec5f0",
         "c680a16482a4af12"
       ],
-      "start_line": 418
+      "start_line": 434
     },
     {
       "confidence": "normal",
-      "end_line": 453,
+      "end_line": 469,
       "heading": "Recipe: Add a person or family without creating a duplicate",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-add-a-person-or-family-without-creating-a-duplicate",
       "source_keys": [
         "6092d7a3c35c8dc5"
       ],
-      "start_line": 420
+      "start_line": 436
     },
     {
       "confidence": "normal",
-      "end_line": 475,
+      "end_line": 491,
       "heading": "Recipe: Correct a family structure or household move",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-correct-a-family-structure-or-household-move",
@@ -3002,11 +3048,11 @@
         "6b69f24645ae8320",
         "f56d13023764f197"
       ],
-      "start_line": 454
+      "start_line": 470
     },
     {
       "confidence": "normal",
-      "end_line": 505,
+      "end_line": 521,
       "heading": "Recipe: Design or review a person or family attribute",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-design-or-review-a-person-or-family-attribute",
@@ -3014,77 +3060,77 @@
         "2a973ad1f4127cec",
         "1dead833397c26b0"
       ],
-      "start_line": 476
+      "start_line": 492
     },
     {
       "confidence": "citation-only",
-      "end_line": 526,
+      "end_line": 542,
       "heading": "Recipe: Audit Person Note governance",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-audit-person-note-governance",
       "source_keys": [
         "094493cd4f8f0313"
       ],
-      "start_line": 506
+      "start_line": 522
     },
     {
       "confidence": "citation-only",
-      "end_line": 549,
+      "end_line": 565,
       "heading": "Recipe: Prepare a duplicate-person merge for authorized review",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-prepare-a-duplicate-person-merge-for-authorized-review",
       "source_keys": [
         "e227a0093bd60f75"
       ],
-      "start_line": 527
+      "start_line": 543
     },
     {
       "confidence": "normal",
-      "end_line": 573,
+      "end_line": 589,
       "heading": "Recipe: Validate family preregistration end to end",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-family-preregistration-end-to-end",
       "source_keys": [
         "9fc1dacd740e1739"
       ],
-      "start_line": 550
+      "start_line": 566
     },
     {
       "confidence": "citation-only",
-      "end_line": 594,
+      "end_line": 610,
       "heading": "Recipe: Diagnose a connection request from the person record",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-diagnose-a-connection-request-from-the-person-record",
       "source_keys": [
         "a7cecea2cefec5f0"
       ],
-      "start_line": 574
+      "start_line": 590
     },
     {
       "confidence": "citation-only",
-      "end_line": 618,
+      "end_line": 634,
       "heading": "Recipe: Run a bounded people-data cleanup",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-run-a-bounded-people-data-cleanup",
       "source_keys": [
         "c680a16482a4af12"
       ],
-      "start_line": 595
+      "start_line": 611
     },
     {
       "confidence": "needs-citation",
-      "end_line": 637,
+      "end_line": 653,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
         "c680a16482a4af12"
       ],
-      "start_line": 619
+      "start_line": 635
     },
     {
       "confidence": "high",
-      "end_line": 654,
+      "end_line": 672,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
@@ -3105,18 +3151,68 @@
         "2f424ad9abbd88f9",
         "2a973ad1f4127cec",
         "ba0110fab9eac6de",
-        "06e2dd55244fcaf6",
+        "d275b5b94a9da833",
         "9f36b6a3bd45890f",
         "c11816bbbe58c996",
         "776256c424368312",
         "df7c8ffe1ca46e3d",
         "fe63cd4826aecb55"
       ],
-      "start_line": 638
+      "start_line": 654
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 698,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "f7edc61707a19d6d",
+        "f7edc61707a19d6d",
+        "f7edc61707a19d6d",
+        "f7edc61707a19d6d",
+        "a7cecea2cefec5f0",
+        "028b35260711018b",
+        "a7e02a5142f7bd4b",
+        "094493cd4f8f0313",
+        "303d884642f1666d",
+        "11cdf9c3e9ac92ed",
+        "8d8c28f726e09218",
+        "8d8c28f726e09218"
+      ],
+      "start_line": 673
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 718,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "add61f36fc8d2512",
+        "a7cecea2cefec5f0",
+        "028b35260711018b",
+        "8d8c28f726e09218",
+        "c680a16482a4af12",
+        "47290b8c4150f42f",
+        "d48e27874620e147",
+        "103246342712cd75"
+      ],
+      "start_line": 699
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:44:21+00:00",
+  "source_pack_hydrated_at": "2026-09-09T23:07:14+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official",
       "authority_score": 100,
@@ -3144,8 +3240,8 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "e7c53f7faeb45c351c246776245a40ef006e7d4f1646245f87070491293b2042",
-      "excerpt_hash": "7d006ce3d6ec1c91078809fd825c87e1e11c0e7f2d7de10325b3dcf63bdaf515",
+      "content_hash": "69d852df498c4b26e05950cc7c7d490177ca5c37ba14cdc3f626fadf972a6d8c",
+      "excerpt_hash": "76cf28ecd5aaf967c15fae3fc9ce32b5aa475859f9d1ad7d7434e184f3f4c659",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3604,45 +3700,25 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "ab888d7089ef6246e4da1d6df7c1f34788efef57102b8903e3cc7d26ab46e4d3",
-      "excerpt_hash": "8ba4c0c4b44df4ac9b74b127983a65709be060f553ce5af4a940073679378397",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "person",
-        "attribute",
-        "person attribute",
-        "personattribute"
-      ],
-      "path": "RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "change_type": null,
+      "content_hash": "4eda7e014034fcc3689f2903010451bc26f33effb65ee40693b4c1d37980d1a5",
+      "excerpt_hash": "bd91ca199a53d86b2adce5783a8e8f0ddbd67c9620f903d6d92e5ce2c8acb562",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "06e2dd55244fcaf6",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs",
-      "title": "RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/Crm/PersonAttributeForms.ascx.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "2dadc09cbc709fed402fc1114d2c5bdc5d446005ccc03083f6c2696f9a2ee489",
-      "excerpt_hash": "a426ccff2bda3aa22f2d9273b42a64b4e93ccd292ebeefda63ab01c5fb5f6619",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "person",
-        "people",
-        "attribute",
-        "person attribute",
-        "personattribute"
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
       ],
-      "path": "Rock/Workflow/Action/People/SetPersonAttribute.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f995b34f56d8005a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Workflow/Action/People/SetPersonAttribute.cs",
-      "title": "Rock/Workflow/Action/People/SetPersonAttribute.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Workflow/Action/People/SetPersonAttribute.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
     },
     {
       "authority": "official-training",
@@ -3891,8 +3967,8 @@
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
-      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
-      "excerpt_hash": "46ef92e202c2d69783834a090559f655f514331847058b9a5fad246b0d263c5c",
+      "content_hash": "280ae2542506cc58a7dd563d84c97cd6fb6ce752a7eb89352005af76aa099724",
+      "excerpt_hash": "5cab4fe81357ca5e998e49a9f0897bae3f87110d4536a4cd2fdff36664c86d02",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": "June 30, 2026",
@@ -3985,9 +4061,49 @@
       ],
       "url": "https://community.rockrms.com/documentation/church-management/people/families",
       "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "add61f36fc8d2512",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "47290b8c4150f42f",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "d48e27874620e147",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "103246342712cd75",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes",
+      "url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes"
     }
   ],
-  "synthesis_profile": "comprehensive",
+  "synthesis_profile": null,
   "synthesis_provenance": {
     "model": "gpt-5.6-sol",
     "prompt_id": "rock-kb-concept-guide-synthesis",

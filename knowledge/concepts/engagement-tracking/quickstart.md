@@ -34,12 +34,12 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-29: Agent Summary (normal)
-- `scope-and-boundaries` lines 30-45: Scope And Boundaries (normal)
-- `mental-model` lines 46-57: Mental Model (normal)
-- `steps-programs-types-and-completion` lines 60-71: Programs, types and completion (normal)
-- `steps-entry-attributes-and-history` lines 72-83: Entry, attributes and history (normal)
-- `steps-bulk-entry-and-automation` lines 84-91: Bulk entry and automation (normal)
+- `agent-summary` lines 34-45: Agent Summary (normal)
+- `scope-and-boundaries` lines 46-61: Scope And Boundaries (normal)
+- `mental-model` lines 62-73: Mental Model (normal)
+- `steps-programs-types-and-completion` lines 76-87: Programs, types and completion (normal)
+- `steps-entry-attributes-and-history` lines 88-99: Entry, attributes and history (normal)
+- `steps-bulk-entry-and-automation` lines 100-107: Bulk entry and automation (normal)
 
 ## Core Entities
 

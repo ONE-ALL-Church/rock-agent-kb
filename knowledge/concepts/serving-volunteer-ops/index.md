@@ -2,15 +2,15 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:23+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T11:27:14+00:00
+source_last_checked_at: 2026-09-09T21:24:34+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 1/28
-legacy_summary_retirement_coverage: 4/28
+source_native_article_coverage: 1/30
+legacy_summary_retirement_coverage: 4/30
 depends_on_topics:
   - groups
   - scheduling
@@ -41,7 +41,7 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 - `Serving And Volunteer Operations` spans groups, scheduling, locations, check-in, communications, workflows. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_podcast_rss, rock_community_hubs, rock_youtube, rock_documentation, rock_recipes, rock_rocku.
-- Related tags found in source records: usage, check-in, workflow, operations, security, admin, training, sql.
+- Related tags found in source records: usage, check-in, workflow, operations, admin, security, training, sql.
 - Source detail types include: developer_doc, documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -107,13 +107,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_community_hubs`: 8
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 27
+- `rock_documentation`: 29
 - `rock_mobile_docs`: 1
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `rock_qa`: 1
 - `rock_recipes`: 8
-- `rock_rocku`: 27
+- `rock_rocku`: 25
 - `rock_youtube`: 2
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
@@ -139,29 +139,29 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.2.0 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.2.0 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance](../../model-map/models/attendance.md) | Event | 19.2.0 | 82 | 39 | 65 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Check In Session](../../model-map/models/attendance-check-in-session.md) | Event | 19.2.0 | 21 | 7 | 14 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Code](../../model-map/models/attendance-code.md) | Event | 19.2.0 | 20 | 7 | 12 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Requirement](../../model-map/models/group-member-requirement.md) | Group | 19.2.0 | 58 | 25 | 41 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Requirement](../../model-map/models/group-requirement.md) | Group | 19.2.0 | 52 | 19 | 37 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Requirement Type](../../model-map/models/group-requirement-type.md) | Group | 19.2.0 | 65 | 33 | 50 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.3.4 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.3.4 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance](../../model-map/models/attendance.md) | Event | 19.3.4 | 82 | 39 | 65 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Check In Session](../../model-map/models/attendance-check-in-session.md) | Event | 19.3.4 | 21 | 7 | 14 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Code](../../model-map/models/attendance-code.md) | Event | 19.3.4 | 20 | 7 | 12 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.3.4 | 64 | 27 | 47 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.3.4 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Requirement](../../model-map/models/group-member-requirement.md) | Group | 19.3.4 | 58 | 25 | 41 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Requirement](../../model-map/models/group-requirement.md) | Group | 19.3.4 | 52 | 19 | 37 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Requirement Type](../../model-map/models/group-requirement-type.md) | Group | 19.3.4 | 65 | 33 | 50 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Group Schedule Exclusion](../../model-map/models/group-schedule-exclusion.md) | Group | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.Campus` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Campus Schedule.ModifiedAuditValuesAlreadyUpdated` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -209,9 +209,9 @@ Keywords: `serving team, serve team, group type, group role, team member, volunt
 | Configure Group Attendance | rock_documentation | Before a group can take attendance, its group type must first be configured to enable attendance tracking under `Admin Tools > Settings > General > Group Types`. From here you should select the group type you'd like to configure check-in for. Under the *Attendance / Check-in* tab enable the setting *Takes Attendance*. While this one setting is all you need to enable the attendance features, there are a couple of... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance) |
 | Managing Schedule Coordinator Notifications | rock_documentation | Ever been caught off guard by a last-minute volunteer change? Picture this: It’s Sunday morning, the next service is starting soon, and a crucial volunteer has dropped out. As the *Schedule Coordinator* for your serving team, you'll be the first to know, giving you time to adjust and ensure everything runs smoothly. The Schedule Coordinator can be notified when a volunteer accepts or declines a serving opportunity,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications) |
 | Enable Group RSVP | rock_documentation | The RSVP function is enabled in group type settings, making RSVP features available to any groups within that type. All RSVP features are tied directly to a group. That means you must have a group created before you can use RSVP. The group doesn't need to have any members, but it needs to exist so individuals who accept your RSVP can be added to it. To enable RSVP for a group type, navigate to `Admin Tools > General... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp) |
-| Problem to Solve | rock_recipes | 2 View Serving Schedule on External Page Shared by Aiden Bailey , Mosaic Christian Church one year ago 14.4 Group, Serving Intermediate Problem to Solve Viewing the serving schedule isn't very accessible on the external page. You have to go to the internal site, have access to the schedule status board, navigate to the team you're trying to view, and then look at it. To do that, every volunteer needs the proper... | [source](https://community.rockrms.com/recipes/459) |
+| Problem to Solve | rock_recipes | 2 View Serving Schedule on External Page Shared by Aiden Bailey , Mosaic Christian Church 2 years ago 14.4 Group, Serving Intermediate Problem to Solve Viewing the serving schedule isn't very accessible on the external page. You have to go to the internal site, have access to the schedule status board, navigate to the team you're trying to view, and then look at it. To do that, every volunteer needs the proper... | [source](https://community.rockrms.com/recipes/459) |
 | Use the Group Viewer with RSVP | rock_documentation | After you’ve enabled RSVP for a group type, you’ll see a couple of changes when viewing groups of that type from the *Group Viewer* page. First, you’ll notice the addition of a new icon that will take you to the *Group RSVP List* page, where you can view or add occurrences. We’ll talk more about occurrences in the [RSVP Occurrences](/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) article. Second,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp) |
-| Group Member Schedule Templates - adding 5th week and using Auto Schedule | rock_recipes | 1 Group Member Schedule Templates - adding 5th week and using Auto Schedule Shared by Cecillia Fountain , Centerpoint Church 3 years ago 9.0 Serving, Group Beginner The main reason to create Group Member Schedule Templates is to use the "Auto-Schedule" button in the Group Scheduler . The solutions below are designed to work with Auto-Scheduling and (for the most part) will not need to be maintained. Rock Core does... | [source](https://community.rockrms.com/recipes/356) |
+| Volunteer Generosity | rock_documentation | This report is used to compare and capture insights on your volunteer team and their giving. It shows which volunteers have donated within a specific time range and lets you filter by Attendance Date Ranges, Campuses, and Teams. This helps you understand how volunteering relates to financial giving. Note **Just a Note**This tool tracks the connection between volunteers' giving and their service, not their exact... | [source](https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity) |
 
 ### Schedules And Confirmations
 
@@ -234,7 +234,7 @@ Keywords: `schedule, scheduling, confirmation, decline, RSVP, reminder, serving 
 | Configure Group Attendance | rock_documentation | Before a group can take attendance, its group type must first be configured to enable attendance tracking under `Admin Tools > Settings > General > Group Types`. From here you should select the group type you'd like to configure check-in for. Under the *Attendance / Check-in* tab enable the setting *Takes Attendance*. While this one setting is all you need to enable the attendance features, there are a couple of... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance) |
 | Managing Schedule Coordinator Notifications | rock_documentation | Ever been caught off guard by a last-minute volunteer change? Picture this: It’s Sunday morning, the next service is starting soon, and a crucial volunteer has dropped out. As the *Schedule Coordinator* for your serving team, you'll be the first to know, giving you time to adjust and ensure everything runs smoothly. The Schedule Coordinator can be notified when a volunteer accepts or declines a serving opportunity,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications) |
 | Enable Group RSVP | rock_documentation | The RSVP function is enabled in group type settings, making RSVP features available to any groups within that type. All RSVP features are tied directly to a group. That means you must have a group created before you can use RSVP. The group doesn't need to have any members, but it needs to exist so individuals who accept your RSVP can be added to it. To enable RSVP for a group type, navigate to `Admin Tools > General... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp) |
-| Problem to Solve | rock_recipes | 2 View Serving Schedule on External Page Shared by Aiden Bailey , Mosaic Christian Church one year ago 14.4 Group, Serving Intermediate Problem to Solve Viewing the serving schedule isn't very accessible on the external page. You have to go to the internal site, have access to the schedule status board, navigate to the team you're trying to view, and then look at it. To do that, every volunteer needs the proper... | [source](https://community.rockrms.com/recipes/459) |
+| Problem to Solve | rock_recipes | 2 View Serving Schedule on External Page Shared by Aiden Bailey , Mosaic Christian Church 2 years ago 14.4 Group, Serving Intermediate Problem to Solve Viewing the serving schedule isn't very accessible on the external page. You have to go to the internal site, have access to the schedule status board, navigate to the team you're trying to view, and then look at it. To do that, every volunteer needs the proper... | [source](https://community.rockrms.com/recipes/459) |
 | Use the Group Viewer with RSVP | rock_documentation | After you’ve enabled RSVP for a group type, you’ll see a couple of changes when viewing groups of that type from the *Group Viewer* page. First, you’ll notice the addition of a new icon that will take you to the *Group RSVP List* page, where you can view or add occurrences. We’ll talk more about occurrences in the [RSVP Occurrences](/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) article. Second,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp) |
 | Group Member Schedule Templates - adding 5th week and using Auto Schedule | rock_recipes | 1 Group Member Schedule Templates - adding 5th week and using Auto Schedule Shared by Cecillia Fountain , Centerpoint Church 3 years ago 9.0 Serving, Group Beginner The main reason to create Group Member Schedule Templates is to use the "Auto-Schedule" button in the Group Scheduler . The solutions below are designed to work with Auto-Scheduling and (for the most part) will not need to be maintained. Rock Core does... | [source](https://community.rockrms.com/recipes/356) |
 | Add RSVP Occurrences | rock_documentation | Let’s look at how to add an occurrence to the RSVP List. You'll need to have at least one occurrence set up for the group before you can start sending your RSVP emails. 1. **Name** - You can optionally set a unique name for an occurrence. This applies only to the occurrence being viewed. Invitees will see the name you provide on the external website when they *Accept* or *Decline*. 2. **Date** - Set the date of the... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) |
@@ -259,14 +259,14 @@ Keywords: `requirement, requirements, background check, training, eligibility`
 | --- | --- | --- | --- |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session adds implementation-oriented LMS guidance from a church activating the LMS engine and migrating content from another learning platform. It is useful for planning how existing videos and course material can be restructured into Rock LMS while preserving the ministry logic of training paths, groups, and volunteer readiness. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session adds practical LMS guidance from churches beginning to build training content in Rock. It treats LMS as a way to deliver volunteer and staff training, reuse existing teaching assets, and pair content with communications that invite people into structured learning rather than leaving training scattered across unrelated pages. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
-| Group Attendance Training | rock_rocku | Group Attendance Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
-| Group RSVP Occurrences Training | rock_rocku | Group RSVP Occurrences Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/group-rsvp-occurrences) |
-| Group RSVP Overview Training | rock_rocku | Group RSVP Overview Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/group-rsvp-overview) |
-| Setting up Group RSVP Training | rock_rocku | Setting up Group RSVP Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/setting-up-group-rsvp) |
-| Group Scheduling - Analytics Training | rock_rocku | Group Scheduling - Analytics Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-analytics) |
-| Group Scheduling - Meeting Details Training | rock_rocku | Group Scheduling - Meeting Details Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-meeting-details) |
-| Group Scheduling - Overview Training | rock_rocku | Group Scheduling - Overview Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-overview) |
-| Group Scheduling Roster and Communications Training | rock_rocku | Group Scheduling Roster and Communications Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications) |
+| Group Attendance | rock_rocku | Group Attendance Jon Edmiston Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
+| Group RSVP Occurrences | rock_rocku | Group RSVP Occurrences Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/group-rsvp-occurrences) |
+| Group RSVP Overview | rock_rocku | Group RSVP Overview Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/group-rsvp-overview) |
+| Setting up Group RSVP | rock_rocku | Setting up Group RSVP Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group Scheduling -... | [source](https://community.rockrms.com/rocku/groups/setting-up-group-rsvp) |
+| Group Scheduling - Analytics | rock_rocku | Group Scheduling - Analytics Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-analytics) |
+| Group Scheduling - Meeting Details | rock_rocku | Group Scheduling - Meeting Details Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-meeting-details) |
+| Group Scheduling - Overview | rock_rocku | Group Scheduling - Overview Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview 4:29 Group... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-overview) |
+| Group Scheduling Roster and Communications | rock_rocku | Group Scheduling Roster and Communications Cullen McCoy Experience Mode Trailblazer Essentials Trailblazer Group Viewer 6:21 Group Details 9:27 Group Attendance 2:43 Group Types 26:16 Group Type Inheritance 3:08 Group History 5:10 Group Location 2:53 Group Purposes 3:36 Alternate Placements 2:55 Group Requirements 6:57 Group Security 8:53 Extending Groups 7:51 Group Administrator 3:47 Group Scheduling - Overview... | [source](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications) |
 
 ### Attendance And Follow-Up
 
@@ -297,10 +297,10 @@ Keywords: `attendance, check-in, follow-up, no show, serving attendance`
 
 ## Source Lifecycle
 
-- Official article records in the bounded guide selection: `28`
-- Upstream check range: `2026-08-12T06:18:04+00:00` through `2026-08-12T11:27:14+00:00`
-- Source-native typed articles: `1` of `28`
-- Legacy source summaries retired: `4`; still active: `24`
+- Official article records in the bounded guide selection: `30`
+- Upstream check range: `2026-09-09T21:15:24+00:00` through `2026-09-09T21:24:34+00:00`
+- Source-native typed articles: `1` of `30`
+- Legacy source summaries retired: `4`; still active: `26`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

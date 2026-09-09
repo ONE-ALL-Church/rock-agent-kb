@@ -48,6 +48,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `person-model-and-record-lifecycle-editing-inactivating-and-preserving-history` | normal | live verification |
 | `person-profile-and-access-boundaries-tags-signals-and-badges` | normal | live verification |
@@ -78,3 +79,4 @@ generated: true
 | `agent-task-recipes-recipe-diagnose-a-connection-request-from-the-person-record` | citation-only | live verification |
 | `agent-task-recipes-recipe-run-a-bounded-people-data-cleanup` | citation-only | live verification |
 | `known-gaps-and-live-verification` | needs-citation | needs-citation |
+| `approved-claim-coverage` | citation-only | live verification |

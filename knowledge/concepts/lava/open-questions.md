@@ -14,20 +14,13 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `filters-text-and-output-encoding`: Text and output encoding
-- `filters-where-and-short-link-caveats`: `where` and short-link caveats
-- `commands`: Commands
-- `commands-workflow-activation`: Workflow activation
-- `reporting-and-persisted-results`: Reporting And Persisted Results
-- `troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration`: An entity command returns no rows or fails before iteration
-- `troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing`: A workflow starts but submitted values are missing
-- `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience`: A Helix endpoint works for administrators but not its audience
-- `agent-task-recipes-recipe-review-an-existing-lava-surface-safely`: Recipe: Review an existing Lava surface safely
-- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map-official-training-and-release-context`: Official training and release context
 - `source-map-reviewed-community-patterns`: Reviewed community patterns
+- `approved-media-coverage`: Approved Media Coverage
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `core-syntax-and-engine`: Core Syntax And Engine
 - `core-syntax-and-engine-fluid-and-dotliquid`: Fluid and DotLiquid
@@ -45,6 +38,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `helix-and-lava-applications`: Helix And Lava Applications
 - `workflows-and-lava`: Workflows And Lava
 - `lava-backed-ai-tools`: Lava-Backed AI Tools
+- `version-and-authority-caveats`: Version And Authority Caveats
 - `troubleshooting-decision-tree-lava-renders-blank-or-a-merge-field-is-missing`: Lava renders blank or a merge field is missing
 - `troubleshooting-decision-tree-a-parser-error-points-at-an-innocent-looking-line`: A parser error points at an innocent-looking line
 - `troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration`: An entity command returns no rows or fails before iteration
@@ -65,6 +59,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-design-a-lava-backed-ai-tool`: Recipe: Design a Lava-backed AI tool
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
 - `source-map-immutable-implementation-evidence`: Immutable implementation evidence
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

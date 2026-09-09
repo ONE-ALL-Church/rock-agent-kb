@@ -1,6 +1,7 @@
 {
   "authority_coverage": [
     "official-developer",
+    "official-model-map",
     "official-triumph",
     "source-code",
     "unknown"
@@ -8,17 +9,17 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 6046 words; expected at least 1200.",
+      "message": "Guide has 6726 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 6046 words; expected no more than 9000.",
+      "message": "Guide has 6726 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 35 sections; expected at least 9.",
+      "message": "Guide has 38 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -55,34 +56,29 @@
       "id": "source_code",
       "message": "Available source code should be cited.",
       "passed": true
-    },
-    {
-      "id": "claim_first_evidence",
-      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
-      "passed": true
     }
   ],
   "concept_id": "roku",
   "contribution_record_count": 0,
   "entity_count": 7,
-  "generated_at": "2026-09-03T16:51:19+00:00",
-  "guide_line_count": 694,
-  "guide_word_count": 6046,
+  "generated_at": "2026-09-09T23:15:44+00:00",
+  "guide_line_count": 750,
+  "guide_word_count": 6726,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 16,
-    "answer_claim_reference_count": 16,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
     "entity_count": 7,
-    "section_count": 35,
-    "source_count": 24,
-    "substantive_uncited_section_ratio": 0.0333,
+    "section_count": 38,
+    "source_count": 26,
+    "substantive_uncited_section_ratio": 0.0625,
     "task_card_count": 7,
-    "word_count": 6046
+    "word_count": 6726
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 35,
-  "source_count": 24,
+  "section_count": 38,
+  "source_count": 26,
   "status": "pass",
   "task_card_count": 7
 }

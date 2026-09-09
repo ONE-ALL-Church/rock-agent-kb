@@ -16,6 +16,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `mental-model`: Mental Model
@@ -45,6 +46,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-add-tracked-media-playback-with-resume`: Recipe: Add tracked media playback with resume
 - `agent-task-recipes-recipe-make-an-apple-tv-page-theme-aware`: Recipe: Make an Apple TV page theme-aware
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

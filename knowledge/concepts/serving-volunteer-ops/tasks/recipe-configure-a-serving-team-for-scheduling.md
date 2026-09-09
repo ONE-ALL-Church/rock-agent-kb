@@ -75,4 +75,4 @@ A bounded serving group is ready for assignments at verified locations and times
 - https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences
 - https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp
-- https://community.rockrms.com/documentation/engagement/groups/group-attendance
+- https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp

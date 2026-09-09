@@ -1716,38 +1716,47 @@
   },
   "approved_media_hash": "9c8278212f8defa3d3ee4edae7ce1933a921d342680724923364d46db88032b9",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-09-03T16:50:51+00:00",
+  "built_at": "2026-09-09T23:14:51+00:00",
   "concept_id": "lava",
-  "guide_hash": "d9d9d739e43e72ea822c9d1927296b0c4812e1c41cf9f8434aaec6afd21d6eb5",
-  "guide_line_count": 707,
+  "guide_hash": "06ea4b8ea50ef8b0ff8488765cbc7c2e0d77bb5892bc9c6be2a8717e6ba65d3d",
+  "guide_line_count": 773,
   "guide_path": "knowledge/concepts/lava/guide.md",
-  "guide_word_count": 7286,
+  "guide_word_count": 8227,
   "rebuild_triggers": [
     {
+      "authority": "official-model-map",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
       "authority": "official-developer",
-      "content_hash": "647db83379589281f3863ad5bcfbccfd59d8f9df048d2da9e751c3d2264d37b3",
-      "excerpt_hash": "8370044cadddf02fd4406af87977a959f27e92dc92f5de509186191809e421ee",
+      "content_hash": "ad9642a9ff2eaeb2470e6212cb081d543da78c42e273c2557dd5006b818fd3de",
+      "excerpt_hash": "a0a818fc4b6ed16760e9122afb4c0a585b2bf1f055b397620fa90a10d1bab553",
       "source_id": "rock_lava_docs",
       "source_key": "044170dca04e8bbb",
       "source_record_id": "rock_lava_docs:044170dca04e8bbb",
       "url": "https://community.rockrms.com/lava"
     },
     {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "79a4202cc4d0f854",
-      "source_record_id": "org_contribution:oneall:helix-endpoint-script-style-tag-boundary",
+      "authority": "official-developer",
+      "content_hash": "b73343b570bb02f859940e42ff563fa30475995a26e476b15d970eaeeff4d35c",
+      "excerpt_hash": "ea4f9fe588e761330e68376509ead2c0f7352ab758b17498edd9babf5e2aa053",
+      "source_id": "rock_lava_docs",
+      "source_key": "30be60a23d3d0317",
+      "source_record_id": "rock_lava_docs:30be60a23d3d0317",
       "url": "https://community.rockrms.com/lava/commands"
     },
     {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "65c61eecbb590b92",
-      "source_record_id": "org_contribution:oneall:mobile-content-dynamic-context-boundary",
+      "authority": "official-developer",
+      "content_hash": "8a2ef2dbf6fd7e323065befa31325524624c8df6d4036a2962374a8da44a0682",
+      "excerpt_hash": "e9462998475ac654b9903dc5c44d6da8e503ec3df22909ac429e0c48cae02e7d",
+      "source_id": "rock_developer",
+      "source_key": "ae672f3d3d6f8730",
+      "source_record_id": "rock_developer:ae672f3d3d6f8730",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
     },
     {
@@ -1770,8 +1779,8 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "02472710950dc2a4cfa6927557d8c31ae536b3d079e8b3f5d05a49480be1788a",
-      "excerpt_hash": "be68956ef205241193e7f34c32d0d71ce63432018f428b827e6c3cc3908240ff",
+      "content_hash": "0d65c82df4edb8b5ae99f810c39a9b603a56800cb1d4c75c4e5ed94dbcbd9eaf",
+      "excerpt_hash": "5aca90ba4a573b25ea649d78920c19c5d3ae699883293db582e877125ebbe322",
       "source_id": "rock_lava_docs",
       "source_key": "092cca0be1ff5961",
       "source_record_id": "rock_lava_docs:092cca0be1ff5961",
@@ -1779,8 +1788,8 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "97e7661acfbe700695148f6aa550b7b8d96f5fe07abbdb91143fe5d3acf34f6a",
-      "excerpt_hash": "fc40f502b536172f3c8653b5edecddb8eaa1d15779ac6c4705624e213f7c4e0d",
+      "content_hash": "cb8b64e2b9c11062f5dbc724bb75e3416f707a5d9a9da9a5371a6ff9ec69f4ad",
+      "excerpt_hash": "a25f393aec780dc5bbff232b1eefcd18feeebda36914e5dd0ca561a5dc2726bb",
       "source_id": "rock_lava_docs",
       "source_key": "be18a55d805e40d5",
       "source_record_id": "rock_lava_docs:be18a55d805e40d5",
@@ -1788,8 +1797,8 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "69e6f6c82b2c058d0ed5f4a04faa39aeaf00b255d2669ad782e6a8051d840e04",
-      "excerpt_hash": "e0d71d246b281f883239bb9e0a1b370169fd994d5a565213a80ed8b88be4190b",
+      "content_hash": "d68810317ab2e1a31c6229b80a2a649b18155c72134a6a46c49525f9cee216d8",
+      "excerpt_hash": "d53e34ab8c42f7d5d2c424ccb90ebe3bb27fc1cf00202820f5a30ceea92c048e",
       "source_id": "rock_lava_docs",
       "source_key": "408b3cfc2191b9b4",
       "source_record_id": "rock_lava_docs:408b3cfc2191b9b4",
@@ -1797,8 +1806,8 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "e0cb510ccb3c42cfc92fc1ecfdab15caec84cfd7b217c25a9ec7141456ef5bf9",
-      "excerpt_hash": "fc55bab124b8cde29c6c3973b76df4afa27142fb199a48024b92ec7ab1641476",
+      "content_hash": "8db38a740ca314a86234fea9ab5f1069206b7977093a2a7b7e96ed6e01c9ccd8",
+      "excerpt_hash": "833d31a21da131f8e6d47c567bdab8f6806972bf839324bb98e659d9a209e359",
       "source_id": "rock_lava_docs",
       "source_key": "0b05d0e384bf5b1a",
       "source_record_id": "rock_lava_docs:0b05d0e384bf5b1a",
@@ -1806,11 +1815,11 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "4c16e400b22bb65d8095a7542757336572cb118db6d6dfb7cd62025d4a4983ce",
-      "excerpt_hash": "ccb0a31d33e6a176c3ce7703a142a21cb85c1b783a531e380206294f8dcc919b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "fd7caa4f14864ef3",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests/Lava/Filters/DateFilterTests.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests/Lava/Filters/DateFilterTests.cs"
     },
     {
@@ -1824,20 +1833,20 @@
     },
     {
       "authority": "official",
-      "content_hash": "55948d1e7464586d3dabb031f8159ff86e96e3eda99353f3d253ff6615c4123c",
-      "excerpt_hash": "e6292f76ef58d6e2c9ee70cc474da628ff90b7be9831483440ff0f884222278b",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "2ad51695904ab66e",
-      "source_record_id": "rock_documentation:article:922",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows"
     },
     {
       "authority": "official",
-      "content_hash": "25bcfcb1cb871eb0305c671bef0b9e18afd8699fcd8d95dbffc1f821bec81120",
-      "excerpt_hash": "698fee777fbdfb777ff53f0d9d484a12db89ef69af007b88005a5b29127f46b1",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "e7273766702f8255",
-      "source_record_id": "rock_documentation:article:2255",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava"
     },
     {
@@ -1850,49 +1859,40 @@
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s"
     },
     {
-      "authority": "org-contribution",
+      "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "15263855449daa09",
-      "source_record_id": "org_contribution:oneall:createshortlink-argument-order-preflight",
-      "url": "https://community.rockrms.com/lava/filters/other-filters"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "f33aa6496900eb29898a0a103a97015d8eee5a8d293ef5ac7730d64f827c4598",
-      "excerpt_hash": "4f94be8548bdf5d6a68f7004a457239c5f9c2530d846df460753848e935378ed",
       "source_id": "rock_rocku",
       "source_key": "9ae5804fa3a0ac7d",
-      "source_record_id": "media-insight:2cf056c2b84e6365",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
     },
     {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "27592d5a6665e286",
-      "source_record_id": "org_contribution:oneall:modify-command-change-tracker-poisoning",
+      "authority": "official-developer",
+      "content_hash": "4f378eae6b9e8e015f68dcaa8f5f1ad073716a18a618d68d2c6a746c3570a00b",
+      "excerpt_hash": "094bd0e34d355409a55fca3d04f6272aee323647456630c8ea00e16404d42c57",
+      "source_id": "rock_lava_docs",
+      "source_key": "3d7f0942c946fafb",
+      "source_record_id": "rock_lava_docs:3d7f0942c946fafb",
       "url": "https://community.rockrms.com/lava/commands/entity-commands"
     },
     {
       "authority": "official-developer",
-      "content_hash": "2e05b731dfe9a735c0fb223fa10e40b1979783fb304451ddea5f7213bc793136",
-      "excerpt_hash": "5f58e0255e799d0312108622f8a6f2696afb3530a341c84c2d707aa336515d84",
+      "content_hash": "21d5f68126cc2bddfda1dd91a44aacd259bbfa997cb6a1d18717329f0e86fc7b",
+      "excerpt_hash": "afb5f8c0e41b8eb2c7b8409ef5a65dc58404f5a13509de114f7839f0583c07f0",
       "source_id": "rock_lava_docs",
       "source_key": "8cdbc423958bc54d",
       "source_record_id": "rock_lava_docs:8cdbc423958bc54d",
       "url": "https://community.rockrms.com/lava/commands/taglist-commands"
     },
     {
-      "authority": "official-training",
-      "content_hash": "e3422c204a3821693053d1bb484119d10dcf8a68f04c4601540fcd6f2972376e",
-      "excerpt_hash": "a60fdcaa71f97c12272642f1f815c3445f5e3b962f5e1c80ed78359a5475adb5",
-      "source_id": "rock_rocku",
-      "source_key": "fabd5e16d3ed5b89",
-      "source_record_id": "media-insight:3914daffb10cdfb9",
-      "url": "https://community.rockrms.com/rocku/lava/sql-command"
+      "authority": "community-reference",
+      "content_hash": "8a3beb415e5819c7b23294bd411025f496b7634fa38fc792f14aea403bed8a4b",
+      "excerpt_hash": "9f146c589f3dd3575d9e28be3625ed8a6575a44692e394d21f832372ea113a01",
+      "source_id": "rock_community_site",
+      "source_key": "fff246618402f859",
+      "source_record_id": "rock_community_site:fff246618402f859",
+      "url": "https://community.rockrms.com/rocku/lava"
     },
     {
       "authority": "unknown",
@@ -1904,81 +1904,45 @@
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s"
     },
     {
-      "authority": "official-training",
-      "content_hash": "db1718e71f8d8e894ab74533eda1c13d2f37c3225a87518e9973ddb7ef0f05c5",
-      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
-      "source_id": "rock_youtube",
-      "source_key": "fe0b6d3b462f6c75",
-      "source_record_id": "media-insight:d03a93f4e7ef8c02",
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "b29a093654635822167b8c81a26a9f2de6fd97547d96af5ed688302a1c62256e",
-      "excerpt_hash": "30fa559f9be9c024745f1ced6f2904c82668c3f5c390274340efd0099e470d0e",
-      "source_id": "rock_rocku",
-      "source_key": "d49b5955fa6bb4c9",
-      "source_record_id": "media-insight:ec199a83a2123233",
-      "url": "https://community.rockrms.com/rocku/lava/execute-command"
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "3209d44f5f3edeff",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s"
     },
     {
       "authority": "source-code",
-      "content_hash": "0371ab07dc392e14387cabb35f3a26480f2e944f3be5d7296025aa8576355dea",
-      "excerpt_hash": "359eeea2dcb6ebcaf4d06bbbcd7baa0faaad3cf8b7a965ed3a75b67afa5d0675",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "631ccca5ceb18471",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Lava/Blocks/WebRequestBlock.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Lava/Blocks/WebRequestBlock.cs"
     },
     {
       "authority": "official-developer",
-      "content_hash": "7d1099c95306b227b7978fec054525ba9bb5ec0982b83b8fd638924102818829",
-      "excerpt_hash": "cda5173838ddf90fc940e9978cc465d72f5c8c2f76eb2c6bcfd1dbfd886b929d",
+      "content_hash": "c01eb1e22ebc0f344be4d6da9934b974fb08b23f9826231001bc97fdae9a43e7",
+      "excerpt_hash": "4df7895d4fb1b4141a33596d2a890312717107da1391ba79d5e5613f85c3fda3",
       "source_id": "rock_lava_docs",
-      "source_key": "ef37e5af39b2da9c",
-      "source_record_id": "rock_lava_docs:ef37e5af39b2da9c",
-      "url": "https://community.rockrms.com/lava/commands/modify-entity"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "ec69233401bcbb60568a0329b9e2b9efdbce2e7ce12c9b68c53eedc9a19326ab",
-      "excerpt_hash": "dd9e56f8919339f858bdae4f2ca76ed39ed725c66e1a2bd8405314a8a2fcd732",
-      "source_id": "rock_lava_docs",
-      "source_key": "e425f55002005f97",
-      "source_record_id": "rock_lava_docs:e425f55002005f97",
-      "url": "https://community.rockrms.com/lava/commands/delete-entity"
-    },
-    {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "7e8da43368880b42",
-      "source_record_id": "org_contribution:oneall:workflowactivate-attribute-key-contract",
+      "source_key": "944d44ff4810c8f9",
+      "source_record_id": "rock_lava_docs:944d44ff4810c8f9",
       "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "e3db2ba289e8d534df5d9aa8924843b825080676df7e4b4f406259b74bc68306",
-      "excerpt_hash": "dc1cfdb23e2927e4c013caebae05c80c732d3e18b86a272075d6a158d5103572",
-      "source_id": "rock_lava_docs",
-      "source_key": "52c683d5cc0018da",
-      "source_record_id": "rock_lava_docs:52c683d5cc0018da",
-      "url": "https://community.rockrms.com/lava/commands/render-lava-endpoint"
-    },
-    {
       "authority": "official",
-      "content_hash": "131265a44e18facd8acd91587bdda0b6ed69f142b74f3327129b448286d8366d",
-      "excerpt_hash": "6042706ca6882c0c144f6db6035c04bc5b82ab7d6fccf8ebffc2a26bf611e9ca",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_documentation",
       "source_key": "d543301b9ba31934",
-      "source_record_id": "rock_documentation:article:2183",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes"
     },
     {
       "authority": "official-developer",
-      "content_hash": "bd6761f0755a7545ca5349d6365ad949a4270c92ab3d5f655fef3e77e5c769f6",
-      "excerpt_hash": "3117666c08d000192e280862f2a129f080c02c46e9160a532edc0239f64ebe95",
+      "content_hash": "9ea45ba2f87b82f8d3ec6a2b26a11b5e11427d35507fc0b2f3bb7aa3aed60b0e",
+      "excerpt_hash": "97b30697054114db22642f228fb0247a87c8002def749ca80c868b55f04018d9",
       "source_id": "rock_lava_docs",
       "source_key": "9e91dd9520bee269",
       "source_record_id": "rock_lava_docs:9e91dd9520bee269",
@@ -1986,20 +1950,20 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "9f81901faa91c988719b9421f0d8ef4bef899f10124443ba76b401d91217c4fe",
-      "excerpt_hash": "d6fe7e0e0bed983ccb8a1d02d968a8403eaeafffc8cbd04e18b9ae87bdada82e",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "350b56c0bdfb9422",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts"
     },
     {
-      "authority": "community-reference",
-      "content_hash": "6c28249770cf6f88d4db30d85446c688c88225a3a60453e9ef6a166586d6bce2",
-      "excerpt_hash": "f7563bf94f4b26a520a1c5621a9921524335c5e0802127366c3045c251b68d19",
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "8c731a2892e1a691",
-      "source_record_id": "media-insight:284b6d5445c1b357",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7"
     },
     {
@@ -2013,8 +1977,8 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "e6a62070646a9685163d61f78e46a29aae7bad38c615973912b82976d976de3b",
-      "excerpt_hash": "53c71623044482d53861926a72987824f06c00400edd1487ce297067c25ccfa0",
+      "content_hash": "74725f4c20c7fc4530e7c84f7de72be157321da1a376e90dcb7dd2a1f6e75d94",
+      "excerpt_hash": "7ad0b5209d3a16a9ff401f71b7b0209c5309d6b32432925401087025fb69aea3",
       "source_id": "rock_lava_docs",
       "source_key": "1a7cdd8d2a7f15eb",
       "source_record_id": "rock_lava_docs:1a7cdd8d2a7f15eb",
@@ -2022,8 +1986,8 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "515a442368f17babef1f2f494ea4c6da1ef226bcfa2056c6bb31fac75d9db38e",
-      "excerpt_hash": "02a8393e2dc7db4f5eb32a03264a40e5d375b09423b4260043638181b95297c9",
+      "content_hash": "bf0c97ac6f08c4421dbeea6a6e208500d4f2315086bf95539a8af89535e8b8c6",
+      "excerpt_hash": "855ebe5ea7b83f9e51e7ad7e408ecf9048b57b830d1ab3d33c12ff8425928ae9",
       "source_id": "rock_lava_docs",
       "source_key": "53ad1133e1cb2d0a",
       "source_record_id": "rock_lava_docs:53ad1133e1cb2d0a",
@@ -2031,132 +1995,206 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": null,
-      "excerpt_hash": null,
+      "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
+      "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
       "source_id": "rock_developer",
-      "source_key": "802567c280193bd0",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/developer/helix/overview"
-    },
-    {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "a16b2c195bd66767",
-      "source_record_id": "org_contribution:oneall:read-only-check-in-status-dashboard-data-pattern",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:48cabcef2f22cabd",
+      "url": "https://community.rockrms.com/developer/helix"
     },
     {
       "authority": "official-developer",
-      "content_hash": "245373d25726744288ae3e3bf7c2d3b2c3ca8274bf4b6e5028e7f7e91743dda5",
-      "excerpt_hash": "35f28188c58bf377829243bf7b70ecfb1079b0cfe52558551e5be8f1b79a7369",
+      "content_hash": "f0a7077e74f2911ec8b633b567ed70f7e40c2830d65b62c289ece007ae39f696",
+      "excerpt_hash": "a9384fa38dd73b346590d11558f608f1c97a8237c1cc7b3c694be9878d926603",
       "source_id": "rock_developer",
       "source_key": "789454b4b23d582c",
-      "source_record_id": "rock_developer:article:339",
+      "source_record_id": "rock_developer:789454b4b23d582c",
       "url": "https://community.rockrms.com/developer/helix/lava-commands"
     },
     {
-      "authority": "community-reference",
-      "content_hash": "483d217bedc52d3e1dfbb2e26da106c158fe5f77baa55e45124714219c7a91e2",
-      "excerpt_hash": "66e5caa56520db194351985284c99823aeac90e7d5ed217579252571e009ae9d",
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "2dfd53ea01c3ef3f",
-      "source_record_id": "media-insight:82641c154ebfd018",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
     },
     {
-      "authority": "community-reference",
-      "content_hash": "f27e8e5ae372d3321b148039ed42c4b4775a1afd750dd952a3dc886d3add11ad",
-      "excerpt_hash": "dc2c162271f4b48f1ccdda6627628a3430f6921f4a0394e36aeed9fbebb92604",
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "95396b5eafd3b56c",
-      "source_record_id": "media-insight:51fb82169d3a4818",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
     },
     {
-      "authority": "community-reference",
-      "content_hash": "6e6c3b983f27d42d4e0d783a6c06c3c316ef453cbad55d3ac4dfc3c10f673937",
-      "excerpt_hash": "3fb9d0b351f44643ccd6458598c806a0f7916bc93762dbf417da020ecfd83e6d",
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
       "source_key": "fb5f22127915c464",
-      "source_record_id": "media-insight:21c296e1bd9698dc",
+      "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "83b85b83715ceaaa",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "0b4cbfc1ceb9a7e0",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "454638971ea095b7",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "ccda259ba905d7b6",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s"
+    },
+    {
+      "authority": "official-release",
+      "content_hash": "95c37384079d0dd5faeea2bb2cbf7f53573b51dee47bce8e199430cba1f613dc",
+      "excerpt_hash": "833b11fc5cea22cc88c5ac978a3cb80e4b8607959548ea1bf806835bf648dde3",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:53e5505e8039a1a3",
+      "url": "https://www.rockrms.com/releasenotes"
+    },
+    {
       "authority": "source-code",
-      "content_hash": "7b10119ad9c478a372b470c0a96afb65717a63bf19b157d5c305e04799ed6f68",
-      "excerpt_hash": "716b1e588e6ea435d5a9f60577d2ccc03cfcca911ad451da2b4e06227a54f2c8",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "sparkdevnetwork_rock",
       "source_key": "d4c706179cbf8ae5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs",
+      "source_record_id": "",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs"
     },
     {
       "authority": "community-example",
-      "content_hash": "e95b8f637832d9e8b67266f9129a2174a2abc721eac4d7bd4bbaa237ea49a4c9",
-      "excerpt_hash": "ebd2f94cd2bdb876aef72a1d07db30df4c6f8389b0bf9753be5c58a8e675ee4a",
+      "content_hash": "ca35e091a6fd61bf3151ac337e1129e8b681c45443c024903ec3e8a236a65735",
+      "excerpt_hash": "8eb9d697f94a2f17862ddde6607d030704f1a7cd501d0af31c5f8927f8624f7b",
       "source_id": "rock_recipes",
       "source_key": "4dd03ee2b87575b2",
       "source_record_id": "rock_recipes:4dd03ee2b87575b2",
       "url": "https://community.rockrms.com/recipes/456"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "2617ec7030df84be",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_rocku",
+      "source_key": "ef20cb439da472d1",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/communication/communication-templates"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "6116d88a4926ec12",
+      "source_record_id": "",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
+      "confidence": "citation-only",
+      "end_line": 33,
+      "heading": "Generated Model Map Pointers",
+      "needs_live_verification": true,
+      "section_id": "generated-model-map-pointers",
+      "source_keys": [
+        "ed6551d38c7e2b18"
+      ],
+      "start_line": 19
+    },
+    {
       "confidence": "normal",
-      "end_line": 31,
+      "end_line": 47,
       "heading": "Agent Summary",
       "needs_live_verification": true,
       "section_id": "agent-summary",
       "source_keys": [
         "044170dca04e8bbb",
-        "79a4202cc4d0f854"
+        "30be60a23d3d0317"
       ],
-      "start_line": 18
+      "start_line": 34
     },
     {
       "confidence": "needs-citation",
-      "end_line": 39,
+      "end_line": 55,
       "heading": "Scope And Boundaries",
       "needs_live_verification": false,
       "section_id": "scope-and-boundaries",
       "source_keys": [
         "044170dca04e8bbb",
-        "79a4202cc4d0f854"
+        "30be60a23d3d0317"
       ],
-      "start_line": 32
+      "start_line": 48
     },
     {
       "confidence": "normal",
-      "end_line": 62,
+      "end_line": 78,
       "heading": "Mental Model",
       "needs_live_verification": false,
       "section_id": "mental-model",
       "source_keys": [
         "044170dca04e8bbb",
-        "65c61eecbb590b92",
+        "ae672f3d3d6f8730",
         "67f84804d07244b3",
         "6449dcd93497b4cd",
         "092cca0be1ff5961"
       ],
-      "start_line": 40
+      "start_line": 56
     },
     {
       "confidence": "normal",
-      "end_line": 80,
+      "end_line": 96,
       "heading": "Core Syntax And Engine",
       "needs_live_verification": true,
       "section_id": "core-syntax-and-engine",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 63
+      "start_line": 79
     },
     {
       "confidence": "normal",
-      "end_line": 99,
+      "end_line": 115,
       "heading": "Fluid and DotLiquid",
       "needs_live_verification": true,
       "section_id": "core-syntax-and-engine-fluid-and-dotliquid",
@@ -2167,34 +2205,34 @@
         "be18a55d805e40d5",
         "0b05d0e384bf5b1a"
       ],
-      "start_line": 81
+      "start_line": 97
     },
     {
       "confidence": "normal",
-      "end_line": 112,
+      "end_line": 128,
       "heading": "Filters",
       "needs_live_verification": false,
       "section_id": "filters",
       "source_keys": [
         "044170dca04e8bbb"
       ],
-      "start_line": 100
+      "start_line": 116
     },
     {
-      "confidence": "community-supported",
-      "end_line": 118,
+      "confidence": "normal",
+      "end_line": 134,
       "heading": "Text and output encoding",
       "needs_live_verification": true,
       "section_id": "filters-text-and-output-encoding",
       "source_keys": [
-        "65c61eecbb590b92",
-        "65c61eecbb590b92"
+        "ae672f3d3d6f8730",
+        "ae672f3d3d6f8730"
       ],
-      "start_line": 113
+      "start_line": 129
     },
     {
       "confidence": "normal",
-      "end_line": 124,
+      "end_line": 140,
       "heading": "Dates and time zones",
       "needs_live_verification": true,
       "section_id": "filters-dates-and-time-zones",
@@ -2202,11 +2240,11 @@
         "fd7caa4f14864ef3",
         "c7ad4595daa53e01"
       ],
-      "start_line": 119
+      "start_line": 135
     },
     {
       "confidence": "normal",
-      "end_line": 130,
+      "end_line": 146,
       "heading": "Person, attributes and personalization",
       "needs_live_verification": false,
       "section_id": "filters-person-attributes-and-personalization",
@@ -2214,101 +2252,101 @@
         "2ad51695904ab66e",
         "e7273766702f8255"
       ],
-      "start_line": 125
+      "start_line": 141
     },
     {
-      "confidence": "community-supported",
-      "end_line": 136,
+      "confidence": "normal",
+      "end_line": 152,
       "heading": "`where` and short-link caveats",
       "needs_live_verification": true,
       "section_id": "filters-where-and-short-link-caveats",
       "source_keys": [
         "f10c1b474e10b117",
-        "15263855449daa09"
+        "044170dca04e8bbb"
       ],
-      "start_line": 131
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 142,
-      "heading": "Commands",
-      "needs_live_verification": true,
-      "section_id": "commands",
-      "source_keys": [
-        "79a4202cc4d0f854",
-        "79a4202cc4d0f854",
-        "9ae5804fa3a0ac7d"
-      ],
-      "start_line": 137
+      "start_line": 147
     },
     {
       "confidence": "normal",
       "end_line": 158,
+      "heading": "Commands",
+      "needs_live_verification": true,
+      "section_id": "commands",
+      "source_keys": [
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
+        "9ae5804fa3a0ac7d"
+      ],
+      "start_line": 153
+    },
+    {
+      "confidence": "normal",
+      "end_line": 174,
       "heading": "Entity retrieval",
       "needs_live_verification": true,
       "section_id": "commands-entity-retrieval",
       "source_keys": [
-        "27592d5a6665e286",
-        "27592d5a6665e286",
+        "3d7f0942c946fafb",
+        "3d7f0942c946fafb",
         "8cdbc423958bc54d"
-      ],
-      "start_line": 143
-    },
-    {
-      "confidence": "normal",
-      "end_line": 168,
-      "heading": "SQL, Execute and Web Request",
-      "needs_live_verification": false,
-      "section_id": "commands-sql-execute-and-web-request",
-      "source_keys": [
-        "fabd5e16d3ed5b89",
-        "efb687d5c0448b53",
-        "fe0b6d3b462f6c75",
-        "d49b5955fa6bb4c9",
-        "631ccca5ceb18471"
       ],
       "start_line": 159
     },
     {
       "confidence": "normal",
-      "end_line": 182,
+      "end_line": 184,
+      "heading": "SQL, Execute and Web Request",
+      "needs_live_verification": false,
+      "section_id": "commands-sql-execute-and-web-request",
+      "source_keys": [
+        "fff246618402f859",
+        "efb687d5c0448b53",
+        "3209d44f5f3edeff",
+        "fff246618402f859",
+        "631ccca5ceb18471"
+      ],
+      "start_line": 175
+    },
+    {
+      "confidence": "normal",
+      "end_line": 198,
       "heading": "Modify and delete",
       "needs_live_verification": false,
       "section_id": "commands-modify-and-delete",
       "source_keys": [
-        "ef37e5af39b2da9c",
-        "e425f55002005f97",
-        "27592d5a6665e286"
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
+        "3d7f0942c946fafb"
       ],
-      "start_line": 169
+      "start_line": 185
     },
     {
-      "confidence": "community-supported",
-      "end_line": 188,
+      "confidence": "normal",
+      "end_line": 204,
       "heading": "Workflow activation",
       "needs_live_verification": true,
       "section_id": "commands-workflow-activation",
       "source_keys": [
-        "7e8da43368880b42",
-        "7e8da43368880b42"
+        "944d44ff4810c8f9",
+        "944d44ff4810c8f9"
       ],
-      "start_line": 183
+      "start_line": 199
     },
     {
       "confidence": "normal",
-      "end_line": 194,
+      "end_line": 210,
       "heading": "Rendering and physical effects",
       "needs_live_verification": false,
       "section_id": "commands-rendering-and-physical-effects",
       "source_keys": [
-        "52c683d5cc0018da",
+        "30be60a23d3d0317",
         "092cca0be1ff5961"
       ],
-      "start_line": 189
+      "start_line": 205
     },
     {
       "confidence": "high",
-      "end_line": 216,
+      "end_line": 232,
       "heading": "Shortcodes",
       "needs_live_verification": true,
       "section_id": "shortcodes",
@@ -2317,13 +2355,13 @@
         "9e91dd9520bee269",
         "9e91dd9520bee269",
         "350b56c0bdfb9422",
-        "15263855449daa09"
+        "044170dca04e8bbb"
       ],
-      "start_line": 195
+      "start_line": 211
     },
     {
       "confidence": "structural",
-      "end_line": 218,
+      "end_line": 234,
       "heading": "Execution Contexts And Output Contracts",
       "needs_live_verification": false,
       "section_id": "execution-contexts-and-output-contracts",
@@ -2335,11 +2373,11 @@
         "67f84804d07244b3",
         "6449dcd93497b4cd"
       ],
-      "start_line": 217
+      "start_line": 233
     },
     {
       "confidence": "normal",
-      "end_line": 224,
+      "end_line": 240,
       "heading": "Advanced HTML and communications",
       "needs_live_verification": true,
       "section_id": "execution-contexts-and-output-contracts-advanced-html-and-communications",
@@ -2348,11 +2386,11 @@
         "e7273766702f8255",
         "8c731a2892e1a691"
       ],
-      "start_line": 219
+      "start_line": 235
     },
     {
       "confidence": "normal",
-      "end_line": 239,
+      "end_line": 255,
       "heading": "Rock Mobile",
       "needs_live_verification": true,
       "section_id": "execution-contexts-and-output-contracts-rock-mobile",
@@ -2360,11 +2398,11 @@
         "127269e4afa33de4",
         "127269e4afa33de4"
       ],
-      "start_line": 225
+      "start_line": 241
     },
     {
       "confidence": "normal",
-      "end_line": 247,
+      "end_line": 263,
       "heading": "TV applications",
       "needs_live_verification": true,
       "section_id": "execution-contexts-and-output-contracts-tv-applications",
@@ -2372,11 +2410,11 @@
         "67f84804d07244b3",
         "6449dcd93497b4cd"
       ],
-      "start_line": 240
+      "start_line": 256
     },
     {
       "confidence": "normal",
-      "end_line": 264,
+      "end_line": 280,
       "heading": "Remote Lava And APIs",
       "needs_live_verification": true,
       "section_id": "remote-lava-and-apis",
@@ -2384,40 +2422,40 @@
         "1a7cdd8d2a7f15eb",
         "53ad1133e1cb2d0a"
       ],
-      "start_line": 248
+      "start_line": 264
     },
     {
       "confidence": "normal",
-      "end_line": 290,
+      "end_line": 306,
       "heading": "Helix And Lava Applications",
       "needs_live_verification": true,
       "section_id": "helix-and-lava-applications",
       "source_keys": [
-        "802567c280193bd0",
-        "a16b2c195bd66767",
-        "a16b2c195bd66767",
-        "802567c280193bd0",
+        "48cabcef2f22cabd",
+        "48cabcef2f22cabd",
+        "48cabcef2f22cabd",
+        "48cabcef2f22cabd",
         "789454b4b23d582c"
       ],
-      "start_line": 265
+      "start_line": 281
     },
     {
       "confidence": "normal",
-      "end_line": 308,
+      "end_line": 324,
       "heading": "Workflows And Lava",
       "needs_live_verification": true,
       "section_id": "workflows-and-lava",
       "source_keys": [
         "2ad51695904ab66e",
         "2ad51695904ab66e",
-        "27592d5a6665e286",
+        "3d7f0942c946fafb",
         "2ad51695904ab66e"
       ],
-      "start_line": 291
+      "start_line": 307
     },
     {
-      "confidence": "community-supported",
-      "end_line": 316,
+      "confidence": "citation-only",
+      "end_line": 332,
       "heading": "Reporting And Persisted Results",
       "needs_live_verification": false,
       "section_id": "reporting-and-persisted-results",
@@ -2427,46 +2465,47 @@
         "c7ad4595daa53e01",
         "fb5f22127915c464"
       ],
-      "start_line": 309
+      "start_line": 325
     },
     {
       "confidence": "citation-only",
-      "end_line": 331,
+      "end_line": 347,
       "heading": "Lava-Backed AI Tools",
       "needs_live_verification": true,
       "section_id": "lava-backed-ai-tools",
       "source_keys": [
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75"
+        "83b85b83715ceaaa",
+        "0b4cbfc1ceb9a7e0",
+        "454638971ea095b7",
+        "ccda259ba905d7b6"
       ],
-      "start_line": 317
+      "start_line": 333
     },
     {
       "confidence": "normal",
-      "end_line": 343,
+      "end_line": 361,
       "heading": "Version And Authority Caveats",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "version-and-authority-caveats",
       "source_keys": [
+        "776256c424368312",
         "be18a55d805e40d5",
         "0b05d0e384bf5b1a",
         "408b3cfc2191b9b4",
-        "7e8da43368880b42",
+        "944d44ff4810c8f9",
         "8cdbc423958bc54d",
-        "15263855449daa09",
-        "ef37e5af39b2da9c",
-        "e425f55002005f97",
-        "52c683d5cc0018da",
+        "044170dca04e8bbb",
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
         "092cca0be1ff5961",
         "f10c1b474e10b117"
       ],
-      "start_line": 332
+      "start_line": 348
     },
     {
       "confidence": "structural",
-      "end_line": 345,
+      "end_line": 363,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
@@ -2474,22 +2513,21 @@
         "2ad51695904ab66e",
         "127269e4afa33de4",
         "408b3cfc2191b9b4",
-        "27592d5a6665e286",
-        "ef37e5af39b2da9c",
-        "7e8da43368880b42",
+        "3d7f0942c946fafb",
+        "30be60a23d3d0317",
+        "944d44ff4810c8f9",
         "9e91dd9520bee269",
-        "15263855449daa09",
-        "a16b2c195bd66767",
-        "802567c280193bd0",
-        "65c61eecbb590b92",
+        "044170dca04e8bbb",
+        "48cabcef2f22cabd",
+        "ae672f3d3d6f8730",
         "53ad1133e1cb2d0a",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 344
+      "start_line": 362
     },
     {
       "confidence": "normal",
-      "end_line": 354,
+      "end_line": 372,
       "heading": "Lava renders blank or a merge field is missing",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-lava-renders-blank-or-a-merge-field-is-missing",
@@ -2497,112 +2535,112 @@
         "2ad51695904ab66e",
         "127269e4afa33de4"
       ],
-      "start_line": 346
+      "start_line": 364
     },
     {
       "confidence": "normal",
-      "end_line": 362,
+      "end_line": 380,
       "heading": "A parser error points at an innocent-looking line",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-parser-error-points-at-an-innocent-looking-line",
       "source_keys": [
         "408b3cfc2191b9b4"
       ],
-      "start_line": 355
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 372,
-      "heading": "An entity command returns no rows or fails before iteration",
-      "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration",
-      "source_keys": [
-        "27592d5a6665e286"
-      ],
-      "start_line": 363
-    },
-    {
-      "confidence": "normal",
-      "end_line": 382,
-      "heading": "A modify command appears to succeed but data is unchanged",
-      "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-a-modify-command-appears-to-succeed-but-data-is-unchanged",
-      "source_keys": [
-        "ef37e5af39b2da9c"
-      ],
       "start_line": 373
     },
     {
       "confidence": "normal",
       "end_line": 390,
-      "heading": "A later write fails with an earlier validation error",
+      "heading": "An entity command returns no rows or fails before iteration",
       "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-a-later-write-fails-with-an-earlier-validation-error",
+      "section_id": "troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration",
       "source_keys": [
-        "ef37e5af39b2da9c"
+        "3d7f0942c946fafb"
       ],
-      "start_line": 383
+      "start_line": 381
     },
     {
-      "confidence": "community-supported",
-      "end_line": 398,
-      "heading": "A workflow starts but submitted values are missing",
+      "confidence": "normal",
+      "end_line": 400,
+      "heading": "A modify command appears to succeed but data is unchanged",
       "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing",
+      "section_id": "troubleshooting-decision-tree-a-modify-command-appears-to-succeed-but-data-is-unchanged",
       "source_keys": [
-        "7e8da43368880b42"
+        "30be60a23d3d0317"
       ],
       "start_line": 391
     },
     {
       "confidence": "normal",
-      "end_line": 406,
+      "end_line": 408,
+      "heading": "A later write fails with an earlier validation error",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-later-write-fails-with-an-earlier-validation-error",
+      "source_keys": [
+        "30be60a23d3d0317"
+      ],
+      "start_line": 401
+    },
+    {
+      "confidence": "normal",
+      "end_line": 416,
+      "heading": "A workflow starts but submitted values are missing",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing",
+      "source_keys": [
+        "944d44ff4810c8f9"
+      ],
+      "start_line": 409
+    },
+    {
+      "confidence": "normal",
+      "end_line": 424,
       "heading": "A shortcode displays as raw text",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-shortcode-displays-as-raw-text",
       "source_keys": [
         "9e91dd9520bee269",
-        "15263855449daa09"
+        "044170dca04e8bbb"
       ],
-      "start_line": 399
+      "start_line": 417
     },
     {
-      "confidence": "community-supported",
-      "end_line": 415,
+      "confidence": "normal",
+      "end_line": 433,
       "heading": "A Helix endpoint works for administrators but not its audience",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience",
       "source_keys": [
-        "a16b2c195bd66767"
-      ],
-      "start_line": 407
-    },
-    {
-      "confidence": "normal",
-      "end_line": 424,
-      "heading": "An HTMX fragment loses scripts, styles or UI state",
-      "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-an-htmx-fragment-loses-scripts-styles-or-ui-state",
-      "source_keys": [
-        "802567c280193bd0"
-      ],
-      "start_line": 416
-    },
-    {
-      "confidence": "normal",
-      "end_line": 434,
-      "heading": "Rock Mobile content is stale, anonymous or invalid XAML",
-      "needs_live_verification": true,
-      "section_id": "troubleshooting-decision-tree-rock-mobile-content-is-stale-anonymous-or-invalid-xaml",
-      "source_keys": [
-        "127269e4afa33de4",
-        "65c61eecbb590b92"
+        "48cabcef2f22cabd"
       ],
       "start_line": 425
     },
     {
       "confidence": "normal",
-      "end_line": 444,
+      "end_line": 442,
+      "heading": "An HTMX fragment loses scripts, styles or UI state",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-an-htmx-fragment-loses-scripts-styles-or-ui-state",
+      "source_keys": [
+        "48cabcef2f22cabd"
+      ],
+      "start_line": 434
+    },
+    {
+      "confidence": "normal",
+      "end_line": 452,
+      "heading": "Rock Mobile content is stale, anonymous or invalid XAML",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-rock-mobile-content-is-stale-anonymous-or-invalid-xaml",
+      "source_keys": [
+        "127269e4afa33de4",
+        "ae672f3d3d6f8730"
+      ],
+      "start_line": 443
+    },
+    {
+      "confidence": "normal",
+      "end_line": 462,
       "heading": "A remote Lava route exposes more than intended",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-remote-lava-route-exposes-more-than-intended",
@@ -2610,83 +2648,83 @@
         "53ad1133e1cb2d0a",
         "1a7cdd8d2a7f15eb"
       ],
-      "start_line": 435
+      "start_line": 453
     },
     {
       "confidence": "structural",
-      "end_line": 446,
+      "end_line": 464,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
       "source_keys": [
-        "79a4202cc4d0f854",
+        "30be60a23d3d0317",
         "9ae5804fa3a0ac7d",
-        "27592d5a6665e286",
+        "3d7f0942c946fafb",
         "8cdbc423958bc54d",
-        "ef37e5af39b2da9c",
-        "7e8da43368880b42",
+        "944d44ff4810c8f9",
         "2ad51695904ab66e",
         "d543301b9ba31934",
         "9e91dd9520bee269",
-        "a16b2c195bd66767",
-        "802567c280193bd0",
+        "48cabcef2f22cabd",
         "127269e4afa33de4",
-        "65c61eecbb590b92",
-        "fe0b6d3b462f6c75"
+        "ae672f3d3d6f8730",
+        "83b85b83715ceaaa",
+        "0b4cbfc1ceb9a7e0",
+        "454638971ea095b7"
       ],
-      "start_line": 445
+      "start_line": 463
     },
     {
-      "confidence": "community-supported",
-      "end_line": 476,
+      "confidence": "normal",
+      "end_line": 494,
       "heading": "Recipe: Review an existing Lava surface safely",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-review-an-existing-lava-surface-safely",
       "source_keys": [
-        "79a4202cc4d0f854",
+        "30be60a23d3d0317",
         "9ae5804fa3a0ac7d"
       ],
-      "start_line": 447
+      "start_line": 465
     },
     {
       "confidence": "normal",
-      "end_line": 498,
+      "end_line": 516,
       "heading": "Recipe: Build a bounded read-only entity view",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-a-bounded-read-only-entity-view",
       "source_keys": [
-        "27592d5a6665e286",
+        "3d7f0942c946fafb",
         "8cdbc423958bc54d"
       ],
-      "start_line": 477
+      "start_line": 495
     },
     {
       "confidence": "normal",
-      "end_line": 523,
+      "end_line": 541,
       "heading": "Recipe: Prepare a Lava entity write",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes-recipe-prepare-a-lava-entity-write",
       "source_keys": [
-        "ef37e5af39b2da9c",
-        "79a4202cc4d0f854"
+        "30be60a23d3d0317",
+        "30be60a23d3d0317"
       ],
-      "start_line": 499
+      "start_line": 517
     },
     {
       "confidence": "normal",
-      "end_line": 545,
+      "end_line": 563,
       "heading": "Recipe: Preflight a workflow activation",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-preflight-a-workflow-activation",
       "source_keys": [
-        "7e8da43368880b42",
+        "944d44ff4810c8f9",
         "2ad51695904ab66e"
       ],
-      "start_line": 524
+      "start_line": 542
     },
     {
       "confidence": "normal",
-      "end_line": 566,
+      "end_line": 584,
       "heading": "Recipe: Publish a reusable shortcode",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-publish-a-reusable-shortcode",
@@ -2694,59 +2732,59 @@
         "d543301b9ba31934",
         "9e91dd9520bee269"
       ],
-      "start_line": 546
+      "start_line": 564
     },
     {
       "confidence": "normal",
-      "end_line": 590,
+      "end_line": 608,
       "heading": "Recipe: Build a read-only Helix active-search page",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-build-a-read-only-helix-active-search-page",
       "source_keys": [
-        "a16b2c195bd66767",
-        "802567c280193bd0"
+        "48cabcef2f22cabd",
+        "48cabcef2f22cabd"
       ],
-      "start_line": 567
+      "start_line": 585
     },
     {
       "confidence": "normal",
-      "end_line": 607,
+      "end_line": 625,
       "heading": "Recipe: Validate a Rock Mobile Lava block",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-validate-a-rock-mobile-lava-block",
       "source_keys": [
         "127269e4afa33de4",
-        "65c61eecbb590b92"
+        "ae672f3d3d6f8730"
       ],
-      "start_line": 591
+      "start_line": 609
     },
     {
       "confidence": "citation-only",
-      "end_line": 631,
+      "end_line": 649,
       "heading": "Recipe: Design a Lava-backed AI tool",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-design-a-lava-backed-ai-tool",
       "source_keys": [
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75"
+        "83b85b83715ceaaa",
+        "0b4cbfc1ceb9a7e0",
+        "454638971ea095b7"
       ],
-      "start_line": 608
+      "start_line": 626
     },
     {
-      "confidence": "community-supported",
-      "end_line": 656,
+      "confidence": "normal",
+      "end_line": 674,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "a16b2c195bd66767"
+        "48cabcef2f22cabd"
       ],
-      "start_line": 632
+      "start_line": 650
     },
     {
       "confidence": "structural",
-      "end_line": 658,
+      "end_line": 676,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
@@ -2754,11 +2792,9 @@
         "044170dca04e8bbb",
         "be18a55d805e40d5",
         "408b3cfc2191b9b4",
-        "27592d5a6665e286",
-        "ef37e5af39b2da9c",
-        "e425f55002005f97",
-        "7e8da43368880b42",
-        "52c683d5cc0018da",
+        "3d7f0942c946fafb",
+        "30be60a23d3d0317",
+        "944d44ff4810c8f9",
         "092cca0be1ff5961",
         "8cdbc423958bc54d",
         "1a7cdd8d2a7f15eb",
@@ -2767,16 +2803,14 @@
         "d543301b9ba31934",
         "2ad51695904ab66e",
         "e7273766702f8255",
-        "802567c280193bd0",
-        "a16b2c195bd66767",
-        "65c61eecbb590b92",
+        "48cabcef2f22cabd",
+        "ae672f3d3d6f8730",
         "127269e4afa33de4",
         "67f84804d07244b3",
         "6449dcd93497b4cd",
         "9ae5804fa3a0ac7d",
-        "fabd5e16d3ed5b89",
-        "d49b5955fa6bb4c9",
-        "fe0b6d3b462f6c75",
+        "fff246618402f859",
+        "3209d44f5f3edeff",
         "efb687d5c0448b53",
         "f10c1b474e10b117",
         "c7ad4595daa53e01",
@@ -2789,11 +2823,11 @@
         "fb5f22127915c464",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 657
+      "start_line": 675
     },
     {
       "confidence": "normal",
-      "end_line": 671,
+      "end_line": 689,
       "heading": "Official Lava documentation",
       "needs_live_verification": false,
       "section_id": "source-map-official-lava-documentation",
@@ -2801,22 +2835,22 @@
         "044170dca04e8bbb",
         "be18a55d805e40d5",
         "408b3cfc2191b9b4",
-        "27592d5a6665e286",
-        "ef37e5af39b2da9c",
-        "e425f55002005f97",
-        "7e8da43368880b42",
-        "52c683d5cc0018da",
+        "3d7f0942c946fafb",
+        "30be60a23d3d0317",
+        "30be60a23d3d0317",
+        "944d44ff4810c8f9",
+        "30be60a23d3d0317",
         "092cca0be1ff5961",
         "8cdbc423958bc54d",
         "1a7cdd8d2a7f15eb",
         "53ad1133e1cb2d0a",
         "9e91dd9520bee269"
       ],
-      "start_line": 659
+      "start_line": 677
     },
     {
       "confidence": "normal",
-      "end_line": 683,
+      "end_line": 701,
       "heading": "Official product and developer documentation",
       "needs_live_verification": false,
       "section_id": "source-map-official-product-and-developer-documentation",
@@ -2824,35 +2858,35 @@
         "d543301b9ba31934",
         "2ad51695904ab66e",
         "e7273766702f8255",
-        "802567c280193bd0",
-        "a16b2c195bd66767",
-        "65c61eecbb590b92",
+        "48cabcef2f22cabd",
+        "48cabcef2f22cabd",
+        "ae672f3d3d6f8730",
         "127269e4afa33de4",
         "67f84804d07244b3",
         "6449dcd93497b4cd"
       ],
-      "start_line": 672
+      "start_line": 690
     },
     {
-      "confidence": "citation-only",
-      "end_line": 693,
+      "confidence": "community-supported",
+      "end_line": 711,
       "heading": "Official training and release context",
       "needs_live_verification": false,
       "section_id": "source-map-official-training-and-release-context",
       "source_keys": [
         "9ae5804fa3a0ac7d",
-        "fabd5e16d3ed5b89",
-        "d49b5955fa6bb4c9",
-        "fe0b6d3b462f6c75",
+        "fff246618402f859",
+        "fff246618402f859",
+        "3209d44f5f3edeff",
         "efb687d5c0448b53",
         "f10c1b474e10b117",
         "c7ad4595daa53e01"
       ],
-      "start_line": 684
+      "start_line": 702
     },
     {
       "confidence": "normal",
-      "end_line": 700,
+      "end_line": 718,
       "heading": "Immutable implementation evidence",
       "needs_live_verification": true,
       "section_id": "source-map-immutable-implementation-evidence",
@@ -2862,11 +2896,11 @@
         "fd7caa4f14864ef3",
         "350b56c0bdfb9422"
       ],
-      "start_line": 694
+      "start_line": 712
     },
     {
       "confidence": "community-supported",
-      "end_line": 707,
+      "end_line": 727,
       "heading": "Reviewed community patterns",
       "needs_live_verification": false,
       "section_id": "source-map-reviewed-community-patterns",
@@ -2876,17 +2910,66 @@
         "fb5f22127915c464",
         "4dd03ee2b87575b2"
       ],
-      "start_line": 701
+      "start_line": 719
+    },
+    {
+      "confidence": "normal",
+      "end_line": 753,
+      "heading": "Approved Claim Coverage",
+      "needs_live_verification": true,
+      "section_id": "approved-claim-coverage",
+      "source_keys": [
+        "3d7f0942c946fafb",
+        "6449dcd93497b4cd",
+        "67f84804d07244b3",
+        "944d44ff4810c8f9",
+        "044170dca04e8bbb",
+        "127269e4afa33de4",
+        "ae672f3d3d6f8730",
+        "48cabcef2f22cabd",
+        "3209d44f5f3edeff",
+        "3209d44f5f3edeff",
+        "3209d44f5f3edeff",
+        "efb687d5c0448b53"
+      ],
+      "start_line": 728
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 773,
+      "heading": "Approved Media Coverage",
+      "needs_live_verification": false,
+      "section_id": "approved-media-coverage",
+      "source_keys": [
+        "3209d44f5f3edeff",
+        "9ae5804fa3a0ac7d",
+        "fff246618402f859",
+        "2617ec7030df84be",
+        "ef20cb439da472d1",
+        "fff246618402f859",
+        "6116d88a4926ec12"
+      ],
+      "start_line": 754
     }
   ],
-  "source_pack_hydrated_at": "2026-09-03T16:26:45+00:00",
+  "source_pack_hydrated_at": "2026-06-02T17:12:16+00:00",
   "sources": [
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "kind": "generated_model_map_pointer",
+      "source_id": "rock_model_map",
+      "source_key": "ed6551d38c7e2b18",
+      "source_record_id": "rock_model_map:stable-demo-scrape",
+      "title": "Stable Rock Model Map scrape",
+      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "647db83379589281f3863ad5bcfbccfd59d8f9df048d2da9e751c3d2264d37b3",
-      "excerpt_hash": "8370044cadddf02fd4406af87977a959f27e92dc92f5de509186191809e421ee",
+      "content_hash": "ad9642a9ff2eaeb2470e6212cb081d543da78c42e273c2557dd5006b818fd3de",
+      "excerpt_hash": "a0a818fc4b6ed16760e9122afb4c0a585b2bf1f055b397620fa90a10d1bab553",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2894,7 +2977,7 @@
       "source_id": "rock_lava_docs",
       "source_key": "044170dca04e8bbb",
       "source_record_id": "rock_lava_docs:044170dca04e8bbb",
-      "title": "Lava Reference",
+      "title": "Lava",
       "topics": [
         "cms",
         "development",
@@ -2905,54 +2988,52 @@
       "version": null
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:helix-endpoint-script-style-tag-boundary",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "79a4202cc4d0f854",
-      "source_record_id": "org_contribution:oneall:helix-endpoint-script-style-tag-boundary",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/helix",
-        "https://github.com/SparkDevNetwork/Rock"
-      ],
-      "title": "Do not assume Lava javascript and stylesheet tags work inside Helix endpoints",
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b73343b570bb02f859940e42ff563fa30475995a26e476b15d970eaeeff4d35c",
+      "excerpt_hash": "ea4f9fe588e761330e68376509ead2c0f7352ab758b17498edd9babf5e2aa053",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "30be60a23d3d0317",
+      "source_record_id": "rock_lava_docs:30be60a23d3d0317",
+      "title": "Getting Started",
       "topics": [
-        "cms-websites",
-        "lava"
+        "cms",
+        "development",
+        "lava",
+        "security",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/lava/commands"
+      "url": "https://community.rockrms.com/lava/commands",
+      "version": null
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:mobile-content-dynamic-context-boundary",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "65c61eecbb590b92",
-      "source_record_id": "org_contribution:oneall:mobile-content-dynamic-context-boundary",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
-      ],
-      "title": "Check Rock Mobile Content block processing context before relying on CurrentPerson",
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8a2ef2dbf6fd7e323065befa31325524624c8df6d4036a2962374a8da44a0682",
+      "excerpt_hash": "e9462998475ac654b9903dc5c44d6da8e503ec3df22909ac429e0c48cae02e7d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "ae672f3d3d6f8730",
+      "source_record_id": "rock_developer:ae672f3d3d6f8730",
+      "title": "Lava",
       "topics": [
-        "mobile",
+        "api",
+        "development",
         "lava",
-        "cms-websites"
+        "mobile",
+        "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
+      "version": null
     },
     {
       "authority": "official-developer",
@@ -2978,8 +3059,8 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "02472710950dc2a4cfa6927557d8c31ae536b3d079e8b3f5d05a49480be1788a",
-      "excerpt_hash": "be68956ef205241193e7f34c32d0d71ce63432018f428b827e6c3cc3908240ff",
+      "content_hash": "0d65c82df4edb8b5ae99f810c39a9b603a56800cb1d4c75c4e5ed94dbcbd9eaf",
+      "excerpt_hash": "5aca90ba4a573b25ea649d78920c19c5d3ae699883293db582e877125ebbe322",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3002,8 +3083,8 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "97e7661acfbe700695148f6aa550b7b8d96f5fe07abbdb91143fe5d3acf34f6a",
-      "excerpt_hash": "fc40f502b536172f3c8653b5edecddb8eaa1d15779ac6c4705624e213f7c4e0d",
+      "content_hash": "cb8b64e2b9c11062f5dbc724bb75e3416f707a5d9a9da9a5371a6ff9ec69f4ad",
+      "excerpt_hash": "a25f393aec780dc5bbff232b1eefcd18feeebda36914e5dd0ca561a5dc2726bb",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3025,8 +3106,8 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "69e6f6c82b2c058d0ed5f4a04faa39aeaf00b255d2669ad782e6a8051d840e04",
-      "excerpt_hash": "e0d71d246b281f883239bb9e0a1b370169fd994d5a565213a80ed8b88be4190b",
+      "content_hash": "d68810317ab2e1a31c6229b80a2a649b18155c72134a6a46c49525f9cee216d8",
+      "excerpt_hash": "d53e34ab8c42f7d5d2c424ccb90ebe3bb27fc1cf00202820f5a30ceea92c048e",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3048,8 +3129,8 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "e0cb510ccb3c42cfc92fc1ecfdab15caec84cfd7b217c25a9ec7141456ef5bf9",
-      "excerpt_hash": "fc55bab124b8cde29c6c3973b76df4afa27142fb199a48024b92ec7ab1641476",
+      "content_hash": "8db38a740ca314a86234fea9ab5f1069206b7977093a2a7b7e96ed6e01c9ccd8",
+      "excerpt_hash": "833d31a21da131f8e6d47c567bdab8f6806972bf839324bb98e659d9a209e359",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3070,22 +3151,11 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "4c16e400b22bb65d8095a7542757336572cb118db6d6dfb7cd62025d4a4983ce",
-      "excerpt_hash": "ccb0a31d33e6a176c3ce7703a142a21cb85c1b783a531e380206294f8dcc919b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava",
-        "filter",
-        "date filter",
-        "datefilter"
-      ],
-      "path": "Rock.Tests/Lava/Filters/DateFilterTests.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "fd7caa4f14864ef3",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Tests/Lava/Filters/DateFilterTests.cs",
-      "title": "Rock.Tests/Lava/Filters/DateFilterTests.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests/Lava/Filters/DateFilterTests.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Tests/Lava/Filters/DateFilterTests.cs"
     },
     {
@@ -3101,49 +3171,22 @@
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "55948d1e7464586d3dabb031f8159ff86e96e3eda99353f3d253ff6615c4123c",
-      "excerpt_hash": "e6292f76ef58d6e2c9ee70cc474da628ff90b7be9831483440ff0f884222278b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "2ad51695904ab66e",
-      "source_record_id": "rock_documentation:article:922",
-      "title": "Lava Tips for Workflows",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "25bcfcb1cb871eb0305c671bef0b9e18afd8699fcd8d95dbffc1f821bec81120",
-      "excerpt_hash": "698fee777fbdfb777ff53f0d9d484a12db89ef69af007b88005a5b29127f46b1",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "e7273766702f8255",
-      "source_record_id": "rock_documentation:article:2255",
-      "title": "Personalize Using Lava",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/personalize-using-lava"
     },
     {
       "authority": "unknown",
@@ -3156,86 +3199,45 @@
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1080s"
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:createshortlink-argument-order-preflight",
-      "contribution_type": "task_card",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "15263855449daa09",
-      "source_record_id": "org_contribution:oneall:createshortlink-argument-order-preflight",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava/filters/other-filters",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "title": "Preflight CreateShortLink argument order before using generated links operationally",
-      "topics": [
-        "lava",
-        "cms-websites"
-      ],
-      "url": "https://community.rockrms.com/lava/filters/other-filters"
-    },
-    {
       "authority": "official-training",
       "authority_score": 75,
-      "change_type": null,
-      "content_hash": "f33aa6496900eb29898a0a103a97015d8eee5a8d293ef5ac7730d64f827c4598",
-      "excerpt_hash": "4f94be8548bdf5d6a68f7004a457239c5f9c2530d846df460753848e935378ed",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_rocku",
       "source_key": "9ae5804fa3a0ac7d",
-      "source_record_id": "media-insight:2cf056c2b84e6365",
-      "title": "Advanced HTML Block Transcript Insight",
-      "topics": [
-        "media",
-        "podcast",
-        "timestamped-insights",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block",
-      "version": null
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:modify-command-change-tracker-poisoning",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "27592d5a6665e286",
-      "source_record_id": "org_contribution:oneall:modify-command-change-tracker-poisoning",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/lava/commands",
-        "https://github.com/SparkDevNetwork/Rock"
-      ],
-      "title": "A failed modify command can poison later writes in the same Lava render",
-      "topics": [
-        "lava",
-        "workflows",
-        "cms-websites"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/entity-commands"
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/cms/advanced-html-block",
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "2e05b731dfe9a735c0fb223fa10e40b1979783fb304451ddea5f7213bc793136",
-      "excerpt_hash": "5f58e0255e799d0312108622f8a6f2696afb3530a341c84c2d707aa336515d84",
+      "content_hash": "4f378eae6b9e8e015f68dcaa8f5f1ad073716a18a618d68d2c6a746c3570a00b",
+      "excerpt_hash": "094bd0e34d355409a55fca3d04f6272aee323647456630c8ea00e16404d42c57",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "3d7f0942c946fafb",
+      "source_record_id": "rock_lava_docs:3d7f0942c946fafb",
+      "title": "Entity",
+      "topics": [
+        "cms",
+        "development",
+        "finance",
+        "lava",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/entity-commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "21d5f68126cc2bddfda1dd91a44aacd259bbfa997cb6a1d18717329f0e86fc7b",
+      "excerpt_hash": "afb5f8c0e41b8eb2c7b8409ef5a65dc58404f5a13509de114f7839f0583c07f0",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3256,28 +3258,28 @@
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "community-reference",
+      "authority_score": 45,
       "change_type": null,
-      "content_hash": "e3422c204a3821693053d1bb484119d10dcf8a68f04c4601540fcd6f2972376e",
-      "excerpt_hash": "a60fdcaa71f97c12272642f1f815c3445f5e3b962f5e1c80ed78359a5475adb5",
+      "content_hash": "8a3beb415e5819c7b23294bd411025f496b7634fa38fc792f14aea403bed8a4b",
+      "excerpt_hash": "9f146c589f3dd3575d9e28be3625ed8a6575a44692e394d21f832372ea113a01",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "fabd5e16d3ed5b89",
-      "source_record_id": "media-insight:3914daffb10cdfb9",
-      "title": "SQL Command Transcript Insight",
+      "source_id": "rock_community_site",
+      "source_key": "fff246618402f859",
+      "source_record_id": "rock_community_site:fff246618402f859",
+      "title": "Lava",
       "topics": [
-        "media",
-        "podcast",
-        "timestamped-insights",
-        "training",
-        "usage",
-        "workflow"
+        "community",
+        "development",
+        "documentation",
+        "lava",
+        "sql",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/lava/sql-command",
+      "url": "https://community.rockrms.com/rocku/lava",
       "version": null
     },
     {
@@ -3291,207 +3293,64 @@
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s"
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "db1718e71f8d8e894ab74533eda1c13d2f37c3225a87518e9973ddb7ef0f05c5",
-      "excerpt_hash": "5016e8ae465d5446977e55abbae01236bac5866ea4884906681948753727785f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_youtube",
-      "source_key": "fe0b6d3b462f6c75",
-      "source_record_id": "media-insight:d03a93f4e7ef8c02",
-      "title": "AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight",
-      "topics": [
-        "ai",
-        "agents",
-        "mcp",
-        "voice",
-        "security",
-        "lava",
-        "tools",
-        "prompts",
-        "connected-services",
-        "roadmap",
-        "implementation"
-      ],
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "b29a093654635822167b8c81a26a9f2de6fd97547d96af5ed688302a1c62256e",
-      "excerpt_hash": "30fa559f9be9c024745f1ced6f2904c82668c3f5c390274340efd0099e470d0e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "d49b5955fa6bb4c9",
-      "source_record_id": "media-insight:ec199a83a2123233",
-      "title": "Execute Command Transcript Insight",
-      "topics": [
-        "media",
-        "podcast",
-        "timestamped-insights",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/lava/execute-command",
-      "version": null
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "3209d44f5f3edeff",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "0371ab07dc392e14387cabb35f3a26480f2e944f3be5d7296025aa8576355dea",
-      "excerpt_hash": "359eeea2dcb6ebcaf4d06bbbcd7baa0faaad3cf8b7a965ed3a75b67afa5d0675",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava",
-        "web request",
-        "webrequest"
-      ],
-      "path": "Rock/Lava/Blocks/WebRequestBlock.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "631ccca5ceb18471",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Lava/Blocks/WebRequestBlock.cs",
-      "title": "Rock/Lava/Blocks/WebRequestBlock.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Lava/Blocks/WebRequestBlock.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Lava/Blocks/WebRequestBlock.cs"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "7d1099c95306b227b7978fec054525ba9bb5ec0982b83b8fd638924102818829",
-      "excerpt_hash": "cda5173838ddf90fc940e9978cc465d72f5c8c2f76eb2c6bcfd1dbfd886b929d",
+      "content_hash": "c01eb1e22ebc0f344be4d6da9934b974fb08b23f9826231001bc97fdae9a43e7",
+      "excerpt_hash": "4df7895d4fb1b4141a33596d2a890312717107da1391ba79d5e5613f85c3fda3",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_lava_docs",
-      "source_key": "ef37e5af39b2da9c",
-      "source_record_id": "rock_lava_docs:ef37e5af39b2da9c",
-      "title": "Modify Entity",
-      "topics": [
-        "cms",
-        "development",
-        "lava",
-        "security",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/modify-entity",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "ec69233401bcbb60568a0329b9e2b9efdbce2e7ce12c9b68c53eedc9a19326ab",
-      "excerpt_hash": "dd9e56f8919339f858bdae4f2ca76ed39ed725c66e1a2bd8405314a8a2fcd732",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_lava_docs",
-      "source_key": "e425f55002005f97",
-      "source_record_id": "rock_lava_docs:e425f55002005f97",
-      "title": "Delete Entity",
-      "topics": [
-        "cms",
-        "development",
-        "lava",
-        "security",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/delete-entity",
-      "version": null
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:workflowactivate-attribute-key-contract",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "7e8da43368880b42",
-      "source_record_id": "org_contribution:oneall:workflowactivate-attribute-key-contract",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://community.rockrms.com/rocku/workflows"
-      ],
-      "title": "Treat workflowactivate parameters as an attribute-key contract",
-      "topics": [
-        "workflows",
-        "lava"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e3db2ba289e8d534df5d9aa8924843b825080676df7e4b4f406259b74bc68306",
-      "excerpt_hash": "dc1cfdb23e2927e4c013caebae05c80c732d3e18b86a272075d6a158d5103572",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_lava_docs",
-      "source_key": "52c683d5cc0018da",
-      "source_record_id": "rock_lava_docs:52c683d5cc0018da",
-      "title": "Render Lava Endpoint",
+      "source_key": "944d44ff4810c8f9",
+      "source_record_id": "rock_lava_docs:944d44ff4810c8f9",
+      "title": "Workflow Activate",
       "topics": [
         "cms",
         "development",
         "lava",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/lava/commands/render-lava-endpoint",
+      "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "change_type": null,
-      "content_hash": "131265a44e18facd8acd91587bdda0b6ed69f142b74f3327129b448286d8366d",
-      "excerpt_hash": "6042706ca6882c0c144f6db6035c04bc5b82ab7d6fccf8ebffc2a26bf611e9ca",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_documentation",
       "source_key": "d543301b9ba31934",
-      "source_record_id": "rock_documentation:article:2183",
-      "title": "Lava Shortcodes",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "usage"
-      ],
-      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/web-design-frameworks/lava-shortcodes"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "bd6761f0755a7545ca5349d6365ad949a4270c92ab3d5f655fef3e77e5c769f6",
-      "excerpt_hash": "3117666c08d000192e280862f2a129f080c02c46e9160a532edc0239f64ebe95",
+      "content_hash": "9ea45ba2f87b82f8d3ec6a2b26a11b5e11427d35507fc0b2f3bb7aa3aed60b0e",
+      "excerpt_hash": "97b30697054114db22642f228fb0247a87c8002def749ca80c868b55f04018d9",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3512,45 +3371,22 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "9f81901faa91c988719b9421f0d8ef4bef899f10124443ba76b401d91217c4fe",
-      "excerpt_hash": "d6fe7e0e0bed983ccb8a1d02d968a8403eaeafffc8cbd04e18b9ae87bdada82e",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "lava",
-        "shortcode",
-        "cms"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "350b56c0bdfb9422",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaShortcodeDetail/lavaShortcodeBag.d.ts"
     },
     {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "6c28249770cf6f88d4db30d85446c688c88225a3a60453e9ef6a166586d6bce2",
-      "excerpt_hash": "f7563bf94f4b26a520a1c5621a9921524335c5e0802127366c3045c251b68d19",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "8c731a2892e1a691",
-      "source_record_id": "media-insight:284b6d5445c1b357",
-      "title": "Media Watch Transcript Insight",
-      "topics": [
-        "communication wizard",
-        "Rock v17",
-        "Rock v18",
-        "communication roadmap"
-      ],
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7"
     },
     {
       "authority": "official-developer",
@@ -3566,8 +3402,8 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "e6a62070646a9685163d61f78e46a29aae7bad38c615973912b82976d976de3b",
-      "excerpt_hash": "53c71623044482d53861926a72987824f06c00400edd1487ce297067c25ccfa0",
+      "content_hash": "74725f4c20c7fc4530e7c84f7de72be157321da1a376e90dcb7dd2a1f6e75d94",
+      "excerpt_hash": "7ad0b5209d3a16a9ff401f71b7b0209c5309d6b32432925401087025fb69aea3",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3591,8 +3427,8 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "515a442368f17babef1f2f494ea4c6da1ef226bcfa2056c6bb31fac75d9db38e",
-      "excerpt_hash": "02a8393e2dc7db4f5eb32a03264a40e5d375b09423b4260043638181b95297c9",
+      "content_hash": "bf0c97ac6f08c4421dbeea6a6e208500d4f2315086bf95539a8af89535e8b8c6",
+      "excerpt_hash": "855ebe5ea7b83f9e51e7ad7e408ecf9048b57b830d1ab3d33c12ff8425928ae9",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3615,58 +3451,40 @@
     {
       "authority": "official-developer",
       "authority_score": 90,
-      "kind": "citation_only",
+      "change_type": null,
+      "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
+      "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "rock_developer",
-      "source_key": "802567c280193bd0",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/developer/helix/overview",
-      "url": "https://community.rockrms.com/developer/helix/overview"
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:read-only-check-in-status-dashboard-data-pattern",
-      "contribution_type": "guide_section",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "a16b2c195bd66767",
-      "source_record_id": "org_contribution:oneall:read-only-check-in-status-dashboard-data-pattern",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/helix/lava-applications/content-block",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Attendance.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/AttendanceOccurrence.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/RegistrationRegistrant.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Registration.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Group/GroupMember/GroupMember.cs"
-      ],
-      "title": "Build read-only check-in status dashboards from roster, placement, and attendance state",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:48cabcef2f22cabd",
+      "title": "🧬 Helix",
       "topics": [
-        "check-in",
-        "helix",
+        "api",
+        "development",
         "lava",
-        "event-registration",
-        "groups"
+        "obsidian",
+        "sql"
       ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+      "url": "https://community.rockrms.com/developer/helix",
+      "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "245373d25726744288ae3e3bf7c2d3b2c3ca8274bf4b6e5028e7f7e91743dda5",
-      "excerpt_hash": "35f28188c58bf377829243bf7b70ecfb1079b0cfe52558551e5be8f1b79a7369",
+      "content_hash": "f0a7077e74f2911ec8b633b567ed70f7e40c2830d65b62c289ece007ae39f696",
+      "excerpt_hash": "a9384fa38dd73b346590d11558f608f1c97a8237c1cc7b3c694be9878d926603",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "789454b4b23d582c",
-      "source_record_id": "rock_developer:article:339",
+      "source_record_id": "rock_developer:789454b4b23d582c",
       "title": "Lava Commands",
       "topics": [
         "api",
@@ -3679,103 +3497,113 @@
       "version": null
     },
     {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "483d217bedc52d3e1dfbb2e26da106c158fe5f77baa55e45124714219c7a91e2",
-      "excerpt_hash": "66e5caa56520db194351985284c99823aeac90e7d5ed217579252571e009ae9d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "2dfd53ea01c3ef3f",
-      "source_record_id": "media-insight:82641c154ebfd018",
-      "title": "Media Watch Transcript Insight",
-      "topics": [
-        "dashboard design",
-        "data literacy",
-        "historical data",
-        "Rock metrics",
-        "SQL and Lava"
-      ],
-      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
     },
     {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "f27e8e5ae372d3321b148039ed42c4b4775a1afd750dd952a3dc886d3add11ad",
-      "excerpt_hash": "dc2c162271f4b48f1ccdda6627628a3430f6921f4a0394e36aeed9fbebb92604",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_hubs",
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
       "source_key": "95396b5eafd3b56c",
-      "source_record_id": "media-insight:51fb82169d3a4818",
-      "title": "Media Watch Transcript Insight",
-      "topics": [
-        "journey analytics",
-        "persisted datasets",
-        "content channels",
-        "group member attendance",
-        "ministry engagement dashboards"
-      ],
-      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-      "version": null
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
     },
     {
-      "authority": "community-reference",
-      "authority_score": 45,
-      "change_type": null,
-      "content_hash": "6e6c3b983f27d42d4e0d783a6c06c3c316ef453cbad55d3ac4dfc3c10f673937",
-      "excerpt_hash": "3fb9d0b351f44643ccd6458598c806a0f7916bc93762dbf417da020ecfd83e6d",
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "fb5f22127915c464",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz",
+      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "83b85b83715ceaaa",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "0b4cbfc1ceb9a7e0",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "454638971ea095b7",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "ccda259ba905d7b6",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s"
+    },
+    {
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "new_feature",
+      "content_hash": "95c37384079d0dd5faeea2bb2cbf7f53573b51dee47bce8e199430cba1f613dc",
+      "excerpt_hash": "833b11fc5cea22cc88c5ac978a3cb80e4b8607959548ea1bf806835bf648dde3",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_community_hubs",
-      "source_key": "fb5f22127915c464",
-      "source_record_id": "media-insight:21c296e1bd9698dc",
-      "title": "Media Watch Transcript Insight",
+      "release_date": "May 20, 2026",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:53e5505e8039a1a3",
+      "title": "Rock Core Release Notes",
       "topics": [
-        "Rock reporting",
-        "BI tools",
-        "dashboard delivery",
-        "report security"
+        "releases",
+        "development",
+        "operations"
       ],
-      "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz",
-      "version": null
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "19.1"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "7b10119ad9c478a372b470c0a96afb65717a63bf19b157d5c305e04799ed6f68",
-      "excerpt_hash": "716b1e588e6ea435d5a9f60577d2ccc03cfcca911ad451da2b4e06227a54f2c8",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava",
-        "shortcode",
-        "shortcode block",
-        "shortcodeblock"
-      ],
-      "path": "Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs",
-      "repo": "SparkDevNetwork/Rock",
+      "kind": "citation_only",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "d4c706179cbf8ae5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs",
-      "title": "Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs",
+      "source_record_id": "",
+      "title": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Lava/Core/Shortcodes/DynamicShortcodeBlock.cs"
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "e95b8f637832d9e8b67266f9129a2174a2abc721eac4d7bd4bbaa237ea49a4c9",
-      "excerpt_hash": "ebd2f94cd2bdb876aef72a1d07db30df4c6f8389b0bf9753be5c58a8e675ee4a",
+      "content_hash": "ca35e091a6fd61bf3151ac337e1129e8b681c45443c024903ec3e8a236a65735",
+      "excerpt_hash": "8eb9d697f94a2f17862ddde6607d030704f1a7cd501d0af31c5f8927f8624f7b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -3794,6 +3622,36 @@
       ],
       "url": "https://community.rockrms.com/recipes/456",
       "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "2617ec7030df84be",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "ef20cb439da472d1",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/communication/communication-templates",
+      "url": "https://community.rockrms.com/rocku/communication/communication-templates"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "6116d88a4926ec12",
+      "source_record_id": "",
+      "title": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel",
+      "url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel"
     }
   ],
   "synthesis_profile": "comprehensive",

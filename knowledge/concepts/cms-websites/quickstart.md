@@ -33,12 +33,12 @@ Pages, blocks, themes, content channels, personalization, media, and website ope
 
 ## High-Signal Sections
 
-- `agent-summary` lines 18-31: Agent Summary (normal)
-- `mental-model` lines 42-58: Mental Model (normal)
-- `sites-routes-and-navigation` lines 59-76: Sites, Routes, And Navigation (normal)
-- `pages-layouts-zones-and-blocks` lines 77-90: Pages, Layouts, Zones, And Blocks (normal)
-- `html-content-scheduling-and-shared-components` lines 91-104: HTML Content, Scheduling, And Shared Components (normal)
-- `advanced-html-lava-and-context` lines 105-126: Advanced HTML, Lava, And Context (normal)
+- `agent-summary` lines 34-47: Agent Summary (normal)
+- `mental-model` lines 58-74: Mental Model (normal)
+- `sites-routes-and-navigation` lines 75-92: Sites, Routes, And Navigation (normal)
+- `pages-layouts-zones-and-blocks` lines 93-106: Pages, Layouts, Zones, And Blocks (normal)
+- `html-content-scheduling-and-shared-components` lines 107-120: HTML Content, Scheduling, And Shared Components (normal)
+- `advanced-html-lava-and-context` lines 121-142: Advanced HTML, Lava, And Context (normal)
 
 ## Core Entities
 

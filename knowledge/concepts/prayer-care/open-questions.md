@@ -18,6 +18,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `prayer-request-intake-and-lifecycle`: Prayer Request Intake And Lifecycle
 - `categories-visibility-and-page-security`: Categories, Visibility, And Page Security
 - `teams-approval-and-human-moderation`: Teams, Approval, And Human Moderation

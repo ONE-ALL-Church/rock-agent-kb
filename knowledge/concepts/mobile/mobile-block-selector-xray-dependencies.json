@@ -1,11 +1,11 @@
 {
-  "built_at": "2026-08-12T12:40:46+00:00",
+  "built_at": "2026-09-09T21:26:58+00:00",
   "concept_id": "mobile",
   "dependencies": [
     {
       "content_hash": "a4f2816fdfad1dc0ffb2a621e80eed5711c7b70d130c09452529eb5ecf1145c0",
       "excerpt_hash": "676d303d65877df5ce779bc047abbe5a628e1232677d0164c8d8d77bcf894d13",
-      "retrieved_at": "2026-08-12T11:27:09+00:00",
+      "retrieved_at": "2026-09-09T21:24:28+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:417",
       "source_record_id": "rock_mobile_docs:article:417",
@@ -16,7 +16,7 @@
     {
       "content_hash": "9916ae1df793e888009e78c3d67ace84594cea8281a34c1d834c7c6be40e5611",
       "excerpt_hash": "5a544cf819679a1bbfd984cd52a34d989d032267cc83aaa7625b3f30b58befb4",
-      "retrieved_at": "2026-08-12T11:27:09+00:00",
+      "retrieved_at": "2026-09-09T21:24:28+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:445",
       "source_record_id": "rock_mobile_docs:article:445",
@@ -27,7 +27,7 @@
     {
       "content_hash": "9453bc42f21591369a053404c93840b686e5e12e8c7a63964862908a21825076",
       "excerpt_hash": "0020f164d811b0a507e5db47d005cf1828e4be8ff9649d2e6998b18623996f9e",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:28+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:467",
       "source_record_id": "rock_mobile_docs:article:467",
@@ -38,7 +38,7 @@
     {
       "content_hash": "2a3dbe5c72465cdb8cbc9173663392c22b5f3332d30a1e1f06ff2b93c83e295d",
       "excerpt_hash": "5a544cf819679a1bbfd984cd52a34d989d032267cc83aaa7625b3f30b58befb4",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:28+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:444",
       "source_record_id": "rock_mobile_docs:article:444",
@@ -49,7 +49,7 @@
     {
       "content_hash": "9c4b52e178227734013a893b7e2195cd7822302d17e8c7d965fc2a95c1c62390",
       "excerpt_hash": "d722a78409e199acea9fe1b961c28500c45932c304d21297d6596803a43820b1",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:28+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:456",
       "source_record_id": "rock_mobile_docs:article:456",
@@ -60,7 +60,7 @@
     {
       "content_hash": "90554233be34831e70b3af8fe67ec6d967a0822fb208a1e31f270560703e5fd6",
       "excerpt_hash": "72c199c91925e7046cc1bc48e31b85a81a1f7bdbf7fd6f8d8401c416b86c8e0f",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:457",
       "source_record_id": "rock_mobile_docs:article:457",
@@ -71,7 +71,7 @@
     {
       "content_hash": "e829c333750fa5a5ccf2708914be7e30bdf3fee47292db0b2ff5d43af3358f27",
       "excerpt_hash": "30463bb761c2aae0594a9de72c3d476f737f868d59bcbd65bd4383fe7d74cbc1",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:458",
       "source_record_id": "rock_mobile_docs:article:458",
@@ -82,7 +82,7 @@
     {
       "content_hash": "5761157fafda243b835b0e6ed732c92b083f2180b1a1368e7cccf5b169fac599",
       "excerpt_hash": "b880fd2a0f6d0db91c57d676e9b990936cd89c49bb43f2ee1720e14ecf19c9c9",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:459",
       "source_record_id": "rock_mobile_docs:article:459",
@@ -93,7 +93,7 @@
     {
       "content_hash": "0e106d2de924090f010f7238c497d6c26cdd7da1cd94482204afc7fa1b571651",
       "excerpt_hash": "9370f8d6cedae9ce063032dca0ab7b9e92a3cbe29e5d388fff5353df738c18c2",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:460",
       "source_record_id": "rock_mobile_docs:article:460",
@@ -104,7 +104,7 @@
     {
       "content_hash": "974e8b6c0365911cd3368d89257e3cc0b7386c70d70bd94a438f05127e86c199",
       "excerpt_hash": "525838b92b674cbdfe7537647ba8719e74b33a4b47c0d9b7adbd3e048ac0d22a",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:461",
       "source_record_id": "rock_mobile_docs:article:461",
@@ -115,7 +115,7 @@
     {
       "content_hash": "43e079f0fed7643f4165f7bfe296914ec51950b844d111a96a06d090089ef9f1",
       "excerpt_hash": "0047749c102ba667cba1b05e4029a0a62931e734165e79f7a18b81c2b070da42",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:462",
       "source_record_id": "rock_mobile_docs:article:462",
@@ -126,7 +126,7 @@
     {
       "content_hash": "cdd09c49b354dea1dff2a0d90e0addfc6a808424dfdf8873b40375fb8d2fdcec",
       "excerpt_hash": "a47fe719709dc7e8ecfe00a621fe5f4bd2a8cd4a1883e87b33cd1556950fcde7",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:519",
       "source_record_id": "rock_mobile_docs:article:519",
@@ -137,7 +137,7 @@
     {
       "content_hash": "9756b64935a08f7e9d35978023fb71253058c43783a42a008c6293e2c85b62c5",
       "excerpt_hash": "088e4db0d16866fff14274f9a703a850880403beca2a0517c7221a5cfcecbd5f",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:520",
       "source_record_id": "rock_mobile_docs:article:520",
@@ -148,7 +148,7 @@
     {
       "content_hash": "375ac65637c0fa2bfd41f4b4ed4cfaa09c02cfcb1a146eccfadf7dc67026b3fa",
       "excerpt_hash": "d29208278a9045eff011751031aa825154de2ef07f3e416024df91301ba4ff9e",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:463",
       "source_record_id": "rock_mobile_docs:article:463",
@@ -159,7 +159,7 @@
     {
       "content_hash": "93c770545a9e8e00471c2b77828e0744a04c575d46f4ad1ce2d7bed7575962a7",
       "excerpt_hash": "282f6ca040c45777d37210786e337787220cb4ba2634d79877b0b5ef6978204d",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:464",
       "source_record_id": "rock_mobile_docs:article:464",
@@ -170,7 +170,7 @@
     {
       "content_hash": "3e5885a6b2210933ee634fc52fb85da461b60cc5f4250e8429ff2fa9d4aaca33",
       "excerpt_hash": "3a5c2b2ff634899b8ec5bc0b4dc6657dd69295a0278ca4d443e67350163b7eca",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:465",
       "source_record_id": "rock_mobile_docs:article:465",
@@ -181,7 +181,7 @@
     {
       "content_hash": "a6bdec8d4fd810e85cc56040924d00e55416b61c6f3fbdf6bbfcf62db4acbf8f",
       "excerpt_hash": "c3f3b5984042910eb712dae88ab1f196bd9c2304bfb3f5a2a8ab5d031d4bdbf4",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3508",
       "source_record_id": "rock_mobile_docs:article:3508",
@@ -192,7 +192,7 @@
     {
       "content_hash": "266dcfe6c182638e34f8c1481b31e5432547bb44317b0fb31fa1e009d4dd4cbe",
       "excerpt_hash": "14a70e9b5769219f75ff3feb6ad747f523948e50a5b6cc4979c02cedb9db0880",
-      "retrieved_at": "2026-08-12T11:27:10+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:466",
       "source_record_id": "rock_mobile_docs:article:466",
@@ -203,7 +203,7 @@
     {
       "content_hash": "1e70fc58f7973e2dedba834149690c42a5ed9aec8681757dadaad5fb57de5d1c",
       "excerpt_hash": "93c61db134399d0872b1a39f302a3ce0160f2e0a75ae71af7b64555abf50a380",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:446",
       "source_record_id": "rock_mobile_docs:article:446",
@@ -214,7 +214,7 @@
     {
       "content_hash": "4ead76106ede1cf87073999905a5588b39e7d15bbb49df3c546c5aa5abebf5d0",
       "excerpt_hash": "0f9fb11e335a9bfb7cdee99a8baddf11a27410a71b79a0ded4cd569317c69322",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:29+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:468",
       "source_record_id": "rock_mobile_docs:article:468",
@@ -223,9 +223,9 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/chat-view"
     },
     {
-      "content_hash": "38bb7c7b57637a9c8e2f8bf77845e9121ebcfcb79998b1ee54ae0e734abbf8ad",
+      "content_hash": "12a0bb9b0d127689b00f882c364b53c83981c67194508d0afe8a250227a7919e",
       "excerpt_hash": "0b0c7db0a1d8b7f377a87b2601daa2458cb0b5bdc7dbe54d6d1830610864f220",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:469",
       "source_record_id": "rock_mobile_docs:article:469",
@@ -236,7 +236,7 @@
     {
       "content_hash": "2598cd892b0a671edffce927c6db8f9cbf53c0477d277db30f01d028135c8347",
       "excerpt_hash": "c3e0b8e473095c91696416a2ef81e36d0554957850ca22c2722dff6dc50115b0",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:470",
       "source_record_id": "rock_mobile_docs:article:470",
@@ -247,7 +247,7 @@
     {
       "content_hash": "97530bf12ec215abaeed7ccfbfc944185a7a889f0430e703c65b3839ddffb496",
       "excerpt_hash": "1d37806545c8d51cc4867fef8c14814d81221ddcd119bd5d794a0ed450ff0210",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:471",
       "source_record_id": "rock_mobile_docs:article:471",
@@ -258,7 +258,7 @@
     {
       "content_hash": "3eae23db8cf32988e7d0acb763dc665654b89d628b134ca39c9be6aa560389ee",
       "excerpt_hash": "283881e347553964b2742c580274df8b43b735dbbd2b250b7eb8dd7b531ff8af",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:473",
       "source_record_id": "rock_mobile_docs:article:473",
@@ -269,7 +269,7 @@
     {
       "content_hash": "95e6fa61b31b4c9f73c78aae357c231f57a2d37eccf59faf541b86857785b68a",
       "excerpt_hash": "3813478789803b23c76bc4e0a70e911349ad560a015a8187011bc50d79ddf814",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:472",
       "source_record_id": "rock_mobile_docs:article:472",
@@ -280,7 +280,7 @@
     {
       "content_hash": "0c9bf236a9feb192e8c09813ff0ccc5132fe1dca658985254e0b824ad418bae7",
       "excerpt_hash": "427c01aca9f1ac3a079d2b60a6903c034f46c044415a9af9889432e28f825c80",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:447",
       "source_record_id": "rock_mobile_docs:article:447",
@@ -289,9 +289,9 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection"
     },
     {
-      "content_hash": "a754013d39a899780efa071828c7811dee054bc70426695078118ca5d4461592",
-      "excerpt_hash": "b29b5f85f9184593c534477d64981f857f03e4a4a68ef2982fa6a41513a3b106",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "content_hash": "c25e7339e20c3bb9037ef1db1144480f18fa609bf3f823161197fe34c12ea82d",
+      "excerpt_hash": "7b47d74554e81a60d307fbfe37e6b1c5235458f67298929299a247bcd01bdd7b",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:474",
       "source_record_id": "rock_mobile_docs:article:474",
@@ -302,7 +302,7 @@
     {
       "content_hash": "044804067b01e4834013683cef43b45e06b5ddc13653a593266d6f90d8aee18e",
       "excerpt_hash": "3d021d6a5f86b78ea524842b7dc78698e274472683020ac5dddca3fcbc9fdc61",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:476",
       "source_record_id": "rock_mobile_docs:article:476",
@@ -313,7 +313,7 @@
     {
       "content_hash": "7a916e2d1cf98f971efe4f370a72453fd77e341b8c9e676d4fd733a2ca837081",
       "excerpt_hash": "d617d98f658c7e4b047df5a50bde3e29fae1c554916f463756b1ee53202f904d",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:30+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:478",
       "source_record_id": "rock_mobile_docs:article:478",
@@ -324,7 +324,7 @@
     {
       "content_hash": "7bf052df172ba3447af1e81030725cc72b3f0c85c9c5bce78917c8ab1708f877",
       "excerpt_hash": "c291da86dab8d10b7e240132bd37d48590c8e99d53039671833baad6b91cf1c3",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:477",
       "source_record_id": "rock_mobile_docs:article:477",
@@ -335,7 +335,7 @@
     {
       "content_hash": "8c8aff882f58dab3e6bb66ac2d8727509bc91e3bb6c54dc846e95b18926e1a8a",
       "excerpt_hash": "8ccab469f4ebba7d382b8c64fe2ee046de8afa4d40b186cb3c766ee5991b6720",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:475",
       "source_record_id": "rock_mobile_docs:article:475",
@@ -346,7 +346,7 @@
     {
       "content_hash": "c4e4e8b0cf31024752545792f63076c814a9a3a65b05286d7af6e7a066cfcefc",
       "excerpt_hash": "f8e66402f57155eb411bc6ec2eefa50380c165a6028d7a7fc7d89bb93ec6391a",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:448",
       "source_record_id": "rock_mobile_docs:article:448",
@@ -357,7 +357,7 @@
     {
       "content_hash": "8f7d2f9df1ae23ee8d567974f36734cbe76c5e5648d0952da47eb80c061f90b2",
       "excerpt_hash": "802507c245bbc304c3249c21e2508fe7877dd70e0b0182622c202bc2342cc14b",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:479",
       "source_record_id": "rock_mobile_docs:article:479",
@@ -368,7 +368,7 @@
     {
       "content_hash": "0b98e0e08690c1a2c293a24417838ae3139d7e02d87ab8d507422deccd67ae3a",
       "excerpt_hash": "e775a157dddbe5fbd607a36b839099b00d71fe0a63deb93721d675e4b36077a3",
-      "retrieved_at": "2026-08-12T11:27:11+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:484",
       "source_record_id": "rock_mobile_docs:article:484",
@@ -379,7 +379,7 @@
     {
       "content_hash": "ffb558a8acb88af740b8a96d8375e4be7bb6613e91eb618ea3152d30e17815b2",
       "excerpt_hash": "74214a7389eb05c3e5706ec9353b7a017f3b77e3a998c865fe15e8a0a0b74271",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:480",
       "source_record_id": "rock_mobile_docs:article:480",
@@ -390,7 +390,7 @@
     {
       "content_hash": "69fd89554453e8592144b61544124fbed598146e3e57fcfcaef700dbcbf0e51c",
       "excerpt_hash": "29abd19a15579ddd4c63315aeeab5d633c136edf1d6d1d264ddca47680451f2d",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:2868",
       "source_record_id": "rock_mobile_docs:article:2868",
@@ -401,7 +401,7 @@
     {
       "content_hash": "8838e5c2beaf15d225dcf4197c61373b961c4462fe5a65813c58bc867b1a9d43",
       "excerpt_hash": "5723e03985b9b8d6ff63b62b7a4c213382284650ff332d7d90887f23369ce403",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:483",
       "source_record_id": "rock_mobile_docs:article:483",
@@ -412,7 +412,7 @@
     {
       "content_hash": "bafc1ff0db417e09c8a532492d99bd080584a9c937e2a8ec9b39da73d8955168",
       "excerpt_hash": "82e659904b6dfef9e52606f0fd9b98f6c9a2763e7b4a0479b45818d755767a8a",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:481",
       "source_record_id": "rock_mobile_docs:article:481",
@@ -423,7 +423,7 @@
     {
       "content_hash": "c0357293cff19e6188fabc8a86395be6c64237aea540e3b54e09ae36834ca2ff",
       "excerpt_hash": "b334f8c8e9b0a286524cedccf1fa663f6afa75aa8e2c61fae4b8792c91de687f",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:482",
       "source_record_id": "rock_mobile_docs:article:482",
@@ -434,7 +434,7 @@
     {
       "content_hash": "2ea110296eee212a05cf555d9d7a5be6a18bb5cbae32a0d229c01a85dd5bc4bd",
       "excerpt_hash": "648a56a3620c9d9ca0ea2b69ea82f1ea98c7dd808f8d9895130ee73aa872c2d7",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:449",
       "source_record_id": "rock_mobile_docs:article:449",
@@ -445,7 +445,7 @@
     {
       "content_hash": "dfca06a061b1a9ba8e584e8159f371c4a6ab5655fe739d51b0062a84256b1705",
       "excerpt_hash": "a5eb81dc1336f52aea776b213a02a400a8375e7d7f24646aecf9f434ed891c5e",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:485",
       "source_record_id": "rock_mobile_docs:article:485",
@@ -456,7 +456,7 @@
     {
       "content_hash": "5561bd7d8091100ed188d5a437a3f0cffb749ce047b6ac33026b257e84a23ab9",
       "excerpt_hash": "96892a834a2f6dae569a82455a0789e4b6cc721b268a6f5f995749af568619bf",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:486",
       "source_record_id": "rock_mobile_docs:article:486",
@@ -467,7 +467,7 @@
     {
       "content_hash": "0a0ccfcccbd727c3f91d014a5470c3c3476a64e377af09066aa7f110c8a6bac7",
       "excerpt_hash": "e693047f7499a3b875642e67fddffeceadf682fab33cfaba135400cbdc7c3874",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3511",
       "source_record_id": "rock_mobile_docs:article:3511",
@@ -478,7 +478,7 @@
     {
       "content_hash": "5d371b262cb5c8198f29c1386db868372e1d076299b0a8dc2e8f8ea94f555e5d",
       "excerpt_hash": "058b1c0573b5ac0ede7a13b7920b53d40b5a0b14dde8aa67ddef151c45c51039",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:31+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3517",
       "source_record_id": "rock_mobile_docs:article:3517",
@@ -489,7 +489,7 @@
     {
       "content_hash": "2fd19eabf3a5227a55c8c6d71dec6b8bafc7d1d0c050df684111adfa0d801678",
       "excerpt_hash": "74f9d80c6570f9c987a6dafe97d155a3416787a02f309757e3d3e39c754ae12b",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3518",
       "source_record_id": "rock_mobile_docs:article:3518",
@@ -500,7 +500,7 @@
     {
       "content_hash": "e15810745e23fc87cb75787ca0b9e5fb1654d6ff01f2d673f6a37f55f07c8595",
       "excerpt_hash": "cb1f3af5e59164eac3c38428c9cc73b6f808f23360fc910b1d58d38295540eec",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3516",
       "source_record_id": "rock_mobile_docs:article:3516",
@@ -511,7 +511,7 @@
     {
       "content_hash": "e9568fa46fa0abb93d36b3d1d22f0b3714e5a90e8e8ee064cb2f780b36a05140",
       "excerpt_hash": "ce55e32a2d1adb61be7c6d45041ea6160309f7daa235959a2aac0997009cb058",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3514",
       "source_record_id": "rock_mobile_docs:article:3514",
@@ -522,7 +522,7 @@
     {
       "content_hash": "a51f243bc847c5272d808a618be145111b44cf9df083dacc194812b523cf7dd6",
       "excerpt_hash": "7905960eaf5f75a9b8d01f660bc257fd07d6c1f5e2063098359e6e1c9f967de7",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3515",
       "source_record_id": "rock_mobile_docs:article:3515",
@@ -533,7 +533,7 @@
     {
       "content_hash": "5330a85a32799215d0e6e809d3837028443eae23ede3f09482efb52c165b9c33",
       "excerpt_hash": "f4ce2c2b592a7de6d5bdc1c43b0d0cd368d460ae6cf942aa345cfbc99406269c",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3520",
       "source_record_id": "rock_mobile_docs:article:3520",
@@ -544,7 +544,7 @@
     {
       "content_hash": "dab3aa9e758930774a7afeefd7576d0362233fe43109259b55d6e76e036434f0",
       "excerpt_hash": "de36b7eaeb956b5da6527fb1529d421ece07afbd078ad2de350d387e542f4b5e",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:3519",
       "source_record_id": "rock_mobile_docs:article:3519",
@@ -555,7 +555,7 @@
     {
       "content_hash": "df73a145d82b21a197747e799aac16dfca845b901fa343b1988439547a04159a",
       "excerpt_hash": "0bfdefbcd59ab1ebc2b030cb2e24b15ce304454fccc871e29e4a86b95b047c1a",
-      "retrieved_at": "2026-08-12T11:27:12+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:450",
       "source_record_id": "rock_mobile_docs:article:450",
@@ -566,7 +566,7 @@
     {
       "content_hash": "0263e591bc20bcae86e15faf0812a6494710ee791b57d015de77028dcc6e8fa8",
       "excerpt_hash": "271bc82c79241078e38acb33466872827d50df4eb05c4f711176c822868db7c7",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:489",
       "source_record_id": "rock_mobile_docs:article:489",
@@ -577,7 +577,7 @@
     {
       "content_hash": "e85ea27d2889630278a434f6651fc0136393780ba4b354382b860da32adf217e",
       "excerpt_hash": "ad9aa4c5d1713363a71f9e9af82fa1f801a04f8b248326f9e541fb81c2c9fb5c",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:490",
       "source_record_id": "rock_mobile_docs:article:490",
@@ -588,7 +588,7 @@
     {
       "content_hash": "dd80d8fd04e646fdc4a8d694257ee9cfc60e715e8431711b55278543a9870836",
       "excerpt_hash": "5fee9e07d651676553bc49ed44771a8935dd1074afe8fa7692adccd0dd8c43c2",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:491",
       "source_record_id": "rock_mobile_docs:article:491",
@@ -599,7 +599,7 @@
     {
       "content_hash": "d72154532d6897c411e1b7167f5b877aa6cd1e4d4ce1a149f06195eb3fa99406",
       "excerpt_hash": "4aa344f5355a2876bee538b21c15108a078d04f6994d5f1a9cca8d1fc4ab54cd",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:492",
       "source_record_id": "rock_mobile_docs:article:492",
@@ -610,7 +610,7 @@
     {
       "content_hash": "35308815b88072b1afb809e8268d8b3fe7161adcd4e36a9887af2ff6bbe58234",
       "excerpt_hash": "55a677e5338f552e4936160721c7838621d118475f4093a1589a4a4ac9ffc6cc",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:32+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:488",
       "source_record_id": "rock_mobile_docs:article:488",
@@ -621,7 +621,7 @@
     {
       "content_hash": "bf91cc3e034f5f709e51b545b2ffc9e6e24131b43559a6011d13af4dafbe7556",
       "excerpt_hash": "bb261ff73e97d48c69cd36ed2f72d84f0457a65cd01ff782a41081ef9a51cf45",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:487",
       "source_record_id": "rock_mobile_docs:article:487",
@@ -632,7 +632,7 @@
     {
       "content_hash": "66b389e3b3a873865cb68fbc71ad9f97837f5d860800258bcfe87b4b5b3eccd4",
       "excerpt_hash": "c6ec707332f5f0cb941ab6227ac05ba467a50ba8d82c2e8a3ea0a0fd3d0aaf92",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:451",
       "source_record_id": "rock_mobile_docs:article:451",
@@ -643,7 +643,7 @@
     {
       "content_hash": "47bd7c1d35384e80ee50e38ad709255c1cb607994b20346c4a98d236cc592e38",
       "excerpt_hash": "68c285921fe41c51eecda79615d03d8fda94f19bef4ce18c0298b35571e8ed37",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:1026",
       "source_record_id": "rock_mobile_docs:article:1026",
@@ -654,7 +654,7 @@
     {
       "content_hash": "ca27ecacb29eb01eea1e448ba84b8559dcef80c8a63e3857851d9db6a3199eee",
       "excerpt_hash": "89b08eeddc2ab05b3f17b07d6e6bbef04199b378de61e92da7b3be44595eb494",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:1032",
       "source_record_id": "rock_mobile_docs:article:1032",
@@ -665,7 +665,7 @@
     {
       "content_hash": "e7a8b081fad39f4c1748c914b0f773a0c73275c3fda8aba04fe0f4449a2067f1",
       "excerpt_hash": "d84fe997d0b86205dadc4b6af8b30ae07a76d8b4d4c9fbcf8635787faef85d0e",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:1025",
       "source_record_id": "rock_mobile_docs:article:1025",
@@ -676,7 +676,7 @@
     {
       "content_hash": "749ab85b9f97a1e488cd227e69e4d765e2c6067c2f967638209b9fe01b99209f",
       "excerpt_hash": "25a736d9f6ad1672e9e4844b681902a1414b72475fbeacabb66c3ac1731f33fe",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:493",
       "source_record_id": "rock_mobile_docs:article:493",
@@ -687,7 +687,7 @@
     {
       "content_hash": "c21684bbe4f3516e6510c3170b1d54cd95acfb12eb115ce332eec3ea9d74bcb0",
       "excerpt_hash": "b0e9bcceed5f2c3ea75298444ca82a404f8f2b426e2d1e55725274be444636b4",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:494",
       "source_record_id": "rock_mobile_docs:article:494",
@@ -698,7 +698,7 @@
     {
       "content_hash": "1e2e7accd2bbe61e156a5016c8b33033ed48e15e1a2b08ae0dc1a8005cd9f9bb",
       "excerpt_hash": "2680ad216f144798a4b5681534bb48c7823f118091c18e4f0448661ff744ddd9",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:495",
       "source_record_id": "rock_mobile_docs:article:495",
@@ -709,7 +709,7 @@
     {
       "content_hash": "901bd6ae4889f7afc5a6ef1638afaedb3fd7fa055fef28cec3a289b6c7351450",
       "excerpt_hash": "4d82db46186252c4622d35eb6e63201cc8452c076f8c1b998cc76c2284425a26",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:33+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:496",
       "source_record_id": "rock_mobile_docs:article:496",
@@ -720,7 +720,7 @@
     {
       "content_hash": "17c5d5493c2be04cf0b1ac564f0f4b8a45c52c35f030d5d700c8f5ece5211295",
       "excerpt_hash": "c3451bf5640109fba3e14c48a41cff09f997d88e461c4c543995d7bec59161e8",
-      "retrieved_at": "2026-08-12T11:27:13+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:452",
       "source_record_id": "rock_mobile_docs:article:452",
@@ -731,7 +731,7 @@
     {
       "content_hash": "2208c495075dba550daa89d1f91875313d765124436fb959844b46b3435a0233",
       "excerpt_hash": "b53328a054e20c6543955a77cc0e57976d766c65a9561198ff258eafe4086121",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:497",
       "source_record_id": "rock_mobile_docs:article:497",
@@ -742,7 +742,7 @@
     {
       "content_hash": "8a986829a4823fa0c317370f77524cc3763738d664b744fa23583e0a11005072",
       "excerpt_hash": "ac5320d48c30ccac73dbec87372d06c2789497b45c52fbe320bd63da7d9f25f2",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:498",
       "source_record_id": "rock_mobile_docs:article:498",
@@ -753,7 +753,7 @@
     {
       "content_hash": "fc773dee9a957ed28ee05852a10f58f9480ac2488b44a8f7ea0a6ef57a410a74",
       "excerpt_hash": "c12ce9b3168d00a5b0f8e75c9ebd8d9b536d7ed7c4bf62aa67484553206a4757",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:499",
       "source_record_id": "rock_mobile_docs:article:499",
@@ -764,7 +764,7 @@
     {
       "content_hash": "132587555b333603223e55f9b9eab0795ed85b93e41d6b637b76af058e732813",
       "excerpt_hash": "337097f7489bf388971e7c1a8502e6d5330a1c6c5bb6d80697fe744c49cf2c37",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:500",
       "source_record_id": "rock_mobile_docs:article:500",
@@ -775,7 +775,7 @@
     {
       "content_hash": "cbb52e6b0fbe1968a01ed07383f95a3724d69a49eb9017f5825a27efa2aa8115",
       "excerpt_hash": "a4ea0247a6b86319e5c80843ffba2b4d27bb4b74041964b3b1f8312fae8f6919",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:501",
       "source_record_id": "rock_mobile_docs:article:501",
@@ -786,7 +786,7 @@
     {
       "content_hash": "75fa83844cd9f30e0299c51599282bf8d5252c898e31530bc690b6bfc8a575f4",
       "excerpt_hash": "f7ce01a3c4da356102dfa6c8e44aee75caf17be678c6a044ff4adb7dc9991aa8",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:502",
       "source_record_id": "rock_mobile_docs:article:502",
@@ -797,7 +797,7 @@
     {
       "content_hash": "0ba9797ecdaa5028acbd16be60a576e7bf57384e963bc53af27070f94c4e785f",
       "excerpt_hash": "4a4ffb801e9f1f1763ada62093b786f7d02bd74e657586d0b2b825a4534f0c08",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:503",
       "source_record_id": "rock_mobile_docs:article:503",
@@ -808,7 +808,7 @@
     {
       "content_hash": "0ccb7fd87e2117476dca72a9e8ca5746680450cf4844206f466659e043cd2d70",
       "excerpt_hash": "f2a265a6b3c40e46d8b9bf463891a215e485d643a3f5c75afdcdb2b9c07c99ac",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:504",
       "source_record_id": "rock_mobile_docs:article:504",
@@ -819,7 +819,7 @@
     {
       "content_hash": "1d175e6a65e68cbee23b3e5940a66b8d8fdbd412105dce1f4b3524aded2d078f",
       "excerpt_hash": "cf0e5a4dbee4b832e3ab4ee35e407dbd9bd52d98121e8ece0d0eb14c2f6d4ee0",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:505",
       "source_record_id": "rock_mobile_docs:article:505",
@@ -830,7 +830,7 @@
     {
       "content_hash": "8bdf1f9a0b3c68d505fc391b7b4227f2e995ff984a55eb5ee4649bdaba842c4a",
       "excerpt_hash": "928788d568893d8644f38e2fc1ca4d85a20d5c86bec3afc1c35c7bb9b0700cf9",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:506",
       "source_record_id": "rock_mobile_docs:article:506",
@@ -841,7 +841,7 @@
     {
       "content_hash": "9a35feefd3e6c227fcc1f879de4da939d001aeaefdd4fda57b525b1d4b14a34a",
       "excerpt_hash": "5ff918f6061e22d09f701d345367ee6f20bf2228b3d1e84be557469932140cba",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:507",
       "source_record_id": "rock_mobile_docs:article:507",
@@ -852,7 +852,7 @@
     {
       "content_hash": "d3d5e8fb3e4f1082333d0e1083cce3af8d40631b7932f6b92636420c2c9c8c33",
       "excerpt_hash": "c16aae15da55459bc02b0706b59a2cedb532fe10887b118cf7d2bc6c491da0e7",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:508",
       "source_record_id": "rock_mobile_docs:article:508",
@@ -863,7 +863,7 @@
     {
       "content_hash": "da224785030cc82aab9ad3dc3271a5dc04d0cbf44b68966d490ffae367bcaa0e",
       "excerpt_hash": "558ed9d75fecf779bb335f57bb85fc6ac76dc508c00d38dfe6a4131df38fb321",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:453",
       "source_record_id": "rock_mobile_docs:article:453",
@@ -874,7 +874,7 @@
     {
       "content_hash": "7d24932a006ee4c84f0c1e31e6ed62344ec333a5c44837a4abae02cbadbd2070",
       "excerpt_hash": "28e7bb24bddb65feda2970a2c0680df7bb92b85b414384824366dd305c8790cb",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:34+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:509",
       "source_record_id": "rock_mobile_docs:article:509",
@@ -885,7 +885,7 @@
     {
       "content_hash": "a40ef51bfa0f63f5a74444977f234b946ae53c590a63c38adfe0b4b68ee5581d",
       "excerpt_hash": "065a27de4bea511d509e644560742b3eb556f45ceb6db26cece3b48ebbd48ec6",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:510",
       "source_record_id": "rock_mobile_docs:article:510",
@@ -896,7 +896,7 @@
     {
       "content_hash": "9a47301c24c5e8991a153ec525c2ce8eaab6b3948d3bb82672768fa305d6acbf",
       "excerpt_hash": "95d5a51763639cda1d83a2d7fa9a1ca39ad924ece200c4ae09ca5930e0421557",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:511",
       "source_record_id": "rock_mobile_docs:article:511",
@@ -907,7 +907,7 @@
     {
       "content_hash": "88a3baef24943a4959f3085bc12e1baa13cb78cc4bb6147f4d64403773c936f4",
       "excerpt_hash": "e3559749dbfcafbc8d4c88feda7dfda87ac7839a0147f359fa0bc220f3eda65a",
-      "retrieved_at": "2026-08-12T11:27:14+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:512",
       "source_record_id": "rock_mobile_docs:article:512",
@@ -918,7 +918,7 @@
     {
       "content_hash": "d762bacba7639fe2534f0dcfb561885b07dde22a477030e4ab52839ed92a3ebb",
       "excerpt_hash": "b75843fb739df3308ce1168baf4dfe823680a617403106303a566d48c368d287",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:513",
       "source_record_id": "rock_mobile_docs:article:513",
@@ -929,7 +929,7 @@
     {
       "content_hash": "5001074cdf3f8995131842b19e7e7cf0f5d71f5eccabb4f493439b4efd75903b",
       "excerpt_hash": "f2f89f1419c99f1f898a686898d9bb7d6a16294fd6d508d4ca47f3af976b9b6d",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:514",
       "source_record_id": "rock_mobile_docs:article:514",
@@ -940,7 +940,7 @@
     {
       "content_hash": "3e1cad45c21deccb3bbef7763276966638ac26ba0452c7939e38f3740ce50fb0",
       "excerpt_hash": "7d44066b46eee4684e300ef775ff666d4daa51d89b5eb6f24a4ac37188416644",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:454",
       "source_record_id": "rock_mobile_docs:article:454",
@@ -951,7 +951,7 @@
     {
       "content_hash": "059fb59fa7579a4076531e5fed6b300b21bb89158b003d5c03f1b87c684f4ea8",
       "excerpt_hash": "98f916944bd9c72be15d7be96eed2d9b383bb2974ae23b26e1f33baee202312e",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:517",
       "source_record_id": "rock_mobile_docs:article:517",
@@ -962,7 +962,7 @@
     {
       "content_hash": "1a38a16bbe0aa8fd13b494c67bb6ba484ed8ed6935433fccdc62cfde58c20f19",
       "excerpt_hash": "8bf3258ab5fe6d0d329b26e4d5531ca7f232ac18395f10ad202891bee7fd891d",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:35+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:515",
       "source_record_id": "rock_mobile_docs:article:515",
@@ -973,7 +973,7 @@
     {
       "content_hash": "07a8defe38f7f2eb2300b3ca8e5f63ccd4305a3071456e145d678ee3c24e6902",
       "excerpt_hash": "590a3cf7687f6f0d432e880c658f8162fec80da393b08f242609bca170ed36b2",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:36+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:2867",
       "source_record_id": "rock_mobile_docs:article:2867",
@@ -984,7 +984,7 @@
     {
       "content_hash": "cb91148c2d210b45916c5bb5eb940dd0f904a118284009601403784ea27fe6cb",
       "excerpt_hash": "792ee70aa486098ad95f3e7a0ae5373a094a2c7e89dfd988dbadd5bd25bb57d4",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:36+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:455",
       "source_record_id": "rock_mobile_docs:article:455",
@@ -995,7 +995,7 @@
     {
       "content_hash": "ce9903a4b9e82a23ac62799b5ebd4f91a07ace452b1b861b1f45c20e46e67ecd",
       "excerpt_hash": "fc37497e7aa89b96fb7ab0d312fc25367b64c5d4456da835a10314277dd79a6e",
-      "retrieved_at": "2026-08-12T11:27:15+00:00",
+      "retrieved_at": "2026-09-09T21:24:36+00:00",
       "source_id": "rock_mobile_docs",
       "source_key": "article:518",
       "source_record_id": "rock_mobile_docs:article:518",
@@ -1016,6 +1016,6 @@
   },
   "schema": "rock-kb-mobile-selector-audit-dependencies-v1",
   "selector_row_count": 200,
-  "source_hash": "a8764fb28906b99d4a1eb73a7638b73d71a297d70731f15eae5ee6fa7f3613bf",
+  "source_hash": "a5e83f713edc43e761ec327f2463ff49230ac57b81661c22c6a9a7558d43360d",
   "source_url_count": 91
 }

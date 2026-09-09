@@ -2,12 +2,12 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-08-12T12:50:00+00:00
+last_built: 2026-09-09T23:13:32+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:13:23+00:00
+source_last_checked_at: 2026-09-09T21:23:12+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/47
 legacy_summary_retirement_coverage: 4/47
@@ -92,35 +92,35 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Debugging Obsidian in VS Code | rock_developer | *Using VS Code's debugger with Obsidian, and setting up to attach it to an existing Chrome instance.* ## Running VS Code's Debugger Visual Studio Code (VS Code) has some debugging tools built into it that are very similar to some of the developer tools built into your browser. By using these debugging tools, you gain access to breakpoints within the editor, making debugging that little bit easier. To run the debug... | [source](https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code) |
 | Converting Core Field Types | rock_developer | *Step-by-Step guide to Building an Obsidian Field Type* Here we'll be going over the practical steps of building a field type because it involves multiple files and it can be difficult to remember some of the steps or where some of the files reside. We will not be diving much into concepts or patterns that you need to implement. For those, you can find you can look at the [Creating Field... | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types) |
 | Universal Field Types | rock_developer | The current (legacy) field types are all tightly integrated with WebForms. This has made converting them to Obsidian a real chore. So we knew we needed to come up with a new pattern so that we don't have to go through this again in the future. What we have landed on is a concept called "Universal Field Types". We call then "universal" because they are meant to work on any UI framework or platform without requiring... | [source](https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types) |
-| Obsidian Component Structure | rock_developer | ## Overview ### File Format An Obsidian component is essentially an HTML file with some sugar sprinkled into the <script> tag for you. The HTML markup used as the template is, conveniently, stored in a <template> tag at the root level. There are 4 major parts that make up the component. 1. HTML Template (🟥) 2. Imports (🟦) 3. Properties and Events (🟧) 4. Logic (🟩) The HTML markup used as the template is,... | [source](https://community.rockrms.com/developer/obsidian/obsidian-component-structure) |
+| SecurityColumn | rock_developer | Displays a security button that will open the standard Security editor modal for the item. ## Example ``` <SecurityColumn /> ``` ## Properties This column provides default values for the following standard properties: * name * formatComponent * headerClass * itemClass * width Type: string \| ((row: Record<string, unknown>, grid: IGridState) => string) Optional ### itemTitle Type: string \| ((row: Record<string,... | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn) |
 
 ## Data Model Landmarks
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Field Type](../../model-map/models/field-type.md) | Core | 19.2.0 | 41 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.2.0 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.2.0 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Field Type](../../model-map/models/field-type.md) | Core | 19.3.4 | 41 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.3.4 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.3.4 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.3.4 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block](../../model-map/models/block.md) | CMS | 19.3.4 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Block Type](../../model-map/models/block-type.md) | CMS | 19.3.4 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.3.4 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.3.4 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.3.4 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.3.4 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel Type](../../model-map/models/content-channel-type.md) | CMS | 19.3.4 | 45 | 17 | 30 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Collection](../../model-map/models/content-collection.md) | CMS | 19.3.4 | 49 | 21 | 34 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 
-- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
-- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.2.0; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageAdaptations` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AdaptiveMessageCategories` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.AttributeValues` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.Attributes` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonId` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.CreatedByPersonName` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.EntityStringValue` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
+- `Adaptive Message.IdKey` is Lava-marked but not database-marked in the generated Model Map (Rock 19.3.4; source https://rocksolidchurchdemo.com/admin/power-tools/model-map).
 
 ## Version And Release Watch
 
@@ -130,14 +130,14 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 16.1 | Core | Fixed issue of Note Type Field Type not showing up in Following Event Type Detail Obsidian block. Fixes: #5605 | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Event | Fixed inline attribute editors (such as adding a new Defined Value) on the Event Detail block returning an HTTP 401 by adding the Event Calendar Item attribute field type rules to the security grant. Fixes: #6881 | [source](https://www.rockrms.com/releasenotes) |
 | 17.1 | Communication | Added the obsidian Communication Template Detail block for viewing and editing communication templates using the Obsidian UI. This lays the foundation for managing versioned templates with a cleaner interface. | [source](https://www.rockrms.com/releasenotes) |
-| 19.3 | Core | Fixed an issue where Obsidian blocks like the Page Menu could disappear after a full WebForms postback. Fixes: #6871 | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | CMS | Fixed an issue where browser tab titles set by Obsidian blocks (Person Bio, Registration Entry, Communication Detail and others) were never displayed, leaving the page's default name in the tab instead. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Check-in | Added Obsidian versions of the Check-in Configuration List, Check-in Configuration Settings, Check-in Schedule Builder and Check-in Areas and Group Detail blocks. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Communication | Added a Create Connection Request SMS pipeline action and converted the SMS Pipeline Detail block to Obsidian. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Core | Updated Reminder List block to the newer Obsidian UI. | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Finance | Fixed the Obsidian Business Detail block so former addresses can be saved as previous more than once without a duplicate key error. Fixes: #6929 | [source](https://www.rockrms.com/releasenotes) |
+| 20.0 | Prayer | Fixed the Prayer Request List block to restore the "Expires After (days)" setting and other block settings and behaviors that were missed during its conversion to Obsidian. Fixes: #6950 | [source](https://www.rockrms.com/releasenotes) |
 | 19.3 | Core | Fixed File and Binary File attributes not showing a View link when displayed read-only in Obsidian blocks, such as the new Connections Request docked panel. Fixes: #6883 | [source](https://www.rockrms.com/releasenotes) |
-| 19.1 | Workflow | Fixed an issue where the Obsidian Workflow List block would time out when loading workflows assigned to groups with many members. | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Core | Fixed an issue in Obsidian blocks where Memo Fields configured to allow HTML displayed the HTML tags as encoded text instead of rendering the formatted content within the block. Fixes: #6718 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Core | Fixed an issue in the Defined Value picker component where Single-Select Defined Value attributes configured with "Enhanced for Long Lists" did not display the searchable enhanced experience in Obsidian blocks (e.g., Workflow Entry and Event Registration), requiring manual scrolling through values. Fixes: #6658 #6705 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Core | Fixed an issue in the Obsidian Location Detail block that allowed a Location to be saved with itself (or a child Location) as its parent. This caused the Location tree to fail when loading nested Locations. Fixes: #6669 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Group | Fixed an issue in the Obsidian Group Requirement Type Detail block that caused Attribute Values to not load or save correctly when editing a requirement type. This prevented individuals from configuring or updating Group Requirement Types as expected. Fixes: #6642 | [source](https://www.rockrms.com/releasenotes) |
-| 18.3 | Group | Fixed an issue where the Obsidian Group Attendance Detail Block did not function correctly when Predictive Ids were disabled. The block now correctly resolves the selected group using either the Group Guid or IdKey and prevents an unintended group from loading when Disable Predictive Ids is checked in Site settings. Fixes: #6687 | [source](https://www.rockrms.com/releasenotes) |
+| 19.3 | Core | Fixed an issue where Obsidian blocks like the Page Menu could disappear after a full WebForms postback. Fixes: #6871 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -200,7 +200,7 @@ Keywords: `development environment, debugging, vscode, typescript`
 ## Source Lifecycle
 
 - Official article records routed here: `47`
-- Upstream check range: `2026-08-12T06:13:20+00:00` through `2026-08-12T06:13:23+00:00`
+- Upstream check range: `2026-09-09T21:23:09+00:00` through `2026-09-09T21:23:12+00:00`
 - Source-native typed articles: `4` of `47`
 - Legacy source summaries retired: `4`; still active: `43`
 - Migration status: `partial`

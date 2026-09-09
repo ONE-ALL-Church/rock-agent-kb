@@ -41,11 +41,13 @@ generated: true
 | `17.8` | core | Fixed an issue where files uploaded through the Entity Document Add workflow action weren't properly linked to their parent Document. Because of that missing link, Rock couldn't check the Document Type's security rules when someone tried to |
 | `18.3` | core | Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant without a valid Signatur |
 | `16.1` | core | Fixed Signature Document Templates filtering to not show inactive templates in Workflow Actions. Fixes: #5511 |
+| `15.2` | core | Fixed inactive signature document template from being selected in event registration. Fixes: #5510 |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `scope-and-boundaries` | needs-citation | needs-citation |
 | `mental-model` | normal | live verification |
 | `entity-documents-document-types-and-storage` | normal | live verification |

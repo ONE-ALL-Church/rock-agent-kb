@@ -19,6 +19,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Live Verification
 
+- `generated-model-map-pointers`: Generated Model Map Pointers
 - `agent-summary`: Agent Summary
 - `scope-and-boundaries`: Scope And Boundaries
 - `data-views`: Data Views
@@ -42,6 +43,7 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-diagnose-an-empty-bi-dashboard`: Recipe: Diagnose an empty BI dashboard
 - `agent-task-recipes-recipe-validate-a-registration-analytics-dashboard`: Recipe: Validate a registration analytics dashboard
 - `source-map-immutable-implementation-evidence`: Immutable implementation evidence
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

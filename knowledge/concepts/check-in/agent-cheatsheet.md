@@ -55,6 +55,7 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
+| `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
 | `scope-and-boundaries` | normal | live verification |
 | `mental-model-labels-depend-on-context` | citation-only | live verification |
@@ -82,7 +83,7 @@ generated: true
 | `troubleshooting-decision-tree-rapid-attendance-entry-is-missing-expected-actions` | normal | live verification |
 | `troubleshooting-decision-tree-attendance-self-entry-does-not-record-attendance` | normal | live verification |
 | `troubleshooting-decision-tree-proximity-attendance-records-the-wrong-service-or-area` | normal | live verification |
-| `troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links` | community-supported | live verification |
+| `troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links` | normal | live verification |
 | `troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation` | community-supported | live verification |
 | `agent-task-recipes-recipe-preflight-a-standard-kiosk-session` | normal | live verification |
 | `agent-task-recipes-recipe-preflight-mobile-check-in` | citation-only | live verification |

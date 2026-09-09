@@ -676,6 +676,40 @@ def test_migration_output_requires_exact_legacy_coverage():
         )
 
 
+def test_refresh_stages_only_reviewed_retirements_without_mutating_base(monkeypatch, tmp_path):
+    from rock_kb import source_native
+    from rock_kb.source_native_migration import promote_source_native_legacy_migration
+
+    base = tmp_path / 'base'
+    base.mkdir()
+    input_row = migration_input()
+    selected = input_row['legacy_items'][0]['legacy_knowledge_unit_id']
+    migrations = [{'legacy_knowledge_unit_id': selected}, {'legacy_knowledge_unit_id': 'unrelated'}]
+    write_jsonl(base / 'legacy-migrations.jsonl', migrations)
+    original = (base / 'legacy-migrations.jsonl').read_bytes()
+    input_path = tmp_path / 'input.jsonl'
+    output_path = tmp_path / 'output.json'
+    write_jsonl(input_path, [input_row])
+    output_path.write_text(json.dumps(migration_output()))
+    validated = []
+    monkeypatch.setattr(source_native, 'load_source_native_pilot_directory', lambda path: validated.append(path))
+    monkeypatch.setattr(source_native, 'write_source_native_manifest', lambda path: None)
+
+    def inspect_staging(**kwargs):
+        assert validated == [base]
+        assert list(read_jsonl(kwargs['base_dir'] / 'legacy-migrations.jsonl')) == [migrations[1]]
+        assert (base / 'legacy-migrations.jsonl').read_bytes() == original
+        raise RuntimeError('stop before replacement')
+
+    monkeypatch.setattr(source_native, 'promote_source_native_distillation', inspect_staging)
+    with pytest.raises(RuntimeError, match='stop before replacement'):
+        promote_source_native_legacy_migration(
+            input_path=input_path, output_path=output_path, base_dir=base,
+            destination=base, reviewer='test-reviewer', model='test-model',
+        )
+    assert (base / 'legacy-migrations.jsonl').read_bytes() == original
+
+
 def test_migration_input_hash_rejects_source_and_legacy_tampering():
     source_tampered = migration_input()
     source_tampered["source_units"][0]["text"] += " Tampered."
