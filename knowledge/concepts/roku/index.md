@@ -2,7 +2,7 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-09-09T23:38:18+00:00
+last_built: 2026-09-14T16:04:43+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

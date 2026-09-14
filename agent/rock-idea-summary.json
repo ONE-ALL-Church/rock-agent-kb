@@ -13,7 +13,7 @@
     "Group": 114,
     "LMS": 11,
     "Lava": 28,
-    "Mobile": 41,
+    "Mobile": 42,
     "Other": 51,
     "Prayer": 3,
     "Reminders": 3,
@@ -37,7 +37,7 @@
     "hosting-infrastructure": 5,
     "lava": 28,
     "learning-lms-engagement": 11,
-    "mobile": 41,
+    "mobile": 42,
     "obsidian-development": 9,
     "people-families": 152,
     "platform-configuration": 219,
@@ -49,19 +49,19 @@
   "by_status": {
     "complete": 175,
     "not_planned": 3,
-    "open": 900,
+    "open": 901,
     "planned": 7,
     "started": 3,
     "under_review": 5
   },
   "catalog_complete": true,
-  "catalog_content_hash": "99dfc0e9d29f68352a9696dfe322157a187129d707b229ccc712b351e4709a13",
+  "catalog_content_hash": "f7bb0c2726fb0f48cd0d597ddb724cd1fa606e1a3db427cd0bb723bdff4b484e",
   "catalog_page_count": 110,
-  "content_changed_at": "2026-09-07T16:05:18Z",
+  "content_changed_at": "2026-09-14T16:02:47Z",
   "detail_rows_failed": 0,
   "detail_rows_refreshed": 120,
   "detail_rows_selected": 120,
-  "detail_shape_current_count": 1093,
+  "detail_shape_current_count": 1094,
   "detail_shape_version": 2,
   "discovery": {
     "coverage": "The artifact is replaced only after traversal reaches the final native catalog page without an empty or repeated page.",
@@ -77,9 +77,9 @@
     "staff response text or identity",
     "comments"
   ],
-  "generated_at": "2026-09-09T21:20:48Z",
-  "last_checked_at": "2026-09-09T21:20:48Z",
-  "latest_idea_number": 2269,
+  "generated_at": "2026-09-14T16:02:47Z",
+  "last_checked_at": "2026-09-14T16:02:47Z",
+  "latest_idea_number": 2270,
   "public_shape": [
     "idea_id",
     "title",
@@ -95,10 +95,10 @@
     "concept_routes",
     "allowlisted evidence links without anchor or surrounding text"
   ],
-  "record_count": 1093,
+  "record_count": 1094,
   "relationships": {
     "by_type": {
-      "about": 1381,
+      "about": 1382,
       "about_model": 171,
       "corroborated_by_release_note": 8,
       "references_idea": 11,
@@ -109,9 +109,9 @@
     "candidate_count": 17,
     "ideas_with_issue_links": 11,
     "ideas_with_model_links": 152,
-    "ideas_with_relationships": 1093,
+    "ideas_with_relationships": 1094,
     "ideas_with_release_evidence": 8,
-    "relationship_count": 1593,
+    "relationship_count": 1594,
     "schema": "rock-kb-rock-idea-relationship-summary-v1",
     "verification_queue": {
       "by_status": {
@@ -138,9 +138,9 @@
       "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."
     }
   },
-  "result_count": 1093,
+  "result_count": 1094,
   "schema": "rock-kb-rock-idea-summary-v1",
-  "source_content_hash": "7b89ff47bc89590c62e0b8c289443150b73e720f7e21d67cc31f0965d51f36de",
+  "source_content_hash": "33a2f3ca7a5838487b53b7247fab942c635c2155c9bdfeb7d3142c22218b0b59",
   "source_content_hash_algorithm": "rock-kb-normalized-source-set-v1",
   "source_id": "rock_ideas",
   "status": "ok",
