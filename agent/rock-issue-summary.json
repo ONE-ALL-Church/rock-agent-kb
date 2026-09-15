@@ -1,24 +1,24 @@
 {
-  "catalog_content_hash": "1ac508835630e1e367b5b6374d1fe1373045a488b23fd4fa43902cd409b758bb",
+  "catalog_content_hash": "a388da3fc36e9247a6c98c221e19e066cb6235a3bd21d2242ef8417cae56ec21",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 131,
-    "rock_core": 5780
+    "rock_core": 5785
   },
   "evidence_states": {
-    "commit_linked": 224,
-    "fixed_release_recorded": 3275,
+    "commit_linked": 223,
+    "fixed_release_recorded": 3289,
     "maintainer_triaged": 1176,
-    "report_only": 1236
+    "report_only": 1228
   },
   "labels_truncated_count": 0,
-  "last_checked_at": "2026-09-09T09:52:50+00:00",
-  "projection_checked_at": "2026-09-09T09:52:50+00:00",
+  "last_checked_at": "2026-09-15T09:55:22+00:00",
+  "projection_checked_at": "2026-09-15T09:55:22+00:00",
   "raw_issue_body_republished": false,
-  "record_count": 5911,
-  "release_note_linked_count": 889,
+  "record_count": 5916,
+  "release_note_linked_count": 962,
   "repositories": {
-    "SparkDevNetwork/Rock": 5780,
+    "SparkDevNetwork/Rock": 5785,
     "SparkDevNetwork/Rock.Mobile-Issues": 131
   },
   "reviewed_enrichment_count": 28,
@@ -48,10 +48,10 @@
   "routing": {
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
-      "body_keyword": 407,
-      "github_topic_label": 1604,
+      "body_keyword": 409,
+      "github_topic_label": 1607,
       "repository_default": 1348,
-      "title_keyword": 4040
+      "title_keyword": 4045
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
@@ -60,43 +60,43 @@
     "rock_mobile_issues": "rock-kb-issue-source-set-v1"
   },
   "source_content_hashes": {
-    "rock_core_issues": "e4174e917f558244732392b01401da77530de6d020f14ab26240d1b70c9f7571",
+    "rock_core_issues": "2d3c4a074fb0dff1531c9fdb8eb024df2e05e1e41cd0f1bb7c31e38375383e53",
     "rock_mobile_issues": "a886d4895fc1d19eb87670083104399e997ba3a5af312ab8ad8464e5074bef83"
   },
-  "source_updated_through": "2026-09-09T01:42:03Z",
+  "source_updated_through": "2026-09-14T21:42:58Z",
   "states": {
-    "closed": 5896,
-    "open": 15
+    "closed": 5913,
+    "open": 3
   },
   "timeline_coverage": {
-    "complete": 718,
+    "complete": 723,
     "not_fetched": 5193,
-    "percent_complete": 12.15
+    "percent_complete": 12.22
   },
   "top_concepts": {
     "api-integrations": 107,
     "check-in": 368,
     "cms-websites": 151,
     "communications": 546,
-    "connections": 177,
+    "connections": 179,
     "data-views-reports": 372,
     "developer-resources": 149,
     "documents-signatures": 93,
-    "event-registration": 548,
-    "giving-finance": 402,
+    "event-registration": 549,
+    "giving-finance": 404,
     "groups": 325,
     "lava": 393,
-    "mobile": 147,
-    "obsidian-development": 252,
-    "people-families": 703,
+    "mobile": 148,
+    "obsidian-development": 253,
+    "people-families": 704,
     "platform-configuration": 192,
     "scheduling-locations": 235,
     "security-permissions": 279,
     "system-admin-ops": 1344,
-    "workflows": 393
+    "workflows": 394
   },
   "validation_states": {
-    "confirmed": 2619,
-    "reported": 3292
+    "confirmed": 2633,
+    "reported": 3283
   }
 }
