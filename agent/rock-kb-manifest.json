@@ -1483,7 +1483,7 @@
     }
   ],
   "entity_count": 398,
-  "generated_at": "2026-09-14T16:05:57+00:00",
+  "generated_at": "2026-09-21T16:04:18+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -1518,8 +1518,8 @@
   },
   "recipe_count": 5,
   "release_caveat_count": 152,
-  "rock_idea_count": 1094,
-  "rock_idea_relationship_count": 1594,
+  "rock_idea_count": 1097,
+  "rock_idea_relationship_count": 1598,
   "rock_idea_verification_queue_count": 190,
   "rock_issue_count": 5911,
   "rock_issue_enrichment_count": 28,
