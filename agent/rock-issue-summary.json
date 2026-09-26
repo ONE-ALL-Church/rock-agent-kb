@@ -1,25 +1,25 @@
 {
-  "catalog_content_hash": "1ac508835630e1e367b5b6374d1fe1373045a488b23fd4fa43902cd409b758bb",
+  "catalog_content_hash": "2a95dc2b002a39879ab07e951017362d67be7bf1a48000ec9e08c5494475f653",
   "claim_tier": "routing_context_only",
   "components": {
-    "mobile_shell": 131,
-    "rock_core": 5780
+    "mobile_shell": 133,
+    "rock_core": 5814
   },
   "evidence_states": {
-    "commit_linked": 224,
-    "fixed_release_recorded": 3275,
-    "maintainer_triaged": 1176,
-    "report_only": 1236
+    "commit_linked": 225,
+    "fixed_release_recorded": 3306,
+    "maintainer_triaged": 1177,
+    "report_only": 1239
   },
   "labels_truncated_count": 0,
-  "last_checked_at": "2026-09-09T09:52:50+00:00",
-  "projection_checked_at": "2026-09-09T09:52:50+00:00",
+  "last_checked_at": "2026-09-26T09:50:14+00:00",
+  "projection_checked_at": "2026-09-26T09:50:14+00:00",
   "raw_issue_body_republished": false,
-  "record_count": 5911,
-  "release_note_linked_count": 889,
+  "record_count": 5947,
+  "release_note_linked_count": 962,
   "repositories": {
-    "SparkDevNetwork/Rock": 5780,
-    "SparkDevNetwork/Rock.Mobile-Issues": 131
+    "SparkDevNetwork/Rock": 5814,
+    "SparkDevNetwork/Rock.Mobile-Issues": 133
   },
   "reviewed_enrichment_count": 28,
   "reviewed_enrichment_metrics": {
@@ -38,8 +38,10 @@
     },
     "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 0,
-    "revalidation_due_enrichment_ids": [],
+    "revalidation_due_count": 1,
+    "revalidation_due_enrichment_ids": [
+      "rock_issue_enrichment:core-6919-azure-container-cache-concurrency-v1"
+    ],
     "risk_assessment_count": 0,
     "risk_levels": {},
     "verification_playbook_count": 28,
@@ -48,10 +50,10 @@
   "routing": {
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
-      "body_keyword": 407,
-      "github_topic_label": 1604,
-      "repository_default": 1348,
-      "title_keyword": 4040
+      "body_keyword": 417,
+      "github_topic_label": 1610,
+      "repository_default": 1349,
+      "title_keyword": 4079
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
@@ -60,43 +62,43 @@
     "rock_mobile_issues": "rock-kb-issue-source-set-v1"
   },
   "source_content_hashes": {
-    "rock_core_issues": "e4174e917f558244732392b01401da77530de6d020f14ab26240d1b70c9f7571",
-    "rock_mobile_issues": "a886d4895fc1d19eb87670083104399e997ba3a5af312ab8ad8464e5074bef83"
+    "rock_core_issues": "71c7a8345b6199d7d3fa4080cf1c832194da2339742a940ad8f6baec1bf510b6",
+    "rock_mobile_issues": "bfa34cc27d50101fb55499d27735456cbf6a76dcad1d42269496e7b305d8e1b2"
   },
-  "source_updated_through": "2026-09-09T01:42:03Z",
+  "source_updated_through": "2026-09-25T22:36:05Z",
   "states": {
-    "closed": 5896,
-    "open": 15
+    "closed": 5938,
+    "open": 9
   },
   "timeline_coverage": {
-    "complete": 718,
-    "not_fetched": 5193,
-    "percent_complete": 12.15
+    "complete": 756,
+    "not_fetched": 5191,
+    "percent_complete": 12.71
   },
   "top_concepts": {
     "api-integrations": 107,
-    "check-in": 368,
+    "check-in": 373,
     "cms-websites": 151,
-    "communications": 546,
-    "connections": 177,
-    "data-views-reports": 372,
-    "developer-resources": 149,
-    "documents-signatures": 93,
-    "event-registration": 548,
-    "giving-finance": 402,
-    "groups": 325,
-    "lava": 393,
-    "mobile": 147,
-    "obsidian-development": 252,
-    "people-families": 703,
+    "communications": 547,
+    "connections": 180,
+    "data-views-reports": 374,
+    "developer-resources": 150,
+    "documents-signatures": 94,
+    "event-registration": 555,
+    "giving-finance": 406,
+    "groups": 330,
+    "lava": 394,
+    "mobile": 150,
+    "obsidian-development": 258,
+    "people-families": 710,
     "platform-configuration": 192,
-    "scheduling-locations": 235,
-    "security-permissions": 279,
-    "system-admin-ops": 1344,
-    "workflows": 393
+    "scheduling-locations": 237,
+    "security-permissions": 280,
+    "system-admin-ops": 1345,
+    "workflows": 397
   },
   "validation_states": {
-    "confirmed": 2619,
-    "reported": 3292
+    "confirmed": 2648,
+    "reported": 3299
   }
 }
