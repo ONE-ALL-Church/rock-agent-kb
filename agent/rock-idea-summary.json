@@ -4,11 +4,11 @@
     "CMS": 75,
     "CRM": 36,
     "Check-in": 81,
-    "Communication": 108,
+    "Communication": 109,
     "Connection": 43,
     "Core": 168,
     "Engagement": 23,
-    "Event": 130,
+    "Event": 131,
     "Finance": 67,
     "Group": 115,
     "LMS": 11,
@@ -19,19 +19,19 @@
     "Reminders": 3,
     "Reporting": 46,
     "Security": 9,
-    "Workflow": 52
+    "Workflow": 53
   },
   "by_concept": {
     "api-integrations": 6,
     "check-in": 81,
     "cms-websites": 75,
-    "communications": 108,
+    "communications": 109,
     "connections": 43,
     "content-personalization": 7,
     "data-views-reports": 65,
     "documents-signatures": 12,
     "engagement-tracking": 33,
-    "event-registration": 150,
+    "event-registration": 151,
     "giving-finance": 67,
     "groups": 115,
     "hosting-infrastructure": 5,
@@ -43,25 +43,25 @@
     "platform-configuration": 219,
     "prayer-care": 5,
     "scheduling-locations": 72,
-    "security-permissions": 28,
-    "workflows": 52
+    "security-permissions": 29,
+    "workflows": 53
   },
   "by_status": {
     "complete": 175,
     "not_planned": 3,
-    "open": 904,
+    "open": 907,
     "planned": 7,
     "started": 3,
     "under_review": 5
   },
   "catalog_complete": true,
-  "catalog_content_hash": "e0c7a84b3da7bb42f4d2c87426c354cbe8d085e58934320f1475a047c402fa4e",
+  "catalog_content_hash": "233633c5e485d74a1f091f821a5c8078abac9c08252ffdf2ac004e10f900b975",
   "catalog_page_count": 110,
-  "content_changed_at": "2026-09-21T16:02:37Z",
+  "content_changed_at": "2026-09-28T16:02:21Z",
   "detail_rows_failed": 0,
   "detail_rows_refreshed": 120,
   "detail_rows_selected": 120,
-  "detail_shape_current_count": 1097,
+  "detail_shape_current_count": 1100,
   "detail_shape_version": 2,
   "discovery": {
     "coverage": "The artifact is replaced only after traversal reaches the final native catalog page without an empty or repeated page.",
@@ -77,9 +77,9 @@
     "staff response text or identity",
     "comments"
   ],
-  "generated_at": "2026-09-21T16:02:37Z",
-  "last_checked_at": "2026-09-21T16:02:37Z",
-  "latest_idea_number": 2273,
+  "generated_at": "2026-09-28T16:02:21Z",
+  "last_checked_at": "2026-09-28T16:02:21Z",
+  "latest_idea_number": 2276,
   "public_shape": [
     "idea_id",
     "title",
@@ -95,11 +95,11 @@
     "concept_routes",
     "allowlisted evidence links without anchor or surrounding text"
   ],
-  "record_count": 1097,
+  "record_count": 1100,
   "relationships": {
     "by_type": {
-      "about": 1386,
-      "about_model": 171,
+      "about": 1390,
+      "about_model": 172,
       "corroborated_by_release_note": 8,
       "references_idea": 11,
       "references_issue": 11,
@@ -108,10 +108,10 @@
     },
     "candidate_count": 17,
     "ideas_with_issue_links": 11,
-    "ideas_with_model_links": 152,
-    "ideas_with_relationships": 1097,
+    "ideas_with_model_links": 153,
+    "ideas_with_relationships": 1100,
     "ideas_with_release_evidence": 8,
-    "relationship_count": 1598,
+    "relationship_count": 1603,
     "schema": "rock-kb-rock-idea-relationship-summary-v1",
     "verification_queue": {
       "by_status": {
@@ -138,9 +138,9 @@
       "trust_boundary": "Queue priority identifies lifecycle claims needing public corroboration; it is not implementation evidence."
     }
   },
-  "result_count": 1097,
+  "result_count": 1100,
   "schema": "rock-kb-rock-idea-summary-v1",
-  "source_content_hash": "c5896004e888b319ead52afbbb28e1e4a385e817fb46262e550b61ff9867478b",
+  "source_content_hash": "1aa189f74c4c392565242847ffa720b60dc2a7264d8a59ce2525b0a6e493724a",
   "source_content_hash_algorithm": "rock-kb-normalized-source-set-v1",
   "source_id": "rock_ideas",
   "status": "ok",
