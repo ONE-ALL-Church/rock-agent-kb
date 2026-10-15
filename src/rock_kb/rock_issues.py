@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 
 from .jsonl import read_jsonl, write_jsonl
 from .paths import AGENT_DIR, DATA_DIR, REPO_ROOT
+from .release_notes import CHANGE_TYPES, release_version_metadata
 from .schemas.rock_issue import RockIssue, RockIssueReviewedEnrichment, RockIssueWorkerResult
 from .source_hashing import ISSUE_SOURCE_HASH_ALGORITHM, source_set_content_hash
 from .timestamps import generated_at_iso
@@ -27,6 +28,10 @@ ROCK_ISSUE_GUIDE_PATH = REPO_ROOT / "knowledge" / "issues" / "index.md"
 ROCK_ISSUE_REVIEWED_DIR = REPO_ROOT / "issues"
 ROCK_ISSUE_CHECKPOINT_PATH = DATA_DIR / "review" / "rock-issues" / "checkpoint.json"
 RELEASE_INDEX_PATH = AGENT_DIR / "release-index.jsonl"
+RELEASE_METADATA_FIELDS = (
+    "upstream_version", "product_version", "release_display", "upstream_change_type",
+    "release_status", "release_flags", "minimum_os", "minimum_rock_version",
+)
 ROCK_ISSUE_REPOSITORIES = {
     "SparkDevNetwork/Rock": {"source_id": "rock_core_issues", "component": "rock_core", "default_concept": "system-admin-ops"},
     "SparkDevNetwork/Rock.Mobile-Issues": {"source_id": "rock_mobile_issues", "component": "mobile_shell", "default_concept": "mobile"},
@@ -194,7 +199,7 @@ class GitHubIssueClient:
         query = """
         query RockIssues($owner: String!, $name: String!, $cursor: String) {
           repository(owner: $owner, name: $name) {
-            issues(first: 100, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            issues(first: 100, after: $cursor, orderBy: {field: CREATED_AT, direction: ASC}) {
               totalCount
               pageInfo { hasNextPage endCursor }
               nodes {
@@ -676,11 +681,16 @@ def version_evidence(
                 )
             )
     for release_note in release_notes or []:
-        version = str(release_note.get("version") or "")
+        if release_note_change_type(release_note) != "bug_fix":
+            continue
+        versions = release_version_metadata({
+            **release_note, "release_family": "mobile" if component == "mobile_shell" else "core",
+        })
+        version = versions["product_version"]
         if not version:
             continue
         rows.append(
-            version_row(
+            {**version_row(
                 component=component,
                 relationship="fixed",
                 raw_version=version,
@@ -688,7 +698,7 @@ def version_evidence(
                 source_ref=str(release_note.get("record_id") or release_note.get("url") or ""),
                 authority_tier="official",
                 confidence="high",
-            )
+            ), **{key: release_note.get(key) for key in RELEASE_METADATA_FIELDS}, **versions}
         )
     return dedupe_version_rows(rows)
 
@@ -709,7 +719,10 @@ def normalize_release_note_refs(repository: str, rows: Iterable[dict[str, Any]])
         if str(row.get("source_id") or "") != expected_source:
             continue
         record_id = str(row.get("id") or row.get("record_id") or "")
-        version = normalize_version(str(row.get("version") or ""))
+        versions = release_version_metadata({
+            **row, "release_family": "mobile" if expected_source == "rock_mobile_release_notes" else "core",
+        })
+        version = normalize_version(versions["product_version"])
         summary = compact_text(str(row.get("summary") or ""), 360)
         if not record_id or not version or not summary:
             continue
@@ -720,10 +733,27 @@ def normalize_release_note_refs(repository: str, rows: Iterable[dict[str, Any]])
             "url": str(row.get("source_url") or default_url),
             "version": version,
             "module": compact_field(str(row.get("module") or "")),
+            "change_type": release_note_change_type(row),
+            "release_status": compact_field(str(row.get("release_status") or "")) or None,
+            **{key: row.get(key) for key in RELEASE_METADATA_FIELDS if key != "release_status"},
+            **versions,
             "summary": summary,
             "content_hash": content_hash if re.fullmatch(r"[0-9a-f]{64}", content_hash) else sha256_text(summary),
         }
     return [normalized[key] for key in sorted(normalized)]
+
+
+def release_note_change_type(row: dict[str, Any]) -> str:
+    upstream = str(row.get("upstream_change_type") or "")
+    if upstream:
+        return CHANGE_TYPES.get(upstream, "note")
+    explicit = str(row.get("change_type") or "")
+    if explicit:
+        return compact_field(explicit)
+    summary = str(row.get("summary") or "").strip()
+    if re.match(r"^fixed\b", summary, re.IGNORECASE):
+        return "bug_fix"
+    return "note"
 
 
 def load_release_note_index() -> dict[tuple[str, int], list[dict[str, Any]]]:
@@ -752,7 +782,7 @@ def load_release_note_index() -> dict[tuple[str, int], list[dict[str, Any]]]:
                 **row,
                 "source_id": source_id,
                 "source_url": source_url,
-                "content_hash": sha256_text(str(row.get("summary") or "")),
+                "content_hash": row.get("content_hash") or sha256_text(str(row.get("summary") or "")),
             }
             indexed.setdefault((repository, int(issue_ref)), []).append(enriched)
     return indexed
@@ -1798,8 +1828,9 @@ def assess_issue(
         reason += " Some reviewed prerequisites are not declared in the profile."
 
     fixed = [row for row in evidence if row.get("relationship") in {"fixed", "first_fixed"}]
-    if any(row.get("source_kind") == "release_note" for row in fixed):
-        remediation = "official_fix_recorded"
+    official_fixes = [row for row in fixed if row.get("source_kind") == "release_note"]
+    if official_fixes:
+        remediation = "prerelease_fix_recorded" if all(release_note_is_prerelease(row) for row in official_fixes) else "official_fix_recorded"
     elif fixed:
         remediation = "fix_release_recorded"
     else:
@@ -1855,6 +1886,7 @@ def assess_issue(
         "requirement_evaluation": requirement_evaluation,
         "evidence": {
             "issue_authority_tier": issue.get("authority_tier"),
+            "release_note_refs": issue.get("release_note_refs") or [],
             "version_evidence": [compact_assessment_version_evidence(row) for row in evidence[:20]],
             "reviewed_enrichment_ids": reviewed_enrichment_ids,
             "reviewed_assertion_ids": reviewed_assertion_ids,
@@ -1986,14 +2018,26 @@ def compact_assessment_version_evidence(row: dict[str, Any]) -> dict[str, Any]:
         for key in [
             "component",
             "relationship",
+            "version",
+            "version_scheme",
             "normalized_version",
             "version_line",
             "source_kind",
             "source_ref",
             "authority_tier",
             "confidence",
+            *RELEASE_METADATA_FIELDS,
         ]
     }
+
+
+def release_note_is_prerelease(row: dict[str, Any]) -> bool:
+    flags = row.get("release_flags") or {}
+    if flags.get("isProduction") is True:
+        return False
+    return flags.get("isAlpha") is True or flags.get("isBeta") is True or bool(
+        re.search(r"\b(alpha|beta|release candidate)\b", str(row.get("release_status") or ""), re.IGNORECASE)
+    )
 
 
 def enrichment_needs_revalidation(issue: dict[str, Any], enrichment: dict[str, Any]) -> bool:

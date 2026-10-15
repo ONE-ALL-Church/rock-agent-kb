@@ -8,6 +8,16 @@ from rock_kb.cli import app, audit_cmds, tools_cmds
 from rock_kb.source_native import SOURCE_NATIVE_PILOT_CONCEPTS, SOURCE_NATIVE_PILOT_DIR
 from rock_kb.source_native_verification import VERIFICATION_REPORT_NAME
 
+
+@pytest.mark.parametrize(("status", "exit_code"), [("pass", 0), ("fail", 1), ("unavailable", 1)])
+def test_canonical_retrieval_gate_returns_failure_exit_status(monkeypatch, status, exit_code):
+    monkeypatch.setattr(tools_cmds, "run_canonical_retrieval_shadow", lambda *_args, **_kwargs: {"status": status})
+
+    result = CliRunner().invoke(app, ["tools", "canonical-retrieval-shadow", "--skip-worker-build"])
+
+    assert result.exit_code == exit_code
+    assert status in result.stdout
+
 FINAL_COMMANDS = [
     ["status"],
     ["build"],

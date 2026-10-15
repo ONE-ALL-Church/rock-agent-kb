@@ -7,6 +7,8 @@ import pytest
 from pydantic import ValidationError
 
 from rock_kb.canonical_knowledge import (
+    _IdentityResolver,
+    _ProjectionBuilder,
     build_canonical_knowledge_bundle,
     build_public_identity_baseline,
     merge_identity_registry_rows,
@@ -31,6 +33,34 @@ DIRECT_DATABASE_TEXT = (
     "Route data operations through managed Rock code that enforces authorization and business rules, "
     "and treat model-generated SQL as unsafe for general-purpose operational access."
 )
+
+
+def test_approved_payload_repairs_generated_source_unit_without_new_source_calls():
+    builder = _ProjectionBuilder(_IdentityResolver(
+        identity_registry=[], identity_migrations=[], previous_knowledge_units=[],
+    ))
+    ref = {"source_id": "rock_youtube", "url": "https://www.youtube.com/watch?v=fixture",
+           "title": "Rockcast Ep 1", "timestamp": "04:28"}
+    payload = {"source_record_ids": ["rock_youtube:fixture"]}
+    unit_id, _, _ = builder.add_source_for_claim(
+        payload=payload, ref=ref, statement="Generated summary with supporting claim counts.",
+    )
+    assert builder.units[unit_id].normalized_content_hash is None
+    approved = {**payload, "safe_evidence_hash": "a" * 64,
+                "review_status": "approved_for_public_distillation",
+                "authority_tier": "official", "license_status": "cite_and_summarize_only"}
+    same_id, _, _ = builder.add_source_for_claim(
+        payload=approved, ref=ref, statement="Reviewed roster claim.",
+    )
+    assert same_id == unit_id
+    assert builder.units[unit_id].normalized_content_hash == "a" * 64
+    assert builder.units[unit_id].public_summary == "Reviewed roster claim."
+    assert builder.units[unit_id].required_public_handling == "cite_and_summarize_only"
+    builder.add_source_for_claim(payload=payload, ref=ref, statement="Later generated summary.")
+    assert builder.units[unit_id].public_summary == "Reviewed roster claim."
+    with pytest.raises(ValueError, match="Conflicting approved source hashes"):
+        builder.add_source_for_claim(payload={**approved, "safe_evidence_hash": "b" * 64},
+                                     ref=ref, statement="Conflicting source claim.")
 
 
 def test_direct_database_claim_collapses_concept_copies_and_media_mirrors():

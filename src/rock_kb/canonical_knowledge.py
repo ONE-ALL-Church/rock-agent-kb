@@ -1794,20 +1794,27 @@ class _ProjectionBuilder:
         locator = claim_source_locator(ref, source_record_id, url)
         unit_id = source_unit_id(snapshot_id, locator)
         safe_hash = valid_sha256(payload.get("safe_evidence_hash"))
-        self.units.setdefault(
-            unit_id,
-            SourceUnit(
-                schema="rock-kb-source-unit-v1",
-                source_unit_id=unit_id,
-                source_snapshot_id=snapshot_id,
-                unit_kind="media_segment" if locator.kind == "timestamp" else "document_section",
-                locator=locator,
-                context=str(ref.get("title") or "")[:1000],
-                public_summary=statement[:1500],
-                normalized_content_hash=safe_hash,
-                required_public_handling=public_handling(payload),
-            ),
+        candidate_unit = SourceUnit(
+            schema="rock-kb-source-unit-v1",
+            source_unit_id=unit_id,
+            source_snapshot_id=snapshot_id,
+            unit_kind="media_segment" if locator.kind == "timestamp" else "document_section",
+            locator=locator,
+            context=str(ref.get("title") or "")[:1000],
+            public_summary=statement[:1500],
+            normalized_content_hash=safe_hash,
+            required_public_handling=public_handling(payload),
         )
+        existing_unit = self.units.get(unit_id)
+        # A generated distillation can visit this locator before its approved source.
+        if existing_unit is None or (
+            safe_hash
+            and not existing_unit.normalized_content_hash
+            and payload.get("review_status") == "approved_for_public_distillation"
+        ):
+            self.units[unit_id] = candidate_unit
+        elif safe_hash and existing_unit.normalized_content_hash != safe_hash:
+            raise ValueError(f"Conflicting approved source hashes for {unit_id}")
         return unit_id, source_work_id, authority
 
     def add_source_for_search_row(

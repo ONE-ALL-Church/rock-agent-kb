@@ -1,0 +1,21 @@
+{
+  "schema": "rock-kb-claim-collapse-maintainer-review-v2",
+  "review_input_schema": "rock-kb-claim-collapse-input-v2",
+  "review_input_sha256": "f7fa195a1d4901f42b8115047206587d8e7caf08298188ee119a70fc057c97a5",
+  "reviewer": "codex-maintainer",
+  "reviewed_at": "2026-10-15T06:02:22Z",
+  "review_scope": "Exact statement and claim-type identity; source evidence and public aliases retained. This review does not raise authority or verify instance behavior.",
+  "decisions": [
+    {"knowledge_unit_id": "knowledge:claim:013e5ede85a7459c3d335bfa", "decision": "approve", "rationale": "Exact host recommendation from episode 220 mirrors. Preserve attribution and one source work."},
+    {"knowledge_unit_id": "knowledge:claim:218bf62533629333112d4b58", "decision": "approve", "rationale": "Exact CAPTCHA claim with v19 and configuration caveats. Retain episode 217 mirrors and the separate feature video as two works."},
+    {"knowledge_unit_id": "knowledge:claim:28493b38e8bd378825f23c2b", "decision": "approve", "rationale": "Exact v19 roster claim. Three source units now retain approved source hashes and reviewed summaries, not generated claim-count summaries. Preserve two source works and connectivity caveats."},
+    {"knowledge_unit_id": "knowledge:claim:5f88aebe01ba24388567ed03", "decision": "approve", "rationale": "Exact ScheduleDate claim from episode 217 mirrors. Preserve v19 scope and recurrence semantics."},
+    {"knowledge_unit_id": "knowledge:claim:6066ad78b7e069d9a61e700d", "decision": "approve", "rationale": "Exact episode 219 stewardship recommendation. This does not assert that administrators cannot access stored contacts."},
+    {"knowledge_unit_id": "knowledge:claim:630a817320bfc84e7f70a77c", "decision": "approve", "rationale": "Exact episode 215 patch-cadence recommendation. Current supported branches still require separate verification."},
+    {"knowledge_unit_id": "knowledge:claim:95c466bb8977a8210b8b0f27", "decision": "approve", "rationale": "Exact episode 217 staff-training recommendation. Preserve v19 scope and rejected concept-routing reviews."},
+    {"knowledge_unit_id": "knowledge:claim:d6f5c4416ebb1b5a67c2fe2e", "decision": "approve", "rationale": "Exact episode 216 recommendation against unrestricted AI database access. Preserve managed authorization and business-rule requirements."},
+    {"knowledge_unit_id": "knowledge:claim:df0ada816e9d14297df2a678", "decision": "approve", "rationale": "Exact episode 215 problem-first design recommendation. Deduplication does not approve rejected concept-specific answer packs."},
+    {"knowledge_unit_id": "knowledge:claim:ea95256bde073be9d9671ec9", "decision": "approve", "rationale": "Exact episode 221 host recommendation. Preserve personal review and sender responsibility."},
+    {"knowledge_unit_id": "knowledge:claim:ee75513fb315ff67f9e46446", "decision": "approve", "rationale": "Exact episode 220 summary across mirrors. Preserve its explicit warning that announcements and predictions are not current product guarantees."}
+  ]
+}
