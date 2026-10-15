@@ -6,10 +6,13 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import yaml
+import pytest
 
 from rock_kb.extract import sha256_text
+from rock_kb.release_notes import _semantic_content_hash
 from rock_kb.source_freshness import blocking_source_ids, build_source_observations, source_freshness_rows
-from rock_kb.source_hashing import source_record_freshness_hash
+from rock_kb.source_hashing import source_content_hash, source_record_freshness_hash
+from rock_kb.source_orchestration import compact_source_record
 from rock_kb.source_workflows import source_workflow_policy
 from rock_kb.sources import load_sources
 
@@ -32,6 +35,89 @@ def test_source_record_hash_is_stable_before_and_after_snapshot_compaction():
     }
     compact.pop("summary")
 
+    assert source_record_freshness_hash(raw) == source_record_freshness_hash(compact)
+
+
+def release_snapshot(family, checked_at, **changes):
+    source_id = f"rock_{family}_release_notes"
+    row = {
+        "id": f"{source_id}:synthetic", "source_id": source_id,
+        "source_title": "Synthetic release", "source_url": "https://example.test/releases",
+        "summary": "Unchanged synthetic note.", "excerpt": "Unchanged synthetic note.",
+        "topics": ["releases"], "rock_versions": ["20.0"], "version": "20.0",
+        "release_family": family, "release_display": "20.0", "release_date": "2026-09-02",
+        "release_status": "Alpha Testing" if family == "core" else None,
+        "release_flags": {"isAlpha": True} if family == "core" else {},
+        "module": "CMS", "category_order": 3, "change_type": "bug_fix", "upstream_change_type": "fixed",
+        "severity": "normal", "minimum_os": {"ios": "15.0", "android": "7.0"} if family == "mobile" else None,
+        "minimum_rock_version": "1.12.6" if family == "mobile" else None,
+        "issue_refs": ["123"], "bulletin_refs": [], "retrieved_at": checked_at.isoformat(), **changes,
+    }
+    row["content_hash"] = _semantic_content_hash(row)
+    compact = compact_source_record(row)
+    assert source_record_freshness_hash(row) == source_record_freshness_hash(compact)
+    return {
+        "sources": {source_id: {"retrieved_at_max": checked_at.isoformat(), "record_count": 1}},
+        "source_records": {row["id"]: compact},
+    }
+
+
+@pytest.mark.parametrize("family,changes", [
+    ("core", {"release_status": "Released"}),
+    ("core", {"release_flags": {"isAlpha": False}}),
+    ("core", {"issue_refs": ["456"]}),
+    ("core", {"change_type": "new_feature", "upstream_change_type": "added"}),
+    ("mobile", {"minimum_os": {"ios": "16.0", "android": "7.0"}}),
+    ("mobile", {"minimum_rock_version": "1.12.8"}),
+])
+def test_release_metadata_only_changes_advance_source_freshness(family, changes):
+    first_checked = datetime(2026, 10, 14, 10, tzinfo=timezone.utc)
+    second_checked = datetime(2026, 10, 14, 11, tzinfo=timezone.utc)
+    source_id = f"rock_{family}_release_notes"
+    first_snapshot = release_snapshot(family, first_checked)
+    second_snapshot = release_snapshot(family, second_checked, **changes)
+    first = build_source_observations([source(source_id, "daily")], first_snapshot, first_checked)
+    second = build_source_observations(
+        [source(source_id, "daily")], second_snapshot, second_checked,
+        previous_observations=first, baseline_snapshot=first_snapshot,
+    )
+    before = first_snapshot["source_records"][f"{source_id}:synthetic"]
+    after = second_snapshot["source_records"][f"{source_id}:synthetic"]
+    assert before["summary_hash"] == after["summary_hash"]
+    assert before["content_hash"] != after["content_hash"]
+    assert source_content_hash(first_snapshot, source_id) != source_content_hash(second_snapshot, source_id)
+    assert second["sources"][source_id]["content_changed_at"] == second_checked.isoformat()
+    assert second["sources"][source_id]["last_checked_at"] == second_checked.isoformat()
+
+
+@pytest.mark.parametrize("family", ["core", "mobile"])
+def test_release_timestamp_and_transport_only_refresh_is_a_noop(family):
+    first_checked = datetime(2026, 10, 14, 10, tzinfo=timezone.utc)
+    second_checked = datetime(2026, 10, 14, 11, tzinfo=timezone.utc)
+    source_id = f"rock_{family}_release_notes"
+    first_snapshot = release_snapshot(family, first_checked, api_provenance={"payload_sha256": "a" * 64})
+    second_snapshot = release_snapshot(family, second_checked, api_provenance={"payload_sha256": "b" * 64})
+    first = build_source_observations([source(source_id, "daily")], first_snapshot, first_checked)
+    second = build_source_observations(
+        [source(source_id, "daily")], second_snapshot, second_checked,
+        previous_observations=first, baseline_snapshot=first_snapshot,
+    )
+    assert source_content_hash(first_snapshot, source_id) == source_content_hash(second_snapshot, source_id)
+    assert second["sources"][source_id]["content_changed_at"] == first_checked.isoformat()
+    assert second["sources"][source_id]["last_checked_at"] == second_checked.isoformat()
+
+
+@pytest.mark.parametrize("family", [None, "documentation", "model_map", "github_repo"])
+def test_non_release_families_keep_summary_hash_precedence(family):
+    before = {"summary_hash": "stable-summary", "content_hash": "a" * 64, "release_family": family}
+    after = {**before, "content_hash": "b" * 64}
+    assert source_record_freshness_hash(before) == source_record_freshness_hash(after)
+
+
+@pytest.mark.parametrize("family", ["core", "mobile"])
+def test_release_without_content_hash_retains_summary_fallback(family):
+    raw = {"release_family": family, "summary": "Legacy release summary"}
+    compact = {"release_family": family, "summary_hash": sha256_text(raw["summary"])}
     assert source_record_freshness_hash(raw) == source_record_freshness_hash(compact)
 
 

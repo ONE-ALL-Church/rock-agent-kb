@@ -31,8 +31,12 @@ def source_record_freshness_hash(row: dict[str, Any]) -> str:
     summary_hash = str(row.get("summary_hash") or "")
     if not summary_hash and row.get("summary"):
         summary_hash = sha256_text(str(row["summary"]))
+    normalized_content_hash = summary_hash or row.get("content_hash") or ""
+    if row.get("release_family") in {"core", "mobile"}:
+        # Release hashes bind semantic metadata that a text summary cannot carry.
+        normalized_content_hash = row.get("content_hash") or summary_hash or ""
     payload = {
-        "normalized_content_hash": summary_hash or row.get("content_hash") or "",
+        "normalized_content_hash": normalized_content_hash,
         "source_title": row.get("source_title") or "",
         "source_url": row.get("source_url") or "",
         "topics": sorted(str(value) for value in row.get("topics") or []),

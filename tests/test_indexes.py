@@ -1,15 +1,102 @@
 import json
+import pytest
 
 import rock_kb.indexes as indexes_module
 from rock_kb.indexes import (
     all_normalized_records,
+    build_release_index,
     build_public_source_summaries,
     build_public_source_summary_pack,
     dedupe_records_by_id,
     enrich_derived_documentation_metadata,
     is_public_agent_record,
     public_agent_records,
+    refresh_public_release_summary_metadata,
 )
+
+
+def test_release_index_can_refresh_only_releases_and_retains_alpha_status(tmp_path):
+    rows = [{
+        "id": "release:" + family,
+        "source_id": "rock_" + family + "_release_notes",
+        "release_family": family,
+        "version": "20.0",
+        "release_status": "Alpha Testing" if family == "core" else None,
+        "change_type": "bug_fix",
+        "upstream_change_type": "fixed",
+        "release_flags": {"isAlpha": True, "isEarlyAccess": True, "isProduction": False},
+        "release_display": "20.0",
+        "minimum_os": {"ios": "15.0", "android": "7.0"} if family == "mobile" else None,
+        "minimum_rock_version": "1.12.6" if family == "mobile" else None,
+        "content_hash": "a" * 64,
+        "summary": "Fixed a fixture issue.",
+        "issue_refs": ["123"],
+    } for family in ("core", "mobile")]
+    output = tmp_path / "releases.jsonl"
+
+    assert build_release_index(rows, output) == 2
+    indexed = [json.loads(line) for line in output.read_text().splitlines()]
+    assert indexed[0]["release_status"] == "Alpha Testing"
+    assert indexed[0]["issue_refs"] == ["123"]
+    assert indexed[0]["upstream_change_type"] == "fixed"
+    assert indexed[0]["release_flags"]["isEarlyAccess"] is True
+    assert indexed[1]["minimum_os"]["ios"] == "15.0"
+    assert indexed[1]["minimum_rock_version"] == "1.12.6"
+    assert indexed[0]["content_hash"] == "a" * 64
+    assert {"upstream_version", "product_version", "release_display"} <= set(indexed[0])
+
+
+def test_release_index_preserves_previous_file_when_one_family_is_missing(tmp_path):
+    output = tmp_path / "releases.jsonl"
+    output.write_text("previous snapshot\n")
+
+    with pytest.raises(ValueError, match="Both core and mobile"):
+        build_release_index([{"release_family": "core"}], output)
+
+    assert output.read_text() == "previous snapshot\n"
+
+
+def test_public_release_refresh_keeps_prose_review_and_other_sources_unchanged():
+    reviewed = {"id": "release:old:public-summary", "source_record_id": "release:old",
+                "source_id": "rock_mobile_release_notes", "summary": "Previously public wording.",
+                "key_insights": [{"insight": "Previously public insight."}], "reviewer": "synthetic-reviewer",
+                "review_status": "public_reviewed", "contains_raw_source_text": False, "needs_review": False}
+    other = {"id": "documentation:public-summary", "source_id": "rock_documentation", "summary": "Keep unchanged."}
+    historical = {**reviewed, "id": "release:missing:public-summary", "source_record_id": "release:missing"}
+    records = [{"id": "release:old", "source_id": "rock_mobile_release_notes", "release_family": "mobile",
+                "version": "1.7.0", "release_display": "7.0", "summary": reviewed["summary"],
+                "upstream_change_type": "fixed", "change_type": "bug_fix", "content_hash": "a" * 64,
+                "minimum_os": {"ios": "15.0", "android": "7.0"}, "minimum_rock_version": "1.12.6",
+                "retrieved_at": "2026-10-15T00:00:00+00:00"},
+               {"id": "release:new", "source_id": "rock_mobile_release_notes", "release_family": "mobile",
+                "version": "19.5", "summary": "New raw prose must not be published."}]
+    updated, report = refresh_public_release_summary_metadata([reviewed, other, historical], records)
+    assert len(updated) == 3
+    for key in ("id", "source_record_id", "summary", "key_insights", "reviewer", "review_status", "contains_raw_source_text", "needs_review"):
+        assert updated[0][key] == reviewed[key]
+    assert updated[0]["version"] == updated[0]["product_version"] == "7.0"
+    assert updated[0]["rock_versions"] == ["7.0"]
+    assert updated[0]["upstream_version"] == "1.7.0"
+    assert updated[0]["minimum_rock_version"] == "1.12.6"
+    assert updated[1] == other
+    assert updated[2] == historical
+    assert report["new_public_rows"] == 0
+    assert report["new_prose_published"] is False
+    assert report["sources"]["rock_mobile_release_notes"]["matched"] == 1
+    assert report["sources"]["rock_mobile_release_notes"]["unmatched"] == 1
+    repeated, repeat_report = refresh_public_release_summary_metadata(updated, records)
+    assert repeated == updated
+    assert repeat_report["sources"]["rock_mobile_release_notes"]["updated"] == 0
+
+
+def test_public_release_refresh_rejects_changed_summary_even_when_identity_matches():
+    previous = [{"id": "release:one:public-summary", "source_record_id": "release:one",
+                 "source_id": "rock_core_release_notes", "summary": "Approved previous wording."}]
+    records = [{"id": "release:one", "source_id": "rock_core_release_notes", "release_family": "core",
+                "version": "20.0", "summary": "Changed raw source prose."}]
+    result, report = refresh_public_release_summary_metadata(previous, records)
+    assert result == previous
+    assert report["sources"]["rock_core_release_notes"]["summary_changed"] == 1
 
 
 def test_all_normalized_records_can_read_an_alternate_repo_root(tmp_path):

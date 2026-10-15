@@ -13,6 +13,7 @@ from .lava_capabilities import build_lava_capability_reference
 from .lava_contexts import build_lava_context_reference
 from .paths import AGENT_DIR, INDEX_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR, SOURCES_DIR
 from .rock_ideas import build_rock_idea_artifacts_from_normalized
+from .release_notes import upgrade_cached_release_record
 from .sources import load_sources
 
 
@@ -205,19 +206,7 @@ def build_agent_pack() -> dict[str, int]:
                 }
             )
         if record.get("release_family"):
-            release_rows.append(
-                {
-                    "id": record.get("id"),
-                    "release_family": record.get("release_family"),
-                    "version": record.get("version"),
-                    "release_date": record.get("release_date"),
-                    "module": record.get("module"),
-                    "change_type": record.get("change_type"),
-                    "severity": record.get("severity"),
-                    "summary": record.get("summary"),
-                    "issue_refs": record.get("issue_refs"),
-                }
-            )
+            release_rows.append(release_index_row(record))
         citation_rows.append(
             {
                 "id": record.get("id"),
@@ -254,6 +243,25 @@ def build_agent_pack() -> dict[str, int]:
     counts.update(build_agent_answer_pack())
     refresh_agent_manifest()
     return counts
+
+
+def release_index_row(record: dict[str, Any]) -> dict[str, Any]:
+    record = upgrade_cached_release_record(record)
+    return {key: record.get(key) for key in (
+        "id", "release_family", "version", "release_date", "release_status",
+        "module", "change_type", "severity", "summary", "issue_refs",
+        "upstream_version", "product_version", "release_display", "upstream_change_type",
+        "release_flags", "minimum_os", "minimum_rock_version", "content_hash",
+    )}
+
+
+def build_release_index(records: list[dict[str, Any]], path: Path | None = None) -> int:
+    """Rebuild the release slice without requiring unrelated private source data."""
+    releases = [row for row in public_agent_records(records) if row.get("release_family") in {"core", "mobile"}]
+    if {row["release_family"] for row in releases} != {"core", "mobile"}:
+        raise ValueError("Both core and mobile release records are required")
+    rows = [release_index_row(row) for row in dedupe_records_by_id(releases)]
+    return write_jsonl(path or AGENT_DIR / "release-index.jsonl", rows)
 
 
 def build_or_reuse_model_map() -> dict[str, Any]:
@@ -346,6 +354,44 @@ def is_reviewed_for_public_agent_pack(record: dict[str, Any]) -> bool:
 
 def build_public_source_summaries(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return build_public_source_summary_pack(records)[0]
+
+
+def refresh_public_release_summary_metadata(
+    previous: list[dict[str, Any]], records: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Refresh exact unchanged public notes without publishing any new prose."""
+    release_sources = {"rock_core_release_notes", "rock_mobile_release_notes"}
+    current = {row["id"]: row for row in records if row.get("source_id") in release_sources}
+    report = {source: {"existing": 0, "matched": 0, "updated": 0, "unmatched": 0, "summary_changed": 0}
+              for source in sorted(release_sources)}
+    result = []
+    for old in previous:
+        source = old.get("source_id")
+        if source not in release_sources:
+            result.append(old)
+            continue
+        counts = report[source]
+        counts["existing"] += 1
+        record = current.get(old.get("source_record_id"))
+        if record is None or record.get("source_id") != source:
+            counts["unmatched"] += 1
+            result.append(old)
+            continue
+        if old.get("summary") != public_summary_text(record):
+            counts["summary_changed"] += 1
+            result.append(old)
+            continue
+        counts["matched"] += 1
+        # Keep all public prose, citations, identity, and review fields verbatim.
+        metadata = release_index_row(record)
+        updated = {**old, **{key: value for key, value in metadata.items()
+                            if key not in {"id", "summary", "severity"}},
+                   "version": metadata["product_version"],
+                   "rock_versions": [metadata["product_version"]],
+                   "retrieved_at": record.get("retrieved_at")}
+        counts["updated"] += int(updated != old)
+        result.append(updated)
+    return result, {"sources": report, "new_public_rows": 0, "new_prose_published": False}
 
 
 def build_public_source_summary_pack(records: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:

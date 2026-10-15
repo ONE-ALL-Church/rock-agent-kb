@@ -45,7 +45,18 @@ class RockIssueConceptRoute(KBRecord):
     signal: str
 
 
-class RockIssueVersionEvidence(KBRecord):
+class RockIssueReleaseMetadata(KBRecord):
+    upstream_version: str | None = None
+    product_version: str | None = None
+    release_display: str | None = None
+    upstream_change_type: str | None = None
+    release_status: str | None = None
+    release_flags: dict[str, bool] | None = None
+    minimum_os: dict[str, str] | None = None
+    minimum_rock_version: str | None = None
+
+
+class RockIssueVersionEvidence(RockIssueReleaseMetadata):
     component: IssueComponent
     relationship: VersionRelationship
     version: str
@@ -107,12 +118,13 @@ class RockIssueTimelineRelation(KBRecord):
     occurred_at: str | None = None
 
 
-class RockIssueReleaseNoteRef(KBRecord):
+class RockIssueReleaseNoteRef(RockIssueReleaseMetadata):
     record_id: str
     source_id: Literal["rock_core_release_notes", "rock_mobile_release_notes"]
     url: str
     version: str
     module: str | None = None
+    change_type: str | None = None
     summary: str
     content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
 

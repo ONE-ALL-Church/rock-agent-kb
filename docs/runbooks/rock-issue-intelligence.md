@@ -13,6 +13,8 @@ This surface is separate from `kb_report_issue`. Use `kb_report_issue` when the 
 - `reported_affected` means a reporter named that version. It is not proof that every installation on that version is affected.
 - `Fixed in vX.Y` records a fix release line. It is not proof that every build in the line contains the fix.
 - `closed` is GitHub workflow state. It does not mean fixed.
+- A release-note link can describe a feature or improvement. Only a `bug_fix` note supplies release-note fix evidence.
+- Check `release_note_refs[].release_status` before recommending an upgrade. An alpha note does not prove general availability.
 - `not_affected` requires positive reviewed evidence and a justification. Missing evidence remains unknown.
 - Risk remains `unrated` unless it comes from a recognized upstream priority label or a current reviewed, cited risk assessment.
 - All generated issue rows use `routing_context_only`; agent diagnosis is a hypothesis until reviewed and supported by source evidence.
@@ -39,6 +41,58 @@ uv run --project clients/python rock-kb issues watch instance-profile.json --sco
 ```
 
 Every refresh cursor-paginates and count-reconciles the complete metadata catalog. Timelines are fetched only for changed current issues plus a bounded historical backfill; `--full` expands that backfill. Supplying one or more `--timeline-issue` values switches timeline fetching to only those current or transferred issue locations, even when their cached timelines are already complete. Daily automation updates a rolling pull request only when tracked artifacts change.
+
+Pagination uses ascending creation time. Issue updates do not move records between pages.
+Count mismatches and duplicate identities still stop the refresh before publication.
+
+## Release Note Sources
+
+Rock's release pages now load notes through public Lava Application endpoints.
+The adapter reads the page configuration without executing JavaScript.
+It accepts only the registered public host and routes.
+Each request sends `X-Helix-CSRF-Protection: true`; it sends no credentials.
+
+- Core: `GET /api/v2/lava-app/1/release-notes-forge-test/overview`, then `GET /api/v2/lava-app/1/release-notes-forge-test/version?version=<version>`.
+- Mobile: `GET /api/v2/lava-app/1/mobile-release-notes/releases`.
+
+The `1` segment is the route version. It is not a Rock site ID.
+The adapter checks version counts, note counts, note types, and identifiers.
+Mobile requirements belong to each release, not the full page.
+Semantic hashes include note type, issue links, release status, and requirements.
+Retrieval times and transport hashes do not change the semantic hash.
+Freshness uses this semantic hash instead of the note summary alone.
+Incomplete responses leave the previous normalized file intact.
+Old static pages still use the static parser.
+
+Refresh both sources through the normal source workflow.
+For a release-only review, rebuild the release index from their normalized records:
+
+```bash
+uv run kb sources normalize --source rock_core_release_notes
+uv run kb sources normalize --source rock_mobile_release_notes
+uv run python -c 'from rock_kb.indexes import all_normalized_records, build_release_index; print(build_release_index(all_normalized_records()))'
+```
+
+Review the generated release index before merging it.
+Then refresh issue metadata to join the current release notes.
+Do not run the full agent-pack build with a partial private corpus.
+
+Keep upstream API versions separate from displayed product versions.
+Core `1.16.x` uses the official frontend's `16.x` display mapping.
+Mobile uses the API's explicit display field, not a guessed prefix rule.
+Assess issues against the product version while retaining the upstream version.
+
+A complete release index does not prove complete search-summary coverage.
+Use `refresh_public_release_summary_metadata` only for exact, unchanged public summaries.
+This helper preserves prose, identity, citations, and review fields.
+It does not publish new summaries or reapprove changed notes.
+Keep unmatched and changed notes in the review queue.
+
+If a refresh remains queued, inspect the older run in its concurrency group.
+Read its pending environment state before taking action.
+Cancel an abandoned run only after confirming its workflow and commit.
+Start a fresh run through the normal workflow.
+Keep environment protections and required pull-request checks intact.
 
 Scheduled refreshes set historical backfill to zero so an unmerged automation
 branch does not repeatedly fetch the same old timelines. Use the default local

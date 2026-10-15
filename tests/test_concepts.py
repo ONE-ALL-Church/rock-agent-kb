@@ -140,13 +140,27 @@ def test_claim_synthesis_sort_key_uses_current_authority_vocabulary():
 
 def test_render_single_concept_guide():
     concept = get_concept("check-in")
-    text, dependency = build_concept_guide(concept, all_normalized_records(), {})
+    records = [{
+        "id": "rock_documentation:article:999001",
+        "source_id": "rock_documentation",
+        "source_kind": "rock_documentation",
+        "source_title": "Check-In setup fixture",
+        "source_url": "https://example.test/documentation/check-in",
+        "documentation_article_id": 999001,
+        "documentation_branch": "documentation/engagement/check-in",
+        "documentation_branches": ["documentation/engagement/check-in"],
+        "topics": ["check-in"],
+        "summary": "Check-in setup guidance.",
+        "content_hash": "fixture-check-in",
+        "retrieved_at": "2026-08-01T00:00:00+00:00",
+    }]
+    text, dependency = build_concept_guide(concept, records, {})
     assert "# Check-In" in text
     assert "Rebuild Dependencies" in text
     assert "A recent source check or concept rebuild does not imply" in text
     assert dependency["concept_id"] == "check-in"
     assert dependency["source_freshness"]["article_count"] > 0
-    assert dependency["source_native_migration"]["status"] == "partial"
+    assert dependency["source_native_migration"]["status"] == "not_started"
 
 
 def test_concept_source_lifecycle_separates_freshness_from_migration(tmp_path):
