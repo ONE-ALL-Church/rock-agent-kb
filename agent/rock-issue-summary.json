@@ -1,25 +1,25 @@
 {
-  "catalog_content_hash": "1ac508835630e1e367b5b6374d1fe1373045a488b23fd4fa43902cd409b758bb",
+  "catalog_content_hash": "97cd867664a4e9a728107e88dca85ed26f913f7c4778830f41a0d74673602f32",
   "claim_tier": "routing_context_only",
   "components": {
-    "mobile_shell": 131,
-    "rock_core": 5780
+    "mobile_shell": 140,
+    "rock_core": 5845
   },
   "evidence_states": {
-    "commit_linked": 224,
-    "fixed_release_recorded": 3275,
-    "maintainer_triaged": 1176,
-    "report_only": 1236
+    "commit_linked": 223,
+    "fixed_release_recorded": 3511,
+    "maintainer_triaged": 1127,
+    "report_only": 1124
   },
   "labels_truncated_count": 0,
-  "last_checked_at": "2026-09-09T09:52:50+00:00",
-  "projection_checked_at": "2026-09-09T09:52:50+00:00",
+  "last_checked_at": "2026-10-15T06:19:48+00:00",
+  "projection_checked_at": "2026-10-15T06:19:48+00:00",
   "raw_issue_body_republished": false,
-  "record_count": 5911,
-  "release_note_linked_count": 889,
+  "record_count": 5985,
+  "release_note_linked_count": 2635,
   "repositories": {
-    "SparkDevNetwork/Rock": 5780,
-    "SparkDevNetwork/Rock.Mobile-Issues": 131
+    "SparkDevNetwork/Rock": 5845,
+    "SparkDevNetwork/Rock.Mobile-Issues": 140
   },
   "reviewed_enrichment_count": 28,
   "reviewed_enrichment_metrics": {
@@ -38,8 +38,21 @@
     },
     "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 0,
-    "revalidation_due_enrichment_ids": [],
+    "revalidation_due_count": 12,
+    "revalidation_due_enrichment_ids": [
+      "rock_issue_enrichment:core-6886-financial-transaction-detail-auth-v1",
+      "rock_issue_enrichment:core-6897-workflow-entry-completion-timestamps-v1",
+      "rock_issue_enrichment:core-6902-family-analytics-week-boundaries-v1",
+      "rock_issue_enrichment:core-6905-historical-lms-mobile-navigation-v1",
+      "rock_issue_enrichment:core-6912-start-task-queue-expiration-risk-v1",
+      "rock_issue_enrichment:core-6918-site-interaction-channel-uses-session-v1",
+      "rock_issue_enrichment:core-6919-azure-container-cache-concurrency-v1",
+      "rock_issue_enrichment:core-6920-connections-hub-redirect-action-v1",
+      "rock_issue_enrichment:core-6922-form-notification-attributes-v1",
+      "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
+      "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1",
+      "rock_issue_enrichment:core-6928-signature-document-parent-security-v1"
+    ],
     "risk_assessment_count": 0,
     "risk_levels": {},
     "verification_playbook_count": 28,
@@ -48,10 +61,10 @@
   "routing": {
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
-      "body_keyword": 407,
-      "github_topic_label": 1604,
-      "repository_default": 1348,
-      "title_keyword": 4040
+      "body_keyword": 423,
+      "github_topic_label": 1610,
+      "repository_default": 1351,
+      "title_keyword": 4118
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
@@ -60,43 +73,43 @@
     "rock_mobile_issues": "rock-kb-issue-source-set-v1"
   },
   "source_content_hashes": {
-    "rock_core_issues": "e4174e917f558244732392b01401da77530de6d020f14ab26240d1b70c9f7571",
-    "rock_mobile_issues": "a886d4895fc1d19eb87670083104399e997ba3a5af312ab8ad8464e5074bef83"
+    "rock_core_issues": "bb0226d4bfe27648ab09a9cd2db66c22ffcbc418a33dd3a586fe0b286fe539fc",
+    "rock_mobile_issues": "4d84d17d5c90479997cf469ac3ae282b07622327ff91a525e251606c2106dc72"
   },
-  "source_updated_through": "2026-09-09T01:42:03Z",
+  "source_updated_through": "2026-10-15T05:10:42Z",
   "states": {
-    "closed": 5896,
-    "open": 15
+    "closed": 5956,
+    "open": 29
   },
   "timeline_coverage": {
-    "complete": 718,
-    "not_fetched": 5193,
-    "percent_complete": 12.15
+    "complete": 794,
+    "not_fetched": 5191,
+    "percent_complete": 13.27
   },
   "top_concepts": {
-    "api-integrations": 107,
-    "check-in": 368,
+    "api-integrations": 109,
+    "check-in": 375,
     "cms-websites": 151,
-    "communications": 546,
-    "connections": 177,
-    "data-views-reports": 372,
-    "developer-resources": 149,
-    "documents-signatures": 93,
-    "event-registration": 548,
-    "giving-finance": 402,
-    "groups": 325,
-    "lava": 393,
-    "mobile": 147,
-    "obsidian-development": 252,
-    "people-families": 703,
+    "communications": 553,
+    "connections": 181,
+    "data-views-reports": 375,
+    "developer-resources": 150,
+    "documents-signatures": 94,
+    "event-registration": 555,
+    "giving-finance": 409,
+    "groups": 331,
+    "lava": 394,
+    "mobile": 155,
+    "obsidian-development": 262,
+    "people-families": 717,
     "platform-configuration": 192,
-    "scheduling-locations": 235,
-    "security-permissions": 279,
-    "system-admin-ops": 1344,
-    "workflows": 393
+    "scheduling-locations": 242,
+    "security-permissions": 285,
+    "system-admin-ops": 1347,
+    "workflows": 400
   },
   "validation_states": {
-    "confirmed": 2619,
-    "reported": 3292
+    "confirmed": 3438,
+    "reported": 2547
   }
 }

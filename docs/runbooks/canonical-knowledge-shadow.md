@@ -545,6 +545,14 @@ report remains `fail` until every generated collapse group has an explicit,
 hash-matching maintainer decision; do not waive this as a cosmetic duplicate
 cleanup.
 
+Persist reviewed decisions in
+`canonical/identity/v1/claim-collapse-maintainer-review.json`.
+Clean CI checkouts use this record when no local review exists.
+A local review takes precedence and must also match the exact input hash.
+The versioned approval hash binds content, aliases, review metadata, and evidence provenance.
+Changed groups, missing provenance, or incomplete decisions block approval.
+The CLI exits with failure when the retrieval gate does not pass.
+
 Use `--skip-worker-build` only when `service/dist/dry-run/index.js` already
 matches the current Worker source:
 

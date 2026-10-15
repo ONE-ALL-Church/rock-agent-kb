@@ -4,14 +4,21 @@ import json
 import os
 import subprocess
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 from time import perf_counter
-from typing import Any, Iterable
+from typing import Any, Iterable, Literal
 from urllib.parse import quote
+
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 
 from .canonical_knowledge import (
     SHADOW_DIR,
     SUPPORTED_SEARCH_KINDS,
+    claim_source_locator,
+    matching_source_record_id,
+    source_snapshot_id,
+    source_unit_id,
     write_canonical_knowledge_shadow,
 )
 from .extract import sha256_text
@@ -31,8 +38,55 @@ CLAIM_COLLAPSE_REVIEW_PATH = SHADOW_DIR / "claim-collapse-review.json"
 CLAIM_COLLAPSE_MAINTAINER_REVIEW_PATH = (
     SHADOW_DIR / "claim-collapse-maintainer-review.json"
 )
+CANONICAL_CLAIM_COLLAPSE_REVIEW_PATH = (
+    REPO_ROOT / "canonical" / "identity" / "v1" / "claim-collapse-maintainer-review.json"
+)
 NODE_RUNNER_PATH = SERVICE_DIR / "tools" / "canonical-retrieval-shadow.mjs"
 WORKER_BUNDLE_PATH = SERVICE_DIR / "dist" / "dry-run" / "index.js"
+COLLAPSE_REVIEW_SCHEMA = "rock-kb-claim-collapse-review-v2"
+COLLAPSE_INPUT_SCHEMA = "rock-kb-claim-collapse-input-v2"
+COLLAPSE_DECISION_SCHEMA = "rock-kb-claim-collapse-maintainer-review-v2"
+
+
+class _CollapseDecision(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    knowledge_unit_id: StrictStr = Field(min_length=1, max_length=240)
+    decision: Literal["approve", "hold", "reject"]
+    rationale: StrictStr = Field(min_length=1, max_length=1500)
+
+    @field_validator("knowledge_unit_id", "rationale")
+    @classmethod
+    def nonblank(cls, value: str) -> str:
+        if not value.strip() or value != value.strip():
+            raise ValueError("must be nonblank without surrounding whitespace")
+        return value
+
+
+class _CollapseMaintainerReview(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    schema_: Literal["rock-kb-claim-collapse-maintainer-review-v2"] = Field(alias="schema")
+    review_input_schema: Literal["rock-kb-claim-collapse-input-v2"]
+    review_input_sha256: StrictStr = Field(pattern=r"^[0-9a-f]{64}$")
+    reviewer: StrictStr = Field(min_length=1, max_length=160)
+    reviewed_at: StrictStr
+    review_scope: StrictStr = Field(min_length=1, max_length=1500)
+    decisions: list[_CollapseDecision] = Field(min_length=1)
+
+    @field_validator("reviewer", "review_scope")
+    @classmethod
+    def nonblank(cls, value: str) -> str:
+        if not value.strip() or value != value.strip() or "\n" in value:
+            raise ValueError("must be nonblank single-line text without surrounding whitespace")
+        return value
+
+    @field_validator("reviewed_at")
+    @classmethod
+    def timestamp_with_offset(cls, value: str) -> str:
+        if datetime.fromisoformat(value.replace("Z", "+00:00")).utcoffset() is None:
+            raise ValueError("reviewed_at requires an explicit UTC offset")
+        return value
+
+
 SHADOW_NO_ANSWER_EVALUATIONS = (
     {
         "schema": "rock-kb-service-evaluation-case-v1",
@@ -449,10 +503,10 @@ def write_claim_collapse_review(
         source_units=source_unit_rows,
         evidence_links=links,
     )
-    report = apply_claim_collapse_maintainer_review(
-        report,
-        destination / "claim-collapse-maintainer-review.json",
-    )
+    review_path = destination / "claim-collapse-maintainer-review.json"
+    if not review_path.exists():
+        review_path = CANONICAL_CLAIM_COLLAPSE_REVIEW_PATH
+    report = apply_claim_collapse_maintainer_review(report, review_path)
     (destination / "claim-collapse-review.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
@@ -491,6 +545,7 @@ def build_claim_collapse_review(
     for link in evidence_links:
         links_by_knowledge.setdefault(link.knowledge_unit_id, []).append(link)
     groups = []
+    review_inputs = []
     distilled_only_count = 0
     for unit in claim_units:
         public_ids = sorted(
@@ -544,7 +599,12 @@ def build_claim_collapse_review(
             and len(unit.source_unit_ids) >= len(public_rows)
         )
         aliases_retained = all(
-            row_id in unit.legacy_ids for row_id in public_ids
+            alias in unit.legacy_ids
+            for row in public_rows
+            for alias in [row["id"], *(row.get("legacy_ids") or [])]
+        )
+        provenance_retained = collapse_source_provenance_retained(
+            public_rows, unit, links, source_units_by_id, snapshots_by_id
         )
         exact_statement_match = (
             len(statements) == 1
@@ -556,6 +616,7 @@ def build_claim_collapse_review(
             and claim_type_match
             and aliases_retained
             and evidence_retained
+            and provenance_retained
         )
         groups.append(
             {
@@ -581,21 +642,35 @@ def build_claim_collapse_review(
                 "claim_type_match": claim_type_match,
                 "public_aliases_retained": aliases_retained,
                 "all_source_units_linked": evidence_retained,
+                "approved_source_provenance_retained": provenance_retained,
                 "reviewable": reviewable,
             }
         )
-    review_input = [
-        {
-            "knowledge_unit_id": row["knowledge_unit_id"],
-            "public_result_ids": row["public_result_ids"],
-            "source_work_ids": row["source_work_ids"],
-            "authority_tiers": row["authority_tiers"],
-        }
-        for row in groups
-    ]
+        linked_units = [
+            source_units_by_id[value]
+            for value in sorted(linked_source_unit_ids | set(unit.source_unit_ids))
+            if value in source_units_by_id
+        ]
+        snapshot_ids = sorted({row.source_snapshot_id for row in linked_units})
+        review_inputs.append({
+            "knowledge_unit": unit.model_dump(mode="json", by_alias=True, exclude_none=True),
+            "public_rows": public_rows,
+            "evidence_links": [row.model_dump(mode="json", by_alias=True) for row in links],
+            "source_units": [
+                row.model_dump(mode="json", by_alias=True, exclude={"text"})
+                for row in linked_units
+            ],
+            "source_snapshots": [
+                snapshots_by_id[value].model_dump(
+                    mode="json", by_alias=True,
+                    exclude={"observed_at", "last_checked_at", "content_changed_at", "observation_status"},
+                )
+                for value in snapshot_ids if value in snapshots_by_id
+            ],
+        })
     review_input_sha256 = sha256_text(
         json.dumps(
-            review_input,
+            {"schema": COLLAPSE_INPUT_SCHEMA, "groups": review_inputs},
             ensure_ascii=False,
             sort_keys=True,
             separators=(",", ":"),
@@ -605,7 +680,8 @@ def build_claim_collapse_review(
         int(row["redundant_public_row_count"]) for row in groups
     )
     return {
-        "schema": "rock-kb-claim-collapse-review-v1",
+        "schema": COLLAPSE_REVIEW_SCHEMA,
+        "review_input_schema": COLLAPSE_INPUT_SCHEMA,
         "review_input_sha256": review_input_sha256,
         "status": "generated_needs_reviewer_approval",
         "baseline_claim_row_count": len(baseline_claims),
@@ -625,28 +701,83 @@ def build_claim_collapse_review(
     }
 
 
+def collapse_source_provenance_retained(
+    public_rows: list[dict[str, Any]],
+    unit: KnowledgeUnit,
+    links: list[EvidenceLink],
+    source_units: dict[str, SourceUnit],
+    snapshots: dict[str, SourceSnapshot],
+) -> bool:
+    expected_units = set()
+    for row in public_rows:
+        payload = row.get("payload") or {}
+        evidence_hash = str(payload.get("safe_evidence_hash") or "")
+        refs = payload.get("source_refs") or []
+        if (
+            len(evidence_hash) != 64 or not refs
+            or payload.get("review_status") != "approved_for_public_distillation"
+        ):
+            return False
+        for ref in refs:
+            source_id = str(ref.get("source_id") or "")
+            url = str(ref.get("url") or ref.get("source_timestamp_url") or "")
+            record_id = matching_source_record_id(source_id, payload.get("source_record_ids") or [])
+            snapshot_id = source_snapshot_id(source_id, record_id, url, None)
+            locator = claim_source_locator(ref, record_id, url)
+            expected_id = source_unit_id(snapshot_id, locator)
+            source = source_units.get(expected_id)
+            snapshot = snapshots.get(snapshot_id)
+            if (
+                source is None or snapshot is None
+                or source.unit_kind == "existing_knowledge_projection"
+                or source.normalized_content_hash != evidence_hash
+                or source.required_public_handling == "private_evidence_only"
+                or not any(
+                    link.source_unit_id == expected_id
+                    and link.relation == "supports" and not link.needs_review
+                    and link.authority_tier == payload.get("authority_tier")
+                    and link.independence_group == (snapshot.source_work_id or snapshot_id)
+                    for link in links
+                )
+            ):
+                return False
+            expected_units.add(expected_id)
+    return expected_units == set(unit.source_unit_ids)
+
+
 def apply_claim_collapse_maintainer_review(
     report: dict[str, Any],
     review_path: Path,
 ) -> dict[str, Any]:
     if not review_path.exists():
         return report
-    review = json.loads(review_path.read_text(encoding="utf-8"))
+    try:
+        review = _CollapseMaintainerReview.model_validate(
+            json.loads(review_path.read_text(encoding="utf-8"))
+        )
+    except (ValueError, ValidationError):
+        return {
+            **report,
+            "status": "generated_needs_reviewer_approval",
+            "maintainer_review": {"status": "stale_or_incomplete", "validation_failed": True},
+        }
     expected_group_ids = {
         str(row.get("knowledge_unit_id") or "")
         for row in report.get("groups") or []
     }
     decisions = {
-        str(row.get("knowledge_unit_id") or ""): str(
-            row.get("decision") or ""
-        )
-        for row in review.get("decisions") or []
+        row.knowledge_unit_id: row.decision for row in review.decisions
     }
     hash_matches = (
-        review.get("review_input_sha256")
+        review.review_input_sha256
         == report.get("review_input_sha256")
+        and report.get("schema") == COLLAPSE_REVIEW_SCHEMA
+        and report.get("review_input_schema") == COLLAPSE_INPUT_SCHEMA
     )
-    coverage_matches = set(decisions) == expected_group_ids
+    coverage_matches = (
+        set(decisions) == expected_group_ids
+        and len(review.decisions) == len(decisions)
+    )
     all_approved = (
         coverage_matches
         and all(value == "approve" for value in decisions.values())
@@ -667,8 +798,8 @@ def apply_claim_collapse_maintainer_review(
         ),
         "maintainer_review": {
             "status": status,
-            "reviewed_at": review.get("reviewed_at"),
-            "reviewer": review.get("reviewer"),
+            "reviewed_at": review.reviewed_at,
+            "reviewer": review.reviewer,
             "hash_matches": hash_matches,
             "coverage_matches": coverage_matches,
             "approved_group_count": sum(

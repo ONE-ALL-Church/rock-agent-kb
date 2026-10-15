@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.12.1"
+  rock-kb-skill-version: "1.12.2"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-08-10T23:35:29Z"
+  rock-kb-published-at: "2026-10-15T05:40:00Z"
   rock-kb-minimum-client-version: "0.23.0"
 ---
 
@@ -357,6 +357,10 @@ tools instead of shell commands:
   improvise a mutating reproduction in production. If an assessment returns
   `revalidation_due_enrichment_ids`, do not rely on those enrichments for
   applicability until a replacement review is published.
+  Before recommending an upgrade, inspect `release_note_refs[].change_type`
+  and `release_status`. A linked feature or improvement is not fix evidence.
+  An alpha or beta release note does not prove general availability.
+  A recorded fix release does not prove that every build contains the fix.
 - `kb_assess_rock_issues`: compare issue version evidence with a bounded
   structured profile. Use `scope: open` by default; request
   `historical-unresolved` or `all-relevant` explicitly. Read `catalog.status`
@@ -680,6 +684,13 @@ compatibility, validation, and learnings. Never submit production IDs, private
 routes, people, secrets, or private source paths.
 
 ## Rockumentation API Full Text
+
+KB summaries and distilled knowledge are paraphrases, not verbatim source text.
+Fetch the cited article before quoting its exact wording or filling a missing detail.
+Treat a coverage warning as a KB limitation, not a statement from the article.
+Inspect all supplied evidence before saying that a fact is missing.
+Documentation revisions do not establish the Rock product versions that support a feature.
+Use explicit version evidence and label any inference.
 
 Rock's public Rockumentation pages can expose richer article content through the
 same public block-action API used by the KB ingester. Use this only to inspect

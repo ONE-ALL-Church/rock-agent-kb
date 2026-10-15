@@ -103,6 +103,7 @@ from ..model_map import (
     stamp_model_map_scrape_version,
 )
 from ..normalize import normalize_github_repo_metadata, normalize_raw_record, records_from_source_content
+from ..release_notes import fetch_release_note_records
 from ..paths import AGENT_DIR, MEDIA_DIR, NORMALIZED_DIR, PUBLIC_EXPORT_DIR, RAW_MANIFEST_DIR, REPO_ROOT, REVIEW_DIR, ensure_generated_dirs, source_output_path
 from ..pipeline.build import run_build
 from ..pipeline.status import build_status_report
@@ -633,7 +634,9 @@ def _normalize_source(src) -> int:
         records = deduplicate_source_records(
             [record for record in (normalize_community_fetch(src, row) for row in fetched_pages) if record]
         )
-    elif src.kind in {"rock_release_notes", "rock_mobile_release_notes", "podcast_rss", "rss", "rock_model_map"}:
+    elif src.kind in {"rock_release_notes", "rock_mobile_release_notes"}:
+        records = fetch_release_note_records(src)
+    elif src.kind in {"podcast_rss", "rss", "rock_model_map"}:
         fetched = fetch_url(src.root_url)
         records = records_from_source_content(src, fetched["content"])
     else:

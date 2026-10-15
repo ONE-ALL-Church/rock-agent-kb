@@ -135,17 +135,14 @@ def canonical_retrieval_shadow(
 ) -> None:
     """Run current and canonical rows through the production ranking Worker."""
 
-    typer.echo(
-        json.dumps(
-            run_canonical_retrieval_shadow(
-                destination,
-                limit=limit,
-                build_worker=not skip_worker_build,
-            ),
-            ensure_ascii=False,
-            indent=2,
-        )
+    result = run_canonical_retrieval_shadow(
+        destination,
+        limit=limit,
+        build_worker=not skip_worker_build,
     )
+    typer.echo(json.dumps(result, ensure_ascii=False, indent=2))
+    if result.get("status") != "pass":
+        raise typer.Exit(code=1)
 
 
 @app.command("reviewed-cross-source-promote")

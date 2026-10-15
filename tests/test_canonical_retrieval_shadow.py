@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import copy
 import json
+import pytest
+import rock_kb.canonical_retrieval_shadow as shadow_module
+from rock_kb.canonical_knowledge import build_canonical_knowledge_bundle
 
 from rock_kb.canonical_retrieval_shadow import (
     apply_claim_collapse_maintainer_review,
@@ -44,6 +48,46 @@ def claim_unit() -> KnowledgeUnit:
         },
         content_hash="0" * 64,
     )
+
+
+def test_collapse_review_uses_tracked_decision_in_clean_checkout(tmp_path, monkeypatch):
+    report = {
+        "schema": shadow_module.COLLAPSE_REVIEW_SCHEMA,
+        "review_input_schema": shadow_module.COLLAPSE_INPUT_SCHEMA,
+        "review_input_sha256": "a" * 64,
+        "all_groups_reviewable": True,
+        "groups": [{"knowledge_unit_id": "knowledge:claim:fixture"}],
+    }
+    review = {
+        "schema": shadow_module.COLLAPSE_DECISION_SCHEMA,
+        "review_input_schema": shadow_module.COLLAPSE_INPUT_SCHEMA,
+        "review_scope": "Exact deduplication only.",
+        "review_input_sha256": "a" * 64,
+        "reviewer": "fixture-reviewer",
+        "reviewed_at": "2026-10-15T00:00:00Z",
+        "decisions": [{"knowledge_unit_id": "knowledge:claim:fixture", "decision": "approve", "rationale": "Exact supported claim."}],
+    }
+    tracked = tmp_path / "tracked-review.json"
+    tracked.write_text(json.dumps(review))
+    destination = tmp_path / "scratch"
+    destination.mkdir()
+    monkeypatch.setattr(shadow_module, "CANONICAL_CLAIM_COLLAPSE_REVIEW_PATH", tracked)
+    monkeypatch.setattr(shadow_module, "build_claim_collapse_review", lambda **_kwargs: report)
+
+    result = shadow_module.write_claim_collapse_review(destination, baseline_rows=[], knowledge_units=[],
+        source_snapshots=[], source_units=[], evidence_links=[])
+
+    assert result["status"] == "reviewer_approved"
+    assert result["maintainer_review"]["hash_matches"] is True
+    review["review_input_sha256"] = "b" * 64
+    (destination / "claim-collapse-maintainer-review.json").write_text(json.dumps(review))
+    stale = shadow_module.write_claim_collapse_review(destination, baseline_rows=[], knowledge_units=[],
+        source_snapshots=[], source_units=[], evidence_links=[])
+    assert stale["maintainer_review"]["status"] == "stale_or_incomplete"
+    (destination / "claim-collapse-maintainer-review.json").write_text("not json")
+    malformed = shadow_module.write_claim_collapse_review(destination, baseline_rows=[], knowledge_units=[],
+        source_snapshots=[], source_units=[], evidence_links=[])
+    assert malformed["maintainer_review"]["validation_failed"] is True
 
 
 def test_canonical_claim_title_preserves_production_ranking_semantics():
@@ -456,74 +500,70 @@ def test_endpoint_case_builder_covers_all_exact_surfaces():
     assert mcp_case["arguments"] == {"id": "claim:claim:legacy"}
 
 
-def test_claim_collapse_review_preserves_aliases_authority_and_mirror_evidence(
-    tmp_path,
-):
-    unit = claim_unit().model_copy(
-        update={
-            "legacy_ids": ["claim:claim:first", "claim:claim:second"],
-            "source_unit_ids": ["unit:first", "unit:second"],
-            "source_work_ids": ["media-work:episode:1"],
-            "authority_tiers": ["official", "community-reviewed"],
-        }
-    )
-    snapshots = [
-        SourceSnapshot(
-            schema="rock-kb-source-snapshot-v1",
-            source_snapshot_id=f"snapshot:{suffix}",
-            source_id=f"source:{suffix}",
-            source_record_id=f"record:{suffix}",
-            source_work_id="media-work:episode:1",
-            authority_tier=authority,
-            public_policy="cite_and_summarize_only",
-        )
-        for suffix, authority in [
-            ("first", "official"),
-            ("second", "community-reviewed"),
-        ]
-    ]
-    source_units = [
-        SourceUnit(
-            schema="rock-kb-source-unit-v1",
-            source_unit_id=f"unit:{suffix}",
-            source_snapshot_id=f"snapshot:{suffix}",
-            unit_kind="media_segment",
-            locator=SourceLocator(kind="timestamp", value="01:00"),
-            required_public_handling="cite_and_summarize_only",
-        )
-        for suffix in ["first", "second"]
-    ]
-    links = [
-        EvidenceLink(
-            schema="rock-kb-evidence-link-v1",
-            evidence_link_id=f"evidence:{suffix}",
-            knowledge_unit_id=unit.knowledge_unit_id,
-            source_unit_id=f"unit:{suffix}",
-            evidence_summary="Exact reviewed statement.",
-            authority_tier="official",
-        )
-        for suffix in ["first", "second"]
-    ]
+def collapse_inputs():
     baseline = [
         {
             "id": f"claim:claim:{suffix}",
             "kind": "claim",
             "body": "Full claim statement",
+            "concepts": ["system-admin-ops"],
+            "authority_tier": authority,
+            "claim_tier": "source_backed",
+            "legacy_ids": [f"claim:claim:{suffix}:system-admin-ops"],
             "payload": {
+                "schema": "rock-kb-claim-v1",
+                "claim_id": f"claim:{suffix}",
                 "claim": "Full claim statement",
                 "claim_type": "operational_guidance",
+                "review_status": "approved_for_public_distillation",
+                "authority_tier": authority,
+                "safe_evidence_hash": suffix[0] * 64,
+                "source_record_ids": [f"{source}:record"],
+                "source_refs": [{"source_id": source, "title": "Rockcast Ep 1", "url": url, "timestamp": "01:00"}],
+                "license_status": "cite_and_summarize_only",
+                "concept_ids": ["system-admin-ops"],
+                "confidence": "medium",
+                "public_publish_mode": "public_cite_and_summarize_only",
+                "needs_live_verification": False,
+                "created_at": "2026-10-15T00:00:00Z",
+                "updated_at": "2026-10-15T00:00:00Z",
+                "derived_from": {},
+                "community_derived": authority == "community-reviewed",
+                "primary_concept_id": "system-admin-ops",
+                "concept_assignment_reason": "fixture",
+                "answer_candidate": True,
+                "operational_priority": 50,
+                "requires_live_instance": True,
+                "claim_tier": "source_backed",
             },
         }
-        for suffix in ["first", "second"]
+        for suffix, source, authority, url in [
+            ("first", "rock_youtube", "official", "https://www.youtube.com/watch?v=fixture"),
+            ("aaaa", "rock_podcast_rss", "community-reviewed", "https://shows.acast.com/rock-cast/episodes/fixture"),
+        ]
     ]
+    bundle, _ = build_canonical_knowledge_bundle(search_rows=baseline, distilled_claims=[])
+    return dict(baseline_rows=baseline, knowledge_units=bundle.knowledge_units,
+                source_snapshots=bundle.source_snapshots, source_units=bundle.source_units,
+                evidence_links=bundle.evidence_links)
 
-    report = build_claim_collapse_review(
-        baseline_rows=baseline,
-        knowledge_units=[unit],
-        source_snapshots=snapshots,
-        source_units=source_units,
-        evidence_links=links,
-    )
+
+def collapse_decisions(report):
+    return {
+        "schema": shadow_module.COLLAPSE_DECISION_SCHEMA,
+        "review_input_schema": shadow_module.COLLAPSE_INPUT_SCHEMA,
+        "review_input_sha256": report["review_input_sha256"],
+        "reviewed_at": "2026-10-15T00:00:00Z",
+        "reviewer": "fixture-reviewer",
+        "review_scope": "Exact statement deduplication only.",
+        "decisions": [{"knowledge_unit_id": row["knowledge_unit_id"], "decision": "approve",
+                       "rationale": "Same claim; aliases and source evidence retained."}
+                      for row in report["groups"]],
+    }
+
+
+def test_claim_collapse_review_preserves_aliases_authority_and_mirror_evidence(tmp_path):
+    report = build_claim_collapse_review(**collapse_inputs())
     group = report["groups"][0]
 
     assert report["collapsed_group_count"] == 1
@@ -532,23 +572,81 @@ def test_claim_collapse_review_preserves_aliases_authority_and_mirror_evidence(
     assert group["independent_source_work_count"] == 1
     assert group["mirrored_evidence_count"] == 1
     review_path = tmp_path / "review.json"
-    review_path.write_text(
-        json.dumps(
-            {
-                "review_input_sha256": report["review_input_sha256"],
-                "reviewed_at": "2026-07-30",
-                "reviewer": "test",
-                "decisions": [
-                    {
-                        "knowledge_unit_id": unit.knowledge_unit_id,
-                        "decision": "approve",
-                    }
-                ],
-            }
-        ),
-        encoding="utf-8",
-    )
+    review_path.write_text(json.dumps(collapse_decisions(report)), encoding="utf-8")
     reviewed = apply_claim_collapse_maintainer_review(report, review_path)
 
     assert reviewed["status"] == "reviewer_approved"
     assert reviewed["maintainer_review"]["status"] == "approved"
+
+
+@pytest.mark.parametrize("change", ["wording", "alias", "version", "review", "evidence", "source_hash", "locator", "authority"])
+def test_collapse_hash_binds_semantic_inputs(tmp_path, change):
+    inputs = collapse_inputs()
+    before = build_claim_collapse_review(**inputs)
+    unit = inputs["knowledge_units"][0]
+    if change == "wording":
+        unit.retrieval_text = "Changed exact statement."
+        for row in inputs["baseline_rows"]:
+            row["body"] = row["payload"]["claim"] = unit.retrieval_text
+    elif change == "alias":
+        unit.legacy_ids.append("claim:additional-alias")
+    elif change == "version":
+        unit.rock_versions = ["19.0"]
+    elif change == "review":
+        unit.payload["approved_claims"][0]["needs_live_verification"] = True
+    elif change == "evidence":
+        inputs["evidence_links"][0].evidence_summary = "Changed evidence."
+    elif change == "source_hash":
+        inputs["source_units"][0].normalized_content_hash = "b" * 64
+    elif change == "locator":
+        inputs["source_units"][0].locator.value = "02:00"
+    else:
+        inputs["evidence_links"][0].authority_tier = "community-unreviewed"
+    after = build_claim_collapse_review(**inputs)
+    assert after["review_input_sha256"] != before["review_input_sha256"]
+    path = tmp_path / "review.json"
+    path.write_text(json.dumps(collapse_decisions(before)))
+    assert apply_claim_collapse_maintainer_review(after, path)["maintainer_review"]["status"] != "approved"
+
+
+@pytest.mark.parametrize("field,value", [
+    ("schema", "rock-kb-claim-collapse-maintainer-review-v1"),
+    ("review_input_schema", "old"), ("reviewer", " "), ("reviewer", 123),
+    ("reviewed_at", "2026-10-15"), ("reviewed_at", "not-a-date"),
+    ("decisions", []), ("extra", True), ("review_scope", ""),
+    ("review_input_sha256", "a" * 64),
+])
+def test_collapse_review_rejects_invalid_or_stale_records(tmp_path, field, value):
+    report = build_claim_collapse_review(**collapse_inputs())
+    review = collapse_decisions(report)
+    review[field] = value
+    path = tmp_path / "review.json"
+    path.write_text(json.dumps(review))
+    assert apply_claim_collapse_maintainer_review(report, path)["maintainer_review"]["status"] != "approved"
+
+
+@pytest.mark.parametrize("change", ["duplicate", "extra", "hold", "reject", "unknown", "no_rationale"])
+def test_collapse_review_requires_unique_complete_explicit_decisions(tmp_path, change):
+    report = build_claim_collapse_review(**collapse_inputs())
+    review = collapse_decisions(report)
+    if change in {"duplicate", "extra"}:
+        decision = copy.deepcopy(review["decisions"][0])
+        if change == "extra":
+            decision["knowledge_unit_id"] = "knowledge:claim:extra"
+        review["decisions"].append(decision)
+    elif change == "no_rationale":
+        del review["decisions"][0]["rationale"]
+    else:
+        review["decisions"][0]["decision"] = change
+    path = tmp_path / "review.json"
+    path.write_text(json.dumps(review))
+    assert apply_claim_collapse_maintainer_review(report, path)["maintainer_review"]["status"] != "approved"
+
+
+def test_collapse_review_rejects_generated_or_unbound_source_evidence():
+    inputs = collapse_inputs()
+    inputs["source_units"][0].normalized_content_hash = None
+    inputs["source_units"][0].public_summary = "Generated summary, not source evidence."
+    report = build_claim_collapse_review(**inputs)
+    assert report["all_groups_reviewable"] is False
+    assert report["groups"][0]["approved_source_provenance_retained"] is False

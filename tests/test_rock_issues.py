@@ -563,6 +563,209 @@ def test_release_note_join_adds_official_fix_evidence():
     )
 
 
+@pytest.mark.parametrize("change_type", ["new_feature", "improvement", "note", "security"])
+def test_release_note_issue_link_does_not_always_prove_a_fix(change_type):
+    raw, _ = core_issue()
+    raw["labels"] = []
+    row = normalize_issue(
+        "SparkDevNetwork/Rock",
+        raw,
+        release_notes=[{
+            "id": "rock_core_release_notes:feature",
+            "source_id": "rock_core_release_notes",
+            "version": "20.0",
+            "summary": "Added a Workflows panel to the Connections Hub docked view.",
+            "change_type": change_type,
+            "release_status": "Alpha Testing",
+        }],
+    )
+
+    assert row["release_note_refs"][0]["change_type"] == change_type
+    assert row["release_note_refs"][0]["release_status"] == "Alpha Testing"
+    assert not any(item["source_kind"] == "release_note" for item in row["version_evidence"])
+    assert row["remediation_state"] == "none_recorded"
+    assert row["validation_state"] == "reported"
+
+
+def test_release_note_fix_preserves_alpha_status_without_claiming_availability():
+    raw, _ = core_issue()
+    raw["labels"] = []
+    row = normalize_issue(
+        "SparkDevNetwork/Rock",
+        raw,
+        release_notes=[{
+            "id": "rock_core_release_notes:fix",
+            "source_id": "rock_core_release_notes",
+            "version": "20.0",
+            "summary": "Corrected the docked request panel.",
+            "change_type": "bug_fix",
+            "release_status": "Alpha Testing",
+        }],
+    )
+
+    assert row["remediation_state"] == "fixed_release_recorded"
+    assert row["release_note_refs"][0]["release_status"] == "Alpha Testing"
+    assert any(item["source_kind"] == "release_note" and item["relationship"] == "fixed"
+               for item in row["version_evidence"])
+    assessment = assess_issue(row, {"core_version": "20.0"})
+    assert assessment["remediation"] == "prerelease_fix_recorded"
+    assert assessment["needs_live_verification"] is True
+    assert assessment["evidence"]["release_note_refs"][0]["release_status"] == "Alpha Testing"
+    assert any(item["release_status"] == "Alpha Testing" for item in assessment["evidence"]["version_evidence"])
+
+
+@pytest.mark.parametrize("upstream,expected", [
+    ("added", "new_feature"), ("improved", "improvement"), ("security", "security"), ("unknown", "note"),
+])
+def test_api_type_overrides_conflicting_normalized_type_and_prose(upstream, expected):
+    raw, _ = core_issue()
+    raw["labels"] = []
+    row = normalize_issue("SparkDevNetwork/Rock", raw, release_notes=[{
+        "id": "release:typed", "source_id": "rock_core_release_notes", "version": "20.0",
+        "summary": "Fixed synthetic behavior. Fixes: #6917", "change_type": "bug_fix",
+        "upstream_change_type": upstream,
+    }])
+    assert row["release_note_refs"][0]["change_type"] == expected
+    assert row["release_note_refs"][0]["upstream_change_type"] == upstream
+    assert not any(item["source_kind"] == "release_note" for item in row["version_evidence"])
+    assert row["remediation_state"] == "none_recorded"
+
+
+@pytest.mark.parametrize("summary", ["Added a panel. Fixes: #123", "Improved a panel. Fixes: #123"])
+def test_legacy_issue_reference_in_prose_is_not_fix_proof(summary):
+    assert rock_issues.release_note_change_type({"summary": summary}) == "note"
+
+
+@pytest.mark.parametrize("repository,upstream,display,target,component", [
+    ("SparkDevNetwork/Rock", "1.16.4", "16.4", "16.4", "rock_core"),
+    ("SparkDevNetwork/Rock.Mobile-Issues", "1.7.0", "7.0", "7.0", "mobile_shell"),
+])
+def test_release_product_versions_and_metadata_survive_assessment(repository, upstream, display, target, component):
+    raw, _ = core_issue()
+    raw["labels"] = []
+    source_id = "rock_mobile_release_notes" if component == "mobile_shell" else "rock_core_release_notes"
+    row = normalize_issue(repository, raw, release_notes=[{
+        "id": "release:product", "source_id": source_id, "version": upstream,
+        "release_display": display, "summary": "Synthetic correction", "upstream_change_type": "fixed",
+        "release_status": "Released", "release_flags": {"isProduction": True, "isEarlyAccess": True},
+        "minimum_os": {"ios": "15.0", "android": "7.0"} if component == "mobile_shell" else None,
+        "minimum_rock_version": "1.12.6" if component == "mobile_shell" else None,
+    }])
+    ref = row["release_note_refs"][0]
+    assert ref["version"] == ref["product_version"] == display
+    assert ref["upstream_version"] == upstream
+    evidence = next(item for item in row["version_evidence"] if item["source_kind"] == "release_note")
+    assert evidence["normalized_version"] == display
+    assert evidence["component"] == component
+    assert evidence["upstream_version"] == upstream
+    assessment = assess_issue(row, {"core_version": target, "mobile_shell_version": target})
+    assert assessment["fix_target_relations"] == ["same_release_line"]
+    exposed = assessment["evidence"]["release_note_refs"][0]
+    assert exposed["release_flags"]["isEarlyAccess"] is True
+    if component == "mobile_shell":
+        assert exposed["minimum_os"]["ios"] == "15.0"
+        assert exposed["minimum_rock_version"] == "1.12.6"
+    validate_rock_issue_rows([row])
+
+
+def test_release_metadata_schema_accepts_legacy_rows():
+    from rock_kb.schemas.rock_issue import RockIssueReleaseNoteRef, RockIssueVersionEvidence
+
+    legacy_ref = {"record_id": "legacy", "source_id": "rock_core_release_notes", "url": "https://example.test",
+                  "version": "19.1", "summary": "Fixed synthetic behavior", "content_hash": "a" * 64}
+    assert RockIssueReleaseNoteRef.model_validate(legacy_ref).upstream_version is None
+    evidence = rock_issues.version_row(component="rock_core", relationship="fixed", raw_version="19.1",
+                                     source_kind="release_note", source_ref="legacy", authority_tier="official", confidence="high")
+    assert RockIssueVersionEvidence.model_validate(evidence).release_flags is None
+
+
+def test_release_index_join_preserves_products_raw_metadata_and_semantic_hash(tmp_path, monkeypatch):
+    from rock_kb.indexes import build_release_index
+
+    rows = [{
+        "id": "release:" + family, "source_id": "rock_" + family + "_release_notes",
+        "release_family": family, "version": upstream, "release_display": display,
+        "summary": "Synthetic correction", "change_type": "bug_fix", "upstream_change_type": "fixed",
+        "release_status": "Beta Testing" if family == "core" else None,
+        "release_flags": {"isBeta": True, "isProduction": False} if family == "core" else {},
+        "minimum_os": {"ios": "15.0", "android": "7.0"} if family == "mobile" else None,
+        "minimum_rock_version": "1.12.6" if family == "mobile" else None,
+        "issue_refs": ["123"], "content_hash": "a" * 64,
+    } for family, upstream, display in (("core", "1.16.4", "1.16.4"), ("mobile", "1.7.0", "7.0"))]
+    path = tmp_path / "release-index.jsonl"
+    build_release_index(rows, path)
+    monkeypatch.setattr(rock_issues, "RELEASE_INDEX_PATH", path)
+    index = rock_issues.load_release_note_index()
+    for repository, component, target in (
+        ("SparkDevNetwork/Rock", "rock_core", "16.4"),
+        ("SparkDevNetwork/Rock.Mobile-Issues", "mobile_shell", "7.0"),
+    ):
+        refs = index[(repository, 123)]
+        assert refs[0]["content_hash"] == "a" * 64
+        raw, _ = core_issue()
+        raw["number"] = 123
+        raw["labels"] = []
+        issue = normalize_issue(repository, raw, release_notes=refs)
+        assessment = assess_issue(issue, {"core_version": target, "mobile_shell_version": target})
+        assert assessment["fix_target_relations"] == ["same_release_line"]
+        evidence = next(row for row in assessment["evidence"]["version_evidence"] if row["source_kind"] == "release_note")
+        assert evidence["component"] == component
+        assert evidence["product_version"] == target
+        assert evidence["upstream_change_type"] == "fixed"
+        if component == "rock_core":
+            assert assessment["remediation"] == "prerelease_fix_recorded"
+            assert evidence["release_flags"]["isBeta"] is True
+        else:
+            assert evidence["minimum_rock_version"] == "1.12.6"
+    assert rows[0]["version"] == "1.16.4"
+    assert rows[1]["version"] == "1.7.0"
+
+
+def test_production_flag_prevents_historical_alpha_flag_misclassification():
+    assert not rock_issues.release_note_is_prerelease({"release_flags": {"isAlpha": True, "isProduction": True}})
+
+
+def test_issue_pagination_uses_creation_order_and_preserves_complete_count(monkeypatch):
+    client = rock_issues.GitHubIssueClient(token="fixture-not-a-secret")
+    cursors = []
+
+    def graphql(query, variables):
+        assert "field: CREATED_AT, direction: ASC" in query
+        assert "field: UPDATED_AT" not in query
+        cursor = variables["cursor"]
+        cursors.append(cursor)
+        first = cursor is None
+        return {"repository": {"issues": {
+            "totalCount": 2,
+            "nodes": [{"id": "I_one" if first else "I_two", "number": 1 if first else 2}],
+            "pageInfo": {"hasNextPage": first, "endCursor": "one" if first else "two"},
+        }}}
+
+    monkeypatch.setattr(client, "graphql", graphql)
+    try:
+        rows = client.issues("SparkDevNetwork/Rock")
+    finally:
+        client.close()
+
+    assert cursors == [None, "one"]
+    assert [row["number"] for row in rows] == [1, 2]
+    assert client.issue_counts["SparkDevNetwork/Rock"] == 2
+
+
+@pytest.mark.parametrize("kind", ["missing", "duplicate"])
+def test_issue_pagination_still_rejects_incomplete_or_duplicate_results(monkeypatch, kind):
+    client = rock_issues.GitHubIssueClient(token="fixture-not-a-secret")
+    nodes = [{"id": "I_one", "number": 1}] * (2 if kind == "duplicate" else 1)
+    monkeypatch.setattr(client, "graphql", lambda _query, _variables: {"repository": {"issues": {
+        "totalCount": 2, "nodes": nodes, "pageInfo": {"hasNextPage": False},
+    }}})
+    try:
+        with pytest.raises(ValueError, match="mismatch|duplicate"):
+            client.issues("SparkDevNetwork/Rock")
+    finally:
+        client.close()
+
+
 def test_graphql_mapper_preserves_immutable_ids_and_current_label_ids():
     raw = graphql_issue_to_raw(
         {
