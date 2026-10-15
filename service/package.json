@@ -11,7 +11,7 @@
     "wrangler:check": "wrangler deploy --dry-run --outdir dist/dry-run --env production"
   },
   "devDependencies": {
-    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/client": "2.2.0",
     "@types/node": "^25.9.3",
     "miniflare": "4.20260730.0",
     "typescript": "^5.8.3",
@@ -19,17 +19,23 @@
   },
   "overrides": {
     "@hono/node-server": "2.0.12",
+    "agents": {
+      "@modelcontextprotocol/client": "$@modelcontextprotocol/client",
+      "@modelcontextprotocol/sdk": "$@modelcontextprotocol/sdk"
+    },
     "browserslist": "4.28.8",
     "esbuild": "^0.28.1",
-    "fast-uri": "3.1.7",
-    "hono": "4.13.5",
-    "ip-address": "10.7.0",
+    "fast-uri": "3.1.8",
+    "hono": "4.13.7",
+    "ip-address": "10.7.1",
+    "proxy-addr": "2.0.8",
     "qs": "6.16.0",
-    "undici": "7.29.0"
+    "sharp": "0.35.5",
+    "undici": "7.29.1"
   },
   "dependencies": {
     "@cloudflare/codemode": "0.5.1",
-    "@modelcontextprotocol/sdk": "1.30.0",
+    "@modelcontextprotocol/sdk": "1.31.0",
     "@modelcontextprotocol/server": "2.0.0",
     "agents": "0.20.1",
     "ai": "6.0.230",
