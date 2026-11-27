@@ -6,6 +6,10 @@ Last updated: 2026-08-12
 
 Status: accepted architecture, canonical active, legacy rollback retained
 
+The [Griffin adoption decision](griffin-adoption-2026-11-27.md) sets the current
+content priorities and defers broad official-prose distillation. This document
+describes the canonical reader and its rollback.
+
 ## Decision
 
 Continue evolving the current knowledge base. Do not rebuild it from scratch.

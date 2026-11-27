@@ -162,7 +162,22 @@ def sync_rock_ideas(
         encoding="utf-8",
     )
     render_rock_idea_guide(summary)
+    update_idea_manifest(summary)
     return summary
+
+
+def update_idea_manifest(summary: dict[str, Any]) -> None:
+    path = AGENT_DIR / "rock-kb-manifest.json"
+    if not path.exists():
+        return
+    manifest = read_json_object(path)
+    relationships = summary["relationships"]
+    manifest.update(
+        rock_idea_count=summary["record_count"],
+        rock_idea_relationship_count=relationships["relationship_count"],
+        rock_idea_verification_queue_count=relationships["verification_queue"]["queue_count"],
+    )
+    path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def fetch_idea_catalog(*, max_pages: Optional[int] = None) -> tuple[list[dict[str, Any]], int, bool]:

@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.12.2"
+  rock-kb-skill-version: "1.13.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-10-15T05:40:00Z"
+  rock-kb-published-at: "2026-11-27T19:32:00Z"
   rock-kb-minimum-client-version: "0.23.0"
 ---
 
@@ -12,11 +12,50 @@ metadata:
 
 ## Purpose
 
-Use the Rock Agent Knowledge Base before web search for Rock RMS operational, development, Lava, model-map, mobile, workflow, security, reporting, check-in, group, API, or contribution questions.
+Use this community KB for exact Rock references, reusable implementations, and
+troubleshooting. Use Rock's official Community Knowledge Base, Griffin, for
+general Rock product questions when the host has that connector.
 
 The KB is source-tiered. Never blend community-only material into authoritative guidance without labeling it.
 
 ## Access Strategy
+
+### Choose The Evidence Source
+
+- **Product setup, supported behavior, and official reference:** Start with
+  Griffin. Use `search_knowledge` with the target Rock major version. Use
+  `list_sources` to discover valid filters. Try `Core Documentation` and a matching
+  domain if broad search returns unrelated results.
+- **Lava syntax, workflow actions, REST, and database schema:** Open Griffin's
+  matching topic tool, then pass a key from its table of contents to `get_article`.
+  Follow child articles and content offsets when needed. For internal behavior,
+  use version-scoped `search_code` or `grep_code`, then read lines with
+  `get_code_lines`.
+- **Current release and upgrade status:** Verify the exact release, date, and
+  support state against [Rock's live release timeline](https://community.rockrms.com/release-timeline).
+  Use release notes and technical bulletins for the changes and upgrade steps.
+- **Exact rendering surfaces, reusable implementation, and issue triage:** Use
+  this KB's Lava context, recipe, Rock issue, and Idea tools. For Model Map,
+  use its exact property and cross-track views. Use Griffin's matching schema
+  topic for major-version database evidence.
+- **Instance-specific facts:** Use the separately authorized instance connector
+  or read-only checks. Send only general public questions to either knowledge
+  service. Keep church data, identifiers, logs, and connection URLs local.
+
+If Griffin is unavailable or lacks the needed evidence, use this KB's cited
+guidance and open the official source as needed. Prefer current primary sources
+when results disagree. Check `kb_get_freshness` for issue and Idea catalog lag.
+If the requested build is absent from a Lava context's observed versions, verify
+that build against upstream code or the instance. Keep the availability unknown
+until verified.
+
+Connect Griffin separately with the Community Knowledge Base URL from your
+organization's Rock Community page. Use a private, user-level entry with a
+distinct name such as `rock-community-knowledge`. Keep the existing `rock-kb`
+entry for this project. See the
+[Griffin integration guide](https://github.com/ONE-ALL-Church/rock-agent-kb/blob/main/docs/runbooks/griffin-integration.md).
+
+### Use The Community KB
 
 For ordinary online retrieval, MCP and the `rock-kb` CLI are co-primary
 interfaces to the same hosted public projection:
@@ -576,10 +615,10 @@ telemetry disabled and do not send an installation marker.
 
 Use `community-unreviewed` rows only as leads. Say they are unreviewed.
 
-3. For broad questions, search first, expand only the relevant result IDs, then
-open the matching concept guide. For exact behavior, inspect approved claims
-and source citations before answering. Avoid `search --full` or MCP `full: true`
-unless a compatibility workflow genuinely requires every result body.
+3. For broad questions, start with the evidence source listed under Access
+Strategy. When searching this KB, expand only relevant result IDs and open a
+concept guide when needed. Avoid `search --full` or MCP `full: true` unless a
+compatibility workflow requires every result body.
 
 4. For version-sensitive answers, call out Rock version when the KB provides it. If version is missing or behavior can vary by instance, say so.
 

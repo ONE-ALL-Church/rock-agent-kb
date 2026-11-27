@@ -4,8 +4,12 @@ This knowledge base is public-safe Rock RMS guidance for agents. It combines sou
 
 ## Read The KB
 
-Most testers should use one of two co-primary online paths. Both query the same
-hosted public projection and apply the same trust and retrieval rules:
+For everyday Rock product questions, start with Rock's official Community
+Knowledge Base when your host has it. Use this project for community recipes,
+exact Lava contexts, issue triage, Ideas, and Model Map comparisons.
+[Connect both knowledge bases](runbooks/griffin-integration.md).
+
+The community KB has two online paths. Both query the same public projection:
 
 - **MCP for agents:** use when the AI client supports native HTTP MCP tools.
 - **CLI for terminal testing:** use when a person, script, or terminal-based

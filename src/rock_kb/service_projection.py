@@ -1435,6 +1435,7 @@ def build_d1_seed_sql(
   topics_json TEXT NOT NULL DEFAULT '[]',
   payload_json TEXT NOT NULL
 );""",
+        "CREATE INDEX search_rows_kind_rank_idx ON search_rows (kind, claim_tier_rank);",
         "DROP TABLE IF EXISTS search_row_concepts;",
         "CREATE TABLE search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept));",
         "CREATE INDEX search_row_concepts_concept_idx ON search_row_concepts (concept, row_id);",
@@ -1459,6 +1460,7 @@ def build_d1_seed_sql(
   topics_json TEXT NOT NULL DEFAULT '[]',
   payload_json TEXT NOT NULL
 );""",
+        "CREATE INDEX canonical_search_rows_kind_rank_idx ON canonical_search_rows (kind, claim_tier_rank);",
         "DROP TABLE IF EXISTS canonical_search_row_concepts;",
         "CREATE TABLE canonical_search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept));",
         "CREATE INDEX canonical_search_row_concepts_concept_idx ON canonical_search_row_concepts (concept, row_id);",
