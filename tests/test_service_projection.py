@@ -702,6 +702,23 @@ def test_build_d1_seed_sql_switches_artifact_prefix_after_projection_rows():
     assert sql.rfind("'artifact_prefix'") > sql.rfind("CREATE TABLE rock_issue_enrichments")
 
 
+def test_d1_exact_search_lookups_use_kind_and_rank_index():
+    sql = build_d1_seed_sql(
+        version="test",
+        generated_at="2026-06-12T00:00:00Z",
+        search_rows=[],
+        org_rows=[],
+    )
+    with sqlite3.connect(":memory:") as conn:
+        conn.executescript(sql)
+        for table in ("search_rows", "canonical_search_rows"):
+            plan = conn.execute(
+                f"EXPLAIN QUERY PLAN SELECT * FROM {table} WHERE kind = ? AND claim_tier_rank >= ?",
+                ("model_map", 1),
+            ).fetchall()
+            assert any(f"USING INDEX {table}_kind_rank_idx" in step[3] for step in plan)
+
+
 def test_build_d1_seed_sql_records_inactive_canonical_shadow_history():
     shadow = {
         "content_hash": "b" * 64,

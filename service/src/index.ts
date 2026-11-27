@@ -1192,7 +1192,7 @@ async function exactModelMapRows(
   minRank: number,
   retrievalProjection: RetrievalProjection = "legacy",
 ): Promise<Array<SearchRow & { rank?: number }>> {
-  if (!normalizeModelLookup(query)) {
+  if (!hasExplicitModelMapIntent(query) || !normalizeModelLookup(query)) {
     return [];
   }
   const tables = RETRIEVAL_TABLES[retrievalProjection];
