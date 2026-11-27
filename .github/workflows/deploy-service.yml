@@ -147,11 +147,15 @@ jobs:
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/operations/freshness" >/tmp/source-freshness.json
           uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5 --output /tmp/hosted-evaluation.json
       - name: Record hosted evaluation summary
-        if: ${{ env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
-        run: >
-          uv run kb record-hosted-eval /tmp/hosted-evaluation.json
-          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
-          --env production
+        if: ${{ !cancelled() && env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.ROCK_KB_D1_DATABASE_ID != '' }}
+        run: |
+          if [ ! -s /tmp/hosted-evaluation.json ]; then
+            echo "::notice::No completed hosted evaluation report to record."
+            exit 0
+          fi
+          uv run kb record-hosted-eval /tmp/hosted-evaluation.json \
+            --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}" \
+            --env production
       - name: Enforce bounded artifact retention
         if: ${{ env.ROCK_KB_BASE_URL != '' && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
         run: >

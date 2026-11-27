@@ -46,8 +46,8 @@ def run_service_quality_gate(
     thresholds = thresholds or QualityThresholds()
     run_command = run_command or run_checked
     selected_projection = normalize_quality_gate_projection(retrieval_projection)
-    projection = build_service_projection()
     with tempfile.TemporaryDirectory(prefix="rock-kb-quality-gate-") as temp_dir:
+        projection = build_service_projection(destination=Path(temp_dir) / "projection")
         state_dir = Path(temp_dir) / "wrangler-state"
         run_command(
             [
@@ -156,6 +156,7 @@ def run_service_quality_gate(
         ],
     }
     destination = SERVICE_DIR / "dist" / "lexical-quality-gate.json"
+    destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return report
 

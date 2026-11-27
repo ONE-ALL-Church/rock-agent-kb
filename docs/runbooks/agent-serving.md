@@ -373,6 +373,12 @@ Run the hosted evaluation gate after deployment:
 uv run kb eval-service --base-url https://rock-agent-kb.oneandall.church
 ```
 
+Keep the default six concurrent requests for the hosted gate. It rejects both
+unavailable queries and ranking failures. A serial run can diagnose overload,
+but it cannot replace the concurrent gate. The deployment workflow records
+completed passing and failing summaries in the dashboard. It stores counts
+and metrics, not query text.
+
 Before merge or deployment, run the same evaluation set against an isolated
 local Worker and production-size D1 projection:
 
