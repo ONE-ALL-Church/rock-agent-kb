@@ -636,7 +636,17 @@ def _normalize_source(src) -> int:
         )
     elif src.kind in {"rock_release_notes", "rock_mobile_release_notes"}:
         records = fetch_release_note_records(src)
-    elif src.kind in {"podcast_rss", "rss", "rock_model_map"}:
+    elif src.kind in {"podcast_rss", "rss"}:
+        fetched = fetch_url(src.root_url)
+        if fetched.get("status_code") != 200:
+            raise ValueError(f"{src.id}: RSS fetch failed with HTTP {fetched.get('status_code')}")
+        content_type = str(fetched.get("content_type") or "").split(";", 1)[0].strip().lower()
+        if content_type not in {"application/rss+xml", "application/atom+xml", "application/xml", "text/xml"}:
+            raise ValueError(f"{src.id}: RSS fetch returned an unsupported content type")
+        records = records_from_source_content(src, fetched["content"])
+        if not records:
+            raise ValueError(f"{src.id}: RSS normalization produced no records; last-good records were not replaced")
+    elif src.kind == "rock_model_map":
         fetched = fetch_url(src.root_url)
         records = records_from_source_content(src, fetched["content"])
     else:

@@ -282,6 +282,10 @@ def infer_mobile_component_type(title: str) -> Optional[str]:
 
 def parse_rss(source: Source, xml: str) -> list[dict[str, Any]]:
     parsed = feedparser.parse(xml)
+    if parsed.get("bozo") or not str(parsed.get("version") or "").startswith(("rss", "atom")):
+        raise ValueError(f"{source.id}: invalid or malformed RSS/Atom feed")
+    if not parsed.entries:
+        raise ValueError(f"{source.id}: empty RSS/Atom feed; last-good records were not replaced")
     records: list[dict[str, Any]] = []
     for entry in parsed.entries:
         link = canonicalize_url(urljoin(source.root_url, entry.get("link", source.root_url)))

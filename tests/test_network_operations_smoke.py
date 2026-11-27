@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import importlib.util
 import threading
+import pytest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -193,3 +194,38 @@ def test_network_operations_smoke_fails_stale_source_workflow():
     assert result["status"] == "fail"
     assert checks["source_freshness"]["status"] == "fail"
     assert checks["source_freshness"]["evidence"]["blocking_workflow_ids"] == ["daily-sources"]
+
+
+def test_source_freshness_distinguishes_projection_lag_from_source_failure(monkeypatch):
+    payload = {
+        "schema": "rock-kb-source-operations-v1",
+        "status": "deployment_lag",
+        "source_status": "ok",
+        "projection_status": "deployment_lag",
+        "blocking_workflow_ids": [],
+        "missing_workflow_ids": [],
+        "blocking_source_ids": [],
+        "blocking_projection_ids": ["rock_issues"],
+    }
+    monkeypatch.setattr(network_operations_smoke_module, "fetch_json", lambda _url: payload)
+
+    result = network_operations_smoke_module.source_freshness_check("https://example.test")
+
+    assert result["status"] == "fail"
+    assert "deployed projection is behind" in result["message"]
+    assert result["evidence"]["source_status"] == "ok"
+    assert result["evidence"]["blocking_projection_ids"] == ["rock_issues"]
+
+
+@pytest.mark.parametrize("status", ["fail", "not_recorded", "unknown", None, [], {}])
+def test_source_freshness_diagnostics_never_relax_failure_gate(monkeypatch, status):
+    monkeypatch.setattr(network_operations_smoke_module, "fetch_json", lambda _url: {
+        "schema": "rock-kb-source-operations-v1",
+        "status": status,
+        "missing_workflow_ids": ["daily-sources"],
+    })
+
+    result = network_operations_smoke_module.source_freshness_check("https://example.test")
+
+    assert result["status"] == "fail"
+    assert result["evidence"]["missing_workflow_ids"] == ["daily-sources"]

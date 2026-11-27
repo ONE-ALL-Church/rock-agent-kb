@@ -66,14 +66,22 @@ def source_freshness_check(base_url: str) -> dict[str, Any]:
     if not isinstance(payload, dict) or payload.get("schema") != "rock-kb-source-operations-v1":
         return check("source_freshness", "fail", "unexpected freshness response", {"response": payload})
     if payload.get("status") != "ok":
+        message = {
+            "deployment_lag": "deployed projection is behind the checked source catalog; review and release the pending refresh",
+            "not_recorded": "required source or projection freshness evidence is not recorded",
+        }.get(str(payload.get("status")), "source or refresh workflow is stale, failed, or not recorded")
         return check(
             "source_freshness",
             "fail",
-            "source or refresh workflow is stale, failed, or not recorded",
+            message,
             {
                 "status": payload.get("status"),
+                "source_status": payload.get("source_status"),
+                "projection_status": payload.get("projection_status"),
                 "blocking_workflow_ids": payload.get("blocking_workflow_ids"),
+                "missing_workflow_ids": payload.get("missing_workflow_ids"),
                 "blocking_source_ids": payload.get("blocking_source_ids"),
+                "blocking_projection_ids": payload.get("blocking_projection_ids"),
             },
         )
     return check(

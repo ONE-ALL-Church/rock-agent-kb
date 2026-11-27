@@ -18,6 +18,7 @@ jobs:
     environment: production
     timeout-minutes: 30
     env:
+      SOURCE_BASELINE_PATH: data/review/source-baselines/daily/source-snapshot.json
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
@@ -47,6 +48,27 @@ jobs:
       - name: Install service dependencies
         working-directory: service
         run: npm ci
+      - name: Restore compact source baseline
+        uses: actions/cache/restore@v6
+        with:
+          path: data/review/source-baselines/daily/source-snapshot.json
+          key: ${{ runner.os }}-rock-kb-source-baseline-daily-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-rock-kb-source-baseline-daily-v1-
+      - name: Validate restored source baseline
+        id: source_baseline
+        run: |
+          uv run python - <<'PY'
+          import os
+          from pathlib import Path
+          from rock_kb.source_orchestration import load_source_snapshot_baseline
+
+          baseline, comparison = load_source_snapshot_baseline(Path(os.environ["SOURCE_BASELINE_PATH"]))
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"available={str(comparison['status'] == 'available').lower()}\n")
+              output.write(f"reason={comparison['reason']}\n")
+              output.write(f"initial_review_required={str((baseline or {}).get('initial_review_required', True) is not False).lower()}\n")
+          PY
       - name: Capture pre-refresh source snapshot
         run: uv run kb sources scan --output-dir data/review/source-scan-pre --snapshot-output data/review/source-scan-pre/source-snapshot.json
       - name: Refresh daily-cadence normalized sources
@@ -60,8 +82,12 @@ jobs:
             args+=(--source "$source_id")
           done
           set +e
+          baseline_args=()
+          if [ "${{ steps.source_baseline.outputs.available }}" = "true" ]; then
+            baseline_args=(--baseline-snapshot "$SOURCE_BASELINE_PATH")
+          fi
           uv run kb sources refresh "${args[@]}" \
-            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            "${baseline_args[@]}" \
             --skip-probe \
             --skip-indexes
           refresh_exit=$?
@@ -90,8 +116,12 @@ jobs:
       - name: Scan daily source changes
         if: always()
         run: |
+          baseline_args=()
+          if [ "${{ steps.source_baseline.outputs.available }}" = "true" ]; then
+            baseline_args=(--baseline-snapshot "$SOURCE_BASELINE_PATH")
+          fi
           uv run kb sources scan \
-            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            "${baseline_args[@]}" \
             --source-status data/review/source-scan/source-refresh-status.json \
             --output-dir data/review/source-scan
       - name: Check source freshness expectations
@@ -99,11 +129,67 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
+          baseline_args=()
+          if [ "${{ steps.source_baseline.outputs.available }}" = "true" ]; then
+            baseline_args=(--baseline-snapshot "$SOURCE_BASELINE_PATH")
+          fi
           uv run kb sources freshness \
-            --baseline-snapshot data/review/source-scan-pre/source-snapshot.json \
+            "${baseline_args[@]}" \
             --source-status data/review/source-scan/source-refresh-status.json \
             --required-workflow daily-sources \
             --strict
+      - name: Prepare validated source baseline
+        id: prepare_source_baseline
+        if: always() && steps.refresh_sources.outcome == 'success' && steps.source_freshness.outcome == 'success'
+        env:
+          SOURCE_FETCH_OUTCOME: ${{ steps.refresh_sources.outcome }}
+          STRICT_FRESHNESS_OUTCOME: ${{ steps.source_freshness.outcome }}
+        run: |
+          uv run python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from rock_kb.source_orchestration import load_source_snapshot_baseline, validate_source_snapshot_baseline
+
+          if any(os.environ.get(key) != "success" for key in ("SOURCE_FETCH_OUTCOME", "STRICT_FRESHNESS_OUTCOME")):
+              raise SystemExit("Cannot advance baseline after failed source fetch or freshness check")
+          freshness = json.loads(Path("data/review/source-freshness/source-freshness-report.json").read_text())
+          if freshness.get("schema") != "rock-kb-source-freshness-report-v1" or freshness.get("status") != "ok":
+              raise SystemExit("Cannot advance baseline without strict freshness evidence")
+          current = json.loads(Path("data/review/source-scan/source-snapshot.json").read_text())
+          previous, _ = load_source_snapshot_baseline(Path(os.environ["SOURCE_BASELINE_PATH"]))
+          sources = {key: row for key, row in current.get("sources", {}).items()
+                     if not row.get("private_storage") and row.get("public_publish_mode") not in ("private_only", "manual_review_required")}
+          source_fields = ("source_id", "kind", "status", "record_count", "retrieved_at_min", "retrieved_at_max")
+          record_fields = ("id", "source_id", "source_kind", "source_title", "source_url", "content_hash", "retrieved_at", "topics", "rock_versions", "release_family", "version", "model_name", "model_category", "summary_hash")
+          claim_fields = ("claim_id", "claim_hash", "source_record_ids", "concept_ids", "claim_tier", "authority_tier", "needs_live_verification", "answer_candidate")
+          compact = {
+              "schema": current.get("schema"), "generated_at": current.get("generated_at"),
+              # A checked snapshot is not approval of public projection parity.
+              # Only a separate explicit maintainer review may clear this debt.
+              "initial_review_required": (previous or {}).get("initial_review_required", True) is not False,
+              "sources": {key: {field: row[field] for field in source_fields if field in row} for key, row in sources.items()},
+              "source_records": {key: {field: row[field] for field in record_fields if field in row}
+                                 for key, row in current.get("source_records", {}).items() if row.get("source_id") in sources},
+              "claims": {key: {field: row[field] for field in claim_fields if field in row}
+                         for key, row in current.get("claims", {}).items()},
+              "media_items": {},
+          }
+          _, comparison = validate_source_snapshot_baseline(compact)
+          if comparison["status"] != "available":
+              raise SystemExit(f"Cannot cache invalid or empty baseline: {comparison['reason']}")
+          path = Path(os.environ["SOURCE_BASELINE_PATH"])
+          path.parent.mkdir(parents=True, exist_ok=True)
+          temporary = path.with_suffix(".tmp")
+          temporary.write_text(json.dumps(compact, sort_keys=True) + "\n", encoding="utf-8")
+          temporary.replace(path)
+          PY
+      - name: Save compact source baseline
+        if: always() && steps.prepare_source_baseline.outcome == 'success' && steps.refresh_sources.outcome == 'success' && steps.source_freshness.outcome == 'success'
+        uses: actions/cache/save@v6
+        with:
+          path: data/review/source-baselines/daily/source-snapshot.json
+          key: ${{ runner.os }}-rock-kb-source-baseline-daily-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Publish authoritative daily freshness snapshot
         if: always() && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
         run: >
@@ -127,20 +213,34 @@ jobs:
             data/review/source-scan/
       - name: Summarize daily refresh
         if: always()
+        env:
+          INITIAL_REVIEW_REQUIRED: ${{ steps.source_baseline.outputs.initial_review_required }}
         run: |
           uv run python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
+          import os
           from pathlib import Path
 
           freshness = json.loads(Path("data/review/source-freshness/source-freshness-report.json").read_text())
           scan = json.loads(Path("data/review/source-scan/source-scan-report.json").read_text())
           summary = scan.get("summary") or {}
+          comparison_status = summary.get("comparison_status", "comparison_unavailable")
+          comparison_reason = summary.get("comparison_reason", "baseline_missing")
+          def display_count(key):
+              value = summary.get(key)
+              return value if comparison_status == "available" and type(value) is int else "unavailable"
+
           print("## Daily Source Refresh")
           print()
           print(f"- Freshness: `{freshness.get('status')}`")
-          print(f"- Changed records: `{summary.get('changed_source_records', 0)}`")
-          print(f"- New records: `{summary.get('new_source_records', 0)}`")
-          print(f"- Removed records: `{summary.get('removed_source_records', 0)}`")
+          print(f"- Comparison: `{comparison_status}` ({comparison_reason})")
+          if os.environ.get("INITIAL_REVIEW_REQUIRED", "false") != "false":
+              print("- Initial review: `required`; a checked cache does not approve public projection parity. Maintainer review is required.")
+          if comparison_status != "available":
+              print("- Review: `blocked`; restore a valid baseline and rerun the comparison.")
+          print(f"- Changed records: `{display_count('changed_source_records')}`")
+          print(f"- New records: `{display_count('new_source_records')}`")
+          print(f"- Removed records: `{display_count('removed_source_records')}`")
           print(f"- Blocking sources: `{', '.join(freshness.get('blocking_source_ids') or []) or 'none'}`")
           PY
       - name: Fail unsuccessful refresh or stale source state

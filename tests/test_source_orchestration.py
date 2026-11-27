@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -7,6 +9,8 @@ from rock_kb import source_orchestration as so
 
 def snapshot(records=None, media=None, claims=None):
     return {
+        "schema": so.SOURCE_SNAPSHOT_SCHEMA,
+        "generated_at": "2026-08-30T00:00:00Z",
         "source_records": records or {},
         "media_items": media or {},
         "claims": claims or {},
@@ -14,20 +18,330 @@ def snapshot(records=None, media=None, claims=None):
     }
 
 
+def source_record(record_id: str, content_hash: str = "same", source_id: str = "rock_documentation"):
+    return {
+        "id": record_id,
+        "source_id": source_id,
+        "source_kind": "rock_release_notes" if "release" in source_id else "documentation",
+        "source_url": f"https://example.test/{record_id}",
+        "content_hash": content_hash,
+    }
+
+
+@pytest.mark.parametrize(
+    ("previous_records", "current_records", "expected"),
+    [
+        (
+            {"record:1": source_record("record:1")},
+            {"record:1": source_record("record:1"), "record:2": source_record("record:2")},
+            {"new": ["record:2"], "removed": [], "changed_hash": []},
+        ),
+        (
+            {"record:1": source_record("record:1", "old")},
+            {"record:1": source_record("record:1", "new")},
+            {"new": [], "removed": [], "changed_hash": ["record:1"]},
+        ),
+        (
+            {"record:1": source_record("record:1"), "record:2": source_record("record:2")},
+            {"record:1": source_record("record:1")},
+            {"new": [], "removed": ["record:2"], "changed_hash": []},
+        ),
+        (
+            {"record:1": source_record("record:1")},
+            {"record:1": source_record("record:1")},
+            {"new": [], "removed": [], "changed_hash": []},
+        ),
+    ],
+)
+def test_source_scan_diff_classifies_add_edit_remove_and_unchanged(previous_records, current_records, expected):
+    diff = so.diff_source_snapshots(snapshot(records=previous_records), snapshot(records=current_records))
+
+    assert diff["comparison"] == {
+        "status": "available",
+        "reason": "ok",
+        "baseline_record_count": len(previous_records),
+        "current_record_count": len(current_records),
+    }
+    assert diff["source_record_changes"] == expected
+
+
+def test_source_scan_diff_attributes_exactly_one_changed_record():
+    previous = snapshot(
+        records={
+            "record:1": source_record("record:1", "same"),
+            "record:2": source_record("record:2", "old"),
+        }
+    )
+    current = snapshot(
+        records={
+            "record:1": source_record("record:1", "same"),
+            "record:2": source_record("record:2", "new"),
+        }
+    )
+
+    diff = so.diff_source_snapshots(previous, current)
+
+    assert diff["source_record_changes"]["changed_hash"] == ["record:2"]
+    assert diff["source_hash_changes"] == [
+        {
+            "source_record_id": "record:2",
+            "source_id": "rock_documentation",
+            "old_hash": "old",
+            "new_hash": "new",
+        }
+    ]
+
+
+def test_source_scan_diff_detects_218_to_229_release_note_gap():
+    previous_records = {
+        f"mobile-release:{index}": source_record(
+            f"mobile-release:{index}", source_id="rock_mobile_release_notes"
+        )
+        for index in range(218)
+    }
+    current_records = {
+        f"mobile-release:{index}": source_record(
+            f"mobile-release:{index}", source_id="rock_mobile_release_notes"
+        )
+        for index in range(229)
+    }
+
+    diff = so.diff_source_snapshots(
+        snapshot(records=previous_records),
+        snapshot(records=current_records),
+    )
+
+    expected = [f"mobile-release:{index}" for index in range(218, 229)]
+    assert diff["source_record_changes"]["new"] == expected
+    assert diff["release_note_changes"] == expected
+
+
+@pytest.mark.parametrize(
+    ("baseline", "reason"),
+    [
+        (None, "baseline_missing"),
+        (
+            {
+                "schema": so.SOURCE_SNAPSHOT_SCHEMA,
+                "generated_at": "2026-08-30T00:00:00Z",
+                "sources": {"rock_documentation": {}},
+                "source_records": {},
+            },
+            "baseline_empty",
+        ),
+        ({"schema": "unexpected", "sources": {}, "source_records": {"record:1": {}}}, "baseline_schema_mismatch"),
+        (
+            {
+                "schema": so.SOURCE_SNAPSHOT_SCHEMA,
+                "generated_at": "2026-08-30T00:00:00Z",
+                "sources": [],
+                "source_records": {"record:1": {}},
+            },
+            "baseline_malformed",
+        ),
+    ],
+)
+def test_source_scan_diff_fails_closed_without_valid_baseline(baseline, reason):
+    current = snapshot(records={"record:1": source_record("record:1")})
+
+    diff = so.diff_source_snapshots(baseline, current)
+    summary = so.scan_summary(current, diff, so.map_source_scan_impacts(diff, current, baseline))
+
+    assert diff["comparison"]["status"] == "comparison_unavailable"
+    assert diff["comparison"]["reason"] == reason
+    assert diff["source_record_changes"] == {
+        "new": None,
+        "removed": None,
+        "changed_hash": None,
+    }
+    assert summary["comparison_status"] == "comparison_unavailable"
+    assert summary["new_source_records"] is None
+    assert summary["removed_source_records"] is None
+
+
+def test_source_scan_report_handles_malformed_baseline_file(tmp_path, monkeypatch):
+    baseline = tmp_path / "source-snapshot.json"
+    baseline.write_text("{not-json", encoding="utf-8")
+    current = snapshot(records={"record:1": source_record("record:1")})
+    monkeypatch.setattr(so, "build_source_snapshot", lambda: current)
+    monkeypatch.setattr(
+        so,
+        "map_source_scan_impacts",
+        lambda *args: {
+            "affected_concepts": [],
+            "affected_claims": [],
+            "affected_source_summaries": [],
+            "affected_guides": [],
+            "affected_public_export_files": [],
+        },
+    )
+
+    report = so.build_source_scan_report(
+        output_dir=tmp_path / "scan",
+        baseline_snapshot_path=baseline,
+    )
+
+    assert report["comparison"]["status"] == "comparison_unavailable"
+    assert report["comparison"]["reason"] == "baseline_malformed"
+    assert report["summary"]["new_source_records"] is None
+
+
+@pytest.mark.parametrize("contents", [b"", b"{not-json", b"[]", b"\xff"])
+def test_baseline_loader_rejects_malformed_files(tmp_path, contents):
+    baseline = tmp_path / "baseline.json"
+    baseline.write_bytes(contents)
+
+    payload, comparison = so.load_source_snapshot_baseline(baseline)
+
+    assert payload is None
+    assert comparison["status"] == so.COMPARISON_UNAVAILABLE
+    assert comparison["reason"] == "baseline_malformed"
+
+
+@pytest.mark.parametrize(
+    ("error", "reason"),
+    [
+        (FileNotFoundError, "baseline_missing"),
+        (PermissionError, "baseline_unreadable"),
+        (IsADirectoryError, "baseline_unreadable"),
+    ],
+)
+def test_baseline_loader_reports_file_access_failures(tmp_path, monkeypatch, error, reason):
+    def fail_read(*args, **kwargs):
+        raise error("baseline unavailable")
+
+    with monkeypatch.context() as scoped:
+        scoped.setattr(Path, "read_text", fail_read)
+        payload, comparison = so.load_source_snapshot_baseline(tmp_path / "baseline.json")
+
+    assert payload is None
+    assert comparison["status"] == so.COMPARISON_UNAVAILABLE
+    assert comparison["reason"] == reason
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("generated_at", " "),
+        ("sources", {"rock_documentation": []}),
+        ("source_records", []),
+        ("source_records", {"record:1": None}),
+        ("source_records", {"record:1": source_record("record:other")}),
+        ("source_records", {"record:1": source_record("record:1", content_hash=[])}),
+        ("source_records", {"record:1": source_record("record:1", source_id=[])}),
+        ("media_items", []),
+        ("media_items", {"media:1": []}),
+        ("claims", []),
+        ("claims", {"claim:1": []}),
+    ],
+)
+def test_source_scan_rejects_malformed_baseline_fields(field, value):
+    current = snapshot(records={"record:1": source_record("record:1")})
+    baseline = {**current, field: value}
+
+    diff = so.diff_source_snapshots(baseline, current)
+
+    assert diff["comparison"]["status"] == so.COMPARISON_UNAVAILABLE
+    assert diff["comparison"]["reason"] == "baseline_malformed"
+    assert all(value is None for value in diff["source_record_changes"].values())
+
+
+def test_available_comparison_cannot_bypass_baseline_validation():
+    current = snapshot(records={"record:1": source_record("record:1")})
+
+    diff = so.diff_source_snapshots(
+        None, current, comparison={"status": so.COMPARISON_AVAILABLE}
+    )
+
+    assert diff["comparison"]["status"] == so.COMPARISON_UNAVAILABLE
+    assert diff["source_record_changes"]["new"] is None
+
+
+@pytest.mark.parametrize("explicit_missing_path", [False, True])
+def test_first_scan_reports_no_baseline_and_creates_next_baseline(
+    tmp_path, monkeypatch, explicit_missing_path
+):
+    current = snapshot(records={"record:1": source_record("record:1")})
+    monkeypatch.setattr(so, "build_source_snapshot", lambda: current)
+    monkeypatch.setattr(so, "load_concepts", lambda: [])
+    monkeypatch.setattr(so, "read_jsonl", lambda path: [])
+    baseline = tmp_path / "missing.json" if explicit_missing_path else None
+
+    first = so.build_source_scan_report(
+        output_dir=tmp_path / "first", baseline_snapshot_path=baseline
+    )
+    plan = so.build_rebuild_plan_from_scan(
+        first, {"needs_generated_index_rebuild": ["mobile"]}
+    )
+    dashboard = so.build_refresh_dashboard_payload(first, plan, {})
+
+    assert first["comparison"]["status"] == so.COMPARISON_UNAVAILABLE
+    assert first["comparison"]["reason"] == "baseline_missing"
+    assert first["summary"]["changed_source_records"] is None
+    assert first["summary"]["new_source_records"] is None
+    assert plan["summary"]["comparison_status"] == so.COMPARISON_UNAVAILABLE
+    assert plan["commands"] == []
+    assert "comparison_baseline_recovery" in {row["id"] for row in plan["reviewer_ai_work"]}
+    assert dashboard["summary"]["comparison_status"] == so.COMPARISON_UNAVAILABLE
+    assert dashboard["summary"]["source_change_count"] is None
+    assert "No source-driven rebuild work" not in " ".join(dashboard["next_actions"])
+    assert "comparison_unavailable" in so.render_source_scan_markdown(first)
+    assert "Changed source records: `unavailable`" in so.render_source_scan_markdown(first)
+    assert "Source change count: `unavailable`" in so.render_refresh_dashboard_markdown(dashboard)
+    assert "Changed source records: `unavailable`" in so.render_rebuild_pr_body(first, plan)
+    assert so.source_scan_jsonl_rows(first)[0]["status"] == so.COMPARISON_UNAVAILABLE
+    saved_baseline = tmp_path / "first" / "source-snapshot.json"
+    assert json.loads(saved_baseline.read_text(encoding="utf-8")) == current
+
+    second = so.build_source_scan_report(
+        output_dir=tmp_path / "second", baseline_snapshot_path=saved_baseline
+    )
+
+    assert second["comparison"]["status"] == so.COMPARISON_AVAILABLE
+    assert second["summary"]["changed_source_records"] == 0
+    assert second["summary"]["new_source_records"] == 0
+    assert second["summary"]["removed_source_records"] == 0
+
+
+def test_identical_valid_baseline_has_verified_zero_differences(tmp_path):
+    current = snapshot(
+        records={"record:1": source_record("record:1")},
+        media={"media:1": {"transcribed": True}},
+        claims={"claim:1": {"claim_hash": "same"}},
+    )
+    baseline = tmp_path / "baseline.json"
+    baseline.write_text(json.dumps(current), encoding="utf-8")
+    previous, comparison = so.load_source_snapshot_baseline(baseline)
+
+    diff = so.diff_source_snapshots(previous, current, comparison=comparison)
+    summary = so.scan_summary(current, diff, {})
+    dashboard = so.build_refresh_dashboard_payload({"summary": summary}, {}, {})
+
+    assert summary["comparison_status"] == so.COMPARISON_AVAILABLE
+    assert diff["source_record_changes"] == {"new": [], "removed": [], "changed_hash": []}
+    assert diff["url_changes"] == {"new": [], "removed": []}
+    assert diff["claim_changes"] == {"new": [], "removed": [], "changed_hash": []}
+    assert diff["media_changes"]["new_media_items"] == []
+    assert diff["media_changes"]["removed_media_items"] == []
+    assert summary["changed_source_records"] == 0
+    assert dashboard["summary"]["source_change_count"] == 0
+    assert dashboard["next_actions"] == ["No source-driven rebuild work is currently required."]
+
+
 def test_source_scan_diff_reports_records_urls_release_model_map_and_media():
     previous = snapshot(
         records={
-            "release:1": {"source_id": "rock_core_release_notes", "source_kind": "rock_release_notes", "source_url": "https://example.test/release-1", "content_hash": "old"},
-            "model:1": {"source_id": "rock_model_map", "source_url": "https://example.test/model-1", "content_hash": "same"},
-            "removed:1": {"source_id": "rock_documentation", "source_url": "https://example.test/removed", "content_hash": "gone"},
+            "release:1": {"id": "release:1", "source_id": "rock_core_release_notes", "source_kind": "rock_release_notes", "source_url": "https://example.test/release-1", "content_hash": "old"},
+            "model:1": {"id": "model:1", "source_id": "rock_model_map", "source_url": "https://example.test/model-1", "content_hash": "same"},
+            "removed:1": {"id": "removed:1", "source_id": "rock_documentation", "source_url": "https://example.test/removed", "content_hash": "gone"},
         },
         media={"media:old": {"transcribed": True}},
     )
     current = snapshot(
         records={
-            "release:1": {"source_id": "rock_core_release_notes", "source_kind": "rock_release_notes", "source_url": "https://example.test/release-1", "content_hash": "new"},
-            "model:1": {"source_id": "rock_model_map", "source_url": "https://example.test/model-1", "content_hash": "changed"},
-            "new:1": {"source_id": "rock_documentation", "source_url": "https://example.test/new", "content_hash": "new"},
+            "release:1": {"id": "release:1", "source_id": "rock_core_release_notes", "source_kind": "rock_release_notes", "source_url": "https://example.test/release-1", "content_hash": "new"},
+            "model:1": {"id": "model:1", "source_id": "rock_model_map", "source_url": "https://example.test/model-1", "content_hash": "changed"},
+            "new:1": {"id": "new:1", "source_id": "rock_documentation", "source_url": "https://example.test/new", "content_hash": "new"},
         },
         media={"media:old": {"transcribed": True}, "media:new": {"transcribed": False}},
     )
@@ -47,11 +361,12 @@ def test_source_scan_diff_reports_records_urls_release_model_map_and_media():
 
 
 def test_source_scan_diff_merges_refresh_status_failures():
-    current = snapshot(records={"record:1": {"source_id": "rock_documentation", "source_url": "https://example.test/1", "content_hash": "same"}})
+    current = snapshot(records={"record:1": source_record("record:1")})
     current["source_refresh_status"] = {"failed": ["rock_documentation"], "skipped": ["rock_qa"]}
 
     diff = so.diff_source_snapshots(snapshot(records=current["source_records"]), current)
 
+    assert diff["comparison"]["status"] == so.COMPARISON_AVAILABLE
     assert diff["source_family_status"]["failed"] == ["rock_documentation"]
     assert diff["source_family_status"]["skipped"] == ["missing_source", "rock_qa"]
 
@@ -95,6 +410,8 @@ def test_concept_impact_mapping_uses_direct_dependencies_and_inferred_keywords(m
 def test_rebuild_plan_separates_deterministic_and_reviewer_ai_work():
     scan_report = {
         "summary": {
+            "comparison_status": "available",
+            "comparison_reason": "ok",
             "changed_source_records": 2,
             "new_source_records": 1,
             "removed_source_records": 0,
@@ -138,6 +455,7 @@ def test_claim_add_change_remove_impacts_concepts_public_export_and_rebuild_step
     )
     monkeypatch.setattr(so, "read_jsonl", lambda path: [])
     diff = {
+        "comparison": {"status": "available", "reason": "ok"},
         "source_record_changes": {"new": [], "removed": [], "changed_hash": []},
         "claim_changes": {"new": ["claim:new"], "changed_hash": ["claim:changed"], "removed": ["claim:removed"]},
     }
@@ -232,6 +550,8 @@ def test_public_payload_safety_gate_blocks_private_or_tokenized_terms():
 def test_refresh_dashboard_summarizes_source_plan_and_evaluation_misses(tmp_path):
     scan_report = {
         "summary": {
+            "comparison_status": "available",
+            "comparison_reason": "ok",
             "changed_source_records": 2,
             "new_source_records": 1,
             "removed_source_records": 0,

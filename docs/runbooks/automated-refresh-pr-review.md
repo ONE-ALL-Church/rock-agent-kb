@@ -11,6 +11,24 @@ human review boundary without adding a PAT, GitHub App credential, or branch
 protection bypass. A maintainer marks the reviewed draft ready; that human event
 starts the required checks on the pull request itself.
 
+## Source Comparison Baselines
+
+Daily and weekly refreshes keep separate compact comparison caches.
+These caches contain public record metadata and hashes, not source text.
+A cache is best-effort storage. Missing, empty, or invalid baselines remain unknown.
+Never interpret unknown comparison counts as zero source changes.
+
+The first successful source check can save a validated baseline.
+It cannot establish changes since a missing previous baseline.
+The weekly classifier blocks that initial comparison and keeps its report.
+Later checks can compare against the saved baseline.
+They retain `initial_review_required` until a separate maintainer parity review.
+
+A checked baseline is not approval of public content or publication parity.
+Review the checked source catalog against the public projection before clearing initial review debt.
+Failed fetches and failed strict freshness checks cannot advance the cache.
+If a cache expires, preserve the unknown state and repeat the bootstrap review.
+
 ## Review Sequence
 
 1. Confirm the repository, pull request number, target branch, head SHA, bot

@@ -19,6 +19,9 @@ SOURCE_SNAPSHOT_SCHEMA = "rock-kb-source-snapshot-v1"
 REBUILD_PLAN_SCHEMA = "rock-kb-rebuild-plan-v1"
 REFRESH_DASHBOARD_SCHEMA = "rock-kb-refresh-dashboard-v1"
 
+COMPARISON_AVAILABLE = "available"
+COMPARISON_UNAVAILABLE = "comparison_unavailable"
+
 DEFAULT_SOURCE_SCAN_DIR = REVIEW_DIR / "source-scan"
 DEFAULT_REBUILD_PLAN_DIR = REVIEW_DIR / "rebuild-plan"
 DEFAULT_REFRESH_DASHBOARD_DIR = REVIEW_DIR / "refresh-dashboard"
@@ -54,8 +57,8 @@ def build_source_scan_report(
     current = build_source_snapshot()
     if source_status_path and source_status_path.exists():
         current["source_refresh_status"] = read_json(source_status_path)
-    baseline = read_json(baseline_snapshot_path) if baseline_snapshot_path and baseline_snapshot_path.exists() else None
-    diff = diff_source_snapshots(baseline, current)
+    baseline, comparison = load_source_snapshot_baseline(baseline_snapshot_path)
+    diff = diff_source_snapshots(baseline, current, comparison=comparison)
     impacts = map_source_scan_impacts(diff, current, baseline)
     report = {
         "schema": SOURCE_SCAN_SCHEMA,
@@ -63,6 +66,7 @@ def build_source_scan_report(
         "baseline_snapshot": relpath(baseline_snapshot_path) if baseline_snapshot_path else "",
         "source_status": relpath(source_status_path) if source_status_path else "",
         "snapshot_path": relpath(snapshot_output_path or (output_dir / "source-snapshot.json")),
+        "comparison": diff["comparison"],
         "summary": scan_summary(current, diff, impacts),
         "sources": current["sources"],
         "diff": diff,
@@ -82,6 +86,78 @@ def build_source_scan_report(
     snapshot_path.write_text(json.dumps(current, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_report_bundle(output_dir, "source-scan", report, render_source_scan_markdown(report), source_scan_jsonl_rows(report))
     return report
+
+
+def load_source_snapshot_baseline(path: Optional[Path]) -> tuple[Optional[dict[str, Any]], dict[str, Any]]:
+    if path is None:
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_missing")
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_missing")
+    except OSError:
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_unreadable")
+    except (UnicodeError, json.JSONDecodeError):
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_malformed")
+    return validate_source_snapshot_baseline(payload)
+
+
+def validate_source_snapshot_baseline(payload: Any) -> tuple[Optional[dict[str, Any]], dict[str, Any]]:
+    if payload is None:
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_missing")
+    if not isinstance(payload, dict):
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_malformed")
+    if payload.get("schema") != SOURCE_SNAPSHOT_SCHEMA:
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_schema_mismatch")
+    if not isinstance(payload.get("generated_at"), str) or not payload["generated_at"].strip():
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_malformed")
+    sources = payload.get("sources")
+    records = payload.get("source_records")
+    if not isinstance(sources, dict) or not isinstance(records, dict):
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_malformed")
+    if not sources or not records:
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_empty")
+    for field in ("sources", "media_items", "claims"):
+        rows = payload.get(field, {})
+        if not isinstance(rows, dict) or any(
+            not isinstance(row_id, str)
+            or not row_id
+            or not isinstance(row, dict)
+            for row_id, row in rows.items()
+        ):
+            return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_malformed")
+    if any(
+        not isinstance(record_id, str)
+        or not record_id
+        or not isinstance(row, dict)
+        or row.get("id") != record_id
+        or not isinstance(row.get("source_id"), str)
+        or not row["source_id"].strip()
+        or not isinstance(row.get("content_hash"), str)
+        or not row["content_hash"].strip()
+        for record_id, row in records.items()
+    ):
+        return None, source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_malformed")
+    return payload, source_comparison_state(
+        COMPARISON_AVAILABLE,
+        "ok",
+        baseline_record_count=len(records),
+    )
+
+
+def source_comparison_state(
+    status: str,
+    reason: str,
+    *,
+    baseline_record_count: Optional[int] = None,
+    current_record_count: Optional[int] = None,
+) -> dict[str, Any]:
+    return {
+        "status": status,
+        "reason": reason,
+        "baseline_record_count": baseline_record_count,
+        "current_record_count": current_record_count,
+    }
 
 
 def build_source_snapshot() -> dict[str, Any]:
@@ -255,10 +331,24 @@ def model_map_snapshot(records: dict[str, dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def diff_source_snapshots(previous: Optional[dict[str, Any]], current: dict[str, Any]) -> dict[str, Any]:
+def diff_source_snapshots(
+    previous: Optional[dict[str, Any]],
+    current: dict[str, Any],
+    *,
+    comparison: Optional[dict[str, Any]] = None,
+) -> dict[str, Any]:
+    if comparison is None or comparison.get("status") == COMPARISON_AVAILABLE:
+        previous, comparison = validate_source_snapshot_baseline(previous)
+    else:
+        previous = None
     previous = previous or {}
     old_records = previous.get("source_records") or {}
     new_records = current.get("source_records") or {}
+    comparable = comparison.get("status") == COMPARISON_AVAILABLE
+    comparison = {
+        **comparison,
+        "current_record_count": len(new_records),
+    }
     old_urls = url_index(old_records)
     new_urls = url_index(new_records)
     old_media = previous.get("media_items") or {}
@@ -269,38 +359,39 @@ def diff_source_snapshots(previous: Optional[dict[str, Any]], current: dict[str,
         record_id
         for record_id in set(old_records) & set(new_records)
         if old_records[record_id].get("content_hash") != new_records[record_id].get("content_hash")
-    )
-    new_record_ids = sorted(set(new_records) - set(old_records)) if old_records else []
-    removed_record_ids = sorted(set(old_records) - set(new_records)) if old_records else []
+    ) if comparable else []
+    new_record_ids = sorted(set(new_records) - set(old_records)) if comparable else []
+    removed_record_ids = sorted(set(old_records) - set(new_records)) if comparable else []
     changed_claim_ids = sorted(
         claim_id
         for claim_id in set(old_claims) & set(new_claims)
         if old_claims[claim_id].get("claim_hash") != new_claims[claim_id].get("claim_hash")
-    )
+    ) if comparable else []
     source_status = current.get("sources") or {}
     refresh_status = current.get("source_refresh_status") or {}
     return {
+        "comparison": comparison,
         "source_record_changes": {
-            "new": new_record_ids,
-            "removed": removed_record_ids,
-            "changed_hash": changed_record_ids,
+            "new": new_record_ids if comparable else None,
+            "removed": removed_record_ids if comparable else None,
+            "changed_hash": changed_record_ids if comparable else None,
         },
-        "source_hash_changes": source_hash_changes(changed_record_ids, old_records, new_records),
+        "source_hash_changes": source_hash_changes(changed_record_ids, old_records, new_records) if comparable else None,
         "url_changes": {
-            "new": sorted(set(new_urls) - set(old_urls)) if old_urls else [],
-            "removed": sorted(set(old_urls) - set(new_urls)) if old_urls else [],
+            "new": sorted(set(new_urls) - set(old_urls)) if comparable else None,
+            "removed": sorted(set(old_urls) - set(new_urls)) if comparable else None,
         },
-        "release_note_changes": changed_records_by_kind(new_record_ids + removed_record_ids + changed_record_ids, new_records, old_records, "release"),
-        "model_map_changes": changed_records_by_source(new_record_ids + removed_record_ids + changed_record_ids, new_records, old_records, "rock_model_map"),
+        "release_note_changes": changed_records_by_kind(new_record_ids + removed_record_ids + changed_record_ids, new_records, old_records, "release") if comparable else None,
+        "model_map_changes": changed_records_by_source(new_record_ids + removed_record_ids + changed_record_ids, new_records, old_records, "rock_model_map") if comparable else None,
         "media_changes": {
-            "new_media_items": sorted(set(new_media) - set(old_media)) if old_media else [],
-            "removed_media_items": sorted(set(old_media) - set(new_media)) if old_media else [],
+            "new_media_items": sorted(set(new_media) - set(old_media)) if comparable else None,
+            "removed_media_items": sorted(set(old_media) - set(new_media)) if comparable else None,
             "pending_transcription": sorted(media_id for media_id, row in new_media.items() if not row.get("transcribed")),
         },
         "claim_changes": {
-            "new": sorted(set(new_claims) - set(old_claims)) if old_claims else [],
-            "removed": sorted(set(old_claims) - set(new_claims)) if old_claims else [],
-            "changed_hash": changed_claim_ids,
+            "new": sorted(set(new_claims) - set(old_claims)) if comparable else None,
+            "removed": sorted(set(old_claims) - set(new_claims)) if comparable else None,
+            "changed_hash": changed_claim_ids if comparable else None,
         },
         "source_family_status": {
             "failed": sorted(set(refresh_status.get("failed") or [])),
@@ -549,29 +640,37 @@ def scan_summary(snapshot: dict[str, Any], diff: dict[str, Any], impacts: dict[s
     records = snapshot.get("source_records") or {}
     by_source = Counter(row.get("source_id") for row in records.values())
     changes = diff.get("source_record_changes") or {}
+    comparison = diff.get("comparison") or source_comparison_state(COMPARISON_UNAVAILABLE, "baseline_missing")
+    comparable = comparison.get("status") == COMPARISON_AVAILABLE
     return {
+        "comparison_status": comparison.get("status"),
+        "comparison_reason": comparison.get("reason"),
         "registered_sources": len(snapshot.get("sources") or {}),
         "normalized_source_records": len(records),
         "records_by_source": dict(sorted(by_source.items())),
-        "changed_source_records": len(changes.get("changed_hash") or []),
-        "new_source_records": len(changes.get("new") or []),
-        "removed_source_records": len(changes.get("removed") or []),
-        "new_urls": len((diff.get("url_changes") or {}).get("new") or []),
-        "removed_urls": len((diff.get("url_changes") or {}).get("removed") or []),
-        "changed_release_notes": len(diff.get("release_note_changes") or []),
-        "changed_model_map_rows": len(diff.get("model_map_changes") or []),
-        "new_media_items": len((diff.get("media_changes") or {}).get("new_media_items") or []),
+        "changed_source_records": comparison_count(changes.get("changed_hash"), comparable),
+        "new_source_records": comparison_count(changes.get("new"), comparable),
+        "removed_source_records": comparison_count(changes.get("removed"), comparable),
+        "new_urls": comparison_count((diff.get("url_changes") or {}).get("new"), comparable),
+        "removed_urls": comparison_count((diff.get("url_changes") or {}).get("removed"), comparable),
+        "changed_release_notes": comparison_count(diff.get("release_note_changes"), comparable),
+        "changed_model_map_rows": comparison_count(diff.get("model_map_changes"), comparable),
+        "new_media_items": comparison_count((diff.get("media_changes") or {}).get("new_media_items"), comparable),
         "pending_media_items": len((diff.get("media_changes") or {}).get("pending_transcription") or []),
-        "affected_concepts": len(impacts.get("affected_concepts") or []),
-        "affected_claims": len(impacts.get("affected_claims") or []),
-        "claims_added": len((diff.get("claim_changes") or {}).get("new") or []),
-        "claims_changed": len((diff.get("claim_changes") or {}).get("changed_hash") or []),
-        "claims_removed": len((diff.get("claim_changes") or {}).get("removed") or []),
-        "affected_source_summaries": len(impacts.get("affected_source_summaries") or []),
+        "affected_concepts": len(impacts.get("affected_concepts") or []) if comparable else None,
+        "affected_claims": len(impacts.get("affected_claims") or []) if comparable else None,
+        "claims_added": comparison_count((diff.get("claim_changes") or {}).get("new"), comparable),
+        "claims_changed": comparison_count((diff.get("claim_changes") or {}).get("changed_hash"), comparable),
+        "claims_removed": comparison_count((diff.get("claim_changes") or {}).get("removed"), comparable),
+        "affected_source_summaries": len(impacts.get("affected_source_summaries") or []) if comparable else None,
         "skipped_source_families": len((diff.get("source_family_status") or {}).get("skipped") or []),
         "failed_source_families": len((diff.get("source_family_status") or {}).get("failed") or []),
         "manual_review_source_families": len((diff.get("source_family_status") or {}).get("manual_review_only") or []),
     }
+
+
+def comparison_count(values: Any, comparable: bool) -> Optional[int]:
+    return len(values or []) if comparable else None
 
 
 def build_rebuild_plan(
@@ -618,20 +717,27 @@ def build_refresh_dashboard_payload(
     scan_summary = scan_report.get("summary") or {}
     plan_summary = rebuild_plan.get("summary") or {}
     near_misses = evaluation_report.get("near_misses") or []
-    source_changes = sum(
-        int(scan_summary.get(key, 0) or 0)
-        for key in [
-            "changed_source_records",
-            "new_source_records",
-            "removed_source_records",
-            "new_urls",
-            "removed_urls",
-            "changed_release_notes",
-            "changed_model_map_rows",
-            "new_media_items",
-        ]
+    comparable = scan_summary.get("comparison_status") == COMPARISON_AVAILABLE
+    source_changes = (
+        sum(
+            int(scan_summary.get(key, 0) or 0)
+            for key in [
+                "changed_source_records",
+                "new_source_records",
+                "removed_source_records",
+                "new_urls",
+                "removed_urls",
+                "changed_release_notes",
+                "changed_model_map_rows",
+                "new_media_items",
+            ]
+        )
+        if comparable
+        else None
     )
     next_actions = []
+    if not comparable:
+        next_actions.append("Restore a valid prior source snapshot before classifying source changes or publishing refresh work.")
     if scan_summary.get("failed_source_families", 0):
         next_actions.append("Fix failed source families before publishing refreshed public artifacts.")
     if plan_summary.get("deterministic_step_count", 0):
@@ -648,6 +754,8 @@ def build_refresh_dashboard_payload(
         "source_scan_path": scan_report.get("report_path") or "",
         "rebuild_plan_path": rebuild_plan.get("report_path") or "",
         "summary": {
+            "comparison_status": scan_summary.get("comparison_status", COMPARISON_UNAVAILABLE),
+            "comparison_reason": scan_summary.get("comparison_reason", "baseline_missing"),
             "source_change_count": source_changes,
             "affected_concepts": scan_summary.get("affected_concepts", 0),
             "affected_claims": scan_summary.get("affected_claims", 0),
@@ -683,7 +791,8 @@ def render_refresh_dashboard_markdown(dashboard: dict[str, Any]) -> str:
     lines = [
         "# Refresh Dashboard",
         "",
-        f"- Source change count: `{summary.get('source_change_count', 0)}`",
+        f"- Comparison: `{summary.get('comparison_status', COMPARISON_UNAVAILABLE)}` ({summary.get('comparison_reason', 'baseline_missing')})",
+        f"- Source change count: `{display_count(summary.get('source_change_count'))}`",
         f"- Affected concepts: `{summary.get('affected_concepts', 0)}`",
         f"- Affected claims: `{summary.get('affected_claims', 0)}`",
         f"- Deterministic steps: `{summary.get('deterministic_step_count', 0)}`",
@@ -750,6 +859,8 @@ def build_rebuild_plan_from_scan(
         "generated_at": generated_at_iso(),
         "scan_report": scan_report.get("snapshot_path") or "",
         "summary": {
+            "comparison_status": summary.get("comparison_status"),
+            "comparison_reason": summary.get("comparison_reason"),
             "deterministic_step_count": len(deterministic),
             "reviewer_step_count": len(reviewer),
             "affected_concepts": summary.get("affected_concepts", 0),
@@ -783,6 +894,8 @@ def build_rebuild_plan_from_scan(
 
 def deterministic_work(scan_report: dict[str, Any], guide_plan: dict[str, Any]) -> list[dict[str, Any]]:
     summary = scan_report.get("summary") or {}
+    if summary.get("comparison_status") != COMPARISON_AVAILABLE:
+        return []
     claim_changed = any(summary.get(key, 0) for key in ["affected_claims", "claims_added", "claims_changed", "claims_removed"])
     work = []
     if any(summary.get(key, 0) for key in ["changed_source_records", "new_source_records", "removed_source_records"]):
@@ -807,7 +920,15 @@ def reviewer_work(scan_report: dict[str, Any], guide_plan: dict[str, Any]) -> li
     impacts = scan_report.get("impacts") or {}
     diff = scan_report.get("diff") or {}
     work = []
-    media_count = summary.get("new_media_items", 0) + summary.get("pending_media_items", 0)
+    if summary.get("comparison_status") != COMPARISON_AVAILABLE:
+        work.append(
+            review_step(
+                "comparison_baseline_recovery",
+                "Restore or regenerate the lightweight prior source snapshot, then rerun the scan before classifying or publishing source changes.",
+                1,
+            )
+        )
+    media_count = int(summary.get("new_media_items") or 0) + int(summary.get("pending_media_items") or 0)
     if media_count:
         work.append(review_step("media_review", "Transcribe new media, run Gemma enrichment when useful, create public-safe rewrites, and promote only explicitly reviewed media claims.", media_count))
     live_claims = [row for row in impacts.get("affected_claims") or [] if row.get("needs_live_verification")]
@@ -862,18 +983,19 @@ def render_source_scan_markdown(report: dict[str, Any]) -> str:
     lines = [
         "# Source Scan Summary",
         "",
+        f"- Comparison: `{summary.get('comparison_status', COMPARISON_UNAVAILABLE)}` ({summary.get('comparison_reason', 'baseline_missing')})",
         f"- Registered sources: `{summary.get('registered_sources', 0)}`",
         f"- Normalized source records: `{summary.get('normalized_source_records', 0)}`",
-        f"- Changed source records: `{summary.get('changed_source_records', 0)}`",
-        f"- New / removed source records: `{summary.get('new_source_records', 0)}` / `{summary.get('removed_source_records', 0)}`",
-        f"- New / removed URLs: `{summary.get('new_urls', 0)}` / `{summary.get('removed_urls', 0)}`",
-        f"- Changed release notes: `{summary.get('changed_release_notes', 0)}`",
-        f"- Changed model-map rows: `{summary.get('changed_model_map_rows', 0)}`",
-        f"- New media items: `{summary.get('new_media_items', 0)}`",
+        f"- Changed source records: `{display_count(summary.get('changed_source_records'))}`",
+        f"- New / removed source records: `{display_count(summary.get('new_source_records'))}` / `{display_count(summary.get('removed_source_records'))}`",
+        f"- New / removed URLs: `{display_count(summary.get('new_urls'))}` / `{display_count(summary.get('removed_urls'))}`",
+        f"- Changed release notes: `{display_count(summary.get('changed_release_notes'))}`",
+        f"- Changed model-map rows: `{display_count(summary.get('changed_model_map_rows'))}`",
+        f"- New media items: `{display_count(summary.get('new_media_items'))}`",
         f"- Pending media items: `{summary.get('pending_media_items', 0)}`",
-        f"- Affected concepts: `{summary.get('affected_concepts', 0)}`",
-        f"- Affected claims: `{summary.get('affected_claims', 0)}`",
-        f"- Claims added / changed / removed: `{summary.get('claims_added', 0)}` / `{summary.get('claims_changed', 0)}` / `{summary.get('claims_removed', 0)}`",
+        f"- Affected concepts: `{display_count(summary.get('affected_concepts'))}`",
+        f"- Affected claims: `{display_count(summary.get('affected_claims'))}`",
+        f"- Claims added / changed / removed: `{display_count(summary.get('claims_added'))}` / `{display_count(summary.get('claims_changed'))}` / `{display_count(summary.get('claims_removed'))}`",
         f"- Skipped source families: `{summary.get('skipped_source_families', 0)}`",
         f"- Failed source families: `{summary.get('failed_source_families', 0)}`",
         f"- Manual-review/private source families: `{summary.get('manual_review_source_families', 0)}`",
@@ -929,16 +1051,17 @@ def render_rebuild_pr_body(scan_report: dict[str, Any], plan: dict[str, Any]) ->
     lines = [
         "## Source Scan Summary",
         "",
-        f"- Changed source records: `{scan.get('changed_source_records', 0)}`",
-        f"- New / removed source records: `{scan.get('new_source_records', 0)}` / `{scan.get('removed_source_records', 0)}`",
-        f"- New / removed URLs: `{scan.get('new_urls', 0)}` / `{scan.get('removed_urls', 0)}`",
-        f"- Changed release notes: `{scan.get('changed_release_notes', 0)}`",
-        f"- Changed model-map rows: `{scan.get('changed_model_map_rows', 0)}`",
-        f"- New media items: `{scan.get('new_media_items', 0)}`",
-        f"- Affected concepts: `{scan.get('affected_concepts', 0)}`",
-        f"- Affected claims: `{scan.get('affected_claims', 0)}`",
-        f"- Affected source summaries: `{scan.get('affected_source_summaries', 0)}`",
-        f"- Claims added / changed / removed: `{scan.get('claims_added', 0)}` / `{scan.get('claims_changed', 0)}` / `{scan.get('claims_removed', 0)}`",
+        f"- Comparison: `{scan.get('comparison_status', COMPARISON_UNAVAILABLE)}` ({scan.get('comparison_reason', 'baseline_missing')})",
+        f"- Changed source records: `{display_count(scan.get('changed_source_records'))}`",
+        f"- New / removed source records: `{display_count(scan.get('new_source_records'))}` / `{display_count(scan.get('removed_source_records'))}`",
+        f"- New / removed URLs: `{display_count(scan.get('new_urls'))}` / `{display_count(scan.get('removed_urls'))}`",
+        f"- Changed release notes: `{display_count(scan.get('changed_release_notes'))}`",
+        f"- Changed model-map rows: `{display_count(scan.get('changed_model_map_rows'))}`",
+        f"- New media items: `{display_count(scan.get('new_media_items'))}`",
+        f"- Affected concepts: `{display_count(scan.get('affected_concepts'))}`",
+        f"- Affected claims: `{display_count(scan.get('affected_claims'))}`",
+        f"- Affected source summaries: `{display_count(scan.get('affected_source_summaries'))}`",
+        f"- Claims added / changed / removed: `{display_count(scan.get('claims_added'))}` / `{display_count(scan.get('claims_changed'))}` / `{display_count(scan.get('claims_removed'))}`",
         f"- Failed / skipped / manual-review source families: `{scan.get('failed_source_families', 0)}` / `{scan.get('skipped_source_families', 0)}` / `{scan.get('manual_review_source_families', 0)}`",
         "",
         "## Rebuild Plan Summary",
@@ -983,8 +1106,12 @@ def format_inline_list(values: list[str]) -> str:
     return ", ".join(f"`{value}`" for value in values) if values else "none"
 
 
+def display_count(value: Any) -> Any:
+    return "unavailable" if value is None else value
+
+
 def source_scan_jsonl_rows(report: dict[str, Any]) -> list[dict[str, Any]]:
-    rows = []
+    rows = [{"row_type": "comparison", **(report.get("comparison") or {})}]
     for source_id, row in (report.get("sources") or {}).items():
         rows.append({"row_type": "source", "source_id": source_id, **row})
     for row in report.get("impacts", {}).get("affected_concepts") or []:
