@@ -901,11 +901,12 @@ async function search(
   const includeRockIdeas = kind === "rock_idea" || hasRockIdeaQueryIntent(terms, query) ? 1 : 0;
   const candidateLimit = Math.max(limit * 25, 200);
   const tables = RETRIEVAL_TABLES[retrievalProjection];
+  // Keep FTS first so it can deliver BM25 order before the eligible-candidate limit.
   const result = await env.KB_DB.prepare(
-    `SELECT r.*, bm25(${tables.fts}) AS rank,
+    `SELECT r.*, f.rank AS rank,
             snippet(${tables.fts}, 2, '', '', '...', 28) AS snippet
      FROM ${tables.fts} f
-     JOIN ${tables.rows} r ON r.id = f.id
+     CROSS JOIN ${tables.rows} r ON r.id = f.id
      WHERE ${tables.fts} MATCH ?
        AND (
          r.claim_tier_rank >= ?
@@ -915,7 +916,7 @@ async function search(
        AND (? = '' OR r.kind = ?)
        AND (? = 1 OR r.kind != 'rock_issue')
        AND (? = 1 OR r.kind != 'rock_idea')
-     ORDER BY rank
+     ORDER BY f.rank
      LIMIT ?`
   ).bind(
     fts,
@@ -4211,11 +4212,16 @@ async function recordUsageSummary(
   const installationHash = identity.installationId
     ? await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`)
     : "";
-  const serviceVersion = await currentVersion(env);
+  const versions = await env.KB_DB.prepare(
+    `SELECT
+       (SELECT value FROM kb_meta WHERE key = 'current_version') AS service_version,
+       (SELECT value FROM kb_meta WHERE key = 'canonical_shadow_content_hash') AS canonical_version`,
+  ).first<{ service_version: string | null; canonical_version: string | null }>();
+  const serviceVersion = versions?.service_version || "unknown";
   const projectionVersion = retrievalProjection === "legacy"
     ? serviceVersion
-    : await currentRetrievalProjectionVersion(env, retrievalProjection);
-  await env.KB_DB.prepare(
+    : versions?.canonical_version || "canonical-unavailable";
+  const usage = env.KB_DB.prepare(
     `INSERT INTO usage_events_v6 (
        day, service_version, retrieval_projection, projection_version, event,
        client_class, cohort, installation_hash, topic_hint, result_count,
@@ -4238,21 +4244,23 @@ async function recordUsageSummary(
     topicHint,
     resultCount,
     primaryResultKind,
-  ).run();
-  await env.KB_DB.prepare(
+  );
+  const legacyUsage = env.KB_DB.prepare(
     `INSERT INTO usage_events_v5 (day, event, client_class, cohort, installation_hash, topic_hint, result_count, primary_result_kind, count)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
      ON CONFLICT(day, event, client_class, cohort, installation_hash, topic_hint, result_count, primary_result_kind)
      DO UPDATE SET count = count + 1`
-  ).bind(day, event, identity.clientClass, identity.cohort, installationHash, topicHint, resultCount, primaryResultKind).run();
+  ).bind(day, event, identity.clientClass, identity.cohort, installationHash, topicHint, resultCount, primaryResultKind);
+  const updates = [usage, legacyUsage];
   for (const [resultKind, count] of Object.entries(kindCounts)) {
-    await env.KB_DB.prepare(
+    updates.push(env.KB_DB.prepare(
       `INSERT INTO usage_result_kinds_v2 (day, event, client_class, cohort, result_kind, count)
        VALUES (?, ?, ?, ?, ?, ?)
        ON CONFLICT(day, event, client_class, cohort, result_kind)
        DO UPDATE SET count = count + excluded.count`
-    ).bind(day, event, identity.clientClass, identity.cohort, resultKind, Number(count)).run();
+    ).bind(day, event, identity.clientClass, identity.cohort, resultKind, Number(count)));
   }
+  await env.KB_DB.batch(updates);
 }
 
 async function recordCanaryUsageSummary(

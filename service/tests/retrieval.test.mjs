@@ -1444,6 +1444,41 @@ test("search uses the declared default limit when the parameter is omitted", asy
   }
 });
 
+test("search applies eligibility before limiting ranked candidates", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const insertRow = db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, claim_tier, claim_tier_rank, payload_json)
+      VALUES (?, 'claim', ?, ?, 'claims/approved-claims.jsonl', ?, ?, '{}')`);
+    const insertFts = db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, '')");
+    const preview = "attendanceprobe attendanceprobe attendanceprobe";
+    const batch = [];
+    for (let index = 0; index < 205; index += 1) {
+      const id = `claim:ineligible-${index}`;
+      batch.push(
+        insertRow.bind(id, preview, preview, "routing_context_only", 0),
+        insertFts.bind(id, preview, preview),
+      );
+    }
+    const body = "An official check-in note about attendanceprobe and how it works.";
+    batch.push(
+      insertRow.bind("claim:eligible", "Check-in reference", body, "source_backed", 1),
+      insertFts.bind("claim:eligible", "Check-in reference", body),
+    );
+    await db.batch(batch);
+
+    const response = await mf.dispatchFetch("https://kb.example.test/search?q=attendanceprobe&kind=claim&limit=1");
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.deepEqual(payload.results.map((row) => row.id), ["claim:eligible"]);
+    assert.match(payload.results[0].snippet, /attendanceprobe/);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("recipe routes and MCP tools return the structured recipe", async () => {
   const mf = await buildWorker();
   try {
@@ -2669,6 +2704,12 @@ test("telemetry separates evaluation traffic and records structured feedback wit
     assert.equal(telemetry.feedback.some((row) => row.result_id === "claim:claim:abc123"), true);
     assert.equal(telemetry.feedback.some((row) => row.cohort === "external-test"), true);
     assert.equal(telemetry.result_kinds.some((row) => row.result_kind === "claim" && row.client_class === "cli"), true);
+    const db = await mf.getD1Database("KB_DB");
+    const query = "WHERE event = 'search' AND client_class = 'cli' AND cohort = 'external-test'";
+    const legacyUsage = await db.prepare(`SELECT count FROM usage_events_v5 ${query}`).first();
+    const canonicalUsage = await db.prepare(`SELECT count, projection_version FROM usage_events_v6 ${query}`).first();
+    assert.equal(legacyUsage.count, 1);
+    assert.deepEqual(canonicalUsage, { count: 1, projection_version: "test-version" });
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "result_get" && row.client_class === "cli" && row.primary_result_kind === "claim"), true);
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "recipe_get" && row.client_class === "cli" && row.primary_result_kind === "recipe"), true);
     assert.equal(telemetry.adoption_rows.some((row) => row.event === "claim_get" && row.client_class === "mcp" && row.primary_result_kind === "claim"), true);

@@ -14,6 +14,15 @@ from .service_eval import EVALUATION_SET_PATH
 SERVICE_DIR = REPO_ROOT / "service"
 PERSISTED_METRICS = {
     "question_count",
+    "available_question_count",
+    "unavailable_question_count",
+    "availability_rate",
+    "availability_passed",
+    "retry_count",
+    "transport_timeout_count",
+    "recovered_after_timeout_count",
+    "retrieval_quality_failure_count",
+    "retrieval_quality_passed",
     "relevance_question_count",
     "mean_reciprocal_rank",
     "recall_at_target_rank",
@@ -52,7 +61,11 @@ def hosted_evaluation_record(report: dict[str, Any]) -> dict[str, Any]:
     if not projection_version or not evaluated_at:
         raise ValueError("Hosted evaluation report is missing projection identity or timestamp")
     raw_metrics = report.get("metrics") if isinstance(report.get("metrics"), dict) else {}
-    metrics = {key: raw_metrics[key] for key in sorted(PERSISTED_METRICS) if key in raw_metrics}
+    metrics = {
+        key: raw_metrics[key]
+        for key in sorted(PERSISTED_METRICS)
+        if isinstance(raw_metrics.get(key), (int, float))
+    }
     if int(metrics.get("question_count") or 0) != len(results):
         raise ValueError("Hosted evaluation metric count does not match the evaluation set")
     return {

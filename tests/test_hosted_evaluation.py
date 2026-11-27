@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+import sqlite3
+
 from rock_kb.hosted_evaluation import hosted_evaluation_record, hosted_evaluation_sql
 from rock_kb.jsonl import read_jsonl
 from rock_kb.service_eval import EVALUATION_SET_PATH
@@ -52,6 +55,40 @@ def test_hosted_evaluation_sql_contains_no_queries_or_case_text():
     assert "hosted_evaluation_runs_v1" in sql
     assert "not persisted" not in sql
     assert "ON CONFLICT(projection_version)" in sql
+
+
+def test_failed_hosted_evaluation_records_availability_separately():
+    passing = complete_report()
+    failing = complete_report()
+    failing["evaluated_at"] = "2026-07-17T20:10:00Z"
+    failing["status"] = "fail"
+    failing["pass_count"] -= 1
+    failing["fail_count"] = 1
+    failing["results"][0].update(status="fail", error="not persisted")
+    failing["metrics"].update(
+        available_question_count=failing["pass_count"],
+        unavailable_question_count=1,
+        availability_passed=False,
+        retrieval_quality_failure_count=0,
+        retrieval_quality_passed=True,
+        retry_count={"error": "not persisted"},
+    )
+    with sqlite3.connect(":memory:") as conn:
+        conn.executescript(hosted_evaluation_sql(hosted_evaluation_record(passing)))
+        sql = hosted_evaluation_sql(hosted_evaluation_record(failing))
+        assert "not persisted" not in sql
+        conn.executescript(sql)
+        status, metrics_json = conn.execute(
+            "SELECT status, metrics_json FROM hosted_evaluation_runs_v1"
+        ).fetchone()
+
+    assert status == "fail"
+    metrics = json.loads(metrics_json)
+    assert metrics["unavailable_question_count"] == 1
+    assert metrics["availability_passed"] is False
+    assert metrics["retrieval_quality_failure_count"] == 0
+    assert metrics["retrieval_quality_passed"] is True
+    assert "retry_count" not in metrics
 
 
 def test_hosted_evaluation_rejects_incomplete_case_set():
