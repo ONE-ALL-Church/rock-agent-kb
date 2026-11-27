@@ -6,9 +6,14 @@ This repository is an agent-first knowledge base for Rock RMS, combining curated
 
 ## Use With An Agent
 
-For ordinary online questions, use one of the two hosted interfaces. They read
-the same current public projection and apply the same trust tiers and retrieval
-rules:
+Start with Rock's official Community Knowledge Base (Griffin) for product
+setup, versioned code, database schema, and official reference topics. Use this
+community KB alongside it for exact Lava contexts, reviewed recipes, issue
+applicability, Ideas, and Model Map comparisons. See the
+[Griffin integration guide](docs/runbooks/griffin-integration.md).
+
+This community KB has two online interfaces. They read the same public
+projection and apply the same trust tiers:
 
 - **MCP** is the natural choice when an agent host supports HTTP MCP and can use
   typed tools directly.

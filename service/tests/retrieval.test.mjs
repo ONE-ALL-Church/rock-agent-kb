@@ -1004,6 +1004,9 @@ test("direct MCP serves stateless 2026 clients through the official SDK", async 
     const listed = await modernMcp(mf, "tools/list", {});
     assert.equal(listed.status, 200);
     assert.equal(listed.payload.result.tools.length, 35);
+    const searchDescription = listed.payload.result.tools.find((tool) => tool.name === "kb_search").description;
+    assert.match(searchDescription, /community KB/);
+    assert.match(searchDescription, /Griffin when connected/);
     assert.equal(listed.payload.result.ttlMs, 3_600_000);
     assert.equal(listed.payload.result.cacheScope, "public");
 

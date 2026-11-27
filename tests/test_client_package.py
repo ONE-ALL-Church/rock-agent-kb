@@ -1904,6 +1904,31 @@ def test_agent_installer_preserves_config_and_creates_backups(monkeypatch, tmp_p
     assert output["restart_required"] is True
 
 
+def test_agent_installer_keeps_a_separately_configured_knowledge_connector(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    connector_name = "rock-community-knowledge"
+    official_url = "https://official.example.test/api/mcp/example-organization"
+    config = tmp_path / ".codex" / "config.toml"
+    config.parent.mkdir()
+    config.write_text(f'[mcp_servers.{connector_name}]\nurl = "{official_url}"\n', encoding="utf-8")
+    claude_config = tmp_path / ".claude.json"
+    claude_config.write_text(json.dumps({
+        "mcpServers": {connector_name: {"type": "http", "url": official_url}}
+    }), encoding="utf-8")
+    args = ["--url", "https://example.test", "install-agent", "--agent", "codex", "--agent", "claude", "--home", str(tmp_path)]
+
+    for _ in range(2):
+        assert cli.main(args) == 0
+        assert official_url not in capsys.readouterr().out
+        codex_servers = tomllib.loads(config.read_text(encoding="utf-8"))["mcp_servers"]
+        claude_servers = json.loads(claude_config.read_text(encoding="utf-8"))["mcpServers"]
+        assert codex_servers[connector_name] == {"url": official_url}
+        assert claude_servers[connector_name] == {"type": "http", "url": official_url}
+        assert codex_servers["rock-kb"]["url"] == "https://example.test/mcp"
+        assert claude_servers["rock-kb"]["url"] == "https://example.test/mcp"
+
+
 def test_agent_installer_applies_and_removes_private_telemetry_headers(monkeypatch, tmp_path, capsys):
     cli = load_client_cli()
     mock_skill_service(monkeypatch, cli)

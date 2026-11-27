@@ -33,7 +33,31 @@ from rock_kb.rock_idea_relationships import (
     verification_candidate_set_hash,
     verification_evidence_set_hash,
 )
-from rock_kb import service_projection
+from rock_kb import rock_ideas, service_projection
+
+
+def test_idea_manifest_update_preserves_unrelated_metadata(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(rock_ideas, "AGENT_DIR", tmp_path)
+    path = tmp_path / "rock-kb-manifest.json"
+    original = {
+        "generated_at": "2026-01-01T00:00:00Z",
+        "rock_issue_count": 10,
+        "private_media": {"record_count": 12},
+        "rock_idea_count": 1,
+    }
+    path.write_text(json.dumps(original), encoding="utf-8")
+    rock_ideas.update_idea_manifest(
+        {
+            "record_count": 2,
+            "relationships": {"relationship_count": 3, "verification_queue": {"queue_count": 4}},
+        }
+    )
+    assert json.loads(path.read_text(encoding="utf-8")) == {
+        **original,
+        "rock_idea_count": 2,
+        "rock_idea_relationship_count": 3,
+        "rock_idea_verification_queue_count": 4,
+    }
 
 
 LIST_HTML = """

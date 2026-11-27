@@ -57,6 +57,10 @@ kb serve requires the serve extra: uv sync --extra serve
 
 ## Hosted Service
 
+For general product guidance, connect Rock's official Griffin service alongside
+the hosted community KB. Follow the [Griffin integration guide](griffin-integration.md)
+for setup, evidence routing, and privacy boundaries.
+
 The hosted service lives under `service/` and is deployed with Cloudflare Workers, D1, and R2. Build the deployment projection locally:
 
 ```bash
