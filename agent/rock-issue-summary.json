@@ -1,24 +1,24 @@
 {
-  "catalog_content_hash": "afbce516da2d145d8e809a55ca3a689863ca903f8e257bb04528607b629b32a8",
+  "catalog_content_hash": "86d61017e15bb6f0c44ea1c101d228a5d96b80b21e1de8f7c0c17185a2f3a501",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 150,
-    "rock_core": 5948
+    "rock_core": 5949
   },
   "evidence_states": {
     "commit_linked": 223,
     "fixed_release_recorded": 3591,
     "maintainer_triaged": 1131,
-    "report_only": 1153
+    "report_only": 1154
   },
   "labels_truncated_count": 0,
-  "last_checked_at": "2026-11-27T09:50:29+00:00",
-  "projection_checked_at": "2026-11-27T09:50:29+00:00",
+  "last_checked_at": "2026-11-27T19:54:01+00:00",
+  "projection_checked_at": "2026-11-27T19:54:01+00:00",
   "raw_issue_body_republished": false,
-  "record_count": 6098,
+  "record_count": 6099,
   "release_note_linked_count": 2635,
   "repositories": {
-    "SparkDevNetwork/Rock": 5948,
+    "SparkDevNetwork/Rock": 5949,
     "SparkDevNetwork/Rock.Mobile-Issues": 150
   },
   "reviewed_enrichment_count": 28,
@@ -64,7 +64,7 @@
       "body_keyword": 450,
       "github_topic_label": 1620,
       "repository_default": 1364,
-      "title_keyword": 4242
+      "title_keyword": 4243
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
@@ -73,18 +73,18 @@
     "rock_mobile_issues": "rock-kb-issue-source-set-v1"
   },
   "source_content_hashes": {
-    "rock_core_issues": "57eac69bf633383d60b633ccdb52830ab05c5f709876ce24090a667cff1dda46",
+    "rock_core_issues": "de49d1b4984e973c9ad11e5a366b81f5fbd15aa460af187d941a9b34f2857e4b",
     "rock_mobile_issues": "f33df4d97e68fee1f5c1c3fa71c1a7f9ebb520af772db65bb218ed8e751468ad"
   },
-  "source_updated_through": "2026-11-25T18:31:11Z",
+  "source_updated_through": "2026-11-27T18:50:06Z",
   "states": {
     "closed": 6053,
-    "open": 45
+    "open": 46
   },
   "timeline_coverage": {
-    "complete": 907,
+    "complete": 908,
     "not_fetched": 5191,
-    "percent_complete": 14.87
+    "percent_complete": 14.89
   },
   "top_concepts": {
     "api-integrations": 113,
@@ -100,7 +100,7 @@
     "groups": 339,
     "lava": 401,
     "mobile": 162,
-    "obsidian-development": 279,
+    "obsidian-development": 280,
     "people-families": 736,
     "platform-configuration": 192,
     "scheduling-locations": 247,
@@ -110,6 +110,6 @@
   },
   "validation_states": {
     "confirmed": 3513,
-    "reported": 2585
+    "reported": 2586
   }
 }
